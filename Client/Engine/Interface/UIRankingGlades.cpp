@@ -1,3 +1,4 @@
+
 #include "stdh.h"
 
 // ��� ����. [12/2/2009 rumist]

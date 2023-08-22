@@ -1673,8 +1673,6 @@
     <ClCompile Include="Interface\UIInvenCashBagBox.cpp" />
     <ClCompile Include="Interface\UIList.cpp" />
     <ClCompile Include="Interface\UIListItem.cpp" />
-    <ClCompile Include="Interface\UIRankingCube.cpp" />
-    <ClCompile Include="Interface\UIRankingGlades.cpp" />
     <ClCompile Include="Interface\UIRankingPvP.cpp" />
     <ClCompile Include="Interface\UISkillToolTip.cpp" />
     <ClCompile Include="Interface\UIImageSplit.cpp" />
@@ -4153,8 +4151,6 @@
     <ClInclude Include="Interface\UIInvenCashBagBox.h" />
     <ClInclude Include="Interface\UIList.h" />
     <ClInclude Include="Interface\UIListItem.h" />
-    <ClInclude Include="Interface\UIRankingCube.h" />
-    <ClInclude Include="Interface\UIRankingGlades.h" />
     <ClInclude Include="Interface\UIRankingPvP.h" />
     <ClInclude Include="Interface\UISkillToolTip.h" />
     <ClInclude Include="Interface\UIImageSplit.h" />

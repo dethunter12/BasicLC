@@ -2040,17 +2040,11 @@
     <ClCompile Include="Interface\UIRankingPvP.cpp">
       <Filter>Source Files\Interface</Filter>
     </ClCompile>
-    <ClCompile Include="Interface\UIRankingCube.cpp">
-      <Filter>Source Files\Interface</Filter>
-    </ClCompile>
     <ClCompile Include="Interface\UIBattlePass.cpp">
       <Filter>Source Files\Interface</Filter>
     </ClCompile>
     <ClCompile Include="Contents\function\IdentifyItemUI.cpp">
       <Filter>Contents\function</Filter>
-    </ClCompile>
-    <ClCompile Include="Interface\UIRankingGlades.cpp">
-      <Filter>Source Files\Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -3971,17 +3965,11 @@
     <ClInclude Include="Interface\UIRankingPvP.h">
       <Filter>Header Files\Interface Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Interface\UIRankingCube.h">
-      <Filter>Header Files\Interface Headers</Filter>
-    </ClInclude>
     <ClInclude Include="Interface\UIBattlePass.h">
       <Filter>Header Files\Interface Headers</Filter>
     </ClInclude>
     <ClInclude Include="Contents\function\IdentifyItemUI.h">
       <Filter>Contents\function</Filter>
-    </ClInclude>
-    <ClInclude Include="Interface\UIRankingGlades.h">
-      <Filter>Header Files\Interface Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

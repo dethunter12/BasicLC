@@ -2514,6 +2514,7 @@ void do_ItemBuy(CPC* ch, CNetMsg::SP& msg)
 		if ((ch->m_inventory.getMoney() < serverPrice))
 			throw 8;
 //dethunter12 adjust here
+#ifdef CUBE_RANKING_12202022
 		if (npcProto->m_index == 2100) //Cloud shop
 		{
 			int ncubeCount = ch->m_CubePoints;
@@ -2523,10 +2524,11 @@ void do_ItemBuy(CPC* ch, CNetMsg::SP& msg)
 			// instead lets remove from the honor not inventory.
 			ch->m_CubePoints -= serverPrice;
 		}
-		else
+		#else
                 {
                      ch->m_inventory.decreaseMoney(serverPrice);
                 }
+		#endif
 		//ch->m_inventory.decreaseMoney(serverPrice);
 
 		for (int i = 0; i < packet->buyCount; ++i)
@@ -10674,11 +10676,6 @@ bool do_ItemUse_LuckyDrawBox(CPC* ch, const CItemProto* itemproto)
 	case 2: // all
 		return do_ItemUse_LuckyDrawBoxResult_All(ch, itemproto, pLucky);
 		break;
-		#ifdef PICK_LUCKY_DRAW_07232023
-	case 3:
-	 return do_ItemUse_PickOne(ch,itemproto,pLuck);
-	 break;
-	 #endif
 	}
 	return false;
 }

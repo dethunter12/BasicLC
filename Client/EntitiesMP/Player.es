@@ -17879,15 +17879,15 @@ functions:
 					
 						// WSS_DRATAN_SEIGEWARFARE 2007/08/02 ----------------------------------------->>
 						int tQtr;  // quarter state
-						#ifdef DOMINATION_EVENT_SYSTEM
-						if (iMobIndex == DOMINATION_LORD_SYMBOL_A_INDEX ||
-							iMobIndex == DOMINATION_LORD_SYMBOL_B_INDEX ||
-							iMobIndex == DOMINATION_LORD_SYMBOL_C_INDEX)
-						{
-							pUIManager->GetSiegeWarfareNew()->SendConsensusDominationEvent(iMobIndex);
+						//#ifdef DOMINATION_EVENT_SYSTEM
+					//	if (iMobIndex == DOMINATION_LORD_SYMBOL_A_INDEX ||
+						//	iMobIndex == DOMINATION_LORD_SYMBOL_B_INDEX ||
+						//	iMobIndex == DOMINATION_LORD_SYMBOL_C_INDEX)
+						//{
+						//	pUIManager->GetSiegeWarfareNew()->SendConsensusDominationEvent(iMobIndex);
 						
-						} else
-						#endif
+						//} else
+					//	#endif
 						if( iMobIndex == DRATAN_MASTER_TOWER_INDEX )
 						{					
 							// ���� ������ �ְ� ��������̸�...							
@@ -22157,16 +22157,16 @@ virtual void DeathYou()
 	if(IsNotPersnalDungeon())
 	{// �۽��� ������ �ƴ϶��
 		
-		#ifdef DOMINATION_EVENT_SYSTEM
-		if (_pNetwork->MyCharacterInfo.dominationJoin && 
-			_pNetwork->MyCharacterInfo.zoneNo == _pNetwork->MyCharacterInfo.dominationZone) 
-		{
-			pUIManager->GetSiegeWarfareNew()->OpenWaitTime();
-			EPlayerDeath ePLDeath;
-			SendEvent(ePLDeath);
-			return;
-		}
-		#endif
+		//#ifdef DOMINATION_EVENT_SYSTEM
+		//if (_pNetwork->MyCharacterInfo.dominationJoin && 
+		//	_pNetwork->MyCharacterInfo.zoneNo == _pNetwork->MyCharacterInfo.dominationZone) 
+		//{
+		//	pUIManager->GetSiegeWarfareNew()->OpenWaitTime();
+		//	EPlayerDeath ePLDeath;
+		//	SendEvent(ePLDeath);
+		//	return;
+	//	}
+	//	#endif
 		// WSS_DRATAN_SEIGEWARFARE 2007/10/11
 		// WSS_DRATAN_SEIGEWARFARE 2007/08/22 
 		// ���ź ���� ��Ȱ ��� �߰�

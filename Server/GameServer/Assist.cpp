@@ -1367,8 +1367,8 @@ void CAssistList::Apply(CCharacter* ch, ASSISTVALUE* addition, ASSISTVALUE* rate
 			addition->hcSepExp_Prem = true;
 			bSkip = true;
 			break;
-		}
 #endif
+		}
 		// 060227 : bs : 스킬 인덱스 하드 코딩
 		switch (p->m_proto->m_index)
 		{

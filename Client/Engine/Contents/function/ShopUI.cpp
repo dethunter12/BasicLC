@@ -91,7 +91,7 @@ void CShopUI::BuyItems()
 	if(_pNetwork->MyCharacterInfo.money < m_nTotalPrice )
 	{
 		// Add system message
-		CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 266, "¼ÒÁö±ÝÀÌ ºÎÁ·ÇÕ´Ï´Ù." ), SYSMSG_ERROR );
+		CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 266, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SYSMSG_ERROR );
 		return;
 	}
 
@@ -172,9 +172,9 @@ void CShopUI::CheckLease()
 		if (pUIMgr->DoesMessageBoxExist(MSGCMD_SHOP_LEASE_ITEM))
 			pUIMgr->CloseMessageBox(MSGCMD_SHOP_LEASE_ITEM);
 
-		MsgBoxInfo.SetMsgBoxInfo( _S( 263, "»óÁ¡" ), UMBS_YESNO,	UI_SHOP, MSGCMD_SHOP_LEASE_ITEM );
-		strMessage = _S(3080, "´ë¿©ÇÑ ¹«±â´Â ´ë¿©ÇÑ ³¯·ÎºÎÅÍ 1ÀÏ°£ÀÇ ´ë¿©±â°£ÀÌ ¸¸·áµÇ¸é ÀÚµ¿À¸·Î ¼Ò¸êµË´Ï´Ù.")
-			+ _S(3081,"¼±ÅÃÇÏ½Å ¹«±â¸¦ ´ë¿©ÇÏ½Ã°Ú½À´Ï±î?");
+		MsgBoxInfo.SetMsgBoxInfo( _S( 263, "ï¿½ï¿½ï¿½ï¿½" ), UMBS_YESNO,	UI_SHOP, MSGCMD_SHOP_LEASE_ITEM );
+		strMessage = _S(3080, "ï¿½ë¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿©ï¿½ï¿½ ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ 1ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½ë¿©ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½Ë´Ï´ï¿½.")
+			+ _S(3081,"ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ë¿©ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?");
 
 		MsgBoxInfo.AddString( strMessage );
 		pUIMgr->CreateMessageBox( MsgBoxInfo );	
@@ -251,7 +251,7 @@ void CShopUI::AddShopItem( int invenIdx, int nUniIndex, SQUAD llCount )
 		( !bBuyShop && ( pItemData->GetFlag() & ITEM_FLAG_COUNT ) && llTempCount > 1 ) )
 	{
 		CTString	strMessage;
-		strMessage.PrintF( _S2( 150, szItemName, "¸î °³ÀÇ %s<¸¦> ¿Å±â½Ã°Ú½À´Ï±î?" ), szItemName );
+		strMessage.PrintF( _S2( 150, szItemName, "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %s<ï¿½ï¿½> ï¿½Å±ï¿½Ã°Ú½ï¿½ï¿½Ï±ï¿½?" ), szItemName );
 
 		CmdShopAddItem* pCmd = new CmdShopAddItem;
 		pCmd->setData(this);
@@ -263,16 +263,16 @@ void CShopUI::AddShopItem( int invenIdx, int nUniIndex, SQUAD llCount )
 		else
 			nMax = pItemData->GetStack();
 
-		UIMGR()->GetMsgBoxNumOnly()->SetInfo(pCmd, _S( 263, "»óÁ¡" ), strMessage, 1, nMax);
+		UIMGR()->GetMsgBoxNumOnly()->SetInfo(pCmd, _S( 263, "ï¿½ï¿½ï¿½ï¿½" ), strMessage, 1, nMax);
 	}
 	else if( ulItemPlus > 0 && !(pItemData->GetType() == CItemData::ITEM_ETC && (pItemData->GetSubType() == CItemData::ITEM_ETC_MONSTER_MERCENARY_CARD || nTempIndex == 6941) ) )
 	{
 		CTString	strMessage;
 		CUIMsgBox_Info	MsgBoxInfo;
-		MsgBoxInfo.SetMsgBoxInfo( _S( 263, "»óÁ¡" ), UMBS_YESNO,
+		MsgBoxInfo.SetMsgBoxInfo( _S( 263, "ï¿½ï¿½ï¿½ï¿½" ), UMBS_YESNO,
 			UI_SHOP, MSGCMD_SHOP_ADD_PLUSITEM );
 
-		strMessage.PrintF( _S2( 264, szItemName, "[%s +%d]<¸¦> ¿Å±â½Ã°Ú½À´Ï±î?" ), szItemName, ulItemPlus );
+		strMessage.PrintF( _S2( 264, szItemName, "[%s +%d]<ï¿½ï¿½> ï¿½Å±ï¿½Ã°Ú½ï¿½ï¿½Ï±ï¿½?" ), szItemName, ulItemPlus );
 		MsgBoxInfo.AddString( strMessage );
 		pUIManager->CreateMessageBox( MsgBoxInfo );
 	}
@@ -311,11 +311,11 @@ void CShopUI::DelShopItem( int invenIdx, int nUniIndex, SQUAD llCount, int nTrad
 
 		CTString	strMessage;
 		const char	*szItemName = _pNetwork->GetItemName( nTempIndex );
-		strMessage.PrintF( _S2( 150, szItemName, "¸î °³ÀÇ %s<¸¦> ¿Å±â½Ã°Ú½À´Ï±î?" ), szItemName );
+		strMessage.PrintF( _S2( 150, szItemName, "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %s<ï¿½ï¿½> ï¿½Å±ï¿½Ã°Ú½ï¿½ï¿½Ï±ï¿½?" ), szItemName );
 
 		CmdShopDelItem* pCmd = new CmdShopDelItem;
 		pCmd->setData(this);
-		UIMGR()->GetMsgBoxNumOnly()->SetInfo(pCmd, _S( 263, "»óÁ¡" ), strMessage, 1, llTempCount);
+		UIMGR()->GetMsgBoxNumOnly()->SetInfo(pCmd, _S( 263, "ï¿½ï¿½ï¿½ï¿½" ), strMessage, 1, llTempCount);
 	}
 	else
 	{
@@ -350,19 +350,21 @@ void CShopUI::ShopToTrade( SQUAD llCount )
 
 		SQUAD	llPrice = m_nTotalPrice + llitemPrice + iAddPrice;
 //dethunter12 adjust here
+#ifdef CUBE_RANKING_12202022
 		int nMyCubePoints = _pNetwork->MyCharacterInfo.cubePoints;//Cloud shop
 		if (m_nSelectShopID == 2100 && nMyCubePoints < llPrice)
 		{
 			// Add system message
-			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage(_S(100084, "¨ùOAo¡¾YAI ¨¬IA¡¤CO¢¥I¢¥U."), SYSMSG_ERROR);
+			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage(_S(100084, "ï¿½ï¿½OAoï¿½ï¿½YAI ï¿½ï¿½IAï¿½ï¿½COï¿½ï¿½Iï¿½ï¿½U."), SYSMSG_ERROR);
 			return;
 		}
+	#endif
 		if(m_nSelectShopID != 2100)
 		{// Not enough money
 			if(_pNetwork->MyCharacterInfo.money < llPrice )
 			{
 			// Add system message
-			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 266, "¼ÒÁö±ÝÀÌ ºÎÁ·ÇÕ´Ï´Ù." ), SYSMSG_ERROR );
+			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 266, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SYSMSG_ERROR );
 			return;
 			}
 		}
@@ -372,7 +374,7 @@ void CShopUI::ShopToTrade( SQUAD llCount )
 		if( iFame > 0 && iFame > _pNetwork->MyCharacterInfo.fame )
 		{
 			// Add system message
-			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 1217, "¸í¼ºÄ¡°¡ ºÎÁ·ÇÕ´Ï´Ù." ), SYSMSG_ERROR );		
+			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 1217, "ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SYSMSG_ERROR );		
 			return;
 		}
 	}
@@ -497,9 +499,9 @@ void CShopUI::ShopToTrade( SQUAD llCount )
 	{
 		// Add system message
 		if( bBuyShop )
-			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 267, "ÃÖ´ë 10°³ÀÇ ¾ÆÀÌÅÛÀ» ±¸¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù." ), SYSMSG_ERROR );
+			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 267, "ï¿½Ö´ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );
 		else
-			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 268, "ÃÖ´ë 10°³ÀÇ ¾ÆÀÌÅÛÀ» ÆÇ¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù." ), SYSMSG_ERROR );
+			CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( _S( 268, "ï¿½Ö´ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );
 
 		return;
 	}
@@ -705,16 +707,18 @@ void CShopUI::resetUI()
 
 void CShopUI::updateUI()
 {
-	// Set Money
+	#ifdef CUBE_RANKING_12202022
 	int nMyCubePoints = _pNetwork->MyCharacterInfo.cubePoints;
+	#endif
 	int nShopID = UIMGR()->GetShopUI()->GetShopID();//Cloud shop
 
+	#ifdef CUBE_RANKING_12202022
 	// if not the condition above execute the condition below.
 	if (nShopID == 2100 && nMyCubePoints >= 0)
 	{
 		_setNas(eTEXT_MY_NAS, nMyCubePoints);
 	}
-
+	#endif
 	if (nShopID != 2100)
 	{
 	_setNas(eTEXT_MY_NAS, _pNetwork->MyCharacterInfo.money);
@@ -725,17 +729,17 @@ void CShopUI::updateUI()
 	{
 	case eSHOP_BUY:
 		_updateBuy();
-		strBtnString.PrintF(_S(253, "±¸¸Å"));
+		strBtnString.PrintF(_S(253, "ï¿½ï¿½ï¿½ï¿½"));
 		break;
 
 	case eSHOP_SELL:
 		_updateSell();
-		strBtnString.PrintF(_S(254, "ÆÇ¸Å"));
+		strBtnString.PrintF(_S(254, "ï¿½Ç¸ï¿½"));
 		break;
 
 	case eSHOP_LEASE:
 		_updateLease();
-		strBtnString.PrintF(_S(3046, "´ë¿©"));
+		strBtnString.PrintF(_S(3046, "ï¿½ë¿©"));
 		break;
 
 	default:
@@ -1420,7 +1424,7 @@ void CShopUI::_updateSell()
 		CItems*	pItems = &_pNetwork->MySlotItem[t][idx];
 		if (pItems->Item_Sum > 0)
 		{
-			// ÀÎº¥Åä¸® Á¢±Ù ½Ã¿¡¸¸ t, idx º¯È¯ÇÏ°í, shop ¿¡ »ç¿ëµÈ´À °ÍÀº ¼øÂ÷ ÀÎµ¦½º »ç¿ë
+			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¿ï¿½ï¿½ï¿½ t, idx ï¿½ï¿½È¯ï¿½Ï°ï¿½, shop ï¿½ï¿½ ï¿½ï¿½ï¿½È´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			CItems* pCopy = new CItems;
 			memcpy(pCopy, pItems, sizeof(CItems));
 			pIcon->setData(pCopy, false);
@@ -1539,7 +1543,7 @@ void CShopUI::_updateLease()
 	CUIIcon* pPrevIcon = NULL;
 	CUIManager* pUIManager = CUIManager::getSingleton();
 
-	// ¾ÆÀÌÅÛ ·¹º§º° Á¤·Ä
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::sort(vecbtnItems.begin(), vecbtnItems.end(), ItemLevelOfComp );
 
 	std::vector<int>::iterator btnItr;
@@ -1575,7 +1579,7 @@ void CShopUI::_updateLease()
 
 			if(pItemData[1]->GetLevel() == pItemData[0]->GetLevel())
 			{
-				// ³ªÁß¿¡ ¼­ºêÅ¸ÀÔÀÌ ÀÛ´Ù¸é ¹Ù²ãÁØ´Ù.
+				// ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Û´Ù¸ï¿½ ï¿½Ù²ï¿½ï¿½Ø´ï¿½.
 				if(pItemData[1]->GetSubType() > pItemData[0]->GetSubType())
 				{
 					CItems* pItems = new CItems;
@@ -1590,7 +1594,7 @@ void CShopUI::_updateLease()
 			}
 		}
 
-		// ÀÌºÎºÐÀÌ Shop ÀÎº¥Åä¸® ¾ÈÀ¸·Î µé¾î°¥°Í...
+		// ï¿½ÌºÎºï¿½ï¿½ï¿½ Shop ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ï¿½ï¿½...
 		CItems* pItems = new CItems;
 		pItems->Item_Index = tv_itemIdx;
 		pItems->ItemData = CItemData::getData(tv_itemIdx);
@@ -1722,7 +1726,7 @@ __int64 CShopUI::CalculateTotalPrice(int iShopID, int& iCount, BOOL bSell, BOOL 
  		__int64 llitemPrice = CalculateItemPrice( iShopID, *pID, iItemCount, bSell );
  		__int64 iAddPrice = pInfo->CalcPriceRate(llitemPrice, bSell) + pInfo->CalcPriceAddition(bSell);
 
-		// ·Î¾â·³ºí ÀÔÀå±ÇÀº ½ºÅ³°¡°Ý ¹«½Ã
+		// ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (iIndex == 7340 ||
 			iIndex == 7341 ||
 			iIndex == 7342)
@@ -1754,7 +1758,7 @@ __int64	CShopUI::CalculateItemPrice(int iShopID, const CItemData &ID, int iNumOf
  	{
  		iPrice = (iPrice * iShopSellRate) / 100;
  
- 		// [090617: selo] ¹Ì±¹ÀÇ °æ¿ì ¾ÆÀÌÅÛ ·¹º§ÀÌ 97ÀÌ»óÀÌ¸é ¾ÆÀÌÅÛÀÇ °¡°ÝÀ» ¹Ý°ªÀ¸·Î ÇÑ´Ù.
+ 		// [090617: selo] ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 97ï¿½Ì»ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
  		if (g_iCountry == USA)
  		{
  			if( 97 <= ID.GetLevel() )
@@ -1855,7 +1859,7 @@ bool CShopUI::_checkSendCondition()
 		if (pIcon == NULL)
 			continue;
 
-		// ±¸ÀÔ ¹× ÆÇ¸ÅÇÒ ¾ÆÀÌÅÛÀÌ ÇÏ³ª¶óµµ ÀÖÀ¸¸é OK
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ OK
 		if (pIcon->IsEmpty() == FALSE)
 			return true;
 	}
@@ -1896,7 +1900,7 @@ void CShopUI::_setLeaseInfo( int nSlotIndex )
 	int tv_int;
 
 	if ( g_iCountry == KOREA || g_iCountry == USA || g_iCountry == RUSSIA || g_iCountry == THAILAND )
-		tv_str = CTString("+12 ");	// ±¹³» ¹«±â´ë¿©¾ÆÀÌÅÛ ·¹º§ +6 ¿¡¼­ +12·Î º¯°æ
+		tv_str = CTString("+12 ");	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ë¿©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ +6 ï¿½ï¿½ï¿½ï¿½ +12ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else
 		tv_str = CTString("+6 ");
 
@@ -1909,38 +1913,38 @@ void CShopUI::_setLeaseInfo( int nSlotIndex )
 	_setText(eTEXT_ITEM_LEVEL, tv_str);
 
 	// Class 
-	tv_int = pItemData->GetJob();	//·Î±×Ex·Î±× 144 ¸ÞÀÌÁö ¾ÆÅ©¸ÞÀÌÁö264
+	tv_int = pItemData->GetJob();	//ï¿½Î±ï¿½Exï¿½Î±ï¿½ 144 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½264
 	switch(tv_int)
 	{
 	case 1:
-		tv_str = _S(43,"Å¸ÀÌÅº");
+		tv_str = _S(43,"Å¸ï¿½ï¿½Åº");
 		break;
 	case 2:
-		tv_str = _S(44,"±â»ç");
+		tv_str = _S(44,"ï¿½ï¿½ï¿½");
 		break;
 	case 4:
-		tv_str = _S(45,"Èú·¯");
+		tv_str = _S(45,"ï¿½ï¿½ï¿½ï¿½");
 		break;
 	case 8:
-		tv_str = _S(46,"¸ÞÀÌÁö");
+		tv_str = _S(46,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		break;
-	case 264:	//2013/01/22 jeil ¹«±â ´ë¿©»ó¿¡¼­ »ç¿ëÁ÷¾÷ Á¤º¸ Àß¸ø³ª¿À´ø°Í ¼öÁ¤
-		tv_str = _S(46,"¸ÞÀÌÁö");
+	case 264:	//2013/01/22 jeil ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿©ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		tv_str = _S(46,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 #ifdef CHAR_EX_MAGE
-		tv_str += _S(5820,"¾ÆÅ©¸ÞÀÌÁö");	// 2013/01/08 jeil EX¸ÞÀÌÁö Ãß°¡ ½ºÆ®¸µ ³ª¿À¸é Ãß°¡¼öÁ¤ ÇÊ¿ä 
+		tv_str += _S(5820,"ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");	// 2013/01/08 jeil EXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ 
 #endif
 		break;
 	case 16:
-		tv_str = _S(47,"·Î±×");
+		tv_str = _S(47,"ï¿½Î±ï¿½");
 		break;
-	case 144:	//2013/01/22 jeil ¹«±â ´ë¿©»ó¿¡¼­ »ç¿ëÁ÷¾÷ Á¤º¸ Àß¸ø³ª¿À´ø°Í ¼öÁ¤
-		tv_str = _S(47,"·Î±×");
+	case 144:	//2013/01/22 jeil ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿©ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		tv_str = _S(47,"ï¿½Î±ï¿½");
 #ifdef CHAR_EX_ROGUE
-		tv_str += _S(5732,"EX·Î±×");	// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+		tv_str += _S(5732,"EXï¿½Î±ï¿½");	// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 #endif
 		break;
 	case 32:
-		tv_str = _S(48,"¼Ò¼­·¯");
+		tv_str = _S(48,"ï¿½Ò¼ï¿½ï¿½ï¿½");
 		break;
 	default : 
 		tv_str = CTString("Alien");
@@ -1949,10 +1953,10 @@ void CShopUI::_setLeaseInfo( int nSlotIndex )
 	
 	_setText(eTEXT_ITEM_JOB, tv_str);
 
-	int tv_plus = 6;  // ·ÎÄÃÀº +6À¸·Î °íÁ¤
+	int tv_plus = 6;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	if (g_iCountry == KOREA || g_iCountry == USA || g_iCountry == RUSSIA || g_iCountry == THAILAND)
-		tv_plus = 10 ;  // +6À¸·Î °íÁ¤(+6¿¡¼­ +12·Î º¯°æ)
+		tv_plus = 10 ;  // +6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(+6ï¿½ï¿½ï¿½ï¿½ +12ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 	// attack ability
 	tv_int = CItems::CalculatePlusDamage( pItemData->GetPhysicalAttack(), tv_plus, pItemData->GetLevel() >= 146 ? TRUE : FALSE );
@@ -1973,7 +1977,7 @@ void CShopUI::_setLeaseInfo( int nSlotIndex )
 	_setText(eTEXT_ITEM_MAGIC, tv_str);
 
 	tv_int = 1;
-	tv_str.PrintF(_S(3079, "%dÀÏ"), tv_int);
+	tv_str.PrintF(_S(3079, "%dï¿½ï¿½"), tv_int);
 	_setText(eTEXT_ITEM_TIME, tv_str);
 
 	// Lease Price

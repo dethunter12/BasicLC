@@ -19,11 +19,11 @@
 #define     EXPANSION_INVENTORY
 #define CLOUD_ANTI_INJECT
 #define ENABLE_REMOVE_BUFF_RIGHT_CLICK
-#define     DOMINATION_EVENT_SYSTEM
-#define CUBE_RANKING_12202022
+//#define     DOMINATION_EVENT_SYSTEM
+//#define CUBE_RANKING_12202022
 #define IDENTIFY_ITEM_02212023
-#define GLADES_RANKING_04182023
-// ÀÓ½Ã define //////
+//#define GLADES_RANKING_04182023
+// ï¿½Ó½ï¿½ define //////
 #define WEARING_SHOW_END	6
 #define MAX_GUILD_NAME_LENGTH 50
 #define APET_WEARPOINT		4
@@ -39,7 +39,7 @@
 #define		MEMPOS_COMMENT_LENGTH		32
 
 
-#define		PREMIUM_CHAR // °¡¹Ì°í¿¡¼­ ¿äÃ»ÇÑ ÇÁ¸®¹Ì¾ö Ä³¸¯ÅÍ
+#define		PREMIUM_CHAR // ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½
 
 typedef __int64		GoldType_t;
 

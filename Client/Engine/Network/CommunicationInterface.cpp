@@ -2275,7 +2275,7 @@ int CCommunicationInterface::ReadInfo( LoginServer* stLogin )
 				stLogin[i].szName, stLogin[i].szAddress, stLogin[i].szPort, stLogin[i].szFullUsers, stLogin[i].szBusyUsers);
 
 				sprintf(stLogin[i].szPort, "%d", 7777); //fixed Ezios.K port login 1004 live -4001 test 1004 normal 7777 localip
-				//sprintf(stLogin[i].szAddress, "170.187.194.28"); //dethunter12 //192.168.1.181
+				sprintf(stLogin[i].szAddress, "127.0.0.1"); //dethunter12 //192.168.1.181
 		}
 				
 		fclose(fp);

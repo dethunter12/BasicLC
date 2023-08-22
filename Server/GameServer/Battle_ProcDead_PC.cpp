@@ -91,16 +91,16 @@ void ProcDead(CPC* df, CCharacter* of)
 	if (opc)
 		opc->SetSummonOwners_target(NULL);
 
-	// NPC¿¡ ÀÇÇÑ »ç¸Á½Ã »ç¸Á ÆÐ³ÎÆ¼´Â ±âº»À¸·Î true, PC¿¡°Ô »ç¸Á½Ã »ç¸Á ÆÐ³ÎÆ¼´Â ±âº»À¸·Î false
-	// * bPKPenaltyº¯¼ö´Â pk ÆÐ³ÎÆ¼¸¦ ÁÖ´Â°Í »Ó¸¸ ¾Æ´Ï¶ó ¼ºÇâÈ¸º¹¿¡µµ °ü°èµÇ¹Ç·Î ¼ºÇâ È¸º¹ÀÌ³ª ÆÐ³ÎÆ¼µî ¾î´À°Í¿¡¶óµµ °É¸®¸é true
+	// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ true, PCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ false
+	// * bPKPenaltyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pk ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½Ó¸ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ true
 
 	bool bPvP = (opc) ? true : false;
 	bool bPKPenalty = (opc) ? IsPK(opc, df) : false;
 	bool bDeadPenalty = (bPvP) ? false : true;
-	// ¾Æ·¡ booleanº¯¼ö´Â ¼±¾ð°ú °ª´ëÀÔÀÌ µû·Î ÀÌ·ç¾îÁ®¾ß ÇÕ´Ï´Ù.
-	// bool bRestorePKOfDefensePC = true; ÀÌ·±½ÄÀ¸·Î ¼±¾ðÀ» ÇÏ¸é UPDATE1106¿¡¼­´Â »ç¿ëÇÏÁö ¾Ê´Â º¯¼ö·Î warningÀ» Ãâ·ÂÇÕ´Ï´Ù.
+	// ï¿½Æ·ï¿½ booleanï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.
+	// bool bRestorePKOfDefensePC = true; ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ UPDATE1106ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ warningï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 
-	//¼ÒÈ¯NPC¿¡°Ô Á×¾úÀ» °æ¿ì Ã³¸® (EX Æ®·¦) - Æ®·¦ÀÇ °æ¿ì¿¡ Å¸°ÙÀ» NPC·Î »ç¿ëÇÏ°í ÀÖÀ½...¤Ñ¤Ñ;;
+	//ï¿½ï¿½È¯NPCï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ (EX Æ®ï¿½ï¿½) - Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ Å¸ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½...ï¿½Ñ¤ï¿½;;
 	if (IS_NPC(of))
 	{
 		CNPC* npc = TO_NPC(of);
@@ -115,7 +115,7 @@ void ProcDead(CPC* df, CCharacter* of)
 	bool bRestorePKOfDefensePC;
 	bRestorePKOfDefensePC = true;
 
-	// º¯½Å ÇØÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (df->IsSetPlayerState(PLAYER_STATE_CHANGE))
 		df->CancelChange();
 
@@ -132,7 +132,7 @@ void ProcDead(CPC* df, CCharacter* of)
 			else if (!gserver->m_bDisablePKPaenalty)
 			{
 #endif // MAL_DISABLE_PKPENALTY
-				// df°¡ pk¸ðµå ÀÌ°Å³ª Ä«¿À¸é µÑ´Ù Æ®·ç
+				// dfï¿½ï¿½ pkï¿½ï¿½ï¿½ ï¿½Ì°Å³ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½ Æ®ï¿½ï¿½
 				if (df->IsSetPlayerState(PLAYER_STATE_PKMODE) || df->IsChaotic())
 					bDeadPenalty = true;
 #ifdef MAL_DISABLE_PKPENALTY
@@ -143,7 +143,7 @@ void ProcDead(CPC* df, CCharacter* of)
 		}
 #endif // FREE_PK_SYSTEM
 
-		// ±æµåÀü
+		// ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (opc->m_guildInfo && (opc->m_guildInfo->guild()->battleState() == GUILD_BATTLE_STATE_ING) &&
 			df->m_guildInfo && (df->m_guildInfo->guild()->battleState() == GUILD_BATTLE_STATE_ING))
 		{
@@ -173,15 +173,15 @@ void ProcDead(CPC* df, CCharacter* of)
 				}
 			}
 		}
-	} // °ø°ÝÀÚ°¡ PC ¶Ç´Â PCÀÇ ¼ÒÀ¯¹°ÀÏ¶§
+	} // ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ PC ï¿½Ç´ï¿½ PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
 
-	// °ø¼º Æ÷ÀÎÆ® °è»ê
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	if (opc)
 		CalcWarPoint(opc, df);
 	else
 		CalcWarPoint(of, df);
 
-	// °ø¼º µµÁß »ç¸ÁÀº ÆÐ³ÎÆ¼ ¾øÀ½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	CWarCastle* castle = CWarCastle::GetCastleObject(df->m_pZone->m_index);
 	if (castle && castle->GetState() != WCSF_NORMAL && (df->GetMapAttr() & MATT_WAR || df->m_pZone->IsWarZone((int)df->m_pos.m_x, (int)df->m_pos.m_z)))
 	{
@@ -190,13 +190,13 @@ void ProcDead(CPC* df, CCharacter* of)
 	}
 
 	/////////////////////////////////////////////
-	// BANGWALL : 2005-07-18 ¿ÀÀü 11:27:24
-	// Comment : freepkzone ÆÐ³ÎÆ¼ ¾øÀ½
-	// °ø°ÝÀÚ¿Í ¹æ¾îÀÚ°¡ ¸ðµÎ freepkzone¿¡ ÀÖÀ¸¸é pkpenalty ¾øÀ½
+	// BANGWALL : 2005-07-18 ï¿½ï¿½ï¿½ï¿½ 11:27:24
+	// Comment : freepkzone ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ freepkzoneï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pkpenalty ï¿½ï¿½ï¿½ï¿½
 	if (of->GetMapAttr() == df->GetMapAttr() && of->GetMapAttr() & MATT_FREEPKZONE)
 		bDeadPenalty = false;
 
-	// PvP¿¡¼­ PK Àû¿ë
+	// PvPï¿½ï¿½ï¿½ï¿½ PK ï¿½ï¿½ï¿½ï¿½
 	if (opc && bPvP && bPKPenalty)
 		CalcPKPoint(opc, df, false);
 
@@ -220,22 +220,22 @@ void ProcDead(CPC* df, CCharacter* of)
 #endif // MAL_DISABLE_PKPENALTY
 #endif
 
-	// ÆÛ½º³Î ´øÀüÀº ¹«Á¶°Ç ÆÐ³ÎÆ¼ ¾øÀ½
+	// ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	if (df->m_pZone->IsPersonalDungeon())
 		bDeadPenalty = false;
 
-	// °æÇèÄ¡ ÇÏ¶ô
+	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ï¶ï¿½
 	LONGLONG nLoseExp = 0;
 	LONGLONG nLoseSP = 0;
 
-	// ÇÏ¶ôµÈ °æÇèÄ¡´Â ÃÖ±Ù °Í¸¸ ±â¾ï
+	// ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½
 	df->m_loseexp = 0;
 	df->m_losesp = 0;
 
 	if (df->m_skillPoint < 0)
 		df->m_skillPoint = 0;
 
-	//¼öºñÀÚ°¡ ¹«¼Ò¼ÓÀÎ °æ¿ì¸¸ »ç¸Á Æä³ÎÆ¼ Àû¿ë
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ì¸¸ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	if (df->m_pZone->isRVRZone())
 	{
 		if (df->getSyndicateType() == 0)
@@ -248,7 +248,7 @@ void ProcDead(CPC* df, CCharacter* of)
 	{
 		if (bDeadExpPenalty)
 		{
-			// »ç¸Á½Ã ÆÐ³ÎÆ¼
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼
 			if (df->m_level < 11)
 			{
 				/*				nLoseExp = (LONGLONG)(GetLevelupExp(df->m_level) * DEATH_PENALTY_EXP_1);
@@ -279,7 +279,7 @@ void ProcDead(CPC* df, CCharacter* of)
 				nLoseSP = (LONGLONG)((df->m_skillPoint / 100) * 2);
 			}
 
-			// °æÇèÀÇ °áÁ¤ ½Ã¸®Áî Àû¿ë
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			switch (df->m_assist.m_avAddition.hcDeathExpPlus)
 			{
 			case 1:
@@ -305,7 +305,7 @@ void ProcDead(CPC* df, CCharacter* of)
 				break;
 			}
 
-			// ³ë·ÂÀÇ °áÁ¤ Àû¿ë
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (df->m_assist.m_avAddition.hcDeathSPPlus)
 				nLoseSP /= 2;
 		}
@@ -321,7 +321,7 @@ void ProcDead(CPC* df, CCharacter* of)
 #endif // MAL_DISABLE_PKPENALTY
 				if (df->IsChaotic())
 				{
-#ifndef REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû :: Àåºñ Àá±Ý »óÅÂ ±â´É »èÁ¦
+#ifndef REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ :: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					// TODO : DELETE			bSaveLose = false;
 					bool bseal = false;
 
@@ -360,7 +360,7 @@ void ProcDead(CPC* df, CCharacter* of)
 						{
 							if (df->m_wearInventory.wearItemInfo[i] && !(df->m_wearInventory.wearItemInfo[i]->getFlag() & FLAG_ITEM_SEALED))
 							{
-								// Àåºñ¿¡ µû¶ó ºÀÀÎ µÇ´ÂÁö °áÁ¤
+								// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 								switch (i)
 								{
 								case WEARING_HELMET:
@@ -408,17 +408,17 @@ void ProcDead(CPC* df, CCharacter* of)
 							}
 						}
 					}
-#endif // REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû :: Àåºñ Àá±Ý »óÅÂ ±â´É »èÁ¦
+#endif // REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ :: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if (nLoseExp < 0)
 						nLoseExp = 0;
 					if (nLoseSP < 0)
 						nLoseSP = 0;
 
-					// 060318 : bs : °ø¹æ ¸ðµÎ Ä«¿ÀPC PvP ½Ã¿¡´Â Á×Àº »ç¶÷ È¸º¹ ¾øÀ½
-					//             : Á×ÀºÄ«¿À°¡ ¼±°øÀÌ¸é È¸º¹ ¾øÀ½
-					// ¼ºÇâ È¸º¹
+					// 060318 : bs : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½PC PvP ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					//             : ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 
-#ifndef REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû :: Ä«¿À »ç¸Á½Ã ¼ºÇâ È¸º¹ ¾øÀ½
+#ifndef REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ :: Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if (bRestorePKOfDefensePC)
 					{
 						if (!gserver->m_bNonPK)
@@ -429,7 +429,7 @@ void ProcDead(CPC* df, CCharacter* of)
 					}
 
 					{
-						// Æä³ÎÆ¼ ¼öÄ¡ º¯°æ ¾Ë¸®±â
+						// ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½
 						CNetMsg::SP rmsg(new CNetMsg);
 						CharStatusMsg(rmsg, df, 0);
 						df->m_pArea->SendToCell(rmsg, df, false);
@@ -438,7 +438,7 @@ void ProcDead(CPC* df, CCharacter* of)
 					df->m_bChangeStatus = true;
 					df->CalcStatus(true);
 
-#endif // REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû :: Ä«¿À »ç¸Á½Ã ¼ºÇâ È¸º¹ ¾øÀ½
+#endif // REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ :: Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				}
 				else
 				{
@@ -471,11 +471,11 @@ void ProcDead(CPC* df, CCharacter* of)
 				nLoseSP = 0;
 			if (df->m_skillPoint < nLoseSP)
 				nLoseSP = df->m_skillPoint;
-			// °æÇèÄ¡ - ¹æÁö
+			// ï¿½ï¿½ï¿½ï¿½Ä¡ - ï¿½ï¿½ï¿½ï¿½
 			if (df->m_exp < nLoseExp)
 				nLoseExp = df->m_exp;
 
-			// ¼öÁ¤
+			// ï¿½ï¿½ï¿½ï¿½
 			if (df->m_pZone->IsComboZone())
 			{
 				nLoseExp = nLoseExp / 10;
@@ -497,9 +497,9 @@ void ProcDead(CPC* df, CCharacter* of)
 			df->m_losesp = nLoseSP;
 			// TODO : DELETE			}
 		}
-	} // »ç¸Á ÆÐ³ÎÆ¼ Àû¿ë
+	} // ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 
-	// Accessory ³»±¸µµ
+	// Accessory ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int i;
 	for (i = WEARING_ACCESSORY1; i <= WEARING_ACCESSORY3; i++)
 	{
@@ -508,7 +508,7 @@ void ProcDead(CPC* df, CCharacter* of)
 
 		df->m_wearInventory.wearItemInfo[i]->setUsed(df->m_wearInventory.wearItemInfo[i]->getUsed() - ACCESSORY_USED_DEATH);
 
-		// ¾Ç¼¼»ç¸® ¼Ò¸ê
+		// ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½Ò¸ï¿½
 		if (df->m_wearInventory.wearItemInfo[i]->getUsed() <= 0)
 		{
 			df->m_wearInventory.wearItemInfo[i]->setUsed(0);
@@ -537,13 +537,13 @@ void ProcDead(CPC* df, CCharacter* of)
 		{
 			if (df->m_pZone != NULL && df->m_pZone->m_bCanMountPet == true)
 			{
-				// »ç¸Á ¼³Á¤
+				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pet->SetRemainRebirthTime();
 			}
 		}
 
 		{
-			// Æê »óÅÂ º¸³¿
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CNetMsg::SP rmsg(new CNetMsg);
 			ExPetStatusMsg(rmsg, pet);
 			SEND_Q(rmsg, df->m_desc);
@@ -555,7 +555,7 @@ void ProcDead(CPC* df, CCharacter* of)
 	if (apet)
 	{
 		{
-			// Æê »óÅÂ º¸³¿
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CNetMsg::SP rmsg(new CNetMsg);
 			ExAPetStatusMsg(rmsg, apet);
 			SEND_Q(rmsg, df->m_desc);
@@ -563,13 +563,13 @@ void ProcDead(CPC* df, CCharacter* of)
 	}
 #endif // LC_USA
 
-	// ¼ÒÈ¯ Ãë¼Ò
+	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½
 	while (df->m_elementalList)
 		df->UnsummonElemental(df->m_elementalList);
-	// °­½Å Ãë¼Ò
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	if (df->m_evocationIndex != EVOCATION_NONE)
 		df->Unevocation();
-	// °­½Å ½Ã°£ ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ê±ï¿½È­
 	df->m_pulseEvocation[0] = 0;
 	df->m_pulseEvocation[1] = 0;
 
@@ -623,7 +623,7 @@ void ProcDead(CPC* df, CCharacter* of)
 			<< endGer;
 	}
 #endif // GER_LOG
-	// ·Î±×
+	// ï¿½Î±ï¿½
 	GAMELOG << init("CHAR_DEATH", df)
 		<< "BY" << delim
 		<< strOFType << delim
@@ -649,7 +649,7 @@ void ProcDead(CPC* df, CCharacter* of)
 
 	DelAttackList(df);
 
-	// Á¤´ç¹æÀ§ ÇØÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	DelRaList(df);
 
 	if (pCastle != NULL)
@@ -658,12 +658,12 @@ void ProcDead(CPC* df, CCharacter* of)
 			&& pCastle->GetState() != WCSF_NORMAL
 			&& (df->GetMapAttr() & MATT_WAR || df->m_pZone->IsWarZone((int)df->m_pos.m_x, (int)df->m_pos.m_z)))
 		{
-			// °ø¼ºÁß¿¡ °ø¼ºÂü°¡
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			int wait_time = -1;
 			switch (df->GetJoinFlag(ZONE_DRATAN))
 			{
 			case WCJF_ATTACK_GUILD:
-				// ºÎÈ°Áø±â°¡ ÀÖÀ¸¸é ºÎÈ°´ë±â ½Ã°£ 20ÃÊ, ¾øÀ¸¸é 60ÃÊ
+				// ï¿½ï¿½È°ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 20ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 60ï¿½ï¿½
 				wait_time = 60;
 				if (df->m_guildInfo != NULL
 					&& df->m_guildInfo->guild() != NULL)
@@ -680,7 +680,7 @@ void ProcDead(CPC* df, CCharacter* of)
 				break;
 			case WCJF_OWNER:
 			case WCJF_DEFENSE_GUILD:
-				//  ºÎÈ°´ë±â ½Ã°£ 60ÃÊ - ¿öÇÁÅ¸¿ö°³¼ö*10
+				//  ï¿½ï¿½È°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 60ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*10
 				int count = 0;
 				for (int i = 0; i < 5; i++)
 				{
@@ -728,6 +728,7 @@ void ProcDead(CPC* df, CCharacter* of)
 
 					if (opc && opc->m_guildInfo && opc->m_guildInfo->guild())
 					{
+						#ifdef CUBE_RANKING_12202022
 						cubePoints = 20;
 
 						opc->m_CubePointDaily += cubePoints;
@@ -760,7 +761,7 @@ void ProcDead(CPC* df, CCharacter* of)
 								<< cubePoints;
 							SEND_Q(rmsg, opc->m_desc);
 						}
-
+						#endif
 						CCubeMemList* opcMemList = gserver->m_extremeCube.FindMemList(opc->m_guildInfo->guild());
 						if (opcMemList)
 						{
@@ -775,7 +776,7 @@ void ProcDead(CPC* df, CCharacter* of)
 							}
 
 							{
-								// °³ÀÎ Å¥ºêÆ÷ÀÎÆ® È¹µæ
+								// ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È¹ï¿½ï¿½
 								point = opcMemList->GetPersonalCubePoint(opc, df->m_level);
 								CNetMsg::SP rmsg(new CNetMsg);
 								HelperAddCubePointPersonalMsg(rmsg, opc->m_index, point, lastCubePoint);
@@ -797,9 +798,10 @@ void ProcDead(CPC* df, CCharacter* of)
 				if (memlist)
 				{
 					memlist->DelPC(df);
-					// °³ÀÎ Å¥ºêÆ÷ÀÎÆ® È¹µæ
+					// ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È¹ï¿½ï¿½
 					if (opc && opc->m_party)
 					{
+						#ifdef CUBE_RANKING_12202022
 						//dethunter12 adjust cube Ranking test
 						cubePoints = 20;
 
@@ -831,7 +833,7 @@ void ProcDead(CPC* df, CCharacter* of)
 								<< cubePoints;
 							SEND_Q(rmsg, opc->m_desc);
 						}
-
+						#endif
 						CCubeMemList* opcMemList = gserver->m_extremeCube.FindMemList(opc->m_party);
 						if (opcMemList)
 						{
@@ -916,16 +918,16 @@ void ProcDead(CPC* df, CCharacter* of)
 	}
 	if (opc && opc->m_pZone->IsWarGroundZone())
 	{
-		// ÀüÀåÆ÷ÀÎÆ® 1Æ÷ÀÎÆ® Áö±Þ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 1ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 		opc->AddWarGroundPoint(1);
 
-		// ÀüÀå kill¼ö 1 Áõ°¡
+		// ï¿½ï¿½ï¿½ï¿½ killï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½
 		opc->AddKillCount(1);
 	}
 
 	ProcDeadQuestProc(df, opc);
 
-	// rvr ·ê Àû¿ë
+	// rvr ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (df->m_pZone->isRVRZone())
 	{
 		ProcRVR(df, of);
@@ -935,12 +937,12 @@ void ProcDead(CPC* df, CCharacter* of)
 	{
 		if (IS_PC(of))
 		{
-			//pvp¸¦ ´çÇß´Âµ¥ ¼öºñÀÚ°¡ À¯¹°À» °®°í ÀÖ´Â »óÅÂ¶ó¸é °ø°ÝÀÚ¿¡°Ô ¾ÆÀÌÅÛ ¾çµµ
+			//pvpï¿½ï¿½ ï¿½ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½çµµ
 			ArtifactManager::instance()->hunt(df, TO_PC(of));
 		}
 		else
 		{
-			//ÀÌ¿Ü¿¡ Á×ÀÓÀ» ´çÇß´Ù¸é ¾ÆÀÌÅÛ ¼­¹ö·Î ¹Ý³³
+			//ï¿½Ì¿Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý³ï¿½
 			ArtifactManager::instance()->dead(df);
 		}
 	}
@@ -952,7 +954,7 @@ void ProcDead(CPC* df, CCharacter* of)
 		{
 		case ZONE_START:
 		{
-			if (df->GetJoinFlag(df->m_pZone->m_index) == WCJF_NONE)	// °ø¼ºÁßÀÌ ¾Æ´Ï°í
+			if (df->GetJoinFlag(df->m_pZone->m_index) == WCJF_NONE)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï°ï¿½
 			{
 				if (!(df->GetMapAttr() & MATT_FREEPKZONE))
 				{
@@ -970,7 +972,7 @@ void ProcDead(CPC* df, CCharacter* of)
 
 		default:
 		{
-			if (df->GetJoinFlag(df->m_pZone->m_index) == WCJF_NONE)	// °ø¼ºÁßÀÌ ¾Æ´Ï¸é
+			if (df->GetJoinFlag(df->m_pZone->m_index) == WCJF_NONE)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½
 			{
 				df->m_desc->Make_1_Level();
 			}
@@ -1020,13 +1022,13 @@ void ProcRVR(CPC* df, CCharacter* of)
 			int jewelKailuxPoint = SyndicateInfoDataManager::instance()->getJewelPoint(SYNDICATE::eSYNDICATE_KAILUX);
 			int jewelDealerMoonPoint = SyndicateInfoDataManager::instance()->getJewelPoint(SYNDICATE::eSYNDICATE_DEALERMOON);
 
-			// Ä«ÀÌ·è½ºÀÇ º¸¼®·®ÀÌ µô¶ó¹®º¸´Ù Àû´Ù
+			// Ä«ï¿½Ì·è½ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó¹®ºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (jewelKailuxPoint < jewelDealerMoonPoint)
 			{
-				//°ø°ÝÀÚ°¡ º¸¼®·®ÀÌ ÀÛÀº °á»ç´ë ÀÏ °æ¿ì
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 				if (oPC->getSyndicateType() == SYNDICATE::eSYNDICATE_KAILUX)
 				{
-					// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í °ø°ÝÀÚÀÇ ±â¿©µµ°¡ ³ô´Ù
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) < oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
 						attPoint = 2;
@@ -1035,39 +1037,39 @@ void ProcRVR(CPC* df, CCharacter* of)
 					}
 					else if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) == oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ °°´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 3;
 						dfPoint = 3;
 						itemIndex = 10130;
 					}
 					else
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ ³·´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 5;
 						dfPoint = 2;
 						itemIndex = 10130;
 					}
 				}
-				//°ø°ÝÀÚ°¡ º¸¼®·®ÀÌ Å« °á»ç´ë ÀÏ °æ¿ì
+				//ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 				else if (oPC->getSyndicateType() == SYNDICATE::eSYNDICATE_DEALERMOON)
 				{
 					if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) < oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ ¸¹°í ±â¿©µµ°¡ ³ô´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 1;
 						dfPoint = 1;
 						itemIndex = 10129;
 					}
 					else if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) == oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·«ÀÌ ¸¹°í ±â¿©µµ°¡ °°´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 1;
 						dfPoint = 1;
 						itemIndex = 10130;
 					}
 					else
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·«ÀÌ ¸¹°í ±â¿©µµ°¡ ÀÛ´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½Û´ï¿½
 						attPoint = 2;
 						dfPoint = 1;
 						itemIndex = 10130;
@@ -1078,8 +1080,8 @@ void ProcRVR(CPC* df, CCharacter* of)
 			{
 				if (oPC->getSyndicateType() == SYNDICATE::eSYNDICATE_KAILUX)
 				{
-					// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ ¸¹°í °ø°ÝÀÚÀÇ ±â¿©µµ°¡ ³ô´Ù
-					// »ç¸ÁÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ ÀÛ´Ù
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½Û´ï¿½
 					if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) < oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
 						attPoint = 1;
@@ -1088,14 +1090,14 @@ void ProcRVR(CPC* df, CCharacter* of)
 					}
 					else if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) == oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ ¸¹°í°í ±â¿©µµ°¡ °°´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 1;
 						dfPoint = 1;
 						itemIndex = 10130;
 					}
 					else
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ ¸¹°í ±â¿©µµ°¡ ³·´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 2;
 						dfPoint = 1;
 						itemIndex = 10130;
@@ -1105,32 +1107,32 @@ void ProcRVR(CPC* df, CCharacter* of)
 				{
 					if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) < oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ ³ô´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 2;
 						dfPoint = 5;
 						itemIndex = 10129;
 					}
 					else if (df->m_syndicateManager.getSyndicatePoint(df->getSyndicateType()) == oPC->m_syndicateManager.getSyndicatePoint(oPC->getSyndicateType()))
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ °°´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						attPoint = 3;
 						dfPoint = 3;
 						itemIndex = 10130;
 					}
 					else
 					{
-						// °ø°ÝÀÚÀÇ º¸¼®·®ÀÌ Àû°í ±â¿©µµ°¡ ÀÛ´Ù
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ï¿½ï¿½ ï¿½Û´ï¿½
 						attPoint = 5;
 						dfPoint = 2;
 						itemIndex = 10130;
 					}
 				}
 			}
-			//±â¿©µµ ¼öÁ¤
+			//ï¿½â¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			df->m_syndicateManager.decreaseSyndicatePoint(dfPoint);
 			oPC->m_syndicateManager.increaseSyndicatePoint(attPoint);
 
-			//Ã¢Á¶ÀÇ º¸¼® µå¶ø
+			//Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if (df->m_syndicateManager.isKing())
 			{
 				itemIndex = 10131;
@@ -1162,11 +1164,11 @@ void ProcRVR(CPC* df, CCharacter* of)
 			}
 		}
 
-		// ·Î±× Ãß°¡
+		// ï¿½Î±ï¿½ ï¿½ß°ï¿½
 		oPC->m_syndicateManager.historyManager_.battleWinHistory(oPC->getSyndicateType(), df->getSyndicateType(), df->GetName());
 		df->m_syndicateManager.historyManager_.battleLoseHistory(df->getSyndicateType(), oPC->getSyndicateType(), oPC->GetName());
 
-		// È÷½ºÅä¸® Àü´Þ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 		oPC->m_syndicateManager.historyManager_.sendHistory(oPC->getSyndicateType());
 		df->m_syndicateManager.historyManager_.sendHistory(df->getSyndicateType());
 	}
@@ -1207,7 +1209,7 @@ void ProcDeadQuestProc(CPC* dpc, CPC* opc)
 	if (opc == NULL)
 		return;
 
-	if (!opc->IsParty()) // ÆÄÆ¼°¡ ¾øÀ¸¸é ³ª¸¸ Äù½ºÆ® ¾÷µ¥ÀÌÆ®
+	if (!opc->IsParty()) // ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	{
 		CQuest* pQuest = NULL;
 		CQuest* pQuestNext = opc->m_questList.GetNextQuest(NULL, QUEST_STATE_RUN);

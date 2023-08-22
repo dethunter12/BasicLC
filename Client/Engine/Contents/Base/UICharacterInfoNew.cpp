@@ -2710,7 +2710,7 @@ void CUICharacterInfo::UpdateBaseInfo()
 		m_pstrPkPoint->SetText(strString);
 		m_pstrPkPoint->setFontColor(strColor);
 	}
-
+#ifdef CUBE_RANKING_12202022
 	strCur = pUIManager->IntegerToCommaString(_pNetwork->MyCharacterInfo.cubePoints);
 	strString.PrintF("%s", strCur);
 
@@ -2737,6 +2737,7 @@ void CUICharacterInfo::UpdateBaseInfo()
 		m_opCubeBossKill->SetText(strString);
 		m_opCubeBossKill->setFontColor(strColor);
 	}
+#endif
 }
 
 void CUICharacterInfo::SetChildVisible( CUIArrayItem* pItem, bool bVisible )
