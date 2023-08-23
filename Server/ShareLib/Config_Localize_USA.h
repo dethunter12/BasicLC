@@ -51,7 +51,7 @@
 //#define DOMINATION_EVENT_SYSTEM
 #define RECOMMEND_SERVER_POTION_INDEX   1393
 #define RECOMMEND_SERVER_LEVEL          30
-#define MAX_UPGRADE_PLUS    28          // ������ ���׷��̵� �ִ� �÷��� ��ġ
+#define MAX_UPGRADE_PLUS    15          // ������ ���׷��̵� �ִ� �÷��� ��ġ
 #define DISABLE_REFINE_SPECIAL_STONE    // ���� ���ü� ��ȯ �Ұ���
 
 #define PARTY_QUEST_ITEM_BUG_			// ��Ƽ ����Ʈ ������ ������ ���� �ʴ� ����

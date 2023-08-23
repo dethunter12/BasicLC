@@ -12,11 +12,11 @@
 #define COMPRESSION_MESSAGE
 #define SECRET_KEY
 
-// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
-// EDIT : BS : ÆÐÅ¶ ¾ÏÈ£È­
+// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
+// EDIT : BS : ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #define CRYPT_NET_MSG
-//#define CRYPT_NET_MSG_MANUAL	// ÆÐÅ¶ ¾ÏÈ£È­ Å° º¯°æÀ» ¼öµ¿À¸·Î ÇÔ¿¡ µû¶ó ÀÌÀü Å°·Î º¹È£¸¦ ½ÃµµÇÒ Áö ¿©ºÎ, DES3 ÀÌÈÄ´Â ¹«Á¶°Ç ÀÚµ¿ÀÌ¹Ç·Î ÁÖ¼®Ã³¸® ÇØ¾ßÇÔ
-// ¾ÏÈ£È­ lib ¸µÅ©
+//#define CRYPT_NET_MSG_MANUAL	// ï¿½ï¿½Å¶ ï¿½ï¿½È£È­ Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, DES3 ï¿½ï¿½ï¿½Ä´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½Ì¹Ç·ï¿½ ï¿½Ö¼ï¿½Ã³ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½
+// ï¿½ï¿½È£È­ lib ï¿½ï¿½Å©
 #ifdef NDEBUG
 #pragma comment(lib, "LCCrypt_mt.lib")
 #else
@@ -37,12 +37,12 @@
 #define CLASS_WILDPET	("Classes\\WildPet.ecl")
 
 #define LORD_SYMBOL_INDEX			225
-#define DRATAN_LORD_SYMBOL_INDEX	401			// WSS_DRATAN_SEIGEWARFARE 2007/07/30 ±³°¨ Å©¸®½ºÅ»
-#define DRATAN_MASTER_TOWER_INDEX	351			// WSS_DRATAN_SEIGEWARFARE 2007/07/30 ¸¶½ºÅÍ Å¸¿ö
+#define DRATAN_LORD_SYMBOL_INDEX	401			// WSS_DRATAN_SEIGEWARFARE 2007/07/30 ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½Å»
+#define DRATAN_MASTER_TOWER_INDEX	351			// WSS_DRATAN_SEIGEWARFARE 2007/07/30 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 #define MOB_FLOWERTREE_INDEX		342
-#define MOB_XMAS_TREE_DECO			486			// Å©¸®½º¸¶½º Àå½Ä¿ë
-#define MOB_XMAS_TREE_CENTER		484			// Å©¸®½º¸¶½º ±¤Àå¿ë
-#define GAMIGO_10TH_CAKE			1304		// [ldy1978220 2011/5/31] °¡¹Ì°í 10ÁÖ³â ÀÌº¥Æ® ÄÉÀÍ 
+#define MOB_XMAS_TREE_DECO			486			// Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½
+#define MOB_XMAS_TREE_CENTER		484			// Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+#define GAMIGO_10TH_CAKE			1304		// [ldy1978220 2011/5/31] ï¿½ï¿½ï¿½Ì°ï¿½ 10ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ 
 #ifdef DOMINATION_EVENT_SYSTEM
 #define DOMINATION_LORD_SYMBOL_A_INDEX 2197
 #define DOMINATION_LORD_SYMBOL_B_INDEX 2198
@@ -61,35 +61,35 @@
 #define ENF_EX2_SAFEGUARD		(1L<<7)
 
 //---------------------------------------------------------------------
-// ¼­¹ö¿¡¼­ ¿À´Â ¸Þ¼¼Áö Ã³¸®¿¡¼­¸¸ »ç¿ë
-#define		PLAYER_STATE_SUPPORTER		(1 << 9)	// °ÔÀÓ ¼­Æ÷ÅÍ ÇÃ·¡±× (Æ¯Á¤ ¾ÆÀÌÅÛ Âø¿ë½Ã ÀÌÆåÆ®)
-#define		PLAYER_STATE_OTHERZONE		(1 << 10)	// ´Ù¸¥ ¼Ó¼ºÀÇ ¸¶À»¿¡ ÀÖÀ»¶§
-#define		PLAYER_STATE_CRISTAL_RESPOND	(1 << 11)	// µå¶óÅº °ø¼º Å©¸®½ºÅ» ±³°¨Áß // WSS_DRATAN_SEIGEWARFARE 2007/07/31
-#define		PLAYER_STATE_FLYING			(1 << 12) // ºñÇà¸ðµå(³ªÀÌÆ®½¦µµ¿ì)
-#define		PLAYER_STATE_DARKNESS		(1 << 13) // »çµµ¸ðµå(³ªÀÌÆ®½¦µµ¿ì)
-#define		PLAYER_STATE_SKILL			(1 << 14) // ½ºÅ³¹ßµ¿¸ðµå(³ªÀÌÆ®½¦µµ¿ì)
-#define		HAIR_RED_CAP				10 // »¡°£ »êÅ¸ ¸ðÀÚ
-#define		HAIR_GREEN_CAP				20 // ³ì»ö »êÅ¸ ¸ðÀÚ 
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define		PLAYER_STATE_SUPPORTER		(1 << 9)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ (Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®)
+#define		PLAYER_STATE_OTHERZONE		(1 << 10)	// ï¿½Ù¸ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define		PLAYER_STATE_CRISTAL_RESPOND	(1 << 11)	// ï¿½ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ // WSS_DRATAN_SEIGEWARFARE 2007/07/31
+#define		PLAYER_STATE_FLYING			(1 << 12) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+#define		PLAYER_STATE_DARKNESS		(1 << 13) // ï¿½çµµï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+#define		PLAYER_STATE_SKILL			(1 << 14) // ï¿½ï¿½Å³ï¿½ßµï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+#define		HAIR_RED_CAP				10 // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
+#define		HAIR_GREEN_CAP				20 // ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ 
 //--------------------enum zone name begin()--------------------
-// zone no  = // ¸¶À» ÀÌ¸§
+// zone no  = // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 enum eZoneName
 {
-	F_JUNO,		// 0 Áê³ë¸¶À»
-	D_BELFIST,	// 1 º§ÇÇ½ºÆ® ½ÅÀü
-	PD_STRAIA,	// 2 ½ºÆ®·¹ÀÌ¾Æ ½ÅÀü( ÆÛ½º³Î )
-	P_PROCYON,	// 3 ÇÁ·ÎÅ°¿Â ½ÅÀü
-	F_DRATAN,	// 4 µå¶óÅº ÇÊµå
-	PD_MINOC,	// 5 ¹Ì³ëÅ© Åº±¤( ÆÛ½º³Î )
-	T_STRAIA,	// 6 ½ºÆ®·¹ÀÌ¾Æ ½ÅÀü ( Æ©Åä¸®¾ó )
-	F_MERAC,	// 7 ¸Þ¶óÅ© ÇÊµå
-	GUILD_ROOM,	// 8 ±æµå Àü¿ë¹æ
-	P_MARGADUM,	// 9 ¸¶¸£°¡µã ÁöÇÏ °¨¿Á
-	PD_AJAKA,	// 10 ¾ÆÀÚÄ« Çù°î( ÆÛ½º³Î )
-	PD_GATEofDIMENSION,	// 11 Â÷¿øÀÇ ¹® ( ÆÛ½º³Î )
-	P_TEMPLEofFORGETFULNESS, // 12 ¸Á°¢ÀÇ ½ÅÀü
-	PKZONE_MARGADUM,	// 13 ¸¶¸£°¡µã PKÁ¸( ÅÂ±¹ )
-	OXEVENT_ROOM,		// 14 OX ÀÌº¥Æ® È¦
-	F_EGEHA				// 15 ¿¡°ÔÇÏ ÇÊµå
+	F_JUNO,		// 0 ï¿½ï¿½ë¸¶ï¿½ï¿½
+	D_BELFIST,	// 1 ï¿½ï¿½ï¿½Ç½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	PD_STRAIA,	// 2 ï¿½ï¿½Æ®ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½Û½ï¿½ï¿½ï¿½ )
+	P_PROCYON,	// 3 ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	F_DRATAN,	// 4 ï¿½ï¿½ï¿½Åº ï¿½Êµï¿½
+	PD_MINOC,	// 5 ï¿½Ì³ï¿½Å© Åºï¿½ï¿½( ï¿½Û½ï¿½ï¿½ï¿½ )
+	T_STRAIA,	// 6 ï¿½ï¿½Æ®ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Æ©ï¿½ä¸®ï¿½ï¿½ )
+	F_MERAC,	// 7 ï¿½Þ¶ï¿½Å© ï¿½Êµï¿½
+	GUILD_ROOM,	// 8 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	P_MARGADUM,	// 9 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	PD_AJAKA,	// 10 ï¿½ï¿½ï¿½ï¿½Ä« ï¿½ï¿½ï¿½ï¿½( ï¿½Û½ï¿½ï¿½ï¿½ )
+	PD_GATEofDIMENSION,	// 11 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ( ï¿½Û½ï¿½ï¿½ï¿½ )
+	P_TEMPLEofFORGETFULNESS, // 12 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	PKZONE_MARGADUM,	// 13 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PKï¿½ï¿½( ï¿½Â±ï¿½ )
+	OXEVENT_ROOM,		// 14 OX ï¿½Ìºï¿½Æ® È¦
+	F_EGEHA				// 15 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½
 };
 //--------------------enum zone name end()----------------------
 
@@ -107,71 +107,71 @@ enum eInfoLevelExp {
 // ???? ???? (????????? ???)
 enum eCondition
 {
-	OFFLINE,		// Á¢¼Ó¾ÈÇÔ		
-	ONLINE,			// Á¢¼ÓÁß
-	LEFT_POSITION,	// ÀÚ¸®ºñ¿ò
+	OFFLINE,		// ï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½		
+	ONLINE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	LEFT_POSITION,	// ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½
 	TOTAL_CONDITION,
 };
 
 //---------------------------------------------------------------------
-// Á÷¾÷ ¸ñ·Ï.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 enum eJob
 {
-	TITAN		= 0,	// Å¸ÀÌÅº
-	KNIGHT		= 1,	// ±â»ç		
-	HEALER		= 2,	// Èú·¯
-	MAGE		= 3,	// ¸ÞÀÌÁö
-	ROGUE		= 4,	// ·Î±×
-	SORCERER	= 5,	// ¼Ò¼­·¯
-	NIGHTSHADOW	= 6,	// ³ªÀÌÆ® ½¦µµ¿ì
+	TITAN		= 0,	// Å¸ï¿½ï¿½Åº
+	KNIGHT		= 1,	// ï¿½ï¿½ï¿½		
+	HEALER		= 2,	// ï¿½ï¿½ï¿½ï¿½
+	MAGE		= 3,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	ROGUE		= 4,	// ï¿½Î±ï¿½
+	SORCERER	= 5,	// ï¿½Ò¼ï¿½ï¿½ï¿½
+	NIGHTSHADOW	= 6,	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifdef CHAR_EX_ROGUE
-	EX_ROGUE,			// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+	EX_ROGUE,			// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 #endif
-#ifdef CHAR_EX_MAGE		//2013/01/08 jeil EX ¸ÞÀÌÁö Ãß°¡ 
+#ifdef CHAR_EX_MAGE		//2013/01/08 jeil EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
 	EX_MAGE,
 #endif
-	TOTAL_JOB,			// ÃÑ Á÷¾÷ÀÇ °¹¼ö.
+	TOTAL_JOB,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 // [2010/08/27 : Sora] ADD_SUBJOB
 enum eSubJob
 {
-	SUBJOB_MERCHANT = (1 << 0),	// »óÀÎ
+	SUBJOB_MERCHANT = (1 << 0),	// ï¿½ï¿½ï¿½ï¿½
 	TOTAL_SUBJOB = 1,
 };
 
-// Date : 2005-09-23(¿ÀÈÄ 5:24:56), By Lee Ki-hwan
-// ¾Ö¿Ïµ¿¹°Àº Á÷¾÷Àº ¾Æ´Ñµ¥ ½ºÅ³ Á÷¾÷Áß¿¡¼­ °ñ¶ó¾ßÇÑ´Ù...
+// Date : 2005-09-23(ï¿½ï¿½ï¿½ï¿½ 5:24:56), By Lee Ki-hwan
+// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ñµï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½...
 #define PET_JOB				10
 #define WILDPET_JOB			11
 
-// FIXME : ¾ÆÁ÷ ÇÊ¿ä ¾øÀ½...
-// ÀüÁ÷ ÈÄ Á÷¾÷
+// FIXME : ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½...
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 enum eJob2
 {
-	JOB_2ND_HIGHLANDER		= 1,		// ÇÏÀÌ·£´õ
-	JOB_2ND_WARMASTER		= 2,		// ¿ö¸¶½ºÅÍ
-	JOB_2ND_ROYALKNIGHT		= 1,		// ·Î¿­³ªÀÌÆ®
-	JOB_2ND_TEMPLEKNIGHT	= 2,		// ÅÛÇÃ³ªÀÌÆ®
-	JOB_2ND_ARCHER			= 1,		// ¾ÆÃ³
-	JOB_2ND_CLERIC			= 2,		// Å¬·¹¸¯
-	JOB_2ND_WIZARD			= 1,		// À§ÀÚµå
-	JOB_2ND_WITCH			= 2,		// À§Ä¡
-	JOB_2ND_ASSASSIN		= 1,		// ¸Ó½ê¾À
-	JOB_2ND_RANGER			= 2,		// ·¹ÀÎÀú
+	JOB_2ND_HIGHLANDER		= 1,		// ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½
+	JOB_2ND_WARMASTER		= 2,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	JOB_2ND_ROYALKNIGHT		= 1,		// ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	JOB_2ND_TEMPLEKNIGHT	= 2,		// ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½Æ®
+	JOB_2ND_ARCHER			= 1,		// ï¿½ï¿½Ã³
+	JOB_2ND_CLERIC			= 2,		// Å¬ï¿½ï¿½ï¿½ï¿½
+	JOB_2ND_WIZARD			= 1,		// ï¿½ï¿½ï¿½Úµï¿½
+	JOB_2ND_WITCH			= 2,		// ï¿½ï¿½Ä¡
+	JOB_2ND_ASSASSIN		= 1,		// ï¿½Ó½ï¿½ï¿½
+	JOB_2ND_RANGER			= 2,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	JOB_2ND_ELEMENTALIST		= 1,		// °ø°Ý Æê ÈÞ¸Õ
-	JOB_2ND_SPECIALIST		= 2,		// °ø°Ý Æê ¾ß¼ö
+	JOB_2ND_ELEMENTALIST		= 1,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ¸ï¿½
+	JOB_2ND_SPECIALIST		= 2,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß¼ï¿½
 
-	JOB_2ND_NIGHTSHADOW		= 1,		// ³ªÀÌÆ®¼¨µµ¿ì
+	JOB_2ND_NIGHTSHADOW		= 1,		// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 #ifdef CHAR_EX_ROGUE
-	JOB_2ND_EX_ASSASSIN		= 1,		// [2012/08/27 : Sora] EX·Î±× Ãß°¡
-	JOB_2ND_EX_RANGER		= 2,		// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+	JOB_2ND_EX_ASSASSIN		= 1,		// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
+	JOB_2ND_EX_RANGER		= 2,		// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 #endif
 #ifdef CHAR_EX_MAGE
-	JOB_2ND_EX_WIZARD		= 1,		//2013/01/08 jeil EX ¸ÞÀÌÁö Ãß°¡ 
-	JOB_2ND_EX_WITCH		= 2,		//2013/01/08 jeil EX ¸ÞÀÌÁö Ãß°¡ 
+	JOB_2ND_EX_WIZARD		= 1,		//2013/01/08 jeil EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
+	JOB_2ND_EX_WITCH		= 2,		//2013/01/08 jeil EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
 #endif
 	/*
 	JOB_2ND_HORSE			= 1,
@@ -192,10 +192,10 @@ enum eJob2
 #define MASK_ROGUE		(1 << ROGUE)
 #define MASK_SOCERER	(1 << SORCERER)
 #define MASK_NIGHTSHADOW (1 << NIGHTSHADOW)
-#ifdef CHAR_EX_ROGUE	// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+#ifdef CHAR_EX_ROGUE	// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 	#define MASK_EX_ROGUE	(1 << EX_ROGUE)
 #endif
-#ifdef CHAR_EX_MAGE		//2013/01/08 jeil EX ¸ÞÀÌÁö Ãß°¡ 
+#ifdef CHAR_EX_MAGE		//2013/01/08 jeil EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
 	#define MASK_EX_MAGE	(1 << EX_MAGE)
 #endif
 
@@ -267,12 +267,12 @@ enum eAccessoryWear
 #define INVEN_ONE_NEW_BAG           40
 #endif
 
-#define PET_TYPE_HORSE		(0x10)		// ¸»
-#define PET_TYPE_DRAGON		(0x20)		// ¿ë
+#define PET_TYPE_HORSE		(0x10)		// ï¿½ï¿½
+#define PET_TYPE_DRAGON		(0x20)		// ï¿½ï¿½
 
-#define PET_GRADE_CHILD		(0X01)		// À¯³â±â
-#define PET_GRADE_ADULT		(0X02)		// ¼º¼÷±â
-#define PET_GRADE_MOUNT		(0X03)		// Å»°Í
+#define PET_GRADE_CHILD		(0X01)		// ï¿½ï¿½ï¿½ï¿½ï¿½
+#define PET_GRADE_ADULT		(0X02)		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define PET_GRADE_MOUNT		(0X03)		// Å»ï¿½ï¿½
 
 //---------------------------------------------------------------------
 // Zone Bit Mask
@@ -288,13 +288,13 @@ enum eAccessoryWear
 #define	ZONE9		(1 << 9)
 #define ZONEALL		(0x3FF)
  
-#define	PC_STATE_STANDING		0		// PC »óÅÂ : ¼­ÀÖÀ½
-#define	PC_STATE_MOVING			1		// PC »óÅÂ : ÀÌµ¿Áß
-#define	PC_STATE_SITDOWN		2		// PC »óÅÂ : ¾ÉÀ½
-#define	PC_STATE_WARP			3		// PC »óÅÂ : ±ÍÈ¯Áß
+#define	PC_STATE_STANDING		0		// PC ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define	PC_STATE_MOVING			1		// PC ï¿½ï¿½ï¿½ï¿½ : ï¿½Ìµï¿½ï¿½ï¿½
+#define	PC_STATE_SITDOWN		2		// PC ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+#define	PC_STATE_WARP			3		// PC ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½È¯ï¿½ï¿½
 
 /*
-¼­¹ö ±¹°¡ ¼³Á¤
+ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 # LC_KOR 0
 # LC_TWN 1
 # LC_CHN 3
@@ -320,30 +320,30 @@ enum eAccessoryWear
 */
 
 // Define country
-#define	KOREA					0		// ÇÑ±¹
-#define	TAIWAN					1		// ´ë¸¸
-#define	CHINA					2		// Áß±¹
-#define THAILAND				3		// ÅÂ±¹
-#define TAIWAN2					4		// ´ë¸¸ ÃµÇÏ´ë¶õ wooss 050929
-#define JAPAN					5		// ÀÏº» wooss 051123
+#define	KOREA					0		// ï¿½Ñ±ï¿½
+#define	TAIWAN					1		// ï¿½ë¸¸
+#define	CHINA					2		// ï¿½ß±ï¿½
+#define THAILAND				3		// ï¿½Â±ï¿½
+#define TAIWAN2					4		// ï¿½ë¸¸ Ãµï¿½Ï´ï¿½ï¿½ wooss 050929
+#define JAPAN					5		// ï¿½Ïºï¿½ wooss 051123
 #define MALAYSIA    			6
-#define USA						7		// ¹Ì±¹
-#define BRAZIL					8		// ºê¶óÁú
-#define HONGKONG				9		// È«Äá
-#define GERMANY					10		// µ¶ÀÏ
-#define SPAIN					11		// ½ºÆäÀÎ
-#define FRANCE					12		// ÇÁ¶û½º		FRANCE_SPAIN_CLOSEBETA_NA_20081124
-#define POLAND					13		// Æú¶õµå
-#define RUSSIA					14		// ·¯½Ã¾Æ
-#define TURKEY					15		// ÅÍÅ°
-#define MEXICO					16		// ¸ß½ÃÄÚ
-#define ITALY					17		// ÀÌÅ»¸®¾Æ
-#define USA_FRANCE				18		// ¿¡ÀÌ¸®¾Æ ÇÁ¶û½º
-#define USA_SPAIN				19		// ¿¡ÀÌ¸®¾Æ ½ºÆäÀÎ 
-#define NETHERLANDS				20		// ³×´ú¶õµå
+#define USA						7		// ï¿½Ì±ï¿½
+#define BRAZIL					8		// ï¿½ï¿½ï¿½ï¿½ï¿½
+#define HONGKONG				9		// È«ï¿½ï¿½
+#define GERMANY					10		// ï¿½ï¿½ï¿½ï¿½
+#define SPAIN					11		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define FRANCE					12		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		FRANCE_SPAIN_CLOSEBETA_NA_20081124
+#define POLAND					13		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define RUSSIA					14		// ï¿½ï¿½ï¿½Ã¾ï¿½
+#define TURKEY					15		// ï¿½ï¿½Å°
+#define MEXICO					16		// ï¿½ß½ï¿½ï¿½ï¿½
+#define ITALY					17		// ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½
+#define USA_FRANCE				18		// ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define USA_SPAIN				19		// ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+#define NETHERLANDS				20		// ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½
 #define ENGLAND					24
 
-// ÀüÃ¼ È­¸é ¸ðµå ±¸ºÐ
+// ï¿½ï¿½Ã¼ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define OLD_WINDOW_MODE		0
 #define FULLSCREEN_MODE		1
 #define TAIWAN_WINDOW_MODE	2
@@ -353,8 +353,8 @@ enum eAccessoryWear
 #define IsBila(X)	( (X==MEXICO||X==BRAZIL)?TRUE:FALSE )
 
 #define IsDotSeparator(X) ( (X == GERMANY || X == ITALY || X == RUSSIA) ? TRUE:FALSE )
-// 1.234.567,89 Çü½ÄÀÇ ¼ýÀÚ¸¦ ¾²´Â ³ª¶ó´Â µ¶ÀÏ, ±×¸®½º, µ§¸¶Å©, ÀÌÅ»¸®¾Æ, ÀÎµµ³×½Ã¾Æ, ·¯½Ã¾Æ
-// 1,234,567.89¿Í °°Àº ¼ýÀÚ¸¦ ¾²´Â ³ª¶ó´Â ÇÑ±¹, ¹Ì±¹, Ä³³ª´Ù, Áß±¹, ÀÏº», ¿µ±¹, È£ÁÖ, ºê¶óÁú
+// 1.234.567,89 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½×¸ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Å©, ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½, ï¿½Îµï¿½ï¿½×½Ã¾ï¿½, ï¿½ï¿½ï¿½Ã¾ï¿½
+// 1,234,567.89ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½, ï¿½Ì±ï¿½, Ä³ï¿½ï¿½ï¿½ï¿½, ï¿½ß±ï¿½, ï¿½Ïºï¿½, ï¿½ï¿½ï¿½ï¿½, È£ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½
 
 // Add LC time 060421 wooss
 #define _LC_DAY_IN_MONTH		(30L)
@@ -372,8 +372,8 @@ enum eAccessoryWear
 // WSS_WALLMOVE_BUGFIX 070531---->><<
 #define MAX_MOVE_SLOPE_GRADE	45.0f
 
-// ÆÐÅ°Áö 4
-// ÀÎÃ¾Æ® ·¹º§ [11/28/2011 ldy1978220]
+// ï¿½ï¿½Å°ï¿½ï¿½ 4
+// ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ [11/28/2011 ldy1978220]
 // #if defined (G_THAI)
 // 	#define ITEM_MEX_LEVEL	16
 // #else

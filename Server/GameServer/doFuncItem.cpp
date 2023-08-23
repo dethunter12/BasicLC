@@ -3129,7 +3129,7 @@ void do_ItemUpgradeReq(CPC* ch, CNetMsg::SP& msg)
 		{
 			int upprob = 0;
 			
-			if(upItem->getPlus() >= 18)
+			if(upItem->getPlus() >= 12)
 			{
 				upprob = 50 - upItem->getPlus() + 17;
 			}
@@ -3171,7 +3171,7 @@ void do_ItemUpgradeReq(CPC* ch, CNetMsg::SP& msg)
 		{
 			// 잠수함 : 고제 확률 조정
 			// +14에 고제 사용시에는 확률 조정, 그외는 기존과 동일
-			if(upItem->getPlus() >= 18)
+			if(upItem->getPlus() >= 14)
 			{
 				int prob = GetRandom(1, 100);
 				int upprob = 60 - (upItem->getPlus() + 32);
@@ -11846,7 +11846,7 @@ void do_ItemUse_MasterStone_USA(CPC* ch, CNetMsg::SP& msg)
 		GAMELOG << "[BEFORE] " << itemlog(pUpgradeItem) << delim ;
 
 		//16���� �������� ������ ���
-		if (pUpgradeItem->getPlus() <= 28)
+		if (pUpgradeItem->getPlus() <= 17) //28 ->18
 		{
 			random_success = MASTERSTONE_INCREASE;
 		}
