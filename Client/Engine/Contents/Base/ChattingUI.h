@@ -13,19 +13,19 @@ enum ChattingMsgType
 	CHATMSG_SHOUT					= 5,
 	CHATMSG_NOTICE					= 6,
 	CHATMSG_GM						= 7,
-	CHATMSG_DUMMY					= 8,		// ¸Þ½ÅÀú ½Ã½ºÅÛ°ú °°ÀÌ ¸ÂÃç ÁÖ±â À§ÇÔ(ÀÌ±âÈ¯)
-	CHATMSG_LORD					= 9,		// ¼ºÁÖ
-	CHATMSG_RANKER					= 10,		// ·©Ä¿
-	CHATMSG_RANKER_CONN				= 11,		// ·©Ä¿
-	CHATMSG_NOTICE_SERVERDOWN		= 12,		// ¼­¹ö Á¾·á ¸Þ½ÃÁö 060420
-	CHATMSG_DUMMY2					= 13,		// ÀÎµ¦½º ¸ÂÃçÁÖ±â À§ÇØ.
-	CHATMSG_DUMMY3					= 14,		// ÀÎµ¦½º ¸ÂÃçÁÖ±â À§ÇØ.
-	CHATMSG_GMTOOL					= 15,		// GM TOOLÀ» ÀÌ¿ëÇÑ ¸Þ½ÃÁö Ã³¸® WSS_GMTOOL 070517 (13,14 ¼­¹ö¿ë)
+	CHATMSG_DUMMY					= 8,		// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ì±ï¿½È¯)
+	CHATMSG_LORD					= 9,		// ï¿½ï¿½ï¿½ï¿½
+	CHATMSG_RANKER					= 10,		// ï¿½ï¿½Ä¿
+	CHATMSG_RANKER_CONN				= 11,		// ï¿½ï¿½Ä¿
+	CHATMSG_NOTICE_SERVERDOWN		= 12,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ 060420
+	CHATMSG_DUMMY2					= 13,		// ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	CHATMSG_DUMMY3					= 14,		// ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	CHATMSG_GMTOOL					= 15,		// GM TOOLï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ WSS_GMTOOL 070517 (13,14 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	CHATMSG_PRESSCORPS				= 16,
-	CHATMSG_EXPEDITION				= 17,		// [sora] ¿øÁ¤´ë
+	CHATMSG_EXPEDITION				= 17,		// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CHATMSG_NPCNOTICE				= 18,
-	CHATMSG_CHANNEL_LEVEL			= 19,		// ÀÏ¹Ý ÀüÃ¼ Ã¤ÆÃ(°°Àº¼­¹ö¿¡¼­ Ã¤³Î°£ Ã¤ÆÃ)
-	CHATMSG_CHANNEL_TRADE			= 20,		// ¸Å¸Å Ã¤ÆÃ(°°Àº¼­¹ö¿¡¼­ Ã¤³Î°£ Ã¤ÆÃ)
+	CHATMSG_CHANNEL_LEVEL			= 19,		// ï¿½Ï¹ï¿½ ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Î°ï¿½ Ã¤ï¿½ï¿½)
+	CHATMSG_CHANNEL_TRADE			= 20,		// ï¿½Å¸ï¿½ Ã¤ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Î°ï¿½ Ã¤ï¿½ï¿½)
 	CHATMSG_TOTAL					,		
 	CHATMSG_COMMAND					,			// [/command]
 };
@@ -84,7 +84,7 @@ public:
 
 	void SendChatMessage( char *pcChatString, BOOL bLord = FALSE );
 
-	void SpamerLift ( CTString& strName );	//ÇØÁ¦
+	void SpamerLift ( CTString& strName );	//ï¿½ï¿½ï¿½ï¿½
 
 	void GetChatWindowEndPos(int &nX, int &nY);
 	// save system msg
@@ -150,6 +150,9 @@ void OpenBattlePass();
 #ifdef GLADES_RANKING_04182023
 void OpenGladesRank();
 #endif
+#ifdef QUICK_PANEL
+void OpenBuffAll();
+#endif
 
 	void GluingMessage(CItems* str); //RomeoST
 
@@ -161,13 +164,13 @@ private:
 
 	void InsertChatPrefix( ChattingMsgType cmtType );
 
-	// ½ºÆÔ
+	// ï¿½ï¿½ï¿½ï¿½
 	BOOL CheckSpamCount ( CTString& strName, CTString& strChat );
 	void SpamerBlock ( CTString& strName );
 	void ClearSpamMap ();
 	void RemoveSpamerFromMap ( std::string& strTemp );
 
-	int	CheckExpeditionChatGroup( char* pcChatString); // ¿øÁ¤´ëÃ¤ÆÃ½Ã ±×·ì Ã¤ÆÃÀÎÁö Ã¼Å©
+	int	CheckExpeditionChatGroup( char* pcChatString); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½Ã½ï¿½ ï¿½×·ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	int CheckChatType(char szFirst);
 
 	BOOL CeilWritingCut_CompareStr(const CTString& strChat);
@@ -178,7 +181,7 @@ private:
 	void MakeLowChar(char* tmpChar);
 	CTString ArrangeCharString(const CTString& strChat);
 	void AddListCeilWriting(const CTString& str);
-	BOOL CheckInputChannelChat(ChattingMsgType cmtType, CTString strMessage); // Ã¤³Î Ã¤ÆÃ ÀÔ·ÂÀÌ °¡´ÉÇÑÁö È®ÀÎ
+	BOOL CheckInputChannelChat(ChattingMsgType cmtType, CTString strMessage); // Ã¤ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
 	void ConditionsysMsg(ChattingMsgType cmtType);
 	void UpdateUserNotice(float fDeltaTime, ULONG ElapsedTime);
@@ -261,9 +264,9 @@ private:
 		}
 		__int64  llStartTime;
 		__int64	 llCurTime;
-		// Ã³À½ ÀÔ·Â ÈÄ Èå¸¥ ½Ã°£À» ±âÁØÀ¸·Î ´©ÀûÄÑ¼­ 1ºÐÀ» È®ÀÎ ÇÒ °æ¿ì »ç¿ë.
-		//ex) 30ÃÊµ¿¾È 29¹ø ÀÔ·ÂÇÏ°í 1ºÐ ÈÄ ´Ù½Ã 29¹ø ÀÔ·ÂÇÑ´Ù¸é 1ºÐ¸¶´Ù 29¹øÀº ÀÔ·Â°¡´É ±×°É ¸·À¸·Á¸é ´©Àû½Ã°£À» µûÁ®¼­ ÇØ¾ß ÇÒ µí ) 
-		__int64	   llLongSentenceCheckTime; //¹Ì±¹Àº 5ÃÊµ¿¾È ÀÏÁ¤·®ÀÇ ¹®ÀÚ¸¦ ÀÔ·ÂÇÏ¸é ºí·°ÇÑ´Ù. 5ÃÊ¸¦ ÃàÀûÇÑ´Ù. 5ÃÊÈÄ¿¡ ´Ù½Ã 5ÃÊ·Î ¸®¼Â 
+		// Ã³ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½å¸¥ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¼ï¿½ 1ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+		//ex) 30ï¿½Êµï¿½ï¿½ï¿½ 29ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï°ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ 29ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´Ù¸ï¿½ 1ï¿½Ð¸ï¿½ï¿½ï¿½ 29ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â°ï¿½ï¿½ï¿½ ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ ) 
+		__int64	   llLongSentenceCheckTime; //ï¿½Ì±ï¿½ï¿½ï¿½ 5ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 5ï¿½Ê¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 5ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½Ù½ï¿½ 5ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 		int		 nCount;
 		int		 nIndex;
@@ -314,7 +317,7 @@ private:
 	typedef std::map<std::string, sChatSpamCheck> MAP_CHAT_RECV_COUNT;
 	typedef MAP_CHAT_RECV_COUNT::iterator MAP_CHAT_RECV_COUNT_IT;
 
-	MAP_CHAT_RECV_COUNT	m_mapChatCount; //ºÐ´ç 30È¸ È®ÀÎ
+	MAP_CHAT_RECV_COUNT	m_mapChatCount; //ï¿½Ð´ï¿½ 30È¸ È®ï¿½ï¿½
 
 	std::list<sCeilWriting>		m_listCeilWriting;
 
@@ -323,7 +326,7 @@ private:
 
 private:
 	
-	// Ã¤³ÎÃ¤ÆÃ, ÀÏ¹ÝÃ¤ÆÃ.
+	// Ã¤ï¿½ï¿½Ã¤ï¿½ï¿½, ï¿½Ï¹ï¿½Ã¤ï¿½ï¿½.
 	CUITab*	m_pTabMainChat;
 	CUITab*	m_pTabSubChat[eMAIN_END];
 	
@@ -361,6 +364,9 @@ private:
 
 #ifdef BATTLE_PASS_SYSTEM
 	CUIButton* m_btn_battle_pass;
+#endif
+#ifdef QUICK_PANEL
+		CUIButton* m_btn_buff_func;
 #endif
 };
 

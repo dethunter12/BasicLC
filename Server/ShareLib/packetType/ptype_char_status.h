@@ -13,17 +13,17 @@ enum
 
 enum
 {
-	MSG_SUB_UPDATE_FIRST_MONENY,			// µ·(³ª½º) º¯È­
-	MSG_SUB_UPDATE_FIRST_MONENY_IN_STASH,	// Ã¢°í µ·(³ª½º) º¯È­
-	MSG_SUB_UPDATE_MONENY,				// µ·(³ª½º) º¯È­
-	MSG_SUB_UPDATE_MONENY_IN_STASH,		// Ã¢°í µ·(³ª½º) º¯È­
+	MSG_SUB_UPDATE_FIRST_MONENY,			// ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È­
+	MSG_SUB_UPDATE_FIRST_MONENY_IN_STASH,	// Ã¢ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È­
+	MSG_SUB_UPDATE_MONENY,				// ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È­
+	MSG_SUB_UPDATE_MONENY_IN_STASH,		// Ã¢ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½È­
 
-	MSG_SUB_UPDATE_INVEN_LIST,			// °¡¹æ ¾ÆÀÌÅÛ ¸®½ºÆ® (Å¬¶ó¿¡¼­´Â ±âÁ¸ µ¥ÀÌÅÍ¸¦ Áö¿ì°í ¹«Á¶°Ç ÀÌ °ªÀ¸·Î º¯°æ)
+	MSG_SUB_UPDATE_INVEN_LIST,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® (Å¬ï¿½ó¿¡¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_SUB_UPDATE_ADD_ITEM,			// 1°³ÀÇ ¾ÆÀÌÅÛÀÌ ½Å±Ô·Î Ãß°¡µÊ
-	MSG_SUB_UPDATE_DELETE_ITEM,			// 1°³ÀÇ ¾ÆÀÌÅÛ »èÁ¦
-	MSG_SUB_UPDATE_CHANGE_ITEM_COUNT,	// 1°³ÀÇ ¾ÆÀÌÅÛÀÇ °¹¼ö°¡ º¯È­µÊ
-	MSG_SUB_UPDATE_CHANGE_ITEM_COUNT_WITH_SWAP,	// 1°³ÀÇ ¾ÆÀÌÅÛÀÇ °¹¼ö°¡ º¯È­µÊ
+	MSG_SUB_UPDATE_ADD_ITEM,			// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±Ô·ï¿½ ï¿½ß°ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_DELETE_ITEM,			// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_CHANGE_ITEM_COUNT,	// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½
+	MSG_SUB_UPDATE_CHANGE_ITEM_COUNT_WITH_SWAP,	// 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½
 
 	MSG_SUB_UPDATE_CHANGE_ITEM_PLUS,
 	MSG_SUB_UPDATE_CHANGE_ITEM_PLUS_2,
@@ -36,34 +36,34 @@ enum
 	MSG_SUB_UPDATE_CHANGE_ITEM_ORIGIN_VAR,
 	MSG_SUB_UPDATE_CHANGE_ITEM_COMPOSITE_ITEM,
 
-	MSG_SUB_UPDATE_NAS_DESC_REASON,			// µ· °¨¼Ò »çÀ¯
+	MSG_SUB_UPDATE_NAS_DESC_REASON,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	MSG_SUB_UPDATE_OLD_TIMER_ITEM,
 	MSG_SUB_UPDATE_ERASE_ALL_ITEM,
 
-	MSG_SUB_UPDATE_WEAR,					// Àåºñ ÀåÂø
-	MSG_SUB_UPDATE_WEAR_TAKEOFF,			// Àåºñ Å»Âø
-	MSG_SUB_UPDATE_WEAR_LIST,				// Àåºñ ¸®½ºÆ®
-	MSG_SUB_UPDATE_WEAR_CHANGE_INFO,		// Àåºñ Á¤º¸ º¯°æ
+	MSG_SUB_UPDATE_WEAR,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_WEAR_TAKEOFF,			// ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
+	MSG_SUB_UPDATE_WEAR_LIST,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_SUB_UPDATE_WEAR_CHANGE_INFO,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_SUB_UPDATE_COST_WEAR,				// ÄÚ½ºÆ¬ ÀåÂø
-	MSG_SUB_UPDATE_COST_WEAR_TAKEOFF,		// ÄÚ½ºÆ¬ Å»Âø
-	MSG_SUB_UPDATE_COST_WEAR_LIST,			// ÄÚ½ºÆ¬ Àåºñ ¸®½ºÆ®
+	MSG_SUB_UPDATE_COST_WEAR,				// ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_COST_WEAR_TAKEOFF,		// ï¿½Ú½ï¿½Æ¬ Å»ï¿½ï¿½
+	MSG_SUB_UPDATE_COST_WEAR_LIST,			// ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
-	MSG_SUB_UPDATE_COST_WEAR_SUIT,			// ÄÚ½ºÆ¬ ÇÑ¹úÀÇ»ó ÀåÂø
+	MSG_SUB_UPDATE_COST_WEAR_SUIT,			// ï¿½Ú½ï¿½Æ¬ ï¿½Ñ¹ï¿½ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_USED,	// ÀåÂø ¾ÆÀÌÅÛ USE ¾÷µ¥ÀÌÆ®
-	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_PLUS,	// ÀåÂø ¾ÆÀÌÅÛ PLUS ¾÷µ¥ÀÌÆ®
-	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_FLAG,	// ÀåÂø ¾ÆÀÌÅÛ FLAG ¾÷µ¥ÀÌÆ®
+	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_USED,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ USE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_PLUS,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PLUS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_SUB_UPDATE_CHANGE_WEAR_ITEM_FLAG,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FLAG ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
-	MSG_SUB_UPDATE_STASH_PASSWORD_FLAG,		// Ã¢°í ÆÐ½º¿öµå À¯¹«
+	MSG_SUB_UPDATE_STASH_PASSWORD_FLAG,		// Ã¢ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef DURABILITY
 	MSG_SUB_UPDATE_ITEM_DURABILITY_FOR_INVENTORY,
 	MSG_SUB_UPDATE_ITEM_DURABILITY_FOR_WEAR,
 #endif
 
-	MSG_SUB_UPDATE_STATUS = 100,		// Ä³¸¯ÅÍ Á¤º¸(¸ðµÎ)
+	MSG_SUB_UPDATE_STATUS = 100,		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½)
 	MSG_SUB_UPDATE_AT,
 	MSG_SUB_UPDATE_APPEAR_PC,
 	MSG_SUB_UPDATE_APPEAR_NPC,
@@ -73,7 +73,7 @@ enum
 
 	MSG_SUB_UPDATE_DISAPPERAR,
 	MSG_SUB_UPDATE_DISAPPERAR_FOR_CLIENT_EFFECT,
-	MSG_SUB_UPDATE_DISAPPERAR_ALL,		//Å¬¶óÀÌ¾ðÆ®¿¡°Ô Ä³¸¯ÅÍ¸¦ ±âÁØÀ¸·Î ÁÖÀ§¿¡ ÀÖ´Â ¸ðµç °ÍÀ» Áö¿ì¶ó°í ÇÏ´Â ¸í·É ÀÏ¹ÝÀûÀÎ DISAPPEAR¿Í´Â ´Ù¸§
+	MSG_SUB_UPDATE_DISAPPERAR_ALL,		//Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ DISAPPEARï¿½Í´ï¿½ ï¿½Ù¸ï¿½
 	MSG_SUB_UPDATE_TARGET_CLEAR,
 
 	MSG_SUB_UPDATE_ELEMENTAL_STATUS,
@@ -100,32 +100,32 @@ enum
 	MSG_SUB_UPDATE_PREMIUM_CHAR_JUMP_COUNT,
 	MSG_SUB_UPDATE_PREMIUM_CHAR_END,
 
-	MSG_SUB_UPDATE_PREMIUM_CHAR_CHANGE_FLAG,		// ÇÁ¸®¹Ì¾ö Ä³¸¯ÅÍ »óÅÂ º¯°æ
+	MSG_SUB_UPDATE_PREMIUM_CHAR_CHANGE_FLAG,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 
 	MSG_SUB_UPDATE_ATTR_ITEM_USE,
 	MSG_SUB_UPDATE_ATTR_STATE_FOR_NPC,
 
-	MSG_SUB_UPDATE_CHECK_NOTICE,			//°øÁö È®ÀÎ ±ô¹ÚÀÓ
-	MSG_SUB_UPDATE_CHECK_POPUP_NOTICE,		//ÆË¾÷ °øÁö È®ÀÎ
-	MSG_SUB_UPDATE_CLOSE_POPUP_NOTICE,		//ÆË¿É °øÁö Á¾·á
-	MSG_SUB_UPDATE_CLEAR_POPUP_NOTICE,		//ÆË¾÷ ÀüÃ¼ Á¾·á
+	MSG_SUB_UPDATE_CHECK_NOTICE,			//ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_CHECK_POPUP_NOTICE,		//ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+	MSG_SUB_UPDATE_CLOSE_POPUP_NOTICE,		//ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_UPDATE_CLEAR_POPUP_NOTICE,		//ï¿½Ë¾ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 
 	MSG_SUB_UPDATE_ARTIFACT_SYSMSG,
 	MSG_SUB_UPDATE_ARTIFACT_FIND_USER_COUNT_MSG,
 
-	MSG_SUB_REQUEST_GUILD_RECALL,			//¼­¹ö¿¡¼­ ±æµå¿øµé¿¡°Ô ±æµå¹æ ¸®ÄÝ È®ÀÎ ¿©ºÎ ¿äÃ» ¾÷µ¥ÀÌÆ® ÆÐÅ¶
+	MSG_SUB_REQUEST_GUILD_RECALL,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å¶
 
 	MSG_SUB_UPDATE_SETTINGS,
-	MSG_SUB_UPDATE_EP_INIT,					//ÀÌ±×´Ï¼Ç Æ÷ÀÎÆ® ÃÊ±âÈ­
+	MSG_SUB_UPDATE_EP_INIT,					//ï¿½Ì±×´Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 
-	MSG_SUB_UPDATE_CHAR_HPMP,				//HPMP Á¤º¸ ¾÷µ¥ÀÌÆ®
+	MSG_SUB_UPDATE_CHAR_HPMP,				//HPMP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	MSG_SUB_UPDATE_CHAR_CURR_HP, //dethunter12 add 3/13/2023
 };
 
 #pragma pack(push, 1)
 //////////////////////////////////////////////////////////////////////////
-struct tag_assistinfo // ÀÌ ±¸Á¶Ã¼¸¦ Æ÷ÇÔÇÏ´Â ±¸Á¶Ã¼¿¡¼­´Â Ç×»ó ¸Ç ¸¶Áö¸·¿¡ »ç¿ëÇÒ°Í (0¹è¿­¶§¹®)
+struct tag_assistinfo // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×»ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ (0ï¿½è¿­ï¿½ï¿½ï¿½ï¿½)
 {
 	LONGLONG		state;
 	int				count;
@@ -143,13 +143,13 @@ namespace UpdateClient
 {
 struct oldTimerItem : public pTypeBase
 {
-	int memposTime;		// ¸Þ¸ð¸® ½ºÅ©·Ñ
-	int stashextTime;	// °³ÀÎÃ¢°í È®Àå
+	int memposTime;		// ï¿½Þ¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
+	int stashextTime;	// ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ È®ï¿½ï¿½
 };
 
 struct stashPasswordFlag : public pTypeBase
 {
-	unsigned char		flag;		// 0 - ¾øÀ½ , 1 - ÀÖÀ½
+	unsigned char		flag;		// 0 - ï¿½ï¿½ï¿½ï¿½ , 1 - ï¿½ï¿½ï¿½ï¿½
 };
 
 struct charStatus : public pTypeBase
@@ -213,7 +213,10 @@ struct charStatus : public pTypeBase
 
 	char			joinForMerac;
 	char			joinForDratan;
-
+#ifdef QUICK_PANEL
+	int				m_cloud_m_QuickPanelBtnType[25];
+	int				m_cloud_m_QuickPanelBtnIdx[25];
+#endif
 	int				skillSpeed;
 	int				skillSpeedfix;//Cloud ant-hack								   
 	unsigned short	mapAttr;
@@ -552,7 +555,7 @@ struct GuildRoomRecall : public pTypeBase
 
 struct EPInit : public pTypeBase
 {
-	bool isInit;				//true = ÃÊ±âÈ­, false = À¯Áö
+	bool isInit;				//true = ï¿½Ê±ï¿½È­, false = ï¿½ï¿½ï¿½ï¿½
 };
 
 #ifndef _CLIENT_

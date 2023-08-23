@@ -52,11 +52,13 @@ const int idx_WearSting[WEAR_TOTAL] = {
 	,	5140 // ??
 	,	5916 // ????, ??
 	,	726 // newslot - alanssoares
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 	,	726 // newslot - alanssoares
 	,	726 // newslot - alanssoares
 	,	726 // newslot - alanssoares
 	,	726 // newslot - alanssoares
 	,	726 // newslot - alanssoares
+#endif
 };
 
 // 코스튬 장비창 스트링 인덱스

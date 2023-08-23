@@ -215,7 +215,7 @@ bool CPet::AddExp()
 					&& (gserver->m_pulse - m_owner->m_pulseLastAttackSkill) < PULSE_ATTACKMODE_DELAY
 					&& m_owner->m_bNotMiss)
 			{
-				addexp = 1;
+				addexp = 2; //1->2
 
 				if(gserver->isActiveEvent(A_EVENT_DOUBLE_EXP_PET))
 					addexp = addexp * 2;

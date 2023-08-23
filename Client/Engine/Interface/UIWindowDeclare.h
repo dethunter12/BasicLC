@@ -11,7 +11,7 @@ enum UI_TYPE
 	UI_NONE					= -1,
 	UI_TYPE_START			= 0,
 
-	UI_ALWAYS_SHOW_START	= UI_TYPE_START,				// Ç×»ó º¸ÀÌ´Â ÀÎÅÍÆäÀÌ½º |<--
+	UI_ALWAYS_SHOW_START	= UI_TYPE_START,				// ï¿½×»ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ |<--
 	UI_PLAYERINFO			= UI_ALWAYS_SHOW_START,
 	//UI_CHATTING,
 	UI_CHATTING_NEW,
@@ -27,12 +27,12 @@ enum UI_TYPE
 	UI_TARGETINFO,	
 	UI_HELP_ICON,	
 #ifdef USE_UIAD
-	UI_AD,													// ¼±Àü ¹®±¸ Ç¥½Ã(for japan)
+	UI_AD,													// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½(for japan)
 #endif
 	UI_SIMPLE_PLAYER_INFO,
-	UI_ALWAYS_SHOW_END,										// Ç×»ó º¸ÀÌ´Â ÀÎÅÍÆäÀÌ½º     -->|
+	UI_ALWAYS_SHOW_END,										// ï¿½×»ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½     -->|
 
-	UI_SELECTIVE_SHOW_START	= UI_ALWAYS_SHOW_END,			// ¼±ÅÃÀûÀ¸·Î º¸ÀÌ´Â ÀÎÅÍÆäÀÌ½º |<--
+	UI_SELECTIVE_SHOW_START	= UI_ALWAYS_SHOW_END,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ |<--
 	UI_INVENTORY			= UI_SELECTIVE_SHOW_START,
 	UI_INVEN_SLOT1,
 	UI_INVEN_SLOT2,
@@ -62,17 +62,17 @@ enum UI_TYPE
 	UI_HELP3,
 	UI_SINGLE_BATTLE,
 	UI_GUILD_BATTLE, // Date : 2005-03-17,   By Lee Ki-hwan
-	UI_SIEGE_WARFARE,	// °ø¼ºÀü // Date : 2005-06-27(¿ÀÀü 10:46:11), By Lee Ki-hwan
-	UI_SIEGE_WARFARE_NEW,	// ½Å°ø¼ºÀü // WSS_DRATAN_SIEGEWARFARE 070727
+	UI_SIEGE_WARFARE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ // Date : 2005-06-27(ï¿½ï¿½ï¿½ï¿½ 10:46:11), By Lee Ki-hwan
+	UI_SIEGE_WARFARE_NEW,	// ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ // WSS_DRATAN_SIEGEWARFARE 070727
 	UI_GUILDWARPORTAL,
-//	UI_BILLING,			// ´ë¸¸ À¯·áÈ­(Á¤¾×) Date : 2005-04-30(¿ÀÈÄ 3:55:19), By Lee Ki-hwan
-//	UI_BILL_ITEM,		// ´ë¸¸ À¯·áÈ­ ¾ÆÀÌÅÛ Áö±Þ ½Ã½ºÅÛ
+//	UI_BILLING,			// ï¿½ë¸¸ ï¿½ï¿½ï¿½ï¿½È­(ï¿½ï¿½ï¿½ï¿½) Date : 2005-04-30(ï¿½ï¿½ï¿½ï¿½ 3:55:19), By Lee Ki-hwan
+//	UI_BILL_ITEM,		// ï¿½ë¸¸ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	UI_MAP,
 	UI_MAP_OPTION,
 	UI_OPTION,
 	UI_REFINE,
 	UI_PROCESS,
-	UI_PRODUCT,		// ÀÌ±âÈ¯(12.7)	
+	UI_PRODUCT,		// ï¿½Ì±ï¿½È¯(12.7)	
 	UI_MIX,
 	UI_MIXNEW,		//  wooss 060523
 	UI_COMPOUND,	// Date : 2005-01-12,   By Lee Ki-hwan
@@ -107,38 +107,38 @@ enum UI_TYPE
 	UI_PROCESSNPC,
 	UI_SELECTRESOURCE,
 //	UI_CASH_SHOP,			//wooss 050820 
-	UI_GW_MIX, // °ø¼º ¾ÆÀÌÅÛ Á¶ÇÕ 
-	UI_GUILDSTASH,	// ±æµå ³ª½º º¸°üÇÔ 
+	UI_GW_MIX, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	UI_GUILDSTASH,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	UI_SELECTWORD,
-	UI_SELECTLIST,	// Ä£±¸Ã£±âÀÌº¥Æ® 060126
-	UI_PET_ITEM_MIX,	// Æê ¾ÆÀÌÅÛ Á¶ÇÕ( À¯´ÏÅ© ¾ÆÀÌÅÛ Á¦ÀÛ )
-	UI_PETFREE,			// Æê ºÀÀÎ ÇØÁ¦
+	UI_SELECTLIST,	// Ä£ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Ìºï¿½Æ® 060126
+	UI_PET_ITEM_MIX,	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
+	UI_PETFREE,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	UI_QUIZEVENT,		// O.X QUIZ EVENT
 	UI_PARTYAUTO,
-	UI_PARTYAUTO_REG,	// ¿ÀÅä¸ÅÄª µî·ÏÃ¢
-	UI_PARTYAUTO_REG_PB,// ÆÄÆ¼º¸½º µî·ÏÃ¢
-	UI_PARTYAUTO_INVITE_LIST,	// ÃÊ´ë°¡´É ¸®½ºÆ®
+	UI_PARTYAUTO_REG,	// ï¿½ï¿½ï¿½ï¿½ï¿½Äª ï¿½ï¿½ï¿½Ã¢
+	UI_PARTYAUTO_REG_PB,// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢
+	UI_PARTYAUTO_INVITE_LIST,	// ï¿½Ê´ë°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	UI_PARTYAUTO_PARTY_LIST,
-	UI_INSECTCOLLECT,		// °ïÃæ Ã¤Áý ¹Ú½º 
-	UI_BINGOBOX,		// ·¯ºê·¯ºê ÀÌº¥Æ® ÃÊÄÚ·¿ Ã¤Áý ¹Ú½º
-	UI_NPCHELP,			// NPC ¾È³» ½Ã½ºÅÛ
-	UI_SIMPLE_POP,		// [KH_070419] ½ÉÇÃ ÆË¾÷ °ü·Ã Ãß°¡
+	UI_INSECTCOLLECT,		// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ú½ï¿½ 
+	UI_BINGOBOX,		// ï¿½ï¿½ï¿½ê·¯ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Ú·ï¿½ Ã¤ï¿½ï¿½ ï¿½Ú½ï¿½
+	UI_NPCHELP,			// NPC ï¿½È³ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	UI_SIMPLE_POP,		// [KH_070419] ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	UI_MINIGAME,		// WSS_MINIGAME 070418
-	UI_FLOWERTREE,		// ²É³îÀÌ ÀÎÅÍÆäÀÌ½º	
+	UI_FLOWERTREE,		// ï¿½É³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½	
 
 	UI_GUILD_NOTICE,	// WSS_NEW_GUILD_SYSTEM 070715 
-	UI_MONSTER_COMBO,	// ttos_080116 : ¸ó½ºÅÍ ÄÞº¸
-	UI_WILDPET_INFO,	// °ø°Ý Æê Info
-	UI_AUCTION,			// °Å·¡´ëÇà
-	UI_TATOO,			// [090709: selo] Æê ¹®¾ç ½Ã½ºÅÛ
-	UI_PRODUCT2,		// ¾ÆÀÌÅÛ Á¦ÀÛ
-	UI_PRODUCTNPC,		// ¾ÆÀÌÅÛ Á¦ÀÛ NPC
-	UI_NPC_AFFINITYINFO,	// [5/29/2009 rumist] npc affinity. ( npc Ä£È­µµ. ) 
-	UI_ITEMPRODUCT,		// Ä£È­µµ UI¿¡¼­ Á¦ÀÛ UI ºÐ¸® [2/25/2013 Ranma]
-	UI_NPC_AFFINITY,	// [6/3/2009 rumist] npc affinity donation. ±âºÎ. 
+	UI_MONSTER_COMBO,	// ttos_080116 : ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½
+	UI_WILDPET_INFO,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Info
+	UI_AUCTION,			// ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
+	UI_TATOO,			// [090709: selo] ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	UI_PRODUCT2,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	UI_PRODUCTNPC,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NPC
+	UI_NPC_AFFINITYINFO,	// [5/29/2009 rumist] npc affinity. ( npc Ä£È­ï¿½ï¿½. ) 
+	UI_ITEMPRODUCT,		// Ä£È­ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½Ð¸ï¿½ [2/25/2013 Ranma]
+	UI_NPC_AFFINITY,	// [6/3/2009 rumist] npc affinity donation. ï¿½ï¿½ï¿½. 
 	UI_RESURRECTION,	// resurrection ui [11/2/2009 rumist]
-	UI_CHAT_FILTER,		//[ttos_2009_7_17]: CHARATER_CHAT_FILTER Ä³¸¯ÅÍ Ã¤ÆÃ ÇÊÅÍ
-	UI_NPC_SCROLL,		// connie [2009/9/9] - NPC Ã£±â
+	UI_CHAT_FILTER,		//[ttos_2009_7_17]: CHARATER_CHAT_FILTER Ä³ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	UI_NPC_SCROLL,		// connie [2009/9/9] - NPC Ã£ï¿½ï¿½
 	UI_NICKNAME,		//[12/9/2009 kiny] È£Äª 
 	//	UI_TITLESYSTEM,		// Title System UI [11/20/2009 rumist]
 	UI_SOCKETSYSTEM,	// Socket System UI [5/11/2010 rumist]
@@ -151,14 +151,14 @@ enum UI_TYPE
 	UI_LACABALL,
 	UI_CASHSHOP_EX,
 
-	UI_MONSTER_MERCENARY,	// [2010/10/20 : Sora] ¸ó½ºÅÍ ¿ëº´ Ä«µå
-	UI_SIEGE_WARFARE_INFO,	// [2010/11/01 : Sora] °ø¼º °³Æí
+	UI_MONSTER_MERCENARY,	// [2010/10/20 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ Ä«ï¿½ï¿½
+	UI_SIEGE_WARFARE_INFO,	// [2010/11/01 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	UI_TREASURE_MAP,	// º¸¹°Áöµµ
+	UI_TREASURE_MAP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	UI_ROYALRUMBLE_ICON,			// royal rumble UI [5/11/2011 rumist]
 	UI_NEWGUILDSTASH,				// renewal guild stash [6/16/2011 rumist]
 	UI_GUILD_MARK,					// [sora] GUILD_MARK
-	UI_REFORM_SYSTEM,				// reform system [8/28/2012 ¹ÚÈÆ]
+	UI_REFORM_SYSTEM,				// reform system [8/28/2012 ï¿½ï¿½ï¿½ï¿½]
 	UI_FORTUNE,						// [2013/02/13] sykim70 Fortune System
 	UI_LCE_SYSTEM,
 	UI_CALENDAR,
@@ -169,7 +169,7 @@ enum UI_TYPE
 	UI_INVEN_CASH_BAG_BOX,
 	UI_SKILL_NEW,
 	UI_HARDCORE_WARNING,
-	UI_MYSYNDICATE_INFO, // °á»ç´ë Á÷À§ Ã¼°è ¹× Á¤º¸
+	UI_MYSYNDICATE_INFO, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #ifdef	DURABILITY
 	UI_DURABILITY,
 #endif	//	DURABILITY
@@ -185,12 +185,12 @@ enum UI_TYPE
 	UI_ITEM_COMPOSE,
 	UI_HELP_WEB,
 	UI_CUSTOM_TITLE,
-	UI_GS_USE_RECORD,	// ±æµå Ã¢°í »ç¿ë ³»¿ª ui
+	UI_GS_USE_RECORD,	// ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ui
 	UI_HELPER_GUARDIAN_INFO,
 	UI_HELPER_STUDENT,
-	UI_GUILD_BATTLE_MATCH,					// ±æµå´ëÀü ¸ÅÄª »óÅÂÃ¢
-	UI_GUILD_BATTLE_MATCH_REG,				// µî·ÏÃ¢
-	UI_GUILD_BATTLE_MATCH_CHALLENGE,		// ½ÅÃ»Ã¢
+	UI_GUILD_BATTLE_MATCH,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½Ã¢
+	UI_GUILD_BATTLE_MATCH_REG,				// ï¿½ï¿½ï¿½Ã¢
+	UI_GUILD_BATTLE_MATCH_CHALLENGE,		// ï¿½ï¿½Ã»Ã¢
 	UI_BOX_OPEN,
 	UI_AUTOFUNC,											// Val add auto igni/pickup
 	#ifdef BATTLE_PASS_SYSTEM
@@ -199,16 +199,19 @@ enum UI_TYPE
 #ifdef IDENTIFY_ITEM_02212023
 	UI_IDENTIFYFUNC,
 #endif
-	UI_SELECTIVE_SHOW_END,									// ¼±ÅÃÀûÀ¸·Î º¸ÀÌ´Â ÀÎÅÍÆäÀÌ½º     -->|
+#ifdef QUICK_PANEL
+	UI_QuickPanel,
+#endif
+	UI_SELECTIVE_SHOW_END,									// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½     -->|
 
-	UI_LOGIN_SHOW_START		= UI_SELECTIVE_SHOW_END,		// ·Î±×ÀÎ ÀÎÅÍÆäÀÌ½º |<--
+	UI_LOGIN_SHOW_START		= UI_SELECTIVE_SHOW_END,		// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ |<--
 	UI_LOGIN				= UI_LOGIN_SHOW_START,
 	UI_CREATE_CHAR,
 	UI_SERVER_SELECT,
 	UI_CHARACTER_SELECT,
-	UI_LOGIN_SHOW_END,										// ·Î±×ÀÎ ÀÎÅÍÆäÀÌ½º     -->|
+	UI_LOGIN_SHOW_END,										// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½     -->|
 
-	UI_MESSENGER_TALK_START = UI_LOGIN_SHOW_END,			// ¸Þ½ÅÀú ´ëÈ­ »óÀÚ     -->|
+	UI_MESSENGER_TALK_START = UI_LOGIN_SHOW_END,			// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½     -->|
 	UI_MESSENGER_TALK1		= UI_MESSENGER_TALK_START,
 	UI_MESSENGER_TALK2,
 	UI_MESSENGER_TALK3,
@@ -219,9 +222,9 @@ enum UI_TYPE
 	UI_MESSENGER_TALK8,
 	UI_MESSENGER_TALK9,
 	UI_MESSENGER_TALK10,
-	UI_MESSENGER_TALK_END,									// ¸Þ½ÅÀú ´ëÈ­ »óÀÚ |<--
+	UI_MESSENGER_TALK_END,									// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ |<--
 
-	UI_MESSAGEBOX_START		= UI_MESSENGER_TALK_END,		// ¸Þ¼¼Áö ¹Ú½º ÀÎÅÍÆäÀÌ½º |<--
+	UI_MESSAGEBOX_START		= UI_MESSENGER_TALK_END,		// ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ |<--
 	UI_MESSAGEBOX1			= UI_MESSAGEBOX_START,
 	UI_MESSAGEBOX2,
 	UI_MESSAGEBOX3,
@@ -237,15 +240,15 @@ enum UI_TYPE
 	UI_MESSAGEBOX13,
 	UI_MESSAGEBOX14,
 	UI_MESSAGEBOX15,
-	UI_MESSAGEBOX_END,										// ¸Þ¼¼Áö ¹Ú½º ¾ÈÅÍÆäÀÌ½º     -->|
+	UI_MESSAGEBOX_END,										// ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½     -->|
 
-	UI_MESSAGEBOXL_START	= UI_MESSAGEBOX_END,			// ´ëÈ­ »óÀÚ ÀÎÅÍÆäÀÌ½º |<--
+	UI_MESSAGEBOXL_START	= UI_MESSAGEBOX_END,			// ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ |<--
 	UI_MESSAGEBOXL1			= UI_MESSAGEBOXL_START,
 	UI_MESSAGEBOXL2,
 	UI_MESSAGEBOXL3,
 	UI_MESSAGEBOXL4,
 	UI_MESSAGEBOXL5,
-	UI_MESSAGEBOXL_END,										// ´ëÈ­ »óÀÚ ¾ÈÅÍÆäÀÌ½º     -->|
+	UI_MESSAGEBOXL_END,										// ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½     -->|
 
 	UI_RANKINGVIEW_START	= UI_MESSAGEBOXL_END,
 	UI_RANKINGVIEW_RENEWAL,
@@ -428,6 +431,9 @@ class CUIIdentifyItem;
 #ifdef GLADES_RANKING_04182023
 class CUIRankingGlades;
 #endif
+#ifdef QUICK_PANEL
+class CUIQuickPanel;
+#endif
 class CUIWindowDeclare : public CUIBase
 {
 public:
@@ -438,7 +444,7 @@ public:
 	CAffinityUI*			GetAffinity()	{ return (CAffinityUI*)m_apUIs[UI_NPC_AFFINITY];}
 	CAffinityInfoUI*		GetAffinityInfo() { return (CAffinityInfoUI*)m_apUIs[UI_NPC_AFFINITYINFO];	}
 	CUIAuctionNew*			GetAuction() { return (CUIAuctionNew*)m_apUIs[UI_AUCTION]; }
-	CBingoBoxUI*			GetBingoBox() { return (CBingoBoxUI*)m_apUIs[UI_BINGOBOX]; } // ÃÊÄÚ·¿ ¼öÁý »óÀÚ
+	CBingoBoxUI*			GetBingoBox() { return (CBingoBoxUI*)m_apUIs[UI_BINGOBOX]; } // ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CUICalendar*			GetCalendar() { return (CUICalendar*)m_apUIs[UI_CALENDAR]; }
     CUICalendarEventInfo*	GetCalendarEventInfo()	{ return (CUICalendarEventInfo*)m_apUIs[UI_CALENDAR_EVENT_INFO];	}
     CUICashShopEX*			GetCashShopEX() { return (CUICashShopEX*) m_apUIs[UI_CASHSHOP_EX]; }
@@ -449,7 +455,7 @@ public:
     CUICharacterSelect*		GetCharacterSelect()	{ return (CUICharacterSelect*)m_apUIs[UI_CHARACTER_SELECT];	}
     CChatBlockListUI*		GetChatFilter()	{ return (CChatBlockListUI*)m_apUIs[UI_CHAT_FILTER]; }
     //CUIChatting*			GetChatting() { return (CUIChatting*)m_apUIs[UI_CHATTING]; }
-    CInsectCollectUI*		GetInsectCollect() { return (CInsectCollectUI*)m_apUIs[UI_INSECTCOLLECT]; } // °ïÃæ Ã¤Áý»óÀÚ
+    CInsectCollectUI*		GetInsectCollect() { return (CInsectCollectUI*)m_apUIs[UI_INSECTCOLLECT]; } // ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CUICompass*				GetCompass()	{ return (CUICompass*)m_apUIs[UI_COMPASS]; }
 	CCompoundUI*			GetCompound() { return (CCompoundUI*)m_apUIs[UI_COMPOUND]; }
     CCubeRankingUI*			GetCubeRank()	{ return (CCubeRankingUI*) m_apUIs[UI_CUBERANK]; }
@@ -459,7 +465,7 @@ public:
     CExchangeUI*			GetExchange() { return (CExchangeUI*)m_apUIs[UI_EXCHANGE]; }
     CUIExpressSystem*		GetLCESystem()	{ return (CUIExpressSystem*) m_apUIs[UI_LCE_SYSTEM];		}
 	CUIExpManage*			GetExpedition() {return (CUIExpManage*)m_apUIs[UI_EXPEDITION]; }
-    CUIFlowerTree*			GetFlowerTree() {return (CUIFlowerTree*)m_apUIs[UI_FLOWERTREE];} // ²É³îÀÌ ÀÎÅÍÆäÀÌ½º
+    CUIFlowerTree*			GetFlowerTree() {return (CUIFlowerTree*)m_apUIs[UI_FLOWERTREE];} // ï¿½É³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½
     CUIGamble*				GetGamble() { return (CUIGamble*)m_apUIs[UI_GAMBLE]; }	
 	CUIGPS*					GetGPS()	{ return (CUIGPS*)m_apUIs[UI_GPS]; }
 	CUIGuild*				GetGuild() { return (CUIGuild*)m_apUIs[UI_GUILD]; }
@@ -473,7 +479,7 @@ public:
     CUIHelp*				GetHelp() { return (CUIHelp*)m_apUIs[UI_HELP]; }
     CUIHelp3*				GetHelp3() { return (CUIHelp3*)m_apUIs[UI_HELP3]; }
     CHelperUI*				GetHelper() { return (CHelperUI*)m_apUIs[UI_HELPER]; }
-    CUIHelpIcon*			GetHelpIcon() { return (CUIHelpIcon*)m_apUIs[UI_HELP_ICON]; }		// µµ¿ò¸» ½Ã½ºÅÛ Ãß°¡
+    CUIHelpIcon*			GetHelpIcon() { return (CUIHelpIcon*)m_apUIs[UI_HELP_ICON]; }		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
     CUIInitJob*				GetInitJob() { return (CUIInitJob*)m_apUIs[UI_INITJOB]; }
     CUIInvenCashBagBox*		GetInvenCashBagBox()		{ return (CUIInvenCashBagBox*)m_apUIs[UI_INVEN_CASH_BAG_BOX]; }
     CUIInventory*			GetInventory() { return (CUIInventory*)m_apUIs[UI_INVENTORY]; }
@@ -494,10 +500,10 @@ public:
     CUINewGuildStash*		GetGuildStash_N()		{ return (CUINewGuildStash*) m_apUIs[UI_NEWGUILDSTASH];			}
     CUINickName*			GetNickName() { return (CUINickName*) m_apUIs[UI_NICKNAME]; }
     CUINoticeNew*			GetNotice() { return (CUINoticeNew*)m_apUIs[UI_NOTICE]; }
-    CUINpcHelp*				GetNpcHelp() {return (CUINpcHelp*)m_apUIs[UI_NPCHELP];} //Npc ¾È³»½Ã½ºÅÛ
+    CUINpcHelp*				GetNpcHelp() {return (CUINpcHelp*)m_apUIs[UI_NPCHELP];} //Npc ï¿½È³ï¿½ï¿½Ã½ï¿½ï¿½ï¿½
     CUINpcScroll*			GetNpcScroll() { return (CUINpcScroll*) m_apUIs[UI_NPC_SCROLL]; }
     CUIOption*				GetOption() { return (CUIOption*)m_apUIs[UI_OPTION]; }
-    CUIOXQuizEvent*			GetOXQuizEvent() { return (CUIOXQuizEvent*)m_apUIs[UI_QUIZEVENT]; } // O.X ÄûÁî ÀÌº¥Æ®
+    CUIOXQuizEvent*			GetOXQuizEvent() { return (CUIOXQuizEvent*)m_apUIs[UI_QUIZEVENT]; } // O.X ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
     CUIParty*				GetParty() { return (CUIParty*)m_apUIs[UI_PARTY]; }
     CUIPartyAuto*			GetPartyAuto() { return (CUIPartyAuto*)m_apUIs[UI_PARTYAUTO]; } // party auto matching
 	CUIPartyAutoReg*		GetPartyAutoReg() { return (CUIPartyAutoReg*)m_apUIs[UI_PARTYAUTO_REG]; }
@@ -505,9 +511,9 @@ public:
 	CUIPartyAutoInviteList*	GetPartyAutoInvite() { return (CUIPartyAutoInviteList*)m_apUIs[UI_PARTYAUTO_INVITE_LIST]; }
 	CUIPartyAutoPartyList*	GetPartyAutoParty() { return (CUIPartyAutoPartyList*)m_apUIs[UI_PARTYAUTO_PARTY_LIST]; }
     CUIPersonalshopNew*		GetPersonalShop() { return (CUIPersonalshopNew*)m_apUIs[UI_PERSONALSHOP]; }
-    CPetFreeUI*				GetPetFree()	{ return (CPetFreeUI*)m_apUIs[UI_PETFREE]; } // Æê ºÀÀÎ ÇØÁ¦
+    CPetFreeUI*				GetPetFree()	{ return (CPetFreeUI*)m_apUIs[UI_PETFREE]; } // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     CUIPetInfo*				GetPetInfo() { return (CUIPetInfo*)m_apUIs[UI_PETINFO]; }
-	CPetItemMixUI*			GetPetItemMixUI() { return (CPetItemMixUI*)m_apUIs[UI_PET_ITEM_MIX]; } // Æê¾ÆÀÌÅÛ Á¶ÇÕ( À¯´ÏÅ© )
+	CPetItemMixUI*			GetPetItemMixUI() { return (CPetItemMixUI*)m_apUIs[UI_PET_ITEM_MIX]; } // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½ï¿½ï¿½ï¿½Å© )
     CUIPetStash*			GetPetStash()				{ return (CUIPetStash*)m_apUIs[UI_PET_STASH]; }
     CUIPetStashSelectEffect*	GetPetStashSelectEffect()	{ return (CUIPetStashSelectEffect*)m_apUIs[UI_PET_STASH_SELECT_EFFECT]; }
 	CPetTargetUI*			GetPetTargetUI() { return (CPetTargetUI*)m_apUIs[UI_PET_TARGETINFO]; }
@@ -535,7 +541,7 @@ public:
     CUIResurrectionMsgBox*	GetResurrectionMsgBox()	{ return (CUIResurrectionMsgBox*)m_apUIs[UI_RESURRECTION];	}
     CUIRoyalRumbleIcon*		GetRoyalRumbleIcon()	{ return (CUIRoyalRumbleIcon*) m_apUIs[UI_ROYALRUMBLE_ICON];	}
     CUISecurity*			GetSecurity() { return (CUISecurity*)m_apUIs[UI_SECURITY]; }
-    CUISelectList*			GetSelectList() { return (CUISelectList*)m_apUIs[UI_SELECTLIST]; } // Ä£±¸Ã£±â ÀÌº¥Æ® 060126
+    CUISelectList*			GetSelectList() { return (CUISelectList*)m_apUIs[UI_SELECTLIST]; } // Ä£ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½Ìºï¿½Æ® 060126
     CUISelectResource*		GetSelectResource() { return (CUISelectResource*)m_apUIs[UI_SELECTRESOURCE]; }
     CUISelectWord*			GetSelectWord() { return (CUISelectWord*)m_apUIs[UI_SELECTWORD]; }
     CUIServerSelect*		GetServerSelect()	{ return (CUIServerSelect*)m_apUIs[UI_SERVER_SELECT];	}
@@ -544,7 +550,7 @@ public:
     CUISiegeWarfare*		GetSiegeWarfare() { return (CUISiegeWarfare*)m_apUIs[UI_SIEGE_WARFARE]; }
     CUISiegeWarfareInfo*	GetSiegeWarfareInfo()	{ return (CUISiegeWarfareInfo*) m_apUIs[UI_SIEGE_WARFARE_INFO]; }
     CUISiegeWarfareNew*		GetSiegeWarfareNew() { return (CUISiegeWarfareNew*)m_apUIs[UI_SIEGE_WARFARE_NEW]; }  // WSS_DRATAN_SIEGEWARFARE 070727
-    CUISimplePop*			GetSimplePop() { return (CUISimplePop*)m_apUIs[UI_SIMPLE_POP]; }	// [KH_070419] ½ÉÇÃ ÆË¾÷ °ü·Ã Ãß°¡
+    CUISimplePop*			GetSimplePop() { return (CUISimplePop*)m_apUIs[UI_SIMPLE_POP]; }	// [KH_070419] ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	CSingleBattleUI*		GetSingleBattle() { return (CSingleBattleUI*)m_apUIs[UI_SINGLE_BATTLE]; }
     CUISkillLearn*			GetSkillLearn() { return (CUISkillLearn*)m_apUIs[UI_SKILLLEARN]; }
 	CSSkillLearnUI*			GetSSkillLearn() { return (CSSkillLearnUI*)m_apUIs[UI_SSKILLLEARN]; }
@@ -560,7 +566,7 @@ public:
     CSystemMenuUI*			GetSystemMenu() { return (CSystemMenuUI*)m_apUIs[UI_SYSTEMMENU]; }
     CTalkUI*				GetTalk(int iUIIndex) { return (CTalkUI*)m_apUIs[iUIIndex]; }
     CTargetInfoUI*			GetTargetInfoUI() { return (CTargetInfoUI*)m_apUIs[UI_TARGETINFO]; }
-    CTatooUI*				GetTatoo() { return (CTatooUI*)m_apUIs[UI_TATOO]; }	// [090709: selo] Æê ¹®¾ç ½Ã½ºÅÛ
+    CTatooUI*				GetTatoo() { return (CTatooUI*)m_apUIs[UI_TATOO]; }	// [090709: selo] ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
     CTeleportUI*			GetTeleport() { return (CTeleportUI*)m_apUIs[UI_TELEPORT]; }
     CUITrade*				GetTrade()				{ return (CUITrade*)m_apUIs[UI_TRADE];	}
     CTreasureMapUI*			GetTreasureMapUI()		{ return (CTreasureMapUI*) m_apUIs[UI_TREASURE_MAP]; }
@@ -600,6 +606,10 @@ public:
 
 #ifdef GLADES_RANKING_04182023
 	CUIRankingGlades* GetRankingGlades() { return (CUIRankingGlades*)m_apUIs[UI_RANKING_GLADES]; }
+#endif
+
+#ifdef QUICK_PANEL
+	CUIQuickPanel* GetQuickPanel() { return (CUIQuickPanel*)m_apUIs[UI_QuickPanel]; }
 #endif
 
 	void					InitRankSystem();

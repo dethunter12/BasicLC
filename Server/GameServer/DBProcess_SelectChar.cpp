@@ -25,7 +25,7 @@
 typedef boost::tokenizer<boost::char_separator<char> > stokenizer;
 static boost::char_separator<char> sep(" ", NULL, boost::drop_empty_tokens);
 
-//XX Ä³¸¯ÅÍ¼±ÅÃ 3
+//XX Ä³ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ 3
 void DBProcess::SelectChar( boost::any& argv )
 {
 	selectchar_t data = boost::any_cast<selectchar_t>(argv);
@@ -38,7 +38,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	void* guild = boost::tuples::get<6>(data);
 
 	int table_no = char_index % 10;
-	int m_notice[MAX_NOTICE] = {0,};			//ÀÌº¥Æ® °øÁö (ÃÖ´ë 5°³), main thread·Î µ¹·ÁÁà¾ßÇÔ
+	int m_notice[MAX_NOTICE] = {0,};			//ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö´ï¿½ 5ï¿½ï¿½), main threadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	CDBCmd dbChar;
 	dbChar.Init(char_db_.getMYSQL());
@@ -184,6 +184,59 @@ void DBProcess::SelectChar( boost::any& argv )
 		pChar->m_ep = -1;
 	}
 
+	#ifdef QUICK_PANEL
+	//check db for exisiting data
+	CDBCmd cmdquickpanel;
+	cmdquickpanel.Init(char_db_.getMYSQL());
+	char sel_quickpanel[255];
+	sprintf(sel_quickpanel, "SELECT * FROM t_cloud_quick_panel where a_index = %d", pChar->m_index);
+	cmdquickpanel.SetQuery(sel_quickpanel);
+	cmdquickpanel.Open();
+
+	if (cmdquickpanel.MoveNext() == false)
+	{
+		//init db with default data for this user
+		CDBCmd cmdInitquickpanel;
+		cmdInitquickpanel.Init(char_db_.getMYSQL());
+		char init_quickpanel[255];
+		sprintf(init_quickpanel, "insert into t_cloud_quick_panel  (a_index) values (%d); ", pChar->m_index);
+		cmdInitquickpanel.SetQuery(init_quickpanel);
+		cmdInitquickpanel.Update();
+
+		//set default data in memory
+		for (int i = 0; i < 25; i++)
+		{
+			pChar->m_QuickPanelBtnType[i] = -1;
+			pChar->m_QuickPanelBtnIdx[i] = -1;
+			//LOG_ERROR("CLOUD PANEL FIRST : %d : %d", pChar->m_QuickPanelBtnType[i], pChar->m_QuickPanelBtnIdx[i]);
+		}
+	}
+	else
+	{
+		char tbuf[256];
+		// has db info already so use it directly in memory
+		//for(int i = 0 ; i < 25; i ++ ) 
+		{
+			int slot = 0;
+			const char* pch = cmdquickpanel.GetRec("a_panel");
+
+			while (*pch && slot < 25)
+			{
+				// slot type
+				pch = AnyOneArg(pch, tbuf);
+				pChar->m_QuickPanelBtnType[slot] = atoi(tbuf);
+
+				pch = AnyOneArg(pch, tbuf);
+				pChar->m_QuickPanelBtnIdx[slot] = atoi(tbuf);
+
+				//LOG_ERROR("CLOUD PANEL : %d : %d", pChar->m_QuickPanelBtnType[slot], pChar->m_QuickPanelBtnIdx[slot]);
+				slot++;
+			}
+		}
+	}
+
+#endif
+
 	int attendance = 0;
 	dbChar.GetRec("a_attendance_assure", attendance);
 	pChar->m_attendanceManager.setUseAssure(attendance);
@@ -220,36 +273,36 @@ void DBProcess::SelectChar( boost::any& argv )
 
 	bool bValidZone = false;
 	CZone* pRemoteZone = NULL;
-	// Á¸À» Ã£¾Æ¼­
+	// ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½
 	CZone* pZone = gserver->FindZone(nZone);
 	if (pZone != NULL)
 	{
-		// ¿ø°Ý ¼­¹ö¸é ¼³Á¤
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (pZone->m_bRemote)
 			pRemoteZone = pZone;
 		bValidZone = true;
 	}
 	if (!bValidZone)
 	{
-		// Àß¸øµÈ Á¸ ¹øÈ£ÀÏ¶§
-		nZone = ZONE_START;		// TODO : ½ÃÀÛ Á¸ÀÌ Á÷¾÷º°/Á¾Á·º°·Î ´Ù¸¦ °æ¿ì ¼öÁ¤ ÇÊ¿ä
+		// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ï¶ï¿½
+		nZone = ZONE_START;		// TODO : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 		/*if(pChar->m_job == JOB_NIGHTSHADOW)
 			nZone = ZONE_EGEHA;*/
 
 		pZone = gserver->FindZone(nZone);
-		// ½ÃÀÛ Á¸À» Ã£¾Æ¼­
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½
 		bValidZone = true;
 	}
 
 	if (!bValidZone)
 		return;
 
-	// À¯È¿¼º °Ë»ç
+	// ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Ë»ï¿½
 	if (pRemoteZone == NULL)
 	{
 		if (pZone == NULL)
 		{
-			// ½ÃÀÛ Á¸ ÁöÁ¡
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			pChar->m_pZone		= gserver->FindZone(ZONE_START);
 			pChar->m_pArea		= pChar->m_pZone->m_area;
 			GET_YLAYER(pChar)	= pChar->m_pZone->m_zonePos[0][0];
@@ -264,10 +317,10 @@ void DBProcess::SelectChar( boost::any& argv )
 					break;
 			}
 		}
-		// yLayer ¼öÁ¤
+		// yLayer ï¿½ï¿½ï¿½ï¿½
 		else if (nYlayer < 0 || nYlayer > ((pZone->m_countY - 1) * 2) || pZone->m_countArea != 1)
 		{
-			// °¡Àå °¡±î¿î ¸¶À»
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			int nearZone;
 			int nearPos;
 			pZone = gserver->FindNearestZone(nZone, GET_X(pChar), GET_Z(pChar), &nearZone, &nearPos);
@@ -289,7 +342,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 		else
 		{
-			// ¿ø·¡ À§Ä¡ ±×´ë·Î
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½×´ï¿½ï¿½
 			if (pZone == NULL)
 			{
 				pZone = gserver->FindZone(ZONE_START);
@@ -300,7 +353,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			GET_YLAYER(pChar)	= nYlayer;
 		}
 
-		// ¿ø°Ý Á¸ÀÌ¸é ±×ÂÊ ¼­¹ö·Î ´Ù½Ã Á¢¼ÓÇÏ¶ó°í ÇÏ°í ³Ñ±â±â
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ñ±ï¿½ï¿½
 		if (pChar->m_pZone->m_bRemote)
 			pRemoteZone = gserver->FindZone(pChar->m_pZone->m_index);
 		else
@@ -309,18 +362,18 @@ void DBProcess::SelectChar( boost::any& argv )
 
 	if (pRemoteZone != NULL)
 	{
-		// ´Ù¸¥ ¼­¹ö·Î ÀÌµ¿À» ÇÒ ¼ö ÀÖµµ·Ï ¸Þ½ÃÁö Àü´Þ
+		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CNetMsg::SP rmsg(new CNetMsg);
 		DBOtherServerMsg(rmsg, pRemoteZone->m_index, pRemoteZone->m_remoteIP, pRemoteZone->m_remotePort);
 		SendMessageToClient(seq_index, m_index, rmsg);
 
-		// main thread¿¡¼­ Á¢¼ÓÁ¾·áÇÒ ¼ö ÀÖµµ·Ï Á¶Ä¡
+		// main threadï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 		EventProcessForDB::moveOtherZone retVal;
 		retVal.m_index = m_index;
 		retVal.m_seq_index = seq_index;
 		EventProcessForDB::instance()->pushSelectCharacterOtherZone(retVal);
 
-		// µ¹¾Æ°¡±âÀü¿¡ »õ·Î »ý¼ºÇÑ CPC* ¸¦ »èÁ¦ÇÔ
+		// ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CPC* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		delete pChar;
 
 		return;
@@ -429,7 +482,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 	}
 
-	// ÇØ´ç ½ºÅ³ÀÇ Á¦ÀÛ ±â¼ú load
+	// ï¿½Ø´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ load
 	CDBCmd dbFactory;
 	dbFactory.Init(char_db_.getMYSQL());
 
@@ -459,9 +512,9 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 
 	/////////////////////
-	// Äù½ºÆ® ÀÐ±â
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ð±ï¿½
 
-	// ÇÏµåÄÚµù : Æ©Åä¸®¾ó ¸ðµå·Î ½ºÅ¸Æ®Á¸ÀÌ ¹Ù²î¾î¾ß ÇÏ´Â°¡?
+	// ï¿½Ïµï¿½ï¿½Úµï¿½ : Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½Ï´Â°ï¿½?
 	bool bGotoTutorial = false;
 
 	static CLCString		questIndex(256);
@@ -479,7 +532,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	dbChar.GetRec("a_quest_complete",	questComplete);
 	dbChar.GetRec("a_quest_abandon",	questAbandon);
 
-	// ÀÌÀü ÇÊµå¿¡¼­ ÀÐ±â, »õ·Î¿î Å×ÀÌºí¿¡¼­ ÀÐ±â´Â º°µµ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¿¡ï¿½ï¿½ ï¿½Ð±ï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int		nQuestIndex;
 	char	nQuestState;
 	int		nQuestValue[QUEST_MAX_CONDITION];
@@ -499,7 +552,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			continue ;
 		}
 
-		// ÇÏµåÄÚµù : ½Ì±Û´øÀü1 Æ©Åä¸®¾óÆÇ
+		// ï¿½Ïµï¿½ï¿½Úµï¿½ : ï¿½Ì±Û´ï¿½ï¿½ï¿½1 Æ©ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½
 		if (pQuest->IsTutorialQuest())
 			bGotoTutorial = true;
 
@@ -531,7 +584,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 
 	/////////////////////
-	// Special SkillÀÐ±â
+	// Special Skillï¿½Ð±ï¿½
 
 	static CLCString strSSkill(256);
 	const char* psskill = strSSkill;
@@ -560,7 +613,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		pChar->m_sSkillList.Add(sskill);
 	}
 
-// ÀÌº¥Æ® Å×ÀÌºí ÀÐ±â
+// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ð±ï¿½
 	dbChar.GetRec("a_etc_event", pChar->m_etcEvent);
 	if(pChar->m_job == JOB_NIGHTSHADOW)
 	{
@@ -568,7 +621,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		pChar->m_etcEvent &= ~ETC_EVENT_JUNO_RENEWAL_QUESTCOMPLETE;
 	}
 
-	// »õ·Î¿î Å×ÀÌºí¿¡¼­ Äù½ºÆ® ÀÐ±â
+	// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ð±ï¿½
 	std::string select_questdata_query = boost::str(boost::format(
 			"SELECT * FROM t_questdata%02d WHERE a_char_index=%d ORDER BY a_state, a_quest_index")
 										 % table_no % pChar->m_index);
@@ -592,7 +645,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			if (pQuest == NULL)
 				continue ;
 
-			// ÇÏµåÄÚµù : ½Ì±Û´øÀü1 Æ©Åä¸®¾óÆÇ
+			// ï¿½Ïµï¿½ï¿½Úµï¿½ : ï¿½Ì±Û´ï¿½ï¿½ï¿½1 Æ©ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½
 			if (nQuestState == QUEST_STATE_RUN && pQuest->IsTutorialQuest())
 				bGotoTutorial = true;
 
@@ -610,7 +663,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 			if((pQuest->GetQuestProto()->m_failValue > 0) && nQuestFailValue < gserver->getNowSecond())
 			{
-				pChar->m_questList.DelQuest(pChar, pQuest); // Å¸ÀÓ ¾îÅØ Äù½ºÆ® ½ÇÆÐ (¸®½ºÆ®¿¡¼­ »èÁ¦)
+				pChar->m_questList.DelQuest(pChar, pQuest); // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				continue;
 			}
 
@@ -621,7 +674,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					time_t nowtime;
 					time(&nowtime);
 					if( nowtime >= pQuest->GetCompleteTime() )
-						pChar->m_questList.DelQuest(pChar, pQuest, QUEST_STATE_DONE ); // ÀÏÀÏ Äù½ºÆ® ½ÇÆÐ (¸®½ºÆ®¿¡¼­ »èÁ¦)
+						pChar->m_questList.DelQuest(pChar, pQuest, QUEST_STATE_DONE ); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				}
 			}
 		}
@@ -641,7 +694,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 			if(!pChar->m_affinityList.AddAffinity(affinityidx, point))
 			{
-				// Ä£È­µµ Ãß°¡ ½ÇÆÐ
+				// Ä£È­ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 
@@ -659,14 +712,14 @@ void DBProcess::SelectChar( boost::any& argv )
 
 				if(!pChar->m_affinityList.UpdateRewardPoint(npcidx, point))
 				{
-					// º¸»óÁ¡¼ö ¼¼ÆÃ ¸øÇßÀ½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				}
 			}
 		}
 	}
 
 	////////////////
-	// º¸Á¶È¿°ú ÀÐ±â
+	// ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Ð±ï¿½
 	std::string select_assist_query = boost::str(boost::format(
 										  "SELECT * FROM t_assist WHERE a_char_index=%1%") % pChar->m_index);
 	dbChar.SetQuery(select_assist_query.c_str());
@@ -791,14 +844,14 @@ void DBProcess::SelectChar( boost::any& argv )
 #ifdef EVENT_PCBANG_2ND
 			if(nskill == 493)
 			{
-				// PC¹æ ¹öÇÁ´Â ÀúÀå ¾ÈµÊ ±×·¯¹Ç·Î ÀÐ¾î ¿Ã ¶§µµ ½ºÅµ
+				// PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½Ð¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ
 				continue;
 			}
 #endif // EVENT_PCBANG_2ND
 
 			if( nskill == 516 )
 			{
-				// ÇÇ´Ð½º ¹öÇÁ´Â ÀúÀå ¾ÈµÊ ±×·¯¹Ç·Î ÀÐ¾î ¿Ã ¶§µµ ½ºÅµ
+				// ï¿½Ç´Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ ï¿½×·ï¿½ï¿½Ç·ï¿½ ï¿½Ð¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ
 				continue;
 			}
 
@@ -918,7 +971,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 
 	//////////////////////////////////////////
-	// 060227 : bs : º¸Á¶ È¿°ú ÀÐ±â : Àý´ë½Ã°£
+	// 060227 : bs : ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½Ð±ï¿½ : ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	std::string select_assist_abstime_query = boost::str(boost::format(
 				"SELECT * FROM t_assist_abstime WHERE a_char_index=%1%") % pChar->m_index);
 	dbChar.SetQuery(select_assist_abstime_query.c_str());
@@ -948,7 +1001,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				bAssistABSHit[1] = (nAssistABSHit1) ? true : false;
 				bAssistABSHit[2] = (nAssistABSHit2) ? true : false;
 
-#ifdef REFORM_PK_PENALTY_201108 // ¼ºÇâ ¼öÁö ÀåÄ¡´Â ·Î±× ¾Æ¿ô µÇ¾î ÀÖ¾ú´ø ½Ã°£ ¸¸Å­  pk ¼ºÇâ Æ÷ÀÎÆ® º¸»ó º¸»óÇØÁà¾ßÇÑ´Ù.
+#ifdef REFORM_PK_PENALTY_201108 // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½Æ¿ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½Å­  pk ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				if( nAssistABSItemIndex >= 7477 && nAssistABSItemIndex <= 7479 )
 				{
 					const CSkillProto* sp = gserver->m_skillProtoList.Find(nAssistABSSkillIndex);
@@ -987,15 +1040,15 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 				else if(nAssistABSSkillIndex == 1771)
 				{
-					//Áö±Ý ½Ã°£º¸´Ù ´ÊÀ¸¸é
+					//ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					if( nAssistABSEndTime < gserver->getNowSecond() )
 					{
-						//³¯Â¥°¡ ¿À´Ã°ú °°´Ù¸é
+						//ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½
 						if(isToday(nAssistABSEndTime) == true)
 						{
-							//»ç¿ëÁß »óÅÂ¸¦ false·Î ¸¸µé°í
+							//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 							pChar->m_attendanceManager.setUseAssure(false);
-							//Ãâ¼®»óÅÂ¸¦ ¾îÁ¦·Î ¾÷µ¥ÀÌÆ® ÇØÁØ´Ù.
+							//ï¿½â¼®ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ø´ï¿½.
 							CDBCmd dbChar_se;
 							dbChar_se.Init(char_db_.getMYSQL());
 							std::string query = boost::str(boost::format("UPDATE t_attendance_exp_system SET a_last_date = (CURDATE() - INTERVAL 1 DAY) WHERE a_char_index = %d") % pChar->m_index);
@@ -1036,7 +1089,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				else
 #endif
 
-					// ³²Àº ½Ã°£ °è»ê
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½
 					if (nAssistABSEndTime > gserver->getNowSecond())
 					{
 						int remain = (nAssistABSEndTime - gserver->getNowSecond()) * PULSE_ASSIST_CHECK;
@@ -1061,12 +1114,12 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 		}
 	}
-	// 060227 : bs : º¸Á¶ È¿°ú ÀÐ±â : Àý´ë½Ã°£
+	// 060227 : bs : ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½Ð±ï¿½ : ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	//////////////////////////////////////////
 
-	// 060221 : bs : Æê »ç¸Á ½Ã°£ ÀÐ±â Ãß°¡
-	// ¾Ö¿Ïµ¿¹° ÀÐ±â
-	// Æê ¾ÆÀÌÅÛ ¸®½ºÆ® : ¿©±â¿¡ ¾ø´Â ÆêÀº Áö¿ö¹ö¸°´Ù
+	// 060221 : bs : ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ð±ï¿½ ï¿½ß°ï¿½
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® : ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	std::vector<CItem*> listPetItem;
 	std::string select_pet_query = boost::str(boost::format(
 									   " SELECT p.*, pn.a_pet_name as a_pet_name"
@@ -1161,7 +1214,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					pet->SetPetTurnToNpcSize( nTurntoNpcSize );
 #endif //PET_TURNTO_NPC_ITEM
 
-					// ¸®½ºÆ®¿¡ Ãß°¡
+					// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
 					ADD_TO_BILIST(pet, pChar->m_petList, m_prevPet, m_nextPet);
 				}
 			}
@@ -1169,7 +1222,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 
 
-	// DB¿¡¼­ PET Loading
+	// DBï¿½ï¿½ï¿½ï¿½ PET Loading
 	CDBCmd dbChar2;
 	dbChar2.Init(char_db_.getMYSQL());
 
@@ -1282,11 +1335,11 @@ void DBProcess::SelectChar( boost::any& argv )
 					CSkill* skill = gserver->m_skillProtoList.Create(skillindex, skilllevel);
 					if (skill)
 						apet->AddSkill(skill);
-					// ½ºÅ³ È®ÀÎ
+					// ï¿½ï¿½Å³ È®ï¿½ï¿½
 				}
 				ADD_TO_BILIST(apet, pChar->m_pApetlist, m_pPrevPet, m_pNextPet);
 
-				// Æê ÀÎº¥ È®ÀÎ	dbChar2
+				// ï¿½ï¿½ ï¿½Îºï¿½ È®ï¿½ï¿½	dbChar2
 				std::string select_apet_inven_query = boost::str(boost::format(
 						"SELECT * FROM t_apets_inven WHERE a_apet_idx=%1%") % apet_index);
 				dbChar2.SetQuery(select_apet_inven_query.c_str());
@@ -1353,7 +1406,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 
-				// °ø°ÝÇü Æê AI
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ AI
 				std::string select_apet_ai_query = boost::str(boost::format(
 													   "SELECT * FROM t_apets_ai WHERE a_apet_idx=%d and a_char_idx=%d") % apet_index % pChar->m_index);
 				dbChar2.SetQuery(select_apet_ai_query.c_str());
@@ -1391,7 +1444,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	std::vector<int> listCompositedItem;
 
 	////////////////
-	// ÀÎº¥Åä¸® ÀÐ±â
+	// ï¿½Îºï¿½ï¿½ä¸® ï¿½Ð±ï¿½
 	std::string select_inven_query = boost::str(boost::format(
 										 "SELECT * FROM t_inven%02d WHERE a_char_idx=%d ORDER BY a_tab_idx, a_row_idx") % table_no % pChar->m_index);
 	dbChar.SetQuery(select_inven_query.c_str());
@@ -1540,7 +1593,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					memset(jewelidx, -1, sizeof(jewelidx));
 				}
 
-				// 050521 : bs : ÄÉ¸£ ³Ù ·¹º§ ¾ø´Â °Í 12·¹º§·Î
+				// 050521 : bs : ï¿½É¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				switch (itemidx)
 				{
 				case 498:
@@ -1561,7 +1614,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 					break;
 				}
-				// --- 050521 : bs : ÄÉ¸£ ³Ù ·¹º§ ¾ø´Â °Í 12·¹º§·Î
+				// --- 050521 : bs : ï¿½É¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #if defined(EVENT_WORLDCUP_2010) || defined(EVENT_WORLDCUP_2010_TOTO)
 #else
 
@@ -1632,7 +1685,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 
 #ifdef LC_KOR
-				// ±¹³»´Â ÀÏº» ¾ÆÀÌÅÛ ¾øÀ½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				switch (itemidx)
 				{
 				case 1228:
@@ -1711,7 +1764,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 #endif //LC_KOR
 
-#ifdef LC_KOR // 9¿ù ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+#ifdef LC_KOR // 9ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( (itemidx >= 876 && itemidx <= 879) ||
 						(itemidx >= 2418 && itemidx <= 2422) ||
 						(itemidx >= 836 && itemidx <= 838) ||
@@ -1765,7 +1818,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 				/*
 				#ifdef LC_TLD
-								// ÅÂ±¹ Àð½º¹Î ²É ºê·ÎÄ¡ ¹× Àð½º¹Î²É »èÁ¦
+								// ï¿½Â±ï¿½ ï¿½ð½º¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ ï¿½ð½º¹Î²ï¿½ ï¿½ï¿½ï¿½ï¿½
 								switch (itemidx)
 								{
 								case 1704:
@@ -1810,16 +1863,16 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 
 #if defined(LC_KOR)
-				switch( itemidx )		// ¾î¸°ÀÌ³¯, ¾î¹öÀÌ³¯, ½º½ÂÀÇ³¯ ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+				switch( itemidx )		// ï¿½î¸°ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 				case 2329:
 				case 2330:
 				case 2331:
 				case 2344:
 				case 2349:
-//				case 2345:				// Åðºñ		//»óÁ¡¿¡ ÆÈ ¼ö ÀÖÀ½
-				case 2346:				// Á¤È­¼ö
-				case 2351:				// ±³È¯±Ç	// ²É³îÀÌÀÌº¥Æ® Ãß°¡
+//				case 2345:				// ï¿½ï¿½ï¿½		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				case 2346:				// ï¿½ï¿½È­ï¿½ï¿½
+				case 2351:				// ï¿½ï¿½È¯ï¿½ï¿½	// ï¿½É³ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½
 // 					DBLOG << init( "May Event item delete", pChar )
 // 						   << "ITEM INDEX" << delim
 // 						   << itemidx << delim
@@ -1831,15 +1884,15 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // LC_KOR
 
 #if  defined(LC_BILA)
-				switch( itemidx )		// ¾î¸°ÀÌ³¯, ¾î¹öÀÌ³¯, ½º½ÂÀÇ³¯ ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+				switch( itemidx )		// ï¿½î¸°ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 				case 2329:
 				case 2330:
 				case 2331:
 				case 2344:
 				case 2349:
-				case 2347:				// Á¤È­¼ö
-				case 2348:				// ±³È¯±Ç	// ²É³îÀÌÀÌº¥Æ® Ãß°¡
+				case 2347:				// ï¿½ï¿½È­ï¿½ï¿½
+				case 2348:				// ï¿½ï¿½È¯ï¿½ï¿½	// ï¿½É³ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½
 // 					DBLOG << init( "May Event item delete", pChar )
 // 						<< "ITEM INDEX" << delim
 // 						<< itemidx << delim
@@ -1851,7 +1904,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // LC_BILA
 
 #if defined (LC_TLD) || defined(LC_KOR)
-				//ÆíÁöÁö »èÁ¦
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				switch( itemidx )
 				{
 				case 2135:
@@ -1887,7 +1940,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif //  if defined ( LC_KOR ) || defined ( LC_TLD )
 
 #if defined ( LC_KOR )
-				//ºÓÀº»ö º¸¼®»óÀÚ Á¦°Å
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				switch( itemidx )
 				{
 				case 2660:
@@ -1922,7 +1975,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #if defined LC_TLD
 					if((itemidx >= 2482 && itemidx <= 2491) || (4927 <= itemidx && itemidx <= 4932) || itemidx == 6228 || itemidx == 7544)
 					{
-						// ÇÒ·ÎÀ© ÀÌº¥Æ® ¾ÆÀÌÅÛ
+						// ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						DBLOG	<< init("DELETE HALLOWEEN EVENT 2007", pChar)
 // 								<< "ITEM INDEX" << delim
 // 								<< itemidx << delim
@@ -1950,7 +2003,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					case 2489:
 					case 2490:
 					case 2491:
-						// ÇÒ·ÎÀ© ÀÌº¥Æ® ¾ÆÀÌÅÛ
+						// ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						DBLOG	<< init("DELETE HALLOWEEN EVENT 2007", pChar)
 // 							<< "ITEM INDEX" << delim
 // 							<< itemidx << delim
@@ -2052,7 +2105,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 
-				//À¯¹° ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ¸é »èÁ¦
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 				switch(itemidx)
 				{
 				case ARTIFACT_LEVEL1_ITEM_INDEX:
@@ -2062,7 +2115,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 
 #ifdef DEV_EVENT_AUTO
-				if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ÀÌº¥Æ® ±â°£ÀÌ ¾Æ´Ï¶ó¸é »èÁ¦
+				if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ï¿½Ìºï¿½Æ® ï¿½â°£ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					std::vector<int> items;
 					bool bFind = false;
@@ -2150,11 +2203,11 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 				else if (pItemProto->getItemFlag() & ITEM_FLAG_ABS )
 				{
-					// ½Ã°£Á¦ ¾ÆÀÌÅÛ
-					used += gserver->getNowSecond();	// used´Â ³²Àº ½Ã°£
+					// ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					used += gserver->getNowSecond();	// usedï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 				}
 
-				// ¾ÆÀÌÅÛÀÌ °áÇÕ¿ë ÀÇ»óÀÌ°í °áÇÕµÈ »óÅÂÀÌ¸é ¿É¼ÇÀ» tab, invenindex·Î ºÐ¸®ÇÏ¿© »ç¿ëÇÑ´Ù
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ¿ï¿½ ï¿½Ç»ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Õµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ tab, invenindexï¿½ï¿½ ï¿½Ð¸ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 				// option[0] : tab
 				// option[1] : invenindex
 				int nIndexEquip = -1;
@@ -2166,25 +2219,25 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 					memset(option, 0, sizeof(option));
 
-					// used_2°¡ -1ÀÎ °æ¿ì(COMPOSITE_TIMEÀ» À§ÇÑ ±âÁ¸ ¾ÆÀÌÅÛ ½Ã°£ ¼¼ÆÃ)
+					// used_2ï¿½ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½(COMPOSITE_TIMEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½)
 					if ((flag & FLAG_ITEM_COMPOSITION)
 							&& (used_2 == -1) )
 					{
 						static const int one_month = 60*60*24*30;
 						if (used - gserver->getNowSecond() < one_month)
 						{
-							// 1°³¿ù ¹Ì¸¸ÀÎ °æ¿ì °áÇÕ½Ã°£Àº À¯·á ¾ÆÀÌÅÛ ¸¸·á ½Ã°£°ú °°´Ù
+							// 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							used_2 = used;
 						}
 						else
 						{
-							// 1°³¿ù ÀÌ»óÀÎ °æ¿ì °áÇÕ½Ã°£Àº 1°³¿ùÀÌ´Ù.
+							// 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½Ã°ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 							used_2 = gserver->getNowSecond() + one_month;
 						}
 					}
 				}
 
-				// upgrade ¾ÈµÇ´Â ¾ÆÀÌÅÛ¿¡ ºí·¯µå ¿É¼Ç Á¦°Å ÈÄ ³ª½º Áö±Þ
+				// upgrade ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if ((pItemProto->getItemTypeIdx() == ITYPE_WEAPON || pItemProto->getItemTypeIdx() == ITYPE_WEAR)
 						&& !pItemProto->CanBloodGem()
 						&& !pItemProto->IsRareItem()
@@ -2224,7 +2277,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					flag &= ~FLAG_ITEM_OPTION_ENABLE;
 				}
 
-				// Item »ý¼º
+				// Item ï¿½ï¿½ï¿½ï¿½
 #ifdef DURABILITY
 				CItem* item = gserver->m_itemProtoList.CreateDBItem(itemidx, wearPos, dbPlus, flag, used,
 							  used_2, serial, count, option
@@ -2243,23 +2296,23 @@ void DBProcess::SelectChar( boost::any& argv )
 					continue ;
 				}
 
-				if(item->IsRareItem() // ·¹¾î ÀåºñÀÌ°í
-						&& item->GetItemLevel() > pChar->m_level	// ·¹º§ÀÌ ¸ÂÁö ¾ÊÀº °æ¿ì
-						&& item->getWearPos() != WEARING_NONE)	// Âø¿ë Áß
+				if(item->IsRareItem() // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì°ï¿½
+						&& item->GetItemLevel() > pChar->m_level	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+						&& item->getWearPos() != WEARING_NONE)	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 				{
-					// ¾ÆÀÌÅÛÀ» ¹þ±ä´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 					pChar->m_wearInventory.wearItemInfo[(int)item->getWearPos()] = NULL;
 					item->unWearPos();
 				}
 
-				// °áÇÕµÈ ÀÇ»ó ¾ÆÀÌÅÛÀÇ º¯¼ö¿¡ tab, invenindex °ªÀ» ¼³Á¤ÇÏ°í, ÀÎº¥À» ¸ðµÎ ÀÐ°í ³ª¼­ index·Î º¯°æÇÑ´Ù
+				// ï¿½ï¿½ï¿½Õµï¿½ ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ tab, invenindex ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 				item->m_nCompositeItem = nIndexEquip;
 				if (nIndexEquip != -1)
 				{
 					listCompositedItem.push_back(item->getVIndex());
 				}
 
-				// Æê ¸®½ºÆ®¿¡ ¾øÀ¸¸é ¾ÆÀÌÅÛ ¿À·ù
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (item->IsPet())
 				{
 					if (!pChar->GetPet(item->getPlus()))
@@ -2269,7 +2322,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 
-				// APet °Ë»ç
+				// APet ï¿½Ë»ï¿½
 				if ( item->IsAPet() )
 				{
 					if (!pChar->GetAPet(item->getPlus()))
@@ -2279,20 +2332,20 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 
-				// ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+				// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 				if (item->IsAccessary() && item->m_nOption == 0)
 				{
 					OptionSettingItem(pChar, item);
 				}
-				// --- ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+				// --- ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
-				// TODO : DELETE ½Ì±Û´øÀü1,2 ÀÔÀå±Ç Äù½ºÆ® ÀÎº¥¿¡¼­ ÀÏ¹Ý ÀÎº¥À¸·Î ÀÌµ¿ ÄÚµå
+				// TODO : DELETE ï¿½Ì±Û´ï¿½ï¿½ï¿½1,2 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Úµï¿½
 				int	tab = tabidx;
 				int invenIndex = (rowidx * ITEMS_PER_ROW) + j;
 
-				// TODO : ¿©±â±îÁö
+				// TODO : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-				// ItemÀ» ÀÎº¥À¸·Î
+				// Itemï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 				{
 					FixItemUsedTime(item);
 
@@ -2302,7 +2355,7 @@ void DBProcess::SelectChar( boost::any& argv )
 						continue;
 					}
 
-					// Æê ¾ÆÀÌÅÛÀÌ¸é ¸®½ºÆ®¿¡ Ãß°¡
+					// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
 					if (item->IsPet())
 						listPetItem.push_back(item);
 					if (item->IsAPet())
@@ -2312,7 +2365,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		} // for (i = 0; i < dbChar.m_nrecords && dbChar.MoveNext(); i++)
 	} // if (dbChar.Open())
 
-	// ÀÚµ¿ Áö±Þ Å×ÀÌºí ÀÐ±â
+	// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ð±ï¿½
 	std::vector<int> listDeleteAutoGive;
 	pChar->m_listAutoGive.clear();
 
@@ -2401,7 +2454,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 				bool bDeleteAutoGive = true;
 
-				// Item »ý¼º
+				// Item ï¿½ï¿½ï¿½ï¿½
 				CItem* item = gserver->m_itemProtoList.CreateAutoGiveDBItem(nItemIndex, -1, nItemPlus, nItemFlag, nItemUsed,
 							  nItemUsed_2, strSerial.c_str(), nItemCount, nItemOption
 							  ,socketcount, jewelidx
@@ -2409,7 +2462,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 				if (item)
 				{
-					// Æê ¸®½ºÆ®¿¡ ¾øÀ¸¸é ¾ÆÀÌÅÛ ¿À·ù
+					// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if (item->IsPet())
 					{
 						delete item;
@@ -2421,14 +2474,14 @@ void DBProcess::SelectChar( boost::any& argv )
 						continue ;
 					}
 
-					// ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+					// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 					if (item->IsAccessary() && item->m_nOption == 0)
 					{
 						OptionSettingItem(pChar, item);
 					}
-					// --- ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+					// --- ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
-					// ItemÀ» ÀÎº¥À¸·Î
+					// Itemï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 					if (pChar->m_inventory.addItem(item) == false)
 					{
 						bDeleteAutoGive = false;
@@ -2473,10 +2526,10 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 
 	//////////////////////////////////////////////////////////////////////////
-	// Ã¢°í ÀÐ±â
+	// Ã¢ï¿½ï¿½ ï¿½Ð±ï¿½
 	{
-		// Ã¢°í µ· ÀÐ±â
-		pChar->m_inventory.InitMoneyInStash(0); // ÃÊ±âÈ­
+		// Ã¢ï¿½ï¿½ ï¿½ï¿½ ï¿½Ð±ï¿½
+		pChar->m_inventory.InitMoneyInStash(0); // ï¿½Ê±ï¿½È­
 
 		std::string select_stash_money_query = boost::str(boost::format(
 				"SELECT a_stash_money FROM t_stash_money WHERE a_user_index=%1% LIMIT 1") % m_index);
@@ -2484,7 +2537,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		if (dbChar.Open() == false)
 			return;
 
-		if (dbChar.m_nrecords > 0) // µ¥ÀÌÅÍ°¡ ÀÖ´Ù¸é Ã¢°í ¸Ó´Ï¸¦ ÀÐ¾îµéÀÓ
+		if (dbChar.m_nrecords > 0) // ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´Ù¸ï¿½ Ã¢ï¿½ï¿½ ï¿½Ó´Ï¸ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
 		{
 			dbChar.MoveFirst();
 			LONGLONG money = 0;
@@ -2493,7 +2546,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 		else
 		{
-			// µ¥ÀÌÅÍ°¡ ¾ø´Ù¸é insert±¸¹® Ã³¸®, ¸ðµç Ã¢°í ¸Ó´Ï´Â UPDATE ±¸¹®À¸·Î Ã³¸®ÇÏ±â À§ÇØ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ insertï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ó´Ï´ï¿½ UPDATE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
 			std::string insert_stash_money_query = boost::str(boost::format(
 					"INSERT INTO t_stash_money(a_user_index, a_stash_money) VALUES(%1%, 0)") % m_index);
 			dbChar.SetQuery(insert_stash_money_query);
@@ -2606,7 +2659,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				std::string tstr = boost::str(boost::format("a_item_origin_var%1%") % k);
 				if (!dbChar.GetRec(tstr.c_str(), OriginVar[k]))					continue;
 			}
-			// 050521 : bs : ÄÉ¸£ ³Ù ·¹º§ ¾ø´Â °Í 12·¹º§·Î
+			// 050521 : bs : ï¿½É¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			switch (itemidx)
 			{
 			case 498:
@@ -2627,7 +2680,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 				break;
 			}
-			// --- 050521 : bs : ÄÉ¸£ ³Ù ·¹º§ ¾ø´Â °Í 12·¹º§·Î
+			// --- 050521 : bs : ï¿½É¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			switch (itemidx)
 			{
@@ -2673,7 +2726,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 
 #ifdef LC_KOR
-			// ±¹³»´Â ÀÏº» ¾ÆÀÌÅÛ ¾øÀ½
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			switch (itemidx)
 			{
 			case 1228:
@@ -2752,7 +2805,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 #endif //LC_KOR
 
-#ifdef LC_KOR // 9¿ù ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+#ifdef LC_KOR // 9ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if( (itemidx >= 876 && itemidx <= 879) ||
 					(itemidx >= 2418 && itemidx <= 2422) ||
 					(itemidx >= 836 && itemidx <= 838) ||
@@ -2794,16 +2847,16 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // defined (LC_TLD)
 
 #ifdef LC_KOR
-			switch( itemidx )		// ¾î¸°ÀÌ³¯, ¾î¹öÀÌ³¯, ½º½ÂÀÇ³¯ ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+			switch( itemidx )		// ï¿½î¸°ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 			case 2329:
 			case 2330:
 			case 2331:
 			case 2344:
 			case 2349:
-//				case 2345:				// Åðºñ
-			case 2346:				// Á¤È­¼ö
-			case 2351:				// ±³È¯±Ç	// ²É³îÀÌÀÌº¥Æ® Ãß°¡
+//				case 2345:				// ï¿½ï¿½ï¿½
+			case 2346:				// ï¿½ï¿½È­ï¿½ï¿½
+			case 2351:				// ï¿½ï¿½È¯ï¿½ï¿½	// ï¿½É³ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½
 // 					DBLOG << init( "May Event item delete", pChar )
 // 						   << "ITEM INDEX" << delim
 // 						   << itemidx << delim
@@ -2815,15 +2868,15 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // LC_KOR
 
 #if defined (LC_USA) || defined(LC_BILA)
-			switch( itemidx )		// ¾î¸°ÀÌ³¯, ¾î¹öÀÌ³¯, ½º½ÂÀÇ³¯ ÀÌº¥Æ® ¾ÆÀÌÅÛ Á¦°Å
+			switch( itemidx )		// ï¿½î¸°ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½Ì³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 			case 2329:
 			case 2330:
 			case 2331:
 			case 2344:
 			case 2349:
-			case 2347:				// Á¤È­¼ö
-			case 2348:				// ±³È¯±Ç	// ²É³îÀÌÀÌº¥Æ® Ãß°¡
+			case 2347:				// ï¿½ï¿½È­ï¿½ï¿½
+			case 2348:				// ï¿½ï¿½È¯ï¿½ï¿½	// ï¿½É³ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½
 // 					DBLOG << init( "May Event item delete", pChar )
 // 						<< "ITEM INDEX" << delim
 // 						<< itemidx << delim
@@ -2835,7 +2888,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // defined (LC_BILA) || defined (LC_USA)
 
 #if defined (LC_TLD) || defined (LC_KOR)
-			// ÆíÁöÁö »èÁ¦
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			switch( itemidx )
 			{
 			case 2135:
@@ -2853,7 +2906,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif // #if  defined ( LC_KOR ) || defined ( LC_TLD )
 
 #if defined ( LC_KOR )
-			//ºÓÀº»ö º¸¼®»óÀÚ Á¦°Å
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			switch( itemidx )
 			{
 			case 2660:
@@ -2876,7 +2929,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #if defined LC_TLD
 				if((itemidx >= 2482 && itemidx <= 2491) || (4927 <= itemidx && itemidx <= 4932) || itemidx == 6228 || itemidx == 7544)
 				{
-					// ÇÒ·ÎÀ© ÀÌº¥Æ® ¾ÆÀÌÅÛ
+					// ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						DBLOG	<< init("DELETE HALLOWEEN EVENT 2007", pChar)
 // 							<< "ITEM INDEX" << delim
 // 							<< itemidx << delim
@@ -2917,7 +2970,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				case 2489:
 				case 2490:
 				case 2491:
-					// ÇÒ·ÎÀ© ÀÌº¥Æ® ¾ÆÀÌÅÛ
+					// ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 // 						DBLOG	<< init("DELETE HALLOWEEN EVENT 2007", pChar)
 // 							<< "ITEM INDEX" << delim
 // 							<< itemidx << delim
@@ -3015,7 +3068,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 
 #ifdef DEV_EVENT_AUTO
-			if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ÀÌº¥Æ® ±â°£ÀÌ ¾Æ´Ï¶ó¸é »èÁ¦
+			if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ï¿½Ìºï¿½Æ® ï¿½â°£ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				std::vector<int> items;
 				bool bFind = false;
@@ -3066,7 +3119,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 			CItemProto* pItemProto = gserver->m_itemProtoList.FindIndex(itemidx);
 
-			// upgrade ¾ÈµÇ´Â ¾ÆÀÌÅÛ¿¡ ºí·¯µå ¿É¼Ç Á¦°Å ÈÄ ³ª½º Áö±Þ
+			// upgrade ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (   pItemProto
 					&& (pItemProto->getItemTypeIdx() == ITYPE_WEAPON || pItemProto->getItemTypeIdx() == ITYPE_WEAR)
 					&& !pItemProto->CanBloodGem()
@@ -3106,7 +3159,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				flag &= ~FLAG_ITEM_OPTION_ENABLE;
 			}
 
-			// Item »ý¼º
+			// Item ï¿½ï¿½ï¿½ï¿½
 #ifdef DURABILITY
 			CItem* item = gserver->m_itemProtoList.CreateDBItem(itemidx, -1, dbPlus, flag, used,
 						  used_2,	serial, count, option
@@ -3125,12 +3178,12 @@ void DBProcess::SelectChar( boost::any& argv )
 				continue ;
 			}
 
-			// ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+			// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 			if (item->IsAccessary() && item->m_nOption == 0)
 			{
 				OptionSettingItem(pChar, item);
 			}
-			// --- ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+			// --- ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
 			FixItemUsedTime(item);
 
@@ -3143,12 +3196,12 @@ void DBProcess::SelectChar( boost::any& argv )
 
 	if (nBugFixMoney > 0)
 	{
-		// Ä³¸¯ÅÍ¸¦ ÀÐ¾îµéÀÌ´Â ÁßÀÌ¹Ç·Î ÆÐÅ¶À» Àü¼ÛÇÏÁö ¾Ê´Â ¹æ¹ýÀ¸·Î µ·À» Áõ°¡½ÃÅ´
+		// Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´
 		LONGLONG nowMoney = pChar->m_inventory.getMoney();
 		pChar->m_inventory.InitMoney(nowMoney + nBugFixMoney);
 	}
 
-	// À¯·á ¾ÆÀÌÅÛ »ç¿ë½Ã°£ ÀÐ±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½Ð±ï¿½
 	std::string select_cashItemdate_query = boost::str(boost::format(
 			"SELECT a_mempos_new, a_charslot0_new, a_charslot1_new, a_stashext_new FROM t_cashItemdate WHERE a_portal_idx=%1%") % m_index);
 	dbChar.SetQuery(select_cashItemdate_query.c_str());
@@ -3161,7 +3214,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 	}
 
-	// Àå¼Ò ±â¾ï ÀÐ±â
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
 	std::string select_mempos_query = boost::str(boost::format("SELECT * FROM t_mempos WHERE a_char_idx=%1%") % pChar->m_index);
 	dbChar.SetQuery(select_mempos_query.c_str());
 	if (dbChar.Open())
@@ -3184,9 +3237,9 @@ void DBProcess::SelectChar( boost::any& argv )
 				float z = atof(tvec[2].c_str());
 				char ylayer = (char)atoi(tvec[3].c_str());
 
-				// ÇØ´ç Á¸ÀÌ ¾ø°Å³ª
-				// Àå¼Ò ±â¾ï ºÒ°¡´É Á¸ÀÌ¸é
-				// ¼³Á¤À» Áö¿ö¹ö¸°´Ù
+				// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½
+				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				CZone* pZone = gserver->FindZone(zone);
 				if (pZone == NULL || pZone->m_bCanMemPos == false)
 					continue ;
@@ -3223,10 +3276,10 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 //#endif
 // TODO : DELETE
-//	// ¾ÆÀÌÅÛ/½ºÅ³ È¿°ú Àû¿ë
+//	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Å³ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	pChar->CalcStatus(false);
 
-	// ±×·ì ¸®½ºÆ® ºÒ·¯¿À±â
+	// ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	CLCString gIndexList(255+1);
 	CLCString gNameList(255+1);
 	int chatColor = 0;
@@ -3240,7 +3293,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		dbChar.GetRec("a_group_name", gNameList);
 		dbChar.GetRec("a_chat_color", chatColor);
 	}
-// ¿©±â¼­ DB¿¡¼­ Ä£±¸¸®½ºÆ® ºÒ·¯¿À±â.
+// ï¿½ï¿½ï¿½â¼­ DBï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½.
 	std::string select_friend_query = boost::str(boost::format(
 										  "SELECT * FROM t_friend%02d WHERE a_char_index=%d") % table_no % pChar->m_index);
 	dbChar.SetQuery(select_friend_query.c_str());
@@ -3274,20 +3327,20 @@ void DBProcess::SelectChar( boost::any& argv )
 		CLCString Block(2);
 		for (int i = 0; i < dbChar.m_nrecords && dbChar.MoveNext(); i++)
 		{
-			//	if (!dbChar.GetRec("a_index", index) || index < 0)	continue ; //¾îÂ¼¸é ¾µ¸ð¾øÀ»Áöµµ...
-			//Ä£±¸ ÀÎµ¦½º
+			//	if (!dbChar.GetRec("a_index", index) || index < 0)	continue ; //ï¿½ï¿½Â¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+			//Ä£ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 			if (!dbChar.GetRec("a_friend_index", friend_index) || friend_index < 0)
 				continue ;
 
-			// ÀÌ¸§
+			// ï¿½Ì¸ï¿½
 			if (!dbChar.GetRec("a_friend_name", name))
 				continue ;
 
-			// Á÷¾÷
+			// ï¿½ï¿½ï¿½ï¿½
 			if (!dbChar.GetRec("a_friend_job", job))
 				continue ;
 
-			// ±×·ì ÀÎµ¦½º
+			// ï¿½×·ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 			if (!dbChar.GetRec("a_group_index", gIndex))
 				continue ;
 
@@ -3307,7 +3360,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			pFriend->AddFriend(friend_index, name, job, MSG_FRIEND_CONDITION_OFFLINE, gIndex);
 		}
 	}
-	// Â÷´Ü ¸®½ºÆ® ºÒ·¯¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	CLCString blockIndexList(255+1);
 	CLCString blockNameList(255+1);
 
@@ -3362,7 +3415,7 @@ void DBProcess::SelectChar( boost::any& argv )
 						continue;
 
 					m_notice[cnt] = gserver->m_aNotice[i];
-					cnt++;//Ä«¿îÆ® Áõ°¡
+					cnt++;//Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
 					count++;
 
@@ -3378,7 +3431,7 @@ void DBProcess::SelectChar( boost::any& argv )
 						}
 					}
 				}
-				else if (pChar->m_admin < 2) //Å×ÀÌºí¿¡ ¾ø´Ù¸é »ý¼ºÇÑ´Ù.
+				else if (pChar->m_admin < 2) //ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				{
 					std::string insert_notice_query = boost::str(boost::format(
 														  "INSERT INTO t_notice (a_char_idx, a_event_idx, a_count) VALUES(%1%, %2%, 1)")
@@ -3390,12 +3443,12 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 
 					m_notice[cnt] = gserver->m_aNotice[i];
-					cnt++;//Ä«¿îÆ® Áõ°¡
+					cnt++;//Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 				}
 				else
 				{
 					m_notice[cnt] = gserver->m_aNotice[i];
-					cnt++;//Ä«¿îÆ® Áõ°¡
+					cnt++;//Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 				}
 			}
 		}
@@ -3447,7 +3500,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 
 
-	std::string select_titlelist_query = boost::str(boost::format("SELECT * from t_titlelist where a_char_index=%1%") % pChar->m_index);			// º¸À¯Å¸ÀÌÆ² ·Îµå
+	std::string select_titlelist_query = boost::str(boost::format("SELECT * from t_titlelist where a_char_index=%1%") % pChar->m_index);			// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½Æ² ï¿½Îµï¿½
 	dbChar.SetQuery(select_titlelist_query.c_str());
 
 	int titleidx = 0;
@@ -3474,7 +3527,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 	}
 
-	std::string select_custom_titlelist_query = boost::str(boost::format("SELECT * from t_title_make where a_char_index=%1%") % pChar->m_index);			// º¸À¯Å¸ÀÌÆ² ·Îµå
+	std::string select_custom_titlelist_query = boost::str(boost::format("SELECT * from t_title_make where a_char_index=%1%") % pChar->m_index);			// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½Æ² ï¿½Îµï¿½
 	dbChar.SetQuery(select_custom_titlelist_query.c_str());
 
 	std::string name;
@@ -3512,7 +3565,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 					if(use != 0)
 					{
-						//»ç¿ëÁßÀÏ ¶§ Å¸ÀÌÆ² ¸®½ºÆ®¿¡ µî·ÏµÈ Ä¿½ºÅÒ Å¸ÀÌÆ²ÀÌ ¾Æ´Ï¶ó¸é »èÁ¦
+						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if(pChar->m_titleList.FindCustomTitle(title->title_index) == NULL)
 						{
 							std::string query = boost::str(boost::format("DELETE FROM t_title_make where a_index = %d and a_char_index = %d") % title->title_index % pChar->m_index );
@@ -3557,7 +3610,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	dbChar.Close();
 
 	{
-		// ±â°£Á¦ ¾ÆÀÌÅÛ Á¤º¸¸¦ ÀÐÀ½
+		// ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		std::string select_timer_item_query = boost::str(boost::format(
 				"SELECT a_type_index, UNIX_TIMESTAMP(a_expire_time) as a_et FROM t_timer_item WHERE a_char_index=%1%")
 											  % pChar->m_index);
@@ -3853,7 +3906,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 #endif // LC_BILA
 
-			//À¯¹° ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ¸é »èÁ¦
+			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 			switch(itemidx)
 			{
 			case ARTIFACT_LEVEL1_ITEM_INDEX:
@@ -3863,7 +3916,7 @@ void DBProcess::SelectChar( boost::any& argv )
 			}
 
 #ifdef DEV_EVENT_AUTO
-			if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ÀÌº¥Æ® ±â°£ÀÌ ¾Æ´Ï¶ó¸é »èÁ¦
+			if(gserver->m_fathersDay.getEventStart() == false && gserver->m_fathersDay.getEventDeleteItem() == true) // ï¿½Ìºï¿½Æ® ï¿½â°£ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				std::vector<int> items;
 				bool bFind = false;
@@ -3936,8 +3989,8 @@ void DBProcess::SelectChar( boost::any& argv )
 
 			if (pItemProto->getItemFlag() & ITEM_FLAG_ABS )
 			{
-				// ½Ã°£Á¦ ¾ÆÀÌÅÛ
-				used += gserver->getNowSecond();	// used´Â ³²Àº ½Ã°£
+				// ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				used += gserver->getNowSecond();	// usedï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 			}
 
 			int nIndexEquip = -1;
@@ -3950,25 +4003,25 @@ void DBProcess::SelectChar( boost::any& argv )
 				}
 				memset(option, 0, sizeof(option));
 
-				// used_2°¡ -1ÀÎ °æ¿ì(COMPOSITE_TIMEÀ» À§ÇÑ ±âÁ¸ ¾ÆÀÌÅÛ ½Ã°£ ¼¼ÆÃ)
+				// used_2ï¿½ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½(COMPOSITE_TIMEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½)
 				if ((flag & FLAG_ITEM_COMPOSITION)
 						&& (used_2 == -1) )
 				{
 					static const int one_month = 60*60*24*30;
 					if (used - gserver->getNowSecond() < one_month)
 					{
-						// 1°³¿ù ¹Ì¸¸ÀÎ °æ¿ì °áÇÕ½Ã°£Àº À¯·á ¾ÆÀÌÅÛ ¸¸·á ½Ã°£°ú °°´Ù
+						// 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						used_2 = used;
 					}
 					else
 					{
-						// 1°³¿ù ÀÌ»óÀÎ °æ¿ì °áÇÕ½Ã°£Àº 1°³¿ùÀÌ´Ù.
+						// 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½Ã°ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 						used_2 = gserver->getNowSecond() + one_month;
 					}
 				}
 			}
 
-			// upgrade ¾ÈµÇ´Â ¾ÆÀÌÅÛ¿¡ ºí·¯µå ¿É¼Ç Á¦°Å ÈÄ ³ª½º Áö±Þ
+			// upgrade ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ((pItemProto->getItemTypeIdx() == ITYPE_WEAPON || pItemProto->getItemTypeIdx() == ITYPE_WEAR)
 					&& !pItemProto->CanBloodGem()
 					&& !pItemProto->IsRareItem()
@@ -4001,7 +4054,7 @@ void DBProcess::SelectChar( boost::any& argv )
 				flag &= ~FLAG_ITEM_OPTION_ENABLE;
 			}
 
-			// Item »ý¼º
+			// Item ï¿½ï¿½ï¿½ï¿½
 #ifdef DURABILITY
 			CItem* item = gserver->m_itemProtoList.CreateDBItem(itemidx, -1, dbPlus, flag, used,
 						  used_2, serial, count, option
@@ -4020,21 +4073,21 @@ void DBProcess::SelectChar( boost::any& argv )
 				continue ;
 			}
 
-			// °áÇÕµÈ ÀÇ»ó ¾ÆÀÌÅÛÀÇ º¯¼ö¿¡ row, col °ªÀ» ¼³Á¤ÇÏ°í, ÀÎº¥À» ¸ðµÎ ÀÐ°í ³ª¼­ index·Î º¯°æÇÑ´Ù
+			// ï¿½ï¿½ï¿½Õµï¿½ ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ row, col ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½, ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ð°ï¿½ ï¿½ï¿½ï¿½ï¿½ indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 			item->m_nCompositeItem = nIndexEquip;
 			if (nIndexEquip != -1)
 			{
 				listCompositedItem.push_back(item->getVIndex());
 			}
 
-			// ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+			// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 			if (item->IsAccessary() && item->m_nOption == 0)
 			{
 				OptionSettingItem(pChar, item);
 			}
-			// --- ¿É¼Ç ¾ø´Â ¾Ç¼¼»ç¸® ¿É¼Ç ºÙÀÌ±â
+			// --- ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
 
-			// ItemÀ» ÀÎº¥À¸·Î
+			// Itemï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				FixItemUsedTime(item);
 
@@ -4043,7 +4096,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					wearPos -= COSTUME2_WEARING_START;
 				}
 
-				// Æê ¸®½ºÆ®¿¡ ¾øÀ¸¸é ¾ÆÀÌÅÛ ¿À·ù
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (item->IsPet())
 				{
 					if (!pChar->GetPet(item->getPlus()))
@@ -4057,7 +4110,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 
-				// APet °Ë»ç
+				// APet ï¿½Ë»ï¿½
 				if ( item->IsAPet() )
 				{
 					if (!pChar->GetAPet(item->getPlus()))
@@ -4071,7 +4124,7 @@ void DBProcess::SelectChar( boost::any& argv )
 					}
 				}
 					
-				//ÇÑ¹ú ÀÇ»óÀÎ °æ¿ì
+				//ï¿½Ñ¹ï¿½ ï¿½Ç»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				if (item->m_itemProto->getItemTypeIdx() == ITYPE_WEAR && item->m_itemProto->getItemSubTypeIdx() == IWEAR_SUIT && wearPos != WEARING_NONE)
 				{
 					pChar->m_wearInventory.initCostumSuitItem(item);
@@ -4091,9 +4144,9 @@ void DBProcess::SelectChar( boost::any& argv )
 					else
 						item->unWearPos();
 				}
-				// Âø¿ëÇÑ ¾ÆÀÌÅÛ °Ë»ç -> Âø¿ë »óÅÂ ÀúÀå
-				else if(wearPos >= 0 && wearPos < MAX_WEARING	// ¿Ã¹Ù¸¥ ¹øÈ£ÀÌ°í
-						&& !pChar->m_wearInventory.wearItemInfo[wearPos])					// Áßº¹ Âø¿ëÀÌ ¾Æ´Ï¸é
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				else if(wearPos >= 0 && wearPos < MAX_WEARING	// ï¿½Ã¹Ù¸ï¿½ ï¿½ï¿½È£ï¿½Ì°ï¿½
+						&& !pChar->m_wearInventory.wearItemInfo[wearPos])					// ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½
 				{
 					item->setWearPos(wearPos);
 					pChar->m_wearInventory.wearItemInfo[wearPos] = item;
@@ -4106,7 +4159,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		}
 	}
 
-	// Quick Slot ºÒ·¯¿À±â
+	// Quick Slot ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	std::string select_quickslot_query = boost::str(boost::format(
 			"SELECT * FROM t_quickslot%02d WHERE a_char_idx=%d ORDER BY a_char_idx, a_page_idx") % table_no % pChar->m_index);
 	dbChar.SetQuery(select_quickslot_query.c_str());
@@ -4131,7 +4184,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 				switch (pChar->m_quickSlot[page].m_slotType[slot])
 				{
-				// ºñ¾úÀ½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½
 				case QUICKSLOT_TYPE_EMPTY:
 					break;
 				// Skill type
@@ -4148,14 +4201,14 @@ void DBProcess::SelectChar( boost::any& argv )
 				case QUICKSLOT_TYPE_ACTION:
 					{
 						pch = AnyOneArg(pch, tbuf);
-#ifdef DONT_USE_ATTACK_ACTION // ºô¶ó¿äÃ»À¸·Î Äü ½½·Ô ¾ÈÀÇ °ø°Ý ¾×¼ÇÀº ¹«Á¶°Ç »«´Ù. °ø°Ý ¾×¼ÇÀÌ ¾ø´Ù.
+#ifdef DONT_USE_ATTACK_ACTION // ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 						if( atoi(tbuf)  ==  1 )
 						{
 							pChar->m_quickSlot[page].m_slotType[slot] = QUICKSLOT_TYPE_EMPTY;
 							break;
 						}
 #endif
-#ifdef BUGFIX_DONT_USE_GET_FIRST_PARTY	// ÅÍÅ°¿äÃ»À¸·Î Äü ½½·Ô ¾ÈÀÇ ÀÔ¼ö¿ì¼± ÆÄÆ¼ ¾×¼ÇÀº »«´Ù.
+#ifdef BUGFIX_DONT_USE_GET_FIRST_PARTY	// ï¿½ï¿½Å°ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ì¼± ï¿½ï¿½Æ¼ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 						if( atoi(tbuf)  ==  7 )
 						{
 							pChar->m_quickSlot[page].m_slotType[slot] = QUICKSLOT_TYPE_EMPTY;
@@ -4173,7 +4226,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #ifdef HARDCORE_SERVER
 						if(gserver->m_hardcore_flag_in_gameserver)
 						{
-							// ÇÏµåÄÚ¾î ¼­¹ö¿¡¼­´Â ÈÄ°ßÀÎÀ» Á¦°ÅÇÔ
+							// ï¿½Ïµï¿½ï¿½Ú¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							if( atoi(tbuf)  ==  30 )
 							{
 								pChar->m_quickSlot[page].m_slotType[slot] = QUICKSLOT_TYPE_EMPTY;
@@ -4250,7 +4303,7 @@ void DBProcess::SelectChar( boost::any& argv )
 		} // for (i = 0; i < dbChar.m_nrecords && dbChar.MoveNext(); i++)
 	} // if (dbQuickSlot.Open())
 
-	// ÀÎº¥Åä¸®¿¡¼­ °áÇÕµÈ ÀÇ»ó ¾ÆÀÌÅÛÀ» Ã£¾Æ row, col °ªÀ» index·Î º¯°æ
+	// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õµï¿½ ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ row, col ï¿½ï¿½ï¿½ï¿½ indexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::vector<int>::iterator it = listCompositedItem.begin();
 	std::vector<int>::iterator endit = listCompositedItem.end();
 	for(; it != endit; ++it)
@@ -4433,7 +4486,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 		//////////////////////////////////////////////////////////////////////////
 #ifdef JUMIN_DB_CRYPT
-		pChar->m_a_cid = "1111";		// ÀÓ½Ã·Î KOR ¹öÁ¯Àº Ã³¸®ÇÔ. ¿ø·¡´Â ÁÖ¹Îµî·Ï¹øÈ£ µÞÀÚ¸® 7ÀÚ¸®ÀÎµ¥ °³¹ß¹öÁ¯(KOR)¿¡¼­´Â ¾øÀ¸¹Ç·Î ÀÓ½Ã·Î Ã³¸®ÇÔ
+		pChar->m_a_cid = "1111";		// ï¿½Ó½Ã·ï¿½ KOR ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹Îµï¿½Ï¹ï¿½È£ ï¿½ï¿½ï¿½Ú¸ï¿½ 7ï¿½Ú¸ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ß¹ï¿½ï¿½ï¿½(KOR)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½Ó½Ã·ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½
 #else
 		{
 			query = boost::str(boost::format("SELECT RIGHT(a_cid, 7) as a_cid FROM bg_user WHERE a_idname = '%s' LIMIT 1") % user_id);
@@ -4452,7 +4505,7 @@ void DBProcess::SelectChar( boost::any& argv )
 	}
 #endif
 
-	// rvr Á¤º¸ ÀÐ¾î¿À±â
+	// rvr ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
 	select_rvr_info_query(pChar);
 	// gps
 	pChar->m_gpsManager.load(this->char_db_.getMYSQL());
@@ -4464,7 +4517,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #endif
 
 	{
-		// ÀÐ¾îµéÀÎ Ä³¸¯ÅÍ Á¤º¸¸¦ main thread·Î µ¹·ÁÁØ´Ù.
+		// ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ main threadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		EventProcessForDB::selectChar rdata;
 		rdata.m_index = m_index;
 		rdata.m_seq_index = seq_index;
@@ -4476,7 +4529,7 @@ void DBProcess::SelectChar( boost::any& argv )
 
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
-		// ÇÏµåÄÚµù : Æ©Åä¸®¾ó Äù½ºÆ®¸¦ ¼öÇàÁßÀÌ¸é ½ºÅ¸Æ®Á¸À» ZONE_SINGLE_DUNGEON_TUTORIAL·Î ´ëÃ¼ÇÑ´Ù
+		// ï¿½Ïµï¿½ï¿½Úµï¿½ : Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Å¸Æ®ï¿½ï¿½ï¿½ï¿½ ZONE_SINGLE_DUNGEON_TUTORIALï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ñ´ï¿½
 		if (bGotoTutorial)
 			DBOKMsg(rmsg, ZONE_SINGLE_DUNGEON_TUTORIAL);
 		else
@@ -4492,7 +4545,7 @@ void DBProcess::SelectChar( boost::any& argv )
 #ifdef GER_SERIAL_PROMOTION
 void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool lucky)
 {
-	// 1706, 2360 Áö±Þ
+	// 1706, 2360 ï¿½ï¿½ï¿½ï¿½
 	int pro_item[2][2] =
 	{
 		{ 1706, 1, },
@@ -4510,7 +4563,7 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 				if( item == NULL)
 					continue;
 
-				// Item ¼ö·® º¯°æ
+				// Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pChar->m_inventory.decreaseItemCount(item, pro_item[i][1]);
 			}
 
@@ -4518,7 +4571,7 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 		}
 	}
 
-	//¾ÆÀÌÅÛ Áö±ÞÇÏ°í , ÇØ´ç userIndex insert
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ , ï¿½Ø´ï¿½ userIndex insert
 	if( i == 2 )
 	{
 		CDBCmd dbdata;
@@ -4529,14 +4582,14 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 
 		if(!dbdata.Update() )
 		{
-			// ·Î¸£¹éÀ» ÇØ¾ßÂ¡
+			// ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½Â¡
 			for( ; i > 0; i--)
 			{
 				CItem* item = pChar->m_inventory.FindByVirtualIndex(pro_item[i][0]);
 				if (item == NULL)
 					continue;
 
-				// Item ¼ö·® º¯°æ
+				// Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pChar->m_inventory.decreaseItemCount(item, pro_item[i][1]);
 			}
 		}
@@ -4546,12 +4599,12 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool lucky)
 {
 	int i = 0;
-	//4G ¹®½ºÅæ 1°³ , ³Ý¸¶ºí 5000nas Áß±ÞÈ¸º¹Á¦ 15°³
-	// Áö±ÞÀÚ 300¸íÁß 1¸íÀº 4G ¹®½ºÅæ3, ³Ý¸¶ºí 10000nas Áß±ÞÈ¸º¹Á¦ 20 ¹®½ºÅæ 1
-	// ÆÄÆ®³Ê ¾ÆÀÌµð, ·°Å°, ¾ÆÀÌÅÛ¼ø
-	// ´Ù½Ã CL ÀÌ³ª NM »óÇ° : 5000³ª½º¿¡ ¹®½ºÅæ1°³ Áß±ÞÈ¸º¹¾à10°³
+	//4G ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ , ï¿½Ý¸ï¿½ï¿½ï¿½ 5000nas ï¿½ß±ï¿½È¸ï¿½ï¿½ï¿½ï¿½ 15ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 300ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ 4G ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½3, ï¿½Ý¸ï¿½ï¿½ï¿½ 10000nas ï¿½ß±ï¿½È¸ï¿½ï¿½ï¿½ï¿½ 20 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1
+	// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½Å°, ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½
+	// ï¿½Ù½ï¿½ CL ï¿½Ì³ï¿½ NM ï¿½ï¿½Ç° : 5000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ ï¿½ß±ï¿½È¸ï¿½ï¿½ï¿½ï¿½10ï¿½ï¿½
 
-	// µ¶ÀÏ ½Ã¸®¾ó ÀÔ·Â ÇÑ °èÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int pro_item[2][2][3] =
 	{
 		{ { 723, -1, -1 }, { 723, -1, -1 } },
@@ -4573,21 +4626,21 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 
 		if( !pChar->GiveItem(pro_item[partner_id][lucky][i], 0, 0, pro_count[partner_id][lucky][i]) )
 		{
-			// ·Ñ¹é
+			// ï¿½Ñ¹ï¿½
 			for( ; i > 0; i--)
 			{
 				CItem* item = pChar->m_inventory.FindByVirtualIndex(pro_count[partner_id][lucky][i]);
 				if (item == NULL)
 					continue;
 
-				// Item ¼ö·® º¯°æ
+				// Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pChar->m_inventory.decreaseItemCount(item, pro_count[partner_id][lucky][i]);
 			}
 
 			break;
 		}
 	}
-	//¾ÆÀÌÅÛ Áö±ÞÇÏ°í , ÇØ´ç userIndex insert
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ , ï¿½Ø´ï¿½ userIndex insert
 	if( i == 3 )
 	{
 		std::string tstr = boost::str(boost::format("insert into t_proSite (a_user_idx, a_char_idx) values (%1%, %2%)") % m_index % pChar->m_index);
@@ -4595,14 +4648,14 @@ void DBProcess::PromotionGive(int m_index, CPC* pChar, int partner_id, bool luck
 
 		if(!dbChar.Update() )
 		{
-			// ·Î¸£¹éÀ» ÇØ¾ßÂ¡
+			// ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½Â¡
 			for( ; i > 0; i--)
 			{
 				CItem* item = pChar->m_inventory.FindByVirtualIndex(pro_item[partner_id][lucky][i]);
 				if (item == NULL)
 					continue;
 
-				// Item ¼ö·® º¯°æ
+				// Item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pChar->m_inventory.decreaseItemCount(item, pro_count[partner_id][lucky][i]);
 			}
 		}
@@ -4615,7 +4668,7 @@ void DBProcess::select_rvr_info_query(CPC* pChar)
 	CDBCmd dbChar;
 	dbChar.Init(char_db_.getMYSQL());
 
-	// °á»ç´ë ±â¿©µµ ÀÐ¾î ¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ ï¿½Ð¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::string select_rvr_contripoint = boost::str(boost::format("SELECT a_syndicate_type, a_syndicate_point_k, a_syndicate_point_d, a_syndicate_join_bit FROM t_characters where a_index = %1%") % pChar->m_index);
 
 
@@ -4658,7 +4711,7 @@ void DBProcess::select_rvr_info_query(CPC* pChar)
 		}
 	}
 
-	// °á»ç´ë È÷½ºÅä¸® ÀÐ¾î ¿À±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ä¸® ï¿½Ð¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::string select_rvr_history = boost::str(boost::format("SELECT a_syndicate_type, a_enum, a_grade, a_target_syndicate_type, a_target_name, UNIX_TIMESTAMP(a_time) as a_time  FROM t_syndicate_history WHERE a_char_index = %1% order by a_time LIMIT %2%") % pChar->m_index % SYNDICATE_HISTORY_MAX);
 	dbChar.SetQuery(select_rvr_history.c_str());
 	if (!dbChar.Open())

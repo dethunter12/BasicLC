@@ -60,11 +60,11 @@
 
 extern INDEX g_iCountry;
 
-// ¼Ó¼º ½Ã½ºÅÛ ¼Ó¼º °¹¼ö µðÆÄÀÎ
+// ï¿½Ó¼ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define ATTRIBUTE_ATT_MAX 7
 #define ATTRIBUTE_DEF_MAX 7
 
-// ¼Ó¼º ½Ã½ºÅÛ °è»ê °ø½Ä
+// ï¿½Ó¼ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define AT_MASK          0xFL
 #define AT_LVVEC          4
 #define GET_AT_VAR(m)   ((m) & AT_MASK)
@@ -99,7 +99,7 @@ DECLARE_MSG_UPDATE(charHP);
 
 void CSessionState::reg_packet_info()
 {
-	REG_PACKET_R(MSG_UPDATE_DATA_FOR_CLIENT, MSG_SUB_UPDATE_STATUS, updateStatus);			// Ä³¸¯ÅÍ Á¤º¸(¸ðµÎ)		
+	REG_PACKET_R(MSG_UPDATE_DATA_FOR_CLIENT, MSG_SUB_UPDATE_STATUS, updateStatus);			// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½)		
 	REG_PACKET_R(MSG_UPDATE_DATA_FOR_CLIENT, MSG_SUB_UPDATE_AT, updateAt);
 	REG_PACKET_R(MSG_UPDATE_DATA_FOR_CLIENT, MSG_SUB_UPDATE_APPEAR_PC, updatePcAppear);
 	REG_PACKET_R(MSG_UPDATE_DATA_FOR_CLIENT, MSG_SUB_UPDATE_APPEAR_NPC, updateNpcAppear);
@@ -150,7 +150,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 {
 	UpdateClient::charStatus* pPack = reinterpret_cast<UpdateClient::charStatus*>(istr->GetBuffer());
 
-	// edit by cpp2angel (044.12.20) : ÀÚµ¿ µµ¿ò¸»
+	// edit by cpp2angel (044.12.20) : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 	if ( _pNetwork->MyCharacterInfo.sp < pPack->skillPoint )
 	{
 		_UIAutoHelp->SetInfo ( AU_GET_SKILL_POINT );
@@ -202,6 +202,15 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		_pGameState->Running() = FALSE;
 		_pGameState->QuitScreen() = FALSE;
 	}
+
+#ifdef QUICK_PANEL
+	for (int i = 0; i <= 24; i++)
+{
+	_pNetwork->MyCharacterInfo.cloud_QuickPanelBtnType[i] = pPack->m_cloud_m_QuickPanelBtnType[i];
+	_pNetwork->MyCharacterInfo.cloud_QuickPanelBtnIdx[i] = pPack->m_cloud_m_QuickPanelBtnIdx[i];
+}
+#endif
+
 	UBYTE nAttrdef = GET_AT_VAR(pPack->attrDef);
 	UBYTE nAttrdefLv = GET_AT_LV(pPack->attrDef);
 	UBYTE nAttratt = GET_AT_VAR(pPack->attrAtt);
@@ -219,17 +228,17 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		nAttrdefLv = 1;
 	}
 
-	_pNetwork->MyCharacterInfo.attrdef			= nAttrdef; // ¹æ¾î ¼Ó¼º
-	_pNetwork->MyCharacterInfo.attrdefLv		= nAttrdefLv;  // ¹æ¾î ¼Ó¼º Level
-	_pNetwork->MyCharacterInfo.attratt			= nAttratt; // °ø°Ý ¼Ó¼º
-	_pNetwork->MyCharacterInfo.attrattLv		= nAttrattLv;  // °ø°Ý ¼Ó¼º Level
+	_pNetwork->MyCharacterInfo.attrdef			= nAttrdef; // ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½
+	_pNetwork->MyCharacterInfo.attrdefLv		= nAttrdefLv;  // ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ Level
+	_pNetwork->MyCharacterInfo.attratt			= nAttratt; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½
+	_pNetwork->MyCharacterInfo.attrattLv		= nAttrattLv;  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ Level
 
 	_pNetwork->MyCharacterInfo.skillSpeed		= pPack->skillSpeed;
 	_pNetwork->MyCharacterInfo.sbAttributePos	= pPack->mapAttr;
 	_pNetwork->MyCharacterInfo.sbMountPet		= pPack->mountPet;
 	_pNetwork->MyCharacterInfo.nEvocationIndex	= pPack->evocationIndex;
 
-	// 080623 ¶óÄ« ±âÀÚ´Ü ÇýÅÃ
+	// 080623 ï¿½ï¿½Ä« ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	_pNetwork->MyCharacterInfo.sbPresscorps		= pPack->bPressCorps;
 
 	_pNetwork->MyCharacterInfo.baseHP			= pPack->maxHpOrg;
@@ -305,20 +314,20 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 	}
 #endif
 
-	//[ttos_2009_1_15]:ÄðÅ¸ÀÓ °¨¼Ò ¹× MP·® °¨¼Ò ¿É¼ÇÀ» Å¬¶ó¿¡¼­ °è»êÇÏÁö ¾Ê°í ¼­¹ö¿¡¼­ ¹ÞÀ½
+	//[ttos_2009_1_15]:ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ MPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ Å¬ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	pUIManager->SetCoolTimeReductionRate(pPack->prob);
 	pUIManager->SetNeedMPReductionRate(pPack->opDecreaseSkillMP);
 
 	// [100107: selo] ?????? ????? ???? ??? ?? ????	
-	CPlayerEntity* penPlayerEntity = (CPlayerEntity*)CEntity::GetPlayerEntity(0); //©¦???? ??? ???
+	CPlayerEntity* penPlayerEntity = (CPlayerEntity*)CEntity::GetPlayerEntity(0); //ï¿½ï¿½???? ??? ???
 	//penPlayerEntity->SetImportantValues(pPack->walkSpeed, pPack->run_or_fly_speed, pPack->attackRange, pPack->attackSpeed, pPack->magicSpeed);
 	//Cloud ant-hack	
     penPlayerEntity->SetImportantValues(pPack->walkSpeed, pPack->run_or_fly_speed , pPack->run_or_fly_speedfix, pPack->attackRange, pPack->attackSpeed , pPack->attackSpeedfix, pPack->magicSpeed, pPack->skillSpeedfix);//Cloud ant-hack	
 
-	// Date : 2005-09-07(¿ÀÈÄ 5:31:54), By Lee Ki-hwan
-	// sbMountPet : ÆÖÀ» Å¸°íÀÖ´ÂÁö¿¡ ´ëÇÑ Á¤º¸
-	// 0 Å¸°í ÀÖÁö ¾ÊÀ½, 
-	// ±×¿Ü PetType°ú Age°¡ bitÁ¤º¸·Î ¿È.
+	// Date : 2005-09-07(ï¿½ï¿½ï¿½ï¿½ 5:31:54), By Lee Ki-hwan
+	// sbMountPet : ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 0 Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 
+	// ï¿½×¿ï¿½ PetTypeï¿½ï¿½ Ageï¿½ï¿½ bitï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	if( pPack->mountPet ) 
 	{
 		//-----------------------------------------------------------	
@@ -326,8 +335,8 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		INDEX iPetAge	= -1;
 		_pNetwork->CheckPetType( pPack->mountPet, iPetType, iPetAge );
 
-		// NOTE : Å»¼ö ÀÖ´Â ¾Ö¿Ïµ¿¹°ÀÎÁö ÆÇ´ÜÇÏ¿©, Ä³¸¯ÅÍ¸¦ ÅÂ¿ó´Ï´Ù.
-		// NOTE : ¾Ö¿Ïµ¿¹°À» Å¸°í ÀÖÀ» °æ¿ì¿¡´Â, PetÅ¸°Ù Á¤º¸¸¦ Ãß°¡ÇÏÁö ¾ÊÀ½(³» ¾Ö¿Ïµ¿¹°ÀÏ¶§´Â Æê Å¸°Ù Á¤º¸Ã¢ ¼³Á¤ÇÒ°Í...)
+		// NOTE : Å»ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï¿ï¿½, Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Â¿ï¿½Ï´ï¿½.
+		// NOTE : ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½, PetÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½...)
 		const BOOL bPetRide = PetInfo().IsRide(iPetType, iPetAge);		
 
 		if( bPetRide )
@@ -376,7 +385,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 	{		
 		CEntity* penPlEntity;
 		CPlayerEntity* penPlayerEntity;
-		penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+		penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 		penPlayerEntity = (CPlayerEntity*) penPlEntity;
 		if(!penPlayerEntity->IsAlreadyDie())
 		{
@@ -385,7 +394,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 			_pNetwork->MyCharacterInfo.statusEffect.Reset();
 		}
 		// WSS_DRATAN_SIEGEWARFARE 2007/10/17
-		// °ø¼º ºÎÈ°´ë±â½Ã Á×¾úÀ» °æ¿ì Ã³¸®		
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½		
 		if( !pUIManager->GetSiegeWarfareNew()->GetWarState()&&
 			(pUIManager->GetSiegeWarfareNew()->GetWaitTime()>=0))
 		{			
@@ -393,12 +402,12 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		}
 
 		// [090908: selo]
-		// ±ÍÈ¯ÁÖ¹®¼­ »ç¿ë Áß Á×À» ¼öµµ ÀÖ¾î¼­
-		// ³»°¡ Á×À» ¶§ ÀÎº¥Åä¸® LockÀ» Ç®¾îÁØ´Ù.
+		// ï¿½ï¿½È¯ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾î¼­
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® Lockï¿½ï¿½ Ç®ï¿½ï¿½ï¿½Ø´ï¿½.
 		pUIManager->SetCSFlagOff( CSF_TELEPORT );
 		pUIManager->GetInventory()->Lock( FALSE, FALSE, LOCK_WARP );
 
-		// connie [2009/10/1] - NPC Ã£±â 
+		// connie [2009/10/1] - NPC Ã£ï¿½ï¿½ 
 		pUIManager->GetNpcScroll()->CloseNpcScroll();
 	}
 #ifdef NEW_CHAO_SYS
@@ -407,7 +416,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_6 & _pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{//¿äÃ» ÆÐÅ¶
+			{//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(5);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -418,7 +427,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_5&_pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{//¿äÃ» ÆÐÅ¶
+			{//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(4);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -429,7 +438,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_4&_pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{	//¿äÃ» ÆÐÅ¶
+			{	//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(3);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -440,7 +449,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_3&_pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{	//¿äÃ» ÆÐÅ¶
+			{	//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(2);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -451,7 +460,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_2&_pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{	//¿äÃ» ÆÐÅ¶
+			{	//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(1);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -462,7 +471,7 @@ void CSessionState::updateStatus( CNetworkMessage* istr )
 		if (!(PK_SYS_CHAO_1&_pNetwork->MyCharacterInfo.pkSysRewardFlag))
 		{
 			if(_pNetwork->MyCharacterInfo.bpkSysRewardLate == FALSE)
-			{	//¿äÃ» ÆÐÅ¶
+			{	//ï¿½ï¿½Ã» ï¿½ï¿½Å¶
 				_pNetwork->pkPenaltyReformRewardReq(0);
 				_pNetwork->MyCharacterInfo.bpkSysRewardLate= TRUE;
 			}
@@ -544,13 +553,13 @@ void CSessionState::updateAt( CNetworkMessage* istr )
 	{
 		_pNetwork->MyCharacterInfo.sbAttributePos = pPack->mapAttr;
 	}
-	//[ttos_2009_1_23]:Ã¤ÆÃ ±ÝÁö
+	//[ttos_2009_1_23]:Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	_pNetwork->MyCharacterInfo.ChatFlag = pPack->chatingFlag;
-	//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Zone Change System)(0.1)
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Zone Change System)(0.1)
 	g_slZone = pPack->zoneIndex;
 	pUIManager->GetRadar()->updateZone();
 	_pNetwork->ga_sesSessionState.ses_bWantPause = FALSE;
-	//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Zone Change System)(0.1)
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Zone Change System)(0.1)
 
 	CEntity::GetPlayerEntity(0)->SetNetworkID(pPack->charIndex);
 	((CPlayerEntity*)CEntity::GetPlayerEntity(0))->Read_net_Character(MSG_AT, 0, &(*istr));	 
@@ -569,8 +578,8 @@ void CSessionState::updateAt( CNetworkMessage* istr )
 		pUIManager->GetParty()->open();
 	}
 
-	// [090715: selo] ·¹ÀÌµå¿¡¼­ ³ª°¥¶§´Â Äù½ºÆ® ºÏÀÇ ·¹ÀÌµå ¸Þ½ÃÁö¸¦ ºñ¿î´Ù
-	if(!pUIManager->IsPlayInZone()) //ÀÎ½ºÅÏÆ®Á¸³»ºÎ¿¡¼­ ³ª°¥°æ¿ì
+	// [090715: selo] ï¿½ï¿½ï¿½Ìµå¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	if(!pUIManager->IsPlayInZone()) //ï¿½Î½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{		
 		GAMEDATAMGR()->GetQuest()->RemoveRaidMessageAll();
 	}
@@ -580,7 +589,7 @@ void CSessionState::updateAt( CNetworkMessage* istr )
 	_pNetwork->MyCharacterInfo.iNickType = pPack->currentTitle;
 	((CPlayerEntity*)CEntity::GetPlayerEntity(0))->SetNickNameDamageEffect(pPack->currentTitle, CEntity::NICKNAME_ATTACH_EFFECT);
 
-	pUIManager->GetCharacterInfo()->RegisterActions(); // Ä³¸¯ÅÍ Á¤º¸Ã¢ ¼ÂÆÃ
+	pUIManager->GetCharacterInfo()->RegisterActions(); // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
 
 	MY_INFO()->_guildmark.remove();
 
@@ -606,7 +615,7 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 	CEntity* penEntity;
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = (CPlayerEntity*) penPlEntity;
 
 	plPlacement.pl_PositionVector(1) = pPack->x;
@@ -669,7 +678,7 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 		pMT->AddBuff( sBuff );
 	}
 
-	// [sora] ¿øÁ¤´ë ½Ã½ºÅÛ ´ë»ó Ç¥½Ä index
+	// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ index
 	pMT->mob_Label = pPack->expedLabel;
 	pMT->mob_hp = pPack->hp; //dethunter12
 	pMT->mob_maxhp = pPack->maxHp; //dethunter12
@@ -695,7 +704,7 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 			if (pObject != NULL)
 				Ownername = pObject->m_strName.c_str();
 		}
-		strMobName.PrintF("%s%s %s", Ownername,_S(2228, "ÀÇ"), szMobName );
+		strMobName.PrintF("%s%s %s", Ownername,_S(2228, "ï¿½ï¿½"), szMobName );
 	}
 	else
 	{
@@ -708,13 +717,13 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 	penEntity->InitAsSkaModel();
 	pMT->m_nIdxClient	= penEntity->en_ulID;
 
-	// ¼Ó¼º Ãß°¡
+	// ï¿½Ó¼ï¿½ ï¿½ß°ï¿½
 	pMT->SetAttribute(eATTR_ATT, ubAttratt, ubAttrattLv);
 	pMT->SetAttribute(eATTR_DEF, ubAttrdef, ubAttrdefLv);
 
 	ACTORMGR()->AddObject(pMT);
 
-	// ¼ºÁÖÀÇ ±ÇÁÂÀÏ¶§....
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½....
 	if( pPack->charDbIndex == LORD_SYMBOL_INDEX )
 	{
 		if( pPack->hp <= pPack->maxHp * 0.25f)
@@ -746,8 +755,8 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 	penEntity->FallDownToFloor();
 	penEntity->GetModelInstance()->m_tmSkaTagManager.SetOwner(penEntity);
 
-	// °ø¼º °ü·ÃµÇ¼­... hp°¡ 0ÀÌ¶ó¸é...
-	// Á×Àº NPCÀÌÁö¸¸ »ç¶óÁöÁö´Â ¾Ê´Â NPC·Î...(±×¸®°í Å¸°ÙÆÃµµ ¾ÈµÇµµ·Ï...)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¼ï¿½... hpï¿½ï¿½ 0ï¿½Ì¶ï¿½ï¿½...
+	// ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ NPCï¿½ï¿½...(ï¿½×¸ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ÈµÇµï¿½ï¿½ï¿½...)
 	if( (MD->IsCastleTower()) && pPack->hp <= 0 )
 	{
 		penEntity->SetFlagOff(ENF_ALIVE);
@@ -768,9 +777,9 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 		penEntity->SetFlagOff(ENF_ALIVE);
 	}
 
-	// assist_state °ªÀ» ºñ±³ÇØ¿© ¸¶¹ý ºÎ¿©¿¡ ´ëÇÑ ÀÌÆåÆ®¸¦ Ãß°¡ÇÑ´Ù.
-	// ¹öÇÁ°¡ ³¡³¯¶§±îÁö °°Àº ¸ð¾çÀ» À¯ÁöÇÏ´Â ÀÌÆåÆ®´Â ¿©±â¼­ ºÙÀÌ°í,
-	// ÇÇ³ª µ¶ÀÌ »Õ¾îÁ® ³ª¿À´Â °Í°ú °°Àº ÀÌÆåÆ®´Â MSG_CHAR_STATUS¿¡¼­ ºÙÀÎ´Ù.
+	// assist_state ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Ì°ï¿½,
+	// ï¿½Ç³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ MSG_CHAR_STATUSï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 	if(penEntity->en_pmiModelInstance)
 	{
 		pMT->ChangeStatus(&penEntity->en_pmiModelInstance->m_tmSkaTagManager, pPack->assistInfo.state);
@@ -789,10 +798,10 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 	if( penEntity->en_pmiModelInstance == NULL ) return;
 
 	if (pPack->charDbIndex == MOB_FLOWERTREE_INDEX || pPack->charDbIndex == MOB_XMAS_TREE_CENTER || pPack->charDbIndex == MOB_XMAS_TREE_DECO || pPack->charDbIndex == GAMIGO_10TH_CAKE)
-	{ //²É³ª¹«, Å©¸®½º¸¶½º Æ®¸®(Àå½Ä¿ë, ±¤Àå¿ë)
+	{ //ï¿½É³ï¿½ï¿½ï¿½, Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½(ï¿½ï¿½Ä¿ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½)
 		CUIManager* pUIManager = CUIManager::getSingleton();
 
-		pUIManager->GetFlowerTree()->SetMobFlowerTree(pMT); // ²É³ª¹« MobTargetÁ¤º¸ ÀúÀå
+		pUIManager->GetFlowerTree()->SetMobFlowerTree(pMT); // ï¿½É³ï¿½ï¿½ï¿½ MobTargetï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pUIManager->GetFlowerTree()->FlowerTreeUpdate(pPack->hp); 
 	}
 	pMT->BuffsStartGroupEffect();
@@ -817,8 +826,8 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 	else if ( IS_FLAG_ON( pPack->assistInfo.state, EST_ASSIST_TRAP ) )
 	{
 		pMT->SetSubType( CMobTarget::MST_TRAP );
-		// À§¿¡¼­ Ç×»ó Ã¼Å©ÇÏ¿©¼­ Àû¿ëÇÏ¹Ç·Î º»ÀÎÀÇ °æ¿ì Àû¿ëµÊ.
-		// ¶§¹®¿¡ °­Á¦ÀûÀ¸·Î Ç®¾îÁÜ.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×»ï¿½ Ã¼Å©ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½.
 		penEntity->SetFirstExtraFlagOn(ENF_EX1_TRAP);
 		if ( pPack->ownerIndex == _pNetwork->MyCharacterInfo.index )
 		{
@@ -839,7 +848,7 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 			penEntity->SetFirstExtraFlagOn(ENF_EX1_TOTEM_ITEM);
 		}
 	}
-	// [2011/03/24 : Sora] ¸ó½ºÅÍ ¿ëº´ »çÀÌÁî ¼³Á¤
+	// [2011/03/24 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( pPack->ownerIndex > 0 )
 	{
 		if( pPack->mercenarySize > 0.0f )
@@ -874,11 +883,11 @@ void CSessionState::updateNpcAppear( CNetworkMessage *istr )
 
 	switch( pMT->m_nType )
 	{
-	case 190: {	strStateEffectName = "DK Normal State";	} break; //µ¥½º³ªÀÌÆ®
-	case 236: { strStateEffectName = "npcGolem01"; } break; //¾ÆÄÉÀÎ ÀÚÀÌ¾ðÆ®
-	case 454: { strStateEffectName = "halloween_mon"; penEntity->SetFlagOn(ENF_HIDDEN); } break; // È£¹Ú ±Í½Å
-	case 455: { strStateEffectName = "halloween_crow"; } break; // È£¹Ú ±¤´ë Çã¼ö¾Æºñ
-	case 1116: { strStateEffectName = "padocs_appear"; } break; // ÆÄµ¶½º ÃâÇö ÀÌÆåÆ®
+	case 190: {	strStateEffectName = "DK Normal State";	} break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	case 236: { strStateEffectName = "npcGolem01"; } break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½Æ®
+	case 454: { strStateEffectName = "halloween_mon"; penEntity->SetFlagOn(ENF_HIDDEN); } break; // È£ï¿½ï¿½ ï¿½Í½ï¿½
+	case 455: { strStateEffectName = "halloween_crow"; } break; // È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æºï¿½
+	case 1116: { strStateEffectName = "padocs_appear"; } break; // ï¿½Äµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	default:
 		return;
 	}
@@ -895,7 +904,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 	CEntity* penEntity;
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = (CPlayerEntity*) penPlEntity;
 		
 	plPlacement.pl_PositionVector(1) = pPack->x;
@@ -906,7 +915,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 	plPlacement.pl_OrientationAngle(3) = 0;
 
 	DeleteObject(MSG_CHAR_PC, pPack->charIndex);
-	// FIXME : Factory·Î ¹Ù²Ü±î???
+	// FIXME : Factoryï¿½ï¿½ ï¿½Ù²Ü±ï¿½???
 	CCharacterTarget* pTarget = new CCharacterTarget;
 	penEntity = _pNetwork->ga_World.CreateEntity_t(plPlacement,CTFILENAME("Classes\\Character.ecl"),-1,TRUE);
 
@@ -956,14 +965,14 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 		CItemData* pItemData = _pNetwork->GetItemData(sBuff.m_slItemIndex);
 		// wooss 070305 ------------------------------------>>
 		// kw : WSS_WHITEDAY_2007
-		// 6Á¾ ·¯ºê¸ÅÁ÷ ½ºÅ³
+		// 6ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
 		// 423 424 425 426 427 428
 		if( sBuff.m_slSkillIndex >= 423 && sBuff.m_slSkillIndex <= 428 )
 		{
-			// Ã³À½ÀÌ¸é ÀÌÆåÆ®¸¦ »ý¼ºÇÔ...
+			// Ã³ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 			if(pEG==NULL)
 			{
-				// Áö¼Ó ÀÌÆåÆ® - ÀÌÈÄ »èÁ¦½Ã Áö¿ì±âÀ§ÇØ ÀúÀå...
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
 				pEG = StartEffectGroup( "STATE_LOVE", &penEntity->en_pmiModelInstance->m_tmSkaTagManager, _pTimer->GetLerpedCurrentTick());
 				//		penEntity->GetModelInstance()->m_pEG = pEG;
 			}
@@ -980,10 +989,10 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 		// wooss 070310 ----------------------->><<
 		// kw : WSS_WHITEDAY_2007
 		// Add lovemagic buff (wind - skill index 423 )
-		if(sBuff.m_slItemIndex ==391||sBuff.m_slItemIndex == 1226||sBuff.m_slItemIndex ==1227 || sBuff.m_slSkillIndex == 423	//ÀÌ¼ÓÇâ»ó ¹°¾àÀÏ¶§ ºÒÀÌÆåÆ®¸¦ À§ÇÑ ÇÏµåÄÚµù..¤Ñ¤Ñ;
-			|| sBuff.m_slItemIndex ==2407 || sBuff.m_slItemIndex ==2408	|| sBuff.m_slItemIndex ==2609 || sBuff.m_slItemIndex == 2845	//±¤¼Ó ¾ÆÀÌÅÛ, ¹Ù¶÷ÀÇ ¼Óµµ ¹°¾à
+		if(sBuff.m_slItemIndex ==391||sBuff.m_slItemIndex == 1226||sBuff.m_slItemIndex ==1227 || sBuff.m_slSkillIndex == 423	//ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ï¿½Úµï¿½..ï¿½Ñ¤ï¿½;
+			|| sBuff.m_slItemIndex ==2407 || sBuff.m_slItemIndex ==2408	|| sBuff.m_slItemIndex ==2609 || sBuff.m_slItemIndex == 2845	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ù¶ï¿½ï¿½ï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
 			|| sBuff.m_slItemIndex == 2500
-			|| sBuff.m_slItemIndex == 5018 || sBuff.m_slItemIndex == 5019 // ±¤¼Ó 2 ¾ÆÀÌÅÛ
+			|| sBuff.m_slItemIndex == 5018 || sBuff.m_slItemIndex == 5019 // ï¿½ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			)	
 		{
 			((CPlayerEntity*)CEntity::GetPlayerEntity(0))->SetSpeedUp(FALSE, pTarget->m_nIdxClient, TRUE);
@@ -1005,7 +1014,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 		pTarget->ShopMsg.SetChatMsg( strShopName );
 		penPlayerEntity->SetShopData( pTarget->m_nIdxClient, pPack->personalshop.type );
 	}
-	// ±æµå °ü·Ã.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 	pTarget->cha_sbGuildRank = pPack->guildinfo.guildMark;
 
@@ -1029,7 +1038,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 #endif
 
 	// WSS_DRATAN_SEIGEWARFARE 2007/08/01
-	// ±³°¨ ¾Ö´Ï Àû¿ë
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(pPack->playerState & PLAYER_STATE_CRISTAL_RESPOND)
 	{
 		((CPlayerEntity*)CEntity::GetPlayerEntity(0))->SetConsensus(pTarget->m_nIdxServer);
@@ -1038,15 +1047,15 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 
 	CUIManager* pUIManager = CUIManager::getSingleton();
 
-	// assist_state °ªÀ» ºñ±³ÇØ¿© ¸¶¹ý ºÎ¿©¿¡ ´ëÇÑ ÀÌÆåÆ®¸¦ Ãß°¡ÇÑ´Ù.
-	// ¹öÇÁ°¡ ³¡³¯¶§±îÁö °°Àº ¸ð¾çÀ» À¯ÁöÇÏ´Â ÀÌÆåÆ®´Â ¿©±â¼­ ºÙÀÌ°í,
-	// ÇÇ³ª µ¶ÀÌ »Õ¾îÁ® ³ª¿À´Â °Í°ú °°Àº ÀÌÆåÆ®´Â MSG_CHAR_STATUS¿¡¼­ ºÙÀÎ´Ù.
+	// assist_state ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Ì°ï¿½,
+	// ï¿½Ç³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ MSG_CHAR_STATUSï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 	if(penEntity->en_pmiModelInstance)
 	{
 		CStatusEffect::eRelation rel = CStatusEffect::R_NONE;
 		if(GAMEDATAMGR()->GetPartyInfo()->IsPartyMember(pTarget->m_nIdxServer))
 		{
-			// 051203 ÆÄÆ¼ ¸â¹öÀÏ °æ¿ì.  ÇÃ·¡±×¸¦ ÄÑÁÜ.
+			// 051203 ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.  ï¿½Ã·ï¿½ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			penEntity->SetSecondExtraFlagOn( ENF_EX2_MYPARTY );
 			rel = CStatusEffect::R_PARTY;
 		}
@@ -1075,7 +1084,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 	{
 		INDEX animID = ska_StringToID("ro_die_01");//Hardcoding
 		penEntity->GetModelInstance()->AddAnimation(animID, AN_CLEAR, 1.0f, 0);
-		//hardcoding, CCharacterBaseÀÇ m_bIdleAnim property¸¦ °¡Á®¿Â´Ù.
+		//hardcoding, CCharacterBaseï¿½ï¿½ m_bIdleAnim propertyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 		if(penEntity->en_pecClass)
 		{
 			CDLLEntityClass *pdecDLLBaseClass	= penEntity->GetClass()->ec_pdecDLLClass->dec_pdecBase;
@@ -1086,7 +1095,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 			}
 		}
 	}
-	//0221 º¯½Å·çÆ¾
+	//0221 ï¿½ï¿½ï¿½Å·ï¿½Æ¾
 	pTarget->cha_nChangeMobId = pPack->changeIndex;
 
 	if(pPack->changeIndex != -1)
@@ -1121,7 +1130,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 		pTarget->cha_iPetAge	= iPetAge;
 		if( pTarget->cha_bPetRide != bPetRide )
 		{
-			// ÆêÀ» Å¸µµ·Ï ¼³Á¤ÇØ¾ß ÇÏ´Â °æ¿ì...
+			// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½...
 			if( iPetType != -1 && iPetAge != -1 && bPetRide )			
 			{
 				// [070824: Su-won] PET_COLOR_CHANGE
@@ -1141,7 +1150,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 	pTarget->cha_Label = pPack->expedLabel;
 	pTarget->cha_NickType = pPack->currentTitle;
 
-	if ( pPack->currentTitle > 0)	// È£ÄªÀÌ ÀÖ´Ù¸é
+	if ( pPack->currentTitle > 0)	// È£Äªï¿½ï¿½ ï¿½Ö´Ù¸ï¿½
 	{
 		penEntity->SetNickNameDamageEffect(pPack->currentTitle, CEntity::NICKNAME_ATTACH_EFFECT);
 	}
@@ -1151,7 +1160,7 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 		CEntity* tempOtherEntity = NULL;
 		tempOtherEntity = _pNetwork->GetEntityByTypeIndex(MSG_CHAR_WILDPET, pPack->mountApetIndex);
 
-		if (tempOtherEntity && tempOtherEntity->en_EntityUseType == CEntity::EU_NORMAL) // ÀÌ ¼ø°£ ÆêÀ» ¹«Á¶°Ç ¸ø ÅÂ¿î »óÅÂ´Ù.
+		if (tempOtherEntity && tempOtherEntity->en_EntityUseType == CEntity::EU_NORMAL) // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 		{
 			CWildPetTarget* pWild = tempOtherEntity->en_pWildPetTarget;
 			pWild->m_bMount = TRUE;
@@ -1162,32 +1171,32 @@ void CSessionState::updatePcAppear( CNetworkMessage *istr )
 
 	if ( pPack->merac_join_flag > 0 )
 	{
-		// Date : 2005-07-13(¿ÀÈÄ 5:29:49), By Lee Ki-hwan
-		// °ø¼º Effect
+		// Date : 2005-07-13(ï¿½ï¿½ï¿½ï¿½ 5:29:49), By Lee Ki-hwan
+		// ï¿½ï¿½ï¿½ï¿½ Effect
 		_pUISWDoc->StartEffect( pPack->charIndex, penEntity, pPack->merac_join_flag, pPack->guildinfo.index );
 
-		// ±æµåÀå ÀÌÆåÆ® Ãß°¡ // Date : 2005-11-18(¿ÀÈÄ 3:43:49), By Lee Ki-hwan
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ // Date : 2005-11-18(ï¿½ï¿½ï¿½ï¿½ 3:43:49), By Lee Ki-hwan
 		_pUISWDoc->StartGuildMasterEffect( pPack->charIndex, penEntity, pPack->merac_join_flag, pPack->guildinfo.index, pPack->guildinfo.pos );
 	}	
 	// WSS_DRATAN_SEIGEWARFARE 2007/08/29
-	// °ø¼º ÀÌÆåÆ® Ã³¸®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ã³ï¿½ï¿½
 	if( pPack->dratan_join_flag > 0 )
 	{
-		// TODO :: ÀÌÆåÆ® ³ª¿À¸é ÇÏÀ§ Ã³¸®...
+		// TODO :: ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½...
 		_pUISWDoc->StartEffect( pPack->charIndex, penEntity, pPack->dratan_join_flag, pPack->guildinfo.index );
 		_pUISWDoc->StartGuildMasterEffect( pPack->charIndex, penEntity, pPack->dratan_join_flag, pPack->guildinfo.index, pPack->guildinfo.pos );
 	}
 
-	// Date : 2005-04-06(¿ÀÈÄ 5:04:54), By Lee Ki-hwan
-	// ±æµå ÀüÅõ ÁßÀÌ¶ó¸é ±æµå Index¸¦ Ã¼Å©ÇØ¼­ Effect¸¦ »Ñ·ÁÁÜ
+	// Date : 2005-04-06(ï¿½ï¿½ï¿½ï¿½ 5:04:54), By Lee Ki-hwan
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ Indexï¿½ï¿½ Ã¼Å©ï¿½Ø¼ï¿½ Effectï¿½ï¿½ ï¿½Ñ·ï¿½ï¿½ï¿½
 	if ( pUIManager->GetGuildBattle()->IsInBattle() )
 	{
 		int nEnemyGuild = pUIManager->GetGuildBattle()->IsEnemyGuild( pPack->guildinfo.index );
-		if( nEnemyGuild == 1 ) // Àû±º (Àû»ö)
+		if( nEnemyGuild == 1 ) // ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 		{
 			pUIManager->GetGuildBattle()->StartGuildEffect( pPack->charIndex, penEntity, TRUE );
 		}
-		else if( nEnemyGuild == -1 ) // ¾Æ±º (Ã»»ö)
+		else if( nEnemyGuild == -1 ) // ï¿½Æ±ï¿½ (Ã»ï¿½ï¿½)
 		{
 			pUIManager->GetGuildBattle()->StartGuildEffect( pPack->charIndex, penEntity, FALSE );
 		}
@@ -1216,8 +1225,8 @@ void CSessionState::updatePetAppear( CNetworkMessage *istr )
 	INDEX iPetAge	= -1;
 	_pNetwork->CheckPetType( pPack->grade, iPetType, iPetAge );
 
-	// NOTE : Å»¼ö ÀÖ´Â ¾Ö¿Ïµ¿¹°ÀÎÁö ÆÇ´ÜÇÏ¿©, Ä³¸¯ÅÍ¸¦ ÅÂ¿ó´Ï´Ù.
-	// NOTE : ¾Ö¿Ïµ¿¹°À» Å¸°í ÀÖÀ» °æ¿ì¿¡´Â, PetÅ¸°Ù Á¤º¸¸¦ Ãß°¡ÇÏÁö ¾ÊÀ½(³» ¾Ö¿Ïµ¿¹°ÀÏ¶§´Â Æê Å¸°Ù Á¤º¸Ã¢ ¼³Á¤ÇÒ°Í...)
+	// NOTE : Å»ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï¿ï¿½, Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Â¿ï¿½Ï´ï¿½.
+	// NOTE : ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½, PetÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½...)
 	const BOOL bPetRide = PetInfo().IsRide(iPetType, iPetAge);	
 
 	//-----------------------------------------------------------
@@ -1225,14 +1234,14 @@ void CSessionState::updatePetAppear( CNetworkMessage *istr )
 
 	if (bPetRide == FALSE)
 	{
-		// NOTE : ¾Ö¿Ïµ¿¹°À» Å¸°íÀÖ´Â °æ¿ì¿¡´Â, ±× ¿£Æ¼Æ¼´Â Ä³¸¯ÅÍ·Î Ãë±ÞµÇ±â ¶§¹®¿¡,
-		// NOTE : ÆêÅ¸°ÙÀ» Ãß°¡ÇÏ¸é ¾ÈµÈ´Ù.
-		// NOTE : ¸¸¾à¿¡ Ãß°¡ÇÏ°Ô µÇ¸é, DISAPPEAR¿¡¼­ ¿£Æ¼Æ¼¸¦ DestroyÇÏ±â ¶§¹®¿¡
-		// NOTE : ¾Ö´Ï¸ÞÀÌ¼Ç½Ã ¿£Æ¼Æ¼°¡ À¯È¿ÇÏÁö ¾Ê°Ô µÇ¾î¼­ »¶³ª°Ô µÊ.
-		// FIXME : Factory·Î ¹Ù²Ü±î???
+		// NOTE : ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+		// NOTE : ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸ï¿½ ï¿½ÈµÈ´ï¿½.
+		// NOTE : ï¿½ï¿½ï¿½à¿¡ ï¿½ß°ï¿½ï¿½Ï°ï¿½ ï¿½Ç¸ï¿½, DISAPPEARï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ Destroyï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// NOTE : ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ç¾î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+		// FIXME : Factoryï¿½ï¿½ ï¿½Ù²Ü±ï¿½???
 		DeleteObject(MSG_CHAR_PET, pPack->charIndex);
 		CPetTarget* pTarget = new CPetTarget;
-		CTString strPetName = pPack->ownerName + _S(2228,"ÀÇ ") + CTString(" ") + PetInfo().GetName(iPetType, iPetAge);
+		CTString strPetName = pPack->ownerName + _S(2228,"ï¿½ï¿½ ") + CTString(" ") + PetInfo().GetName(iPetType, iPetAge);
 		CTString strPetCardName = pPack->name;
 		CTString strPetOwnerName = pPack->ownerName;
 		pTarget->SetData( pPack->charIndex, strPetName, strPetOwnerName, pPack->ownerIndex, iPetType, iPetAge, penEntity, pPack->yLayer, strPetCardName);	
@@ -1247,16 +1256,16 @@ void CSessionState::updatePetAppear( CNetworkMessage *istr )
 
 	BOOL bUseAI		= FALSE;
 
-	// ³» ÆêÀÌ¸ç, ÀÎº¥Åä¸®¿¡ ÀåÂøÇØ¼­ µ¥¸®±¸ ´Ù´Ï´Â ÆêÀÏ °æ¿ì.
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù´Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if( pPack->ownerIndex == _pNetwork->MyCharacterInfo.index )
 	{
-		// Æê Å¸°Ù Á¤º¸Ã¢ Á¤º¸¸¦ ¼³Á¤ÇÕ´Ï´Ù.
+		// ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 		bUseAI		= TRUE;
 		penEntity->SetFirstExtraFlagOn(ENF_EX1_CURRENT_PET);
 		CPetTargetInfom* pPetInfo = INFO()->GetMyPetInfo();
 		pPetInfo->lIndex		= pPack->charIndex;
 		pPetInfo->bIsActive		= TRUE;
-		pPetInfo->TransformIndex = pPack->turnToNpc; // Æê º¯½Å NPC ÀÎµ¦½º
+		pPetInfo->TransformIndex = pPack->turnToNpc; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NPC ï¿½Îµï¿½ï¿½ï¿½
 		pPetInfo->pen_pEntity	= penEntity;
 
 		_pNetwork->UpdatePetTargetInfo( pPack->charIndex );
@@ -1270,15 +1279,15 @@ void CSessionState::updatePetAppear( CNetworkMessage *istr )
 	penEntity->Initialize();
 	penEntity->FallDownToFloor();
 
-	// Æê »ö±ò º¯°æ ¾ÆÀÌÅÛÀ» »ç¿ëÇÑ »óÅÂ¶ó¸é ÅØ½ºÃÄ ÆÄÀÏÀ» ¹Ù²ãÁÜ...
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ ï¿½Ø½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½...
 	if( pPack->color >0 )
 	{
 		CTString strTexFile =PetInfo().GetColoredTexFileName(iPetType, iPetAge, pPack->color);
 		penEntity->GetModelInstance()->mi_aMeshInst[0].mi_tiTextures[0].ti_toTexture.SetData_t( strTexFile );
 	}
 
-	// eons Æê º¯½Å
-	// ÀÏ´Ü Æê ¸ðµ¨ ¼³Á¤À» °ÅÄ£ ÈÄ º¯½ÅÀ» ÇÏÀÚ.
+	// eons ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if (pPack->turnToNpc > 0)
 	{
 		((CPlayerEntity*)CEntity::GetPlayerEntity(0))->TransfromPet(penEntity, pPack->turnToNpc, pPack->turnToNpcSize);
@@ -1329,7 +1338,7 @@ void CSessionState::updateElementalAppear( CNetworkMessage *istr )
 	
 	ObjInfo* pInfo = ObjInfo::getSingleton();
 	CSlaveTargetInfom* pSlaveInfo = NULL;
-	// ³» ¼ÒÈ¯¼ö¶ó°í Ç¥½ÃÇØÁÜ.
+	// ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if( pPack->ownerIndex == _pNetwork->MyCharacterInfo.index )
 	{
 		CUIManager* pUIManager = CUIManager::getSingleton();
@@ -1354,16 +1363,16 @@ void CSessionState::updateElementalAppear( CNetworkMessage *istr )
 		}
 	}
 
-	// NOTE : ¾Ö¿Ïµ¿¹°À» Å¸°íÀÖ´Â °æ¿ì¿¡´Â, ±× ¿£Æ¼Æ¼´Â Ä³¸¯ÅÍ·Î Ãë±ÞµÇ±â ¶§¹®¿¡,
-	// NOTE : ÆêÅ¸°ÙÀ» Ãß°¡ÇÏ¸é ¾ÈµÈ´Ù.
-	// NOTE : ¸¸¾à¿¡ Ãß°¡ÇÏ°Ô µÇ¸é, DISAPPEAR¿¡¼­ ¿£Æ¼Æ¼¸¦ DestroyÇÏ±â ¶§¹®¿¡
-	// NOTE : ¾Ö´Ï¸ÞÀÌ¼Ç½Ã ¿£Æ¼Æ¼°¡ À¯È¿ÇÏÁö ¾Ê°Ô µÇ¾î¼­ »¶³ª°Ô µÊ.
-	// FIXME : Factory·Î ¹Ù²Ü±î???
+	// NOTE : ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+	// NOTE : ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï¸ï¿½ ï¿½ÈµÈ´ï¿½.
+	// NOTE : ï¿½ï¿½ï¿½à¿¡ ï¿½ß°ï¿½ï¿½Ï°ï¿½ ï¿½Ç¸ï¿½, DISAPPEARï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ Destroyï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// NOTE : ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ç¾î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	// FIXME : Factoryï¿½ï¿½ ï¿½Ù²Ü±ï¿½???
 	DeleteObject(MSG_CHAR_ELEMENTAL, pPack->charIndex);	
 
 	CSlaveTarget* pTarget = new CSlaveTarget;
 	
-	CTString strSlaveName = pPack->ownerName + _S(2228,"ÀÇ ") + CTString(" ") + SlaveInfo().GetName(pPack->elementalType);		// ¹ø¿ª
+	CTString strSlaveName = pPack->ownerName + _S(2228,"ï¿½ï¿½ ") + CTString(" ") + SlaveInfo().GetName(pPack->elementalType);		// ï¿½ï¿½ï¿½ï¿½
 	CTString strOwnerName = pPack->ownerName;
 	pTarget->SetData( pPack->charIndex, strSlaveName, strOwnerName, pPack->ownerIndex, pPack->elementalType, penEntity, pPack->yLayer );	
 	pTarget->m_nIdxClient = penEntity->en_ulID;
@@ -1386,9 +1395,9 @@ void CSessionState::updateElementalAppear( CNetworkMessage *istr )
 		pTarget->AddBuff( sBuff );
 	}
 
-	// assist_state °ªÀ» ºñ±³ÇØ¿© ¸¶¹ý ºÎ¿©¿¡ ´ëÇÑ ÀÌÆåÆ®¸¦ Ãß°¡ÇÑ´Ù.
-	// ¹öÇÁ°¡ ³¡³¯¶§±îÁö °°Àº ¸ð¾çÀ» À¯ÁöÇÏ´Â ÀÌÆåÆ®´Â ¿©±â¼­ ºÙÀÌ°í,
-	// ÇÇ³ª µ¶ÀÌ »Õ¾îÁ® ³ª¿À´Â °Í°ú °°Àº ÀÌÆåÆ®´Â MSG_CHAR_STATUS¿¡¼­ ºÙÀÎ´Ù.
+	// assist_state ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Ì°ï¿½,
+	// ï¿½Ç³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ MSG_CHAR_STATUSï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 	if(penEntity->en_pmiModelInstance)
 	{
 		pTarget->ChangeStatus(&penEntity->en_pmiModelInstance->m_tmSkaTagManager, pPack->assistInfo.state);
@@ -1399,7 +1408,7 @@ void CSessionState::updateElementalAppear( CNetworkMessage *istr )
 	}
 
 	SlaveInfo().StartIdleEffect( pPack->charIndex, pPack->elementalType, penEntity );		
-	// ¼ÒÈ¯¼ö »çÀÌÁî Á¶Àý ( Ä³¸¯ ÀüÁ÷Àü ÀÛ°Ô )
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ )
 	if(!pPack->isBigSize)
 	{
 		penEntity->en_pmiModelInstance->StretchModel(FLOAT3D( 0.7f,0.7f,0.7f ));
@@ -1435,15 +1444,15 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 	plPlacement.pl_OrientationAngle(2)	= 0.0f;
 	plPlacement.pl_OrientationAngle(3)	= 0.0f;
 	
-	// ³»°¡ ÀåÂøÇÑ Æê ¿ÜÀÇ ÆêÀº ¾È±×¸®µµ·Ï ¹æ¾î
-	// ¸¶¿îÆ® »óÅÂ°¡ ¾Æ´Ò°æ¿ì¿¡¸¸ Ã¼Å©(¸¶¿îÆ® »óÅÂÀÏ¶§´Â ÆêÀÇ ¾îÇÇ¾î°¡ ÇÑ¹ø ¿À°ÔµÊ)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È±×¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ò°ï¿½ì¿¡ï¿½ï¿½ Ã¼Å©(ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾î°¡ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½Ôµï¿½)
 	if (pPack->ownerIndex == _pNetwork->MyCharacterInfo.index && _pNetwork->MyCharacterInfo.bWildPetRide == FALSE)
 	{
 		if (_pNetwork->MyWearItem[WEAR_PET].IsEmptyItem() == TRUE)
-			return; // Ç×»ó ¾ÆÀÌÅÛÀÌ ¸ÕÀú ÀåÂøµÈ ÈÄ ÆêÀÌ ±×·ÁÁü		
+			return; // ï¿½×»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½		
 
 		if (_pNetwork->MyWearItem[WEAR_PET].GetItemPlus() != pPack->charIndex)
-			return; // Âø¿ëµÈ Æê°ú ´Ù¸¥ ÆêÀ» °¡Áú ¼ö ¾øÀ½
+			return; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	
 	CTString strFile = CWildPetData::getData(pPack->dbIndex)->smcFile[pPack->transSate];
@@ -1471,8 +1480,8 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 
 	pTarget->m_sbTransStat = pPack->transSate;
 	pTarget->m_bMount = pPack->isMount;
-	// [ldy1978220 2011/7/6] ITS-1243 ÆêÀÌ appear Á¤º¸ ¹ÞÀ» ¶§ ¹è°íÇÄ Á¤º¸¸¦ ¹Ù·Î ¹ÞÁö ¾Ê±â ¶§¹®¿¡ 
-	// ¹è°íÇÄ ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ Ãâ·ÂµÇ´Â Çö»óÀÌ ³ªÅ¸³²À¸·Î ÃÖ¼Ò°ª 1·Î ¼¼ÆÃ 
+	// [ldy1978220 2011/7/6] ITS-1243 ï¿½ï¿½ï¿½ï¿½ appear ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ÂµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò°ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 	pTarget->m_nStm = 1;	
 	pTarget->m_nHP = pPack->hp;
 	pTarget->m_nMaxHP = pPack->maxHp;
@@ -1507,7 +1516,7 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 	}
 
 	penEntity->Initialize();
-	// ¼­¹ö¿¡ ÀÇÁ¸ ÀÔ´Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Â´ï¿½.
 	if( pPack->isMount )
 	{
 		CTString szModelFileName = CWildPetData::getData(pPack->dbIndex)->smcFile[pPack->transSate];
@@ -1522,7 +1531,7 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 
 			if( NULL != tempOtherEntity )
 				_pNetwork->RideWildPet( tempOtherEntity, penEntity, szModelFileName );
-			else	// ¸¸¾à ¸¶¿îÆ®¸¦ ½ÃµµÇß´Âµ¥ ½ÇÆÐÇÒ °æ¿ì ¸ðµ¨Àº ±âº» ¸ðµ¨¸¸ ³ª¿Â´Ù.
+			else	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ãµï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ðµ¨¸ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 			{
 				pTarget->m_bMount = FALSE;
 			}
@@ -1530,14 +1539,14 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 	}
 	else
 	{
-		// ÈÞ¸ÕÇüÀÌ ¾Æ´Ï¶ó¸é ¹«Á¶°Ç ¹þ´Â´Ù. [3/24/2011 rumist]
+		// ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½. [3/24/2011 rumist]
 		if( 1 != CWildPetData::getData(pPack->dbIndex)->type )
 		{
 			if( pPack->ownerIndex == _pNetwork->MyCharacterInfo.index )
 				_pNetwork->LeaveWildPet( CEntity::GetPlayerEntity(0) );
 			else
 			{
-				// ³ª ¾Æ´Ò ¶§¸¸ ¼­Äª.
+				// ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Äª.
 				CEntity* tempOtherEntity = NULL;
 				tempOtherEntity = _pNetwork->GetEntityByTypeIndex(MSG_CHAR_PC, pPack->ownerIndex);
 
@@ -1546,7 +1555,7 @@ void CSessionState::updateAPetAppear( CNetworkMessage *istr )
 			}
 		}
 	}
-	// pet appear skill. ÀÌ°Ç ÆêÀ» ÀåÂøÇØ¼­ µîÀåÇÒ¶§¸¸ »ç¿ëÇÏ´Â ½ºÅ³. [12/1/2010 rumist]
+	// pet appear skill. ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å³. [12/1/2010 rumist]
 	ASSERT( 0 < pPack->dbIndex );
 	int temSummonSkill = CWildPetData::getData(pPack->dbIndex)->nSummonSkill[pPack->transSate];
 	
@@ -1583,7 +1592,7 @@ IMPLEMENT_MSG_UPDATE(updateDisappearEffect)
 
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = static_cast<CPlayerEntity*>(penPlEntity);
 
 	if (penPlayerEntity != NULL)
@@ -1635,7 +1644,7 @@ void CSessionState::updateElementalStatus( CNetworkMessage* istr )
 
 		pTarget->m_yLayer = pPack->yLayer;
 
-		// ³» ¼ÒÈ¯¼öÀÎ °æ¿ì...
+		// ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½...
 		if (pTarget->slave_OwnerIndex == _pNetwork->MyCharacterInfo.index)
 		{
 			for( int i = UI_SUMMON_START; i <= UI_SUMMON_END; ++i )
@@ -1645,7 +1654,7 @@ void CSessionState::updateElementalStatus( CNetworkMessage* istr )
 
 				if( pUISummon->GetSummonEntity() && pUISummon->GetSummonIndex() == pPack->charIndex && pSlaveInfo != NULL )
 				{
-					pUISummon->SetMaxTime(pPack->remainTime);		// MaxTimeÀº ÇÑ¹ø¸¸ ¼³Á¤µË´Ï´Ù.
+					pUISummon->SetMaxTime(pPack->remainTime);		// MaxTimeï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½.
 					pSlaveInfo->fHealth	= pPack->hp;
 					pSlaveInfo->fMaxHealth = pPack->maxHp;
 					pUISummon->SetLeftTime(pPack->remainTime);
@@ -1658,12 +1667,12 @@ void CSessionState::updateElementalStatus( CNetworkMessage* istr )
 		pTarget->slave_BuffCount = 0;
 		for( int i = 0; i < pPack->assistinfo.count; i++ )
 		{
-			//(*istr) >> sBuff.m_slItemIndex >> sBuff.m_slSkillIndex >> sBuff.m_sbLevel >> sBuff.m_slRemain;	//¿øº»
+			//(*istr) >> sBuff.m_slItemIndex >> sBuff.m_slSkillIndex >> sBuff.m_sbLevel >> sBuff.m_slRemain;	//ï¿½ï¿½ï¿½ï¿½
 			sBuff.m_slItemIndex = pPack->assistinfo.list[i].index;
 			sBuff.m_slSkillIndex = pPack->assistinfo.list[i].dbIndex;
 			sBuff.m_sbLevel = pPack->assistinfo.list[i].level;
 			sBuff.m_slRemain = pPack->assistinfo.list[i].remain;
-			sBuff.m_slRemainCount = pPack->assistinfo.list[i].remainCount;	//2012/11/12 jeil ½ºÅ³È®Àå°ü·Ã Ãß°¡
+			sBuff.m_slRemainCount = pPack->assistinfo.list[i].remainCount;	//2012/11/12 jeil ï¿½ï¿½Å³È®ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			pTarget->AddBuff( sBuff );
 		}
 	}
@@ -1789,7 +1798,7 @@ void CSessionState::updateDamage( CNetworkMessage* istr )
 
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = static_cast<CPlayerEntity*>(penPlEntity);
 
 	if (pPack->charType == MSG_CHAR_PC)
@@ -1798,11 +1807,11 @@ void CSessionState::updateDamage( CNetworkMessage* istr )
 	}
 	else
 	{
-		// ÇÃ·¹ÀÌ¾î¸¦ Á¦¿ÜÇÑ ´Ù¸¥ ¿£Æ¼Æ¼ÀÇ °æ¿ì.
+		// ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½.
 		penPlayerEntity->Read_net_Damage(pPack->charType, &(*istr));
 	}	
 
-	// ±æµå ÀüÀïÁß Æ÷Å»À» Å¸·Á°í ÇÏ´Âµ¥ °ø°ÝÀ» ¹ÞÀ¸¸é Ãë¼Ò 
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 	CUIManager::getSingleton()->GetGuildWarPortal()->PortalCancel();
 }
 
@@ -1811,7 +1820,7 @@ IMPLEMENT_MSG_UPDATE(StatusAPetSmall)
 	UpdateClient::attackPetSmallStatus* pPack = reinterpret_cast<UpdateClient::attackPetSmallStatus*>(istr->GetBuffer());
 
 	// MSG_SUB_APET_INFO: 
-	// ÀÌ ¸Þ¼¼Áö Ã³¸®·Î, ½ÇÁúÀûÀÎ Æê Á¤º¸¿Í UIÀÇ Æê Á¤º¸°¡ ¾î±ß³ª°Ô µÈ´Ù.(ÇÊ¿ä¼ºÀÌ ¾øÀ½)
+	// ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ß³ï¿½ï¿½ï¿½ ï¿½È´ï¿½.(ï¿½Ê¿ä¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 	CUIManager* pUIManager = CUIManager::getSingleton();
 	
@@ -1844,7 +1853,7 @@ IMPLEMENT_MSG_UPDATE(UpdateLevel)
 	_pNetwork->MyCharacterInfo.level = pPack->level;
 
 	CTString strMessage;
-	strMessage.PrintF(_S(6225, "ÃàÇÏÇÕ´Ï´Ù. [%d]·¹º§ÀÌ µÇ¾ú½À´Ï´Ù."), pPack->level);
+	strMessage.PrintF(_S(6225, "ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. [%d]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), pPack->level);
 
 	CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( strMessage, SYSMSG_USER);
 
@@ -1853,7 +1862,7 @@ IMPLEMENT_MSG_UPDATE(UpdateLevel)
 
 	if (_UIAutoHelp->GetUpStatpoint() > 0)
 	{
-		strMessage.PrintF(_S(6212, "¼ºÀå Æ÷ÀÎÆ® %d°³°¡ »ý¼º µÇ¾ú½À´Ï´Ù."), _UIAutoHelp->GetUpStatpoint());
+		strMessage.PrintF(_S(6212, "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® %dï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), _UIAutoHelp->GetUpStatpoint());
 		CUIManager::getSingleton()->GetChattingUI()->AddSysMessage( strMessage, SYSMSG_USER);
 	}
 
@@ -1887,7 +1896,7 @@ IMPLEMENT_MSG_UPDATE(UpdateCharHitType)
 
 	int nCharIndex = pRecv->charIndex;
 
-	// 0 : ÀÏ¹Ý, 1 : ÈûÀÇ¼º¼ö, 2 : ½ÅºñÇÑ ¼º¼ö
+	// 0 : ï¿½Ï¹ï¿½, 1 : ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½, 2 : ï¿½Åºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int nType = 0;
 
 	switch(pRecv->holyWaterItemIndex)
@@ -1975,7 +1984,7 @@ IMPLEMENT_MSG_UPDATE(updatePremiumCharEnd)
 	UIMGR()->GetPremiumChar()->CloseUI();
 
 	CTString strErrorMsg;
-	strErrorMsg.PrintF(_S( 6326, "ÇÁ¸®¹Ì¾ö ÇýÅÃÀÇ »ç¿ë±â°£ÀÌ ¸¸·á µÇ¾ú½À´Ï´Ù."));
+	strErrorMsg.PrintF(_S( 6326, "ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 	_pNetwork->ClientSystemMessage(strErrorMsg, SYSMSG_ERROR);
 #endif	//	PREMIUM_CHAR
 }
@@ -1999,7 +2008,7 @@ IMPLEMENT_MSG_UPDATE(PremiumFlag)
 
 IMPLEMENT_MSG_UPDATE(updateAttrPc)
 {
-	// ¼Ó¼º ¾÷µ¥ÀÌÆ®.
+	// ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 	UpdateClient::AttrItemUse* pRecv = reinterpret_cast<UpdateClient::AttrItemUse*>(istr->GetBuffer());
 
 	CTString strAtt;
@@ -2010,10 +2019,10 @@ IMPLEMENT_MSG_UPDATE(updateAttrPc)
 	switch(pRecv->state_type)
 	{
 	case 1:
-		nMsgCode = 6351; // %sÀÇ °ø°Ý ¼Ó¼ºÀ¸·Î °áÁ¤µÇ¾ú½À´Ï´Ù.
+		nMsgCode = 6351; // %sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 		break;
 	case 2:
-		nMsgCode = 6352; // %sÀÇ ¹æ¾î ¼Ó¼ºÀ¸·Î °áÁ¤µÇ¾ú½À´Ï´Ù.
+		nMsgCode = 6352; // %sï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 		break;
 	default:
 		return;
@@ -2022,19 +2031,19 @@ IMPLEMENT_MSG_UPDATE(updateAttrPc)
 	strAtt = UtilHelp::getSingleton()->GetAttributeString(ubAttr);
 
 	CTString strErrorMsg;
-	strErrorMsg.PrintF(_S( nMsgCode, "%s ¼Ó¼º º¯°æ "), strAtt);
+	strErrorMsg.PrintF(_S( nMsgCode, "%s ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ "), strAtt);
 	_pNetwork->ClientSystemMessage(strErrorMsg, SYSMSG_ERROR);
 }
 
 IMPLEMENT_MSG_UPDATE(updateAttrNpc)
 {
-	// ¼Ó¼º ¾÷µ¥ÀÌÆ®.
+	// ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 	UpdateClient::AttrNpcStateInfo* pRecv = reinterpret_cast<UpdateClient::AttrNpcStateInfo*>(istr->GetBuffer());
 	
 	switch(pRecv->state_type)
 	{
-	case 1: // °ø°Ý ¼Ó¼º º¯°æ
-	case 2: // ¹æ¾î ¼Ó¼º º¯°æ
+	case 1: // ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	case 2: // ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 		break;
 	default:
 		return;
@@ -2096,8 +2105,8 @@ IMPLEMENT_MSG_UPDATE(updateGuildRecall)
 
 	CTString	strMessage;
 	CUIMsgBox_Info	MsgBoxInfo;
-	MsgBoxInfo.SetMsgBoxInfo( _S( 865, "±æµå" ), UMBS_OKCANCEL, UI_GUILD, MSGCMD_GUILD_RECALL );	
-	strMessage.PrintF( _S( 6436, "±æµåÀå²²¼­ Àü ±æµå¿øÀ» ±æµå¹æÀ¸·Î ¼ÒÈ¯¿äÃ» ÇÏ¿´½À´Ï´Ù. ¼ÒÈ¯¿¡ ÀÀÇÏ½Ã°Ú½À´Ï±î?" ) );
+	MsgBoxInfo.SetMsgBoxInfo( _S( 865, "ï¿½ï¿½ï¿½" ), UMBS_OKCANCEL, UI_GUILD, MSGCMD_GUILD_RECALL );	
+	strMessage.PrintF( _S( 6436, "ï¿½ï¿½ï¿½ï¿½å²²ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½Ã» ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?" ) );
 	MsgBoxInfo.AddString( strMessage );
 
 	pUIMgr->CreateMessageBox( MsgBoxInfo );		
@@ -2109,13 +2118,13 @@ IMPLEMENT_MSG_UPDATE(updateEPReset)
 
 	if (pRecv->isInit == true)
 	{
-		MSGBOX_OK(_S(1417, "È®ÀÎ"), 
-			_S(7099, "ÀÌ±×´Ï¼Ç À¯Áö ½Ã°£À» ÃÊ°úÇÏ¿© ÀÌ±×´Ï¼Ç Á¤º¸°¡ ÃÊ±âÈ­ µÇ¾ú½À´Ï´Ù."));
+		MSGBOX_OK(_S(1417, "È®ï¿½ï¿½"), 
+			_S(7099, "ï¿½Ì±×´Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ï¿ï¿½ ï¿½Ì±×´Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 	}
 	else
 	{
-		MSGBOX_OK(_S(1417, "È®ÀÎ"), 
-			_S(7100, "ÀÌ±×´Ï¼Ç À¯Áö ½Ã°£¾È¿¡ Á¢¼Ó ÇÏ¿© ÀÌ±×´Ï¼Ç Á¤º¸°¡ À¯Áö µË´Ï´Ù."));
+		MSGBOX_OK(_S(1417, "È®ï¿½ï¿½"), 
+			_S(7100, "ï¿½Ì±×´Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½Ì±×´Ï¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ï´ï¿½."));
 	}
 }
 

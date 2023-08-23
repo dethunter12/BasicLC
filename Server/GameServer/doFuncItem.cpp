@@ -1869,26 +1869,31 @@ void do_ItemWear(CPC* ch, CNetMsg::SP& msg)
 	case WEARING_ACCESSORY2:
 	case WEARING_ACCESSORY3:
 	case WEARING_ACCESSORY4: // newslot - alanssoares
+	#ifdef RUNE_ACCESSORY_SLOT_08232023
 	case WEARING_SPECIAL_ACCESSORY1: // newslot - alanssoares
 	case WEARING_SPECIAL_ACCESSORY2: // newslot - alanssoares
 	case WEARING_SPECIAL_ACCESSORY3: // newslot - alanssoares
 	case WEARING_SPECIAL_ACCESSORY4: // newslot - alanssoares
 	case WEARING_SPECIAL_ACCESSORY5: // newslot - alanssoares
+	#endif
 		{
 			int nOldState = ch->GetPlayerState();
 			ch->ResetPlayerState(PLAYER_STATE_SUPPORTER);
 			int i;
-			for (i = WEARING_ACCESSORY1; i <= WEARING_ACCESSORY3; i++)
+			for (i = WEARING_ACCESSORY1; i <= WEARING_ACCESSORY4; i++) // Changed WEARING_ACCESSORY3 to WEARING_ACCESSORY4
 			{
 				if (ch->m_wearInventory.wearItemInfo[i])
 				{
-					// ?????? ??????
+					// Check for condition 1
 					if (ch->m_wearInventory.wearItemInfo[i]->m_itemProto->getItemIndex() == 1912)
 						ch->SetPlayerState(PLAYER_STATE_SUPPORTER);
 				}
 			}
+
 			// newslot - alanssoares
-			for (i = WEARING_ACCESSORY4; i <= WEARING_SPECIAL_ACCESSORY5; i++)
+
+#ifdef RUNE_ACCESSORY_SLOT_08232023
+			for (i = WEARING_SPECIAL_ACCESSORY1; i <= WEARING_SPECIAL_ACCESSORY5; i++)
 			{
 				if (ch->m_wearInventory.wearItemInfo[i])
 				{
@@ -1901,11 +1906,13 @@ void do_ItemWear(CPC* ch, CNetMsg::SP& msg)
 						return;
 					}
 
-					// ?????? ??????
+					// Check for condition 2
 					if (ch->m_wearInventory.wearItemInfo[i]->m_itemProto->getItemIndex() == 1912)
 						ch->SetPlayerState(PLAYER_STATE_SUPPORTER);
 				}
 			}
+#endif
+
 			if (nOldState != ch->GetPlayerState())
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
@@ -3731,6 +3738,7 @@ void do_ItemUpgradeReq(CPC* ch, CNetMsg::SP& msg)
 			GAMELOG << init("ITEM_UPGRADE", ch) << "PLATINUM" << delim << upItem->getUsed() << delim;
 		}
 		break;
+
 	case ITEM_UPGRADE_RUNE_ENCHANTMENT:
 	{
 			if (reItem->m_itemProto->getItemNum0() == IETC_PVP_RUNE)//Just checking if the right item was used

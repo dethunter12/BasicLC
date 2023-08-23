@@ -3307,7 +3307,7 @@ void CServer::DecreaseTimeForPC(CPC* ch)
 					goto USE_HP_POTION;
 				}
 			}
-
+			#ifdef RUNE_ACCESSORY_SLOT_08232023
 			// newslot - alanssoares
 			for( int k = WEARING_SPECIAL_ACCESSORY1; k <= WEARING_SPECIAL_ACCESSORY5; k++ )
 			{
@@ -3343,6 +3343,7 @@ void CServer::DecreaseTimeForPC(CPC* ch)
 					}
 				}
 			} // end for
+			#endif
 		}
 	}
 
@@ -3432,6 +3433,7 @@ USE_HP_POTION:
 				}
 			}
 
+			#ifdef RUNE_ACCESSORY_SLOT_08232023
 			// newslot - alanssoares
 			for( int k = WEARING_SPECIAL_ACCESSORY1; k <= WEARING_SPECIAL_ACCESSORY5; k++ )
 			{
@@ -3467,6 +3469,8 @@ USE_HP_POTION:
 					}
 				}
 			} // for( i ; i <= WEARING_ACCESSORY3; i++ )
+			#endif
+
 		}
 	}
 
@@ -3524,6 +3528,7 @@ USE_MP_POTION:
 			}
 		}
 
+		#ifdef RUNE_ACCESSORY_SLOT_08232023
 		// newslot - alanssoares
 		for( int k = WEARING_SPECIAL_ACCESSORY1; k <= WEARING_SPECIAL_ACCESSORY5; k++ )
 		{
@@ -3547,6 +3552,7 @@ USE_MP_POTION:
 				}
 			}
 		}
+		#endif
 
 		if(bWare == false)
 		{
@@ -4768,7 +4774,7 @@ void CServer::CharPrePlay(CDescriptor* d)
 		if (d->m_pChar->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 1912)
 			d->m_pChar->SetPlayerState(PLAYER_STATE_SUPPORTER);
 	}
-
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 	// newslot - alanssoares
 	for (i = WEARING_SPECIAL_ACCESSORY1; i <= WEARING_SPECIAL_ACCESSORY5; i++)
 	{
@@ -4779,7 +4785,7 @@ void CServer::CharPrePlay(CDescriptor* d)
 				d->m_pChar->SetPlayerState(PLAYER_STATE_SUPPORTER);
 		}
 	}
-	
+	#endif
 	// inven
 	d->m_pChar->m_inventory.sendInfoToClient();
 

@@ -265,6 +265,10 @@ void CCmdList::AddExMessage()
 #ifdef PICK_BOX_07272023
 	Add(MSG_EX_PICK_BOX_ITEM_USE, do_PickBoxItems, 0, false, false);//CAPTCHA_1302023
 #endif
+#ifdef QUICK_PANEL
+	Add(MSG_EX_CLOUD_SKILLS_USE, do_Cloud_Usebuff, 0, true, true);
+	Add(MSG_EX_CLOUD_SAVE_QUICKPANEL, do_Cloud_SaveItens, 0, true, true);
+#endif
 }
 
 bool CCmdList::Add(int cmdType, LCCMDPROC cmdFunc, int minlevel, bool bCanDoWhileWarp, bool bCanDoWhileDisable)

@@ -754,6 +754,7 @@ bool CWearInvenManager::CanDressNormal(CItem* item, int wearPos)
 			if (_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4] == NULL &&
 				item->m_itemProto->getItemWearing() == WEARING_ACCESSORY4)
 				wearPos = WEARING_ACCESSORY4;
+			#ifdef RUNE_ACCESSORY_SLOT_08232023
 			//dethunter12 mod. wear special like legendary rune 1 slot only.
 			if(_owner->m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1] == NULL &&
 				item->m_itemProto->getItemWearing() == WEARING_SPECIAL_ACCESSORY1)
@@ -775,7 +776,7 @@ bool CWearInvenManager::CanDressNormal(CItem* item, int wearPos)
 			if (_owner->m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY5] == NULL &&
 				item->m_itemProto->getItemWearing() == WEARING_SPECIAL_ACCESSORY5)
 				wearPos = WEARING_SPECIAL_ACCESSORY5;
-			
+			#endif
 		}
 		else
 		{
@@ -1001,7 +1002,7 @@ bool CWearInvenManager::CanDressNormal(CItem* item, int wearPos)
 				_lastError = ResponseClient::WEAR_ERR_CANNOT_WEAR;
 				return false;
 			} // newslot - alanssoares
-
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 			else if (item2->m_itemProto->getItemWearing() == WEARING_SPECIAL_ACCESSORY1 && wearPos != WEARING_SPECIAL_ACCESSORY1) {
 				CNetMsg::SP rmsg(new CNetMsg);
 				SysMsg(rmsg, MSG_SYS_CANNOT_WEAR);
@@ -1040,7 +1041,7 @@ bool CWearInvenManager::CanDressNormal(CItem* item, int wearPos)
 				_lastError = ResponseClient::WEAR_ERR_CANNOT_WEAR;
 				return false;
 			} // newslot - alanssoares
-
+#endif
 			else if (wearPos < WEARING_ACCESSORY1 || wearPos > WEARING_ACCESSORY3)
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
@@ -1104,11 +1105,13 @@ void CWearInvenManager::Init()
 	warePos_set_.insert(WEARING_PET);
 	warePos_set_.insert(WEARING_BACKWING);
 	warePos_set_.insert(WEARING_ACCESSORY4); // newslot - alanssoares
+	#ifdef RUNE_ACCESSORY_SLOT_08232023
 	warePos_set_.insert(WEARING_SPECIAL_ACCESSORY1); // newslot - alanssoares
 	warePos_set_.insert(WEARING_SPECIAL_ACCESSORY2); // newslot - alanssoares
 	warePos_set_.insert(WEARING_SPECIAL_ACCESSORY3); // newslot - alanssoares
 	warePos_set_.insert(WEARING_SPECIAL_ACCESSORY4); // newslot - alanssoares
 	warePos_set_.insert(WEARING_SPECIAL_ACCESSORY5); // newslot - alanssoares
+	#endif
 	warePos_set_.insert(COSTUME2_WEARING_HELMET);
 	warePos_set_.insert(COSTUME2_WEARING_ARMOR_UP);
 	warePos_set_.insert(COSTUME2_WEARING_WEAPON);
@@ -1344,7 +1347,8 @@ void CWearInvenManager::SaveWearInvenInfo(std::vector<std::string>& vec)
 	int count = 0;
 	CItem* wearItem;
 	//일반 장비 부터 붙이고
-	for(int i = 0; i <= WEARING_SPECIAL_ACCESSORY5; i++)
+
+	for(int i = 0; i <= WEARING_ACCESSORY4; i++)
 	{
 		wearItem = this->wearItemInfo[i];
 		makeSaveInfo(&insertstr, wearItem, &count, i);
@@ -1675,6 +1679,7 @@ void CWearInvenManager::ApplyDeleteItem(CItem* item, int wearPos)
 			bClear = false;
 		}
 
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 		// newslot - alanssoares
 		for( int nAcc = 0 ; nAcc < 5 ; nAcc++ )
 		{
@@ -1691,7 +1696,7 @@ void CWearInvenManager::ApplyDeleteItem(CItem* item, int wearPos)
 				break;
 			}
 		}
-
+#endif
 		if( bClear )
 			_owner->m_assist.CureByItemIndex(item->m_itemProto->getItemIndex());
 	}
@@ -2783,49 +2788,51 @@ void CWearInvenManager::checkItemTime()
 					}
 				}
 
-					// newslot - alanssoares
-					if (_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4])
+				// newslot - alanssoares
+				if (_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4])
+				{
+					if (_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == ONE_PERIOD_ITEM
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == SEVEN_PERIOD_ITEM
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == THIRTY_PERIOD_ITEM
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 2610
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4940
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4941
+						|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4942
+						)
 					{
-						if( _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == ONE_PERIOD_ITEM
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == SEVEN_PERIOD_ITEM
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == THIRTY_PERIOD_ITEM
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 2610
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4940
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4941
-								|| _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex() == 4942
+						char wear_pos = _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->getWearPos();
+						_owner->m_assist.CureByItemIndex(_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex());
+						_owner->m_wearInventory.RemoveItem(WEARING_ACCESSORY4);
+					}
+				}
+#ifdef RUNE_ACCESSORY_SLOT_08232023
+				// newslot - alanssoares
+				for (int k = WEARING_SPECIAL_ACCESSORY1; k <= WEARING_SPECIAL_ACCESSORY5; k++)
+				{
+					if (_owner->m_wearInventory.wearItemInfo[k])
+					{
+						if (_owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == ONE_PERIOD_ITEM
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == SEVEN_PERIOD_ITEM
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == THIRTY_PERIOD_ITEM
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 2610
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4940
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4941
+							|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4942
 							)
 						{
-							char wear_pos = _owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->getWearPos();
-							_owner->m_assist.CureByItemIndex(_owner->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4]->m_itemProto->getItemIndex());
-							_owner->m_wearInventory.RemoveItem(WEARING_ACCESSORY4);
+							char wear_pos = _owner->m_wearInventory.wearItemInfo[k]->getWearPos();
+							_owner->m_assist.CureByItemIndex(_owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex());
+							_owner->m_wearInventory.RemoveItem(k);
 						}
 					}
-
-					// newslot - alanssoares
-					for( int k = WEARING_SPECIAL_ACCESSORY1; k <= WEARING_SPECIAL_ACCESSORY5; k++ )
-					{
-						if (_owner->m_wearInventory.wearItemInfo[k])
-						{
-							if( _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == ONE_PERIOD_ITEM
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == SEVEN_PERIOD_ITEM
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == THIRTY_PERIOD_ITEM
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 2610
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4940
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4941
-									|| _owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex() == 4942
-							  )
-							{
-								char wear_pos = _owner->m_wearInventory.wearItemInfo[k]->getWearPos();
-								_owner->m_assist.CureByItemIndex(_owner->m_wearInventory.wearItemInfo[k]->m_itemProto->getItemIndex());
-								_owner->m_wearInventory.RemoveItem(k);
-							}
-						}
-					}
-
-					continue;
 				}
+
+				continue;
+#endif
 			}
-			break;
+
+			}
+		break;
 		}
 
 		// ATTACK_PET  관련 아이템 시간 체크
@@ -2935,8 +2942,8 @@ void CWearInvenManager::checkItemTime()
 			RemoveItem(i);
 			continue;
 		}
-	} // end for
-}
+		} // end for
+	}
 
 void CWearInvenManager::initCostumSuitItem(CItem* item)
 {

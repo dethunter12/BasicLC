@@ -314,7 +314,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='USALIVE|Win32'">
-    <OutDir>C:\Games\LC\Client\LegacyLC\Bin\</OutDir>
+    <OutDir>C:\Games\LC\Client\BasicLc\Bin\</OutDir>
     <IntDir>_USALIVE2010\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>../../../Dependencies/v7.1A_directx/Include;../../../Dependencies/boost_1_59_0;../../../Dependencies/DX 8.1b/DX 8.1b/include;../../../Server/Sharelib/;$(IncludePath)</IncludePath>

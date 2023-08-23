@@ -334,7 +334,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='USALIVE|Win32'">
-    <OutDir>C:\Games\LC\Client\LegacyLC\Bin\</OutDir>
+    <OutDir>C:\Games\LC\Client\BasicLc\Bin\</OutDir>
     <IntDir>_USALIVE2010\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>../../../Dependencies/v7.1A_directx/Include;../../../Dependencies/boost_1_59_0;../../../Dependencies/DX 8.1b/DX 8.1b/include;../../../Server/Sharelib/;$(IncludePath)</IncludePath>
@@ -1595,6 +1595,7 @@
     <ClCompile Include="Contents\function\TreasureMapUI.cpp" />
     <ClCompile Include="Contents\function\UIGps.cpp" />
     <ClCompile Include="Contents\function\UIPortalNew.cpp" />
+    <ClCompile Include="Contents\function\UIQuickPanel.cpp" />
     <ClCompile Include="Contents\function\WareHouseUI.cpp" />
     <ClCompile Include="Contents\function\WildPetInfoUI.cpp" />
     <ClCompile Include="Contents\function\WildPetTargetUI.cpp" />
@@ -4080,6 +4081,7 @@
     <ClInclude Include="Contents\function\TreasureMapUI.h" />
     <ClInclude Include="Contents\function\UIGps.h" />
     <ClInclude Include="Contents\function\UIPortalNew.h" />
+    <ClInclude Include="Contents\function\UIQuickPanel.h" />
     <ClInclude Include="Contents\function\WareHouseUI.h" />
     <ClInclude Include="Contents\function\WildPetInfoCmd.h" />
     <ClInclude Include="Contents\function\WildPetInfoUI.h" />

@@ -28,7 +28,7 @@
 #include "WearInvenManager.h"
 #include "GPSManager.h"
 
-#include "Factory.h"            // Á¦ÀÛ ½Ã½ºÅÛ
+#include "Factory.h"            // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 #include "Affinity.h"
 
@@ -114,10 +114,10 @@ class CFriendMember;
 extern void DelAttackList(CCharacter* ch);
 extern void DelRaList(CPC* pc, bool bForce = false);
 
-#define SUMMON_NPC_MERCENARY_MAX	1		// ¸ó½ºÅÍ ¿ëº´
-#define SUMMON_NPC_TOTEM_MAX		1		// ÅäÅÜÇü
-#define SUMMON_NPC_BOMB_MAX			3		// Æ®·¦Çü, ÀÚÆøÇü °°ÀÌ »ç¿ëÇÑ´Ù.
-#define SUMMON_NPC_ITEM_TOTEM_MAX	1		// ¾ÆÀÌÅÛ ÅäÅÛÇü
+#define SUMMON_NPC_MERCENARY_MAX	1		// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´
+#define SUMMON_NPC_TOTEM_MAX		1		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define SUMMON_NPC_BOMB_MAX			3		// Æ®ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+#define SUMMON_NPC_ITEM_TOTEM_MAX	1		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define SUMMON_NPC_MAX				SUMMON_NPC_TOTEM_MAX + SUMMON_NPC_MERCENARY_MAX + SUMMON_NPC_BOMB_MAX + SUMMON_NPC_ITEM_TOTEM_MAX
 #define PC_MAX_RUNSPEED 50.0f
 
@@ -125,10 +125,10 @@ typedef enum _tagSummonNpcType
 {
 	SUMMON_NPC_TYPE_MERCENARY = 0,
 	SUMMON_NPC_TYPE_TOTEM,
-	SUMMON_NPC_TYPE_BOMB_1,	// Æ®·¦, ÀÚÆøÇü.
-	SUMMON_NPC_TYPE_BOMB_2,	// Æ®·¦, ÀÚÆøÇü.
-	SUMMON_NPC_TYPE_BOMB_3,	// Æ®·¦, ÀÚÆøÇü.
-	SUMMON_NPC_TYPE_TOTEM_ITEM,	//¾ÆÀÌÅÛÀ» ÀÌ¿ëÇÑ ¼ÒÈ¯ ÅäÅÛ
+	SUMMON_NPC_TYPE_BOMB_1,	// Æ®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	SUMMON_NPC_TYPE_BOMB_2,	// Æ®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	SUMMON_NPC_TYPE_BOMB_3,	// Æ®ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	SUMMON_NPC_TYPE_TOTEM_ITEM,	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 } SUMMON_NPC_TYPE;
 
 class CBlockPC
@@ -166,13 +166,13 @@ public:
 		clear();
 	}
 
-	// ½½·Ô Å¸ÀÔ : ¾×¼Ç, ½ºÅ³, ¾ÆÀÌÅÛ Áß ÇÏ³ª
+	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ : ï¿½×¼ï¿½, ï¿½ï¿½Å³, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½
 	int     m_slotType[QUICKSLOT_MAXSLOT];
 
-	// Äü½½·Ô ³»¿ë
-	int     m_skillType[QUICKSLOT_MAXSLOT]; // ½ºÅ³ Å¸ÀÔ
-	int     m_actionType[QUICKSLOT_MAXSLOT];// ¾×¼Ç Å¸ÀÔ
-	CItem*  m_item[QUICKSLOT_MAXSLOT];      // ¾ÆÀÌÅÛ Á¾·ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_skillType[QUICKSLOT_MAXSLOT]; // ï¿½ï¿½Å³ Å¸ï¿½ï¿½
+	int     m_actionType[QUICKSLOT_MAXSLOT];// ï¿½×¼ï¿½ Å¸ï¿½ï¿½
+	CItem*  m_item[QUICKSLOT_MAXSLOT];      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	void clear()
 	{
@@ -266,13 +266,13 @@ public:
 	}
 
 	// pc
-	int         m_damage;       // µ¥¹ÌÁö
-	int         m_targetHate;   // Å¸°Ù ¼öÄ¡ : NPC°¡ °ø°Ý½Ã ÂüÁ¶ °ª
-	// Å¸°ÙÀ» ³õ¾ÆÁÖ : ¸Ö¾îÁö°Å³ª °ø°Ý¾ÈÇÏ¸é ÁÙ¾î
+	int         m_damage;       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_targetHate;   // Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡ : NPCï¿½ï¿½ ï¿½ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½Ï¸ï¿½ ï¿½Ù¾ï¿½
 
-	int         m_targetPulse;  // Å¸°Ù ÆÞ½º : 3ºÐµ¿¾È Ä³¸¯ÅÍ°¡ ¶§¸®Áö ¾ÊÀ¸¸é ¾îÅÃ¸®½ºÆ®¿¡¼­ »èÁ¦
-	bool        m_bGiveExpSP;   // °æÇèÄ¡¿Í SP¸¦ ¹Þ¾Ò´Â°¡
-	bool        m_bFirstAttack; // ch°¡ ¸ÕÀú ¶§·È³ª?
+	int         m_targetPulse;  // Å¸ï¿½ï¿½ ï¿½Þ½ï¿½ : 3ï¿½Ðµï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool        m_bGiveExpSP;   // ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ SPï¿½ï¿½ ï¿½Þ¾Ò´Â°ï¿½
+	bool        m_bFirstAttack; // chï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½È³ï¿½?
 
 	union
 	{
@@ -285,7 +285,7 @@ public:
 	CAttackChar*    m_prev;
 };
 
-// Á¤´ç¹æÀ§ List Class
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ List Class
 class CRaChar
 {
 public:
@@ -301,7 +301,7 @@ public:
 
 	CPC*        m_raTarget;
 	int         m_raPulse;
-	bool        m_bAttacker;    // °¡ÇØÀÚ : true ÇÇÇØÀÚ false
+	bool        m_bAttacker;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : true ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ false
 
 	CRaChar*    m_next;
 	CRaChar*    m_prev;
@@ -313,8 +313,8 @@ class CCharacter
 {
 private:
 
-	float   m_nFinalHitrate;            // °è»êµÈ ¸íÁßÀ²  ( ¹Ýµå½Ã °è»ê¿Ï·á°¡ º¸ÀåµÇ¾úÀ» ¶§ »ç¿ë )
-	float   m_nFinalAvoidrate;          // °è»êµÈ È¸ÇÇÀ²  ( ¹Ýµå½Ã °è»ê¿Ï·á°¡ º¸ÀåµÇ¾úÀ» ¶§ »ç¿ë )
+	float   m_nFinalHitrate;            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ( ï¿½Ýµï¿½ï¿½ ï¿½ï¿½ï¿½Ï·á°¡ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ )
+	float   m_nFinalAvoidrate;          // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½  ( ï¿½Ýµï¿½ï¿½ ï¿½ï¿½ï¿½Ï·á°¡ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ )
 
 public:
 	typedef std::map<int/*index*/, GoldType_t/*nas*/> tradestash_t;
@@ -322,14 +322,14 @@ public:
 	CCharacter();
 	virtual ~CCharacter();
 
-	MSG_CHAR_TYPE   m_type;     // Á¾·ù
+	MSG_CHAR_TYPE   m_type;     // ï¿½ï¿½ï¿½ï¿½
 
-	// NPC, PC °øÅë µ¥ÀÌÅÍ
-	int         m_index;        // °íÀ¯¹øÈ£
-	CLCString   m_name;         // ÀÌ¸§
-	int         m_level;        // ·¾
+	// NPC, PC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_index;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	CLCString   m_name;         // ï¿½Ì¸ï¿½
+	int         m_level;        // ï¿½ï¿½
 
-	LONGLONG    m_exp;          // °æÇèÄ¡
+	LONGLONG    m_exp;          // ï¿½ï¿½ï¿½ï¿½Ä¡
 	int			m_color_name;
 #ifdef BATTLE_PASS_SYSTEM
 	int			m_battlePassPoints;
@@ -337,25 +337,30 @@ public:
 	int			m_battlePassPremium;
 #endif
 
-	LONGLONG	m_skillPoint;   // ½ºÅ³Æ÷ÀÎÆ®
+#ifdef QUICK_PANEL
+	int				m_QuickPanelBtnType[25];
+	int				m_QuickPanelBtnIdx[25];
+#endif
 
-	int         m_hp;           // Ã¼·Â
+	LONGLONG	m_skillPoint;   // ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½Æ®
+
+	int         m_hp;           // Ã¼ï¿½ï¿½
 	int         m_maxHP;
-	int         m_mp;           // ¸¶³ª
+	int         m_mp;           // ï¿½ï¿½ï¿½ï¿½
 	int         m_maxMP;
 
-	int         m_str;          // Èû
-	int         m_dex;          // ¹ÎÃ¸
-	int         m_int;          // ÁöÇý
-	int         m_con;          // Ã¼Áú
+	int         m_str;          // ï¿½ï¿½
+	int         m_dex;          // ï¿½ï¿½Ã¸
+	int         m_int;          // ï¿½ï¿½ï¿½ï¿½
+	int         m_con;          // Ã¼ï¿½ï¿½
 
-	int         m_eqMelee;      // ¹«±â ¼öÄ¡    : ±Ù°Å¸®    : NUM0
-	int         m_eqRange;      // ¹«±â ¼öÄ¡    : ¿ø°Å¸®    : NUM0 : IWEAPON_BOW
-	int         m_eqMagic;      // ¹«±â ¼öÄ¡    : ¸¶¹ý      : NUM1
-	int         m_eqDefense;    // ¹æ¾î±¸ ¼öÄ¡  : ¹°¸®      : NUM0
-	int         m_eqResist;     // ¹æ¾î±¸ ¼öÄ¡  : ¸¶¹ý      : NUM1
+	int         m_eqMelee;      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡    : ï¿½Ù°Å¸ï¿½    : NUM0
+	int         m_eqRange;      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡    : ï¿½ï¿½ï¿½Å¸ï¿½    : NUM0 : IWEAPON_BOW
+	int         m_eqMagic;      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡    : ï¿½ï¿½ï¿½ï¿½      : NUM1
+	int         m_eqDefense;    // ï¿½ï¿½î±¸ ï¿½ï¿½Ä¡  : ï¿½ï¿½ï¿½ï¿½      : NUM0
+	int         m_eqResist;     // ï¿½ï¿½î±¸ ï¿½ï¿½Ä¡  : ï¿½ï¿½ï¿½ï¿½      : NUM1
 
-	char        m_attackSpeed;  // ?????? : ?????? ???? ???? : 0.1?? ???? : ????? ????? ?©£? : +?? ?©£??? ????
+	char        m_attackSpeed;  // ?????? : ?????? ???? ???? : 0.1?? ???? : ????? ????? ?ï¿½ï¿½? : +?? ?ï¿½ï¿½??? ????
 	int			m_attackSpeed_hack; //cloud ant-hack
 	int			m_skillcd_hack; //cloud ant-hack
 	int			m_skillspeed_hack; //cloud ant-hack
@@ -363,7 +368,7 @@ public:
 	int			m_runSpeed_hack; //cloud ant-hack
 	float       m_runSpeed; //cloud ant-hack
 	int			m_animation_hack; //cloud ant-hack
-	char        m_magicSpeed;   // ??????? : ???? ???? ?©£? ??? ??: 0.1?? ???? : -?? ?©£??? ????
+	char        m_magicSpeed;   // ??????? : ???? ???? ?ï¿½ï¿½? ??? ??: 0.1?? ???? : -?? ?ï¿½ï¿½??? ????
 	int         m_skillSpeed;   // ?????? : ??? ???? ????? ??? ??
 	int			m_skillCooltime; // 0 ~ 100%
 #ifdef BUGFIX_DEAD_AGAIN_DEAD
@@ -374,206 +379,206 @@ public:
 	int         m_statPall_per;
 	// >>
 
-	float       m_walkSpeed;    // °È±â ¼Óµµ
+	float       m_walkSpeed;    // ï¿½È±ï¿½ ï¿½Óµï¿½
 public:
-	float       m_flySpeed;     // ³¯±â ¼Óµµ
-	float       m_attackRange;  // °ø°Ý°Å¸®
+	float       m_flySpeed;     // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
+	float       m_attackRange;  // ï¿½ï¿½ï¿½Ý°Å¸ï¿½
 
-	int         m_recoverHP;    // Ã¼·Â È¸º¹
-	int         m_recoverMP;    // ¸¶³ª È¸º¹
-	int         m_recoverPulse; // »óÅÂÈ¸º¹ pulse : HP, MP
+	int         m_recoverHP;    // Ã¼ï¿½ï¿½ È¸ï¿½ï¿½
+	int         m_recoverMP;    // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
+	int         m_recoverPulse; // ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ pulse : HP, MP
 
-	CPos        m_pos;          // ÁÂÇ¥ (x, z, h, r, yLayer)
+	CPos        m_pos;          // ï¿½ï¿½Ç¥ (x, z, h, r, yLayer)
 
-	int         m_cellX;        // ¼¿ À§Ä¡
+	int         m_cellX;        // ï¿½ï¿½ ï¿½ï¿½Ä¡
 	int         m_cellZ;
 
-	CAssist     m_assist;       // º¸Á¶È¿°ú
-	ASSISTVALUE m_avPassiveAddition;    // ÆÐ½Ãºê È¿°ú : add
-	ASSISTVALUE m_avPassiveRate;        // ÆÐ½Ãºê È¿°ú : rate
+	CAssist     m_assist;       // ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½
+	ASSISTVALUE m_avPassiveAddition;    // ï¿½Ð½Ãºï¿½ È¿ï¿½ï¿½ : add
+	ASSISTVALUE m_avPassiveRate;        // ï¿½Ð½Ãºï¿½ È¿ï¿½ï¿½ : rate
 
-	CAttackChar* m_attackList;  //  ¾îÅÃ ¸®½ºÆ®
+	CAttackChar* m_attackList;  //  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
-	CCharacter* m_pCellPrev;    // ¼¿ ¸®½ºÆ® ¸µÅ©
+	CCharacter* m_pCellPrev;    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©
 	CCharacter* m_pCellNext;
-	CZone*      m_pZone;        // Á¸
-	CArea*      m_pArea;        // ¿µ¿ª
+	CZone*      m_pZone;        // ï¿½ï¿½
+	CArea*      m_pArea;        // ï¿½ï¿½ï¿½ï¿½
 
-	bool        m_bVisible;     // º¸ÀÌ°í ¾Èº¸ÀÌ°í
+	bool        m_bVisible;     // ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½
 
 	unsigned char m_attratt;
 	unsigned char m_attrdef;
 
-	unsigned char m_attratt_by_item;	//¾ÆÀÌÅÛ¿¡ ÀÇÇÑ ¼Ó¼º
-	unsigned char m_attrdef_by_item;	//¾ÆÀÌÅÛ¿¡ ÀÇÇÑ ¼Ó¼º
+	unsigned char m_attratt_by_item;	//ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½
+	unsigned char m_attrdef_by_item;	//ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½
 
-	CSkill*     m_currentSkill;     // ÇöÀç »ç¿ëÁßÀÎ ½ºÅ³
-	CCharacter* m_linkSource;   // ³ªÇÑÅ× ¸µÅ© °Ç Ä³¸¯
-	CCharacter* m_linkTarget;   // ³ª°¡ ¸µÅ© °Ç Ä³¸¯
+	CSkill*     m_currentSkill;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+	CCharacter* m_linkSource;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ Ä³ï¿½ï¿½
+	CCharacter* m_linkTarget;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ Ä³ï¿½ï¿½
 
 	////////////////////////////////
 	// Artifact Value
-	int			m_artiStr;			// Èû Áõ°¡
-	int			m_artiDex;			// ¹ÎÃ¸ Áõ°¡
-	int			m_artiInt;			// Áö´É Áõ°¡
-	int			m_artiCon;			// Ã¼Áú Áõ°¡
-	int			m_artiExp;			// °æÇèÄ¡ Áõ°¡
-	int			m_artiGold;			// °ñµåÈ¹µæ Áõ°¡
+	int			m_artiStr;			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int			m_artiDex;			// ï¿½ï¿½Ã¸ ï¿½ï¿½ï¿½ï¿½
+	int			m_artiInt;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int			m_artiCon;			// Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int			m_artiExp;			// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	int			m_artiGold;			// ï¿½ï¿½ï¿½È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	////////////////////////////////
 	// Option Value
-	int         m_opStr;            // Èû Áõ°¡
-	int         m_opDex;            // ¹ÎÃ¸ Áõ°¡
-	int         m_opInt;            // ÁöÇý Áõ°¡
-	int         m_opCon;            // Ã¼Áú Áõ°¡
+	int         m_opStr;            // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opDex;            // ï¿½ï¿½Ã¸ ï¿½ï¿½ï¿½ï¿½
+	int         m_opInt;            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opCon;            // Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int         m_opMelee;          // ±ÙÁ¢ °ø°Ý Áõ°¡
-	int         m_opRange;          // ¿ø°Ý °ø°Ý Áõ°¡
-	int         m_opMeleeHitRate;   // ±ÙÁ¢ ¸íÁß·ü Áõ°¡
-	int         m_opRangeHitRate;   // ¿ø°Ý ¸íÁß·ü Áõ°¡
+	int         m_opMelee;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opRange;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opMeleeHitRate;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opRangeHitRate;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int         m_opDMelee;         // ±ÙÁ¢ °ø°Ý °¨¼Ò
-	int         m_opDRange;         // ¿ø°Ý °ø°Ý °¨¼Ò
-	int         m_opMeleeAvoid;     // ±ÙÁ¢ ¸íÁß·ü °¨¼Ò
-	int         m_opRangeAvoid;     // ¿ø°Ý ¸íÁß·ü °¨¼Ò
+	int         m_opDMelee;         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opDRange;         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opMeleeAvoid;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opRangeAvoid;     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int         m_opMagic;          // ¸¶¹ý °ø°Ý Áõ°¡
-	int         m_opMagicHitRate;   // ¸¶¹ý ¸íÁß·ü »ó½Â
+	int         m_opMagic;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opMagicHitRate;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½
 
-	int         m_opResist;         // ¸¶¹ý °ø°Ý °¨¼Ò
-	int         m_opResistAvoid;    // ¸¶¹ý ¸íÁß·ü °¨¼Ò
+	int         m_opResist;         // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opResistAvoid;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int			m_opExpRate;		// EXP Áõ°¡
-	int			m_opSPRate;			// SP Áõ°¡
+	int			m_opExpRate;		// EXP ï¿½ï¿½ï¿½ï¿½
+	int			m_opSPRate;			// SP ï¿½ï¿½ï¿½ï¿½
 
 	int			m_opOnlineTimeAdd;	//Dethunter12 online time addition
 	int         m_opPveDamageRate; //dethunter12 pve damage increase %
 	int 		m_opNasRate; //dethunter12
 	int         m_opPvpDamageRate; //dethunter12 pvpe damage increase % 3/9/2023
 
-	int			m_opStrong;			// °­ÀÎÇÔ Áõ°¡
+	int			m_opStrong;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	unsigned char m_opAttratt;
 	unsigned char m_opAttrdef;
 
-	// °ø¼Ó °Ë»ç °ü·Ã
-	int     m_hackAttackCount;      // ¾îÅÃ¸Þ¼¼Áö ¿Â ¼ö ÀúÀå
-	int     m_AttackServerTime;     // °ø¼Ó¿¡ µû¸¥ ÃÖ´ë ¾îÅÃ ½Ã°£
-	int     m_AttackClientTime;     // Å¬¶óÀÌ¾ðÆ®°¡ º¸³½ ¾îÅÃ½Ã°£
-	int     m_lastAttackPulse;      // ÃÖ±Ù °ø°Ý ¸Þ½ÃÁö ¿Â ½Ã°£
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_hackAttackCount;      // ï¿½ï¿½ï¿½Ã¸Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_AttackServerTime;     // ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int     m_AttackClientTime;     // Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½Ã°ï¿½
+	int     m_lastAttackPulse;      // ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
 
-	int     m_pulseDisable;         // Ä³¸¯ÅÍ Çàµ¿ ºÒ´É ½Ã°£ ¼³Á¤ : ¼³Á¤µÈ ½Ã°£ ÀÌÈÄ·Î Çàµ¿ °¡´É
+	int     m_pulseDisable;         // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½Ò´ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ä·ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef NEW_ACCERY_ADD
 	////////////////////////////////////
-	// ¾Ç¼¼»ç¸® °æÇèÄ¡ sp Ãß°¡À²
+	// ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½Ä¡ sp ï¿½ß°ï¿½ï¿½ï¿½
 	LONGLONG    m_AddProb;
 #endif //NEW_ACCERY_ADD
-	int             cooltime_2142;          // °Ç°­ÀÇ ¹°¾à
-	int             cooltime_2143;          // Áö·ÂÀÇ ¹°¾à
+	int             cooltime_2142;          // ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int             cooltime_2143;          // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int     m_cooltime_Competition; // ´ëÀü¿ë ¾ÆÀÌÅÛ
+	int     m_cooltime_Competition; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	int MobScroll;                      // ¸÷ ¼ÒÈ¯¼­ »ç¿ë ¿©ºÎ
+	int MobScroll;                      // ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	char    m_attacktype;
 	char    m_attackcount;
-	bool    ChekAttackType();           // °ø°ÝÅ¸ÀÔ¿¡µû¶ó¼­ ½ºÇÇµåÇÙ °Ë»ç ¿©ºÎ
+	bool    ChekAttackType();           // ï¿½ï¿½ï¿½ï¿½Å¸ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	int		m_ep;						// attack Point
 	int		m_maxEP;
 
-	int		m_absorbPVPDamageRate;		// PVP½Ã µ¥¹ÌÁö Èí¼öÀ²
-	int		m_decreaseDBufTimeRate;		// µð¹öÇÁ½Ã°£ °¨¼ÒÀ²
+	int		m_absorbPVPDamageRate;		// PVPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int		m_decreaseDBufTimeRate;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	int		m_tradeAgentRegCount;		// °Å·¡´ëÇà µî·Ï °³¼ö
-	tradestash_t m_tradeAgentViewMap;	//°Å·¡´ëÇà ÇöÀç ÆäÀÌÁö Á¤º¸
-	tradestash_t m_tradeAgentViewMap2;	//°Å·¡´ëÇà ÇöÀç ÆäÀÌÁö Á¤º¸
+	int		m_tradeAgentRegCount;		// ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	tradestash_t m_tradeAgentViewMap;	//ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	tradestash_t m_tradeAgentViewMap2;	//ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	bool		m_bFirstDoIt;			//¹«Àû¸ðµå¿¡ ´ëÇÑ Çàµ¿ ¿©ºÎ (true : 15ÃÊ, false = 3ºÐ À¸·Î ¼³Á¤ÇØ¼­ »ç¿ë)
+	bool		m_bFirstDoIt;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½ (true : 15ï¿½ï¿½, false = 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½)
 
-	int			m_syndicateType;			// °á»ç´ë ÀÎµ¦½º
+	int			m_syndicateType;			// ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
-	void Move(float tx, float tz, float th, float tr, int ylayer)   // ÀÌµ¿
+	void Move(float tx, float tz, float th, float tr, int ylayer)   // ï¿½Ìµï¿½
 	{
 		m_pos = CPos(tx, tz, th, tr, ylayer);
 	}
 
-	void InitPointsToMax()      // hp, mp, ep, st¸¦ ÃÖ´ëÄ¡·Î ¼³Á¤
+	void InitPointsToMax()      // hp, mp, ep, stï¿½ï¿½ ï¿½Ö´ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	{
 		m_hp = m_maxHP;
 		m_mp = m_maxMP;
 	}
 
-	void SetVisible();          // º¸ÀÌ°í ¾Èº¸ÀÌ´Â »óÅÂ¸¦ Åä±Û½ÃÅ´
+	void SetVisible();          // ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½Û½ï¿½Å´
 
 	/////////////////////
 	// Function name    : SendDisappearAllInCell
-	// Description      : Ä³¸¯ÅÍ ÁÖº¯ÀÇ ¸ðµç Ä³¸¯ÅÍ+¾ÆÀÌÅÛÀÌ »ç¶óÁöµµ·Ï ¾Ë¸²
+	// Description      : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 	// Argument         : bool bSendOtherDisappear
-	//                  : ´Ù¸¥ »ç¶÷ÀÌ »ç¶óÁüÀ» ÀÚ½Å¿¡°Ô ¾Ë¸± °ÍÀÎÁö ¿©ºÎ
+	//                  : ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendDisappearAllInCell(bool bSendOtherDisappear);
 
-	//Å¬¶óÀÌ¾ðÆ® ÀÌÆåÆ® Ãâ·ÂÀ» ÇÏ±âÀ§ÇÑ npcÁ¦°Å ÆÐÅ¶(¼ÒÈ¯ npcÁß ÅäÅÛ¿¡¼­¸¸ »ç¿ë)
+	//Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ npcï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶(ï¿½ï¿½È¯ npcï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
 	void SendRemoveAllInCellForClientEffect(CPC* owner);
 
 	////////////////////
 	// Function name    : CanApplySkill
-	// Description      : ½ºÅ³ Àû¿ë °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool CanApplySkill(const CSkillProto* proto, const CSkillLevelProto* levelproto);
 
 	////////////////////
 	// Function name    : CanMove
-	// Description      : ÀÌµ¿ °¡´É °Ë»ç
+	// Description      : ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanMove();
 
 	////////////////////
 	// Function name    : CanAttack
-	// Description      : °ø°Ý °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanAttack();
 
 	////////////////////
 	// Function name    : CanSpell
-	// Description      : ½ÃÀü °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanSpell();
 
 	////////////////////
 	// Function name    : GetAttackLevel
-	// Description      : ¹«±â·¹º§ ¾ò±â
+	// Description      : ï¿½ï¿½ï¿½â·¹ï¿½ï¿½ ï¿½ï¿½ï¿½
 	virtual int GetAttackLevel() = 0;
 
 	////////////////////
 	// Function name    : GetDefenseLevel
-	// Description      : ¹æ¾î±¸ ·¹º§ ¾ò±â
+	// Description      : ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	virtual int GetDefenseLevel() = 0;
 
 	////////////////////
 	// Function name    : GetAttackType
-	// Description      : °ø°Ý Å¸ÀÔ ¾ò±â, ½ºÅ³ ÇÁ·ÎÅä°¡ ÀÖÀ¸¸é ½ºÅ³ÀÇ Å¸ÀÔ, NULLÀÌ¸é ±âº» Å¸ÀÔ
+	// Description      : ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Å¸ï¿½ï¿½, NULLï¿½Ì¸ï¿½ ï¿½âº» Å¸ï¿½ï¿½
 	virtual MSG_DAMAGE_TYPE GetAttackType(const CSkillProto* proto) const = 0;
 
 	////////////////////
 	// Function name    : ApplyAssistData
-	// Description      : assist value¸¦ Àû¿ë
+	// Description      : assist valueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ApplyAssistData(ASSISTVALUE* add, ASSISTVALUE* rate);
 
 	////////////////////
 	// Function name    : IsInPeaceZone
-	// Description      : ÇÇ½ºÁ¸ ¾ÈÀÎÁö °Ë»ç, bBlockAsPeaceÀÌ¸é MAPATT_BLOCKÀ» ÇÇ½ºÁ¸À¸·Î °£ÁÖ
+	// Description      : ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, bBlockAsPeaceï¿½Ì¸ï¿½ MAPATT_BLOCKï¿½ï¿½ ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool IsInPeaceZone(bool bBlockAsPeace);
 
 	////////////////////
 	// Function name    : IsInRaidZone
-	// Description      : ·¹ÀÌµå Á¸ÀÎÁö °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsInRaidZone();
 
 	////////////////////
 	// Function name    : GetSize
-	// Description      : Ä³¸¯ÅÍ Å©±â ¹ÝÈ¯
+	// Description      : Ä³ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½È¯
 	virtual float GetSize() = 0;
 
 	////////////////////
 	// Function name    : GetUsingStat
-	// Description      : °ø°Ý½Ã »ç¿ëÇÏ´Â ½ºÅÈ
+	// Description      : ï¿½ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	virtual int GetUsingStat() const = 0;
 
 	bool IsInvisible()
@@ -609,21 +614,21 @@ public:
 
 	virtual CSkill* FindSkill(int skillindex) = 0;
 
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	virtual void ApplyPassive() = 0;
 	void ApplyPassiveSkill(CSkill* skill, int param);
 
-	// ½ºÅÈ Àç°è»ê
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	virtual void CalcStatus(bool bSend) = 0;
 
-	// °ø¼Ó °Ë»ç : PC, Æê, Elemental
-	// ÇÙÀ¸·Î ÆÇ´Ü½Ã true
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : PC, ï¿½ï¿½, Elemental
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´Ü½ï¿½ true
 	bool CheckHackAttack(CPC* pPC);
 
 	virtual float GetHitrate(CCharacter* df, MSG_DAMAGE_TYPE type) = 0;
 	virtual float GetAvoid(CCharacter* of, MSG_DAMAGE_TYPE type) = 0;
 
-	// ¾Æ·¡ ÇÔ¼ö´Â È¸ÇÇ °è»ê ÈÄ »ç¿ë ÇØ¾ß ÇÕ´Ï´Ù.  ´Ù¸¥°÷¿¡ »ç¿ë ±ÝÁö...
+	// ï¿½Æ·ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ ï¿½Õ´Ï´ï¿½.  ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
 	float   GetFinalHitRate()
 	{
 		return m_nFinalHitrate;
@@ -641,14 +646,14 @@ public:
 		m_nFinalAvoidrate = (FinalAvoidRate<0 ? 0:FinalAvoidRate);
 	}
 
-	// ¿øÁ¤´ë Ç¥½Ä
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	int		m_nExpedLabel;
 	void	SetExpedLabel(int nType);
 	int		GetExpedLabel();
 
-	// disable ¼³Á¤, ÇöÀç ¼³Á¤ÀÌ ´õ ¿À·¡°¡¸é ¹«½Ã
+	// disable ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetDisableTime(int sec);
-	// disable »óÅÂ ¹ÝÈ¯
+	// disable ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	bool IsDisable();
 
 	void SetRunSpeed(float speed)
@@ -673,9 +678,9 @@ public:
 		return m_syndicateType;
 	}
 
-	//¾ÆÀÌÅÛ ½ºÅ³ Äð Å¸ÀÓ ÀúÀå ÄÁÅ×ÀÌ³Ê
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½
 private:
-	std::map<int/*¾ÆÀÌÅÛ ÀÎµ¦½º*/, int/*Äð Å¸ÀÓ*/> m_itemCoolMap;
+	std::map<int/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½*/, int/*ï¿½ï¿½ Å¸ï¿½ï¿½*/> m_itemCoolMap;
 public:
 	void addItemCoolTime(int item_index);
 	bool checkItemCoolTime(int item_index, CSkill* skill);
@@ -733,19 +738,19 @@ private:
 typedef std::map<int, CBlockPC*> map_listblock_t;
 class CPC : public CCharacter, public MemoryPoolBaseWithMutex<CPC>
 {
-	int             m_state;            // pc »óÅÂ
+	int             m_state;            // pc ï¿½ï¿½ï¿½ï¿½
 
-	int             m_joinMerac;        // ¸Þ¶óÅ© °ø¼º Âü¿©¿©ºÎ
+	int             m_joinMerac;        // ï¿½Þ¶ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	int             m_joinDratan;
 
-	int     m_pulseDisable;             // Ä³¸¯ÅÍ Çàµ¿ ºÒ´É ½Ã°£ ¼³Á¤ : ¼³Á¤µÈ ½Ã°£ ÀÌÈÄ·Î Çàµ¿ °¡´É
+	int     m_pulseDisable;             // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½Ò´ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ä·ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½
 
 public:
 	void reviseHPMP();
 	bool AddExpUseGP(LONGLONG exp);
-	void ApplyTitle();					// È£Äª¿¡ ºÙ¾î ÀÖ´Â ¿É¼Ç Àû¿ë ÇÔ¼ö.
-	void TitleCurrentSkillCure(int titleIndex = -1, bool bListDelete = true );  // ÇöÁ¦ Àû¿ë ÁßÀÎ Å¸ÀÌÆ² È¿°ú Á¦°Å
+	void ApplyTitle();					// È£Äªï¿½ï¿½ ï¿½Ù¾ï¿½ ï¿½Ö´ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½.
+	void TitleCurrentSkillCure(int titleIndex = -1, bool bListDelete = true );  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void CastllanTitleDelete(int castleZoneindex, bool bExclude, char bCastellan = 0);
 
 	CPC();
@@ -758,21 +763,21 @@ public:
 	void erase_cash_gift_list(int purchaseindex, int ctid);
 
 	////////////
-	// ±âº» Á¤º¸
+	// ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 #ifdef STASH_PASSWORD
-	std::string		m_stash_password;			// Ã¢°í ÆÐ½º¿öµå
-	std::string		m_a_cid;					// ÅÂ±¹ a_cid 7±ÛÀÚ¸¸
+	std::string		m_stash_password;			// Ã¢ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+	std::string		m_a_cid;					// ï¿½Â±ï¿½ a_cid 7ï¿½ï¿½ï¿½Ú¸ï¿½
 #endif
 
-	TimerItemManager	m_TimerItem;	// ±â°£Á¦ ¾ÆÀÌÅÛ °ü¸®
-	int     m_listIdx;          // ¸®½ºÆ®¿¡¼­ ÀÎµ¦½º
-	bool    m_bPlaying;         // ÇÃ·¹ÀÌ ¿©ºÎ
-	bool    m_bChangeStatus;    // SendStatus()¸¦ ÇÒÁö ¾ÈÇÒÁö °áÁ¤
-	bool    m_bImmortal;        // ¸÷¿¡°Ô °ø°Ý ´çÇÏ´Â°¡? ¿î¿µÀÚ ¸í·É¾î·Î ¼ÂÆÃ
-	bool    m_bChatMonitor;     // Ã¤ÆÃ ¸ð´ÏÅÍ¸µ ¿©ºÎ
-	bool    m_bLoadChar;        // Ä³¸¯ÅÍ ·Îµù ¿©ºÎ
-	CLCString m_nick;           // º°¸í(ÀÌ¸§ º¯°æÄ«µå)
-	int     m_billReqTime;      // ºô¸µ ¾ÆÀÌÅÛ Áö±Þ Å¸ÀÓ
+	TimerItemManager	m_TimerItem;	// ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_listIdx;          // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	bool    m_bPlaying;         // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bChangeStatus;    // SendStatus()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bImmortal;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´Â°ï¿½? ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bChatMonitor;     // Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bLoadChar;        // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½
+	CLCString m_nick;           // ï¿½ï¿½ï¿½ï¿½(ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½)
+	int     m_billReqTime;      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 	int 	m_autopickup;
     int 	m_autoigni;
 
@@ -786,47 +791,47 @@ public:
 	int m_gladeKillPts;
 #endif
 
-	std::vector<std::pair<int, int> > m_cash_purchase_list;	// ÀÚ½ÅÀÌ ±¸¸ÅÇÑ ¾ÆÀÌÅÛÀÇ Ä«Å»·Î±× ¸®½ºÆ®
-	std::vector<std::pair<int, int> > m_cash_gift_list;	// ¼±¹° ¹ÞÀº Ä«Å»·Î±× ¸®½ºÆ®
+	std::vector<std::pair<int, int> > m_cash_purchase_list;	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«Å»ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	std::vector<std::pair<int, int> > m_cash_gift_list;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«Å»ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
-	int     m_speedup;          // ¿î¿µÀÚ ¸í·É¾î : speedup
+	int     m_speedup;          // ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ : speedup
 	int     m_autoSkillTime;
 	int     m_SkillTime_511;
-	int     m_cashBalance;      // º¸À¯ Ä³½¬
+	int     m_cashBalance;      // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½
 	int     m_onlineCash;
-	unsigned short m_recentAtt;  // ÃÖ±Ù À§Ä¡ ¼Ó¼º¸Ê °ª
+	unsigned short m_recentAtt;  // ï¿½Ö±ï¿½ ï¿½ï¿½Ä¡ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-	int     m_nflag;            // Ä³¸¯ÅÍ flag - Ã¤ÆÃ±ÝÁö
+	int     m_nflag;            // Ä³ï¿½ï¿½ï¿½ï¿½ flag - Ã¤ï¿½Ã±ï¿½ï¿½ï¿½
 
-	bool            m_bTradeAgentRegIng;    //ÇöÀç µî·Ï Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	bool            m_bTradeAgentCalcIng;   //ÇöÀç Á¤»ê Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	bool			m_bTradeAgentBuyIng;	//ÇöÀç ±¸¸Å Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	int             m_nCalcPageNo;          //Á¤»ê(¸®½ºÆ®)ÇöÀç ÆäÀÌÁö ¹øÈ£
+	bool            m_bTradeAgentRegIng;    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	bool            m_bTradeAgentCalcIng;   //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	bool			m_bTradeAgentBuyIng;	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	int             m_nCalcPageNo;          //ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 
 #ifdef RANKER_NOTICE
-	bool    m_bRanker;          // ·©Ä¿ ÀÎ°¡.
+	bool    m_bRanker;          // ï¿½ï¿½Ä¿ ï¿½Î°ï¿½.
 #endif
 
-	int     m_pd3Count;         // ÆÛ½º³Î´øÀü3 ÀÔÀå ¼ö
-	int     m_pd3Time;          // ÆÛ½º³Î´øÀü3 ¸¶Áö¸· ÀÔÀå ½Ã°£
-	int     m_pd4Count;         // ÆÛ½º³Î´øÀü4 ÀÔÀå ¼ö
-	int     m_pd4Time;          // ÆÛ½º³Î´øÀü4 ¸¶Áö¸· ÀÔÀå ½Ã°£
+	int     m_pd3Count;         // ï¿½Û½ï¿½ï¿½Î´ï¿½ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	int     m_pd3Time;          // ï¿½Û½ï¿½ï¿½Î´ï¿½ï¿½ï¿½3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int     m_pd4Count;         // ï¿½Û½ï¿½ï¿½Î´ï¿½ï¿½ï¿½4 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	int     m_pd4Time;          // ï¿½Û½ï¿½ï¿½Î´ï¿½ï¿½ï¿½4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
 	int m_etcEvent;
 
 #ifdef GMTOOL
-	bool    m_bGmMonitor;           // Áö¿¥Åø Ã¤ÆÃ ¸ð´ÏÅÍ¸µ ¿©ºÎ
+	bool    m_bGmMonitor;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif // GMTOOL
 
 	int     m_secretkey;
 	/////////////////////////////////////////////
-	// BANGWALL : 2005-06-27 ¿ÀÈÄ 7:10:37
+	// BANGWALL : 2005-06-27 ï¿½ï¿½ï¿½ï¿½ 7:10:37
 	// Comment :
-	// pd4 ½ÃÀÛ Å¸ÀÓ
+	// pd4 ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 	int m_pd4StartTime;
 
-	LONGLONG m_loseexp;         // »ç¸Á °æÇèÄ¡ ÀúÀå
-	LONGLONG m_losesp;          // »ç¸Á sp ÀúÀå
+	LONGLONG m_loseexp;         // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	LONGLONG m_losesp;          // ï¿½ï¿½ï¿½ sp ï¿½ï¿½ï¿½ï¿½
 
 	CFriend* m_Friend;
 	int m_nRegFriend;
@@ -834,26 +839,26 @@ public:
 	map_listblock_t  m_listBlockPC;
 
 	////////////
-	// ¿Ü¾ç Á¤º¸
-	unsigned char    m_job;              // Á÷¾÷
-	unsigned char    m_job2;             // 2Â÷ Á÷¾÷
+	// ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	unsigned char    m_job;              // ï¿½ï¿½ï¿½ï¿½
+	unsigned char    m_job2;             // 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef ENABLE_SUBJOB
-	int	m_jobSub;			// ºÎÁ÷¾÷
+	int	m_jobSub;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	bool			IsSubJob( int subjob )
 	{
 		return  m_jobSub & subjob ? true : false ;
 	}
 #endif //ENABLE_SUBJOB
 
-	char    m_hairstyle;        // ¸Ó¸®¸ð¾ç
-	// 1ÀÇ ÀÚ¸® : ¿ø·¡ Çì·¯
-	// 10ÀÇ ÀÚ¸® : »êÅ¸ ¸ðÀÚ
-	char    m_facestyle;        // ¾ó±¼¸ð¾ç
+	char    m_hairstyle;        // ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½
+	// 1ï¿½ï¿½ ï¿½Ú¸ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ì·¯
+	// 10ï¿½ï¿½ ï¿½Ú¸ï¿½ : ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
+	char    m_facestyle;        // ï¿½ó±¼¸ï¿½ï¿½
 
 #ifdef GER_LOG
 	//private:
-	//	time_t m_loginTime;				// ·Î±×ÀÎÇÑ ½Ã°£.
+	//	time_t m_loginTime;				// ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
 
 	//public:
 	//	time_t GetLoginTime()
@@ -864,138 +869,138 @@ public:
 	//	void GetCalcInGameTime(char *_buf, const int _size);
 #endif // END : GER_LOG
 	////////////
-	// ½ºÅ³ Á¤º¸
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	CSkillList  m_activeSkillList;
 	CSkillList  m_passiveSkillList;
 	CSkillList  m_etcSkillList;
 	CSkillList	m_optionAttSkillList;
 	CSkillList	m_optionDefSkillList;
 
-	CSkillList          m_sealSkillList;                            // Á¦ÀÛ ½ºÅ³
-	SEAL_SKILL_DATA     m_sealSkillExp[MAX_SEAL_TYPE_SKILL];        // Á¦ÀÛ ½ºÅ³ ¼÷·Ãµµ
+	CSkillList          m_sealSkillList;                            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+	SEAL_SKILL_DATA     m_sealSkillExp[MAX_SEAL_TYPE_SKILL];        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½Ãµï¿½
 
 	//////////////////
 	// Special Skill
 	CSSkillList m_sSkillList;   // Special Skill List
 	//////////////
-	// Àû¿ëµÇ´Â °ª
-	int     m_admin;            // °ü¸®ÀÚ µî±Þ
+	// ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½
+	int     m_admin;            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-// 050401 : bs : plus¿¡ µû¸¥ È®·ü º¯¼ö Ãß°¡ : PC¸¸ »ç¿ë
+// 050401 : bs : plusï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ : PCï¿½ï¿½ ï¿½ï¿½ï¿½
 	int     m_plusStrong;
 	int     m_plusHard;
 	int     m_plusWeak;
-// --- 050401 : bs : plus¿¡ µû¸¥ È®·ü º¯¼ö Ãß°¡
+// --- 050401 : bs : plusï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	///////////////////
-	// ½ºÅÈ Æ÷ÀÎÆ® °ü·Ã
-	int     m_statpt_remain;    // ³²Àº ¼ö
-	int     m_statpt_str;       // Èû
-	int     m_statpt_dex;       // ¹ÎÃ¸
-	int     m_statpt_int;       // ÁöÇý
-	int     m_statpt_con;       // Ã¼Áú
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	int     m_statpt_remain;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	int     m_statpt_str;       // ï¿½ï¿½
+	int     m_statpt_dex;       // ï¿½ï¿½Ã¸
+	int     m_statpt_int;       // ï¿½ï¿½ï¿½ï¿½
+	int     m_statpt_con;       // Ã¼ï¿½ï¿½
 
 	////////////////////
 	// Blood Point
 	int     m_bloodPoint;       // Blood Point
 
 	////////////////////
-	// PC Àü¿ë ¿É¼Ç °ü·Ã
-	int         m_opSturnLevel;     // ·¹º§ : ½ºÅÏ
-	int         m_opBloodLevel;     // ·¹º§ : ºí·¯µå
-	int         m_opPoisonLevel;    // ·¹º§ : Æ÷ÀÌÁð
-	int         m_opSlowLevel;      // ·¹º§ : ½½·Î¿ì
-	int         m_opMoveLevel;      // ·¹º§ : ¹«ºê
+	// PC ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_opSturnLevel;     // ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	int         m_opBloodLevel;     // ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_opPoisonLevel;    // ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_opSlowLevel;      // ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Î¿ï¿½
+	int         m_opMoveLevel;      // ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
 
-	int         m_opSturnIndex;     // ½ºÅ³ ¹øÈ£ : ½ºÅÏ
-	int         m_opBloodIndex;     // ½ºÅ³ ¹øÈ£ : ºí·¯µå
-	int         m_opPoisonIndex;    // ½ºÅ³ ¹øÈ£ : Æ÷ÀÌÁð
-	int         m_opSlowIndex;      // ½ºÅ³ ¹øÈ£ : ½½·Î¿ì
-	int         m_opMoveIndex;      // ½ºÅ³ ¹øÈ£ : ¹«ºê
+	int         m_opSturnIndex;     // ï¿½ï¿½Å³ ï¿½ï¿½È£ : ï¿½ï¿½ï¿½ï¿½
+	int         m_opBloodIndex;     // ï¿½ï¿½Å³ ï¿½ï¿½È£ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_opPoisonIndex;    // ï¿½ï¿½Å³ ï¿½ï¿½È£ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int         m_opSlowIndex;      // ï¿½ï¿½Å³ ï¿½ï¿½È£ : ï¿½ï¿½ï¿½Î¿ï¿½
+	int         m_opMoveIndex;      // ï¿½ï¿½Å³ ï¿½ï¿½È£ : ï¿½ï¿½ï¿½ï¿½
 
-	bool        m_bCreateMixItem;   // °ø¼ºÁ¶ÇÕ ¾ÆÀÌÅÛ »ý¼º ¿©ºÎ
+	bool        m_bCreateMixItem;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //#endif
 
-	int         m_opIncreaseInven;      // ÃÖ´ë ¹«°Ô Áõ°¡ : ´ÜÀ§ %
-	int         m_opMPSteal;            // ¸¶³ª Èí¼ö : ´ÜÀ§ %
-	int         m_opHPSteal;            // »ý¸í·Â Èí¼ö : ´ÜÀ§ %
-	int         m_opAttackBlind;        // ¾ÏÈæ °ø°Ý 415 : ´ÜÀ§ ½ºÅ³ ·¹º§
-	int         m_opAttackPoison;       // µ¶ °ø°Ý 414 : ´ÜÀ§ ½ºÅ³ ·¹º§
-	int         m_opAttackCritical;     // Å©¸®Æ¼ÄÃ È®·ü Áõ°¡ : ´ÜÀ§ %
-	int         m_opAttackDeadly;       // µ¥µé¸® È®·ü Áõ°¡ : ´ÜÀ§ %
-	int         m_opRecoverHP;          // Ã¼·ÂÈ¸º¹ Áõ°¡ : ´ÜÀ§ %
-	int         m_opRecoverMP;          // Ã¼·ÂÈ¸º¹ Áõ°¡ : ´ÜÀ§ %
-	int         m_opDecreaseSkillDelay; // ½ºÅ³ ÄðÅ¸ÀÓ °¨¼Ò : ´ÜÀ§ %
-	int         m_opDecreaseSkillMP;    // MP ¼Ò¸ð·® °¨¼Ò : ´ÜÀ§ %
-	int         m_opResistStone;        // ½ºÅæ ³»¼º Áõ°¡ : ´ÜÀ§ %
-	int         m_opResistSturn;        // ½ºÅæ ³»¼º Áõ°¡ : ´ÜÀ§ %-
-	int         m_opResistSilent;       // Ä§¹¬ ³»¼º Áõ°¡ : ´ÜÀ§ %
-	int         m_opBlocking;           // µ¥¹ÌÁö Àý¹Ý °¨¼Ò (½ºÅ³ Á¦¿Ü) : ´ÜÀ§ %
-	int			m_opRecoverHP_NoRate;	// Ã¼·ÂÈ¸º¹ Á¤¼ö´ÜÀ§
-	int			m_opRecoverMP_NoRate;	// ¸¶³ªÈ¸º¹ Á¤¼ö´ÜÀ§
+	int         m_opIncreaseInven;      // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opMPSteal;            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opHPSteal;            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opAttackBlind;        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 415 : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	int         m_opAttackPoison;       // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 414 : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	int         m_opAttackCritical;     // Å©ï¿½ï¿½Æ¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opAttackDeadly;       // ï¿½ï¿½ï¿½é¸® È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opRecoverHP;          // Ã¼ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opRecoverMP;          // Ã¼ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opDecreaseSkillDelay; // ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opDecreaseSkillMP;    // MP ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opResistStone;        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opResistSturn;        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %-
+	int         m_opResistSilent;       // Ä§ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ %
+	int         m_opBlocking;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½) : ï¿½ï¿½ï¿½ï¿½ %
+	int			m_opRecoverHP_NoRate;	// Ã¼ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int			m_opRecoverMP_NoRate;	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int			m_wins;
 	int			m_loses;
-	int			m_opJewelElementPetHPUP;		//º¸¼® ¿É¼Ç ¼ÒÈ¯¼ö ¹× Æê HPÁõ°¡
-	int			m_opJewelElementAttUP;		//º¸¼® ¿É¼Ç ¼ÒÈ¯¼ö °ø°Ý·Â Áõ°¡
-	int			m_opJewelElementMagicAttUP;	//º¸¼® ¿É¼Ç ¼ÒÈ¯¼ö ¸¶¹ý°ø°Ý·Â Áõ°¡
+	int			m_opJewelElementPetHPUP;		//ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ HPï¿½ï¿½ï¿½ï¿½
+	int			m_opJewelElementAttUP;		//ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int			m_opJewelElementMagicAttUP;	//ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	//////////////
-	// ÀúÀåµÇ´Â °ª
-	int     m_dbStr;                    // Èû
-	int     m_dbDex;                    // ¹ÎÃ¸
-	int     m_dbInt;                    // ÁöÇý
-	int     m_dbCon;                    // Ã¼Áú
+	// ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½
+	int     m_dbStr;                    // ï¿½ï¿½
+	int     m_dbDex;                    // ï¿½ï¿½Ã¸
+	int     m_dbInt;                    // ï¿½ï¿½ï¿½ï¿½
+	int     m_dbCon;                    // Ã¼ï¿½ï¿½
 
-	int     m_dbHP;                     // Ã¼·Â
-	int     m_dbMP;                     // ¸¶³ª
+	int     m_dbHP;                     // Ã¼ï¿½ï¿½
+	int     m_dbMP;                     // ï¿½ï¿½ï¿½ï¿½
 	int		m_tempHP;
 	int		m_tempMP;
 
 	////////////
-	// ¼ÒÄÏ °ü·Ã
-	CDescriptor* m_desc;                // µð½ºÅ©¸³ÅÍ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CDescriptor* m_desc;                // ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½
 
 	////////////
-	// ½Ã°£ °ü·Ã
-	int     m_silencePulse;             // Ã¤ÆÃ ±ÝÁö ½Ã°£ ¼ÂÆÃ º¯¼ö
-	int     m_lastProducePulse;         // ÃÖ±Ù »ý»ê ¸Þ½ÃÁö ¿Â ½Ã°£
-	int     m_hackProduceCount;         // »÷»ó¸Þ¼¼Áö ¿Â ¼ö ÀúÀå
-	int     m_ProduceClientTime;        // Å¬¶óÀÌ¾ðÆ®°¡ º¸³½ »ý»ê½Ã°£
+	// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_silencePulse;             // Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_lastProducePulse;         // ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
+	int     m_hackProduceCount;         // ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_ProduceClientTime;        // Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 
 #ifdef CHAT_BLOCK_USA
 	int     m_shoutPulse;
 #endif // CHAT_BLOCK_USA
 
-	bool    m_bProcDisconnect;          // Á¢¼Ó Á¾·á½Ã ProcDisconnect()¸¦ È£Ãâ Çß´ÂÁö ¿©ºÎ
+	bool    m_bProcDisconnect;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ProcDisconnect()ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	//////////////
-	// ¾ÆÀÌÅÛ °ü·Ã
-	InventoryManager	m_inventory;	// °¡¹æ + °èÁ¤ Ã¢°í¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	InventoryManager	m_inventory;	// ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 	CWearInvenManager	m_wearInventory;
 
-	bool        m_bChangeStash;         // Ã¢°í º¯°æ »çÇ× ÀÖ´ÂÁö °Ë»ç
-	CNetMsg     m_stashMsg;             // Ã¢°í ¿äÃ» ¸Þ½ÃÁö
+	bool        m_bChangeStash;         // Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+	CNetMsg     m_stashMsg;             // Ã¢ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
 
-	std::vector<AUTO_GIVE_DATA>     m_listAutoGive;     // ÀÚµ¿ Áö±ÞÇÑ ¾ÆÀÌÅÛ Á¤º¸
-	std::vector<BLOOD_BUG_DATA>     m_listBloodBug;     // ¾÷±×·¹ÀÌµå ºÒ°¡ ¾ÆÀÌÅÛ¿¡ ¿É¼Ç ºÙ´Â ¹ö±× ¼öÁ¤¿¡ ÀÇÇØ ¿É¼Ç Á¦°ÅµÈ ¾ÆÀÌÅÛ Á¤º¸
+	std::vector<AUTO_GIVE_DATA>     m_listAutoGive;     // ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	std::vector<BLOOD_BUG_DATA>     m_listBloodBug;     // ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½É¼ï¿½ ï¿½Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Åµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::vector<CItem*>				m_removingItemList;
 
 	////////////
-	// ±³È¯ °ü·Ã
+	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 	CExchangeItems*     m_exchange;
 
-	// »óÁ¡ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CPersonalShop::SP	m_personalshop;
 
 	/////////////////
-	// Àå¼Ò ±â¾ï °ü·Ã
-	CMemPos             m_mempos;               // ±â¾ïµÈ Àå¼Ò ¸®½ºÆ®
-	int                 m_reqWarpTime;          // ¼ø°£ÀÌµ¿ ³²Àº ½Ã°£
-	int                 m_reqWarpType;          // ÀÌµ¿ ¹æ¹ý(±ÍÈ¯/Àå¼Ò±â¾ï)
-	int                 m_reqWarpData;          // ±ÍÈ¯½Ã Á¸¹øÈ£/Àå¼Ò±â¾ï½Ã ½½·Ô¹øÈ£
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CMemPos             m_mempos;               // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	int                 m_reqWarpTime;          // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int                 m_reqWarpType;          // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½È¯/ï¿½ï¿½Ò±ï¿½ï¿½)
+	int                 m_reqWarpData;          // ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£/ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¹ï¿½È£
 
-	int                 m_reqWarpTime_skill;          // ¼ø°£ÀÌµ¿ ³²Àº ½Ã°£
-	int					m_reqWarpType_skill;	// ½ºÅ³À» ÀÌ¿ëÇÑ ÀÌµ¿ ¹æ¹ý
-	int					m_reqWarpData_skill;	// ½ºÅ³À» ÀÌ¿ëÇÑ ±ÍÈ¯½Ã Á¸¹øÈ£
+	int                 m_reqWarpTime_skill;          // ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int					m_reqWarpType_skill;	// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½
+	int					m_reqWarpData_skill;	// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£
 
 	float	m_Npc_Portal_x;
 	float	m_Npc_Portal_z;
@@ -1003,7 +1008,7 @@ public:
 	void GoNpcPortalScroll();
 
 	////////////
-	// ÆÄÆ¼ Á¤º¸
+	// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	CParty*             m_party;
 	PartyRecallInfo		m_partyRecallInfo;
 
@@ -1012,108 +1017,108 @@ public:
 		return & m_partyRecallInfo;
 	}
 
-	// ¿øÁ¤´ë Á¤º¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CExpedition*        m_Exped;
 
-	int m_nJoinInzone_ZoneNo;                       //ÇöÀç ÀÎÁ¸ Á¸ ¹øÈ£
-	int m_nJoinInzone_RoomNo;                       //ÇöÀç ÀÎÁ¸ ·ë ¹øÈ£
-	int m_nJoinInzone_AreaNo;                       //ÇöÀç ÀÎÁ¸ Area ¹øÈ£
+	int m_nJoinInzone_ZoneNo;                       //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	int m_nJoinInzone_RoomNo;                       //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	int m_nJoinInzone_AreaNo;                       //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Area ï¿½ï¿½È£
 
-	int m_nRaidBoxItemTime;											//·¹ÀÌµå ¹Ú½º È¹µæ ½Ã°£ Ã¼Å©
+	int m_nRaidBoxItemTime;											//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ú½ï¿½ È¹ï¿½ï¿½ ï¿½Ã°ï¿½ Ã¼Å©
 	void SetRaidBoxItemTime(int nTime)
 	{
 		m_nRaidBoxItemTime = nTime;
-	};	//·¹ÀÌµå ¹Ú½º È¹µæ ½Ã°£ ¼³Á¤
+	};	//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ú½ï¿½ È¹ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int  GetRaidBoxItemTime()
 	{
 		return m_nRaidBoxItemTime;
-	};				//·¹ÀÌµå ¹Ú½º È¹µæ ½Ã°£ È¹µæ
+	};				//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ú½ï¿½ È¹ï¿½ï¿½ ï¿½Ã°ï¿½ È¹ï¿½ï¿½
 
 	//////////////
 	// Quick Slot
-	CQuickSlot      m_quickSlot[QUICKSLOT_PAGE_NUM];    // Äü½½·Ï 3ÆäÀÌÁö ¼ÒÀ¯
+	CQuickSlot      m_quickSlot[QUICKSLOT_PAGE_NUM];    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void recalcByItem(CItem* pItem);
 
 	//////////////
-	// pc »óÅ×°ü·Ã
-	int             m_pkPenalty;                // PK ¼ºÇâ
-	int             m_pkCount;                  // PK ¼ö
-	int             m_pkRecoverPulse;           // ¼ºÇâ ¼öÄ¡ È¸º¹ ³²Àº ½Ã°£
-	int             m_pkmodedelay;              // PKMODE ÀüÈ¯ µô·¹ÀÌ
-	int             m_pkPenaltyHP;              // HP °¨¼Ò
-	int             m_pkPenaltyMP;              // MP °¨¼Ò
-	int             m_pkRecoverNPCCount;        // »ç³É ¼ö
+	// pc ï¿½ï¿½ï¿½×°ï¿½ï¿½ï¿½
+	int             m_pkPenalty;                // PK ï¿½ï¿½ï¿½ï¿½
+	int             m_pkCount;                  // PK ï¿½ï¿½
+	int             m_pkRecoverPulse;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int             m_pkmodedelay;              // PKMODE ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int             m_pkPenaltyHP;              // HP ï¿½ï¿½ï¿½ï¿½
+	int             m_pkPenaltyMP;              // MP ï¿½ï¿½ï¿½ï¿½
+	int             m_pkRecoverNPCCount;        // ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 #ifdef RESTRICT_PVP_SKILL
-	int             m_nRestrictPvPSkillDelaySec;    // ¸÷¿¡ ÀÇÇÑ Å¸°ÔÆÃ À¯Áö À¯È¿ ½Ã°£
+	int             m_nRestrictPvPSkillDelaySec;    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ ï¿½Ã°ï¿½
 #endif // RESTRICT_PVP_SKILL
 
-	// Á¤´ç¹æÀ§ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CRaChar*        m_raList;
 
 	///////////////////
-	// ¾ÆÀÌÅÛ »ç¿ë °ü·Ã
-	int             m_recoverHPItemTime;        // HP È¸º¹ ³²Àº ½Ã°£
-	int             m_recoverHPItemValue;       // HP ÃÊ´ç È¸º¹·®
-	int             m_recoverMPItemTime;        // HP È¸º¹ ³²Àº ½Ã°£
-	int             m_recoverMPItemValue;       // MP ÃÊ´ç È¸º¹·®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int             m_recoverHPItemTime;        // HP È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int             m_recoverHPItemValue;       // HP ï¿½Ê´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
+	int             m_recoverMPItemTime;        // HP È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int             m_recoverMPItemValue;       // MP ï¿½Ê´ï¿½ È¸ï¿½ï¿½ï¿½ï¿½
 
 	///////////////////
-	// Äù½ºÆ® °ü·Ã
-	CQuestList      m_questList;                // Äù½ºÆ® ¸®½ºÆ®
-	int             m_nLastCollectRequest;      // ¸¶Áö¸· MSG_QUEST_COLLECT ¹ÞÀº ½Ã°£
-	int             m_nCollectRequestNPCIndex;  // ¸¶Áö¸· MSG_QUEST_COLLECT ¹ÞÀº NPC ÀÎµ¦½º
-	int             m_nCollectRequestCount;     // ¼öÁýÄù½ºÆ® ´©Àû ¼ö
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	CQuestList      m_questList;                // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®
+	int             m_nLastCollectRequest;      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MSG_QUEST_COLLECT ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int             m_nCollectRequestNPCIndex;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MSG_QUEST_COLLECT ï¿½ï¿½ï¿½ï¿½ NPC ï¿½Îµï¿½ï¿½ï¿½
+	int             m_nCollectRequestCount;     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 	////////////
-	// ±æµå °ü·Ã
-	CGuildMember*   m_guildInfo;                // ±æµå Á¤º¸, »óÀ§±æµå¿øÀÌ¸é¼­ ±æµåÀåÀÎ °æ¿ì ÀÚ½ÅÀÌ ±æµå ÀåÀÎ ±æµå Á¤º¸
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CGuildMember*   m_guildInfo;                // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int             m_regGuild;
-	int             m_guild_in_date;             // ±æµå °¡ÀÔ ÀÏ
-	bool			m_guildStashLock;			// ±æµå Ã¢°í¿¡ ¹°°ÇÀ» ³ÖÀ»¶§ lock ½ÃÅ´
+	int             m_guild_in_date;             // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	bool			m_guildStashLock;			// ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ lock ï¿½ï¿½Å´
 
 	////////////////
-	// ±ÕµîÆÄÆ¼½Ã ¾ÆÀÌÅÛÀ» ¹ÞÀºÀûÀÌ ÀÖ´Â°¡?
+	// ï¿½Õµï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½?
 	bool            m_bGiveItem;
 
 	////////////////////
-	// º¯½Å °ü·Ã
-	int             m_changePulse;          // º¯½Å ½Ã°£
-	int             m_changeIndex;          // º¯½Å ¸÷ ÀÎµ¦½º
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int             m_changePulse;          // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int             m_changeIndex;          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
 	////////////////////
-	// ¾ÆÀÌÅÛ ÀÌÆåÆ® ¿É¼Ç
-	char            m_plusEffect;           // ¾ÆÀÌÅÛ ÇÃ·¯½º ÀÌÆåÆ® ¿É¼Ç
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½É¼ï¿½
+	char            m_plusEffect;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½É¼ï¿½
 
 	/////////////////////
-	// »çÁ¦ ½Ã½ºÅÛ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	// »çÁ¦ ÇÊ¿ä Á¤º¸
-	int     m_teachIdx[TEACH_MAX_STUDENTS];     // »çÁ¦ ÀÎµ¦½º
-	int     m_teachLevel[TEACH_MAX_STUDENTS];   // »çÁ¦ ·¹º§
-	char    m_teachJob[TEACH_MAX_STUDENTS];     // »çÁ¦ Á÷¾÷
-	char    m_teachJob2[TEACH_MAX_STUDENTS];    // »çÁ¦ Á÷¾÷
-	char    m_teachName[TEACH_MAX_STUDENTS][MAX_CHAR_NAME_LENGTH + 1];// »çÁ¦ ÀÌ¸§
-	int     m_teachTime[TEACH_MAX_STUDENTS];    // »çÁ¦ ¼º¸³µÈ ½Ã°£ : sec
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_teachIdx[TEACH_MAX_STUDENTS];     // ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	int     m_teachLevel[TEACH_MAX_STUDENTS];   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char    m_teachJob[TEACH_MAX_STUDENTS];     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char    m_teachJob2[TEACH_MAX_STUDENTS];    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char    m_teachName[TEACH_MAX_STUDENTS][MAX_CHAR_NAME_LENGTH + 1];// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	int     m_teachTime[TEACH_MAX_STUDENTS];    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ : sec
 
-	// °øÅëÁ¤º¸
-	int     m_teachWait;                // ½ÅÃ»ÁßÀÎ Ä³¸¯ÅÍÀÇ ÀÎµ¦½º
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int     m_teachWait;                // ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 	char    m_teachType;                // none -1 teacher 0 student 1
-	bool    m_bTeacher;                 // ¼­¹öÀÇ ¼±»ý¸®½ºÆ®¿¡ µî·Ï ¿©ºÎ
+	bool    m_bTeacher;                 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int     m_fame;                     // ¸í¼ºÄ¡
+	int     m_fame;                     // ï¿½ï¿½ï¿½ï¿½Ä¡
 	int     m_cntTeachingStudent;       //0627
 	int     m_cntCompleteStudent;
 	int     m_cntFailStudent;
-	int     m_superstone;               //¹ÞÀº ÃÊ°íÁ¦ °¹¼ö
-	int     m_guardian;                 //ÈÄ°ßÀÎ ½Ã½ºÅÛÀ¸·Î ¼ºÀåÇÑ Ä³¸¯ÅÍÀÎÁö Ã¼Å©.
-	bool    m_displayCanSstone;         // ÃÊ°íÁ¦¸¦ ¹ÞÀ»¼ö ÀÖ´ÂÁö¸¦ displayÇß´Â°¡?
+	int     m_superstone;               //ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_guardian;                 //ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©.
+	bool    m_displayCanSstone;         // ï¿½Ê°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ displayï¿½ß´Â°ï¿½?
 
 //0502 kwon
-	int m_nMoonStoneDigit;              //°¡Àå ¸¹Àº °¹¼öÀÇ ¹®½ºÅæ ¼ýÀÚ
-	int m_nMoonStoneSum;                //¹®½ºÅæ ¼ýÀÚ °¹¼ö
+	int m_nMoonStoneDigit;              //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int m_nMoonStoneSum;                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#ifdef LACARETTE_SYSTEM // ÀÓ½Ã·Î ÀúÀåÇÒ ³Ñµé... ¤Ñ¤Ñ;; ¹¹ ´Ù¸¥ ÁÁÀº ¹æ¹ýÀº ¾øÀ»±ø?
+#ifdef LACARETTE_SYSTEM // ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñµï¿½... ï¿½Ñ¤ï¿½;; ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
 	int	m_lacaretteCosArrNum;
 	int m_lacaretteItemArrNum;
 	int	m_lacaretteTokenArrNum;
@@ -1123,55 +1128,55 @@ public:
 	int m_nMSGiftIndex;
 
 	///////////
-	// ¾Ö¿Ïµ¿¹°
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½
 	CPet*   m_petList;
 	int     m_pulseLastAttackSkill;
 
-	// pc°¡ °ø°Ý ÇßÀ»¶§ ¹Ì½º°¡ ¾Æ´Ò¶§¸¸ °æÇèÄ¡ Ãß°¡
+	// pcï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ß°ï¿½
 	bool    m_bNotMiss;
 
-	CElemental*     m_elementalList;        // ¼ÒÈ¯¼ö ¸®½ºÆ®
-	int             m_pulseElemental[4];    // °¢ ¼ÒÈ¯¼öº° ¼ÒÈ¯ ½Ã°£
+	CElemental*     m_elementalList;        // ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	int             m_pulseElemental[4];    // ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ã°ï¿½
 
-	int             m_pulseEvocation[2];    // °­½ÅÇÑ ½Ã°£ : Çï¿îµå, ¿¤·¹³Ù
-	int	            m_evocationIndex;        // °­½Å Å¸ÀÔ
+	int             m_pulseEvocation[2];    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int	            m_evocationIndex;        // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 
-	int             m_memposTime;           // ¸Þ¸ð¸® ½ºÅ©·Ñ È®Àå »ç¿ë½Ã°£
-	int             m_stashextTime;         // Ã¢°ú È®Àå »ç¿ë½Ã°£
+	int             m_memposTime;           // ï¿½Þ¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½
+	int             m_stashextTime;         // Ã¢ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½
 
-	// 2005 Å©¸®½º¸¶½º ÀÌº¥Æ® º¯¼ö
+	// 2005 Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	int     m_pulseTakeEventXMas2005;
 
-	// 2006 ½Å³â ÀÌº¥Æ®
-	int     m_nTimeEventNewYear2006;        // »ç³É½Ã°£
-	int     m_pulseEventNewYear2006;        // ÃÖ±Ù»ç³É½Ã°£
+	// 2006 ï¿½Å³ï¿½ ï¿½Ìºï¿½Æ®
+	int     m_nTimeEventNewYear2006;        // ï¿½ï¿½É½Ã°ï¿½
+	int     m_pulseEventNewYear2006;        // ï¿½Ö±Ù»ï¿½É½Ã°ï¿½
 
-	// °æÇèÄ¡ ºÐ¹è°ü·Ã Ãß°¡ º¯¼ö : 051228 : BS
-	int				m_nExpDamage;           // ´©Àû ´ë¹ÌÁö
+	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ : 051228 : BS
+	int				m_nExpDamage;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	int     m_nGoldenBallNoticeStatus;                  // °ñµçº¼ ÀÌº¥Æ® °øÁö ¹ÞÀº »óÅÂ
+	int     m_nGoldenBallNoticeStatus;                  // ï¿½ï¿½çº¼ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	char    m_nEventGomdori2007Win;             // ´©Àû ½Â¼ö
-	char    m_nEventGomdori2007Game;            // ÇöÀç °ÔÀÓ °¡À§¹ÙÀ§º¸ ½Ãµµ ¼ö
-	char    m_nEventGomdori2007FirstLose;       // Ã³À½ ÆÐ º¸»ó °¡´É ¿©ºÎ
-	char    m_nEventGomdori2007FirstWin;        // Ã³À½ 1½Â º¸»ó °¡´É ¿©ºÎ
-	bool    m_bEventGomdori2007Start;           // °ÔÀÓ ½ÃÀÛ ¿©ºÎ
-	int     m_nEventGomdori2007Total;           // °ÔÀÓ ´©Àû ¼ö
-	bool    m_bEventGomdori2007CanSelect;       // ¼±ÅÃ °¡´É ¿©ºÎ
-	int     m_bEventGomdori2007Drop;            // µå·Ó ¿©ºÎ
+	char    m_nEventGomdori2007Win;             // ï¿½ï¿½ï¿½ï¿½ ï¿½Â¼ï¿½
+	char    m_nEventGomdori2007Game;            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ ï¿½ï¿½
+	char    m_nEventGomdori2007FirstLose;       // Ã³ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char    m_nEventGomdori2007FirstWin;        // Ã³ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bEventGomdori2007Start;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_nEventGomdori2007Total;           // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	bool    m_bEventGomdori2007CanSelect;       // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_bEventGomdori2007Drop;            // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CRockPaperScissorsInfo m_RockPaperScissorsInfo;
 	void StartRockPaperScissors();
 	bool CanRockPaperScissors();
 
-	int		m_nAttendance_exp;						// Ãâ¼® °æÇèÄ¡
+	int		m_nAttendance_exp;						// ï¿½â¼® ï¿½ï¿½ï¿½ï¿½Ä¡
 
 	int     m_bEventIndependenceDay2007drop;
 
-	int     m_GuildExp;                                             // ±æµåÆ÷ÀÎÆ®·Î ÀüÈ¯µÉ °æÇèÄ¡
-	int     m_GuildFame;                                            // ±æµå Æ÷ÀÎÆ®·Î ÀüÈ¯µÉ ¸í¼ºÄ¡
+	int     m_GuildExp;                                             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	int     m_GuildFame;                                            // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 
-	long        m_nRespondTime;                                     // ±³°¨ ½Ã°£ ÀúÀå
+	long        m_nRespondTime;                                     // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CAPet*      m_pApetlist;
 
@@ -1185,11 +1190,11 @@ public:
 
 	GM_GOZONE_TYPE m_gmGoZoneType;
 
-	CFactoryList    m_listFactory;                                  // Á¦ÀÛ °¡´É ¾ÆÀÌÅÛ list
+	CFactoryList    m_listFactory;                                  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ list
 
-	bool        m_bTaming_npc;                                      // Å×ÀÌ¹Ö ½ºÅ³À» »ç¿ëÇÏ°í ÀÖ´ÂÁö ¿©ºÎ
-	CNPC*		m_Slave_npc;				                        // Å×ÀÌ¹ÖÇÑ ¸ó½ºÅÍ
-	int         m_nSoul_Count;                                      // ³ªÀÌÆ®½¦µµ¿ì Èí¼öÇÑ ¿µÈ¥
+	bool        m_bTaming_npc;                                      // ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CNPC*		m_Slave_npc;				                        // ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int         m_nSoul_Count;                                      // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¥
 	CCharacter* m_Owners_target;
 	CCharacter* GetOwners_target()
 	{
@@ -1208,12 +1213,12 @@ public:
 		m_nSoul_Count = count;
 	}
 
-	// Áö¼ÓÀÌ µÇ´Â ½ºÅ³¿¡ ´ëÇÑ Ã³¸®
-	char		m_skillTargetCount;									// Áö¼Ó½Ã°£ÀÌ ±ä ½ºÅ³ÀÇ Å¸°Ù ¼ýÀÚ
-	char*		m_targettype;										// Áö¼Ó½Ã°£ÀÌ ±ä ½ºÅ³ÀÇ Å¸°Ù Å¸ÀÔ ¹è¿­
-	int*		m_targetindex;										// Áö¼Ó½Ã°£ÀÌ ±ä ½ºÅ³ÀÇ Å¸°Ù ÀÎµ¦½º ¹è¿­
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+	char		m_skillTargetCount;									// ï¿½ï¿½ï¿½Ó½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char*		m_targettype;										// ï¿½ï¿½ï¿½Ó½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Å¸ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½è¿­
+	int*		m_targetindex;										// ï¿½ï¿½ï¿½Ó½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½è¿­
 
-	// Appear¸Å¼¼Áö¸¦ º¸³¾ ¶§ ½ºÅ³ Áö¼Ó ÁßÀÌ¸é skillfireMsg¸¦ º¸³»´Â°Å Ã¼Å©
+	// Appearï¿½Å¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ skillfireMsgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ Ã¼Å©
 	bool		m_bCheckAppear;
 
 	set_npc_t	m_listTaming;
@@ -1227,11 +1232,11 @@ public:
 
 	CAffinityList	m_affinityList;
 
-	int m_nCurrentTitle;											// ÇöÀç ¸Ó¸®À§¿¡ ´Þ°í ´Ù´Ï´Â È£Äª ÀÎµ¦½º ÀúÀå º¯¼ö
-	CTitleList m_titleList;											// Ä³¸¯ÅÍ°¡ º¸À¯ÇÏ°í ÀÖ´Â È£Äª ¸®½ºÆ®
+	int m_nCurrentTitle;											// ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ°ï¿½ ï¿½Ù´Ï´ï¿½ È£Äª ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CTitleList m_titleList;											// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ È£Äª ï¿½ï¿½ï¿½ï¿½Æ®
 
 #ifdef XTRAP
-	int			m_xtrapCheckPulse;			// XTrap È®ÀÎ ÁÖ±â
+	int			m_xtrapCheckPulse;			// XTrap È®ï¿½ï¿½ ï¿½Ö±ï¿½
 #endif // XTRAP
 
 	int			m_newtutoComplete;
@@ -1240,7 +1245,7 @@ public:
 
 	CNPC* m_pSummnonNpc[SUMMON_NPC_MAX];
 	CCharacter* m_SummonOwners_target;
-	int			m_nBombSummonCnt; // °°ÀÌ »ç¿ëÇÑ´Ù.
+	int			m_nBombSummonCnt; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 	void        SetSummonOwners_target(CCharacter* target)
 	{
@@ -1264,37 +1269,37 @@ public:
 	}
 	bool		SetBombSummonNPC( CNPC* pNPC );
 	///////////////////////////////////////////////////////////////////
-	// ÇÔ¼ö Á¤ÀÇ
+	// ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	///////////////////
-	// Ä³¸¯ÅÍ Á¤º¸ Àü´Þ
-	void SendStatus();                                                  // »óÅÂ º¸³»±â
-	void Send(CNetMsg::SP& msg);                                            // ¸Þ½ÃÁö º¸³»±â
-	void SendQuickSlot();                                               // Äü½½·Ô Àü´Þ
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void SendStatus();                                                  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	void Send(CNetMsg::SP& msg);                                            // ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	void SendQuickSlot();                                               // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	void Restore();                                                     // »óÅÂ È¸º¹
+	void Restore();                                                     // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 
 	bool AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp = false, bool bNoEffect = false, bool bArtifact = false);                // + sp, + exp
 
-	void AddExpSP_Direct( LONGLONG exp, LONGLONG sp );						// ´Ù¸¥È¿°ú Àû¿ë¾øÀÌ °æÇèÄ¡ Àû¿ë
-	void CalcLevelup();													// ÇöÀç ÀÖ´Â exp ·Î ·¹º§¾÷ °Ë»ç ·çÆ¾µ¹±â
+	void AddExpSP_Direct( LONGLONG exp, LONGLONG sp );						// ï¿½Ù¸ï¿½È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	void CalcLevelup();													// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ exp ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½
 
-	void LevelUp(bool bSendEffect);                                     // ·¹º§¾÷ È¿°ú
-	void InitStat();                                                    // ½ºÅÈÀ» ·¹º§¿¡¼­ ºÎÅÍ ÃÊ±âÈ­
-	void CalcStatus(bool bSend);                                        // ¾ÆÀÌÅÛ, ½ºÅ³¿¡ ÀÇÇÑ ½ºÅÈ º¯È­
+	void LevelUp(bool bSendEffect);                                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
+	void InitStat();                                                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	void CalcStatus(bool bSend);                                        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
 	void AddItemToRemovingList(CItem* item);
 	void RemoveItemFromList(bool bAdd);
 
-	bool InitSkill(CSkillList* skillList, bool isPassive = false);      // ½ºÅ³ ÃÊ±âÈ­
-	bool InitSSkill();                                                  // Æ¯¼ö ½ºÅ³ ÃÊ±âÈ­
+	bool InitSkill(CSkillList* skillList, bool isPassive = false);      // ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­
+	bool InitSSkill();                                                  // Æ¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­
 
 	void resetCoolTime(CSkillList* skillList);
 
-	void RecoverPC();                                                   // ÀÚµ¿È¸º¹, HP MP
+	void RecoverPC();                                                   // ï¿½Úµï¿½È¸ï¿½ï¿½, HP MP
 	void ApplyItemValue(bool bSend);
-	void ApplyItemPlusValue(CItem* pItem, int NormalPlus);                              // plusº°·Î ¾ÆÀÌÅÛ¿¡ Àû¿ëµÇ´Â ¼öÄ¡ º¯È­ ¹× º¸³Ê½º ´É·Â
+	void ApplyItemPlusValue(CItem* pItem, int NormalPlus);                              // plusï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½Ê½ï¿½ ï¿½É·ï¿½
 	void ApplyStoneValue(CItem* pItem);
-	int ItemUpgradeFuckingFunction( int itemPlus, int itemLevel, int itemAttack );	// 2011 ¸¶½ºÅÍ ½ºÅæ ´ëºñ ÀÎÃ¾Æ® º¯°æ °ø½Ä
+	int ItemUpgradeFuckingFunction( int itemPlus, int itemLevel, int itemAttack );	// 2011 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	int CanChange();
 
@@ -1317,17 +1322,17 @@ public:
 
 	////////////////////
 	// Function name    : SettingItemOption
-	// Description      : Âø¿ë ¾ÆÀÌÅÛ ¿É¼Ç ¼ÂÆÃ
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// Return type      : int
-	//                  : ¿É¼Ç ¼¼ÆÃµÈ ÆÄÆ® ¹øÈ£
+	//                  : ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Æ® ï¿½ï¿½È£
 	int SettingItemOption();
 
 	//////////////////////////////
-	// Äü½½·Ô¿¡¼­ Æ¯Á¤ ¾ÆÀÌÅÛ Á¦°Å
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void RemoveItemFromQuickSlot(CItem* item);
 
 	//////////////////////////////
-	// Äü½½·Ô¿¡¼­ Æ¯Á¤ ½ºÅ³ Á¦°Å
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	void RemoveSkillFromQuickSlot(CSkill* pSkill);
 	void RemovePetSkillFromQuickSlot();
 	void RemoveApetSkillFromQuickSlot();
@@ -1337,59 +1342,59 @@ public:
 
 	/////////////////////
 	// Function name    : GoMemPos
-	// Description      : ±â¾ïµÈ Àå¼Ò·Î ÀÌµ¿
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò·ï¿½ ï¿½Ìµï¿½
 	// Argument         : int slot
-	//                  : ÀÌµ¿ÇÒ Àå¼Ò ±â¾ï À§Ä¡
+	//                  : ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	void GoMemPos(int slot);
 
 	/////////////////////
 	// Function name    : UseStatPoint
-	// Description      : ½ºÅÈ Æ÷ÀÎÆ® »ç¿ë
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	// Return type      : bool
-	//                  : ¼º°ø ¿©ºÎ
+	//                  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// Argument         : MSG_STATPOINT_USE_TYPE type
-	//                  : º¯°æÇÒ ½ºÅÈ
+	//                  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// Argument         : int* val
-	//                  : º¯È­µÈ ½ºÅÈ ¼öÄ¡
+	//                  : ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	bool UseStatPoint(MSG_STATPOINT_USE_TYPE type, int* val);
 
 	/////////////////////
 	// Function name    : CanWarp
-	// Description      : ¿öÇÁ ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ÀÖ´ÂÁö °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	// Return type      : int
-	//                  : »ç¿ëÇÒ ¼ö ÀÖÀ¸¸é 0, ¾Æ´Ï¸é ½Ã½ºÅÛ ¸Þ½ÃÁö
+	//                  : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0, ï¿½Æ´Ï¸ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	int CanWarp();
 
 	/////////////////////
 	// Function name    : FindSkill
-	// Description      : ½ºÅ³ Ã£±â
+	// Description      : ï¿½ï¿½Å³ Ã£ï¿½ï¿½
 	CSkill* FindSkill(int index);
 
 	////////////////////
 	// Function name    : GetAttackLevel
-	// Description      : ¹«±â ·¹º§ ±¸ÇÏ±â
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	virtual int GetAttackLevel();
 
 	////////////////////
 	// Function name    : GetDefenseLevel
-	// Description      : ¹æ¾î±¸ Æò±Õ ·¹º§ ±¸ÇÏ±â
+	// Description      : ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	virtual int GetDefenseLevel();
 
 	////////////////////
 	// Function name    : GetAttackType
-	// Description      : ±âº» °ø°ÝÀÇ ±ÙÁ¢ ¿ø°Å¸® ¸¶¹ý Á¾·ù¸¦ °¡·Á³¿
+	// Description      : ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	virtual MSG_DAMAGE_TYPE GetAttackType(const CSkillProto* proto) const;
 
 	////////////////////
 	// Function name    : GetPKName
-	// Description      : ¼ºÇâ¿¡ µû¸¥ ÄªÈ£¸¦ ¹ÝÈ¯
+	// Description      : ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ÄªÈ£ï¿½ï¿½ ï¿½ï¿½È¯
 	// Return type      : int
-	//                  : -5 ºÎÅÍ +5±îÁö ¼ø¼­´ë·Î Ä«¿À½º¸®Àü,³×Å©·Î³ªÀÌÆ®,¾Æ¿ô·Î,ÇÇ½ºÄ³½ºÅÍ,¸Ó´õ·¯,ÀÏ¹Ý,¾îº¥Àú,¶óÀÌÆ®Æ÷ÅÍ,°¡µð¾ð,¼¼ÀÎÆ®³ªÀÌÆ®,µð¹ÙÀÎÇÁ·ÎÅØÅÍ
+	//                  : -5 ï¿½ï¿½ï¿½ï¿½ +5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Å©ï¿½Î³ï¿½ï¿½ï¿½Æ®,ï¿½Æ¿ï¿½ï¿½ï¿½,ï¿½Ç½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½,ï¿½Ó´ï¿½ï¿½ï¿½,ï¿½Ï¹ï¿½,ï¿½îº¥ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½Æ®,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int GetPKName();
 
 	////////////////////
 	// Function name    : IsSetPlayerState
-	// Description      : »óÅÂ ÇÊµå°¡ ¼Â µÇ¾î ÀÖ´ÂÁö °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå°¡ ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsSetPlayerState(int checkstate)
 	{
 		return ((m_state & checkstate) ? true : false);
@@ -1397,7 +1402,7 @@ public:
 
 	////////////////////
 	// Function name    : SetPlayerState
-	// Description      : »óÅÂ ÇÊµå ¼¼ÆÃ
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetPlayerState(int checkstate)
 	{
 		m_state |= checkstate;
@@ -1405,12 +1410,12 @@ public:
 
 	////////////////////
 	// Function name    : ResetPlayerState
-	// Description      : »óÅÂ ÇÊµå ¸®¼Â
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ResetPlayerState(int checkstate)
 	{
 		if(checkstate == ~0)
 		{
-			//¸®¼ÂÀ» ½ÃÅ³¶§ ºñÇà, ´ÙÅ©´Ï½º »óÅÂ´Â Åä±Û ÃÊ±âÈ­¸¦ ÇØÁØ´Ù.(ÃÊ±âÈ­ µÇ´Â ½ºÅ³ÀÌ ÀÖ°í ¾ÈµÇ´Â ½ºÅ³ÀÌ ÀÖ¾î °íÀÇÀûÀÎ ÇÏµåÄÚµùÀÌ µé¾î°¨. ¼öÁ¤ÇÊ¿ä)
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å©ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½Ø´ï¿½.(ï¿½Ê±ï¿½È­ ï¿½Ç´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½î°¨. ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½)
 			if(IsSetPlayerState(PLAYER_STATE_FLYING))
 			{
 				toggleOff(FLY_SKILL, TOGGLE_SKILL);
@@ -1427,7 +1432,7 @@ public:
 
 	////////////////////
 	// Function name    : TogglePlayerState
-	// Description      : »óÅÂ ÇÊµå Åä±Û
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½
 	void TogglePlayerState(int checkstate)
 	{
 		m_state ^= checkstate;
@@ -1435,7 +1440,7 @@ public:
 
 	////////////////////
 	// Function name    : GetPlayerState
-	// Description      : »óÅÂ ¹ÝÈ¯
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	int GetPlayerState()
 	{
 		return m_state;
@@ -1443,32 +1448,32 @@ public:
 
 	////////////////////
 	// Function name    : IsCombatMode
-	// Description      : ÀüÅõ »óÅÂ °Ë»ç, ÃÖ±Ù °ø°ÝÈÄ ÀÏÁ¤ ½Ã°£(PULSE_ATTACKMODE_DELAY)ÀÌ Áö³µ´Â°¡
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½(PULSE_ATTACKMODE_DELAY)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½
 	bool IsCombatMode();
 
 	////////////////////
 	// Function name    : CanMove
-	// Description      : ÀÌµ¿ °¡´É °Ë»ç
+	// Description      : ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanMove();
 
 	////////////////////
 	// Function name    : CanAttack
-	// Description      : °ø°Ý °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanAttack();
 
 	////////////////////
 	// Function name    : CanSpell
-	// Description      : ½ÃÀü °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanSpell();
 
 	////////////////////
 	// FN : GiveItem
-	// ¾ÆÀÌÅÛ »ý¼º / Áö±Þ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½
 	bool GiveItem(int itemIndex, int plus, int flag, LONGLONG itemNum, bool bdrop = false , bool bOption = false );
 
 	////////////////////
 	// Function name    : GetSize
-	// Description      : Ä³¸¯ÅÍ Å©±â ¹ÝÈ¯
+	// Description      : Ä³ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½È¯
 	virtual float GetSize()
 	{
 		return 0.0f;
@@ -1496,11 +1501,11 @@ public:
 	}
 	bool AddBlockPC(int charIndex, const char* name);
 	void ReleaseBlockPC(int charIndex, CLCString& name);
-	// ¸®½ºÆ®ÀÇ ÀÌ¸§À» ÃÖ½ÅÀ¸·Î À¯ÁöÇÒ¼ö ¾øÀ¸¹Ç·Î ÀÌÁî ºí·°À» È£ÃâÇÒ¶§ ÃÖ½ÅÀ¸·Î À¯ÁöÇÑ´Ù
+	// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	bool IsBlockPC(int charIndex, const char* name );
 	void GetBlockListString(CLCString& blockIndexList, CLCString& blockNameList);
 
-	void do_QuestGiveUp(CPC* ch, CQuest* quest);//·¹º§¾÷¿¡ ÀÇÇÑ Äù½ºÆ® °­Á¦ Æ÷±â.
+	void do_QuestGiveUp(CPC* ch, CQuest* quest);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 	bool CheckDungeonData(int zone);
 
@@ -1518,13 +1523,13 @@ public:
 		}
 	}
 
-	// °ø¼º Âü¿© ÇÃ·¡±× ±¸ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	int GetJoinFlag(int zoneindex);
 
-	// °ø¼º Âü¿© ÇÃ·¡±× ¼³Á¤
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetJoinFlag(int zoneindex, int value);
 
-#ifdef REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû
+#ifdef REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	int m_pkPenaltyReward;
 	void SetPKPenaltyReward(int titleNum)
 	{
@@ -1536,56 +1541,56 @@ public:
 	}
 	int	 GetPKPenaltyRewardNum();
 
-	int	m_pkDispositionRateValue;	// PK ¼ºÇâ ¼öÄ¡ »ó½Â ÁõÆø·ü %
-	int	m_pkDispositionAddValue;	// PK ¼ºÇâ ¼öÄ¡ »ó½Â ÁõÆø·ü %
+	int	m_pkDispositionRateValue;	// PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %
+	int	m_pkDispositionAddValue;	// PK ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %
 
 	bool IsChaotic()
 	{
-		return (m_pkPenalty < 0 ) ? true : false;    // Ä«¿ÀÆ½ Ä³¸¯ÅÍ ÆÇº°
+		return (m_pkPenalty < 0 ) ? true : false;    // Ä«ï¿½ï¿½Æ½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½
 	}
 	void AddPkPenalty(int penalty);
 #else
 	bool IsChaotic()
 	{
-		return (m_pkPenalty < -9) ? true : false;    // Ä«¿ÀÆ½ Ä³¸¯ÅÍ ÆÇº°
+		return (m_pkPenalty < -9) ? true : false;    // Ä«ï¿½ï¿½Æ½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½
 	}
 #endif
 
-	// ÆêÀÇ ¹è°íÇÄ/±³°¨µµ/°æÇèÄ¡ °ªÀ» º¯°æÇÑ´Ù
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	void UpdatePetValue();
-	// Æê ¸®½ºÆ®¿¡¼­ Æ¯Á¤ INDEXÀÇ ÆêÀ» Ã£´Â´Ù
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ INDEXï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½
 	CPet* GetPet(int index = 0);
-	// Æê »èÁ¦
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void DelPet(int petIndex);
 //#endif
 
-	// ÆêÀÇ ¹è°íÇÄ/±³°¨µµ/°æÇèÄ¡ °ªÀ» º¯°æÇÑ´Ù
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	void UpdateAPetValue();
-	// Æê ¸®½ºÆ®¿¡¼­ Æ¯Á¤ INDEXÀÇ ÆêÀ» Ã£´Â´Ù
-	CAPet* GetAPet(int index = 0);          // 0 ÀÌ¸é ÇöÀç Âø¿ëÇÑ Æê
-	// Æê »èÁ¦
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ INDEXï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½
+	CAPet* GetAPet(int index = 0);          // 0 ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void DelAPet(int petIndex);
 
-	// target¿¡°Ô pvp °¡´É ¿©ºÎ °Ë»ç, °¡´ÉÇÏÇÏ¸é Á¤´ç¹æÀ§ ¼³Á¤
+	// targetï¿½ï¿½ï¿½ï¿½ pvp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool CanPvP(CCharacter* target, bool bIgnoreInvisible);
 
-	// º¯½Å ÇØÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void CancelChange();
 
-	// ¼ÒÈ¯
+	// ï¿½ï¿½È¯
 	CElemental* SummonElemental(char elementalType);
-	// ¼ÒÈ¯ ÇØÁ¦
+	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 	void UnsummonElemental(CElemental* elemental);
-	// ¼ÒÈ¯ °¡´É °Ë»ç : Áßº¹, µ¿½Ã¼ÒÈ¯, ¼ÒÈ¯½Ã°£
+	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : ï¿½ßºï¿½, ï¿½ï¿½ï¿½Ã¼ï¿½È¯, ï¿½ï¿½È¯ï¿½Ã°ï¿½
 	bool CanSummonElemental(char newElementalType, char* duplicationType, int* nRemainTimeSummon, bool* errElementalType);
-	// ¼ÒÈ¯¼ö ¾ò±â
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½
 	CElemental* GetElemental(int elementalindex);
-	// ¼ÒÈ¯¼ö »óÅÂÁ¤º¸ º¸³»±â : º¯°æµÈ °Í¸¸
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í¸ï¿½
 	void SendElementalStatus();
 
-	// °­½Å
+	// ï¿½ï¿½ï¿½ï¿½
 	void ChangeEvocationState(int skillIndex);
-	// °­½Å ÇØÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void Unevocation();
 
 	void changeToggleState(int index, int toggle_type);
@@ -1594,21 +1599,21 @@ public:
 
 	void SendHolyWaterStateMsg(CItem* item);
 
-	// °­½Å ³²Àº ½Ã°£
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 	int GetRemainEvocation(bool bSec);
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	void ApplyPassive();
 
 	////////////////////
 	// Function name    : ProcDisconnect
-	// Description      : Á¸ÀÌµ¿, Á¢¼Ó Á¾·á µî¿¡¼­ ÆÄÆ¼, ±³È¯, »çÁ¦ µî Ã³¸®
+	// Description      : ï¿½ï¿½ï¿½Ìµï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½î¿¡ï¿½ï¿½ ï¿½ï¿½Æ¼, ï¿½ï¿½È¯, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
 	// Argument         : bool bDisconnect
-	//                  : Á¢¼Ó Á¾·á ¿©ºÎ, Á¾·á½Ã ·¹ÀÌ¾î Á¸¿¡ ÀÖÀ¸¸é ½ÃÀÛ Á¸À¸·Î º¯°æ
+	//                  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// Argument         : bool bGoto
-	//                  : °°Àº Á¸³» ÀÌµ¿¿¡¼­ È£Ãâ µÈ °æ¿ì
+	//                  : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void ProcDisconnect(bool bDisconnect, bool bGoto);
 
-	// ÀÚµ¿ Áö±Þ, ºí·¯µå¿É¼Ç ¹ö±× ·Î±× ³²±â±â
+	// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	void OutputDBItemLog();
 
 	virtual float GetHitrate(CCharacter* df, MSG_DAMAGE_TYPE type);
@@ -1678,7 +1683,7 @@ public:
 	}
 
 
-// [101214: selo] º¸»ó ¾ÆÀÌÅÛ µå·Ó ¼öÁ¤
+// [101214: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool CheckInvenForQuestPrize(const CQuestProto* pQuestProto, const int& optItemIndex);
 	bool CheckInvenForProduceNoramlPrize(const int& itemdbIndex, const int& grade, const int& boost);
 	bool CheckInvenForProduceRandomPrize();
@@ -1699,7 +1704,7 @@ public:
 
 	bool	CheckCastellanType(int& zonenum, char& castellan);
 
-// [110207:selo] ÇÑ ¹ú ÀÇ»ó
+// [110207:selo] ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç»ï¿½
 	const int GetSuitWearingPos(const int& pos)
 	{
 		return m_suitWearingPos[pos];
@@ -1771,9 +1776,9 @@ public:
 	CGPSManager m_gpsManager;
 	ArtifactGPSManager m_arti_gpsManager;
 
-	CPC* m_targetPC;				//³»°¡ ¼±ÅÃÇÑ Å¸°ÙÀÇ ÀÎµ¦½º
+	CPC* m_targetPC;				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
-	//½áÄ¡ ¶óÀÌÇÁ
+	//ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 private:
 	bool m_isSearchLife;
 public:
@@ -1787,7 +1792,7 @@ public:
 
 	ItemCollectionManager m_itemCollectionManager;
 	
-	//¿î¿µÀÚ ¸í·É¾î º¯¼ö
+	//ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool	m_isNotCoolBoxItem;
 	CAttendanceManager m_attendanceManager;
 
@@ -1796,14 +1801,14 @@ public:
 	PremiumChar m_premiumChar;
 #endif
 
-	//Á¢¼Ó½Ã µ¥ÀÌÅÍ Àü¼Û À¯¹«
+	//ï¿½ï¿½ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	bool m_firstSendData;
-	//°ø¼º ½ºÅ³ Ã¼Å© À¯¹«
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ Ã¼Å© ï¿½ï¿½ï¿½ï¿½
 	bool m_isWarSkillCheck;
 
 	bool isWarZone();
 
-	bool bMoveInsDunFinish;		// ÀÎ½ºÅÏ½º ´øÀü ÀÔÀå½Ã ¿ÏÀüÈ÷ ÀÔÀåÀÌ µÇ¾ú´ÂÁö¸¦ ÆÇ´ÜÇÏ±â À§ÇÑ º¯¼ö (´Ù½Ã ¸¸µéÁö ¾Ê´Â ÀÌ»ó ÇÊ¿äÇÔ...)
+	bool bMoveInsDunFinish;		// ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ì»ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½...)
 
 	std::map<int, MAKE_TITLE*> _map_title;
 	int	m_custom_title_index;
@@ -1820,59 +1825,59 @@ public:
 	CNPC();
 	virtual ~CNPC();
 
-	CNPCProto*  m_proto;        // DB ¼³Á¤Ä¡
+	CNPCProto*  m_proto;        // DB ï¿½ï¿½ï¿½ï¿½Ä¡
 
-	int         m_idNum;        // ¸÷ ¾ÆÀÌµð ¹øÈ£(DB index)
+	int         m_idNum;        // ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½È£(DB index)
 	int         m_flag;         // Flag
-	int         m_flag1;        // Flag1(È®Àå ÇÃ·¡±×)
+	int         m_flag1;        // Flag1(È®ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½)
 	float       m_regenX;
 	int         m_regenY;
 	float       m_regenZ;
-	int         m_disableTime;  // ¸®Á¨ ÀÌÈÄ ¾È º¸ÀÌ´Â ½Ã°£
-	int         m_delay;        // µô·¹ÀÌ °øÅë
+	int         m_disableTime;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Ã°ï¿½
+	int         m_delay;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// 050322 : bs : °ø°Ý Àü¿ë µô·¹ÀÌ º¯¼ö Ãß°¡
-	int         m_pulseAttack;  // ÃÖ±Ù °ø°Ý ½Ã°£ : gserver->m_pulse¿Í Á÷Á¢ ºñ±³
-// --- 050322 : bs : °ø°Ý Àü¿ë µô·¹ÀÌ º¯¼ö Ãß°¡
+// 050322 : bs : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	int         m_pulseAttack;  // ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ : gserver->m_pulseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+// --- 050322 : bs : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
-	char        m_attackType;   // ±âº»°ø°Ý¹æ¹ý
-	int         m_postregendelay;   // ¸®Á¨ ÀÌÈÄ ¼±°ø ÇÏ±â Àü±îÁöÀÇ ½Ã°£ µô·¹ÀÌ
+	char        m_attackType;   // ï¿½âº»ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½
+	int         m_postregendelay;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// ÀÌµ¿°ü·Ã
-	bool        m_bMoveRun;     // ¶Ù´Â°¡ true °È´Â°¡ false
-	int         m_nBlockRegen;  // ¸®Á¨À§Ä¡·Î °¡°í ÀÖ´Âµ¥ ºí·°´çÇØ¼­ ¸ø °£ °æ¿ì Ä«¿îÆ®
-	// Àü»çÀÇ Ãàº¹¿¡¼­ ¼ÒÀ¯ÀÚ PC ÀÎµ¦½º
-	bool        m_bStop;        // ¼­ÀÖ´Â°¡
-	int         m_moveArea;     // ÀÌµ¿ ¹üÀ§
+	// ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½
+	bool        m_bMoveRun;     // ï¿½Ù´Â°ï¿½ true ï¿½È´Â°ï¿½ false
+	int         m_nBlockRegen;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àº¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PC ï¿½Îµï¿½ï¿½ï¿½
+	bool        m_bStop;        // ï¿½ï¿½ï¿½Ö´Â°ï¿½
+	int         m_moveArea;     // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// AI °ü·Ã
+	// AI ï¿½ï¿½ï¿½ï¿½
 	int         m_aipulse;      // NPC AI Pulse
-	int         m_moveDir;      // ÀÌµ¿ ¹æÇâ ¿À¸¥ÂÊ : 1 ¿ÞÂÊ : -1 Á¤Áö : 0
-	int         m_nBlockAI;     // AI Àû¿ë½Ã ÀÌµ¿°æ·Î¿¡¼­ ºí·°´çÇÑ ¼ö
-	bool        m_bChangeDir;   // ÀÌµ¿“‡ÇâÀÌ ¹Ù²î¾î¾ß ÇÏ´Â°¡
-	bool        m_bFail45;      // 45µµ ²ª±â°¡ ½ÇÆÐÀÎ°¡
+	int         m_moveDir;      // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 1 ï¿½ï¿½ï¿½ï¿½ : -1 ï¿½ï¿½ï¿½ï¿½ : 0
+	int         m_nBlockAI;     // AI ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	bool        m_bChangeDir;   // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ ï¿½Ï´Â°ï¿½
+	bool        m_bFail45;      // 45ï¿½ï¿½ ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½
 
-	int         m_quest[QUEST_MAX_NPC];         // Äù½ºÆ® NPC Äù½ºÆ® ¹øÈ£ ÀúÀå
-	int         m_nQuestCount;                  // Äù½ºÆ® °³¼ö
+	int         m_quest[QUEST_MAX_NPC];         // ï¿½ï¿½ï¿½ï¿½Æ® NPC ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
+	int         m_nQuestCount;                  // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 
-	// 050221 : bs : NPC ½ºÅ³
+	// 050221 : bs : NPC ï¿½ï¿½Å³
 	CSkill*     m_skills[MAX_NPC_SKILL];
-	// --- 050221 : bs : NPC ½ºÅ³
+	// --- 050221 : bs : NPC ï¿½ï¿½Å³
 
 	int         m_regenTime;	//#if defined(SYSTEM_TREASURE_MAP)
 
 	int         m_regenTimeXmas2007;
 
-	CNPC*       m_pNPCPrev;     // NPC ¸®½ºÆ® ¸µÅ©
+	CNPC*       m_pNPCPrev;     // NPC ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©
 	CNPC*       m_pNPCNext;     //
 
 	CNPCRegenInfo* m_regenInfo;
 
-	int         m_nRaidMoveTime;            // ¸¶Áö¸· ÀüÅõ ½Ã°£
-	int         m_bRaidNPCSummon;           // ·¹ÀÌµå ¸÷ÀÌ ¼ÒÈ¯Çß´ÂÁö ¿©ºÎ
+	int         m_nRaidMoveTime;            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int         m_bRaidNPCSummon;           // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int			m_ctCount;					// »óÅÂÀÌ»ó ¸é¿ª Ä«¿îÆ® º¯¼ö(º¸½º¿Í ÁØº¸½º)
-	int			m_ctTime;					// »óÅÂÀÌ»ó ¸é¿ª È¸º¹ ½Ã°£ º¯¼ö
+	int			m_ctCount;					// ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½é¿ª Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ï¿½ï¿½)
+	int			m_ctTime;					// ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½é¿ª È¸ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	int m_MobScrollType;
 	int m_NextMobIndex;
@@ -1882,21 +1887,21 @@ public:
 	int     m_coincount;
 
 #ifdef MONSTER_AI
-	float   m_nOldDist;                     // ¸ó½ºÅÍÀÇ ÀÌµ¿ Àü À§Ä¡
-	bool    m_bMoveLock;                    // ¸ó½ºÅÍ ¹«Àû »óÅÂ
-	int     m_pulseMoveLock;                // ¹«Àû ½Ã°£
-	int     m_bMoveToRegen;                 // ¸®Á¨ À§Ä¡·Î ÀÌµ¿ ¿©ºÎ
+	float   m_nOldDist;                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
+	bool    m_bMoveLock;                    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int     m_pulseMoveLock;                // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	int     m_bMoveToRegen;                 // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 
-	int     m_Mob_State;                    // ¸ó½ºÅÍ°¡ Å×ÀÌ¹ÖÀÌ µÇ¾ú´Â°¡? ¾Æ´Ï¸é È¥¶õÀÎ°¡?
-	CPC*    m_owner;                        // ¸ó½ºÅÍ¸¦ Å×ÀÌ¹ÖÇÑ Ä³¸¯ÅÍ
-	int		m_pulseSoulRecover;				// ¸ó½ºÅÍ°¡ ¿µÈ¥À» »©¾Ñ±ä µÚ ´Ù½Ã »ý±â´Â µô·¹ÀÌ
+	int     m_Mob_State;                    // ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½Â°ï¿½? ï¿½Æ´Ï¸ï¿½ È¥ï¿½ï¿½ï¿½Î°ï¿½?
+	CPC*    m_owner;                        // ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½
+	int		m_pulseSoulRecover;				// ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ±ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int		m_lifetime;
 
 	CPC*    GetOwner();
 	void    SetOwner(CPC* pc)
 	{
-		m_owner = pc;    // ¼ÒÀ¯ÀÚ ¼³Á¤
+		m_owner = pc;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 
 	int     Check_MobFlag(int mask) const
@@ -1912,38 +1917,38 @@ public:
 		m_Mob_State &= ~state;
 	}
 
-	void        DeleteNPC();    // npcÀÇ Å¸ÄÏ¸®½ºÆ®ÀÇ ¾îÅÃ¸®½ºÆ®¿¡¼­ ½º½º·Î¸¦ »èÁ¦ÇÏ°í ¸Þ¸ð¸® ÇØÁ¦
-	void        InitAIVar();    // AI °ü·Ã º¯¼ö ÃÊ±âÈ­
-	void        ResetStat();    // ÇÁ·ÎÅäÀÇ °ªÀ¸·Î ¼öÄ¡¸¦ ÃÊ±âÈ­
+	void        DeleteNPC();    // npcï¿½ï¿½ Å¸ï¿½Ï¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void        InitAIVar();    // AI ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	void        ResetStat();    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ê±ï¿½È­
 
 	////////////////////
 	// Function name    : CanMove
-	// Description      : ÀÌµ¿ °¡´É °Ë»ç
+	// Description      : ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanMove();
 
 	////////////////////
 	// Function name    : CanAttack
-	// Description      : °ø°Ý °¡´É °Ë»ç
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	virtual bool CanAttack();
 
 	////////////////////
 	// Function name    : GetAttackLevel
-	// Description      : ¹«±â ·¹º§ ±¸ÇÏ±â
+	// Description      : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	virtual int GetAttackLevel();
 
 	////////////////////
 	// Function name    : GetDefenseLevel
-	// Description      : ¹æ¾î±¸ Æò±Õ ·¹º§ ±¸ÇÏ±â
+	// Description      : ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	virtual int GetDefenseLevel();
 
 	////////////////////
 	// Function name    : GetAttackType
-	// Description      : ±âº» °ø°ÝÀÇ ±ÙÁ¢ ¿ø°Å¸® ¸¶¹ý Á¾·ù¸¦ °¡·Á³¿
+	// Description      : ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	virtual MSG_DAMAGE_TYPE GetAttackType(const CSkillProto* proto) const;
 
 	////////////////////
 	// Function name    : GetSize
-	// Description      : Ä³¸¯ÅÍ Å©±â ¹ÝÈ¯
+	// Description      : Ä³ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½È¯
 	virtual float GetSize()
 	{
 		if (m_proto)
@@ -1959,13 +1964,13 @@ public:
 
 	CSkill* FindSkill(int idx);
 
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë : NPC´Â ¾øÀ½
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ : NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ApplyPassive() {}
 
-	// ½ºÅÈ Àç°è»ê
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void CalcStatus(bool bSend);
 
-	// ÀÚ½ÅÀ» °ø°ÝÇÑ ´ë»óµéÀÌ ÁØ µ¥¹ÌÁö ÃÑÇÕÀ» ¹ÝÈ¯
+	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	LONGLONG GetTotalDamage();
 
 	virtual float GetHitrate(CCharacter* df, MSG_DAMAGE_TYPE type);
@@ -1976,7 +1981,7 @@ public:
 #endif // EXTREME_CUBE
 
 #ifdef MONSTER_AI
-	float GetDistToRegen();                 // ¸®Á¨À§Ä¡¿Í °Å¸®
+	float GetDistToRegen();                 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Å¸ï¿½
 #endif
 
 	MonsterMercenaryData * m_pMercenaryClassData;
@@ -2008,127 +2013,127 @@ class CPet : public CCharacter, public MemoryPoolBaseWithMutex<CPet>
 	friend class DBManager;
 	friend class DBProcess;
 
-	CPC*    m_owner;            // Æê ÁÖÀÎ
-	char    m_petTypeGrade;     // Æê Á¾·ù + µî±Þ
+	CPC*    m_owner;            // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	char    m_petTypeGrade;     // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½
 
-	int     m_hungry;           // ¹è°íÇÄ
-	int     m_pulseHungry;      // ¹è°íÇÄ ÆÞ½º
-	int     m_sympathy;         // ±³°¨µµ
-	int     m_pulseSympathy;    // ±³°¨µµ ÆÞ½º
-	int     m_abilityPoint;     // ±â¼ú Æ÷ÀÎÆ®
+	int     m_hungry;           // ï¿½ï¿½ï¿½ï¿½ï¿½
+	int     m_pulseHungry;      // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½
+	int     m_sympathy;         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int     m_pulseSympathy;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½
+	int     m_abilityPoint;     // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
-	int     m_pulseExpUp;       // °æÇèÄ¡ È¹µæ ÆÞ½º
+	int     m_pulseExpUp;       // ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½ ï¿½Þ½ï¿½
 
 	char    m_petColorType;
 	int     m_nTurnToNpcIndex;
 	int     m_nTurnToNpcSize;
 
-	bool    m_bSummon;          // ¼ÒÈ¯µÇ¾ú´ÂÁö ¿©ºÎ
-	bool    m_bMount;           // Å¸°í ÀÖ´ÂÁö ¿©ºÎ
-	bool    m_wasnear;          // 050309: bw 20¹ÌÅÍ ³»¿¡ ÀÖ´ÂÁö ¹Û¿¡ ÀÖ´ÂÁöÀÇ º¯È­
+	bool    m_bSummon;          // ï¿½ï¿½È¯ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_bMount;           // Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool    m_wasnear;          // 050309: bw 20ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Û¿ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
 
-	// 060221 : bs : Æê »ç¸Á½Ã ÀÏÁ¤½Ã°£ Âø¿ëºÒ´ÉÀ¸·Î
-	int     m_nRemainRebirth;   // ºÎÈ° ³²Àº ½Ã°£
+	// 060221 : bs : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½
+	int     m_nRemainRebirth;   // ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-	CSkillList m_skillList;     // ½ºÅ³ ¸®½ºÆ®
+	CSkillList m_skillList;     // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®
 
 public:
 
 	CPet*   m_prevPet;
 	CPet*   m_nextPet;
-	time_t	m_petStashSeconds;	// Æê Ã¢°í ÆÞ½º
-	time_t	m_petStashHungrySeconds; // Æê Ã¢°í ¹è°íÇÄ Áõ°¡
+	time_t	m_petStashSeconds;	// ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Þ½ï¿½
+	time_t	m_petStashHungrySeconds; // ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CPet(CPC* owner, int index, char petTypeGrade, int level);
 	~CPet();
 
 	////////////
-	// ±âº» Á¤º¸
+	// ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 	void resetStashTimer();
 
-	// ¼ÒÀ¯ÀÚ ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	CPC* GetOwner()
 	{
 		return m_owner;
 	}
 
-	// ¼ÒÀ¯ÀÚ ¼³Á¤
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetOwner(CPC* pc)
 	{
 		m_owner = pc;
 	}
 
-	// Æê Á¾·ù ±¸ÇÏ±â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	char GetPetType()
 	{
 		return (m_petTypeGrade & PET_TYPE_MASK);
 	}
 
-	// Æê µî±Þ ±¸ÇÏ±â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	char GetPetGrade()
 	{
 		return (m_petTypeGrade & PET_GRADE_MASK);
 	}
 
-	// ÆêÀ» Å»¼ö ÀÖ´ÂÁö °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsMountType()
 	{
 		return (GetPetGrade() == PET_GRADE_MOUNT);
 	}
 
-	// Æê Á¾·ù + µî±Þ ±¸ÇÏ±â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	char GetPetTypeGrade()
 	{
 		return m_petTypeGrade;
 	}
 
-	// ½ºÅÈÀ» ·¹º§¿¡ ¸Â°Ô ÃÊ±âÈ­ : HP/MP µî ¼öÄ¡ ÃÖ´ëÄ¡ ¼³Á¤
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â°ï¿½ ï¿½Ê±ï¿½È­ : HP/MP ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ö´ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	void InitStat();
 
-	// ÇöÀç Âø¿ëµÇ¾î ÀÖ´ÂÁö °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsWearing()
 	{
 		return (m_owner && m_owner->m_wearInventory.wearItemInfo[WEARING_PET] != NULL && m_owner->m_wearInventory.wearItemInfo[WEARING_PET]->getPlus() == m_index);
 	}
 
-	// ÇöÀç ¼ÒÈ¯ µÇ¾î ÀÖ´ÂÁö °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsSummon()
 	{
 		return m_bSummon;
 	}
 
-	// ÇöÀç Å¸°í ÀÖ´ÂÁö °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	bool IsMount()
 	{
 		return m_bMount;
 	}
 
-	// ¼ÒÈ¯/Å¸±â »óÅÂ ¸®¼Â
+	// ï¿½ï¿½È¯/Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ResetSummonMountFlag()
 	{
 		m_bSummon = false;
 		m_bMount = false;
 	}
 
-	// ¾Ö¿Ïµ¿¹°À» ³ªÅ¸³ª°Ô ÇÔ
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	void Appear(bool bIncludeOwner);
 
-	// ¾Ö¿Ïµ¿¹°À» »ç¶óÁö°Ô ÇÔ
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	void Disappear();
 
-	// Å¸°í ³»±â¸®
+	// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½â¸®
 	void Mount(bool bMount);
 
-	// 060221 : bs : Æê ºÎÈ° ³²Àº ½Ã°£ ¼³Á¤
+	// 060221 : bs : ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetRemainRebirthTime(int nRemainRebirth = -1);
 
-	// 060221 : bs : Æê ºÎÈ° ³²Àº ½Ã°£ ¹ÝÈ¯
+	// 060221 : bs : ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½È¯
 	int GetRemainRebirthTime()
 	{
 		return m_nRemainRebirth;
 	}
 
-	// 060309 : bw : ÆêÀÇ ¿À³ÊÀÇ °Å¸® ±¸ÇÔ
+	// 060309 : bw : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SetWasNear(bool bnear)
 	{
 		m_wasnear = bnear;
@@ -2141,57 +2146,57 @@ public:
 	void ChangePetType();
 
 	//////////////
-	// ¹è°íÇÄ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// Çàµ¿ ºÒ´É °Ë»ç
+	// ï¿½àµ¿ ï¿½Ò´ï¿½ ï¿½Ë»ï¿½
 	bool IsActive()
 	{
 		return (m_hungry > 0);
 	}
 
-	// ¹è°íÇÄ ¼öÄ¡ ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
 	int GetHungryPoint()
 	{
 		return m_hungry;
 	}
 
-	// ¹è°íÇÄ ¼öÄ¡ º¯°æ, ¼öÄ¡ º¯°æ½Ã true ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½È¯
 	bool DecreaseHungryPoint();
 
-	// 1È¸¿¡ ¹è°íÇÄ ¼öÄ¡ ¶³¾îÁö´Â ¾ç ±¸ÇÏ±â
+	// 1È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	int GetUnitForHungry()
 	{
 		return (m_owner->m_level < m_level) ? (m_level - m_owner->m_level) / 2 + 1 : 1;
 	}
 
-	// ¹è°íÇÄ ¼öÄ¡ Áõ°¡, ¼öÄ¡ º¯°æ½Ã true ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½È¯
 	bool IncreaseHungryPoint(int val);
 
 	//////////////
-	// ±³°¨µµ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ±³°¨µµ ¼öÄ¡ ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
 	int GetSympathyPoint()
 	{
 		return m_sympathy;
 	}
 
-	// ±³°¨µµ ¼öÄ¡ º¯°æ, ¼öÄ¡ º¯°æ½Ã true ¹ÝÈ¯, 050309: bw ±ÙÃ³¿¡ ÀÖÁö ¾ÊÀ¸¸é °¨¼Ò¸¸ÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½ï¿½È¯, 050309: bw ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½
 	bool UpdateSympathyPoint(bool bnear = false);
 
-	// ±³°¨µµ ¼öÄ¡ ¿Ã¶ó°¡´Â ´ÜÀ§ ½Ã°£ ±¸ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ã¶ó°¡´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
 	int GetUnitForSympathy()
 	{
 		return (m_owner->m_level < m_level) ? (m_level - m_owner->m_level) / 2 + PULSE_PET_SYMPATHY_INCREASE : PULSE_PET_SYMPATHY_INCREASE;
 	}
 
-	// ±³°¨µµ »ó½Â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	bool IncreaseSympathyPoint(int val);
 
 	////////////
-	// ¼ºÀå °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ·¹º§¾÷ ÇÊ¿ä °æÇèÄ¡ ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È¯
 	LONGLONG GetNeedExp()
 	{
 		if( m_level <= 100 )
@@ -2200,7 +2205,7 @@ public:
 			return (LONGLONG)(65000 * pow(1.04, m_level));
 	}
 
-	// °æÇèÄ¡ Áõ°¡, ¼öÄ¡ º¯°æ/·¹º§¾÷ ½Ã¿¡ true
+	// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¿ï¿½ true
 	bool AddExp();
 
 	void SetPetColor( char colorType = 0 )
@@ -2229,10 +2234,10 @@ public:
 		return m_nTurnToNpcSize;
 	}
 
-	// ·¹º§¾÷ Ã³¸® : ·¹º§ º¯°æÀÌÈÄ Ã³¸®, ·¹º§/°æÇèÄ¡/AP µîÀº º¯°æÈÄ È£ÃâÇØ¾ß ÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ä¡/AP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½
 	void LevelUp();
 
-	// ±â¼ú Æ÷ÀÎÆ® ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
 	int GetAbilityPoint()
 	{
 		return m_abilityPoint;
@@ -2243,7 +2248,7 @@ public:
 	}
 
 
-	// ±â¼ú Æ÷ÀÎÆ® °¨¼Ò
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	int DecreaseAbilityPoint(int val)
 	{
 		m_abilityPoint -= val;
@@ -2251,21 +2256,21 @@ public:
 		return m_abilityPoint;
 	}
 
-	// ±â¼ú Æ÷ÀÎÆ® °¨¼Ò
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	int IncreaseAbilityPoint(int val)
 	{
 		m_abilityPoint += val;
 		return m_abilityPoint;
 	}
 
-	// ¸¶¿îÆ® Å¸ÀÔÀ¸·Î º¯°æ
+	// ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ChangeToMount()
 	{
 		m_petTypeGrade = GetPetType() | PET_GRADE_MOUNT;
 		InitStat();
 	}
 
-	// Æê ¸¶¿îÆ® Å¸ÀÔ Ãë¼Ò
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void ResetMountType()
 	{
 		m_petTypeGrade = GetPetType() | PET_GRADE_ADULT;
@@ -2273,21 +2278,21 @@ public:
 	}
 
 	////////////
-	// ½ºÅ³ °ü·Ã
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
-	// Æ¯Á¤ ÀÎµ¦½º ½ºÅ³ ±¸ÇÏ±â
+	// Æ¯ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½Ï±ï¿½
 	CSkill* FindSkill(int skillindex);
 
-	// ½ºÅ³ Ãß°¡
+	// ï¿½ï¿½Å³ ï¿½ß°ï¿½
 	void AddSkill(CSkill*& skill);
 
-	// ½ºÅ³ ¸®½ºÆ® ¹ÝÈ¯
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
 	CSkillList* GetSkillList()
 	{
 		return &m_skillList;
 	}
 
-	// ½ºÅ³ ÃÊ±âÈ­
+	// ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­
 	bool ResetSkill();
 
 	/////////////////////////////
@@ -2313,10 +2318,10 @@ public:
 		return USING_STR;
 	}
 
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë : PetÀº ¾øÀ½
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ : Petï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ApplyPassive() {}
 
-	// ½ºÅÈ Àç°è»ê : PetÀº ¾øÀ½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Petï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void CalcStatus(bool bSend) {}
 
 	virtual float GetHitrate(CCharacter* df, MSG_DAMAGE_TYPE type);
@@ -2325,28 +2330,28 @@ public:
 
 class CElemental : public CCharacter, public MemoryPoolBaseWithMutex<CElemental>
 {
-	static int  m_nVirtualIndex;            // °¡»ó ÀÎµ¦½º
+	static int  m_nVirtualIndex;            // ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
-	CPC*        m_owner;                    // ¼ÒÀ¯ÀÚ
+	CPC*        m_owner;                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	char        m_elementalType;            // ¼ÒÈ¯¼ö Á¾·ù
+	char        m_elementalType;            // ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	int         m_defStr;                   // ±âº» ½ºÅÈ
+	int         m_defStr;                   // ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 	int         m_defDex;
 	int         m_defInt;
 	int         m_defCon;
 
-	int         m_defHP;                    // ±âº» HP
+	int         m_defHP;                    // ï¿½âº» HP
 
-	int         m_defAttackLevel;           // ±âº» °ø¹æ
+	int         m_defAttackLevel;           // ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 	int         m_defDefenseLevel;
 
-	int         m_pulseRemain;              // ¼ÒÈ¯ ³²Àº ½Ã°£
+	int         m_pulseRemain;              // ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-	CSkillList  m_skillList;                // Á¤·É ½ºÅ³ ¸®½ºÆ® (¾×Æ¼ºê/ÆÐ½Ãºê)
+	CSkillList  m_skillList;                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ® (ï¿½ï¿½Æ¼ï¿½ï¿½/ï¿½Ð½Ãºï¿½)
 
 public:
-	bool        m_bChangeStatus;            // »óÅÂº¯È­¿©ºÎ
+	bool        m_bChangeStatus;            // ï¿½ï¿½ï¿½Âºï¿½È­ï¿½ï¿½ï¿½ï¿½
 
 	CElemental* m_prevElemental;
 	CElemental* m_nextElemental;
@@ -2354,25 +2359,25 @@ public:
 public:
 	CElemental(CPC* owner, char elementalType);
 
-	// ¼ÒÀ¯ÀÚ ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	CPC* GetOwner()
 	{
 		return m_owner;
 	}
 
-	// ¼ÒÈ¯¼ö Å¸ÀÔ ¹ÝÈ¯
+	// ï¿½ï¿½È¯ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½È¯
 	char GetElementalType()
 	{
 		return m_elementalType;
 	}
 
-	// ¼ÒÈ¯¼ö ³²Àº ½Ã°£ ¹ÝÈ¯
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½È¯
 	int GetRemainTime()
 	{
 		return m_pulseRemain;
 	}
 
-	// ¼ÒÈ¯¼ö ³²Àº ½Ã°£ °¨¼Ò : ¼ÒÈ¯ ´ÙµÇ¸é true ¹ÝÈ¯
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½È¯ ï¿½ÙµÇ¸ï¿½ true ï¿½ï¿½È¯
 	bool DecreaseRemainTime()
 	{
 		m_pulseRemain--;
@@ -2380,13 +2385,13 @@ public:
 		return (m_pulseRemain <= 0) ? true : false;
 	}
 
-	// ¼ÒÈ¯¼ö ½ºÅ³ Ãß°¡
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ß°ï¿½
 	void AddSkill(int skillindex, int level);
 
-	// ¼ÒÈ¯¼ö ´É·ÂÄ¡ ÃÊ±âÈ­ : ÇöÀç hp µîÀº À¯Áö
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½Ê±ï¿½È­ : ï¿½ï¿½ï¿½ï¿½ hp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void ResetStat();
 
-	// ´É·ÂÄ¡ Àç°è»ê
+	// ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	void CalcStatus(bool bSend);
 
 private:
@@ -2460,7 +2465,7 @@ public:
 	CAPet*      m_pPrevPet;
 	CAPet*      m_pNextPet;
 
-	bool m_bSummon;         // ¼ÒÈ¯µÇ¾ú´ÂÁö ¿©ºÎ
+	bool m_bSummon;         // ï¿½ï¿½È¯ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	LONGLONG m_nSP;
 	int m_nRemainStat;
@@ -2499,14 +2504,14 @@ public:
 	int  m_nAISlot;
 	APET_AI_DATA m_tAIData[APET_MAX_AI];
 
-	int				m_nDelay;					// Àç Âø¿ë µô·¹ÀÌ ³²Àº½Ã°£
-	unsigned int	m_nAccStemina;				// ·¹º§¾÷ÇÒ¶§ ´©Àû Ã¤·Â
-	unsigned int	m_nAccFaith;				// ·¹º§¾÷ÇÒ¶§ ´©Àû Ãæ¼ºµµ
-	int				m_optTransEnd;				// º¯½Å ³¡³ª´Â ½ÃÁ¡ Á¶Àý ¿É¼Ç°ª
-	char			m_cTransSate;				// º¯½Å »óÅÂ 0:ÀÏ¹Ý 1:º¯½Å
-	bool			m_bMount;					// Å¸±â»óÅÂ
-	char			m_cSendTransMsg;			// º¯½ÅÁØºñ ¸Þ¼¼Áö ¾Ë¸² »óÈ²
-	char			m_cForceTrans;				// °­Á¦ º¯½Å »óÅÂ
+	int				m_nDelay;					// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	unsigned int	m_nAccStemina;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+	unsigned int	m_nAccFaith;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½æ¼ºï¿½ï¿½
+	int				m_optTransEnd;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç°ï¿½
+	char			m_cTransSate;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0:ï¿½Ï¹ï¿½ 1:ï¿½ï¿½ï¿½ï¿½
+	bool			m_bMount;					// Å¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	char			m_cSendTransMsg;			// ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½ï¿½È²
+	char			m_cForceTrans;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	bool			TransFormationCheck();
 	void			Mount( bool bMount );
@@ -2520,40 +2525,40 @@ public:
 
 	void    SetOwner(CPC* pc)
 	{
-		m_pOwner = pc;    // ¼ÒÀ¯ÀÚ ¼³Á¤
+		m_pOwner = pc;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	void    SetFaith(int faith)
 	{
-		m_nFaith = faith;    // Ãæ¼ºµµ ¼³Á¤
+		m_nFaith = faith;    // ï¿½æ¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	void    SetStamina(int stm)
 	{
-		m_nStm = stm;    // ½ºÅ×¹Ì³Ê ¼³Á¤
+		m_nStm = stm;    // ï¿½ï¿½ï¿½×¹Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	void    AddFaith(int faith); // Ãæ¼ºµµ Áõ°¡ ( ¿¹¿ÜÃ³¸® )
-	void    AddStamina(int stm); // ½ºÅ×¹Ì³Ê Áõ°¡ ( ¿¹¿ÜÃ³¸® )
+	void    AddFaith(int faith); // ï¿½æ¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ )
+	void    AddStamina(int stm); // ï¿½ï¿½ï¿½×¹Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ )
 
 	CPC*    GetOwner()
 	{
-		return m_pOwner;    // ¼ÒÀ¯ÀÚ ¹ÝÈ¯
+		return m_pOwner;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	}
 	int     GetFaith()
 	{
-		return m_nFaith;    // Ãæ¼ºµµ
+		return m_nFaith;    // ï¿½æ¼ºï¿½ï¿½
 	}
 	int     GetStamina()
 	{
-		return m_nStm;    // ½ºÅ×¹Ì³Ê
+		return m_nStm;    // ï¿½ï¿½ï¿½×¹Ì³ï¿½
 	}
-	int     GetStmLevel();                                  // ±â¾Æ»óÅÂ
-	int     GetFaithLevel();                                // Ãæ¼ºµµ »óÅÂ
+	int     GetStmLevel();                                  // ï¿½ï¿½Æ»ï¿½ï¿½ï¿½
+	int     GetFaithLevel();                                // ï¿½æ¼ºï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	bool    IsSummon()
 	{
-		return m_bSummon;    // ÀÛ¿ë ¼ÒÈ¯ ¿©ºÎ
+		return m_bSummon;    // ï¿½Û¿ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 	}
 
-	CItem*  AddToWearItem( CItem* item );                   // Pet ¹æ¾î±¸µî ÀåÂø
+	CItem*  AddToWearItem( CItem* item );                   // Pet ï¿½ï¿½î±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void    Appear(bool bIncludeOwner , bool bAction = false );
 	void    Disappear();
 
@@ -2566,9 +2571,9 @@ public:
 		return ( m_wearing[APET_WEAR_HEAD] || m_wearing[APET_WEAR_BODY] || m_wearing[APET_WEAR_WEAPON] || m_wearing[APET_WEAR_ACCE] )? true : false;
 	}
 
-	bool    IncreaseStat();         // ½Ã°£¿¡ µû¶ó Áõ°¡µÇ´Â ¼öÄ¡
-	bool    DecreaseStat();         // ½Ã°£¿¡ µû¶ó °¨¼ÒµÇ´Â ¼öÄ¡
-	void    CheckItemTime();        // ÆêÀåºñ ¾ÆÀÌÅÛ ½Ã°£ È®ÀÎ
+	bool    IncreaseStat();         // ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Ä¡
+	bool    DecreaseStat();         // ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÒµÇ´ï¿½ ï¿½ï¿½Ä¡
+	void    CheckItemTime();        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½
 
 	void    UpdateStatPlus( int nStr, int nDex, int nInt , int nCon );
 
@@ -2581,31 +2586,31 @@ public:
 	}
 
 	bool        AddExpSP(LONGLONG exp, int sp, bool bDirect = false);
-	void        LevelUp(bool bSendEffect);  // ·¹º§¾÷ È¿°ú
+	void        LevelUp(bool bSendEffect);  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 	void		AddExpSP_Direct(LONGLONG _exp, int _sp);
 	void		CalcLevelup();
 
-	void        ApplyItemValue();           // ¾ÆÀÌÅÛ ´É·ÂÄ¡ Àû¿ë
+	void        ApplyItemValue();           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
 	// Virtual Function
 	////////////////////
 	// Function name    : GetAttackLevel
-	// Description      : ¹«±â·¹º§ ¾ò±â.
+	// Description      : ï¿½ï¿½ï¿½â·¹ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	virtual int GetAttackLevel();
 
 	////////////////////
 	// Function name    : GetDefenseLevel
-	// Description      : ¹æ¾î±¸ ·¹º§ ¾ò±â
+	// Description      : ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	virtual int GetDefenseLevel();
 
 	////////////////////
 	// Function name    : GetAttackType
-	// Description      : °ø°Ý Å¸ÀÔ ¾ò±â, ½ºÅ³ ÇÁ·ÎÅä°¡ ÀÖÀ¸¸é ½ºÅ³ÀÇ Å¸ÀÔ, NULLÀÌ¸é ±âº» Å¸ÀÔ
+	// Description      : ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ Å¸ï¿½ï¿½, NULLï¿½Ì¸ï¿½ ï¿½âº» Å¸ï¿½ï¿½
 	virtual MSG_DAMAGE_TYPE GetAttackType(const CSkillProto* proto) const ;
 
 	////////////////////
 	// Function name    : GetSize
-	// Description      : Ä³¸¯ÅÍ Å©±â ¹ÝÈ¯
+	// Description      : Ä³ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½È¯
 	virtual float GetSize()
 	{
 		return 0;
@@ -2613,7 +2618,7 @@ public:
 
 	////////////////////
 	// Function name    : GetUsingStat
-	// Description      : °ø°Ý½Ã »ç¿ëÇÏ´Â ½ºÅÈ
+	// Description      : ï¿½ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	virtual int GetUsingStat() const
 	{
 		if( m_wearing[WEARING_WEAPON]) return m_wearing[WEARING_WEAPON]->GetUsingStat();
@@ -2621,13 +2626,13 @@ public:
 	}
 
 	virtual CSkill* FindSkill(int skillindex);
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	void AddSkill( CSkill* pSkill );
 	void ApplyPassive();
-	// ½ºÅÈ Àç°è»ê
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	virtual void CalcStatus(bool bSend);
 
-	// ÁøÈ­ ( °è½ÂÇÒ ºÎºÐ )
+	// ï¿½ï¿½È­ ( ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ )
 	void Evolution( CAPet* copy );
 
 	void InitStat();
@@ -2652,24 +2657,24 @@ private:
 
 public:
 	bool		IsProtoFlag(const int _flag);
-	LONGLONG	GetAccExp();			// ÇöÁ¦ ´©ÀûµÈ °æÇèÄ¡
+	LONGLONG	GetAccExp();			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 	void		SetAccExp(LONGLONG _accExp)
 	{
-		m_llAccExp = _accExp;    // °æÇèÄ¡ ¼³Á¤. ¿î¿µÀÚ ¸í·É¾î¿¡¼­¸¸ »ç¿ë
+		m_llAccExp = _accExp;    // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½. ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½É¾î¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	}
-	int			GetCooltime();				// ÇöÁ¦ ³²Àº ÄðÅ¸ÀÓ ( ÃÊ )
-	void		SetCooltime(int _min);		// ÄðÅ¸ÀÓ ¼³Á¤ ( ºÐ )
+	int			GetCooltime();				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ( ï¿½ï¿½ )
+	void		SetCooltime(int _min);		// ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ )
 	void		ResetCooltime();
 
 	double		GetAccRate(	int _petLevel );
 	LONGLONG	GetMaxAccExp( int _petLevel, LONGLONG _charMaxExp );
 
-	// Ä³¸¯ÅÍ°¡ ¸Ô´Â ÃÖÁ¾ °æÇèÄ¡, Ä³¸¯ÅÍ°¡ ·¹º§¾÷¿¡ ÇÊ¿äÇÑ °æÇèÄ¡
+	// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡, Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 	void AddAccExp( LONGLONG _exp , LONGLONG _charLevelupExp );
 	void UseAccExp( CPC* _pc );
 	bool UseAccExp( CAPet* _apet, bool bDirect = false );
 
-	// DB ¿¡¼­ ·ÎµùÇÏ´Â ºÎºÐ
+	// DB ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
 	void	LoadCooltime(int _cooltime )
 	{
 		m_nRemainCooltime = _cooltime;

@@ -28,9 +28,13 @@
 #include <Engine/Contents/Base/Party.h>
 #include <Engine/Info/MyInfo.h>
 
+#ifdef QUICK_PANEL
+#include <Engine/Contents/function/UIQuickPanel.h>
+#endif
+
 extern INDEX	g_iCountry;
 
-static INT64 g_InputTabTime = 0; // ±ÍÂú´Ù..
+static INT64 g_InputTabTime = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..
 
 // ----------------------------------------------------------------------------
 // Name : CUIPlayerInfo()
@@ -158,7 +162,7 @@ void CUIPlayerInfo::Create( CUIWindow *pParentWnd, int nX, int nY, int nWidth, i
 	m_btnQuickMenu[QUICKMENU_BTN_LAKA_BALL].CopyUV( UBS_IDLE, UBS_ON );
 	m_btnQuickMenu[QUICKMENU_BTN_LAKA_BALL].CopyUV( UBS_IDLE, UBS_DISABLE );
 
-	// TopUI ÇÏ³ª·Î ÅëÀÏ ÇÏ¸é¼­ ·¯½Ã¾Æ »óÁ¡, ¶óÄ«·¿ ¶óÄ«º¼ ÅØ½ºÃÄ À§Ä¡ ´Ù¸¥°Å Ãß°¡ [12/14/2012 Ranma]
+	// TopUI ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½Ã¾ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ø½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ [12/14/2012 Ranma]
 	if (g_iCountry == RUSSIA)
 	{
 		m_btnQuickMenu[QUICKMENU_BTN_CASH_SHOP].SetUV( UBS_IDLE, 465, 978, 487, 1000, fTexWidth, fTexHeight );
@@ -185,23 +189,23 @@ void CUIPlayerInfo::Create( CUIWindow *pParentWnd, int nX, int nY, int nWidth, i
 		m_btnQuickMenu[QUICKMENU_BTN_LAKA_BALL].CopyUV( UBS_IDLE, UBS_DISABLE );
 	}
 
-	//µµ¿ò¸» ´ë½Å ·©Å· added by sam 10/11/26
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å· added by sam 10/11/26
 	m_btnQuickMenu[QUICKMENU_BTN_RANKING].SetUV( UBS_IDLE, 623, 225, 645, 247, fTexWidth, fTexHeight );
 	m_btnQuickMenu[QUICKMENU_BTN_RANKING].SetUV( UBS_CLICK, 623, 249, 645, 271, fTexWidth, fTexHeight );
 	m_btnQuickMenu[QUICKMENU_BTN_RANKING].CopyUV( UBS_IDLE, UBS_ON );
 	m_btnQuickMenu[QUICKMENU_BTN_RANKING].CopyUV( UBS_IDLE, UBS_DISABLE );
 	
-	// [090727: selo] ¼±ÅÃµÇ¾î ÀÖ´Â Äù½ºÆ® Ç¥½Ã¿ë ¸®½ºÆ®¹Ú½º	
+	// [090727: selo] ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Ç¥ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ú½ï¿½	
 	m_lbSelectedQuest.Create(0, 1024 - 270, 270, 260, 240, _pUIFontTexMgr->GetFontHeight() + 4, 12, 8, 1, TRUE);
 	m_lbSelectedQuest.SetColumnPosX( 0, 1 );
 	
-	// [090817: selo] Äù½ºÆ® °øÁö ¸®½ºÆ® ¹Ú½º
+	// [090817: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú½ï¿½
 	m_lbQuestNotice.Create(0, 0, 125, 200, 520, _pUIFontTexMgr->GetFontHeight() + 4, 12, 8, 1, TRUE);
 	m_lbQuestNotice.SetColumnPosX(0, 1);
 	m_iQuestNoticeMaxStringCnt = 0;
 	m_iQuestNoticeLineCnt = 0;
 	
-	// [090821: selo] Äù½ºÆ® °øÁö ´Ý±â ¹öÆ°	
+	// [090821: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ°	
 	m_ptdCommonBtnTexture = CreateTexture(CTString("Data\\Interface\\CommonBtn.tex"));
 	fTexWidth = m_ptdCommonBtnTexture->GetPixWidth();
 	fTexHeight = m_ptdCommonBtnTexture->GetPixHeight();
@@ -212,7 +216,7 @@ void CUIPlayerInfo::Create( CUIWindow *pParentWnd, int nX, int nY, int nWidth, i
 	m_btnQuestNoticeClose.CopyUV( UBS_IDLE, UBS_DISABLE );	
 	m_btnQuestNoticeClose.SetEnable(FALSE);
 
-	// [090907: selo] ½Ã°£ °ü·Ã
+	// [090907: selo] ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_ptdGuildBattleTexture = CreateTexture(CTString("Data\\Interface\\GuildBattle.tex"));
 	fTexWidth = m_ptdGuildBattleTexture->GetPixWidth();
 	fTexHeight = m_ptdGuildBattleTexture->GetPixHeight();
@@ -264,7 +268,7 @@ void CUIPlayerInfo::MsgBoxCommand( int nCommandCode, BOOL bOK, CTString &strInpu
 {
 	switch( nCommandCode )
 	{
-		case MSGCMD_EXPEDITION_END:	// ¿øÁ¤´ë ÇØÃ¼
+		case MSGCMD_EXPEDITION_END:	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 			if( bOK )
 			{
 				GAMEDATAMGR()->GetPartyInfo()->SendExpeditionEnd();
@@ -272,7 +276,7 @@ void CUIPlayerInfo::MsgBoxCommand( int nCommandCode, BOOL bOK, CTString &strInpu
 
 			break;
 
-		case MSGCMD_EXPEDITION_QUIT: // ¿øÁ¤´ë Å»Åð
+		case MSGCMD_EXPEDITION_QUIT: // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 			if( bOK )
 			{
 				GAMEDATAMGR()->GetPartyInfo()->SendExpeditionQuit();
@@ -280,10 +284,10 @@ void CUIPlayerInfo::MsgBoxCommand( int nCommandCode, BOOL bOK, CTString &strInpu
 
 			break;
 
-		case MSGCMD_EXPEDITION_COLLECTITEM: // ¿øÁ¤´ë ¾ÆÀÌÅÛ ¼öÁý
+		case MSGCMD_EXPEDITION_COLLECTITEM: // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if( bOK )
 			{
-				// ¿øÁ¤´ë Äù½ºÆ®¾ÆÀÌÅÛ °Ë»ö¿äÃ» ¸Þ½ÃÁö Àü¼Û
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				_pNetwork->ExpeditionCollectQuestItemReq(_pNetwork->MyCharacterInfo.index);
 			}
 
@@ -341,9 +345,9 @@ void CUIPlayerInfo::Render()
 		pDrawPort->EndTextEx();
 	}
 
-	// [090608: selo] ÀüÃ¼È­¸é¿¡ º¸¿©Áú ½Ã°£Á¦ÇÑ Äù½ºÆ®ÀÇ ³²Àº½Ã°£À» ·£´õ¸µ ÇÑ´Ù.
+	// [090608: selo] ï¿½ï¿½Ã¼È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	RenderTimeAttackRemainTime();
-	// [090817: selo] Äù½ºÆ® °øÁö ·£´õ¸µ ÇÑ´Ù.
+	// [090817: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	RenderQuestNotice();
 }
 
@@ -375,9 +379,9 @@ void CUIPlayerInfo::ShowToolTip( BOOL bShow, int nToolTipID )
 		case 0:		// Web board
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 385, "°Ô½ÃÆÇ" ), "(B,Alt+B)" );
+					m_strToolTip.PrintF( "%s %s", _S( 385, "ï¿½Ô½ï¿½ï¿½ï¿½" ), "(B,Alt+B)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 385, "°Ô½ÃÆÇ" ), "(Alt+B)" );
+					m_strToolTip.PrintF( "%s %s", _S( 385, "ï¿½Ô½ï¿½ï¿½ï¿½" ), "(Alt+B)" );
 
 				m_btnBoard.GetAbsPos( nInfoX, nInfoY );
 				nWidth = m_btnBoard.GetWidth();
@@ -387,9 +391,9 @@ void CUIPlayerInfo::ShowToolTip( BOOL bShow, int nToolTipID )
 		case 1:		// Messanger
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 458, "¸Þ½ÅÀú" ), "(F,Alt+F)" );
+					m_strToolTip.PrintF( "%s %s", _S( 458, "ï¿½Þ½ï¿½ï¿½ï¿½" ), "(F,Alt+F)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 458, "¸Þ½ÅÀú" ), "(Alt+F)" );
+					m_strToolTip.PrintF( "%s %s", _S( 458, "ï¿½Þ½ï¿½ï¿½ï¿½" ), "(Alt+F)" );
 
 				m_btnMessanger.GetAbsPos( nInfoX, nInfoY );
 				nWidth = m_btnMessanger.GetWidth();
@@ -401,16 +405,16 @@ void CUIPlayerInfo::ShowToolTip( BOOL bShow, int nToolTipID )
 				if (IsGamigo(g_iCountry) == TRUE)
 				{
 					if( g_iEnterChat )
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Y,Alt+Y)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Y,Alt+Y)" );
 					else
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Alt+Y)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Alt+Y)" );
 				}
 				else
 				{
 					if( g_iEnterChat )
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Z,Alt+Z)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Z,Alt+Z)" );
 					else
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Alt+Z)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Alt+Z)" );
 				}
 
 				m_btnSysMenu.GetAbsPos( nInfoX, nInfoY );
@@ -421,9 +425,9 @@ void CUIPlayerInfo::ShowToolTip( BOOL bShow, int nToolTipID )
 		case 3:		// Inventory
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 166, "ÀÎº¥Åä¸®" ), "(I,Alt+I)" );
+					m_strToolTip.PrintF( "%s %s", _S( 166, "ï¿½Îºï¿½ï¿½ä¸®" ), "(I,Alt+I)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 166, "ÀÎº¥Åä¸®" ), "(Alt+I)" );
+					m_strToolTip.PrintF( "%s %s", _S( 166, "ï¿½Îºï¿½ï¿½ä¸®" ), "(Alt+I)" );
 
 				m_btnInven.GetAbsPos( nInfoX, nInfoY );
 				nWidth = m_btnInven.GetWidth();
@@ -433,9 +437,9 @@ void CUIPlayerInfo::ShowToolTip( BOOL bShow, int nToolTipID )
 		case 4:		// Character information
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 101, "½ºÅ×ÀÌÅÍ½º" ), "(T,Alt+T)" );
+					m_strToolTip.PrintF( "%s %s", _S( 101, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½" ), "(T,Alt+T)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 101, "½ºÅ×ÀÌÅÍ½º" ), "(Alt+T)" );
+					m_strToolTip.PrintF( "%s %s", _S( 101, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½" ), "(Alt+T)" );
 
 				m_btnCharInfo.GetAbsPos( nInfoX, nInfoY );
 				nWidth = m_btnCharInfo.GetWidth();
@@ -519,7 +523,7 @@ void CUIPlayerInfo::ToggleUIHelp()
 // ----------------------------------------------------------------------------
 //  [8/3/2009 sora]
 // Name : ClearSelectedQuest()
-// Desc : ¼±ÅÃµÈ Äù½ºÆ® ¸®½ºÆ® clear
+// Desc : ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® clear
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::ClearSelectedQuest()
 {
@@ -531,8 +535,8 @@ void CUIPlayerInfo::ClearSelectedQuest()
 // ----------------------------------------------------------------------------
 //  [6/8/2009 selo]
 // Name : RenderTimeAttackRemainTime()
-// Desc : ÀüÁ¦È­¸é¿¡ Ç¥½ÃÇÒ Å¸ÀÓ¾îÅÃ ³²Àº½Ã°£ ·£´õÇÑ´Ù.
-//		  Á¤º¸´Â QuestBookList ¿¡¼­ ¾ò¾î¿Â´Ù.
+// Desc : ï¿½ï¿½ï¿½ï¿½È­ï¿½é¿¡ Ç¥ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ó¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+//		  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ QuestBookList ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderTimeAttackRemainTime()
 {
@@ -548,11 +552,11 @@ void CUIPlayerInfo::RenderTimeAttackRemainTime()
 // ----------------------------------------------------------------------------
 //  [8/17/2009 selo]
 // Name : UpdateQuestNotice()
-// Desc : Äù½ºÆ® °øÁö¸¦ °»½Å ÇÑ´Ù
+// Desc : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::UpdateQuestNotice(INDEX iQuestIndex)
 {
-	// [090821: selo] Äù½ºÆ® °øÁö ´Ý±â ¹öÆ°
+	// [090821: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ°
 	m_btnQuestNoticeClose.SetEnable(TRUE);
 
 	m_lbQuestNotice.ResetAllStrings();
@@ -569,7 +573,7 @@ void CUIPlayerInfo::UpdateQuestNotice(INDEX iQuestIndex)
 // ----------------------------------------------------------------------------
 //  [8/17/2009 selo]
 // Name : AddQuestNoticeString()
-// Desc : Äù½ºÆ® °øÁö ½ºÆ®¸µ µî·Ï Ã³¸®
+// Desc : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::AddQuestNoticeString(CTString& strMessage, const COLOR col)
 {
@@ -608,7 +612,7 @@ void CUIPlayerInfo::AddQuestNoticeString(CTString& strMessage, const COLOR col)
 // ----------------------------------------------------------------------------
 //  [8/17/2009 selo]
 // Name : RenderQuestNotice()
-// Desc : Äù½ºÆ® °øÁö¸¦ ±×¸°´Ù
+// Desc : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderQuestNotice()
 {
@@ -655,11 +659,11 @@ void CUIPlayerInfo::RenderQuestNotice()
 
 	m_lbQuestNotice.Render();
 	
-	// ¸®½ºÆ® ¹Ú½º ·»´õ ¸¶Ä§
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä§
 	pDrawPort->FlushRenderingQueue();
 	pDrawPort->EndTextEx();
 
-	// [090821: selo] °øÁö ´Ý±â ¹öÆ°
+	// [090821: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ°
 	pDrawPort->InitTextureData(m_ptdCommonBtnTexture);
 
 	m_btnQuestNoticeClose.SetPos(rcNotice.Right - 16 - 4, rcNotice.Top + 4);
@@ -671,7 +675,7 @@ void CUIPlayerInfo::RenderQuestNotice()
 // ----------------------------------------------------------------------------
 //  [9/7/2009 selo]
 // Name : RenderTime()
-// ½ÃÀÛ½Ã°£À» ±âÁ¡À¸·Î Èå¸¥ ½Ã°£ ±×¸®±â(´ÜÀ§ ÃÊ)
+// ï¿½ï¿½ï¿½Û½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½å¸¥ ï¿½Ã°ï¿½ ï¿½×¸ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderElapsedTime(int nPosX, int nPosY, DOUBLE dStartTime, COLOR col)	
 {
@@ -697,7 +701,7 @@ void CUIPlayerInfo::RenderElapsedTime(int nPosX, int nPosY, DOUBLE dStartTime, C
 // ----------------------------------------------------------------------------
 //  [9/7/2009 selo]
 // Name : RenderTime()
-// ½ÃÀÛ½Ã°£À» ±âÁ¡À¸·Î ³²Àº ½Ã°£ ±×¸®±â(´ÜÀ§ ÃÊ)
+// ï¿½ï¿½ï¿½Û½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½×¸ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderRemainTime(int nPosX, int nPosY, DOUBLE dTargetTime, COLOR col)
 {
@@ -724,7 +728,7 @@ void CUIPlayerInfo::RenderRemainTime(int nPosX, int nPosY, DOUBLE dTargetTime, C
 // ----------------------------------------------------------------------------
 //  [9/8/2009 selo]
 // Name : RenderTime()
-// Desc : ½Ã°£À» ±×¸°´Ù.
+// Desc : ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, DOUBLE dTime, COLOR col)
 {
@@ -747,7 +751,7 @@ void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, DOUBLE dTime, COLOR col)
 // ----------------------------------------------------------------------------
 //  [9/7/2009 selo]
 // Name : RenderTime()
-// Desc : ½Ã°£À» ±×¸°´Ù.
+// Desc : ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, int nHour, int nMinute, int nSecond, COLOR col)
 {
@@ -758,7 +762,7 @@ void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, int nHour, int nMinute, int
 
 	int t10 = 0;
 	
-	// ½Ã Ãâ·Â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½
 	t10 = nHour / 10;
 	nHour %= 10;
 
@@ -769,7 +773,7 @@ void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, int nHour, int nMinute, int
 	DrawColon( nPosX, nPosY, col );
 	nPosX += 9;
 
-	// ºÐ Ãâ·Â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½
 	t10 = nMinute / 10;
 	nMinute %= 10;
 
@@ -780,7 +784,7 @@ void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, int nHour, int nMinute, int
 	DrawColon( nPosX, nPosY, col );
 	nPosX += 9;
 
-	// ÃÊ Ãâ·Â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½
 	t10 = nSecond / 10;
 	nSecond %= 10;
 
@@ -795,7 +799,7 @@ void CUIPlayerInfo::RenderTime(int nPosX, int nPosY, int nHour, int nMinute, int
 // ----------------------------------------------------------------------------
 //  [9/7/2009 selo]
 // Name : DrawNumber()
-// Desc : ¼ýÀÚ¸¦ ±×¸°´Ù.
+// Desc : ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::DrawNumber(int nPosX, int nPosY, int nNumber, COLOR col, bool bLarge)
 {
@@ -819,7 +823,7 @@ void CUIPlayerInfo::DrawNumber(int nPosX, int nPosY, int nNumber, COLOR col, boo
 // ----------------------------------------------------------------------------
 //  [9/7/2009 selo]
 // Name : DrawColon()
-// Desc : ÄÝ·ÐÀ» ±×¸°´Ù. 
+// Desc : ï¿½Ý·ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½. 
 // ----------------------------------------------------------------------------
 void CUIPlayerInfo::DrawColon(int nPosX, int nPosY, COLOR col)
 {
@@ -906,7 +910,7 @@ WMSG_RESULT CUIPlayerInfo::MouseMessage( MSG *pMsg )
 
 	case WM_LBUTTONDOWN:
 		{
-			// [090821: selo] Äù½ºÆ® °øÁö ´Ý±â ¹öÆ°
+			// [090821: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ°
 			if( m_btnQuestNoticeClose.MouseMessage( pMsg ) != WMSG_FAIL )
 			{
 				// Nothing
@@ -923,7 +927,7 @@ WMSG_RESULT CUIPlayerInfo::MouseMessage( MSG *pMsg )
 				}
 			}
 
-			// Quick Menu ¿µ¿ªÀ» Å¬¸¯ÇÏ¸é ¹«È¿È­
+			// Quick Menu ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½È¿È­
 			if (IsInsideRect(nX, nY, m_rcQuickMenu) == TRUE)
 				return WMSG_SUCCESS;
 		}
@@ -931,7 +935,7 @@ WMSG_RESULT CUIPlayerInfo::MouseMessage( MSG *pMsg )
 
 	case WM_LBUTTONUP:
 		{
-			// [090821: selo] Äù½ºÆ® °øÁö ´Ý±â ¹öÆ°
+			// [090821: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½ï¿½Æ°
 			if( ( wmsgResult = m_btnQuestNoticeClose.MouseMessage( pMsg ) ) != WMSG_FAIL )
 			{
 				if( wmsgResult == WMSG_COMMAND )
@@ -981,11 +985,11 @@ BOOL CUIPlayerInfo::ProcessShortCut( MSG *pMsg )
 	// locked short cut. [1/25/2011 rumist]
 	if( pUIManager->GetLacaBall()->IsVisible() )
 		return FALSE;
-	if( pUIManager->GetReformSystem()->IsVisible() ) // ¸®Æû ½Ã½ºÅÛ UI°¡ ¿­·Á ÀÖÀ» °æ¿ì ´ÜÃàÅ° ¸·À½ [9/6/2012 Ranma]
+	if( pUIManager->GetReformSystem()->IsVisible() ) // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ [9/6/2012 Ranma]
 		return FALSE;
-	if (pUIManager->GetCashShopEX()->IsVisible()) // Ä³½Ã¼¥ UI°¡ ¿­·Á ÀÖÀ» °æ¿ì ´ÜÃàÅ° ÀÔ·Â ¸·À½
+	if (pUIManager->GetCashShopEX()->IsVisible()) // Ä³ï¿½Ã¼ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return FALSE;
-	if (pUIManager->GetRankingViewEx()->IsVisible() && pUIManager->GetRankingViewEx()->IsEditBoxFocused()) // ·©Å· ½Ã½ºÅÛ º¸¿©Áö°í, ¿¡µðÆ®¹Ú½º Æ÷Ä¿½ÌÀÏ °æ¿ì ÀÔ·Â ¸·À½
+	if (pUIManager->GetRankingViewEx()->IsVisible() && pUIManager->GetRankingViewEx()->IsEditBoxFocused()) // ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ú½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return FALSE;
 	if( pMsg->wParam == VK_TAB )
 	{
@@ -1020,7 +1024,7 @@ BOOL CUIPlayerInfo::ProcessShortCut( MSG *pMsg )
 		if( _abKeysPressed[KID_LALT] && !pUIManager->IsFocusAllEditBox() && GetAsyncKeyState(VK_LMENU) & 0x8000)
 		{
 			/****
-			//Alt+F1~F3À» ´­·¶À» ¶§ Äü½½·Ô ÆäÀÌÁö ÀüÈ¯
+			//Alt+F1~F3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			if( iScanCode >= 59 && iScanCode <= 61 )
 			{
 				pUIManager->GetQuickSlot()->ChangePage( iScanCode - 59 );
@@ -1028,7 +1032,7 @@ BOOL CUIPlayerInfo::ProcessShortCut( MSG *pMsg )
 			}
 			****/
 
-			//Alt+1~3À» ´­·¶À» ¶§ Äü½½·Ô ÆäÀÌÁö ÀüÈ¯
+			//Alt+1~3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 			if( //g_iEnterChat && 
 				iScanCode >= 2 && iScanCode <= 4 )
 			{
@@ -1098,6 +1102,16 @@ BOOL CUIPlayerInfo::ProcessShortCut( MSG *pMsg )
 		{
 			if( g_iEnterChat && !pUIManager->IsFocusAllEditBox() )
 			{
+				#ifdef QUICK_PANEL				
+				if (iScanCode == 57)// space ==
+				{
+					for (int i = 0; i < 25; i++)
+					{
+						pUIManager->GetQuickPanel()->UseQuickSlot(i);
+					}
+					return TRUE;
+				}
+#endif
 				if( iScanCode >= 2 && iScanCode <= 13 && pUIManager->GetQuickSlot()->GetPage() == 0)
 				{
 					pUIManager->GetQuickSlot()->UseQuickSlot( iScanCode - 2 , 0);
@@ -1154,7 +1168,7 @@ BOOL CUIPlayerInfo::ProcessShortCut( MSG *pMsg )
 					pUIManager->GetSkillNew()->OpenUI();
  				}
 				break;
- 			case 27:// ']'UI ¿ÀÇÂ Å×½ºÆ®¸¦ À§ÇØ¼­ ¸¸µé¾î ³ù´Ù Å×½ºÆ® ³¡³ª¸é ²À ÁÖ¼® Ã³¸® testcode mail
+ 			case 27:// ']'UI ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¼ï¿½ Ã³ï¿½ï¿½ testcode mail
  				{
  				}
  				break;
@@ -1286,57 +1300,57 @@ void CUIPlayerInfo::ShowQuickMenuToolTip(BOOL bShow, int nToolTipID)
 		case QUICKMENU_BTN_CHAR_INFO:		// Character information
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 69, "Ä³¸¯ÅÍ Á¤º¸Ã¢" ), "(T,Alt+T)" );
+					m_strToolTip.PrintF( "%s %s", _S( 69, "Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢" ), "(T,Alt+T)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 69, "Ä³¸¯ÅÍ Á¤º¸Ã¢" ), "(Alt+T)" );
+					m_strToolTip.PrintF( "%s %s", _S( 69, "Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢" ), "(Alt+T)" );
 			}
 			break;
 		case QUICKMENU_BTN_INVEN:		// Inventory
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 166, "ÀÎº¥Åä¸®" ), "(I,Alt+I)" );
+					m_strToolTip.PrintF( "%s %s", _S( 166, "ï¿½Îºï¿½ï¿½ä¸®" ), "(I,Alt+I)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 166, "ÀÎº¥Åä¸®" ), "(Alt+I)" );
+					m_strToolTip.PrintF( "%s %s", _S( 166, "ï¿½Îºï¿½ï¿½ä¸®" ), "(Alt+I)" );
 			}
 			break;
 		case QUICKMENU_BTN_SKILL:		// Skill
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 91, "½ºÅ³" ), "(K,Alt+K)" );
+					m_strToolTip.PrintF( "%s %s", _S( 91, "ï¿½ï¿½Å³" ), "(K,Alt+K)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 91, "½ºÅ³" ), "(Alt+K)" );
+					m_strToolTip.PrintF( "%s %s", _S( 91, "ï¿½ï¿½Å³" ), "(Alt+K)" );
 			}
 			break;
 		case QUICKMENU_BTN_QUEST:		// Quest Book
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S(1700, "Äù½ºÆ®ºÏ" ), "(L,Alt+L)" );
+					m_strToolTip.PrintF( "%s %s", _S(1700, "ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½" ), "(L,Alt+L)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S(1700, "Äù½ºÆ®ºÏ" ), "(Alt+L)" );
+					m_strToolTip.PrintF( "%s %s", _S(1700, "ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½" ), "(Alt+L)" );
 			}
 			break;
 		case QUICKMENU_BTN_PET_INFO:		// Pet Info
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S(2173, "Æê Á¤º¸Ã¢" ), "(P,Alt+P)" );
+					m_strToolTip.PrintF( "%s %s", _S(2173, "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢" ), "(P,Alt+P)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S(2173, "Æê Á¤º¸Ã¢" ), "(Alt+P)" );
+					m_strToolTip.PrintF( "%s %s", _S(2173, "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢" ), "(Alt+P)" );
 			}
 			break;
 		case QUICKMENU_BTN_MESSENGER:		// Messanger
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 458, "¸Þ½ÅÀú" ), "(F,Alt+F)" );
+					m_strToolTip.PrintF( "%s %s", _S( 458, "ï¿½Þ½ï¿½ï¿½ï¿½" ), "(F,Alt+F)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 458, "¸Þ½ÅÀú" ), "(Alt+F)" );
+					m_strToolTip.PrintF( "%s %s", _S( 458, "ï¿½Þ½ï¿½ï¿½ï¿½" ), "(Alt+F)" );
 			}
 			break;
 		case QUICKMENU_BTN_WEB_BOARD:		// Web board
 			{
 				if( g_iEnterChat )
-					m_strToolTip.PrintF( "%s %s", _S( 385, "°Ô½ÃÆÇ" ), "(B,Alt+B)" );
+					m_strToolTip.PrintF( "%s %s", _S( 385, "ï¿½Ô½ï¿½ï¿½ï¿½" ), "(B,Alt+B)" );
 				else
-					m_strToolTip.PrintF( "%s %s", _S( 385, "°Ô½ÃÆÇ" ), "(Alt+B)" );
+					m_strToolTip.PrintF( "%s %s", _S( 385, "ï¿½Ô½ï¿½ï¿½ï¿½" ), "(Alt+B)" );
 			}
 			break;
 		case QUICKMENU_BTN_SYSTEM_MENU:		// System menu
@@ -1344,16 +1358,16 @@ void CUIPlayerInfo::ShowQuickMenuToolTip(BOOL bShow, int nToolTipID)
 				if (IsGamigo(g_iCountry) == TRUE)
 				{
 					if( g_iEnterChat )
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Y,Alt+Y)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Y,Alt+Y)" );
 					else
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Alt+Y)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Alt+Y)" );
 				}
 				else
 				{
 					if( g_iEnterChat )
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Z,Alt+Z)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Z,Alt+Z)" );
 					else
-						m_strToolTip.PrintF( "%s %s", _S( 299, "½Ã½ºÅÛ" ), "(Alt+Z)" );
+						m_strToolTip.PrintF( "%s %s", _S( 299, "ï¿½Ã½ï¿½ï¿½ï¿½" ), "(Alt+Z)" );
 				}				
 			}
 			break;
@@ -1361,25 +1375,25 @@ void CUIPlayerInfo::ShowQuickMenuToolTip(BOOL bShow, int nToolTipID)
 			{
 				if (IsGamigo(g_iCountry) == TRUE)
 				{
-					m_strToolTip.PrintF( "%s", _S(5213, "·©Å·"));
+					m_strToolTip.PrintF( "%s", _S(5213, "ï¿½ï¿½Å·"));
 				}
 				else
 				{
 					if( g_iEnterChat )
-						m_strToolTip.PrintF( "%s %s", _S(5213, "·©Å·"), "(V,Alt+V)");
+						m_strToolTip.PrintF( "%s %s", _S(5213, "ï¿½ï¿½Å·"), "(V,Alt+V)");
 					else
-						m_strToolTip.PrintF( "%s %s", _S(5213, "·©Å·"), "(Alt+V)");
+						m_strToolTip.PrintF( "%s %s", _S(5213, "ï¿½ï¿½Å·"), "(Alt+V)");
 				}
 			}
 			break;
 		case QUICKMENU_BTN_CASH_SHOP:		// Cash Shop
 			{
-				m_strToolTip.PrintF( "%s", _S(2572, "¾ÆÀÌ¸®½º »óÁ¡"));
+				m_strToolTip.PrintF( "%s", _S(2572, "ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"));
 			}
 			break;
 		case QUICKMENU_BTN_LAKA_BALL:
 			{
-				m_strToolTip.PrintF( "%s", _S( 5350, "¶óÄ«º¼"));
+				m_strToolTip.PrintF( "%s", _S( 5350, "ï¿½ï¿½Ä«ï¿½ï¿½"));
 			}
 			break;
 		}
@@ -1419,11 +1433,11 @@ void CUIPlayerInfo::OpenQuickMenu(int nMenu)
 
 	switch(nMenu)
 	{
-		//½ºÅ×ÀÌÅÍ½º
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½
 	case QUICKMENU_BTN_CHAR_INFO:
 		ToggleUICharacterInfo();
 		break;
-		//ÀÎº¥Åä¸®
+		//ï¿½Îºï¿½ï¿½ä¸®
 	case QUICKMENU_BTN_INVEN:
 		ToggleUIInventory();
 		break;
@@ -1431,11 +1445,11 @@ void CUIPlayerInfo::OpenQuickMenu(int nMenu)
 	case QUICKMENU_BTN_SKILL:
 		CUIManager::getSingleton()->GetSkillNew()->OpenUI();
 		break;
-		//Äù½ºÆ®ºÏ
+		//ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½
 	case QUICKMENU_BTN_QUEST:
 		pUIManager->GetQuestBookList()->ToggleVisible();
 		break;
-		//Æê Á¤º¸Ã¢
+		//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢
 	case QUICKMENU_BTN_PET_INFO:
 		{
 			if(pInfo->GetMyApetInfo() != NULL && pInfo->GetMyApetInfo()->bIsActive)
@@ -1448,31 +1462,31 @@ void CUIPlayerInfo::OpenQuickMenu(int nMenu)
 		}
 		
 		break;
-		//¸Þ½ÅÀú
+		//ï¿½Þ½ï¿½ï¿½ï¿½
 	case QUICKMENU_BTN_MESSENGER:
 		ToggleUIMessanger();
 		break;
-		//°Ô½ÃÆÇ
+		//ï¿½Ô½ï¿½ï¿½ï¿½
 	case QUICKMENU_BTN_WEB_BOARD:
 		ToggleUIWebBoard();
 		break;
-		//½Ã½ºÅÛ
+		//ï¿½Ã½ï¿½ï¿½ï¿½
 	case QUICKMENU_BTN_SYSTEM_MENU:
 		ToggleUISysMenu();
 		break;
-		//µµ¿ò¸»
+		//ï¿½ï¿½ï¿½ï¿½
 	case QUICKMENU_BTN_RANKING:
-	// ITS : 4378 [Ranking] Ã¤ÆÃÃ¢ ÇÏ´Ü¿¡ ½Ã½ºÅÛ ¸Þ´º¿¡¼­ ·©Å· ½Ã½ºÅÛ ¹öÆ° Å¬¸¯ ½Ã µµ¿ò¸» UI°¡ ³ª¿À´Â ¿À·ù [10/6/2011 rumist]
+	// ITS : 4378 [Ranking] Ã¤ï¿½ï¿½Ã¢ ï¿½Ï´Ü¿ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [10/6/2011 rumist]
 		pUIManager->GetRankingViewEx()->ToggleVisible();
 		break;
-		//¾ÆÀÌ¸®½º »óÁ¡
+		//ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case QUICKMENU_BTN_CASH_SHOP:
 		{
 			if (!pUIManager->GetCashShopEX()->IsVisible() && !pUIManager->GetCashShopEX()->GetCashShopLock())
 				_pNetwork->SendCashItemMessage(MSG_EX_CASHITEM_SHOP_OPEN_REQ);
 		}
 		break;
-	case QUICKMENU_BTN_LAKA_BALL:	// ¶óÄ«·¿
+	case QUICKMENU_BTN_LAKA_BALL:	// ï¿½ï¿½Ä«ï¿½ï¿½
 		{
 			if( !pUIManager->GetLacaBall()->IsVisible() )
 				pUIManager->GetLacaBall()->ToggleVisible();

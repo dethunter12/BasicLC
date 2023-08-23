@@ -57,7 +57,7 @@
 #include <Engine/interface/UIManager.h>
 #include <Engine/interface/UISpinButton.h>
 #include <Engine/interface/UIMessageBox.h>
-#include <Engine/Interface/UIProcess.h>			// ÀÌ±âÈ¯ Ãß°¡ ( 12. 6 )
+#include <Engine/Interface/UIProcess.h>			// ï¿½Ì±ï¿½È¯ ï¿½ß°ï¿½ ( 12. 6 )
 #include <Engine/Interface/UISiegeWarfareDoc.h>
 #include <Engine/Interface/UIGuild.h>
 #include <Engine/Contents/function/TeleportUI.h>
@@ -635,7 +635,7 @@ static void KickByName(const CTString &strName, const CTString &strReason)
 
 static void Admin(const CTString &strCommand)
 {
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
 CNetworkMessage nm(MSG_ADMIN_COMMAND);
 nm<<net_strAdminPassword<<strCommand;
 _pNetwork->SendToServerReliable(nm);
@@ -890,7 +890,7 @@ CNetworkLibrary::CNetworkLibrary(void)
 	, ga_tvDemoTimerLastTime((__int64)0)
 	, m_nSkillSendTime(0)
 {
-	// EDIT : BS : ÆÐÅ¶ ¾ÏÈ£È­
+	// EDIT : BS : ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #ifdef CRYPT_NET_MSG
 	CNM_InitKeyValue(&cnmKey);
 #ifndef CRYPT_NET_MSG_MANUAL
@@ -950,7 +950,7 @@ CNetworkLibrary::CNetworkLibrary(void)
 	MyCharacterInfo.StatPoint = 0;	
 	MyCharacterInfo.sbItemEffectOption = 0;
 	
-	// ÄÉ¸¯ÅÍ¿Í ¿¬°üµÈ Pet °ü·Ã µ¥ÀÌÅÍ ÃÊ±âÈ­
+	// ï¿½É¸ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Pet ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	MyCharacterInfo.bPetRide = FALSE; 
 	MyCharacterInfo.iPetType = -1;
 	MyCharacterInfo.iPetAge = -1;
@@ -998,12 +998,12 @@ CNetworkLibrary::CNetworkLibrary(void)
 	MyCharacterInfo.iGP = 0;
 	MyCharacterInfo.iStudentGiveUpCnt = 0;
 
-	// ÇÑ¹úÀÇ»ó added by sam 110131
+	// ï¿½Ñ¹ï¿½ï¿½Ç»ï¿½ added by sam 110131
 	MyCharacterInfo.bOneSuit = FALSE;
 	MyCharacterInfo.iOneSuitDBIndex = -1;
 	MyCharacterInfo.iOneSuitUniIndex = -1;
-	MyCharacterInfo.bpkSysRewardLate = -1;//ÇÑ¹øµµ ¹ÞÁö ¾Ê¾ÒÀ¸¸é -1
-	MyCharacterInfo.iSyndicateType = 0;	// ¹«¼Ò¼ÓÀ¸·Î ÃÊ±âÈ­.
+	MyCharacterInfo.bpkSysRewardLate = -1;//ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ -1
+	MyCharacterInfo.iSyndicateType = 0;	// ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 	MyCharacterInfo.iSyndicateGrade = 0;
 	MyCharacterInfo.lSyndicateAccPoint = 0;
 	MyCharacterInfo.iHitEffectType = 0;
@@ -1012,13 +1012,13 @@ CNetworkLibrary::CNetworkLibrary(void)
 	memset(m_iNetworkResponse, 0, sizeof(int) * MSG_END);
 	memset(m_iNetworkResponseEx, 0, sizeof(int) * MSG_EX_END);
 
-	// ¼­¹öÅ¸ÀÓ ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	slServerTimeGap = 0;
 	slServerTime = 0;
 		
 	bMoveCharacterSelectUI = FALSE;
 
-	// rvrÁ¸ ÁøÀÔ ¿©ºÎ.
+	// rvrï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	m_bIsRvr = FALSE;
 
 	MyCharacterInfo.stCustomTitle.Init();
@@ -1201,7 +1201,7 @@ void CNetworkLibrary::Init(const CTString &strGameID)
 	_pShell->DeclareSymbol("INDEX pwoCurrentWorld;", &_pwoCurrentWorld);
 
 	// WSS_DRATAN_SEIGEWARFARE 2007/08/14 -------------------------------->>
-	// 390 ~ 399 °ø¼º ºÎÈ°ÁøÁö ÃÊ±âÈ­
+	// 390 ~ 399 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	for(int i=0;i<10;i++)
 	{	
 		_pNetwork->MyCharacterInfo.mQuarter[390+i] = -1;
@@ -1301,7 +1301,7 @@ void CNetworkLibrary::StartPeerToPeer_t(const CTString &strSessionName,
 	{
 		// initialize server
 		try {
-			//! ¼­¹ö ÃÊ±âÈ­.
+			//! ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 			ga_srvServer.Start_t();
 		} catch (char *) {
 			ga_World.Clear();
@@ -1318,7 +1318,7 @@ void CNetworkLibrary::StartPeerToPeer_t(const CTString &strSessionName,
 	{
 		// initialize session state
 		try {
-			//! ¼¼¼Ç ½ºÅ×ÀÌÆ® ÃÊ±âÈ­ ¹× ¼­¹ö ½ºÅ¸Æ®.
+			//! ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ®.
 			ga_sesSessionState.Start_t(-1);
 		} catch (char *strError) {
 			(void)strError;
@@ -1974,7 +1974,7 @@ void CNetworkLibrary::ChangeLevel_internal(void)
 	MyCharacterInfo.stCustomTitle.Init();
 
 	_cmiComm.m_inbuf.ClearBuffer();
-	//TODO : ´Ù¸¥ Ä³¸¯ÅÍµéÀÇ item effectµµ Ã³¸®ÇØ¾ßÇÔ.
+	//TODO : ï¿½Ù¸ï¿½ Ä³ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ item effectï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½.
 	ga_ubNumLevelChanges++;
 	ga_sesSessionState.ses_ubNumLevelChanges = ga_ubNumLevelChanges;
 	
@@ -2060,7 +2060,7 @@ void CNetworkLibrary::ChangeLevel_internal(void)
     InitCRCGather();
 	//}
 	
-	/* //0522 kwon »èÁ¦.
+	/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
 	if (bMultiplayer) {
     // create base info to be sent
     extern CTString ser_strMOTD;
@@ -2242,7 +2242,7 @@ void CNetworkLibrary::ChangeLevel_client_internal_t(void)
   _bNeedPretouch = TRUE;
 
   FinishCRCGather();
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
     // send data request
   CPrintF(TRANS("Sending full game state request\n"));
   CNetworkMessage nmRequestGameState(MSG_REQ_GAMESTATE);
@@ -2295,7 +2295,7 @@ static void SendAdminResponse(ULONG ulAdr, UWORD uwPort, ULONG ulCode, const CTS
 {
   CTString str = strResponse;
   INDEX iLineCt = 0;
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   while (str!="") {
     CTString strLine = str;
     strLine.OnlyFirstLine();
@@ -2321,13 +2321,13 @@ void CNetworkLibrary::MainLoop(void)
 #if !defined(_DEBUG) && !defined(KALYDO) && !defined(VER_TEST) && !defined(G_USA)
   BOOL bIsDebuggerPresent = FALSE;
   __asm {
-	  // TIB(Thread Information Block)ÀÇ À§Ä¡ ¾ò±â
+	  // TIB(Thread Information Block)ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 	  mov		eax, fs:[0x18]
-	  // TIB¿¡¼­ 0x30 À§Ä¡¿¡ ÇØ´çÇÏ´Â °ÍÀÌ debugging°ú °ü·ÃµÈ ±¸Á¶Ã¼¿¡ ´ëÇÑ Æ÷ÀÎÅÍÀÓ
+	  // TIBï¿½ï¿½ï¿½ï¿½ 0x30 ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ debuggingï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  mov		eax, dword ptr [eax+0x30]
-	  // ÇØ´ç ±¸Á¶Ã¼¿¡¼­ µÎ¹øÂ° WORD¿¡ ÀúÀåµÈ °ªÀÌ ÇöÀç ÇÁ·Î¼¼½º°¡ µð¹ö±ë ÁßÀÎÁö¿¡ ´ëÇÑ °ªÀÌ´Ù.
+	  // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½Â° WORDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 	  movzx	eax, byte ptr [eax+2]
-	  // °á°ú ¸®ÅÏ
+	  // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	  mov		bIsDebuggerPresent, eax
   }
   if (bIsDebuggerPresent) {
@@ -2346,19 +2346,19 @@ void CNetworkLibrary::MainLoop(void)
     ga_tvLastMainLoop = _pTimer->GetHighPrecisionTimer();
     ga_bFirstMainLoop = FALSE;
   }
-/* //0311 »èÁ¦
-  //! 1¸íÀÌ»ó ÇÃ·¹ÀÌ ÇÏ°í ÀÖ´Ù¸é,
+/* //0311 ï¿½ï¿½ï¿½ï¿½
+  //! 1ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ö´Ù¸ï¿½,
   // update network state variable (to control usage of some cvars that cannot be altered in mulit-player mode)
   _bMultiPlayer = (_pNetwork->ga_sesSessionState.GetPlayersCount() > 1);
 */
-  //! ¿ùµå Ã¼ÀÎÁö.
+  //! ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½ï¿½.
   // if should change world
   if (_lphCurrent==LCP_SIGNALLED) {
     // really do the level change here
     ChangeLevel_internal();
     _lphCurrent=LCP_CHANGED;
   }
-/* //0311 »èÁ¦
+/* //0311 ï¿½ï¿½ï¿½ï¿½
   if (_bStartDemoRecordingNextTime) {
     if (!_pNetwork->IsServer()) {
       CPrintF("Demos can be recorded only on server computer or in single player mode.\n");
@@ -2419,17 +2419,17 @@ void CNetworkLibrary::MainLoop(void)
   }
 */
   //0109
-  //ga_fGameRealTimeFactor:°ÔÀÓ ½Ã°£ °¡¼ÓÀÎÀÚ =1
-  //ses_fRealTimeFactor : Æ¯¼öÈ¿°ú¿¡ ´ëÇÏ¿© ½Ã°£À» ´À¸®°Ô ÇÏ°Å³ª ºü¸£°Ô ÇÏ´Â ÀÎÀÚ =1
-  //tvLastAction : ¸¶Áö¸· ¾×¼ÇÀ» ÇÑ ½Ã°£
-  //tvNewMainLoop : ³×Æ®¿öÅ© ¸ÞÀÎloop¿¡ µé¾î¿Â ½Ã°£.
+  //ga_fGameRealTimeFactor:ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ =1
+  //ses_fRealTimeFactor : Æ¯ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ =1
+  //tvLastAction : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
+  //tvNewMainLoop : ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½loopï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
   extern BOOL _bWorldEditorApp;
   TIME fPeriod = _pTimer->TickQuantum/(ga_fGameRealTimeFactor*ga_sesSessionState.ses_fRealTimeFactor);
   double dDeltaTime = tvNewMainLoop.GetSeconds() - ga_tvLastMainLoop.GetSeconds();
 
-  // NOTE : Ä³¸¯ÅÍ°¡ Á¦ÀÚ¸®¿¡¼­ ¸ø¿òÁ÷ÀÌ´ø ¹®Á¦ ¶§¹®¿¡...
-  // NOTE : ¿øÀÎÀº dDeltaTimeÀÌ À½¼ö°ªÀÌ¾î¼­ ±×·¨À½...
-  // NOTE : ¿ùµå ·ÎµùÀÌ ¿À·¡°É¸®°Å³ª, ¹®Á¦°¡ »ý±æ°æ¿ì¿¡...
+  // NOTE : Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+  // NOTE : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dDeltaTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾î¼­ ï¿½×·ï¿½ï¿½ï¿½...
+  // NOTE : ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É¸ï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ì¿¡...
   if( !ga_bFirstMainLoop && dDeltaTime < 0 )
   {
 	  ga_tvLastMainLoop = tvNewMainLoop.GetSeconds();
@@ -2440,9 +2440,9 @@ void CNetworkLibrary::MainLoop(void)
 
   dDeltaTime = tvNewMainLoop.GetSeconds() - tvLastAction.GetSeconds();
 
-  // NOTE : Ä³¸¯ÅÍ°¡ Á¦ÀÚ¸®¿¡¼­ ¸ø¿òÁ÷ÀÌ´ø ¹®Á¦ ¶§¹®¿¡...
-  // NOTE : ¿øÀÎÀº dDeltaTimeÀÌ À½¼ö°ªÀÌ¾î¼­ ±×·¨À½...
-  // NOTE : ¿ùµå ·ÎµùÀÌ ¿À·¡°É¸®°Å³ª, ¹®Á¦°¡ »ý±æ°æ¿ì¿¡...
+  // NOTE : Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
+  // NOTE : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dDeltaTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾î¼­ ï¿½×·ï¿½ï¿½ï¿½...
+  // NOTE : ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É¸ï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ì¿¡...
   if( dDeltaTime < 0 )
   {
 	  tvLastAction = tvNewMainLoop.GetSeconds();
@@ -2487,8 +2487,8 @@ void CNetworkLibrary::MainLoop(void)
         while (ctTicks < ulClampedActions) 
 		{
 		  //0109 
-		  //ulActions´Â Áö³­¹ø ¾×¼ÇÈÄ ¹Ð¸° ¾×¼Ç °¹¼ö
-		  //ulClampedActions´Â Ã³¸® Çã¿ë ¾×¼Ç°¹¼ö.ÃÖ´ë 10°³.
+		  //ulActionsï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½ ï¿½×¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+		  //ulClampedActionsï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×¼Ç°ï¿½ï¿½ï¿½.ï¿½Ö´ï¿½ 10ï¿½ï¿½.
           // make actions packet for all local players and send to server
           SendActionsToServer();
           ctTicks++;
@@ -2521,18 +2521,18 @@ void CNetworkLibrary::MainLoop(void)
     _cmiComm.Server_Update();
     ga_srvServer.HandleAll();
   }
-/* //0311 »èÁ¦
-//! Å¬¶óÀÌ¾ðÆ® ¾÷µ¥ÀÌÆ®.
+/* //0311 ï¿½ï¿½ï¿½ï¿½
+//! Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
     if (_cmiComm.Client_Update() == FALSE) {
       ga_sesSessionState.Stop();
       _sfStats.StopTimer(CStatForm::STI_MAINLOOP);
       return;
     }
 */
-//! ¼¼¼Ç loop
+//! ï¿½ï¿½ï¿½ï¿½ loop
     ga_sesSessionState.SessionStateLoop();
-/* //0311 »èÁ¦     
-//! ¶Ç Å¬¶óÀÌ¾ðÆ® ¾÷µ¥ÀÌÆ®.
+/* //0311 ï¿½ï¿½ï¿½ï¿½     
+//! ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
     if (_cmiComm.Client_Update() == FALSE) {
       ga_sesSessionState.Stop();
       _sfStats.StopTimer(CStatForm::STI_MAINLOOP);
@@ -2554,12 +2554,12 @@ void CNetworkLibrary::MainLoop(void)
   if (IsServer()) {
     _cmiComm.Server_Update();
     ga_srvServer.HandleAll();
-	//! ¼­¹ö·Î ºÎÅÍ ¿À´Â °ÔÀÓ ½ºÆ®¸²À» Ã³¸®ÇÑ´Ù. ·ÎÄÃÅ¬¶óÀÌ¾ðÆ®.
+	//! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®.
     // process the game stream coming from the server
     ga_sesSessionState.ProcessGameStream();
   }
-/* //0311 »èÁ¦
-//! tick µ¥ÀÌÅ¸¸¦ Å¬¶óÀÌ¾ðÆ®·Î º¸³½´Ù. 
+/* //0311 ï¿½ï¿½ï¿½ï¿½
+//! tick ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
   // sent tick data to the clients only once, and after the last tick has been processed
   if (ulClampedTicks>0 && ga_IsServer && !ga_bDemoPlay && ga_srvServer.srv_bActive) {
     ga_srvServer.ServerNetProcess();     
@@ -2575,17 +2575,17 @@ void CNetworkLibrary::MainLoop(void)
   // set the lerping factor for current frame
   if (!ga_bDemoPlay) {
     ga_sesSessionState.SetLerpFactor(tvNow);
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Add Sun Moon Entity and etc)(0.2)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Add Sun Moon Entity and etc)(0.2)
 	g_fGWTime += (float)(( tvNow - ga_tvDemoTimerLastTime ).GetSeconds()) * RWTOneSec2GWTSec * g_fGWTimeMul;
 	if( g_fGWTime > (FLOAT)GAMETIME_ONEDAY_SECOND ){
 		g_fGWTime -= (FLOAT)GAMETIME_ONEDAY_SECOND * int(g_fGWTime / (FLOAT)GAMETIME_ONEDAY_SECOND);															// yjpark     -->|
 	}
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Add Sun Moon Entity and etc)(0.2)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Add Sun Moon Entity and etc)(0.2)
   } else {
     ga_sesSessionState.SetLerpFactor(CTimerValue(ga_fDemoTimer));
   }
   ga_tvDemoTimerLastTime = tvNow;
-/* //0311 »èÁ¦
+/* //0311 ï¿½ï¿½ï¿½ï¿½
   // if playing a demo
   if (ga_bDemoPlay) {
     // if synchronizing by real time
@@ -2630,7 +2630,7 @@ void CNetworkLibrary::MainLoop(void)
         break;
       }
 /*
-//! ¼­¹ö´Â ÀÌ¹ØÀ¸·Î ¾Èµé¾î°¡~
+//! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½î°¡~
       // if this message is not valid rcon message or a server enumeration request
       if (nmReceived.GetType() != MSG_EXTRA && nmReceived.GetType() != MSG_REQ_ENUMSERVERS) {
         // skip it
@@ -2709,7 +2709,7 @@ void CNetworkLibrary::MainLoop(void)
   }
   _sfStats.StopTimer(CStatForm::STI_MAINLOOP);
 }
-//! ÀÌÇÔ¼ö´Â ·ÎÄÃ ÇÃ·¹ÀÌ¾î¸¦ À§ÇÑ°Í.
+//! ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½Ñ°ï¿½.
 // make actions packet for local players and send to server
 void CNetworkLibrary::SendActionsToServer(void)
 {
@@ -2724,7 +2724,7 @@ void CNetworkLibrary::SendActionsToServer(void)
 		pls.WriteActionPacket(nmAction);
 	}
 	// send the packet
-	//0130 1line Áö¿ì±â
+	//0130 1line ï¿½ï¿½ï¿½ï¿½ï¿½
 	//0203
 	if (_pNetwork->IsServer())
 	{
@@ -2917,30 +2917,30 @@ CEntity* CNetworkLibrary::GetEntityByTypeIndex(SBYTE sbCharType, SLONG slCharInd
 // return	: 	Client Country Code
 	
 	//Clinet Define country
-	//KOREA					0		// ÇÑ±¹
-	//TAIWAN				1		// ´ë¸¸
-	//CHINA					2		// Áß±¹
-	//THAILAND				3		// ÅÂ±¹
-	//TAIWAN2				4		// ´ë¸¸ ÃµÇÏ´ë¶õ wooss 050929
-	//JAPAN					5		// ÀÏº» wooss 051123
+	//KOREA					0		// ï¿½Ñ±ï¿½
+	//TAIWAN				1		// ï¿½ë¸¸
+	//CHINA					2		// ï¿½ß±ï¿½
+	//THAILAND				3		// ï¿½Â±ï¿½
+	//TAIWAN2				4		// ï¿½ë¸¸ Ãµï¿½Ï´ï¿½ï¿½ wooss 050929
+	//JAPAN					5		// ï¿½Ïºï¿½ wooss 051123
 	//MALAYSIA    			6
-	//USA					7		// ¹Ì±¹
-	//BRAZIL				8		// ºê¶óÁú
-	//HONGKONG				9		// È«Äá
+	//USA					7		// ï¿½Ì±ï¿½
+	//BRAZIL				8		// ï¿½ï¿½ï¿½ï¿½ï¿½
+	//HONGKONG				9		// È«ï¿½ï¿½
 
 	//Sever Define country
-	//LC_KOR		0	// ±¹³»
-	//LC_TWN		1	// ´ë¸¸ - Çõ¸í
-	//LC_TWN2		2	// ´ë¸¸ - ÃµÇÏ´ë¶õ, LC_TWN°ú µ¿½Ã¿¡ ¼³Á¤ÇØ¾ß ÇÔ
-	//LC_CHN		3	// Áß±¹
-	//LC_TLD		4	// ÅÂ±¹
-	//LC_TLD_ENG	5	// ÅÂ±¹ ¿µ¾î
-	//LC_JPN		6 	// ÀÏº»
-	//LC_MAL		7 	// ¸»·¹ÀÌ½Ã¾Æ
-	//LC_MAL_ENG	8 	// ¸»·¹ÀÌ½Ã¾Æ ¿µ¾î 
-	//LC_USA		9	// ¹Ì±¹
-	//LC_BRZ		10	// ºê¶óÁú
-	//LC_HBK		11	// È«Äá
+	//LC_KOR		0	// ï¿½ï¿½ï¿½ï¿½
+	//LC_TWN		1	// ï¿½ë¸¸ - ï¿½ï¿½ï¿½ï¿½
+	//LC_TWN2		2	// ï¿½ë¸¸ - Ãµï¿½Ï´ï¿½ï¿½, LC_TWNï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½
+	//LC_CHN		3	// ï¿½ß±ï¿½
+	//LC_TLD		4	// ï¿½Â±ï¿½
+	//LC_TLD_ENG	5	// ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//LC_JPN		6 	// ï¿½Ïºï¿½
+	//LC_MAL		7 	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½
+	//LC_MAL_ENG	8 	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	//LC_USA		9	// ï¿½Ì±ï¿½
+	//LC_BRZ		10	// ï¿½ï¿½ï¿½ï¿½ï¿½
+	//LC_HBK		11	// È«ï¿½ï¿½
 
 int CNetworkLibrary::ReturnCCC(int iSCC)
 {
@@ -3083,7 +3083,7 @@ void CNetworkLibrary::SendChat(ULONG ulFrom, ULONG ulTo, const CTString &strMess
 //  nm<<ulFrom;
 //  nm<<ulTo;
 
-// Ã¤ÆÃ				: chat_type(uc) sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)												
+// Ã¤ï¿½ï¿½				: chat_type(uc) sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)												
   ULONG recvIndex = -1;
   CTString	strRecvName="";
   /*
@@ -3097,7 +3097,7 @@ void CNetworkLibrary::SendChat(ULONG ulFrom, ULONG ulTo, const CTString &strMess
 			break;
 		}
 	}
-	if(recvIndex==-1)//¸¸¾à Ã£Áö ¸øÇß´Ù¸é,
+	if(recvIndex==-1)//ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ß´Ù¸ï¿½,
 	{
 		return;
 	}
@@ -3213,7 +3213,7 @@ void CNetworkLibrary::AddBandwidthGraphValue(ULONG ulBandwidth)
   ga_aulBandwidthGraph[0] = ulBandwidth;
 }
   
-//! °ÔÀÓÀÌ ¾ÆÁ÷ ½ÇÇàµÇÁö ¾Ê¾ÒÀ»¶§´Â ºê·ÎµåÄ³½ºÆ® ¸Þ½ÃÁö¸¸ ¹Þ´Â´Ù.
+//! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Îµï¿½Ä³ï¿½ï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´Â´ï¿½.
 // handle broadcast messages (server enumeration)
 void CNetworkLibrary::GameInactive(void)
 {
@@ -3323,7 +3323,7 @@ void CNetworkLibrary::EnumSessionsStart(BOOL bInternet)
 /* Continue numeration of existing sessions. */
 void CNetworkLibrary::EnumSessionsContinue()
 {
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   // we will send enumeration requests two times per second
   const TIME tmRequestInterval = 0.75f;
   static TIME tmLastRequest = -1.0f;
@@ -3453,7 +3453,7 @@ void CNetworkLibrary::SendMessagetoServer(char *msg)
 
 // ----------------------------------------------------------------------------
 // Name : GetWearingEffect()
-// Desc : Âø¿ëÁßÀÎ ¾ÆÀÌÅÛÀÇ ÀÌÆåÆ® Á¤º¸(ÀÌ¸§)¸¦ °¡Á®¿Â´Ù.
+// Desc : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½(ï¿½Ì¸ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 // ----------------------------------------------------------------------------
 CTString CNetworkLibrary::GetWearingEffect(eEquipment Type, INDEX subType)
 {
@@ -3489,7 +3489,7 @@ CTString CNetworkLibrary::GetWearingEffect(eEquipment Type, INDEX subType)
 void CNetworkLibrary::DropItem(int tabId, int inven_idx, SQUAD cnt)
 {
 	CItems& rItems = MySlotItem[tabId][inven_idx];
-	//0616 kwon ÀÔ°íÀÖ´Â ¾ÆÀÌÅÛÀº µå·Ó ¸øÇÏ°Ô ÇÏ±â.
+	//0616 kwon ï¿½Ô°ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï±ï¿½.
 	if(rItems.Item_Wearing != -1)
 	{
 //		CPrintF(TRANS("Can't Drop because this Item is Wearing... \n"));
@@ -3597,7 +3597,7 @@ void CNetworkLibrary::ItemLevelDown(SWORD inven_idx1, SWORD inven_idx2)
 
 // ----------------------------------------------------------------------------
 // Name : OptionAddItem()
-// Desc : ºí·¯µå ¾ÆÀÌÅÛ & Á¤È­ ¿É¼Ç Ãß°¡
+// Desc : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½È­ ï¿½É¼ï¿½ ï¿½ß°ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::OptionAddItem(UWORD slWearPos, int WearVirIdx, SWORD nTab, SWORD inven_idx, int JemVirIdx)
 {
@@ -3617,7 +3617,7 @@ void CNetworkLibrary::OptionAddItem(UWORD slWearPos, int WearVirIdx, SWORD nTab,
 
 // ----------------------------------------------------------------------------
 // Name : OptionDelItem()
-// Desc : ºí·¯µå ¾ÆÀÌÅÛ & Á¤È­ ¿É¼Ç Á¦°Å
+// Desc : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½È­ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::OptionDelItem(UWORD slWearPos, int WearVirIdx, SWORD nTab, SWORD inven_idx, int JemVirIdx)
 {
@@ -3667,7 +3667,7 @@ void CNetworkLibrary::RefineReq( SWORD nTab, SWORD inven_idx )
 	SendToServerNew( nmMessage );
 }
 
-// ÀÌ±âÈ¯ ¼öÁ¤ ½ÃÀÛ ( 12. 6 ) : CNeedItems ¹è¿­ ÇüÅÂ·Î º¯È¯
+// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( 12. 6 ) : CNeedItems ï¿½è¿­ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯
 // ----------------------------------------------------------------------------
 // Name : ProcessReq()
 // Desc : 
@@ -3725,9 +3725,9 @@ void CNetworkLibrary::ProductReq( SWORD nTab, SWORD inven_idx,
 	SendToServerNew( nmMessage );
 
 }
-// ÀÌ±âÈ¯ ¼öÁ¤ ³¡ ( 12. 6 )
+// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ( 12. 6 )
 
-// ÀÌ±âÈ¯ ¼öÁ¤ ½ÃÀÛ ( 12. 8 ) : Á¶ÇÕ
+// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( 12. 8 ) : ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 // Name : MixReq()
 // Desc : 
@@ -3751,7 +3751,7 @@ void CNetworkLibrary::MixReq( SWORD nTab, SWORD inven_idx, SWORD* arrTab, SWORD*
 
 	SendToServerNew( nmMessage );
 }
-// ÀÌ±âÈ¯ ¼öÁ¤ ³¡ (04.12.18)
+// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ (04.12.18)
 
 
 //------------------------------------------------------------------------------
@@ -3786,7 +3786,7 @@ void CNetworkLibrary::SendProlongMessage(int tabId, int inven_idx)
 {
 	CItems* pItems = &MySlotItem[tabId][inven_idx];
 
-	if(pItems->Item_Index ==-1) //ºñ¾îÀÖ´Â ½½·ÔÀÌ´Ù.
+	if(pItems->Item_Index ==-1) //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		return;
 	
 	CNetworkMessage nmMessage;
@@ -3834,7 +3834,7 @@ void CNetworkLibrary::SendCashItemMessage(int nType, INDEX searchType, INDEX Req
 		break;
 	case MSG_EX_CASHITEM_WISHLIST_SAVE_REQ:
 		{
-			nmCash << (ULONG)searchType; // ¿©±â¼­´Â CTIDÀÌ´Ù.
+			nmCash << (ULONG)searchType; // ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ CTIDï¿½Ì´ï¿½.
 		}
 	}
 
@@ -3853,10 +3853,10 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 
 	switch(nType)
 	{
-		case MSG_EX_CASHITEM_SHOP_OPEN_REQ: // 2010.11 Ä³½Ã¼¥ ¿ÀÇÂ ¿äÃ»
-		case MSG_EX_CASHITEM_WISHLIST_REQ: // ¼Ò¸Á»óÀÚ ¸®½ºÆ® ¿äÃ»
+		case MSG_EX_CASHITEM_SHOP_OPEN_REQ: // 2010.11 Ä³ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+		case MSG_EX_CASHITEM_WISHLIST_REQ: // ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 		case MSG_EX_CASHITEM_BALANCE_REQ :
-		case MSG_EX_CASHITEM_CUPON_REQ : // º¸À¯ ÄíÆù ¸®½ºÆ® ¿äÃ»
+		case MSG_EX_CASHITEM_CUPON_REQ : // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 			SendToServerNew(nmItem);
 			break;
 
@@ -3866,7 +3866,7 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 
 		case MSG_EX_CASHITEM_BRING_REQ :
 			{
-				// CashshopEX ¸®´º¾ó
+				// CashshopEX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 // 				CUIButtonEx tv_btn;
 // 				for(tv_i=0 ,nCnt = 0; tv_i< INVEN_SLOT_TOTAL; tv_i++){
@@ -3913,10 +3913,10 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 			}
 			break;
 
-		//¼±¹° °ü·Ã :Su-won		|-------------------------------------------->
-		case MSG_EX_CASHITEM_GIFT_REQ :			// ¼±¹° º¸³»±â ¿äÃ»
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ :Su-won		|-------------------------------------------->
+		case MSG_EX_CASHITEM_GIFT_REQ :			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 			{
-				// CashshopEX ¸®´º¾ó
+				// CashshopEX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 				//charName(str) Msg(str) count(n) idx(n) ctid(n)
 
@@ -3941,7 +3941,7 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 			}
 			break;
 
-		case MSG_EX_CASHITEM_GIFT_SENDHISTORY_REQ:  // º¸³½ ¼±¹° ³»¿ª ¸®½ºÆ® ¿äÃ» : y(n) m(c) d(c)
+		case MSG_EX_CASHITEM_GIFT_SENDHISTORY_REQ:  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : y(n) m(c) d(c)
 			{
 // 				std::vector<CTString> tv_vecStr;
 // 				int tv_curSel;
@@ -3962,7 +3962,7 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 			}
 			break;
 
-		case MSG_EX_CASHITEM_GIFT_RECVHISTORY_REQ:  // ¹ÞÀº ¼±¹° ³»¿ª ¸®½ºÆ® ¿äÃ» : y(n) m(c) d(c)
+		case MSG_EX_CASHITEM_GIFT_RECVHISTORY_REQ:  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : y(n) m(c) d(c)
 			{
 // 				std::vector<CTString> tv_vecStr;
 // 				int tv_curSel;
@@ -3982,12 +3982,12 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 // 				SendToServerNew(nmItem);
 			}
 			break;
-		case MSG_EX_CASHITEM_GIFT_RECVLIST_REQ:  // ¹ÞÀº ¼±¹° ¸®½ºÆ® ¿äÃ»
+		case MSG_EX_CASHITEM_GIFT_RECVLIST_REQ:  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 			{
 				SendToServerNew(nmItem);
 			}
 			break;
-		case MSG_EX_CASHITEM_GIFT_RECV_REQ:		// ¹ÞÀº ¼±¹° ÀÎº¥À¸·Î ÀÌµ¿ ¿äÃ» : count(n) idx(c) ctid(c)
+		case MSG_EX_CASHITEM_GIFT_RECV_REQ:		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ã» : count(n) idx(c) ctid(c)
 			{
 // 				CUIButtonEx tv_btn;
 // 				for(tv_i=0 ,nCnt = 0; tv_i< INVEN_SLOT_TOTAL; tv_i++){
@@ -4006,7 +4006,7 @@ void CNetworkLibrary::SendCashItemMessage(int nType)
 // 				SendToServerNew(nmItem);
 			}
 			break;
-		//¼±¹° °ü·Ã :Su-won		<--------------------------------------------|
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ :Su-won		<--------------------------------------------|
 	}
 }
 
@@ -4055,7 +4055,7 @@ void CNetworkLibrary::SendExSlotMessage(int slotNum)
 
 	pUIManager->CloseMessageBox(MSGCMD_USE_SLOT_ITEM);
 	
-	if(pItems->Item_Index ==-1) //ºñ¾îÀÖ´Â ½½·ÔÀÌ´Ù.
+	if(pItems->Item_Index ==-1) //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		return;
 
 	if(slotNum>0) 
@@ -4089,7 +4089,7 @@ bool CNetworkLibrary::SendItemWearingMSG(SBYTE sbType, SBYTE sbWearPos, SWORD nT
 	pUIMgr->GetQuickSlot()->SetWearingLock(TRUE);
 
 	if (_pNetwork->MyCharacterInfo.ulPlayerState & PLAYER_STATE_FLYING)
-	{ // ºñÇà ¸ðµå¿¡¼­´Â Àåºñ Âø¿ëÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
+	{ // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 		return false;
 	}
 
@@ -4099,14 +4099,14 @@ bool CNetworkLibrary::SendItemWearingMSG(SBYTE sbType, SBYTE sbWearPos, SWORD nT
 	CTString strSysmessage;
 
 	if (pPlayerEntity->IsTransforming() && sbWearPos != WEAR_PET)
-	{	// °­½Å Áß¿¡´Â Àåºñ¸¦ Âø¿ë ¹× Å»Âø ÇÒ ¼ö ¾ø´Ù
-		strSysmessage.PrintF(_S(5179, "°­½Å Áß¿¡´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."));
+	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		strSysmessage.PrintF(_S(5179, "ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		ClientSystemMessage(strSysmessage, SYSMSG_ERROR);
 		return false;
 	}
 	else if (pPlayerEntity->IsPolymophing() && sbWearPos != WEAR_PET)
-	{	// º¯½Å Áß¿¡´Â Àåºñ¸¦ Âø¿ë ¹× Å»Âø ÇÒ ¼ö ¾ø´Ù
-		strSysmessage.PrintF(_S(5181, "º¯½Å Áß¿¡´Â ÀÌ¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."));
+	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		strSysmessage.PrintF(_S(5181, "ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."));
 		ClientSystemMessage(strSysmessage, SYSMSG_ERROR);
 		return false;
 	}
@@ -4201,10 +4201,10 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 {
 	CItems* pItems = &MySlotItem[tabId][inven_idx];
 	
-	if(pItems->Item_Index ==-1) //ºñ¾îÀÖ´Â ½½·ÔÀÌ´Ù.
+	if(pItems->Item_Index ==-1) //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		return;
 
-	// ¾ÆÀÌÅÛ ÄðÅ¸ÀÓ °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ë»ï¿½
 	DOUBLE dStartTime = 0;
 	DOUBLE dCoolTime;
 	DOUBLE dReUseTime = 0.0;
@@ -4229,7 +4229,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 
 		switch (castlewar)
 		{
-		case CItemData::eSIEGEAREA_ALL:	//	1	ÀüÃ¼ °ø¼º¿¡¼­¸¸ »ç¿ë °¡´É
+		case CItemData::eSIEGEAREA_ALL:	//	1	ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		    {
 		        if (bMeracJoin == false && bDratanJoin == false)
 		        {
@@ -4239,7 +4239,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		    }
 		    break;
 
-		case CItemData::eSIEGEAREA_MERAC:	//	2	¸Þ¶óÅ© °ø¼º¿¡¼­¸¸ »ç¿ë °¡´É
+		case CItemData::eSIEGEAREA_MERAC:	//	2	ï¿½Þ¶ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		    {
 		        if (bMeracJoin == false)
 		        {
@@ -4249,7 +4249,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		    }
 		    break;
 
-		case CItemData::eSIEGEAREA_DRATAN:	//	3	µå¶óÅº °ø¼º¿¡¼­¸¸ »ç¿ë °¡´É
+		case CItemData::eSIEGEAREA_DRATAN:	//	3	ï¿½ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		    {
 		        if (bDratanJoin == false)
 		        {
@@ -4262,7 +4262,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		
 		if (bError == true)
 		{
-			ClientSystemMessage( _S( nErrorSting, "°ø¼º Áö¿ª¿¡¼­¸¸ »ç¿ë ÇÒ ¼ö ÀÖ½À´Ï´Ù." ), SYSMSG_ERROR );		
+			ClientSystemMessage( _S( nErrorSting, "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 			return;
 		}
 	}
@@ -4272,11 +4272,11 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		pItems->ItemData->GetType() == CItemData::ITEM_ACCESSORY )
 	{
 		if (_pNetwork->MyCharacterInfo.ulPlayerState & PLAYER_STATE_FLYING)
-		{ // ºñÇà ¸ðµå¿¡¼­´Â Àåºñ Âø¿ëÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
+		{ // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 			return;
 		}
-		// NOTE : Å×¼·¿¡¼­ ¾Ö¿Ïµ¿¹° Å»°ÍÀ» ÀåÂøÇÒ¼ö ¾øµµ·Ï ÇÏ´Â ºÎºÐ...
-		// ¾Ö¿Ïµ¿¹° ÀÏ¶§...
+		// NOTE : ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½...
+		// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½...
 		if( (pItems->ItemData->GetSubType() == CItemData::ACCESSORY_PET || pItems->ItemData->GetSubType() == CItemData::ACCESSORY_WILDPET)
 			&& pItems->Item_Wearing == -1 )
 		{
@@ -4292,40 +4292,40 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				_pNetwork->CheckPetType( (*iter).sbPetTypeGrade, iPetType, iPetAge );				
 				const BOOL bPetRide = PetInfo().IsRide(iPetType, iPetAge);
 				
-				// Å¸¾ßÇÏ´Â ¸»ÀÏ°æ¿ì...
+				// Å¸ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ï¿½...
 				if( bPetRide )
 				{
-					//ClientSystemMessage( _S( 294, "Âø¿ë ÇÒ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù." ), SYSMSG_ERROR );
+					//ClientSystemMessage( _S( 294, "ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½." ), SYSMSG_ERROR );
 					
-					// °ø°ÝÁßÀÌ°Å³ª ½ºÅ³ »ç¿ëÁßÀÏ¶§´Â ¹Ù²Ü¼ö ¾øÀ½.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ù²Ü¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					if( ( (CPlayerEntity*)CEntity::GetPlayerEntity(0) )->IsAttacking() )
 					{
-						ClientSystemMessage( _S(2579, "°ø°ÝÁßÀÏ¶§´Â ¾Ö¿Ïµ¿¹°À» Å» ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+						ClientSystemMessage( _S(2579, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 						return;
 					}
 					
 					if( ( (CPlayerEntity*)CEntity::GetPlayerEntity(0) )->IsPolymophing() )
 					{
-						ClientSystemMessage( _S( 2574, "º¯½ÅÁßÀÏ¶§´Â ¾Ö¿Ïµ¿¹°À» Å» ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+						ClientSystemMessage( _S( 2574, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 						return;						
 					}
 					
 					if( _pNetwork->MyCharacterInfo.nEvocationIndex > 0 )
 					{
-						ClientSystemMessage( _S(2580, "°­½ÅÁßÀÏ¶§´Â ¾Ö¿Ïµ¿¹°À» Å» ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+						ClientSystemMessage( _S(2580, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 						return;
 					}
 					
-					// °ø¼ºÁßÀÌ°í °ø¼ºÁö¿ª ³»¿¡¼­´Â ¾Ö¿Ïµ¿¹°À» ¼ÒÈ¯ÇÒ ¼ö ¾øÀ½
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if( _pNetwork->MyCharacterInfo.sbAttributePos & MATT_WAR && _pUISWDoc->IsWar() )
 					{
-						ClientSystemMessage( _S( 2583, "°ø¼ºÁß¿¡´Â ¾Ö¿Ïµ¿¹°À» Å» ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+						ClientSystemMessage( _S( 2583, "ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 						return;
 					}					
 					
 					if( ( (CPlayerEntity*)CEntity::GetPlayerEntity(0) )->IsSkilling() )
 					{
-						ClientSystemMessage( _S(2581, "½ºÅ³ »ç¿ëÁßÀÏ¶§´Â ¾Ö¿Ïµ¿¹°À» Å» ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+						ClientSystemMessage( _S(2581, "ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å» ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 						return;
 					}
 
@@ -4339,13 +4339,13 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 			}
 		}
 
-		if (pUIManager->IsCSFlagOnElapsed(CSF_ITEMWEARING, 5000)) // ¾ÆÀÌÅÛ Âø¿ë ¹× Å»ÂøÀ» ½Ãµµ ÁßÀÔ´Ï´Ù.
+		if (pUIManager->IsCSFlagOnElapsed(CSF_ITEMWEARING, 5000)) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 		{
-			ClientSystemMessage( _S( 305, "Àåºñ¸¦ Âø¿ëÇÒ ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );
+			ClientSystemMessage( _S( 305, "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );
 			return;
 		}
 
-		//SET_ITEM_ADD				//[ttos_2009_5_22]: ¼¼Æ® ¾ÆÀÌÅÛ Àû¿ë
+		//SET_ITEM_ADD				//[ttos_2009_5_22]: ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (pItems->ItemData->GetFlag()&ITEM_FLAG_ORIGIN)
 		{
 			if (pItems->GetItemBelong() != -1 && !pItems->IsFlag(FLAG_ITEM_BELONG))
@@ -4356,8 +4356,8 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				}
 				CUIMsgBox_Info	MsgBoxInfo;
 				CTString	strMessage[2];
-				strMessage[0] = _S(4102,"°æ°í!");
-				strMessage[1] = _S(4657, "¾ÆÀÌÅÛÀ» Âø¿ëÇÏ¸é ±Í¼ÓµÇ¾î °Å·¡¿Í Ã¢°íº¸°üÀÌ ºÒ°¡´ÉÇÏ°Ô µË´Ï´Ù. Âø¿ëÇÏ½Ã°Ú½À´Ï±î?");
+				strMessage[0] = _S(4102,"ï¿½ï¿½ï¿½!");
+				strMessage[1] = _S(4657, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Í¼ÓµÇ¾ï¿½ ï¿½Å·ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ë´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?");
 				MsgBoxInfo.SetMsgBoxInfo(strMessage[0], UMBS_OKCANCEL, UI_NONE, MSGCMD_ITEM_BELONG	);
 				MsgBoxInfo.AddString(strMessage[1]);
 				if (pUIManager->CreateMessageBox(MsgBoxInfo))
@@ -4366,30 +4366,30 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 			}
 		}
 
-		// ¹«±â ÀÏ¶§...
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½...
 		if( pItems->ItemData->GetType() == CItemData::ITEM_WEAPON )
 		{
-			// °ø°ÝÁßÀÌ°Å³ª ½ºÅ³ »ç¿ëÁßÀÏ¶§´Â ¹Ù²Ü¼ö ¾øÀ½.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½Ù²Ü¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			if( ( (CPlayerEntity*)CEntity::GetPlayerEntity(0) )->IsAttacking() )
 			{
-				ClientSystemMessage( _S( 1324, "°ø°ÝÁßÀÏ¶§´Â ¹«±â¸¦ ±³Ã¼ÇÒ ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+				ClientSystemMessage( _S( 1324, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 				return;
 			}
 			
 			if( ( (CPlayerEntity*)CEntity::GetPlayerEntity(0) )->IsSkilling() )
 			{
-				ClientSystemMessage( _S( 1325, "½ºÅ³ »ç¿ëÁßÀÏ¶§´Â ¹«±â¸¦ ±³Ã¼ÇÒ ¼ö ¾ø½À´Ï´Ù." ), SYSMSG_ERROR );		
+				ClientSystemMessage( _S( 1325, "ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ), SYSMSG_ERROR );		
 				return;
 			}
 		}
 
-		SBYTE sbType = (SBYTE)MSG_ITEM_WEAR;	// ¾ÆÀÌÅÛ ¸Þ½ÃÁö Å¸ÀÔ
+		SBYTE sbType = (SBYTE)MSG_ITEM_WEAR;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 		SBYTE sbWear = -1;
 
-		// Item Flag È®ÀÎ
+		// Item Flag È®ï¿½ï¿½
 		if( pItems->ItemData->GetFlag() & ITEM_FLAG_COSTUME2 ) { 
-			// ÄÚ½ºÆ¬2 ½Ã½ºÅÛ ¾ÆÀÌÅÛ
-			if( pItems->ItemData->GetSubType() == CItemData::ITEM_SHIELD_ONE_SUIT )
+			//dethunter12 Fix C2 Weeapon adjust
+			if( if pItems->ItemData->GetType() == CItemData::ITEM_SHIELD && pItems->ItemData->GetSubType() == CItemData::ITEM_SHIELD_ONE_SUIT )
 				sbType = (SBYTE)MSG_ITEM_WEAR_COSTUME_SUIT;
 			else
 				sbType = (SBYTE)MSG_ITEM_WEAR_COSTUME;
@@ -4398,7 +4398,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		if( pItems->ItemData->GetType() == CItemData::ITEM_ACCESSORY && 
 			!(pItems->ItemData->GetSubType() == CItemData::ACCESSORY_PET || pItems->ItemData->GetSubType() == CItemData::ACCESSORY_WILDPET))
 		{
-			// ÀÎº¥Åä¸®ÀÇ ºóÀÚ¸®¸¦ È®ÀÎÇÕ´Ï´Ù.
+			// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 			for(int iWearPos = WEAR_ACCESSORY1; iWearPos <= WEAR_ACCESSORY3; ++iWearPos)
 			{
 				if(!_pNetwork->MyWearItem[iWearPos].IsEmptyItem() == FALSE)
@@ -4415,7 +4415,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				else
 					sbWear = -1;
 			}
-
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 			if (pItems->ItemData->GetWearingPosition() == WEAR_ACCESSORY_SPECIAL1)
 			{
 				if (_pNetwork->MyWearItem[WEAR_ACCESSORY_SPECIAL1].IsEmptyItem())
@@ -4456,6 +4456,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				else
 					sbWear = -1;
 			}
+#endif
 			// newslot - alanssoares
 			
 		}
@@ -4475,9 +4476,9 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		switch( pItems->ItemData->GetSubType() )
 		{
 	
-		case CItemData::ITEM_SUB_WARP:			// ÀÌµ¿
+		case CItemData::ITEM_SUB_WARP:			// ï¿½Ìµï¿½
 			{
-				if( pItems->ItemData->GetWarpType() == 0 )			// ¸®ÅÏ ½ºÅ©·Ñ
+				if( pItems->ItemData->GetWarpType() == 0 )			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 				{
 					if( pUIManager->IsCSFlagOn( CSF_CANNOT_TELEPORT_MASK ) )
 					{
@@ -4485,7 +4486,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 						return;
 					}
 				}
-				else if( pItems->ItemData->GetWarpType() == 1 )	// ¸Þ¸ð¸® ½ºÅ©·Ñ
+				else if( pItems->ItemData->GetWarpType() == 1 )	// ï¿½Þ¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 				{
 					pUIManager->GetTeleport()->OpenTeleport();
 					return;
@@ -4493,8 +4494,8 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 			}
 			break;
 		
-		// ÀÌ±âÈ¯ ¼öÁ¤ ½ÃÀÛ ( 12. 6 ) : »ý»ê ½Ã½ºÅÛ
-		case CItemData::ITEM_SUB_PROCESS_DOC:	// °¡°ø ¹®¼­
+		// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( 12. 6 ) : ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+		case CItemData::ITEM_SUB_PROCESS_DOC:	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				if ( pUIManager->GetProduct()->IsVisible() || pUIManager->GetMix()->IsVisible() ||
 					pUIManager->GetCompound()->IsVisible() )
@@ -4506,8 +4507,8 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				return;
 			}
 			break;
-		case CItemData::ITEM_SUB_MAKE_POTION_DOC:	// °¡°ø ¹®¼­
-		case CItemData::ITEM_SUB_MAKE_TYPE_DOC:	// Á¦ÀÛ ¹®¼­
+		case CItemData::ITEM_SUB_MAKE_POTION_DOC:	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		case CItemData::ITEM_SUB_MAKE_TYPE_DOC:	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				if ( pUIManager->GetProcess()->IsVisible() || pUIManager->GetMix()->IsVisible() ||
 					pUIManager->GetCompound()->IsVisible() )
@@ -4519,13 +4520,13 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				return;
 			}
 			break;
-		// ÀÌ±âÈ¯ ¼öÁ¤ ³¡ ( 12. 10 )
+		// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ( 12. 10 )
 		// Date : 2005-01-12,   By Lee Ki-hwan
-		case CItemData::ITEM_SUB_BOX : // »óÀÚ ( Á¶ÇÕ )
+		case CItemData::ITEM_SUB_BOX : // ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 			{
 				switch ( pItems->ItemData->GetBoxType() )
 				{
-				case CItemData::BOX_REMAKE: // ¾ÆÀÌÅÛ Á¶ÇÕ ( ÀçÈ°ÀÇ »óÀÚ )
+				case CItemData::BOX_REMAKE: // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 					if ( pUIManager->GetProcess()->IsVisible() ||
 						pUIManager->GetProduct()->IsVisible() ||
 						pUIManager->GetCompound()->IsVisible() )
@@ -4560,11 +4561,11 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 					return;
 				}
 				
-				// º¯½Å ½ºÅ©·Ñ »ç¿ë
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½
 				_pNetwork->MyCharacterInfo.eMorphStatus		= MyChaInfo::eMORPH_TRANSFORMATION_BEGIN;
 			}
 			break;
-			// Äù½ºÆ® ½ºÅ©·Ñ.
+			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½.
 		case CItemData::ITEM_SUB_QUEST_SCROLL:
 			{
 				const int iQuestIndex = pItems->ItemData->GetNum0();
@@ -4578,14 +4579,14 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 					else
 					{
 						CTString strSysMessage;
-						strSysMessage.PrintF( _S( 1744, "ÀÌ¹Ì ¼öÇàÁßÀÎ Äù½ºÆ®ÀÔ´Ï´Ù."  ) );		
+						strSysMessage.PrintF( _S( 1744, "ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ô´Ï´ï¿½."  ) );		
 						_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 					}
 				}
 				else
 				{
 					CTString strSysMessage;
-					strSysMessage.PrintF( _S( 1745, "Á¶°ÇÀÌ ¸ÂÁö ¾Ê½À´Ï´Ù."  ) );		
+					strSysMessage.PrintF( _S( 1745, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½."  ) );		
 					_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 				}
 				return;
@@ -4620,7 +4621,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 					return;
 
 				CEntity* penPlEntity;
-				penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+				penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 
 				FLOAT3D vDelta = penPlEntity->GetPlacement().pl_PositionVector - pEntity->GetPlacement().pl_PositionVector;
 				FLOAT	fLength = vDelta.Length();
@@ -4630,7 +4631,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				if (fLength > rSkillData.GetFireRange())
 				{
 					CTString strSysMessage;
-					strSysMessage.PrintF( _S( 322, "°Å¸®°¡ ³Ê¹« ¸Ù´Ï´Ù."  ) );		
+					strSysMessage.PrintF( _S( 322, "ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½Ù´Ï´ï¿½."  ) );		
 					_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 					return;
 				}
@@ -4655,11 +4656,11 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 	{
 		CItemData*	pItemData = _pNetwork->GetItemData( pItems->Item_Index );
 		
-		//2012/11/13 jeil ºÎ½ºÅÍ ¾ÆÀÌÅÆ Áßº¹ »ç¿ë Ã¼Å© 	
+		//2012/11/13 jeil ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ Ã¼Å© 	
 		if(_pUIBuff->IsBuff(9189) && pItemData->GetItemIndex() == 9189)
 		{	
 			CTString strSysMessage;
-			strSysMessage.PrintF( _S(5816,"Ä£È­µµ ºÎ½ºÅÍ´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡´É ÇÕ´Ï´Ù.") );		
+			strSysMessage.PrintF( _S(5816,"Ä£È­ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Í´ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.") );		
 			_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 			return;
 		}		
@@ -4669,7 +4670,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 				return;
 		}
 		
-		// item Áßº¹ Ã¼Å©
+		// item ï¿½ßºï¿½ Ã¼Å©
 		if ( pItemData->GetFlag() & ITEM_FLAG_DUPLICATION && _pUIBuff->IsBuff( pItemData->GetItemIndex() ) )
 		{
 			if ( pUIManager->DoesMessageBoxExist( MSGCMD_ITEM_DUPLICATION_CHECK ) )
@@ -4679,9 +4680,9 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 			
 			CTString strMessage, strTitle;
 			CUIMsgBox_Info msgBoxInfo;						
-			strTitle.PrintF(_S( 191, "È®ÀÎ" ));
+			strTitle.PrintF(_S( 191, "È®ï¿½ï¿½" ));
 			msgBoxInfo.SetMsgBoxInfo( strTitle, UMBS_OKCANCEL, UI_NONE ,MSGCMD_ITEM_DUPLICATION_CHECK);
-			strMessage.PrintF( _S( 6076, "ÀÌ¹Ì %s¿Í µ¿ÀÏÇÑ È¿°ú°¡ Àû¿ëµÇ¾î ÀÖ½À´Ï´Ù. Á¤¸»·Î »ç¿ë ÇÏ½Ã°Ú½À´Ï±î?"), _pNetwork->GetItemName( pItems->Item_Index ) );
+			strMessage.PrintF( _S( 6076, "ï¿½Ì¹ï¿½ %sï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?"), _pNetwork->GetItemName( pItems->Item_Index ) );
 			msgBoxInfo.AddString(strMessage);
 
 			if ( pUIManager )
@@ -4693,17 +4694,17 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		}
 		SendItemUse(pItems->Item_Tab, pItems->InvenIndex, pItems->Item_UniIndex, 0);
 	}
-	else if (pItems->ItemData->GetType() == CItemData::ITEM_ETC) // ±âÅ¸ ¾ÆÀÌÅÛ
+	else if (pItems->ItemData->GetType() == CItemData::ITEM_ETC) // ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		if (pItems->ItemData->GetSubType() == CItemData::ITEM_ETC_PRODUCT && _pNetwork->MyWearItem[WEAR_PET].IsEmptyItem() == FALSE)
-		{ // »ý»ê¹°
+		{ // ï¿½ï¿½ï¿½ê¹°
 			SendItemUse(pItems->Item_Tab, pItems->InvenIndex, pItems->Item_UniIndex, 0);
 		}
-		else if (pItems->ItemData->GetFlag() & ITEM_FLAG_TRIGGER || pItems->ItemData->GetSubType() == CItemData::ITEM_ETC_SKILL) // [2010/10/20 : Sora] ¼­ºêÅ¸ÀÔÀ» ºñÆ®·Î Ã¼Å©ÇÏ´ø ºÎºÐÀ» ¼öÁ¤
-		{ // [090810: selo] Æ®¸®°Å ¾ÆÀÌÅÛÀÎ °æ¿ì , // ½ºÅ³ ½Àµæ ÀÏ °æ¿ì
+		else if (pItems->ItemData->GetFlag() & ITEM_FLAG_TRIGGER || pItems->ItemData->GetSubType() == CItemData::ITEM_ETC_SKILL) // [2010/10/20 : Sora] ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ Ã¼Å©ï¿½Ï´ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		{ // [090810: selo] Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ , // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 			SendItemUse(pItems->Item_Tab, pItems->InvenIndex, pItems->Item_UniIndex, 0);
 		}
-		else if ( pItems->ItemData->GetSubType() == CItemData::ITEM_ETC_MONSTER_MERCENARY_CARD )	// [2010/10/20 : Sora] ¸ó½ºÅÍ ¿ëº´ Ä«µå
+		else if ( pItems->ItemData->GetSubType() == CItemData::ITEM_ETC_MONSTER_MERCENARY_CARD )	// [2010/10/20 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ Ä«ï¿½ï¿½
 		{
 			if( !pUIManager->GetQuickSlot()->StartSkillDelay( pItems->ItemData->GetNum0() ) )
 			{
@@ -4715,7 +4716,7 @@ void CNetworkLibrary::UseSlotItem( int tabId, int inven_idx, SBYTE sbWearType )
 		}
 	}
 
-	//2012/11/09 jeil Ä£È­µµ ºÎ½ºÅÍ ¾ÆÀÌÅÆ Ã¼Å© ÇÏ±â 
+	//2012/11/09 jeil Ä£È­ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½Ï±ï¿½ 
 }
 
 /****   WareHouse *********************************************************/
@@ -4745,7 +4746,7 @@ void CNetworkLibrary::SendWareHouseIsSetPassword()
 
 //-----------------------------------------------------------------------------
 // Purpose: SendWareHouseSeal
-// Input  : Ã¢°í Àá±Ý ¿äÃ».
+// Input  : Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendWareHouseSeal()
 {
@@ -4814,7 +4815,7 @@ void CNetworkLibrary::SendWareHouseDeletePassWord( const CTString& strID )
 // Name : GuildJoin()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildJoin( SLONG slGuildIndex, SLONG slSrcIndex, SLONG slDestIndex )			// °¡ÀÔ ½ÅÃ»
+void CNetworkLibrary::GuildJoin( SLONG slGuildIndex, SLONG slSrcIndex, SLONG slDestIndex )			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 {
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_REGIST_REQ;
@@ -4826,7 +4827,7 @@ void CNetworkLibrary::GuildJoin( SLONG slGuildIndex, SLONG slSrcIndex, SLONG slD
 
 // ----------------------------------------------------------------------------
 // Name : GuildQuit()
-// Desc : ±æµå Å»Åð
+// Desc : ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::GuildQuit( )
 {
@@ -4838,9 +4839,9 @@ void CNetworkLibrary::GuildQuit( )
 
 // ----------------------------------------------------------------------------
 // Name : GuildCreate()
-// Desc : ±æµå »ý¼º
+// Desc : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildCreate( const CTString &strGuildName )		// ±æµå »ý¼º
+void CNetworkLibrary::GuildCreate( const CTString &strGuildName )		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_CREATE;
@@ -4851,9 +4852,9 @@ void CNetworkLibrary::GuildCreate( const CTString &strGuildName )		// ±æµå »ý¼º
 
 // ----------------------------------------------------------------------------
 // Name : GuildUpgrade()
-// Desc : ±æµå ½Â±Þ
+// Desc : ï¿½ï¿½ï¿½ ï¿½Â±ï¿½
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildUpgrade()							// ±æµå ½Â±Þ
+void CNetworkLibrary::GuildUpgrade()							// ï¿½ï¿½ï¿½ ï¿½Â±ï¿½
 {
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_LEVELUP;	
@@ -4864,9 +4865,9 @@ void CNetworkLibrary::GuildUpgrade()							// ±æµå ½Â±Þ
 // Name : GuildDestroy()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildDestroy()							// ±æµå ÇØÃ¼
+void CNetworkLibrary::GuildDestroy()							// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_BREAKUP;	
 	SendToServerNew(nmGuild);
@@ -4876,9 +4877,9 @@ void CNetworkLibrary::GuildDestroy()							// ±æµå ÇØÃ¼
 // Name : GuildChangeBoss()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildChangeBoss( SLONG slDestIndex )		// ´ÜÀå ÀÌÀÓ
+void CNetworkLibrary::GuildChangeBoss( SLONG slDestIndex )		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_CHANGE_BOSS;	
 	nmGuild << (LONG)_pNetwork->MyCharacterInfo.lGuildIndex;
@@ -4891,9 +4892,9 @@ void CNetworkLibrary::GuildChangeBoss( SLONG slDestIndex )		// ´ÜÀå ÀÌÀÓ
 // Name : GuildAddViceBoss()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildAddViceBoss( SLONG slDestIndex )		// ºÎ´ÜÀå ÀÓ¸í
+void CNetworkLibrary::GuildAddViceBoss( SLONG slDestIndex )		// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_APPOINT_OFFICER;	
 	nmGuild << (LONG)_pNetwork->MyCharacterInfo.lGuildIndex;
@@ -4905,9 +4906,9 @@ void CNetworkLibrary::GuildAddViceBoss( SLONG slDestIndex )		// ºÎ´ÜÀå ÀÓ¸í
 // Name : GuildDelViceBoss()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildDelViceBoss( SLONG slDestIndex )		// ºÎ´ÜÀå ÇØÀÓ
+void CNetworkLibrary::GuildDelViceBoss( SLONG slDestIndex )		// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_FIRE_OFFICER;	
 	nmGuild << (LONG)_pNetwork->MyCharacterInfo.lGuildIndex;
@@ -4919,9 +4920,9 @@ void CNetworkLibrary::GuildDelViceBoss( SLONG slDestIndex )		// ºÎ´ÜÀå ÇØÀÓ
 // Name : GuildMemberFire()
 // Desc : 
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildMemberFire( SLONG slDestIndex )		// ¸â¹ö ÅðÃâ
+void CNetworkLibrary::GuildMemberFire( SLONG slDestIndex )		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_KICK;	
 	nmGuild << (LONG)_pNetwork->MyCharacterInfo.lGuildIndex;
@@ -4931,9 +4932,9 @@ void CNetworkLibrary::GuildMemberFire( SLONG slDestIndex )		// ¸â¹ö ÅðÃâ
 
 // ----------------------------------------------------------------------------
 // Name : GuildApplicantAccept()
-// Desc : ¿äÃ»ÀÚ¿¡ ´ëÇØ¼­ °¡ÀÔ ½ÂÀÎÇÏ±â.
+// Desc : ï¿½ï¿½Ã»ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildApplicantAccept( SLONG slDestIndex )	// °¡ÀÔ ½ÂÀÎ
+void CNetworkLibrary::GuildApplicantAccept( SLONG slDestIndex )	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_REGIST_ALLOW;
@@ -4944,11 +4945,11 @@ void CNetworkLibrary::GuildApplicantAccept( SLONG slDestIndex )	// °¡ÀÔ ½ÂÀÎ
 
 // ----------------------------------------------------------------------------
 // Name : GuildApplicantReject()
-// Desc : ¿äÃ»ÀÚ¿¡ ´ëÇØ¼­ °¡ÀÔ °ÅºÎÇÏ±â.
+// Desc : ï¿½ï¿½Ã»ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½ï¿½Ï±ï¿½.
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::GuildApplicantReject( SBYTE sbWhoCancel )	// °¡ÀÔ °ÅºÎ
+void CNetworkLibrary::GuildApplicantReject( SBYTE sbWhoCancel )	// ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½
 {
-	// ±æµå ÇØÃ¼ ¸Þ½ÃÁö º¸³»±â.
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	CNetworkMessage nmGuild((UBYTE)MSG_GUILD);
 	nmGuild << (UBYTE)MSG_GUILD_REGIST_CANCEL;	
 	nmGuild << sbWhoCancel;
@@ -4960,10 +4961,10 @@ void CNetworkLibrary::GuildApplicantReject( SBYTE sbWhoCancel )	// °¡ÀÔ °ÅºÎ
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBReq
-// Explain: ±æµå ÀüÅõ ¿äÃ»
-// Date : 2005-03-18(¿ÀÈÄ 3:16:42) Lee Ki-hwan
+// Explain: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:16:42) Lee Ki-hwan
 // Edit History 
-// Date : 2005-04-15(¿ÀÈÄ 7:49:53), By Lee Ki-hwan : SLONG nTime Ãß°¡
+// Date : 2005-04-15(ï¿½ï¿½ï¿½ï¿½ 7:49:53), By Lee Ki-hwan : SLONG nTime ï¿½ß°ï¿½
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBReq( SLONG nCharIndex, SLONG nPrize, SLONG nTime )
 {
@@ -4980,8 +4981,8 @@ void CNetworkLibrary::GBReq( SLONG nCharIndex, SLONG nPrize, SLONG nTime )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBReqReject
-// Explain: ±æµå ÀüÅõ ¿äÃ» °ÅÀý
-// Date : 2005-03-18(¿ÀÈÄ 3:16:45) Lee Ki-hwan
+// Explain: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:16:45) Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBReqReject()
 {
@@ -4993,8 +4994,8 @@ void CNetworkLibrary::GBReqReject()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBReqAccept
-// Explain: ±æµå ÀüÅõ ¼ö¶ô
-// Date : 2005-03-18(¿ÀÈÄ 3:16:47) Lee Ki-hwan
+// Explain: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:16:47) Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBReqAccept()
 {
@@ -5006,8 +5007,8 @@ void CNetworkLibrary::GBReqAccept()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBStopReqSend
-// Explain: ±æµå ÀüÅõ ÁßÁö ¿äÃ» 
-// Date : 2005-03-18(¿ÀÈÄ 3:16:50) Lee Ki-hwan
+// Explain: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:16:50) Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBStopReq( SLONG nCharIndex )
 {
@@ -5020,8 +5021,8 @@ void CNetworkLibrary::GBStopReq( SLONG nCharIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBStopReqReject
-// Explain:  ±æµå ÀüÅõ ÁßÁö ¿äÃ» °ÅÀý 
-// Date : 2005-03-18(¿ÀÈÄ 3:16:52) Lee Ki-hwan
+// Explain:  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ 
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:16:52) Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBStopReqReject()	
 {
@@ -5033,8 +5034,8 @@ void CNetworkLibrary::GBStopReqReject()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GBStopReqAccept
-// Explain:  ±æµå ÀüÅõ ÁßÁö ¿äÃ» ¼ö¶ô 
-// Date : 2005-03-18(¿ÀÈÄ 3:30:03) Lee Ki-hwan
+// Explain:  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ 
+// Date : 2005-03-18(ï¿½ï¿½ï¿½ï¿½ 3:30:03) Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::GBStopReqAccept()	
 {
@@ -5048,7 +5049,7 @@ void CNetworkLibrary::GBStopReqAccept()
 // Name : TeachTeacherRegister()
 // Desc :
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::TeachTeacherRegister(SBYTE sbStartPlayTime, SBYTE sbEndPlayTime)			// ¼±»ý ¸ñ·Ï¿¡ Ãß°¡
+void CNetworkLibrary::TeachTeacherRegister(SBYTE sbStartPlayTime, SBYTE sbEndPlayTime)			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½
 {
 	CNetworkMessage nmTeach((UBYTE)MSG_TEACH);
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_LIST;	
@@ -5062,7 +5063,7 @@ void CNetworkLibrary::TeachTeacherRegister(SBYTE sbStartPlayTime, SBYTE sbEndPla
 // Name : TeachTeacherCancelRegister()
 // Desc :
 // ----------------------------------------------------------------------------
-void CNetworkLibrary::TeachTeacherCancelRegister()		// ¼±»ý ¸ñ·Ï¿¡¼­ »©Áà
+void CNetworkLibrary::TeachTeacherCancelRegister()		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	CNetworkMessage nmTeach((UBYTE)MSG_TEACH);
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_LIST;	
@@ -5072,7 +5073,7 @@ void CNetworkLibrary::TeachTeacherCancelRegister()		// ¼±»ý ¸ñ·Ï¿¡¼­ »©Áà
 
 // ----------------------------------------------------------------------------
 // Name : TeachRefreshTeacherList()
-// Desc : ÈÄ°ßÀÎ ¸ñ·Ï °»½Å
+// Desc : ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachRefreshTeacherList()
 {
@@ -5084,7 +5085,7 @@ void CNetworkLibrary::TeachRefreshTeacherList()
 
 // ----------------------------------------------------------------------------
 // Name : TeachTeacherRequest()
-// Desc : ÈÄ°ßÀÎ ½ÅÃ»
+// Desc : ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachTeacherRequest( SLONG slCharIndex, CTString& strName )
 {
@@ -5098,11 +5099,11 @@ void CNetworkLibrary::TeachTeacherRequest( SLONG slCharIndex, CTString& strName 
 
 // ----------------------------------------------------------------------------
 // Name : TeachTeacherReject()
-// Desc : ÈÄ°ßÀÎ ½ÅÃ» Ãë¼Ò.
+// Desc : ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachTeacherReject( BOOL bStudent, SLONG slCharIndex, CTString& strName )
 {
-	// ¼±»ý ¿äÃ» °ÅÀý	: char_type(uc) reject_charindex(n) reject_charname(str)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½	: char_type(uc) reject_charindex(n) reject_charname(str)
 	CNetworkMessage nmTeach((UBYTE)MSG_TEACH);
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_REQ;	
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_REQ_REJECT;
@@ -5120,11 +5121,11 @@ void CNetworkLibrary::TeachTeacherReject( BOOL bStudent, SLONG slCharIndex, CTSt
 
 // ----------------------------------------------------------------------------
 // Name : TeachTeacherAccept()
-// Desc : ÈÄ°ßÀÎ ½ÅÃ» È®ÀÎ.
+// Desc : ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» È®ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachTeacherAccept( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName )
 {
-	// ¼±»ý Çã¶ô		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
 	CNetworkMessage nmTeach((UBYTE)MSG_TEACH);
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_REQ;
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_REQ_ACCEPT;
@@ -5141,7 +5142,7 @@ void CNetworkLibrary::TeachTeacherAccept( SLONG slTeacherIndex, CTString& strTea
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachTeacherGiveUp( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName )
 {
-	// ¼±»ý Çã¶ô		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
 	CNetworkMessage nmTeach((UBYTE)MSG_TEACH);
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_REQ;
 	nmTeach << (UBYTE)MSG_TEACH_TEACHER_GIVEUP;
@@ -5154,7 +5155,7 @@ void CNetworkLibrary::TeachTeacherGiveUp( SLONG slTeacherIndex, CTString& strTea
 
 // ----------------------------------------------------------------------------
 // Name : ChangeJobReq()
-// Desc : ÀüÁ÷ ¿äÃ»
+// Desc : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::ChangeJobReq( SBYTE sbJob, int nNpcVirIdx )
 {
@@ -5171,7 +5172,7 @@ void CNetworkLibrary::ChangeJobReq( SBYTE sbJob, int nNpcVirIdx )
 
 // ----------------------------------------------------------------------------
 // Name : ChangeJobGiveUp()
-// Desc : Á÷¾÷ Æ÷±â
+// Desc : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::ChangeJobGiveUp(int nNpcVirIdx)
 {
@@ -5209,7 +5210,7 @@ void CNetworkLibrary::ChangeWeaponReq( SWORD nTab, SWORD inven_idx, LONG lItemVi
 
 // ----------------------------------------------------------------------------
 // Name : ChangeWeaponEventReq()
-// Desc : 2ÆÇ 4ÆÇ ¹«±â ±³Ã¼ ÀÌº¥Æ®
+// Desc : 2ï¿½ï¿½ 4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ìºï¿½Æ®
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::ChangeWeaponEventReq( LONG lItemIndex, LONG lChangeType )
 {
@@ -5222,7 +5223,7 @@ void CNetworkLibrary::ChangeWeaponEventReq( LONG lItemIndex, LONG lChangeType )
 		
 		CItems* pItems = &MySlotItem[tv_tab][inven_idx];
 
-		if(pItems->Item_Index ==-1) //ºñ¾îÀÖ´Â ½½·ÔÀÌ´Ù.
+		if(pItems->Item_Index ==-1) //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 			return;
 
 		CNetworkMessage nmMessage;
@@ -5239,7 +5240,7 @@ void CNetworkLibrary::ChangeWeaponEventReq( LONG lItemIndex, LONG lChangeType )
 	
 				
 	} else {
-		// MSG_EVENT_CHANGE_WITHOUT_OPTION,			// 2ÆÇ4ÆÇ ¸®´º¾ó ¹«±â ±³Ã¼ ÀÌº¥Æ® : old_itemindex(n) new_subtype(n)
+		// MSG_EVENT_CHANGE_WITHOUT_OPTION,			// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ìºï¿½Æ® : old_itemindex(n) new_subtype(n)
 		CNetworkMessage nmChangeWeapon((UBYTE)MSG_EVENT);
 		nmChangeWeapon << (UBYTE)MSG_EVENT_CHANGE_WITHOUT_OPTION;			
 		nmChangeWeapon << lItemIndex;
@@ -5259,7 +5260,7 @@ void CNetworkLibrary::StatReset( int iStr, int iDex, int iInt, int iCon )
 	LONG lInt = iInt;
 	LONG lCon = iCon;
 
-	// Æ÷ÀÎÆ® ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	CNetworkMessage nmStat((UBYTE)MSG_STATPOINT);
 	nmStat << (UBYTE)MSG_STATPOINT_RESET;
 	nmStat << lStr;
@@ -5278,20 +5279,20 @@ void CNetworkLibrary::SendChangeWeaponEvent()
 	if (_pNetwork->MyWearItem[WEAR_WEAPON].IsEmptyItem() == FALSE)
 	{
 		CTString strSysMessage;
-		strSysMessage.PrintF( _S( 1326, "±³Ã¼ÇÒ ¹«±â¸¦ ÀåÂøÇÏ¿© ÁÖ½Ê½Ã¿À." ) );		
+		strSysMessage.PrintF( _S( 1326, "ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½." ) );		
 		_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 		return;
 	}
 	
 	const int iWeaponType = _pNetwork->MyWearItem[WEAR_WEAPON].ItemData->GetSubType();
 	
-	// »ý»êµµ±¸¸¦ ÀåÂøÇÏ±¸ ÀÖÀ»¶§...
+	// ï¿½ï¿½ï¿½êµµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 	if(iWeaponType == CItemData::ITEM_WEAPON_MINING || 
 		iWeaponType == CItemData::ITEM_WEAPON_GATHERING || 
 		iWeaponType == CItemData::ITEM_WEAPON_CHARGE)
 	{
 		CTString strSysMessage;
-		strSysMessage.PrintF( _S( 1327, "»ý»ê µµ±¸´Â ±³Ã¼ÇÒ ¼ö ¾ø½À´Ï´Ù." ) );		
+		strSysMessage.PrintF( _S( 1327, "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." ) );		
 		_pNetwork->ClientSystemMessage( strSysMessage, SYSMSG_ERROR );
 		return;
 	}
@@ -5482,7 +5483,7 @@ void CNetworkLibrary::SwapQuickSlot( int nPage1, int nSlot1, int nPage2, int nSl
 	SendToServerNew( nm );
 }
 
-// TO-KR-T20090903-005 °ü·Ã ÆÄÆ¼ ½ÅÃ» ¼öÁ¤. [11/27/2009 rumist]
+// TO-KR-T20090903-005 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½. [11/27/2009 rumist]
 // void CNetworkLibrary::PartyInvite( SBYTE sbType, SLONG slIndex )
 // {
 // 	// Send network message
@@ -5553,10 +5554,10 @@ void CNetworkLibrary::ItemPlusEffectReq( SBYTE sbOption )
 // Name : FindTargetsInRange()
 // Desc : 
 // ----------------------------------------------------------------------------
-// FIXME : ÆÛÆ÷¸Õ½º ÃøÁ¤ÀÌ ÇÊ¿äÇÑ ºÎºÐ.
-// FIXME : ¼ÒÈ¯¼ö ¹× ½Ì±Û´øÁ¯ÀÇ °æ¿ì ¼Óµµ¿¡¼­ ¹®Á¦°¡ ¹ß»ýÇÒ¼ö ÀÖ´Â ÇÔ¼öÀÓ.
+// FIXME : ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
+// FIXME : ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì±Û´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½.
 void CNetworkLibrary::FindTargetsInRange(
-								 CEntity* pPlayer, 								// Å¸°Ù.
+								 CEntity* pPlayer, 								// Å¸ï¿½ï¿½.
 								 CEntity* pCenter,
 								 CSelectedEntities &cen, 								 
 								 FLOAT fFallOffRange, 
@@ -5571,7 +5572,7 @@ void CNetworkLibrary::FindTargetsInRange(
 
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = (CPlayerEntity*) penPlEntity;
 
 	// for each entity in the world of this entity
@@ -5602,7 +5603,7 @@ void CNetworkLibrary::FindTargetsInRange(
 				// for all entities in the sector
 				{FOREACHDSTOFSRC(itbsc->bsc_rsEntities, CEntity, en_rdSectors, pen)
 					
-					// SKA ¸ðµ¨¸¸ ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡ÇÕ´Ï´Ù.
+					// SKA ï¿½ðµ¨¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ ï¿½ß°ï¿½ï¿½Õ´Ï´ï¿½.
 					if ((pen->en_RenderType==CEntity::RT_SKAMODEL)
 						&& (pen->GetFlags() & ENF_ALIVE)
 						&& boxRange.HasContactWith(
@@ -5627,13 +5628,13 @@ void CNetworkLibrary::FindTargetsInRange(
 
 										if ( (pen != pCenter) )
 										{
-											// ÃÖ´ë °¹¼ö¸¦ ³ÑÁö ¾Êµµ·Ï ÇÏ°í...
+											// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½Ï°ï¿½...
 											if(iCount >= iMaxEnemies)
 											{
 												return;
 											}
 
-											// ³»°¡ ³ªÇÑÅ× ¾´ °æ¿ì...
+											// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½...
 											if( pPlayer == pCenter )
 											{
 												FLOAT3D vDelta = pen->GetPlacement().pl_PositionVector - pPlayer->GetPlacement().pl_PositionVector;
@@ -5648,13 +5649,13 @@ void CNetworkLibrary::FindTargetsInRange(
 													}
 												}
 											}
-											// ¹üÀ§ Á¦ÇÑÀÌ ¾øÀ»¶§...( ÀÌ °æ¿ì¿¡´Â ÇÃ·¹ÀÌ¾î Áß½ÉÀÌ¾î¾ß¸¸ ÇÔ!!! )
+											// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...( ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ß½ï¿½ï¿½Ì¾ï¿½ß¸ï¿½ ï¿½ï¿½!!! )
 											else if( iTargetType != CSkill::STT_TARGET_RECT && 
 													fAngle != 360.0f )
 											{
-												// ÇÃ·¹ÀÌ¾î¿Í °¢ ¿£Æ¼Æ¼ »çÀÌÀÇ °¢µµ¸¦ °è»êÇÏ¿© Ã³¸®ÇÔ.
-												// ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¿Í ¿£Æ¼Æ¼ÀÇ À§Ä¡ÀÇ º¤ÅÍ¸¦ ±¸ÇÏ°í,
-												// ±× °ªÀ» HeadingÀ¸·Î º¯È¯ÇÔ.
+												// ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½.
+												// ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½,
+												// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Headingï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½.
 												FLOAT3D vNormal;
 												FLOAT	fLength;
 												//AnglesToDirectionVector(pPlayer->GetPlacement().pl_OrientationAngle, vNormal);
@@ -5668,8 +5669,8 @@ void CNetworkLibrary::FindTargetsInRange(
 
 												if( fLength <= fFallOffRange )
 												{
-													// FIXME : ´À¸° ·çÆ¾ÀÓ.
-													// FIXME : Å×ÀÌºíÀ» ÀÌ¿ëÇÒ°Í.
+													// FIXME : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¾ï¿½ï¿½.
+													// FIXME : ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ò°ï¿½.
 													//ANGLE aDelta = GetRelativeHeading(vDelta);
 													float fDelta = acos((vNormal%vDelta)/(vNormal.Length() * vDelta.Length()));
 													ANGLE aDelta = AngleRad(fDelta);
@@ -5684,7 +5685,7 @@ void CNetworkLibrary::FindTargetsInRange(
 													}
 												}
 											}
-											// Å¸°Ù Áß½É.
+											// Å¸ï¿½ï¿½ ï¿½ß½ï¿½.
 											else if( iTargetType == CSkill::STT_TARGET_RANGE )
 											{
 												FLOAT3D vDelta = pen->GetPlacement().pl_PositionVector - pCenter->GetPlacement().pl_PositionVector;
@@ -5698,7 +5699,7 @@ void CNetworkLibrary::FindTargetsInRange(
 													}												
 												}
 											}
-											// ÀÏÁ÷¼± »ç°¢Çü ¿µ¿ªÀÏ °æ¿ì...
+											// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ç°¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½...
 											else if( iTargetType == CSkill::STT_TARGET_RECT )											
 											{
 												FLOAT3D vNormal;												
@@ -5776,7 +5777,7 @@ void CNetworkLibrary::FindTargetsInRangeEx(CEntity* pCenter, CSelectedEntities& 
 
 				// for all entities in the sector
 				{FOREACHDSTOFSRC(itbsc->bsc_rsEntities, CEntity, en_rdSectors, pen)
-					// SKA ¸ðµ¨¸¸ ÄÁÅ×ÀÌ³Ê¿¡ Ãß°¡ÇÕ´Ï´Ù.
+					// SKA ï¿½ðµ¨¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³Ê¿ï¿½ ï¿½ß°ï¿½ï¿½Õ´Ï´ï¿½.
 					if ((pen->en_RenderType == CEntity::RT_SKAMODEL) && (pen->GetFlags() & ENF_ALIVE) &&
 						boxRange.HasContactWith(FLOATaabbox3D(pen->GetPlacement().pl_PositionVector, pen->en_fSpatialClassificationRadius)))
 					{
@@ -5805,8 +5806,8 @@ void CNetworkLibrary::FindTargetsInRangeEx(CEntity* pCenter, CSelectedEntities& 
 											{
 												ObjInfo* pInfo = ObjInfo::getSingleton();
 
-												//if (((CUnit*)INFO()->_WildPetInfo.pet_pEntity)->CheckTarget(pen))	// ÇöÀç µî·ÏµÈ ÆêÀÇ AI Á¶°Ç
-												if (pInfo->GetMyApetInfo() != NULL && pInfo->GetMyApetInfo()->GetEntity()) // ¿¹¿Ü Ã³¸®
+												//if (((CUnit*)INFO()->_WildPetInfo.pet_pEntity)->CheckTarget(pen))	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½ AI ï¿½ï¿½ï¿½ï¿½
+												if (pInfo->GetMyApetInfo() != NULL && pInfo->GetMyApetInfo()->GetEntity()) // ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 												{
 													if (((CPlayerEntity*)CEntity::GetPlayerEntity(0))->CheckEntityOfTarget(pInfo->GetMyApetInfo()->m_pEntity, pen))
 													{
@@ -5835,20 +5836,20 @@ void CNetworkLibrary::FindTargetsInRangeEx(CEntity* pCenter, CSelectedEntities& 
 	}
 }
 
-// ¸ÖÆ¼ °ø°Ý°¡´ÉÇÑÁö¸¦ ÆÇ´ÜÇÕ´Ï´Ù.
+// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Ý°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Õ´Ï´ï¿½.
 // ----------------------------------------------------------------------------
 // Name : CheckSkillAttack()
 // Desc : 
 // ----------------------------------------------------------------------------
 BOOL CNetworkLibrary::CheckSkillAttack( INDEX iSkillIndex, CEntity* pEntity )
 {
-	// ÀÌÂÊÀ¸·Î iSkillIndex °¡ -1ÀÌ µé¾î¿À¸é ¾ÈµÊ.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ iSkillIndex ï¿½ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
 	if( iSkillIndex == -1 )
 		return FALSE;
 
 	CEntity* penPlEntity;
 	CPlayerEntity* penPlayerEntity;
-	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³¸¯ÅÍ ÀÚ±â ÀÚ½Å
+	penPlEntity = CEntity::GetPlayerEntity(0); //Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ ï¿½Ú½ï¿½
 	penPlayerEntity = (CPlayerEntity*) penPlEntity;
 	
 	BOOL bForHelp		= FALSE;	
@@ -5862,13 +5863,13 @@ BOOL CNetworkLibrary::CheckSkillAttack( INDEX iSkillIndex, CEntity* pEntity )
 	BOOL bIsSummon		= pEntity->IsSlave();
 	BOOL bIsPlayer		= pEntity->IsPlayer();
 
-	// ¾Ö¿Ïµ¿¹°À» Å¸°í ÀÖÀ»¶§ ¾µ¼ö ÀÖ´Â ½ºÅ³ÀÏ °æ¿ì.
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if( _pNetwork->MyCharacterInfo.bPetRide && !( ( iJob2 == 2 || iJob2 == 3 ) ) )
 	{
 		return FALSE;
 	}
 	
-	// HELP ½ºÅ³Àº ³» ¾Ö¿Ïµ¿¹°
+	// HELP ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½
 	if( bForHelp )
 	{
 		if( bIsPlayer )
@@ -5882,12 +5883,12 @@ BOOL CNetworkLibrary::CheckSkillAttack( INDEX iSkillIndex, CEntity* pEntity )
 	}
 	else
 	{
-		// ÀÚ±â°¡ ÀÚ±âÇÑÅ× °ø°ÝÇÒ¼ö´Â ¾øÀ½.
+		// ï¿½Ú±â°¡ ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		if( bIsPlayer )
 		{
 			return FALSE;
 		}
-		// ±× ÀÌ¿ÜÀÇ °æ¿ì.
+		// ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 		else
 		{
 			return ((CPlayerEntity*)CEntity::GetPlayerEntity(0))->CheckNormalAttack( pEntity, 0.0f );
@@ -5896,7 +5897,7 @@ BOOL CNetworkLibrary::CheckSkillAttack( INDEX iSkillIndex, CEntity* pEntity )
 	return FALSE;
 }
 
-// NOTE : °ø°ÝÀÚ ¸ñ·ÏÀÌ 20°³¸¦ ³Ñ°Å³ª, ½Ã°£ÀÌ ÃÊ°úÇÑ°æ¿ì¿¡´Â ¸Þ½ÃÁö¸¦ º¸³¾°Í...
+// NOTE : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 20ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Å³ï¿½, ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½Ñ°ï¿½ì¿¡ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 // ----------------------------------------------------------------------------
 // Name : AddAttackList()
 // Desc : 
@@ -5934,7 +5935,7 @@ void CNetworkLibrary::AddAttackList( UBYTE ubAttackType, INDEX iAttackIndex, UBY
 void CNetworkLibrary::SendAttackList()
 {
 	int i;
-	if( !m_vectorAttackNPCList.empty() ) // NPC°¡ NPC¸¦ °ø°ÝÇÏ·Á°í ÇÒ¶§...	
+	if( !m_vectorAttackNPCList.empty() ) // NPCï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½...	
 	{
 		INDEX iCount	= m_vectorAttackNPCList.size();
 		CNetworkMessage nmAttack;
@@ -5965,7 +5966,7 @@ void CNetworkLibrary::SendAttackList()
 			m_vectorAttackNPCList.clear();
 	}
 
-	if( !m_vectorAttackSummonList.empty() ) // NPC°¡ ¼ÒÈ¯¼ö¸¦ °ø°ÝÇÏ·Á°í ÇÒ¶§...
+	if( !m_vectorAttackSummonList.empty() ) // NPCï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½...
 	{
 		INDEX iCount	= m_vectorAttackSummonList.size();
 		CNetworkMessage nmAttack;
@@ -5996,7 +5997,7 @@ void CNetworkLibrary::SendAttackList()
 			m_vectorAttackSummonList.clear();
 	}
 
-	if( !m_vectorAttackPetList.empty() )// NPC°¡ PetÀ» °ø°ÝÇÏ·Á°í ÇÒ¶§...
+	if( !m_vectorAttackPetList.empty() )// NPCï¿½ï¿½ Petï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½...
 	{
 		INDEX iCount	= m_vectorAttackPetList.size();
 		CNetworkMessage nmAttack;
@@ -6027,7 +6028,7 @@ void CNetworkLibrary::SendAttackList()
 			m_vectorAttackPetList.clear();
 	}
 	
-	if( !m_vectorAttackPCList.empty() ) // NPC°¡ PC¸¦ °ø°ÝÇÏ·Á°í ÇÒ¶§...
+	if( !m_vectorAttackPCList.empty() ) // NPCï¿½ï¿½ PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½...
 	{
 		INDEX iCount	= m_vectorAttackPCList.size();
 		CNetworkMessage nmAttack;
@@ -6095,7 +6096,7 @@ void CNetworkLibrary::AddMoveList( INDEX iIndex, FLOAT fX, FLOAT fZ, FLOAT fH, F
 	TempMove.fAngle		= fAngle;
 	m_vectorMoveList.push_back(TempMove);
 
-	// 20°³¸¦ ³Ñ¾î°¡¸é... ¼­¹ö·Î ¸Þ¼¼Áö¸¦ º¸³¿.
+	// 20ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½... ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if( m_vectorMoveList.size() >= MAX_MOVE_LIST )
 	{
 		SendMoveList();	
@@ -6108,14 +6109,14 @@ void CNetworkLibrary::AddMoveList(CEntity &en)
 	if (en.IsEnemy())
 	{
 		DWORD curTickCount = GetTickCount();
-		// EDIT : BS : ½Ã°£ µô·¹ÀÌ
+		// EDIT : BS : ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (en.m_tickSendPDMove == 0 || curTickCount - en.m_tickSendPDMove >= 500)
 		{
 			en.m_tickSendPDMove = curTickCount;
 
 			CPlacement3D pl		= en.GetLerpedPlacement();
 
-			// °°Àº ³ÑÀÌ ÀÖÀ¸¸é ÁÂÇ¥¸¸ ¼öÁ¤
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			bool bAdd = true;
 			if (!m_vectorMoveList.empty())
 			{
@@ -6147,7 +6148,7 @@ void CNetworkLibrary::AddMoveList(CEntity &en)
 				m_vectorMoveList.push_back(TempMove);
 			}
 
-			// 20°³¸¦ ³Ñ¾î°¡¸é... ¼­¹ö·Î ¸Þ¼¼Áö¸¦ º¸³¿.
+			// 20ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½... ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			if( m_vectorMoveList.size() >= MAX_MOVE_LIST )
 			{
 				SendMoveList(true);	
@@ -6168,8 +6169,8 @@ void CNetworkLibrary::SendMoveList(bool bForce)
 
 // EDIT : BS : BEGIN
 	DWORD tickCur = GetTickCount();
-	// EDIT : BS : ½Ã°£ µô·¹ÀÌ
-	// ¸®½ºÆ®°¡ °¡µæ ¾È Â÷°í ÃÖ±Ù º¸³½Áö 0.5ÃÊ°¡ ¾È Áö³µÀ¸¸é ¸ðÀº´Ù
+	// EDIT : BS : ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0.5ï¿½Ê°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (!bForce
 		&& m_vectorMoveList.size() < MAX_MOVE_LIST
 		&& m_tickSendMoveList != 0
@@ -6178,7 +6179,7 @@ void CNetworkLibrary::SendMoveList(bool bForce)
 	m_tickSendMoveList = tickCur;
 // EDIT : BS : END
 	int count;
-	//MSG_PD_MOVE,				//¹«ºê				: movetype(uc) speed(f) x(f) z(f) h(f) r(f) y(n) multicount(c) multiindex(n:multicount)
+	//MSG_PD_MOVE,				//ï¿½ï¿½ï¿½ï¿½				: movetype(uc) speed(f) x(f) z(f) h(f) r(f) y(n) multicount(c) multiindex(n:multicount)
 	CNetworkMessage nmMove;
 	RequestClient::moveForPernalDungeon* packet = reinterpret_cast<RequestClient::moveForPernalDungeon*>(nmMove.nm_pubMessage);
 	packet->type = MSG_PD_MOVE;
@@ -6330,7 +6331,7 @@ void CNetworkLibrary::DelLegitList(int Index)
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::AddAffinityRewardNPC(int iIndex)
 {
-	// ÀÌ¹Ì ¸®½ºÆ®¿¡ ÀÖÀ¸¸é ±×³É ¸®ÅÏ
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( std::count(m_listAffinityRewardNPCList.begin(), m_listAffinityRewardNPCList.end(), iIndex) )
 		return;
 
@@ -6374,7 +6375,7 @@ const std::list<int>& CNetworkLibrary::GetAffinityRewardNPCList()
 	return m_listAffinityRewardNPCList;
 }
 
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Zone Change System)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Zone Change System)(0.1)
 // ----------------------------------------------------------------------------
 // Name : GoZone()
 // Desc : 
@@ -6383,18 +6384,18 @@ void CNetworkLibrary::GoZone(int zone, int extra,int npcIdx )
 {
 	CUIManager* pUIManager = CUIManager::getSingleton();
 
-	// (eons) ½ÅÀü °ú ÇÊµå ÀÌµ¿½Ã Áö¿ªÇ¥½Ã ¹®Á¦·Î Áö¿ª ¹øÈ£ ÀúÀå
+	// (eons) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Êµï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	_pNetwork->MyCharacterInfo.LocalNo = extra;
 	
-	if(pUIManager->IsInstantZone(zone)) // [sora] ÀÎÁ¸À¸·Î ÀÌµ¿ÇÒ °æ¿ì
+	if(pUIManager->IsInstantZone(zone)) // [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{	
 		RaidInzoneJoinReq(zone);
 		return;
 	}
 	
-	if(pUIManager->IsPlayInZone()) // [sora] ÀÎ½ºÅÏÆ®Á¸³»ºÎ¿¡¼­ ³ª°¥°æ¿ì
+	if(pUIManager->IsPlayInZone()) // [sora] ï¿½Î½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		// [090709: selo] ·¹ÀÌµå¿¡¼­ ³ª°¥¶§´Â Äù½ºÆ® ºÏÀÇ ·¹ÀÌµå ¸Þ½ÃÁö¸¦ ºñ¿î´Ù
+		// [090709: selo] ï¿½ï¿½ï¿½Ìµå¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		GAMEDATAMGR()->GetQuest()->RemoveRaidMessageAll();
 		
 		RaidInzoneQuitReq(zone, extra);
@@ -6418,11 +6419,11 @@ void CNetworkLibrary::GoZone(int zone, int extra,int npcIdx )
 	packet->npcIndex = npcIdx;
 	nmZone.setSize(sizeof(*packet));
 	SendToServerNew(nmZone);
-	// (eons) ½ÅÀü °ú ÇÊµå ÀÌµ¿½Ã Áö¿ªÇ¥½Ã ¹®Á¦·Î Áö¿ª ¹øÈ£ ÀúÀå
+	// (eons) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Êµï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 	_pNetwork->MyCharacterInfo.LocalNo = extra;
 }
 
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(GM Command)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(GM Command)(0.1)
 void CNetworkLibrary::SendWhoAmI()
 {
 	CNetworkMessage nmGM((UBYTE)MSG_GM);
@@ -6437,12 +6438,12 @@ void CNetworkLibrary::SendGMCommand(const char *szCommand)
 	nmGM << CTString(szCommand);
 	SendToServerNew(nmGM);
 }
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(GM Command)(0.1)
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Game Manager Command)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(GM Command)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Game Manager Command)(0.1)
 //-----------------------------------------------------------------------------
-// NOTE : ±¸Ãâ NPCÀÇ Á¤º¸¸¦ ÆÄÆ¼·Î Ç¥½ÃÇÏ±â À§ÇÑ ºÎºÐÀÌ¸ç,
-// NOTE : ÇöÀç´Â ÆÄÆ¼¸â¹ö·Î ¹Ýµå½Ã 1¸í¸¸ µÇµµ·Ï µÇ¾îÀÖÀ½.
-// NOTE : ÃßÈÄ, º¯°æÇÒ°Í.
+// NOTE : ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½Ì¸ï¿½,
+// NOTE : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½.
+// NOTE : ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.
 // ----------------------------------------------------------------------------
 // Name : AddRescueNPC()
 // Desc : 
@@ -6489,7 +6490,7 @@ void CNetworkLibrary::EndRescueNPC()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¸ñ·Ï¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ´ë¿© ÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© ï¿½Õ´Ï´ï¿½.
 // Input  : iShopID - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendLeaseItem(int iItemIdx)
@@ -6504,7 +6505,7 @@ void CNetworkLibrary::SendLeaseItem(int iItemIdx)
 	SendToServerNew( nmMessage );
 }
 //-----------------------------------------------------------------------------
-// Purpose: ¸ñ·Ï¿¡ ÀÖ´Â ÀÌº¥Æ® ¾ÆÀÌÅÛÀ» ±¸ÀÔÇÕ´Ï´Ù. (2007 °¡Á¤ÀÇ ´Þ ÀÌº¥Æ®)
+// Purpose: ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (2007 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®)
 // Input  : iShopID - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendEventItem(int iItemIdx, int iItemcont)
@@ -6518,7 +6519,7 @@ void CNetworkLibrary::SendEventItem(int iItemIdx, int iItemcont)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¸ñ·Ï¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ±¸ÀÔÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : iShopID - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::BuyItem(int iShopID, int iNumOfItem, __int64 iTotalPrice)
@@ -6555,7 +6556,7 @@ void CNetworkLibrary::BuyItem(int iShopID, int iNumOfItem, __int64 iTotalPrice)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¸ñ·Ï¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ÆÇ¸ÅÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : iShopID - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SellItem(int iShopID, int iNumOfItem, __int64 iTotalPrice)
@@ -6597,7 +6598,7 @@ void CNetworkLibrary::SellItem(int iShopID, int iNumOfItem, __int64 iTotalPrice)
 //	CPrintF("Send MSG_ITEM_SELL, Shop ID : %d, Total Item Count : %d, Total Price : %ld\n", iShopID, iNumOfItem, iSumPrice);
 }
 //-----------------------------------------------------------------------------
-// Purpose: ÀâÈ­»ó ÀÌ¿ë ÁÖ¹®¼­ ¸ñ·Ï¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ±¸ÀÔÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::FieldShopBuyItem( int iNumOfItem, __int64 iTotalPrice)
@@ -6633,7 +6634,7 @@ void CNetworkLibrary::FieldShopBuyItem( int iNumOfItem, __int64 iTotalPrice)
 //	CPrintF("Send MSG_ITEM_BUY, Shop ID : %d, Total Item Count : %d, Total Price : %ld\n", iShopID, iNumOfItem, iSumPrice);	
 }
 //-----------------------------------------------------------------------------
-// Purpose: ÀâÈ­»ó ÀÌ¿ë ÁÖ¹®¼­ ¸ñ·Ï¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀ» ÆÇ¸ÅÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  :  
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::FieldShopSellItem(int iNumOfItem, __int64 iTotalPrice)
@@ -6745,7 +6746,7 @@ void CNetworkLibrary::SendStopMessage(CEntity *pEntity, CPlacement3D MyPlacement
 	}
 }
 
-SLONG CNetworkLibrary::SearchClientChaIndex(ULONG Index)//ÀÌ°Ç Å¬¶óÀÌ¾ðÆ® ÀÎµ¦½º¸¦ Ã£´Â ÇÔ¼ö.
+SLONG CNetworkLibrary::SearchClientChaIndex(ULONG Index)//ï¿½Ì°ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ô¼ï¿½.
 {
 	SLONG	cha_index = -1;
 
@@ -6766,12 +6767,12 @@ SLONG CNetworkLibrary::SearchClientChaIndex(ULONG Index)//ÀÌ°Ç Å¬¶óÀÌ¾ðÆ® ÀÎµ¦½º
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ³×Æ®¿öÅ© ID°ªÀ¸·Î ¿£Æ¼Æ¼¸¦ ¾ò½À´Ï´Ù.
+// Purpose: ï¿½ï¿½Æ®ï¿½ï¿½Å© IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 BOOL CNetworkLibrary::SearchEntityByNetworkID( long lIndex, SBYTE sbType, CEntity* &pEntity )
 {
-	// Ä³¸¯ÅÍ¿¡ ´ëÇØ¼­...
+	// Ä³ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½...
 	if (lIndex == MyCharacterInfo.index)
 	{
 		pEntity = CEntity::GetPlayerEntity(0);
@@ -6811,9 +6812,9 @@ void CNetworkLibrary::SendPickMessage( CEntity* pEntity, ULONG ItemIndex, BOOL b
 		}
 
 		CUIManager* pUIManager = CUIManager::getSingleton();
-		if( pUIManager->GetReformSystem()->IsVisible() ) // ¸®Æû ½Ã½ºÅÛ UI°¡ ¿­·Á ÀÖÀ» °æ¿ì ´ÜÃàÅ° ¸·À½ [9/6/2012 Ranma]
+		if( pUIManager->GetReformSystem()->IsVisible() ) // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ [9/6/2012 Ranma]
 			return;
-		if( pUIManager->GetSocketSystem()->IsVisible() ) // ¼ÒÄÏ ½Ã½ºÅÛ UI°¡ ¿­·Á ÀÖÀ» °æ¿ì ´ÜÃàÅ° ¸·À½ Ranma
+		if( pUIManager->GetSocketSystem()->IsVisible() ) // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ Ranma
 			return;
 
 		CNetworkMessage nmMessage;
@@ -6847,7 +6848,7 @@ void CNetworkLibrary::SendMoveMessage(CEntity *pEntity, CPlacement3D plPlacement
 		packet->subType = 0;
 		packet->charType = pEntity->GetNetworkType();
 
-		// [2012/08/22 : Sora] ³ªÀÌÆ® ½¦µµ¿ì ºñÇàÁß¿¡´Â ºñÇà ¸Þ½ÃÁö¸¦ º¸³»µµ·Ï ¼öÁ¤
+		// [2012/08/22 : Sora] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		UBYTE movetype;
 		if ( ( pEntity->IsPlayer() ) && 
 			( _pNetwork->MyCharacterInfo.ulPlayerState & PLAYER_STATE_FLYING ) )
@@ -6874,7 +6875,7 @@ void CNetworkLibrary::SendMoveMessage(CEntity *pEntity, CPlacement3D plPlacement
 		nmPlayerMove.setSize(sizeof(*packet));
 
 		SendToServerNew(nmPlayerMove);
-		// ±æµå ÀüÀïÁß Æ÷Å»À» Å¸·Á°í ÇÏ´Âµ¥ ÀÌµ¿À»  ÇÏ¸é Ãë¼Ò (ÁßÁö)
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å»ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´Âµï¿½ ï¿½Ìµï¿½ï¿½ï¿½  ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 		CUIManager::getSingleton()->GetGuildWarPortal()->PortalCancel();
 	}
 }
@@ -6921,7 +6922,7 @@ void CNetworkLibrary::SendAttackMessage(CEntity *pAttackerEntity, CEntity *pTarg
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Booster ¾÷±Û.
+// Purpose: Booster ï¿½ï¿½ï¿½ï¿½.
 // Input  : Index - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendBoosterUpgrade(LONG itemServerIndex)
@@ -6937,12 +6938,12 @@ void CNetworkLibrary::SendBoosterUpgrade(LONG itemServerIndex)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: NPC ÅëÇØ¼­ °¡°øÇÏ±â
+// Purpose: NPC ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 // Input  : Index - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendNPCProcessMessage(LONG processItemDBIndex, LONG count)
 {
-	//MSG_ITEM_PROCESS_NPC,		// NPC¸¦ ÅëÇØ °¡°ø		: processItemDBIndex(n) count(n) errcode(n:s)
+	//MSG_ITEM_PROCESS_NPC,		// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: processItemDBIndex(n) count(n) errcode(n:s)
 	if(!_cmiComm.IsNetworkOn()) return;
 
 	CNetworkMessage nmMessage;
@@ -6957,12 +6958,12 @@ void CNetworkLibrary::SendNPCProcessMessage(LONG processItemDBIndex, LONG count)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: »ý»êÇÏ±â.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
 // Input  : Index - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendSelectProduceMessage(LONG npc_client_index, LONG item_db_index)
 {
-	// »ý»ê °ü·Ã		: producekind(c) attackchartype(c) attackIndex(n) targetchartype(c) targetindex(n)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: producekind(c) attackchartype(c) attackIndex(n) targetchartype(c) targetindex(n)
 	if(!_cmiComm.IsNetworkOn()) return;
 
 	if( item_db_index >= 0 )
@@ -7003,7 +7004,7 @@ void CNetworkLibrary::SendCollectProduceMessage(LONG npc_client_index)
 
 void CNetworkLibrary::SendProduceMessage(ULONG Index, SBYTE sbKind)
 {
-	// »ý»ê °ü·Ã		: producekind(c) attackchartype(c) attackIndex(n) targetchartype(c) targetindex(n)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: producekind(c) attackchartype(c) attackIndex(n) targetchartype(c) targetindex(n)
 /*	if(_cmiComm. IsNetworkOn())
 	{		
 		CNetworkMessage nmPlayerAttack(MSG_PRODUCE);
@@ -7034,7 +7035,7 @@ void CNetworkLibrary::SendProduceMessage(ULONG Index, SBYTE sbKind)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¹è¿­³»¿¡ ÀÖ´Â ¸ðµç ¿£Æ¼Æ¼¿¡ ´ëÇØ¼­ Attack Message¸¦ º¸³À´Ï´Ù(½Ì±Û ¸ðµå¿¡¼­¸¸ »ç¿ëµÊ)
+// Purpose: ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ Attack Messageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½(ï¿½Ì±ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 // Input  : &dcEntities - 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendAttackMessageInContainer(CSelectedEntities &dcEntities)
@@ -7102,12 +7103,12 @@ void CNetworkLibrary::SendAttackMessageInContainer(CSelectedEntities &dcEntities
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ½ºÅ³ »ç¿ë ¸Þ¼¼Áö¸¦ º¸³»ÁÜ.
+// Purpose: ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 // Input  : nSkillIndex - 
 //			nTargetIndex - 
 //			bFire - 
 //-----------------------------------------------------------------------------
-// FIXME : ÄÚµå Á¤¸®°¡ ÇÊ¿äÇÔ.
+// FIXME : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
 void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nTargetIndex, BOOL bFire, UBYTE ubMove/*=0*/)
 {
 	ASSERT( pEntity != NULL && "Invalid Entity Pointer" );
@@ -7117,7 +7118,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 	CSkill &SkillData = GetSkillData( nSkillIndex );//0807
 	ObjInfo* pInfo = ObjInfo::getSingleton();
 
-	// FIXME : ¾Ö¿Ïµ¿¹°À» Å¸°í ÀÖ´Â »óÅÂ¿¡¼­ ½ºÅ³À» ¾²·Á°í ÇÒ¶§...
+	// FIXME : ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½...
 	if( pEntity->IsPlayer() 
 		&& _pNetwork->MyCharacterInfo.bPetRide 
 		&& SkillData.GetJob() == PET_JOB )
@@ -7155,7 +7156,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 				Firepacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 				nmSkill.setSize( sizeof(*Firepacket) );
 
-				strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+				strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 			}
 			else
 			{
@@ -7175,7 +7176,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 				Readypacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 				nmSkill.setSize( sizeof(*Readypacket) );
 
-				strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+				strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 			}
 
 			ClientSystemMessage( strSysMessage);
@@ -7205,7 +7206,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 		ANGLE3D plAngle = ANGLE3D( 0.0f, 0.0f, 0.0f );
 		SBYTE sbLayer = 0;
 
-		if ( nSkillIndex == 401 && ubMove == 1 ) // ´ë½¬
+		if ( nSkillIndex == 401 && ubMove == 1 ) // ï¿½ë½¬
 		{
 			penPlEntity = CEntity::GetPlayerEntity(0);
 			penPlayerEntity = (CPlayerEntity*)penPlEntity;
@@ -7256,7 +7257,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 
 			nmPlayerSkill.setSize( sizeof(*Firepacket) );
 			
-			strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 		else
 		{
@@ -7285,7 +7286,7 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 			nmPlayerSkill.setSize( sizeof(*Readypacket) );
 
 			CUIManager::getSingleton()->SetCSFlagOn(CSF_SKILLREADY);
-			strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 		
 		ClientSystemMessage( strSysMessage);
@@ -7299,8 +7300,8 @@ void CNetworkLibrary::SendSkillMessage(int nSkillIndex, CEntity *pEntity, int nT
 // Input  : 
 //			
 //-----------------------------------------------------------------------------
-// FIXME : ÄÚµå Á¤¸®°¡ ÇÊ¿äÇÔ.
-// FIXME : SendSkillMessage °è¿­µé Á¤¸® ÇÊ¿ä.
+// FIXME : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
+// FIXME : SendSkillMessage ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½.
 void CNetworkLibrary::SendPetSkillMessage(int nSkillIndex, CEntity *pSourceEntity, CEntity *pTargetEntity, BOOL bFire)
 {	
 	CSkill &SkillData = GetSkillData( nSkillIndex );
@@ -7327,7 +7328,7 @@ void CNetworkLibrary::SendPetSkillMessage(int nSkillIndex, CEntity *pSourceEntit
 		Firepacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 		nmPetSkill.setSize( sizeof(*Firepacket) );
 
-		strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+		strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 	}
 	else
 	{
@@ -7347,7 +7348,7 @@ void CNetworkLibrary::SendPetSkillMessage(int nSkillIndex, CEntity *pSourceEntit
 		Readypacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 		nmPetSkill.setSize( sizeof(*Readypacket) );
 
-		strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+		strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 	}
 
 	ClientSystemMessage( strSysMessage);
@@ -7360,8 +7361,8 @@ void CNetworkLibrary::SendPetSkillMessage(int nSkillIndex, CEntity *pSourceEntit
 // Input  : 
 //			
 //-----------------------------------------------------------------------------
-// FIXME : ÄÚµå Á¤¸®°¡ ÇÊ¿äÇÔ.
-// FIXME : SendSkillMessage °è¿­µé Á¤¸® ÇÊ¿ä.
+// FIXME : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
+// FIXME : SendSkillMessage ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½.
 void CNetworkLibrary::SendSlaveSkillMessage(int nSkillIndex, CEntity *pSourceEntity, CEntity *pTargetEntity, BOOL bFire)
 {
 	CSkill &SkillData = GetSkillData( nSkillIndex );
@@ -7387,7 +7388,7 @@ void CNetworkLibrary::SendSlaveSkillMessage(int nSkillIndex, CEntity *pSourceEnt
 		Firepacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 		nmSkill.setSize( sizeof(*Firepacket) );
 
-		strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+		strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 	}
 	else
 	{
@@ -7407,7 +7408,7 @@ void CNetworkLibrary::SendSlaveSkillMessage(int nSkillIndex, CEntity *pSourceEnt
 		Readypacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 		nmSkill.setSize( sizeof(*Readypacket) );
 
-		strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+		strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 	}
 
 	ClientSystemMessage( strSysMessage);
@@ -7421,7 +7422,7 @@ void CNetworkLibrary::SendSlaveSkillMessage(int nSkillIndex, CEntity *pSourceEnt
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendPetCommandMessage( int nSkillIndex, CEntity *pSourceEntity )
 {
-	// MSG_EX_PET_COMMAND,			// Æê »ç±³µ¿ÀÛ		: pet_index(n) command_skill_index(n) targettype(c) targetindex(n)
+	// MSG_EX_PET_COMMAND,			// ï¿½ï¿½ ï¿½ç±³ï¿½ï¿½ï¿½ï¿½		: pet_index(n) command_skill_index(n) targettype(c) targetindex(n)
 	ASSERT( pSourceEntity != NULL && "Invalid Entity Pointer" );
 	if( pSourceEntity == NULL )
 		return;	
@@ -7433,7 +7434,7 @@ void CNetworkLibrary::SendPetCommandMessage( int nSkillIndex, CEntity *pSourceEn
 
 	const int iSkillType = SkillData.GetType();
 
-	// Æê Ä¿¸Çµå ½ºÅ³¸¸!!!
+	// ï¿½ï¿½ Ä¿ï¿½Çµï¿½ ï¿½ï¿½Å³ï¿½ï¿½!!!
 	if( iSkillType != CSkill::ST_PET_COMMAND )
 	{
 		return;
@@ -7453,8 +7454,8 @@ void CNetworkLibrary::SendPetCommandMessage( int nSkillIndex, CEntity *pSourceEn
 // Input  : nSkillIndex - 
 //			&dcEntities - 
 //-----------------------------------------------------------------------------
-// FIXME : ÄÚµå Á¤¸®°¡ ÇÊ¿äÇÔ.
-// FIXME : SendSlaveSkillMessageInContainer() ¼ÒÈ­¼öÀÇ ½ºÅ³ ¸Þ¼¼Áö.
+// FIXME : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
+// FIXME : SendSlaveSkillMessageInContainer() ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Þ¼ï¿½ï¿½ï¿½.
 void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEntities &dcEntities, BOOL bFire)
 {
 	INDEX iMobCount	= dcEntities.Count();
@@ -7482,7 +7483,7 @@ void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEnti
 
 		UBYTE ubCharType = (UBYTE)MSG_CHAR_PC;		
 		int CharIndex;
-		// FIXME : ÆêÀ» Å¸°í ÀÖ´Â °æ¿ì.
+		// FIXME : ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½.
 		if( _pNetwork->MyCharacterInfo.bPetRide )
 		{
 			ubCharType = (UBYTE)MSG_CHAR_PET;
@@ -7526,7 +7527,7 @@ void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEnti
 					bFirst = TRUE;					
 					Firepacket->targetType = nTargetType;
 					Firepacket->targetIndex = iIndex;
-					Firepacket->listCount = iMobCount - 1;// Å¸°ÙÀÇ °¹¼ö.
+					Firepacket->listCount = iMobCount - 1;// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					continue;
 				}
 				Firepacket->list[i].mtargettype = nTargetType;
@@ -7537,7 +7538,7 @@ void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEnti
 			Size = sizeof(RequestClient::skillFire::tag_list) * i;
 			nmPlayerSkill.setSize( sizeof(*Firepacket) + Size );
 			
-			strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 		else
 		{
@@ -7569,7 +7570,7 @@ void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEnti
 			nmPlayerSkill.setSize( sizeof(*Readypacket) );
 
 			CUIManager::getSingleton()->SetCSFlagOn(CSF_SKILLREADY);
-			strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 
 		ClientSystemMessage( strSysMessage);
@@ -7583,8 +7584,8 @@ void CNetworkLibrary::SendSkillMessageInContainer(int nSkillIndex, CSelectedEnti
 // Input  : nSkillIndex - 
 //			&dcEntities - 
 //-----------------------------------------------------------------------------
-// FIXME : ÄÚµå Á¤¸®°¡ ÇÊ¿äÇÔ.
-// FIXME : SendSlaveSkillMessageInContainer() ¼ÒÈ­¼öÀÇ ½ºÅ³ ¸Þ¼¼Áö.
+// FIXME : ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½.
+// FIXME : SendSlaveSkillMessageInContainer() ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Þ¼ï¿½ï¿½ï¿½.
 void CNetworkLibrary::SendSlaveSkillMessageInContainer(int nSkillIndex, CEntity *pSourceEntity, CSelectedEntities &dcEntities, BOOL bFire)
 {
 	if( pSourceEntity == NULL )
@@ -7645,7 +7646,7 @@ void CNetworkLibrary::SendSlaveSkillMessageInContainer(int nSkillIndex, CEntity 
 					bFirst = TRUE;					
 					Firepacket->targetType = nTargetType;
 					Firepacket->targetIndex = iIndex;
-					Firepacket->listCount = iMobCount - 1;// Å¸°ÙÀÇ °¹¼ö.
+					Firepacket->listCount = iMobCount - 1;// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					continue;
 				}
 				Firepacket->list[i].mtargettype = nTargetType;
@@ -7656,7 +7657,7 @@ void CNetworkLibrary::SendSlaveSkillMessageInContainer(int nSkillIndex, CEntity 
 			Size = sizeof(RequestClient::skillFire::tag_list) * i;
 			nmPlayerSkill.setSize( sizeof(*Firepacket) + Size );
 
-			strSysMessage.PrintF( _S( 297, "%s ½ºÅ³À» »ç¿ëÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 297, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 		else
 		{
@@ -7687,7 +7688,7 @@ void CNetworkLibrary::SendSlaveSkillMessageInContainer(int nSkillIndex, CEntity 
 			Readypacket->nDummySkillSpeed = _pNetwork->MyCharacterInfo.skillSpeed;//Fix Skill hack Lc Brasil
 			nmPlayerSkill.setSize( sizeof(*Readypacket) );
 
-			strSysMessage.PrintF( _S( 298, "%s ½ºÅ³À» ½ºÆçÇÕ´Ï´Ù." ), SkillData.GetName() );
+			strSysMessage.PrintF( _S( 298, "%s ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." ), SkillData.GetName() );
 		}
 
 		ClientSystemMessage( strSysMessage);
@@ -7704,7 +7705,7 @@ void CNetworkLibrary::SendCancelSkillMessage()
 {
 	UBYTE ubCharType;
 	int nIdex;
-	// FIXME : ÆêÀ» Å¸°í ÀÖ´Â °æ¿ì.
+	// FIXME : ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½.
 	if( _pNetwork->MyCharacterInfo.bPetRide )
 	{
 		nIdex = MY_PET_INFO()->lIndex;
@@ -7758,7 +7759,7 @@ void CNetworkLibrary::SendRebirthMessage()
 }
 
 //wooss 050805
-//È®ÀåµÈ ¸®¹ö½º ¸Þ½ÃÁö ¾ÆÀÌÅÛ »ç¿ë¿©ºÎ¿Í ºÎÈ° Àå¼Ò 
+//È®ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë¿©ï¿½Î¿ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ 
 void CNetworkLibrary::SendRebirthMessageEx(int nIndex ,BOOL bUse ,BOOL bHere)
 {	
 	UIMGR()->SetCSFlagOn(CSF_TELEPORT);
@@ -7847,7 +7848,7 @@ void CNetworkLibrary::SendActionMessage(SBYTE action_type, SBYTE action_id, SBYT
 		packet->typevalue = action_type;
 		packet->index = action_id;
 
-		//¹°»Ñ¸®±â ¾×¼ÇÀÏ ¶§´Â Å¸°Ù ÀÎµ¦½º Àü´Þ
+		//ï¿½ï¿½ï¿½Ñ¸ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( action_id ==42 && epTarget )
 			targetIdx = epTarget->GetNetworkID();
 
@@ -7874,7 +7875,7 @@ void CNetworkLibrary::SendQuestMessage(UBYTE msgQuestType, INDEX data)
 
 // ----------------------------------------------------------------------------
 // Name : SendQuestPrizeMessage()
-// Desc : Äù½ºÆ® º¸»ó ¸Þ½ÃÁö.
+// Desc : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendQuestPrizeMessage(UBYTE msgType, INDEX iQuestIndex, INDEX iNpcIndex, INDEX iOptionItemIndex, INDEX iOptionItemPlust)
 {
@@ -7898,7 +7899,7 @@ void CNetworkLibrary::SendUseStatPoint( UBYTE ubStatType )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ÀÏ¹Ý ½ºÅ³ ¹è¿ì±â
+// Purpose: ï¿½Ï¹ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendSkillLearn( SLONG slIndex, int NpcVirIdx )
@@ -7915,7 +7916,7 @@ void CNetworkLibrary::SendSkillLearn( SLONG slIndex, int NpcVirIdx )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Æ¯¼ö ½ºÅ³ ¹è¿ì±â
+// Purpose: Æ¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendSSkillLearn( SLONG slIndex, int NpcVirIdx )
@@ -7987,7 +7988,7 @@ void CNetworkLibrary::SendWarpCancel()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: HP¿Í MPÀÇ ÆÐ³ÎÆ¼ È¸º¹
+// Purpose: HPï¿½ï¿½ MPï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ È¸ï¿½ï¿½
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendRecoverHPMP( SBYTE sbHPCount, SBYTE sbMPCount )
@@ -8000,7 +8001,7 @@ void CNetworkLibrary::SendRecoverHPMP( SBYTE sbHPCount, SBYTE sbMPCount )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¾ÆÀÌÅÛ ºÀÀÎ ÇØÁ¦
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendRecoverItemSeal( SWORD nTab, SWORD nIdx, SLONG slIndex)
@@ -8018,7 +8019,7 @@ void CNetworkLibrary::SendRecoverItemSeal( SWORD nTab, SWORD nIdx, SLONG slIndex
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ÀÌº¥Æ® º¸»ó¹Þ±â
+// Purpose: ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Þ±ï¿½
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendEventPrize()
@@ -8083,7 +8084,7 @@ void CNetworkLibrary::SendEventNewyear(int tv_event)
 	}
 }
 
-// [KH_070413] ½º½ÂÀÇ³¯ ÀÌº¥Æ® °ü·Ã Ãß°¡
+// [KH_070413] ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 void CNetworkLibrary::SendEventMaster()
 {
 	CNetworkMessage nmEvent( (UBYTE)MSG_EVENT );
@@ -8122,12 +8123,12 @@ void CNetworkLibrary::SendFindFriend(int tv_event,void * strInput)
 
 void CNetworkLibrary::DelMobTarget(ULONG ClientIndex)
 {
-	// ¼­¹ö ÀÎµ¦½º¸¦ °®°í ÀÖ´Ù¸é, ±×°ÍÀ¸·Î Áö¿ìÀÚ!!
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½, ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!
 	ObjectBase* pObject = ACTORMGR()->GetObjectByCIndex(eOBJ_MOB, ClientIndex);
 
 	if (pObject != NULL)
 	{
-		//Å¸°Ù ÀÌÆåÆ® ¾ø¾Ú...
+		//Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½...
 		CUIManager::getSingleton()->StopTargetEffect( pObject->GetSIndex() );
 		ACTORMGR()->RemoveObject(eOBJ_MOB, pObject->GetSIndex());
 	}
@@ -8139,7 +8140,7 @@ void CNetworkLibrary::DelChaTarget(ULONG ClientIndex)
 
 	if (pObject != NULL)
 	{
-		//Å¸°Ù ÀÌÆåÆ® ¾ø¾Ú...
+		//Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½...
 		CUIManager::getSingleton()->StopTargetEffect( pObject->GetSIndex() );
 		ACTORMGR()->RemoveObject(eOBJ_CHARACTER, pObject->GetSIndex());
 	}
@@ -8155,7 +8156,7 @@ void CNetworkLibrary::DelWildPetTarget(ULONG ulSIndex)
 
 		CUIManager* pUIManager = CUIManager::getSingleton();
 
-		//Å¸°Ù ÀÌÆåÆ® ¾ø¾Ú...
+		//Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½...
 		pUIManager->StopTargetEffect(pTarget->GetSIndex());
 
 		if (pTarget->m_nOwnerIndex == _pNetwork->MyCharacterInfo.index)
@@ -8192,7 +8193,7 @@ void CNetworkLibrary::ResetChaStatus(ULONG ClientIndex)
 	}
 }
 
-// Ranking °ü·Ã
+// Ranking ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::RankingPvPReq()
 {
 	CNetworkMessage nmQuest((UBYTE)MSG_QUEST);
@@ -8219,7 +8220,7 @@ void CNetworkLibrary::RankingGladesReq()
 #endif
 
 //-----------------------------------------------------------------------------
-// Purpose: ·©Å· ¸®½ºÆ®¸¦ ¿äÃ»ÇÔ.
+// Purpose: ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::Ranking_RequestList( SBYTE sbJob )
@@ -8232,7 +8233,7 @@ void CNetworkLibrary::Ranking_RequestList( SBYTE sbJob )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: º¸»ó ¸®½ºÆ®¸¦ ¿äÃ»ÇÔ.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::Ranking_RequestPrizeList()
@@ -8243,7 +8244,7 @@ void CNetworkLibrary::Ranking_RequestPrizeList()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: º¸»óÀ» ¿äÃ»ÇÔ.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::Ranking_Prize()
@@ -8254,7 +8255,7 @@ void CNetworkLibrary::Ranking_Prize()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Á÷¾÷°ú ÇØ´ç ¹«±âÀÇ ¾ÆÀÌÅÛ Á¤º¸¸¦ °®°í¼­, ¹«±â°¡ 2¹øÂ° Å¸ÀÔ(ÀüÁ÷)ÀÎÁö¸¦ Ã¼Å©
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½â°¡ 2ï¿½ï¿½Â° Å¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 //-----------------------------------------------------------------------------
 BOOL CNetworkLibrary::IsExtensionState( int iJob, CItemData& ID )
 {
@@ -8478,7 +8479,7 @@ void CNetworkLibrary::WarItemMixReq( SWORD* arrTab, SWORD* arrIdx )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¾Ö¿Ï µ¿¹°À» È£ÃâÇÔ.
+// Purpose: ï¿½Ö¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::CallPet( LONG lIndex )
@@ -8490,18 +8491,18 @@ void CNetworkLibrary::CallPet( LONG lIndex )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Æê Å¸ÀÔ Á¤º¸¸¦ ¾ò½À´Ï´Ù.
-// Input  : ¼­¹ö¿¡¼­ ¿À´Â °Í°ú Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¾²ÀÌ´ø°Ô ´Þ¶ó¼­... ÇÊ¿äÇÑ ºÎºÐ...
+// Purpose: ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+// Input  : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½... ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Îºï¿½...
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::CheckPetType( SBYTE sbPetTypeGrade, INDEX &iPetType, INDEX &iPetAge )
 {	
-	// MASK¸¦ ÇÏµå ÄÚµùÇÔ...
+	// MASKï¿½ï¿½ ï¿½Ïµï¿½ ï¿½Úµï¿½ï¿½ï¿½...
 	iPetType	= ((sbPetTypeGrade & 0xF0) >> 4) - 1;
 	iPetAge		= (sbPetTypeGrade & 0x0F) - 1;
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ°¡ ÆêÀ» Å¸µµ·Ï Ã³¸®ÇÕ´Ï´Ù.
+// Purpose: Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::RidePet( CEntity *pCharacter, CEntity *pPet, INDEX iPetType )
@@ -8515,7 +8516,7 @@ void CNetworkLibrary::RidePet( CEntity *pCharacter, CEntity *pPet, INDEX iPetTyp
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ°¡ Æê¿¡¼­ ³»¸®µµ·Ï Ã³¸®ÇÕ´Ï´Ù.
+// Purpose: Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ê¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::LeavePet( CEntity *pCharacter )
@@ -8528,7 +8529,7 @@ void CNetworkLibrary::LeavePet( CEntity *pCharacter )
 
 // author : rumist [12/20/2010 rumist]
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ°¡ ÆêÀ» Å¸µµ·Ï Ã³¸®ÇÕ´Ï´Ù.
+// Purpose: Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void	CNetworkLibrary::RideWildPet(CEntity *pCharacter, CEntity* pWildPet, CTString strFileName )
@@ -8542,7 +8543,7 @@ void	CNetworkLibrary::RideWildPet(CEntity *pCharacter, CEntity* pWildPet, CTStri
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ°¡ Æê¿¡¼­ ³»¸®µµ·Ï Ã³¸®ÇÕ´Ï´Ù.
+// Purpose: Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ê¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void	CNetworkLibrary::LeaveWildPet(CEntity *pCharacter )
@@ -8554,7 +8555,7 @@ void	CNetworkLibrary::LeaveWildPet(CEntity *pCharacter )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Æê Á¤º¸¸¦ °»½ÅÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::UpdatePetTargetInfo( INDEX iPetIndex )
@@ -8587,7 +8588,7 @@ void CNetworkLibrary::UpdatePetTargetInfo( INDEX iPetIndex )
 		const BOOL bPetRide = PetInfo().IsRide(iPetType, iPetAge);
 		if( bPetRide )
 		{
-			// ¸¶¿îÆ® »óÅÂ¿¡¼­ ¾Ö¿Ïµ¿¹°ÀÇ ¹è°íÇÄÀÌ 0ÀÌ¶ó¸é ¿òÁ÷ÀÌÁö ¸øÇÔ.
+			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			if( (*iter).lHungry <= 0 )
 				CUIManager::getSingleton()->SetCSFlagOn( CSF_MOUNT_HUNGRY );
 			else			
@@ -8599,7 +8600,7 @@ void CNetworkLibrary::UpdatePetTargetInfo( INDEX iPetIndex )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Æê Á¤º¸¸¦ Å¬¸®¾îÇÕ´Ï´Ù.
+// Purpose: ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::ClearPetList()
@@ -8679,9 +8680,9 @@ void CNetworkLibrary::SendPetDestruction()
 void CNetworkLibrary::SendPetItemMix( SLONG slPetItemIndex, SLONG slmethod )
 {
 	CNetworkMessage nmPet( (UBYTE)MSG_EXTEND );
-	nmPet << (LONG)MSG_EX_PET_MIX_ITEM;   // Á¶ÇÕ ¸Þ¼¼Áö
-	nmPet << slPetItemIndex;   // Á¦ÀÛ À¯´ÏÅ© ¾ÆÀÌÅÛ ÀÎµ¦½º
-	nmPet << slmethod;		// Á¦ÀÛ À¯Çü 0, 1
+	nmPet << (LONG)MSG_EX_PET_MIX_ITEM;   // ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	nmPet << slPetItemIndex;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	nmPet << slmethod;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0, 1
 
 	SendToServerNew( nmPet );
 }
@@ -8693,8 +8694,8 @@ void CNetworkLibrary::SendPetItemMix( SLONG slPetItemIndex, SLONG slmethod )
 void CNetworkLibrary::SendPetRebirth( SLONG slPetIndex )
 {
 	CNetworkMessage nmPet( (UBYTE)MSG_EXTEND );
-	nmPet << (LONG)MSG_EX_PET_REBIRTH;   // Á¶ÇÕ ¸Þ¼¼Áö
-	nmPet << slPetIndex;   // Á¦ÀÛ À¯´ÏÅ© ¾ÆÀÌÅÛ ÀÎµ¦½º
+	nmPet << (LONG)MSG_EX_PET_REBIRTH;   // ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	nmPet << slPetIndex;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
 	SendToServerNew( nmPet );
 }
@@ -8734,7 +8735,7 @@ void CNetworkLibrary::SendPetitemInfo(SLONG slOwnerIndex,int nitemIndex)
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyRecallConfirm(CTString tmp_str,LONG tmp_idx,BOOL tmp_answer)
 {
-	// ¸®ÄÝ È®ÀÎ ¸Þ½ÃÁö YES/NO
+	// ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ YES/NO
 	CNetworkMessage nmItem((UBYTE)MSG_EXTEND); 	
 	nmItem << (LONG)MSG_EX_PARTY_RECALL;
 	nmItem << (LONG)MSG_EX_PARTY_RECALL_CONFIRM;
@@ -8743,7 +8744,7 @@ void CNetworkLibrary::SendPartyRecallConfirm(CTString tmp_str,LONG tmp_idx,BOOL 
 	nmItem << (UBYTE)tmp_answer;
 	_pNetwork->SendToServerNew(nmItem);
 
-	if (tmp_answer) // ¸®ÄÝ ½Â³«ÀÏ¶§¸¸
+	if (tmp_answer) // ï¿½ï¿½ï¿½ï¿½ ï¿½Â³ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½
 	{
 		CUIManager::getSingleton()->SetCSFlagOn( CSF_TELEPORT );
 	}
@@ -8770,7 +8771,7 @@ void CNetworkLibrary::SendMovingGuildWarArea()
 
 bool CNetworkLibrary::IsLord() 
 {
-	// ³» ±æµå°¡ ¼ºÁÖ ±æµåÀÌ°í ³»°¡ ±× ±æµåÀÇ ±æµåÀåÀÌ¸é ¼ºÁÖ
+	// ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( ( MyCharacterInfo.sbJoinFlagMerac == WCJF_OWNER || MyCharacterInfo.sbJoinFlagDratan == WCJF_OWNER) 
 		&& ( MyCharacterInfo.lGuildPosition == GUILD_MEMBER_BOSS ) )
 		return true;
@@ -8854,9 +8855,9 @@ void CNetworkLibrary::SendChuseokExchange()
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
-// 2006 Ãß¼® ÀÌº¥Æ® :Su-won			|--------------------------------------------->
+// 2006 ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® :Su-won			|--------------------------------------------->
 	
-//¼ÛÆí ¸¸µé±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::Send2006ChuseokRicecakeMake()
 {
 	CNetworkMessage	nmMessage( (UBYTE)MSG_EVENT );
@@ -8867,7 +8868,7 @@ void CNetworkLibrary::Send2006ChuseokRicecakeMake()
 	SendToServerNew( nmMessage );
 }
 
-//¿À»ö ¼ÛÆí ¸¸µé±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::Send2006ChuseokRainbowMake()
 {
 	CNetworkMessage	nmMessage( (UBYTE)MSG_EVENT );
@@ -8878,7 +8879,7 @@ void CNetworkLibrary::Send2006ChuseokRainbowMake()
 	SendToServerNew( nmMessage );
 }
 
-//¿À»ö¼ÛÆí º¸»óÇ°À¸·Î ±³È¯ÇÏ±â
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï±ï¿½
 void CNetworkLibrary::Send2006ChuseokExchange()
 {
 	CNetworkMessage	nmMessage( (UBYTE)MSG_EVENT );
@@ -8888,7 +8889,7 @@ void CNetworkLibrary::Send2006ChuseokExchange()
 
 	SendToServerNew( nmMessage );
 }	
-// 2006 Ãß¼® ÀÌº¥Æ® :Su-won			<---------------------------------------------|
+// 2006 ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® :Su-won			<---------------------------------------------|
 ///////////////////////////////////////////////////////////////////////////////////
 
 // 2006 X-Mase event [12/12/2006 Theodoric]
@@ -8962,7 +8963,7 @@ void CNetworkLibrary::Send2p4pLetter( LONG lGameIndex )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Å¸¿îÀ¸·Î ±ÍÈ¯ÇÕ´Ï´Ù.
+// Purpose: Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Õ´Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendPetWarpTown()
@@ -8988,13 +8989,13 @@ void CNetworkLibrary::MandateBossReq( CTString strMandateCharName )
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ·Î±×ÀÎ ¸Þ¼¼Áö¸¦ ¼­¹ö·Î º¸³À´Ï´Ù.
+// Purpose: ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG ulVersion)
 {
-	// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
-	// EDIT : BS : ÆÐÅ¶ ¾ÏÈ£È­ : ¾ÏÈ£È­ Å° ÃÊ±âÈ­
+	// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
+	// EDIT : BS : ï¿½ï¿½Å¶ ï¿½ï¿½È£È­ : ï¿½ï¿½È£È­ Å° ï¿½Ê±ï¿½È­
 #ifdef CRYPT_NET_MSG
 	CNM_InitKeyValue(&cnmKey);
 #ifndef CRYPT_NET_MSG_MANUAL
@@ -9007,7 +9008,7 @@ void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG u
 #ifdef	VER_TEST
 	int nOther = 0, nVtm = ulVersion, nLocal;
 	{
-		// ´Ù¸¥ ¼­¹ö¿¡ Á¢¼ÓÇÏ±â
+		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 		std::string strFullPath = _fnmApplicationPath.FileDir();
 		strFullPath += "sl.txt";
 
@@ -9024,7 +9025,7 @@ void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG u
 	CNetworkMessage nmMessage;
 	RequestClient::LoginFromClient* packet = reinterpret_cast<RequestClient::LoginFromClient*>(nmMessage.nm_pubMessage);
 
-	// ·Î±×ÀÎ ¼­¹ö¿¡ Á¢¼Ó ÈÄ, »õ·Î¿î ¼­¹ö¿¡ Á¢¼ÓÀ» ½ÃµµÇÕ´Ï´Ù.
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½Õ´Ï´ï¿½.
 	packet->type = MSG_LOGIN;
 	packet->subType = MSG_LOGIN_NEW;
 	packet->mode = 0;
@@ -9073,8 +9074,8 @@ void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG u
 	packet->nation = (UBYTE)tv_idx;
 #endif	// VER_TEST
 	
-	// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
-	// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
+	// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
+	// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #ifdef CRYPT_NET_MSG
 #ifndef CRYPT_NET_MSG_MANUAL
 	ULONG ulSeed = (ULONG)CNM_MakeSeedForClient(strID, strPW, GetTickCount());
@@ -9087,7 +9088,7 @@ void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG u
 	m_uiSendedTime		= (unsigned int(_pTimer->GetLerpedCurrentTick()*1000)); //timeGetTime();
 	m_bSendMessage		= TRUE;
 
-	// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
+	// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #ifdef CRYPT_NET_MSG
 #ifndef CRYPT_NET_MSG_MANUAL
 	CNM_MakeKeyFromSeed(&_pNetwork->cnmKey, (unsigned int)ulSeed);
@@ -9098,8 +9099,8 @@ void CNetworkLibrary::SendLoginMessage(CTString& strID, CTString& strPW, ULONG u
 void CNetworkLibrary::SendSecurityMessage(CTString& strSecurity)
 {
 
-	// ·Î±×ÀÎ ¼­¹ö¿¡ Á¢¼Ó ÈÄ, º¸¾È Ä«µå Ã¼Å© ½ÃµµÇÕ´Ï´Ù.
-	CNetworkMessage nmSecurityCardNew((UBYTE)MSG_EXTEND);			// º¸¾ÈÄ«µå ¸Þ½ÃÁö º¸³»±â.			
+	// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ Ã¼Å© ï¿½Ãµï¿½ï¿½Õ´Ï´ï¿½.
+	CNetworkMessage nmSecurityCardNew((UBYTE)MSG_EXTEND);			// ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.			
 	nmSecurityCardNew << (LONG)MSG_EX_SECURE_CARD;
 	for(int i=0; i<4; i++)
 	{
@@ -9111,7 +9112,7 @@ void CNetworkLibrary::SendSecurityMessage(CTString& strSecurity)
 			
 }
 //-----------------------------------------------------------------------------
-// Purpose: ½´ÆÛ°íÁ¦.
+// Purpose: ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendSuperStoneReq()
@@ -9123,12 +9124,12 @@ void CNetworkLibrary::SendSuperStoneReq()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ »èÁ¦.
+// Purpose: Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendDeleteCharacter(ULONG ulIndex,BYTE del)
 {	
-	CNetworkMessage nmChaDel((UBYTE)MSG_MENU); //Ä³¸¯
+	CNetworkMessage nmChaDel((UBYTE)MSG_MENU); //Ä³ï¿½ï¿½
 	nmChaDel << (unsigned char)MSG_MENU_DEL;
 	nmChaDel << ulIndex;
 	nmChaDel << del;
@@ -9139,12 +9140,12 @@ void CNetworkLibrary::SendDeleteCharacter(ULONG ulIndex,BYTE del)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ »èÁ¦.
+// Purpose: Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendDeleteCharacter(ULONG ulIndex, CTString& strSecuNum, BYTE del)
 {	
-	CNetworkMessage nmChaDel((UBYTE)MSG_MENU); //Ä³¸¯
+	CNetworkMessage nmChaDel((UBYTE)MSG_MENU); //Ä³ï¿½ï¿½
 	nmChaDel << (unsigned char)MSG_MENU_DEL;
 	nmChaDel << ulIndex;
 	nmChaDel << strSecuNum;
@@ -9157,12 +9158,12 @@ void CNetworkLibrary::SendDeleteCharacter(ULONG ulIndex, CTString& strSecuNum, B
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: °ÔÀÓ ½ÃÀÛ.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendGameStart(ULONG ulIndex)
 {
-	/////½ºÅ¸Æ®
+	/////ï¿½ï¿½Å¸Æ®
 	CNetworkMessage nmChaStart((UBYTE)MSG_MENU); 
 	nmChaStart << (unsigned char)MSG_MENU_START;
 	nmChaStart << ulIndex;
@@ -9172,7 +9173,7 @@ void CNetworkLibrary::SendGameStart(ULONG ulIndex)
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¸ó½ºÅÍ º¯½Å Á¾·á.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendStopChange()
@@ -9183,12 +9184,12 @@ void CNetworkLibrary::SendStopChange()
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Ä³¸¯ÅÍ »ý¼º.
+// Purpose: Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendCreateCharacter( CTString& strName, UBYTE ubJob, UBYTE ubHair, UBYTE ubFace )
 {
-	CNetworkMessage nmChaNew((UBYTE)MSG_MENU);			//Ä³¸¯ »ý¼º.
+	CNetworkMessage nmChaNew((UBYTE)MSG_MENU);			//Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	nmChaNew << (unsigned char)MSG_MENU_NEW;	  	
 	nmChaNew << strName;
 	nmChaNew << (UBYTE)ubJob;
@@ -9200,12 +9201,12 @@ void CNetworkLibrary::SendCreateCharacter( CTString& strName, UBYTE ubJob, UBYTE
 } 
 
 //-----------------------------------------------------------------------------
-// Purpose: ¾ÆÀÌÅÛ »ç¿ë ¸Þ¼¼Áö.
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendItemUse( SWORD nTab, SWORD nInvenIdx, LONG lIndex, LONG lEtc )
 {
-	// ¾ÆÀÌÅÛÀ» ÅëÇØ¼­ Äù½ºÆ®¸¦ ¾òÀ¸·Á ÇÒ °æ¿ì
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	CNetworkMessage nmMessage;
 	RequestClient::doItemUse* packet = reinterpret_cast<RequestClient::doItemUse*>(nmMessage.nm_pubMessage);
 	packet->type = MSG_ITEM;
@@ -9220,12 +9221,12 @@ void CNetworkLibrary::SendItemUse( SWORD nTab, SWORD nInvenIdx, LONG lIndex, LON
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: Å¸°ÙÀÌ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ »ç¿ë ¸Þ¼¼Áö.
+// Purpose: Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½.
 // Input  : 
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendtargetItemUse( SWORD nTab, SWORD nInvenIdx, LONG lIndex, SBYTE sbType, LONG lMobIndex )
 {
-	// ¾ÆÀÌÅÛÀ» ÅëÇØ¼­ Äù½ºÆ®¸¦ ¾òÀ¸·Á ÇÒ °æ¿ì
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	CNetworkMessage nmMessage;
 	RequestClient::doItemTarget* packet = reinterpret_cast<RequestClient::doItemTarget*>(nmMessage.nm_pubMessage);
 	packet->type = MSG_ITEM;
@@ -9242,7 +9243,7 @@ void CNetworkLibrary::SendtargetItemUse( SWORD nTab, SWORD nInvenIdx, LONG lInde
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¾ÆÀÌÅÛ »ç¿ë ¸Þ¼¼Áö( ÇÕ¼º )
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½( ï¿½Õ¼ï¿½ )
 // Date  :  060523 wooss
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendMixItemUse( SWORD nTab, SWORD nInvenIdx, LONG lMixItemidx, LONG lCashItemIdx, LONG lgameItemIdx)
@@ -9262,7 +9263,7 @@ void CNetworkLibrary::SendMixItemUse( SWORD nTab, SWORD nInvenIdx, LONG lMixItem
 }
 
 //-----------------------------------------------------------------------------
-// Purpose: ¾ÆÀÌÅÛ »ç¿ë ¸Þ¼¼Áö( ºÐ¸® )
+// Purpose: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½( ï¿½Ð¸ï¿½ )
 // Date  :  060627 wooss
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::SendUnMixItemUse( SWORD nTab, SWORD nIdx, LONG lMixItemidx, LONG lCashItemIdx)
@@ -9282,8 +9283,8 @@ void CNetworkLibrary::SendUnMixItemUse( SWORD nTab, SWORD nIdx, LONG lMixItemidx
 
 
 //-----------------------------------------------------------------------------
-// Purpose: ¼ÒÈ¯¼ö »ý¼º.
-// Input  : ÇÃ·¹ÀÌ¾îÀÇ °æ¿ì¿¡¸¸ ÇØ´çÇÏ´Â °Í °°À½...
+// Purpose: ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+// Input  : ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
 //-----------------------------------------------------------------------------
 void CNetworkLibrary::CreateSlave( int iOwnerIndex, CEntity* pOwnerEntity, int iType )
 {
@@ -9324,19 +9325,19 @@ void CNetworkLibrary::SendEvent24(int sel,SBYTE eventType)
 	SendToServerNew( nmMessage );
 
 
-//	MSG_EVENT_2PAN4PAN_GOODS_CHECK,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¸®½ºÆ® ¿äÃ» : count(n:server) wooss 051031
-//	MSG_EVENT_2PAN4PAN_GOODS_REQ,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¹Þ±â ¿äÃ» :
-//	MSG_EVENT_2PAN4PAN_GOODS_REP,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¹Þ±â ÀÀ´ä : MSG_EVENT_2PAN4PAN_GOODS_ERROR_TYPE(n) count(n) [itemdbindex(n) itemcount(ll)]*count
+//	MSG_EVENT_2PAN4PAN_GOODS_CHECK,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : count(n:server) wooss 051031
+//	MSG_EVENT_2PAN4PAN_GOODS_REQ,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½Ã» :
+//	MSG_EVENT_2PAN4PAN_GOODS_REP,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ : MSG_EVENT_2PAN4PAN_GOODS_ERROR_TYPE(n) count(n) [itemdbindex(n) itemcount(ll)]*count
 
-//	MSG_EVENT_2PAN4PAN_MONEY_REQ,				// 2ÆÇ4ÆÇ ¸Ó´Ï Ä«µå ±³È¯ ¿äÃ» : type(n)
-												// type : 1 - ¸Â°í, 2 - Æ÷Ä¿
-//	MSG_EVENT_2PAN4PAN_MONEY_REP,				// 2ÆÇ4ÆÇ ¸Ó´Ï Ä«µå ±³È¯ ÀÀ´ä : success(n)
-												// success : 0 - ½ÇÆÐ, 1 - ¼º°ø
+//	MSG_EVENT_2PAN4PAN_MONEY_REQ,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½Ó´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã» : type(n)
+												// type : 1 - ï¿½Â°ï¿½, 2 - ï¿½ï¿½Ä¿
+//	MSG_EVENT_2PAN4PAN_MONEY_REP,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½Ó´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : success(n)
+												// success : 0 - ï¿½ï¿½ï¿½ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½
 
-//	MSG_EVENT_2PAN4PAN_BOX_CHECK,				// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ °Ë»ç	: flag(n:server)
-												// flag : 0 - ¾øÀ½, 1 - ÀÖÀ½
-//	MSG_EVENT_2PAN4PAN_BOX_REQ,					// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ ¿äÃ»	: 
-//	MSG_EVENT_2PAN4PAN_BOX_REP,					// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ ÀÀ´ä	: MSG_EVENT_2PAN4PAN_BOX_ERROR_TYPE(n) count(n)  [itemdbindex(n) itemcount(ll)]*count
+//	MSG_EVENT_2PAN4PAN_BOX_CHECK,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ë»ï¿½	: flag(n:server)
+												// flag : 0 - ï¿½ï¿½ï¿½ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½
+//	MSG_EVENT_2PAN4PAN_BOX_REQ,					// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»	: 
+//	MSG_EVENT_2PAN4PAN_BOX_REP,					// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½	: MSG_EVENT_2PAN4PAN_BOX_ERROR_TYPE(n) count(n)  [itemdbindex(n) itemcount(ll)]*count
 
 }
 
@@ -9375,8 +9376,8 @@ void CNetworkLibrary::SendCastleMapSignal( FLOAT fX, FLOAT fY, LONG lSenderFlag,
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendGameStart
-// Explain: ·ÎµùÀÌ ¿Ï·áµÇ¸é ¼­¹ö¿¡ MSG_START_GAME¸¦ º¸³½´Ù.
-// * ÇöÀç ·ÎµùµÇ°í ÀÖ´Â zone ¹øÈ£´Â ÃÊ±âÈ­
+// Explain: ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MSG_START_GAMEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// * ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ç°ï¿½ ï¿½Ö´ï¿½ zone ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ê±ï¿½È­
 // Date : 2005-11-03,Author: Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendGameStart()
@@ -9392,8 +9393,8 @@ void CNetworkLibrary::SendGameStart()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SetLoadingZone
-// Explain: ¼­¹ö¿¡¼­ MSG_DB_OK¸Þ¼¼Áö¸¦ ¹ÞÀ¸¸é Á¸¹øÈ£¸¦ ÀúÀåÇÏ¿© 
-// Á¸ ·ÎµùÀÌ ¿Ï·á µÈ ÈÄ¿¡ MSG_START_GAME¸¦ º¸³½´Ù.
+// Explain: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MSG_DB_OKï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ 
+// ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½Ä¿ï¿½ MSG_START_GAMEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 // Date : 2005-11-03,Author: Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SetLoadingZone( LONG lZone )
@@ -9404,8 +9405,8 @@ void CNetworkLibrary::SetLoadingZone( LONG lZone )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GetLoadingZone
-// Explain: ·ÎµùµÇ°í ÀÖ´Â Á¸ÀÇ ¹øÈ£¸¦ ¾ò¾î ¿Â´Ù.
-// * ·ÎµùÀ» ÇÏ°í ÀÖÁö ¾ÊÀ»¶§´Â -1
+// Explain: ï¿½Îµï¿½ï¿½Ç°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Â´ï¿½.
+// * ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -1
 // Date : 2005-11-03,Author: Lee Ki-hwan
 //------------------------------------------------------------------------------
 LONG CNetworkLibrary::GetLoadingZone()
@@ -9415,8 +9416,8 @@ LONG CNetworkLibrary::GetLoadingZone()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::GetLoadingZone
-// Explain: ·ÎµùµÇ°í ÀÖ´Â Á¸ÀÇ ¹øÈ£¸¦ ¾ò¾î ¿Â´Ù.
-// * ·ÎµùÀ» ÇÏ°í ÀÖÁö ¾ÊÀ»¶§´Â -1
+// Explain: ï¿½Îµï¿½ï¿½Ç°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Â´ï¿½.
+// * ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -1
 // Date : 2005-11-03,Author: Lee Ki-hwan
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendNetCafeOpenBox()
@@ -9428,8 +9429,8 @@ void CNetworkLibrary::SendNetCafeOpenBox()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyRegistNormal
-// Explain: ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ¿äÃ»
-// Date : 2006-05-09(¿ÀÈÄ 5:14:07), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-09(ï¿½ï¿½ï¿½ï¿½ 5:14:07), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyRegistNormal( int nType )
 {
@@ -9444,8 +9445,8 @@ void CNetworkLibrary::SendPartyRegistNormal( int nType )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyRegistParty
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¿äÃ»
-// Date : 2006-05-09(¿ÀÈÄ 5:14:07), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-09(ï¿½ï¿½ï¿½ï¿½ 5:14:07), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyRegistParty( CTString strComment, DWORD JobFlag, int LimitLevel )
 {
@@ -9461,19 +9462,19 @@ void CNetworkLibrary::SendPartyRegistParty( CTString strComment, DWORD JobFlag, 
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyRegistParty
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¿äÃ»
-// Date : 2006-05-13(¿ÀÈÄ 1:22:33), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-13(ï¿½ï¿½ï¿½ï¿½ 1:22:33), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyListReq( int nPage, int nJob, int nLimitLv, int nPtType, BOOL bState )
 {
 	CNetworkMessage nmMessage( (UBYTE)MSG_EXTEND );
 	nmMessage << (ULONG)MSG_EX_PARTY_MATCH;
 
-	if( bState ) // ÆÄÆ¼ ÆÀ ¸®½ºÆ® ¿äÃ»
+	if( bState ) // ï¿½ï¿½Æ¼ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 	{
 		nmMessage << (ULONG)MSG_EX_PARTY_MATCH_PARTY_LIST_REQ;
 	}
-	else// ÆÄÆ¼ ¸â¹ö ¸®½ºÆ® ¿äÃ»
+	else// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 	{
 		nmMessage << (ULONG)MSG_EX_PARTY_MATCH_MEMBER_LIST_REQ;
 	}
@@ -9488,8 +9489,8 @@ void CNetworkLibrary::SendPartyListReq( int nPage, int nJob, int nLimitLv, int n
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyRegistDelete
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï »èÁ¦ ¿äÃ»
-// Date : 2006-05-15(¿ÀÀü 9:54:51), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-15(ï¿½ï¿½ï¿½ï¿½ 9:54:51), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyRegistDelete()
 {
@@ -9502,8 +9503,8 @@ void CNetworkLibrary::SendPartyRegistDelete()
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyInviteReq
-// Explain: ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ÃÊ´ë ¿äÃ»
-// Date : 2006-05-15(¿ÀÀü 9:54:51), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-15(ï¿½ï¿½ï¿½ï¿½ 9:54:51), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyInviteReq( int nCharIndex )
 {
@@ -9517,8 +9518,8 @@ void CNetworkLibrary::SendPartyInviteReq( int nCharIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyJoinReq
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ¿äÃ»
-// Date : 2006-05-15(¿ÀÈÄ 1:39:55), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-05-15(ï¿½ï¿½ï¿½ï¿½ 1:39:55), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyJoinReq( int nBossIndex )
 {
@@ -9532,8 +9533,8 @@ void CNetworkLibrary::SendPartyJoinReq( int nBossIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyJoinAllow
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ Çã¶ô
-// Date : 2006-05-15(¿ÀÈÄ 1:28:11), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+// Date : 2006-05-15(ï¿½ï¿½ï¿½ï¿½ 1:28:11), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyJoinAllow( int nReqIndex )
 {
@@ -9547,8 +9548,8 @@ void CNetworkLibrary::SendPartyJoinAllow( int nReqIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendPartyJoinReject
-// Explain: ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ °ÅÀý
-// Date : 2006-05-15(¿ÀÈÄ 1:28:11), By eons
+// Explain: ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// Date : 2006-05-15(ï¿½ï¿½ï¿½ï¿½ 1:28:11), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPartyJoinReject( int nReqIndex )
 {
@@ -9596,7 +9597,7 @@ void CNetworkLibrary::SendWorldCupEvent( int msgCmd, int iSelIdx )
 //------------------------------------------------------------------------------
 // CNetworkLibrary::SendWorldCupGoldenBallEvent
 // Explain: Golden ball event
-// Date : 2006-06-01(¿ÀÈÄ 8:05:27), By eons
+// Date : 2006-06-01(ï¿½ï¿½ï¿½ï¿½ 8:05:27), By eons
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendWorldCupGoldenBallEvent( int nSendType, int nTeamAScore, int nTeamBScore )
 {
@@ -9618,7 +9619,7 @@ void CNetworkLibrary::SendWorldCupGoldenBallEvent( int nSendType, int nTeamAScor
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrOneVsOneConnect
 // Explain: OneOnOneChatMessenger
-// Date : 2006-12-11(¿ÀÈÄ 8:05:27), By KwonYongDae
+// Date : 2006-12-11(ï¿½ï¿½ï¿½ï¿½ 8:05:27), By KwonYongDae
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrOneVsOneConnect( int nCharIndex, int nOtherCharIndex, CTString strChat )
 {
@@ -9636,7 +9637,7 @@ void CNetworkLibrary::MgrOneVsOneConnect( int nCharIndex, int nOtherCharIndex, C
 //============================================================================================================
 // CNetworkLibrary::SendBuddhismEvent
 // Explain : Buddhism event
-// Date : 2006-06-27(¿ÀÀü 10:44:09), By eons
+// Date : 2006-06-27(ï¿½ï¿½ï¿½ï¿½ 10:44:09), By eons
 //============================================================================================================
 void CNetworkLibrary::SendBuddhismEvent( BYTE nType )
 {
@@ -9650,8 +9651,8 @@ void CNetworkLibrary::SendBuddhismEvent( BYTE nType )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrFriendInvite
-// Explain: Ä£±¸¸¦ ´ëÈ­¿¡ ÃÊ´ëÇÑ´Ù
-// nCharIndex - Ã¤ÆÃÃ¢ »ý¼º Ä³¸¯ ÀÎµ¦½º, ChatIndex -Ã¤ÆÃÃ¢ ÀÎµ¦½º, strTargetName -ÃÊ´ëÇÒ Ä³¸¯ ÀÌ¸§
+// Explain: Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ê´ï¿½ï¿½Ñ´ï¿½
+// nCharIndex - Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½, ChatIndex -Ã¤ï¿½ï¿½Ã¢ ï¿½Îµï¿½ï¿½ï¿½, strTargetName -ï¿½Ê´ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Ì¸ï¿½
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrFriendInvite( int nCharIndex, int nChatIndex, int nTargetIndex)
@@ -9669,8 +9670,8 @@ void CNetworkLibrary::MgrFriendInvite( int nCharIndex, int nChatIndex, int nTarg
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrFriendOut
-// Explain: Ä£±¸°¡ ´ëÈ­Ã¢¿¡¼­ ³ª°¨.
-// nCharIndex - Ã¤ÆÃÃ¢ »ý¼º Ä³¸¯ ÀÎµ¦½º, nChatIndex -Ã¤ÆÃÃ¢ ÀÎµ¦½º
+// Explain: Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+// nCharIndex - Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½, nChatIndex -Ã¤ï¿½ï¿½Ã¢ ï¿½Îµï¿½ï¿½ï¿½
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrFriendOut( int nCharIndex, int nChatIndex )
@@ -9687,8 +9688,8 @@ void CNetworkLibrary::MgrFriendOut( int nCharIndex, int nChatIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrFriendChat
-// Explain: Ä£±¸°¡ ´ëÈ­Ã¢¿¡¼­ ³ª°¨.
-// nCharIndex - Ã¤ÆÃÃ¢ »ý¼º Ä³¸¯ ÀÎµ¦½º, nChatIndex -Ã¤ÆÃÃ¢ ÀÎµ¦½º, strChat -Ã¤ÆÃ ³»¿ë
+// Explain: Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+// nCharIndex - Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½, nChatIndex -Ã¤ï¿½ï¿½Ã¢ ï¿½Îµï¿½ï¿½ï¿½, strChat -Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrFriendChat( int nCharIndex, int nChatIndex, CTString strChat)
@@ -9706,8 +9707,8 @@ void CNetworkLibrary::MgrFriendChat( int nCharIndex, int nChatIndex, CTString st
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrBlock
-// Explain: Ä£±¸¸¦ Â÷´Ü½ÃÅ´.
-// strTarget -Â÷´Ü´ë»ó Ä³¸¯ ÀÌ¸§
+// Explain: Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü½ï¿½Å´.
+// strTarget -ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Ì¸ï¿½
 // Date : 2006-6-2 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrBlock( CTString strTarget)
@@ -9723,8 +9724,8 @@ void CNetworkLibrary::MgrBlock( CTString strTarget)
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrUnBlock
-// Explain: Â÷´ÜµÈ Ä³¸¯À» ÇØÁ¦ÇÔ.
-// strTarget -Â÷´Ü´ë»ó Ä³¸¯ ÀÌ¸§
+// Explain: ï¿½ï¿½ï¿½Üµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// strTarget -ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Ì¸ï¿½
 // Date : 2006-6-9 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrUnBlock( int nCharIndex )
@@ -9740,8 +9741,8 @@ void CNetworkLibrary::MgrUnBlock( int nCharIndex )
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrGroupAdd
-// Explain: ¸Þ½ÅÀú¿¡ ±×·ìÀ» Ãß°¡.
-// strName -Ãß°¡ÇÒ ±×·ì ÀÌ¸§
+// Explain: ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½.
+// strName -ï¿½ß°ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Ì¸ï¿½
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrGroupAdd( CTString strName)
@@ -9757,8 +9758,8 @@ void CNetworkLibrary::MgrGroupAdd( CTString strName)
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrGroupDel
-// Explain: ¸Þ½ÅÀú¿¡ ±×·ìÀ» »èÁ¦ÇÔ.
-// nGroupIndex -»èÁ¦ÇÒ ±×·ì ÀÎµ¦½º
+// Explain: ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// nGroupIndex -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrGroupDel( int nGroupIndex)
@@ -9774,8 +9775,8 @@ void CNetworkLibrary::MgrGroupDel( int nGroupIndex)
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrGroupRename
-// Explain: ¸Þ½ÅÀú¿¡ ±×·ì ÀÌ¸§À» º¯°æÇÔ.
-// nGroupIndex -º¯°æÇÒ ±×·ì ÀÎµ¦½º, strNewName -º¯°æÇÒ ÀÌ¸§.
+// Explain: ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// nGroupIndex -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Îµï¿½ï¿½ï¿½, strNewName -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½.
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrGroupRename( int nGroupIndex, CTString strNewName)
@@ -9792,8 +9793,8 @@ void CNetworkLibrary::MgrGroupRename( int nGroupIndex, CTString strNewName)
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrGroupMove
-// Explain: ¸Þ½ÅÀú¿¡ Ä£±¸ÀÇ ±×·ìÀ» º¯°æÇÔ.
-// nGroupIndex -º¯°æÇÒ ±×·ì ÀÎµ¦½º, strCharName -±×·ìÀ» ÀÌµ¿ÇÒ Ä³¸¯ ÀÌ¸§.
+// Explain: ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+// nGroupIndex -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Îµï¿½ï¿½ï¿½, strCharName -ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Ì¸ï¿½.
 // Date : 2006-6-1 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrGroupMove( int nGroupIndex, int nCharIndex)
@@ -9810,8 +9811,8 @@ void CNetworkLibrary::MgrGroupMove( int nGroupIndex, int nCharIndex)
 
 //------------------------------------------------------------------------------
 // CNetworkLibrary::MgrSetChatColor
-// Explain: Ã¤ÆÃ±ÛÀÇ »ö±ò ¼³Á¤
-// colChat -º¯°æÇÒ »ö
+// Explain: Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// colChat -ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 // Date : 2006-6-7 Su-won
 //------------------------------------------------------------------------------
 void CNetworkLibrary::MgrSetChatColor( int nColIndex)
@@ -9827,8 +9828,8 @@ void CNetworkLibrary::MgrSetChatColor( int nColIndex)
 
 //============================================================================================================
 // CNetworkLibrary::SendBuyCollectBox
-// Explain : °ïÃæ Ã¤Áý »óÀÚ ±¸ÀÔ
-// Date : 2006-06-28(¿ÀÈÄ 4:21:15), By eons
+// Explain : ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// Date : 2006-06-28(ï¿½ï¿½ï¿½ï¿½ 4:21:15), By eons
 //============================================================================================================
 void CNetworkLibrary::SendBuyCollectBox( void )
 {
@@ -9842,8 +9843,8 @@ void CNetworkLibrary::SendBuyCollectBox( void )
 
 //============================================================================================================
 // CNetworkLibrary::SendGiftCollectBox
-// Explain : °ïÃæ Ã¤Áý »óÀÚ º¸»ó ¿äÃ»
-// Date : 2006-06-28(¿ÀÈÄ 4:23:19), By eons
+// Explain : ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// Date : 2006-06-28(ï¿½ï¿½ï¿½ï¿½ 4:23:19), By eons
 //============================================================================================================
 void CNetworkLibrary::SendGiftCollectBox( void )
 {
@@ -9857,8 +9858,8 @@ void CNetworkLibrary::SendGiftCollectBox( void )
 
 //============================================================================================================
 // CNetworkLibrary::SendDropInsect
-// Explain : °ïÃæ ¾ÆÀÌÅÛ µå·Ó
-// Date : 2006-06-28(¿ÀÈÄ 4:24:31), By eons
+// Explain : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+// Date : 2006-06-28(ï¿½ï¿½ï¿½ï¿½ 4:24:31), By eons
 //============================================================================================================
 void CNetworkLibrary::SendDropInsect( int nInsect, LONG lBoxVIndex )
 {
@@ -9891,7 +9892,7 @@ void CNetworkLibrary::SetCheckPointData(int questIdx,int chkNumFlag, int maxChkf
 
 //==============================================================================================
 // CNetworkLibrary::SendUsaOpenBetaGift
-// Expalin : ¹Ì±¹ ¿ÀÇÂ º£Å¸ ¼±¹° Áö±Þ( 7ÀÏ°£ )
+// Expalin : ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( 7ï¿½Ï°ï¿½ )
 // Date : [11/16/2006] , eons
 //==============================================================================================
 void CNetworkLibrary::SendUsaOpenBetaGift(void)
@@ -9905,7 +9906,7 @@ void CNetworkLibrary::SendUsaOpenBetaGift(void)
 
 //=============================================================================================
 // CNetworkLibrary::SendSaveBingoItem
-// Explain : ·¯ºê·¯ºê ÀÌº¥Æ®(ÃÊÄÚ»óÀÚ ¾ÆÀÌÅÛ ÀúÀå ¿äÃ»)
+// Explain : ï¿½ï¿½ï¿½ê·¯ï¿½ï¿½ ï¿½Ìºï¿½Æ®(ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»)
 //
 //=============================================================================================
 void CNetworkLibrary::SendSaveBingoItem(BYTE nPos, int nGiftItemIndex, int nBoxItemIndex)
@@ -9923,7 +9924,7 @@ void CNetworkLibrary::SendSaveBingoItem(BYTE nPos, int nGiftItemIndex, int nBoxI
 
 //=============================================================================================
 // CNetworkLibrary::SendSaveBingoItem
-// Explain : ·¯ºê·¯ºê ÀÌº¥Æ®(ÃÊÄÚ»óÀÚ ¾ÆÀÌÅÛ ÀúÀå ¿äÃ»)
+// Explain : ï¿½ï¿½ï¿½ê·¯ï¿½ï¿½ ï¿½Ìºï¿½Æ®(ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»)
 //
 //=============================================================================================
 void CNetworkLibrary::SendReqGiftChocoBox(int nUniItemIndex)
@@ -9966,7 +9967,7 @@ void CNetworkLibrary::SendWhiteday2007Letter(int itemIdx,COLOR colMsg,CTString t
 
 // WSS_GUILDMASTER 070416 ----------------------------------------->>
 
-// ±æµåÆ÷ÀÎÆ® ¸®½ºÆ® ¿äÃ» 
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» 
 void CNetworkLibrary::SendRequestParentsday(int reqIdx)
 {
 	CNetworkMessage nmMessage((UBYTE)MSG_EVENT);
@@ -9977,7 +9978,7 @@ void CNetworkLibrary::SendRequestParentsday(int reqIdx)
 	SendToServerNew(nmMessage);
 }
 
-// ±æµå Æ÷ÀÎÆ® µî·Ï
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 void CNetworkLibrary::SendParentsdayAddPoint(int charIdx)
 {
 	CNetworkMessage nmMessage((UBYTE)MSG_EVENT);
@@ -10014,71 +10015,71 @@ void CNetworkLibrary::SendnProtectAuth2(DWORD dwArg)
 
 BOOL CNetworkLibrary::Init_nProtect()
 {	
-	// npgl ÃÊ±âÈ­ ¿¡·¯ ¸Þ½ÃÁö Ãâ·Â
+	// npgl ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	DWORD dwResult = npgl.Init();
 	if ( dwResult != NPGAMEMON_SUCCESS )
 	{
 		CTString msg,errStr;
 		switch(dwResult)
 		{
-			// TODO : ¸Þ½ÃÁö Ãâ·Â(p18)
+			// TODO : ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(p18)
 		case NPGAMEMON_ERROR_EXIST:
-			errStr = _S(3321,"°ÔÀÓ°¡µå°¡ ½ÇÇà ÁßÀÔ´Ï´Ù. Àá½Ã ÈÄ³ª ÀçºÎÆÃ ÈÄ¿¡ ´Ù½Ã ½ÇÇàÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3321,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ ï¿½Ä³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_GAME_EXIST:
-			errStr = _S(3322,"°ÔÀÓÀÌ Áßº¹ ½ÇÇàµÇ¾ú°Å³ª °ÔÀÓ°¡µå°¡ ÀÌ¹Ì ½ÇÇà Áß ÀÔ´Ï´Ù. °ÔÀÓ Á¾·á ÈÄ ´Ù½Ã ½ÇÇàÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù,");
+			errStr = _S(3322,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½å°¡ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½,");
 			break;
 		case NPGAMEMON_ERROR_INIT:
-			errStr = _S(3323,"°ÔÀÓ°¡µå ÃÊ±âÈ­ ¿¡·¯ÀÔ´Ï´Ù. ÀçºÎÆÃ ÈÄ ´Ù½Ã ½ÇÇàÇØ º¸°Å³ª Ãæµ¹ÇÒ ¼ö ÀÖ´Â ´Ù¸¥ ÇÁ·Î±×·¥µéÀ» Á¾·áÇÑ ÈÄ ½ÇÇàÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3323,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_AUTH_GAMEGUARD:
 		case NPGAMEMON_ERROR_NFOUND_GG:			
 		case NPGAMEMON_ERROR_AUTH_INI:		
 		case NPGAMEMON_ERROR_NFOUND_INI:
-			errStr = _S(3324,"°ÔÀÓ°¡µå ÆÄÀÏÀÌ ¾ø°Å³ª º¯Á¶µÇ¾ú½À´Ï´Ù. °ÔÀÓ°¡µå ¼Â¾÷ ÆÄÀÏÀ» ¼³Ä¡ÇØº¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3324,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Øºï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_CRYPTOAPI:
-			errStr = _S(3325,"À©µµ¿ìÀÇ ÀÏºÎ ½Ã½ºÅÛ ÆÄÀÏÀÌ ¼Õ»óµÇ¾ú½À´Ï´Ù. ÀÎÅÍ³Ý ÀÍ½ºÇÃ·Î·¯(IE)¸¦ ´Ù½Ã ¼³Ä¡ÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3325,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ»ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Í³ï¿½ ï¿½Í½ï¿½ï¿½Ã·Î·ï¿½(IE)ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_EXECUTE:
-			errStr = _S(3326,"°ÔÀÓ°¡µå ½ÇÇà¿¡ ½ÇÆÐÇß½À´Ï´Ù. °ÔÀÓ°¡µå ¼Â¾÷ ÆÄÀÏÀ» ´Ù½Ã ¼³Ä¡ÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3326,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_ILLEGAL_PRG:
-			errStr = _S(3327,"ºÒ¹ý ÇÁ·Î±×·¥ÀÌ ¹ß°ßµÇ¾ú½À´Ï´Ù. ºÒÇÊ¿äÇÑ ÇÁ·Î±×·¥À» Á¾·áÇÑ ÈÄ ´Ù½Ã ½ÇÇàÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3327,"ï¿½Ò¹ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ß°ßµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 //			break;
 		case NPGMUP_ERROR_ABORT:
-			errStr = _S(3328,"°ÔÀÓ°¡µå ¾÷µ¥ÀÌÆ®¸¦ Ãë¼ÒÇÏ¼Ì½À´Ï´Ù. Á¢¼ÓÀÌ °è¼ÓµÇÁö ¾ÊÀ» °æ¿ì ÀÎÅÍ³Ý ¹× °³ÀÎ ¹æÈ­º® ¼³Á¤À» Á¶Á¤ÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3328,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í³ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGMUP_ERROR_CONNECT:			
 		case HOOK_TIMEOUT:
-			errStr = _S(3329,"¹ÙÀÌ·¯½º³ª ½ºÆÄÀÌ¿þ¾î·Î ÀÎÇØ ÈÄÅ·ÀÌ ½ÇÆÐÇÏ¿´½À´Ï´Ù. ÃÖ½Å¹é½ÅÀ» ¹ÞÀ¸½Å ÈÄ ÄÄÇ»ÅÍ ÀüÃ¼°Ë»ç¸¦ ÇØ ÁÖ½Ê½Ã¿À");
+			errStr = _S(3329,"ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ö½Å¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ç»ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ë»ç¸¦ ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½");
 			break;
 		case NPGAMEMON_ERROR_GAMEGUARD:
-			errStr = _S(3330,"°ÔÀÓ°¡µå ÃÊ±âÈ­ ¿¡·¯ ¶Ç´Â ±¸¹öÁ¯ÀÇ °ÔÀÓ°¡µå ÆÄÀÏÀÔ´Ï´Ù. °ÔÀÓ°¡µå ¼Â¾÷ ÆÄÀÏÀ» ´Ù½Ã ¼³Ä¡ÇÏ°í °ÔÀÓÀ» ½ÇÇàÇØ ÁÖ½Ê½Ã¿À");
+			errStr = _S(3330,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½");
 			break;
 		case NPGMUP_ERROR_PARAM:
-			errStr = _S(3331,"ini ÆÄÀÏÀÌ ¾ø°Å³ª º¯Á¶µÇ¾ú½À´Ï´Ù. °ÔÀÓ°¡µå ¼Â¾÷ ÆÄÀÏÀ» ¼³Ä¡ÇÏ¸é ÇØ°áÇÒ ¼ö ÀÖ½À´Ï´Ù.");
+			errStr = _S(3331,"ini ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï¸ï¿½ ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGMUP_ERROR_INIT:
-			errStr = _S(3332,"npgmup.des ÃÊ±âÈ­ ¿¡·¯ÀÔ´Ï´Ù. °ÔÀÓ°¡µå Æú´õ¸¦ »èÁ¦ÈÄ ´Ù½Ã °ÔÀÓ ½ÇÇàÇØ ÁÖ½Ê½Ã¿À.");
+			errStr = _S(3332,"npgmup.des ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.");
 			break;
 		case NPGMUP_ERROR_DOWNCFG:
-			errStr = _S(3333,"°ÔÀÓ°¡µå ¾÷µ¥ÀÌÆ® ¼­¹ö Á¢¼Ó¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù. Àá½Ã ÈÄ Àç½Ãµµ ÇØº¸°Å³ª, °³ÀÎ ¹æÈ­º®ÀÌ ÀÖ´Ù¸é ¼³Á¤À» Á¶Á¤ÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3333,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ ï¿½Øºï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGMUP_ERROR_AUTH:
-			errStr = _S(3334,"°ÔÀÓ°¡µå ¾÷µ¥ÀÌÆ®¸¦ ¿Ï·áÇÏÁö ¸ø Çß½À´Ï´Ù. ¹ÙÀÌ·¯½º ¹é½ÅÀ» ÀÏ½Ã ÁßÁö½ÃÅ² ÈÄ Àç½Ãµµ ÇØº¸½Ã°Å³ª, PC°ü¸® ÇÁ·Î±×·¥À» »ç¿ëÇÏ½Ã¸é ¼³Á¤À» Á¶Á¤ÇØ º¸½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3334,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å² ï¿½ï¿½ ï¿½ï¿½Ãµï¿½ ï¿½Øºï¿½ï¿½Ã°Å³ï¿½, PCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;
 		case NPGAMEMON_ERROR_NPSCAN:
-			errStr = _S(3335,"¹ÙÀÌ·¯½º ¹× ÇØÅ·Åø °Ë»ç ¸ðµâ ·Îµù¿¡ ½ÇÆÐ Çß½À´Ï´Ù. ¸Þ¸ð¸® ºÎÁ·ÀÌ°Å³ª ¹ÙÀÌ·¯½º¿¡ ÀÇÇÑ °¨¿°ÀÏ ¼ö ÀÖ½À´Ï´Ù.");			
+			errStr = _S(3335,"ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å·ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Ï´ï¿½. ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.");			
 			break;
 		default:
-			errStr = _S(3336,"°ÔÀÓ°¡µå ½ÇÇà Áß ¿¡·¯°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù. °ÔÀÓ Æú´õ ¾ÈÀÇ GameGuardÆú´õ¿¡ ÀÖ´Â *erl ÆÄÀÏÀ» ¹ö±×·¹Æ÷ÆÃ½Ã Ã·ºÎÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+			errStr = _S(3336,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ GameGuardï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ *erl ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ Ã·ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			break;			
 		}
-		msg.PrintF(_S(3342,"°ÔÀÓ°¡µå ¿¡·¯ : %lu"),dwResult);
+		msg.PrintF(_S(3342,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : %lu"),dwResult);
 		MessageBox(NULL,errStr.str_String,msg,MB_OK);
 		
-		// °ÔÀÓ Á¾·á
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return FALSE;
 	}	
 
@@ -10093,30 +10094,30 @@ BOOL CNetworkLibrary::NPGameMonCallbackErrChk(DWORD dwMsg, DWORD dwArg)
 
 	switch(dwMsg)
 	{
-		// TODO : ¸Þ½ÃÁö Ã³¸® (p21)		
+		// TODO : ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ (p21)		
 		case NPGAMEMON_COMM_ERROR :
 		case NPGAMEMON_COMM_CLOSE :
 			tAppExit = TRUE;
 			break;
 		case NPGAMEMON_INIT_ERROR :
 			tAppExit = TRUE;
-			g_szHackMsg.PrintF(_S(3337,"°ÔÀÓ°¡µå ÃÊ±âÈ­ ¿¡·¯ : %lu"), dwArg);
+			g_szHackMsg.PrintF(_S(3337,"ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ : %lu"), dwArg);
 			break;
 		case NPGAMEMON_SPEEDHACK :
 			tAppExit = TRUE;
-			g_szHackMsg = _S(3338,"½ºÇÇµåÇÙÀÌ °¨ÁöµÇ¾ú½À´Ï´Ù.");
+			g_szHackMsg = _S(3338,"ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			break;						
 		case NPGAMEMON_GAMEHACK_KILLED :
 			tAppExit = TRUE;
-			g_szHackMsg.PrintF(_S(3339,"°ÔÀÓÇÙÀÌ ¹ß°ßµÇ¾ú½À´Ï´Ù.\r\n%s"),npgl.GetInfo());
+			g_szHackMsg.PrintF(_S(3339,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ßµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.\r\n%s"),npgl.GetInfo());
 			break;
 		case NPGAMEMON_GAMEHACK_DETECT :
 			tAppExit = TRUE;
-			g_szHackMsg.PrintF(_S(3340,"°ÔÀÓÇÙÀÌ ¹ß°ßµÇ¾ú½À´Ï´Ù.\r\n%s"),npgl.GetInfo());
+			g_szHackMsg.PrintF(_S(3340,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ßµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.\r\n%s"),npgl.GetInfo());
 			break;
 		case NPGAMEMON_GAMEHACK_DOUBT :
 			tAppExit = TRUE;
-			g_szHackMsg.PrintF(_S(3341,"°ÔÀÓÀÌ³ª °ÔÀÓ°¡µå°¡ º¯Á¶µÇ¾ú½À´Ï´Ù.\r\n%s"),npgl.GetInfo());
+			g_szHackMsg.PrintF(_S(3341,"ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.\r\n%s"),npgl.GetInfo());
 			break;
 		case NPGAMEMON_CHECK_CSAUTH2 :
 			SendnProtectAuth2(dwArg);
@@ -10135,7 +10136,7 @@ void CNetworkLibrary::Check_nProtect()
 {
 	if( npgl.Check() != NPGAMEMON_SUCCESS )
 	{
-		// °ÔÀÓ Á¾·á
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		_pGameState->Running()		= FALSE;
 		_pGameState->QuitScreen()	= FALSE;
 	}
@@ -10193,7 +10194,7 @@ void CNetworkLibrary::SendFlowerTreeReq(UBYTE subType)
 }
 
 // [070613: Su-won] 
-// ¹«±â,¹æ¾î±¸ ±³È¯ Ä«µå »ç¿ë ¿äÃ»
+// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½î±¸ ï¿½ï¿½È¯ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 void CNetworkLibrary::UseChangeWeaponItem( SWORD nTab, SWORD inven_idx, LONG lItemIndex, LONG lChangeType, LONG lTradeItemIndex )
 {
 	int tv_tab, tv_idx;
@@ -10201,7 +10202,7 @@ void CNetworkLibrary::UseChangeWeaponItem( SWORD nTab, SWORD inven_idx, LONG lIt
 	
 	CItems* pItems = &MySlotItem[tv_tab][tv_idx];
 
-	if(pItems->Item_Index ==-1) //ºñ¾îÀÖ´Â ½½·ÔÀÌ´Ù.
+	if(pItems->Item_Index ==-1) //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 		return;
 	
 	CNetworkMessage nmMessage;
@@ -10222,7 +10223,7 @@ void CNetworkLibrary::UseChangeWeaponItem( SWORD nTab, SWORD inven_idx, LONG lIt
 }
 
 // [070613: Su-won] 
-// Æê ¸íÂû ¾ÆÀÌÅÛ »ç¿ë ¿äÃ»
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 void CNetworkLibrary::SendPetNameChageReq( int nPetIndex, CTString strPetName )
 {
 	CNetworkMessage nmMessage( (UBYTE)MSG_EXTEND );
@@ -10235,7 +10236,7 @@ void CNetworkLibrary::SendPetNameChageReq( int nPetIndex, CTString strPetName )
 }
 
 // [070705: Su-won] EVENT_SUMMBER_2007
-// 2007 ¿©¸§ ÀÌº¥Æ®: Á¾ÀÌ Á¢±â ¿äÃ»
+// 2007 ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 void CNetworkLibrary::SendPaperFoldingReq(int nItemIndex0, int nItemIndex1, int nItemIndex2)
 {
 	CNetworkMessage nmMessage((UBYTE)MSG_EVENT);
@@ -10250,7 +10251,7 @@ void CNetworkLibrary::SendPaperFoldingReq(int nItemIndex0, int nItemIndex1, int 
 }
 
 // [070705: Su-won] EVENT_SUMMBER_2007
-// 2007 ¿©¸§ ÀÌº¥Æ®: »öÁ¾ÀÌ Á¶ÇÕ ¿äÃ»
+// 2007 ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 void CNetworkLibrary::SendPaperBlendingReq(int nItemIndex)
 {
 	CNetworkMessage nmMessage((UBYTE)MSG_EVENT);
@@ -10263,11 +10264,11 @@ void CNetworkLibrary::SendPaperBlendingReq(int nItemIndex)
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
 // [070807: Su-won] EVENT_ADULT_OPEN
-// ¼ºÀÎ¼­¹ö ¿ÀÇÂ ÀÌº¥Æ® °ü·Ã º¸»ó ¿äÃ»
+// ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 //
 // Parameter:
-// iEvent - ÀÌº¥Æ® ¹øÈ£( 0:¸ÅÁ÷Ä«µå ÀÌº¥Æ®, 1:ÀüÁ÷ ÀÌº¥Æ®, 2:¿¬±Ý¼ú ÀÌº¥Æ®)
-// tv_tab, tv_row, tv_col - ¿¬±Ý¼ú¿¡ »ç¿ëÇÒ ÀåºñÀÇ ÀÎº¥ À§Ä¡. ¿¬±Ý¼ú ÀÌº¥Æ®¿¡¸¸ »ç¿ë
+// iEvent - ï¿½Ìºï¿½Æ® ï¿½ï¿½È£( 0:ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ìºï¿½Æ®, 1:ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®, 2:ï¿½ï¿½ï¿½Ý¼ï¿½ ï¿½Ìºï¿½Æ®)
+// tv_tab, tv_row, tv_col - ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½Ä¡. ï¿½ï¿½ï¿½Ý¼ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //
 void CNetworkLibrary::SendAdultOpenEventReq( int iEvent, int tv_tab, int tv_row, int tv_col)
 {
@@ -10277,19 +10278,19 @@ void CNetworkLibrary::SendAdultOpenEventReq( int iEvent, int tv_tab, int tv_row,
 	
 	switch( iEvent )
 	{
-		//¸ÅÁ÷Ä«µå ÀÌº¥Æ®
+		//ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	case 0:
 		{
 			nmMessage << (UBYTE)MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_REQ;
 		}
 		break;
-		//ÀüÁ÷ ÀÌº¥Æ®
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	case 1:
 		{
 			nmMessage << (UBYTE)MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_EXCHANGE;
 		}
 		break;
-		//¿¬±Ý¼ú ÀÌº¥Æ®
+		//ï¿½ï¿½ï¿½Ý¼ï¿½ ï¿½Ìºï¿½Æ®
 	case 2:
 		{
 			nmMessage << (UBYTE)MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_REQ;
@@ -10427,7 +10428,7 @@ void CNetworkLibrary::SendDratanSiegeDungeonMSG(UBYTE ubSubType, UBYTE ubSubSubT
 	SendToServerNew(nmMessage);
 }
 
-// ttos : ÆÇ¸Å´ëÇà »óÀÎ
+// ttos : ï¿½Ç¸Å´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::SendCashPersonShop(UBYTE subType)
 {
 	CNetworkMessage nmMessage((UBYTE)MSG_EXTEND);
@@ -10454,7 +10455,7 @@ void CNetworkLibrary::SendXMAS2007DecoReq(UBYTE subType)
 
 //============================================================================================================
 // CNetworkLibrary::SendRestartGame
-// À¥ ½ÇÇà¹öÀüÀ¸·Î ÀÎÇÑ Àç½ÃÀÛ ¿äÃ» ¸Þ¼¼Áö
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Þ¼ï¿½ï¿½ï¿½
 //============================================================================================================
 void CNetworkLibrary::SendRestartGame()
 {
@@ -10476,7 +10477,7 @@ void CNetworkLibrary::SendReceiveRestartGame()
 
 //============================================================================================================
 // CNetworkLibrary::SendUseGoDungeon
-// ´øÀüÀÌµ¿ ÁÖ¹®¼­ »ç¿ë
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 //============================================================================================================
 void CNetworkLibrary::SendUseGoDungeon(INDEX iItemIndex)
 {
@@ -10494,7 +10495,7 @@ void CNetworkLibrary::SendUseGoDungeon(INDEX iItemIndex)
 
 //============================================================================================================
 // CNetworkLibrary::SendPresscorpsMessage
-// ¶óÄ«±âÀÚ´Ü ÇýÅÃ °ü·Ã (È®¼º±â ±â´É ¸Þ¼¼Áö Àü¼Û) ¿ÜÄ¡±â!
+// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½Ä¡ï¿½ï¿½!
 //============================================================================================================
 void CNetworkLibrary::SendPresscorpsMessage(ULONG ulItemIndex, CTString Sendstr)
 {
@@ -10521,7 +10522,7 @@ void CNetworkLibrary::SendPresscorpsMessage(ULONG ulItemIndex, CTString Sendstr)
 
 //============================================================================================================
 // CNetworkLibrary::SendUpdatePlayTime
-// ÇÃ·¹ÀÌ ½Ã°£ 10ºÐ°£°ÝÀ¸·Î ¾÷µ¥ÀÌÆ® ¸Þ¼¼Áö Àü´Þ
+// ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 10ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //============================================================================================================
 void CNetworkLibrary::SendUpdatePlayTime(ULONG nTime)
 {
@@ -10564,7 +10565,7 @@ void CNetworkLibrary::SendUseWildPetItem(int posId, int tabId, int inven_idx, in
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ÇÇ´Ð½º Ä³¸¯ÅÍ °¡´É ¿©ºÎ È®ÀÎ
+// ï¿½Ç´Ð½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 
 void CNetworkLibrary::SendPhoenixCharacterCondition()
 {
@@ -10576,7 +10577,7 @@ void CNetworkLibrary::SendPhoenixCharacterCondition()
 }
 
 //////////////////////////////////////////////////////////////////////////
-// ÇÇ´Ð½º Ä³¸¯ÅÍ ½ÅÃ»
+// ï¿½Ç´Ð½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 
 void CNetworkLibrary::SendCreatePhoenixCharacter()
 {
@@ -10591,7 +10592,7 @@ void CNetworkLibrary::SendCreatePhoenixCharacter()
 //////////////////////////////////////////////////////////////////////////
 //============================================================================================================
 // CNetworkLibrary::SendInitSSkillReq
-// ½ºÆä¼È ½ºÅ³ ÃÊ±âÈ­ ¿äÃ»
+// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­ ï¿½ï¿½Ã»
 //============================================================================================================
 void CNetworkLibrary::SendInitSSkillReq()
 {
@@ -10602,7 +10603,7 @@ void CNetworkLibrary::SendInitSSkillReq()
 
 //============================================================================================================
 // CNetworkLibrary::SendUsingSpeedHack
-// ½ºÇÇµå ÇÙ »ç¿ëÀÚ ¼­¹ö¿¡ Åëº¸
+// ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëº¸
 //============================================================================================================
 void CNetworkLibrary::SendInput()  // SendUsingSpeedHack --> SendInput
 {
@@ -11544,7 +11545,7 @@ BOOL CNetworkLibrary::New_Ranking_Reset()//Cloud ant-hack stage 0 noob protectio
 	return false;
 }//cloud ant-hack
 
-//[ttos_2009_3_18]: C?©©??¡À¢©? ?¡¿ SK??¡¤I¥ì???¥ì? ¡Æ¢§?O?U ?????¢ç
+//[ttos_2009_3_18]: C?ï¿½ï¿½??ï¿½ï¿½ï¿½ï¿½? ?ï¿½ï¿½ SK??ï¿½ï¿½Iï¿½ï¿½???ï¿½ï¿½? ï¿½Æ¢ï¿½?O?U ?????ï¿½ï¿½
 void CNetworkLibrary::SendHanaposEvent(int nNpcVirIdx)
 {
 	CNetworkMessage nmMessage;
@@ -11568,7 +11569,7 @@ void CNetworkLibrary::SendEventRequital(int nRequital)
 }
 
 //=========================================================================
-// ÃÊº¸ Áö¿ø»ç ¹× ÁßÀú·¹º§ Áö¿ø»ç ½ºÅ³ »ç¿ë ¿äÃ»(°í·¹º§ Áö¿ø»çµµ °°ÀÌ »ç¿ë)
+// ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½çµµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
 //=========================================================================
 void CNetworkLibrary::SendSupportSkill(UBYTE ubMsg)
 {
@@ -11581,12 +11582,12 @@ void CNetworkLibrary::SendSupportSkill(UBYTE ubMsg)
 }
 
 //============================================================================================================
-// void SendEventMsg()´Â ÀÌº¥Æ® ¸Þ¼¼Áö ÇÔ¼ö°¡ °è¼Ó ´Ã¾î³ª´Â°ÍÀ» È¸ÇÇÇÏ±â À§ÇÏ¿© ÅëÇÕ Ã³¸®¸¦ ÇÏµµ·Ï ÇÕ½Ã´Ù.
-// CNetwork class¿¡¼­ ÀÌº¥Æ® Àü¼Û ÆÄ¶ó¹ÌÅÍ¸¦ ¹Þ¾Æ¼­ ÇÑ¹ø¿¡ SendEventMsg()·Î Àü¼ÛÇÏµµ·Ï ÇÕ½Ã´Ù.
-// Àü¼Û ÆÄ¶ó¹ÌÅÍ´Â °¢ º¯¼ö Å¸ÀÔ º°·Î, ULONG, UBYTE, CTString 3°¡Áö Å¸ÀÔ¸¸À¸·Î Àü¼Û Ã³¸®°¡ ¿ëÀÇÇÏ¹Ç·Î(type casting),
-// Àü¼Û ÆÄ¶ó¹ÌÅÍ º¯¼ö´Â static_Array<ULONG>, static_array<UBYTE>, static_array<CTString>À¸·Î ÇÕ½Ã´Ù.
-// ÀÌº¥Æ® ¸Þ¼¼Áö ÆÐÅ¶ ÇÁ·ÎÅäÄÝÀ» ¼­¹ö¿Í ³íÀÇÇÏ¿© ¸ÂÃßµµ·Ï ÇÕ½Ã´Ù.
-// ÀÌÇØ ¾ÈµÇ¸é ¹Ùº¸~
+// void SendEventMsg()ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã¾î³ªï¿½Â°ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+// CNetwork classï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ SendEventMsg()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ULONG, UBYTE, CTString 3ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½(type casting),
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ static_Array<ULONG>, static_array<UBYTE>, static_array<CTString>ï¿½ï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+// ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ¸ï¿½ ï¿½Ùºï¿½~
 //============================================================================================================
 void CNetworkLibrary::SendEventMsg(UBYTE ubEventType)
 {
@@ -11598,7 +11599,7 @@ void CNetworkLibrary::SendEventMsg(UBYTE ubEventType)
 
 //============================================================================================================
 // CNetworkLibrary::SendRaidObjectEvent()
-// ·¹ÀÌµå ½Ã½ºÅÛ ¿ÀºêÁ§Æ® È°¼ºÈ­ ¸Þ¼¼Áö(Å¬¸¯ ¹× ÁøÀÔ)
+// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­ ï¿½Þ¼ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 //============================================================================================================
 void CNetworkLibrary::SendRaidObjectEvent(ULONG iObjectID)
 {
@@ -11614,7 +11615,7 @@ void CNetworkLibrary::SendRaidObjectEvent(ULONG iObjectID)
 // [sora] RAID_SYSTEM
 //////////////////////////////////////////////////////////////////////////
 
-// [sora] ¿øÁ¤´ë·Î ÀüÈ¯ ¿äÃ»
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
 void CNetworkLibrary::ExpeditionCreateReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11623,7 +11624,7 @@ void CNetworkLibrary::ExpeditionCreateReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë ÃÊ´ë
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
 void CNetworkLibrary::ExpeditionInviteReq( SLONG slIndex )
 {
 	// Send network message
@@ -11634,7 +11635,7 @@ void CNetworkLibrary::ExpeditionInviteReq( SLONG slIndex )
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë ÃÊ´ë ¼ö¶ô
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionAllowReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11643,7 +11644,7 @@ void CNetworkLibrary::ExpeditionAllowReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë ÃÊ´ë °ÅÀý
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionRejectReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11652,7 +11653,7 @@ void CNetworkLibrary::ExpeditionRejectReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë Å»Åð
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½
 void CNetworkLibrary::ExpeditionQuitReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11662,7 +11663,7 @@ void CNetworkLibrary::ExpeditionQuitReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë Ãß¹æ
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½
 void CNetworkLibrary::ExpeditionKickReq( SLONG slIndex )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11672,7 +11673,7 @@ void CNetworkLibrary::ExpeditionKickReq( SLONG slIndex )
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë ÇØÃ¼
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 void CNetworkLibrary::ExpeditionEndReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11681,7 +11682,7 @@ void CNetworkLibrary::ExpeditionEndReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ë ºÐ¹è¹æ½Ä º¯°æ
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionChangeDivisionTypeReq(UBYTE msgType, SBYTE sbExpedType, SBYTE sbDiviType)
 {
 	CNetworkMessage	nm( msgType );
@@ -11692,7 +11693,7 @@ void CNetworkLibrary::ExpeditionChangeDivisionTypeReq(UBYTE msgType, SBYTE sbExp
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤´ëÀå º¯°æ
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionChangeLeaderReq( SLONG slIndex )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11703,7 +11704,7 @@ void CNetworkLibrary::ExpeditionChangeLeaderReq( SLONG slIndex )
 	SendToServerNew( nm );
 }
 
-// [sora] ¿øÁ¤ ºÎ´ëÀå º¯°æ
+// [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionChangeSubLeaderReq(BOOL bIsSubLeader, SLONG slIndex )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11720,7 +11721,7 @@ void CNetworkLibrary::ExpeditionChangeSubLeaderReq(BOOL bIsSubLeader, SLONG slIn
 	SendToServerNew( nm );
 }
 
-// [sora] ±×·ì º¯°æ
+// [sora] ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionChangeGroupReq(SLONG slGroupSrc, SLONG slIndex, SLONG slGroupDesc, SLONG slPos )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11733,7 +11734,7 @@ void CNetworkLibrary::ExpeditionChangeGroupReq(SLONG slGroupSrc, SLONG slIndex, 
 	SendToServerNew( nm );
 }
 
-// [sora] ¸â¹ö Ãß°¡
+// [sora] ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 void CNetworkLibrary::ExpeditionAddCharReq( CTString &strCharName )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11744,7 +11745,7 @@ void CNetworkLibrary::ExpeditionAddCharReq( CTString &strCharName )
 }
 
 
-// [sora] »ìÆìº¸±â
+// [sora] ï¿½ï¿½ï¿½ìº¸ï¿½ï¿½
 void CNetworkLibrary::ExpeditionViewDetailReq( SLONG slGroup, SLONG slIndex )
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11756,7 +11757,7 @@ void CNetworkLibrary::ExpeditionViewDetailReq( SLONG slGroup, SLONG slIndex )
 }
 
 
-// [sora] Ç¥½Ä ¼³Á¤, ÇØÁ¦
+// [sora] Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::ExpeditionSetLabelReq(SLONG slCharType, SLONG slMode, SLONG slLabelType, SLONG slIndex)
 {
 	CNetworkMessage	nm( (UBYTE)MSG_EXPEDITION );
@@ -11770,7 +11771,7 @@ void CNetworkLibrary::ExpeditionSetLabelReq(SLONG slCharType, SLONG slMode, SLON
 }
 //------------------------------------------------------------------------------
 // CUIParty::ExpeditionCollectQuestItemReq()
-// Explain: [sora] ¿øÁ¤´ë Äù½ºÆ® ¾ÆÀÌÅÛ ¼öÁý
+// Explain: [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //------------------------------------------------------------------------------		 
 void CNetworkLibrary::ExpeditionCollectQuestItemReq(SLONG slIndex)
 {
@@ -11781,7 +11782,7 @@ void CNetworkLibrary::ExpeditionCollectQuestItemReq(SLONG slIndex)
 	SendToServerNew( nm );
 }
 
-// [sora] ÆÄÆ¼ ÇØÃ¼
+// [sora] ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼
 void CNetworkLibrary::PartyEndReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_PARTY );
@@ -11791,7 +11792,7 @@ void CNetworkLibrary::PartyEndReq()
 }
 
 
-// [sora] ÀÎ´ø ÃÊ±âÈ­
+// [sora] ï¿½Î´ï¿½ ï¿½Ê±ï¿½È­
 void CNetworkLibrary::InitInZoneReq()
 {
 	CNetworkMessage	nm( (UBYTE)MSG_PARTY );
@@ -11800,7 +11801,7 @@ void CNetworkLibrary::InitInZoneReq()
 	SendToServerNew( nm );
 }
 
-// [sora] ÀÎÁ¸ ÀÔÀå ¿äÃ»
+// [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 void CNetworkLibrary::RaidInzoneJoinReq(SLONG slZoneNo, SLONG exParam)
 {
 	UIMGR()->SetCSFlagOn(CSF_TELEPORT);
@@ -11817,8 +11818,8 @@ void CNetworkLibrary::RaidInzoneJoinReq(SLONG slZoneNo, SLONG exParam)
 	SendToServerNew( nm );
 }
 
-// [sora] ÀÎÁ¸ ³ª°¡±â ¿äÃ»
-// [100125 sora] ÀÎÁ¸ ³ª°¥¶§ Á¸¹øÈ£¸¦ ÁöÁ¤ÇÒ ¼ö ÀÖµµ·Ï ¼öÁ¤
+// [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+// [100125 sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CNetworkLibrary::RaidInzoneQuitReq(SLONG slZoneNo /* = -1 */, SLONG slExtraNo)
 {
 	UIMGR()->SetCSFlagOn(CSF_TELEPORT);
@@ -11838,7 +11839,7 @@ void CNetworkLibrary::SendMakeItemList(ULONG sealtype, UBYTE UItype)
 	CNetworkMessage	nmMessage((UBYTE)MSG_FACTORY);
 
 	nmMessage << (UBYTE)MSG_FACTORY_ITEM_LIST;
-	nmMessage << (UBYTE)UItype;		// 0: NPC¿¡¼­ ¿äÃ» 1: ¸¸µé±â¿¡¼­ ¿äÃ»
+	nmMessage << (UBYTE)UItype;		// 0: NPCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 1: ï¿½ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½Ã»
 	nmMessage << (ULONG)sealtype;
 
 	_pNetwork->SendToServerNew(nmMessage);
@@ -11847,7 +11848,7 @@ void CNetworkLibrary::SendMakeItemList(ULONG sealtype, UBYTE UItype)
 //////////////////////////////////////////////////////////////////////////
 // ----------------------------------------------------------------------------
 //  Name 	: SendAffinityConnectReq()
-//  Desc 	: Ä£±¸ ¿äÃ».
+//  Desc 	: Ä£ï¿½ï¿½ ï¿½ï¿½Ã».
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendAffinityConnectReq( SLONG npcIdx )
 {
@@ -11879,7 +11880,7 @@ void CNetworkLibrary::SendAffinityShopReq( SLONG npcIdx )
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendAffinityGiftInfoReq( SLONG npcIdx )
 {
-	// Ä£È­µµ °³Æí2 º¸»ó ¿äÃ» [2/5/2013 Ranma]
+	// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» [2/5/2013 Ranma]
 	CNetworkMessage nm( (UBYTE)MSG_EXTEND );
 	nm << (ULONG)MSG_EX_AFFINITY;
 	nm << (UBYTE)MSG_EX_AFFINITY_GIFTINFO_REQ;
@@ -11904,7 +11905,7 @@ void CNetworkLibrary::SendAffinityGiftReq( SLONG npcIdx )
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendAffinityInfoTabReq()
-//  Desc 	: Ä£È­µµ °³Æí2 Ä£È­µµ º¸»ó Á¤º¸ ¿äÃ»
+//  Desc 	: Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2 Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendAffinityInfoTabReq( SLONG npcIdx )
 {
@@ -11951,7 +11952,7 @@ void CNetworkLibrary::SendNPCPortalLocationReq(SLONG slIndex)
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRaidInfoReq()
-//  Desc 	: ÀÚ½ÅÀÌ ¼ÓÇØÀÖ´Â ·¹ÀÌµå Á¤º¸¸¦ ¿äÃ»
+//  Desc 	: ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRaidInfoReq()
 {
@@ -11995,7 +11996,7 @@ void CNetworkLibrary::SendCheckComposition(SWORD nTab, SWORD nInvenIdx, SLONG sl
 // ----------------------------------------------------------------------------
 // [100208: selo]
 //  Name 	: SendRestoreAbandonQuest()
-//  Desc 	: Æ÷±âÇÑ Äù½ºÆ® º¹±¸ ¿äÃ»
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRestoreAbandonQuest(SQUAD llMoney)
 {
@@ -12009,7 +12010,7 @@ void CNetworkLibrary::SendRestoreAbandonQuest(SQUAD llMoney)
 // ----------------------------------------------------------------------------
 // [100208: selo]
 //  Name 	: SendTakeAgainQuestItem()
-//  Desc 	: Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendTakeAgainQuestItem()
 {
@@ -12022,7 +12023,7 @@ void CNetworkLibrary::SendTakeAgainQuestItem()
 // ----------------------------------------------------------------------------
 // [100324: sora]
 //  Name 	: SendLacaretteTokenReq()
-//  Desc 	: ÅäÅ« ¹Þ±â
+//  Desc 	: ï¿½ï¿½Å« ï¿½Þ±ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendLacaretteTokenReq()
 {
@@ -12036,7 +12037,7 @@ void CNetworkLibrary::SendLacaretteTokenReq()
 // ----------------------------------------------------------------------------
 // [100324: sora]
 //  Name 	: SendLacaretteRetteReq()
-//  Desc 	: ¶óÄ«·¿ °á°ú ¿äÃ»
+//  Desc 	: ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendLacaretteRetteReq( SLONG courseNum, SLONG couseIndex, SLONG tokenIndex )
 {
@@ -12053,7 +12054,7 @@ void CNetworkLibrary::SendLacaretteRetteReq( SLONG courseNum, SLONG couseIndex, 
 // ----------------------------------------------------------------------------
 // [100324: sora]
 //  Name 	: SendLacaretteUseCountReq()
-//  Desc 	: ¶óÄ«·¿ ÀÌ¿ë È½¼ö ¿äÃ»
+//  Desc 	: ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ì¿ï¿½ È½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendLacaretteUseCountReq()
 {
@@ -12067,7 +12068,7 @@ void CNetworkLibrary::SendLacaretteUseCountReq()
 // ----------------------------------------------------------------------------
 // [100325: sora]
 //  Name 	: SendLacaretteResultReq()
-//  Desc 	: ¶óÄ«·¿ ´çÃ· ¾ÆÀÌÅÛ Áö±Þ¿äÃ»
+//  Desc 	: ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½Ã· ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¿ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendLacaretteResultReq( INDEX itemIndex )
 {
@@ -12101,14 +12102,14 @@ void CNetworkLibrary::SendLacaretteTokenReadyReq()
 //  [5/13/2010 selo0530] ($E_WC2010)
 // 
 //	Name : SendWorldCup2010_Event
-//  Desc : 2010 ³²¾Æ°ø ¿ùµåÄÅ Event Message
+//  Desc : 2010 ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Event Message
 //  Info : 
-//		Trade : iParam(tradeType - 1. Ãà±¸°ø -> È²±Ý Ãà±¸°ø, 2. È²±Ý Ãà±¸°ø -> ÃàÁ¦ »óÀÚ)
-//		Status Req : iParam(resultType - 1. ¿ì½Â ±¹°¡ ÀÀ¸ð Àü ÇöÈ² È®ÀÎ	2. ÀÀ¸ð ÇöÈ² È®ÀÎ)
-//		Toto Req : iParam(nItemIndex1 - ±¹±â ¾ÆÀÌÅÛ ÀÎµ¦½º)
-//		Gift Req : iParam(null) [ÅäÅä º¸»ó ¿äÃ»]
-//		Attendance Req : iParam(null) [ÀÀ¿ø Ãâ¼®]
-//		SupportCard Req : iParam(supportType) [ÀÀ¿øÄ«µå º¸»ó Type]
+//		Trade : iParam(tradeType - 1. ï¿½à±¸ï¿½ï¿½ -> È²ï¿½ï¿½ ï¿½à±¸ï¿½ï¿½, 2. È²ï¿½ï¿½ ï¿½à±¸ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+//		Status Req : iParam(resultType - 1. ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È² È®ï¿½ï¿½	2. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² È®ï¿½ï¿½)
+//		Toto Req : iParam(nItemIndex1 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½)
+//		Gift Req : iParam(null) [ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»]
+//		Attendance Req : iParam(null) [ï¿½ï¿½ï¿½ï¿½ ï¿½â¼®]
+//		SupportCard Req : iParam(supportType) [ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Type]
 // ------------------------------------------------------------------
 void CNetworkLibrary::SendWorldCup2010_Event(MSG_EVENT_WORLDCUP2010_TYPE e_Type, INDEX iParam /* = 0 */)
 {
@@ -12128,7 +12129,7 @@ void CNetworkLibrary::SendWorldCup2010_Event(MSG_EVENT_WORLDCUP2010_TYPE e_Type,
 // ----------------------------------------------------------------------------
 //  [2010/06/30 : Sora]
 //  Name 	: SendOwnerGuildBuffReq()
-//  Desc 	: ¼ºÁÖ ±æµå ¹öÇÁ ºÎ¿© ¿äÃ»
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendOwnerGuildBuffReq()
 {
@@ -12139,9 +12140,9 @@ void CNetworkLibrary::SendOwnerGuildBuffReq()
 }
 
 // ----------------------------------------------------------------------------
-// [7/2/2010 kiny8216] ATTENDANCE_SYSTEM : Ãâ¼® ½Ã½ºÅÛ
+// [7/2/2010 kiny8216] ATTENDANCE_SYSTEM : ï¿½â¼® ï¿½Ã½ï¿½ï¿½ï¿½
 //  Name 	: SendAttendanceReq()
-//  Desc 	: ´©Àû Ãâ¼®ÀÏ¼ö ¿äÃ»
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½â¼®ï¿½Ï¼ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendAttendanceReq( INDEX subType )
 {
@@ -12149,7 +12150,7 @@ void CNetworkLibrary::SendAttendanceReq( INDEX subType )
 
 	switch(subType)
 	{
-	case 0: // ´©Àû ÇöÈ²
+	case 0: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²
 		{
 			RequestClient::AttendanceCheck* packet = reinterpret_cast<RequestClient::AttendanceCheck*>(nm.nm_pubMessage);
 			packet->type = MSG_EXTEND;
@@ -12159,7 +12160,7 @@ void CNetworkLibrary::SendAttendanceReq( INDEX subType )
 		}
 		break;
 
-	case 1: // º¸»ó ¹Þ±â
+	case 1: // ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½
 		{
 			RequestClient::AttendanceReward* packet = reinterpret_cast<RequestClient::AttendanceReward*>(nm.nm_pubMessage);
 			packet->type = MSG_EXTEND;
@@ -12169,7 +12170,7 @@ void CNetworkLibrary::SendAttendanceReq( INDEX subType )
 		}
 		break;
 
-	case 2: // Ãâ¼® º¸Çè ¾ÆÀÌÅÛ ÇØÁ¦
+	case 2: // ï¿½â¼® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			RequestClient::AttendanceAssureOk* packet = reinterpret_cast<RequestClient::AttendanceAssureOk*>(nm.nm_pubMessage);
 			packet->type = MSG_EXTEND;
@@ -12186,7 +12187,7 @@ void CNetworkLibrary::SendAttendanceReq( INDEX subType )
 // ----------------------------------------------------------------------------
 // [7/15/2010 kiny8216] MONSTER_ENERGY_IGNITION_SYSTEM
 //  Name 	: SendEnergySkillMessage()
-//  Desc 	: ¸ó½ºÅÍ ¿¡³ÊÁö ½ºÅ³ »ç¿ë ¸Þ½ÃÁö
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendEnergySkillMessage()
 {
@@ -12199,9 +12200,9 @@ void CNetworkLibrary::SendEnergySkillMessage()
 }
 
 // ----------------------------------------------------------------------------
-// [100901] ¾ÆÄ­»ç¿ø ·¹ÀÌµå Scene Message
+// [100901] ï¿½ï¿½Ä­ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Scene Message
 //  Name 	: SendRaidScene()
-//  Desc 	: ¿ùµå ¾È¿¡ Á¸ÀçÇÏ´Â Scene Active·Î ¼³Á¤µÈ ¿ÀºêÁ§Æ®°¡ º¸³»´Â ¸Þ½ÃÁö(TouchField, ItemObjects)
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Scene Activeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½(TouchField, ItemObjects)
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRaidScene(INDEX ObjType, INDEX Id, INDEX iData)
 {
@@ -12217,9 +12218,9 @@ void CNetworkLibrary::SendRaidScene(INDEX ObjType, INDEX Id, INDEX iData)
 }
 
 // ----------------------------------------------------------------------------
-// [8/31/2010 kiny8216] ÈÄ°ßÀÎ ½Ã½ºÅÛ °³Æí
+// [8/31/2010 kiny8216] ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //  Name 	: TeachGiftReq()
-//  Desc 	: ÈÄ°ßÀÎ º¸»ó ¿äÃ»
+//  Desc 	: ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::TeachGiftReq()
 {
@@ -12229,9 +12230,9 @@ void CNetworkLibrary::TeachGiftReq()
 }
 
 // ----------------------------------------------------------------------------
-// [9/29/2010 kiny8216] ¼ºÁÖ ÄÚ½ºÆ¬
+// [9/29/2010 kiny8216] ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬
 //  Name 	: LordCostumeReq()
-//  Desc 	: ¼ºÁÖ ÄÚ½ºÆ¬ ¿äÃ»
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::LordCostumeReq()
 {
@@ -12240,7 +12241,7 @@ void CNetworkLibrary::LordCostumeReq()
 	nmTeach << (UBYTE)MSG_EX_CASTLLAN_GIVE_ITEM_REQ;
 	SendToServerNew(nmTeach);
 }
-// ¼ºÁÖ ±æµå ÄÚ½ºÆ¬ [1/21/2011 ldy1978220]
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ [1/21/2011 ldy1978220]
 void CNetworkLibrary::LordGuildCostumeReq()
 {
 	CNetworkMessage nmTeach((UBYTE)MSG_EXTEND);
@@ -12260,7 +12261,7 @@ void CNetworkLibrary::LordGuildTitleReq()
 // ----------------------------------------------------------------------------
 //  [2010/08/25 : Sora] ADD_SUBJOB
 //  Name 	: SendSubJobRegister()
-//  Desc 	: º¸Á¶Á÷¾÷ µî·Ï ¿äÃ»
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendSubJobRegister(SLONG subJobCode)
 {
@@ -12272,9 +12273,9 @@ void CNetworkLibrary::SendSubJobRegister(SLONG subJobCode)
 }
 
 //------------------------------------------------------------------------------
-// [10/6/2010 kiny8216] ÄíÆù ÇÁ·Î¸ð¼Ç ÀÌº¥Æ®
+// [10/6/2010 kiny8216] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 // Name		:  SendPromotionEventReq()
-// Desc		:  ÄíÆù ÇÁ·Î¸ð¼Ç ÀÌº¥Æ® ¾ÆÀÌÅÛ ¿äÃ»
+// Desc		:  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 //------------------------------------------------------------------------------
 void CNetworkLibrary::SendPromotionEventReq(CTString strNum)
 {
@@ -12344,9 +12345,9 @@ void CNetworkLibrary::SendWildPetMountReq(const BOOL bMount )
 }
 
 // ----------------------------------------------------------------------------
-// [2011/01/18 : Sora] Ãâ¼® ÀÌº¥Æ® 2011
+// [2011/01/18 : Sora] ï¿½â¼® ï¿½Ìºï¿½Æ® 2011
 //  Name 	: SendAttendanceRewardReq()
-//  Desc 	: Ãâ¼® ÀÌº¥Æ® °³ÀÎ º¸»ó
+//  Desc 	: ï¿½â¼® ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendAttendanceRewardReq()
 {
@@ -12358,9 +12359,9 @@ void CNetworkLibrary::SendAttendanceRewardReq()
 }
 
 // ----------------------------------------------------------------------------
-// [2011/02/09 : Sora] Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â
+// [2011/02/09 : Sora] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½
 //  Name 	: SendRestoreQuestItem()
-//  Desc 	: ¿Ï·áµÈ Äù½ºÆ®ÀÇ º¸»ó¾ÆÀÌÅÛÀ» ´Ù½Ã ¹Þ´Â´Ù
+//  Desc 	: ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ´Â´ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRestoreQuestItem( SLONG questIndex )
 {
@@ -12373,7 +12374,7 @@ void CNetworkLibrary::SendRestoreQuestItem( SLONG questIndex )
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendComebackMessage()
-//  Desc 	: ÈÞ¸é °èÁ¤ º¸»ó ÀÌº¥Æ® ¸Þ½ÃÁö
+//  Desc 	: ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendComebackMessage()
 {
@@ -12384,7 +12385,7 @@ void CNetworkLibrary::SendComebackMessage()
 }
 // ----------------------------------------------------------------------------
 //  Name 	: SendBirthdayMessage()
-//  Desc 	: »ýÀÏ ¼±¹° °ü·Ã ¸Þ½ÃÁö
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendBirthdayMessage( INDEX index )
 {
@@ -12392,11 +12393,11 @@ void CNetworkLibrary::SendBirthdayMessage( INDEX index )
 	nmBirthday << (UBYTE)MSG_EVENT_CHAR_BIRTHDAY;
 
 	if ( index == EVENT_BIRTHDAY_GIFT )
-	{	// ¼±¹° ¿äÃ»
+	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 		nmBirthday << (SBYTE)MSG_EVENT_CHAR_BIRTHDAY_GIFT_REQ;
 	}
 	else if ( index == EVENT_BIRTHDAY_INFO )
-	{	// Á¤º¸ ¿äÃ»
+	{	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 		nmBirthday << (SBYTE)MSG_EVENT_CHAR_BIRTHDAY_BDAY_REQ;
 	}
 
@@ -12406,7 +12407,7 @@ void CNetworkLibrary::SendBirthdayMessage( INDEX index )
 // royal rumble [4/19/2011 rumist]
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRumbleJoinReq()
-//  Desc 	: ·Î¾â ·³ºí Âü°¡ ½ÅÃ»
+//  Desc 	: ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumbleJoinReq()
 {
@@ -12418,7 +12419,7 @@ void CNetworkLibrary::SendRoyalRumbleJoinReq()
 }
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRUmbleRejectReq()
-//  Desc 	: ·Î¾â ·³ºí Âü°¡ ½ÅÃ» Ãë¼Ò
+//  Desc 	: ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumbleRejectReq()
 {
@@ -12431,7 +12432,7 @@ void CNetworkLibrary::SendRoyalRumbleRejectReq()
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRumbleRewardReq()
-//  Desc 	: ·Î¾â ·³ºí º¸»ó ½ÅÃ»
+//  Desc 	: ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumbleRewardReq()
 {
@@ -12443,7 +12444,7 @@ void CNetworkLibrary::SendRoyalRumbleRewardReq()
 }
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRumblePointReq()
-//  Desc 	: ·Î¾â ·³ºí ÀüÀå Æ÷ÀÎÆ® È®ÀÎ.
+//  Desc 	: ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½ï¿½.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumblePointReq()
 {
@@ -12456,7 +12457,7 @@ void CNetworkLibrary::SendRoyalRumblePointReq()
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRumbleNextTimeReq()
-//  Desc 	: ·Î¾â ·³ºí ´ÙÀ½ °æ±â ÀÏÁ¤ Á¶È¸.
+//  Desc 	: ï¿½Î¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumbleNextTimeReq()
 {
@@ -12469,7 +12470,7 @@ void CNetworkLibrary::SendRoyalRumbleNextTimeReq()
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRoyalRumbleStartReq()
-//  Desc 	: ·Î¾â·³ºí ´ë±â½Ç ÀÌµ¿.
+//  Desc 	: ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½.
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendRoyalRumbleStartReq()
 {
@@ -12484,7 +12485,7 @@ void CNetworkLibrary::SendRoyalRumbleStartReq()
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendMasterStoneUseReq()
-//  Desc 	: ¸¶½ºÅÍ ½ºÅæ »ç¿ë ¿äÃ».
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendMasterStoneUseReq(SWORD nMStoneTab, SWORD ubMStoneIdx, SLONG slMStone, 
 						SWORD nTargetTab, SWORD ubItemTgtIdx, SLONG slItemTgt)
@@ -12506,7 +12507,7 @@ void CNetworkLibrary::SendMasterStoneUseReq(SWORD nMStoneTab, SWORD ubMStoneIdx,
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendGuildMarkWndOpenReq()
-//  Desc 	: ±æµå¸¶Å© Ã¢ ¿ÀÇÂ ¿äÃ»
+//  Desc 	: ï¿½ï¿½å¸¶Å© Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendGuildMarkWndOpenReq()
 {
@@ -12517,7 +12518,7 @@ void CNetworkLibrary::SendGuildMarkWndOpenReq()
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendGuildMarkEditEndReq()
-//  Desc 	: ±æµå¸¶Å© ÆíÁý¿Ï·á
+//  Desc 	: ï¿½ï¿½å¸¶Å© ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendGuildMarkEditEndReq( SBYTE gm_row, SBYTE gm_col, SBYTE bg_row, SBYTE bg_col, SWORD nTab, SWORD nInvenIdx )
 {
@@ -12538,7 +12539,7 @@ void CNetworkLibrary::SendGuildMarkEditEndReq( SBYTE gm_row, SBYTE gm_col, SBYTE
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRankingListEx()
-//  Desc 	: ·©Å· ¸®½ºÆ® ¿äÃ»
+//  Desc 	: ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 
 void CNetworkLibrary::SendRankingListEx(UCHAR ucType, UCHAR ucSubType)
@@ -12555,7 +12556,7 @@ void CNetworkLibrary::SendRankingListEx(UCHAR ucType, UCHAR ucSubType)
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendRankingListEx()
-//  Desc 	: ·©Å· °Ë»ö ¸®½ºÆ® ¿äÃ»
+//  Desc 	: ï¿½ï¿½Å· ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 
 void CNetworkLibrary::SendRankingSearchListEx(UCHAR ucType, UCHAR ucSubType, CTString pcstrSearch)
@@ -12583,7 +12584,7 @@ void CNetworkLibrary::pkPenaltyReformRewardReq(LONG titlenum)
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendEventKrathongReq()
-//  Desc 	: Å©¶óÅë ÀÌº¥Æ® Àç·á±³È¯ ¿äÃ»
+//  Desc 	: Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½á±³È¯ ï¿½ï¿½Ã»
 // ----------------------------------------------------------------------------
 
 void CNetworkLibrary::SendEventKrathongReq()
@@ -12597,13 +12598,13 @@ void CNetworkLibrary::SendEventKrathongReq()
 // ----------------------------------------------------------------------------
 //	[2011/11/14 : Sora]
 //  Name 	: SendKBRewardReq()
-//  Desc 	: ÅÂ±¹ ±¹¿Õ Åº»ýÀÏ ÀÌº¥Æ® ¾ÆÀÌÅÛ ±³È¯ ¿äÃ» 
+//  Desc 	: ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ Åºï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã» 
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendKBRewardReq( UCHAR commandNum )
 {
 	CNetworkMessage nmEvent((UBYTE)MSG_EVENT);
 	nmEvent << (UCHAR)MSG_EVENT_KB_REWARD;
-	nmEvent << (UCHAR)commandNum;	// 0Àº Åº»ýÀÏ ¼±¹°»óÀÚ·Î ±³È¯ 1Àº ÀÇ»ó»óÀÚ·Î ±³È¯
+	nmEvent << (UCHAR)commandNum;	// 0ï¿½ï¿½ Åºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½È¯ 1ï¿½ï¿½ ï¿½Ç»ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½È¯
 
 	SendToServerNew(nmEvent);
 }
@@ -12611,7 +12612,7 @@ void CNetworkLibrary::SendKBRewardReq( UCHAR commandNum )
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendUserNotice()
-//  Desc 	: À¯Àú °øÁö ¸Þ¼¼Áö Àü¼Û
+//  Desc 	: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendUserNotice(CTString strMessage)
 {
@@ -12625,7 +12626,7 @@ void CNetworkLibrary::SendUserNotice(CTString strMessage)
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendGuildMasterKickReq()
-//  Desc 	: ±æµå ¸¶½ºÅÍ¸¦ Ãß¹æ ½ÅÃ»ÇÑ´Ù
+//  Desc 	: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendGuildMasterKickReq(INDEX idxGuild)
 {
@@ -12637,7 +12638,7 @@ void CNetworkLibrary::SendGuildMasterKickReq(INDEX idxGuild)
 
 // ----------------------------------------------------------------------------
 //  Name 	: SendGuildMasterKickCancelReq()
-//  Desc 	: ±æµå ¸¶½ºÅÍ°¡ Ãß¹æ¿¡ ÀÌÀÇÁ¦±âÇÑ´Ù
+//  Desc 	: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ß¹æ¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 // ----------------------------------------------------------------------------
 void CNetworkLibrary::SendGuildMasterKickCancelReq(INDEX idxGuild)
 {
@@ -12683,7 +12684,7 @@ void CNetworkLibrary::SendGuildRecallReq()
 
 	SendToServerNew( nmMessage );
 }
-//	FD_TEST ±è¿µÈ¯ : ±â´ÉÇÔ¼ö Ãß°¡
+//	FD_TEST ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ ï¿½ß°ï¿½
 void	CNetworkLibrary::Set_MyChar_MorphStatus_EVOCATION_CONVERTING()
 {
 	MyCharacterInfo.eMorphStatus		= CNetworkLibrary::MyChaInfo::eMORPH_EVOCATION_CONVERTING;
@@ -12748,7 +12749,7 @@ bool CNetworkLibrary::IsAttackMe( int targetID )
 	if( iter != m_vectorPetList.end() )
 		return true;
 
-	// ¼Ò¼­·¯ Á¤·É Ã³¸®
+	// ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	ObjectBase* pObject = ACTORMGR()->GetObject(eOBJ_SLAVE, targetID);
 
 	if (pObject != NULL)
@@ -12813,15 +12814,15 @@ void CNetworkLibrary::SendReformItemReq( UCHAR reformerGrade, SWORD reformerTab,
 	SendToServerNew( nmMessage );
 }
 
-void CNetworkLibrary::ResetSkillDelayTime() // ½ºÅ³ ÄðÅ¸ÀÓ ÃÊ±âÈ­
+void CNetworkLibrary::ResetSkillDelayTime() // ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
 {
 	FOREACHINSTATICARRAY(ga_World.wo_aSkillData, CSkill, iter)
 	{
 		iter->ResetStartTime();
-		iter->SetToggle(false);		// Åä±Ûµµ ²¨ÁØ´Ù.
+		iter->SetToggle(false);		// ï¿½ï¿½Ûµï¿½ ï¿½ï¿½ï¿½Ø´ï¿½.
 	}
 }
-void CNetworkLibrary::ResetItemDelayTime() // ¾ÆÀÌÅÛ ÄðÅ¸ÀÓ ÃÊ±âÈ­
+void CNetworkLibrary::ResetItemDelayTime() // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
 {
 	CItemData::_map::iterator	iter = CItemData::_mapdata.begin();
 	CItemData::_map::iterator	eiter = CItemData::_mapdata.end();
@@ -12858,7 +12859,7 @@ void CNetworkLibrary::RestartGame()
 	MyCharacterInfo.useTotem = false;
 
 	ClearAffinityData();
-	// Ä£È­µµ º¸»ó NPC ¸®½ºÆ® Å¬¸®¾î
+	// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NPC ï¿½ï¿½ï¿½ï¿½Æ® Å¬ï¿½ï¿½ï¿½ï¿½
 	ClearAffinityRewardNPC();
 
 	MonsterMercenaryInfo.Init();
@@ -12869,10 +12870,10 @@ void CNetworkLibrary::RestartGame()
 
 	INFO()->clear();
 	
-	SetRvrZone(FALSE); // RVR Á¸ ¼ÂÆÃ ÃÊ±âÈ­
+	SetRvrZone(FALSE); // RVR ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 
-	ResetSkillDelayTime();//½ºÅ³ µô·¹ÀÌ Å¸ÀÓ ÃÊ±âÈ­
-	ResetItemDelayTime();// ¾ÆÀÌÅÛ µô·¹ÀÌ Å¸ÀÓ ÃÊ±â
+	ResetSkillDelayTime();//ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	ResetItemDelayTime();// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ê±ï¿½
 
 	m_vectorLegitList.clear();
 
@@ -12883,13 +12884,13 @@ bool CNetworkLibrary::CheckSendSkill(INDEX nIndex)
 {
 	__int64	_cur = _pTimer->GetHighPrecisionTimer().GetMilliseconds();
 
-	// °°Àº ½ºÅ³Àº Á¤ÇØÁø ½Ã°£³»¿¡ Áßº¹ »ç¿ë ±ÝÁö.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if (m_nLastSkillIndex == nIndex &&
 		(_cur - m_nSkillSendTime) < DEF_SKILL_SEND_DELAY)
 	{
 		CUIManager* pUIMgr = UIMGR();
 
-		pUIMgr->GetChattingUI()->AddSysMessage(_S(5550, "ÀÌ¹Ì »ç¿ëÁßÀÔ´Ï´Ù."), SYSMSG_ERROR);
+		pUIMgr->GetChattingUI()->AddSysMessage(_S(5550, "ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½."), SYSMSG_ERROR);
 		pUIMgr->SetCSFlagOff(CSF_SKILLREADY);
 		pUIMgr->CancelSkill(FALSE, TRUE);
 		return false;

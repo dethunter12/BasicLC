@@ -109,7 +109,6 @@ typedef struct _tagAssistValue
 // >> [100823: selo] 유료 증폭제
 	bool hcSepDrop_Cash;		// 드롭률 상승
 	bool hcSepExp_Cash;			// 경험치 상승
-	bool hcSepExp_Prem; //dethunter12 add 3/5/2023
 	bool hcSepSP_Cash;			// 스킬포인트 상승
 	bool hcSepSPPrem_Cash;
 // << [100823: selo] 유료 증폭제

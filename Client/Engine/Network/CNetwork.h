@@ -13,26 +13,26 @@
 #include <Engine/Network/MessageDispatcher.h>
 #include <Engine/Network/MessageDefine.h>
 
-// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­
-// EDIT : BS : ÆÐÅ¶ ¾ÏÈ£È­
+// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
+// EDIT : BS : ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #ifdef CRYPT_NET_MSG
 #include <LCCrypt.h>
 #else
 #include <Engine/Network/CryptNetMsg.h>
 #endif
 
-// 110802 : ÆÐÅ¶ 2Â÷ ¾ÏÈ£È­
+// 110802 : ï¿½ï¿½Å¶ 2ï¿½ï¿½ ï¿½ï¿½È£È­
 #ifdef	CRYPT_NET_MSG_LEVEL2
 #include <Engine/Network/CryptNetMsg.h>
 #endif
 
-// °ø¼º Âü¿© »óÅÂ(status, appear )
-#define WCJF_NONE   0  // ºñÂü¿©
-#define WCJF_OWNER   1  // ¼ºÁÖ ±æµå
-#define WCJF_DEFENSE_GUILD 2  // ¼ö¼º ±æµå
-#define WCJF_DEFENSE_CHAR 3  // ¼ö¼ºÃø ¿ëº´
-#define WCJF_ATTACK_GUILD 4  // °ø¼º ±æµå
-#define WCJF_ATTACK_CHAR 5  // °ø¼ºÃø ¿ëº´
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(status, appear )
+#define WCJF_NONE   0  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define WCJF_OWNER   1  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define WCJF_DEFENSE_GUILD 2  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define WCJF_DEFENSE_CHAR 3  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´
+#define WCJF_ATTACK_GUILD 4  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+#define WCJF_ATTACK_CHAR 5  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´
 
 
 #include <Engine/Entities/StatusEffect.h>
@@ -41,7 +41,7 @@
 //0603 kwon 
 #include <Engine/Entities/Items.h>
 #include <Engine/Entities/TargetInfo.h>
-#include <Engine/Entities/SmcParser.h> // eons 071005 : SmcParser Å¬·¡½º
+#include <Engine/Entities/SmcParser.h> // eons 071005 : SmcParser Å¬ï¿½ï¿½ï¿½ï¿½
 
 // [6/17/2009 rumist] include definition stat.
 #include <Engine/LocalDefine.h> 
@@ -64,20 +64,20 @@
 #define DEMOSYNC_REALTIME			(0.0f)
 #define DEMOSYNC_STOP				(-1.0f)
 
-//[ttos_2009_1_20]: Ã¤ÆÃ ±ÝÁö flag
-#define CHAT_FLAG_NO_SAY  (1 << 0)  // ÀÏ¹Ý Ã¤ÆÃ ±ÝÁö
-#define CHAT_FLAG_NO_PARTY  (1 << 1)  // ÆÄÆ¼ Ã¤ÆÃ ±ÝÁö
-#define CHAT_FLAG_NO_GUILD  (1 << 2)  // ±æµå Ã¤ÆÃ ±ÝÁö
-#define CHAT_FLAG_NO_TRADE  (1 << 3)  // ¸Å¸Å Ã¤ÆÃ ±ÝÁö
-#define CHAT_FLAG_NO_WHISPER (1 << 4)  // ±Ó¼Ó¸» ±ÝÁö
-#define CHAT_FLAG_NO_SHOUT  (1 << 5)  // ¿ÜÄ¡±â ±ÝÁö
+//[ttos_2009_1_20]: Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ flag
+#define CHAT_FLAG_NO_SAY  (1 << 0)  // ï¿½Ï¹ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_FLAG_NO_PARTY  (1 << 1)  // ï¿½ï¿½Æ¼ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_FLAG_NO_GUILD  (1 << 2)  // ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_FLAG_NO_TRADE  (1 << 3)  // ï¿½Å¸ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_FLAG_NO_WHISPER (1 << 4)  // ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define CHAT_FLAG_NO_SHOUT  (1 << 5)  // ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#define PK_SYS_CHAO_1	(1 << 0)	//¿ÏÀü ³ª»Û³ð
-#define PK_SYS_CHAO_2	(1 << 1)	//Á» ´ú ³ª»Û³ð
-#define PK_SYS_CHAO_3	(1 << 2)	//º°·Î ¾È³ª»Û³ð
-#define PK_SYS_CHAO_4	(1 << 3)	//º°·Î ¾ÈÂøÇÑ³ð
-#define PK_SYS_CHAO_5	(1 << 4)	//Á» ´ú ÂøÇÑ³ð
-#define PK_SYS_CHAO_6	(1 << 5)	//¿ÏÀü ÂøÇÑ³ð
+#define PK_SYS_CHAO_1	(1 << 0)	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û³ï¿½
+#define PK_SYS_CHAO_2	(1 << 1)	//ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Û³ï¿½
+#define PK_SYS_CHAO_3	(1 << 2)	//ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½Û³ï¿½
+#define PK_SYS_CHAO_4	(1 << 3)	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ³ï¿½
+#define PK_SYS_CHAO_5	(1 << 4)	//ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ³ï¿½
+#define PK_SYS_CHAO_6	(1 << 5)	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ³ï¿½
  
 extern ENGINE_API INDEX net_bLocalPrediction;
 
@@ -89,7 +89,7 @@ enum NetGraphEntryType {
 	NGET_REPLICATEDACTION,
 };
 
-enum CurEnterType { // ÇöÀç °ÔÀÓ ÀÔÀå Å¸ÀÔ(ÁøÇà µÇ°í ÀÖ´Â ¸ðµå?)
+enum CurEnterType { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½?)
 	CURRENT_ENTER_NORMAL,
 	CURRENT_ENTER_PARTYCUBE,
 	CURRENT_ENTER_GUILDCUBE,
@@ -108,7 +108,7 @@ struct JewelInfo
 };
 
 typedef		std::vector<JewelInfo>		_vecJewelInfo;
-//added by sam 11/02/01 [SAM] ÇÑ¹ú 
+//added by sam 11/02/01 [SAM] ï¿½Ñ¹ï¿½ 
 typedef std::vector<INDEX> VEC_ONESUIT_OPTION_TYPE;
 typedef VEC_ONESUIT_OPTION_TYPE::iterator VEC_ONESUIT_OPTION_TYPE_IT;
 
@@ -197,7 +197,7 @@ public:
 	FLOAT ga_fEnumerationProgress;					// enumeration progress percentage (0-1)
 	CTString ga_strEnumerationStatus;				// description of current operation
 	BOOL ga_bEnumerationChange;						// this is raised if something was changed in the list
-	BOOL ga_bGuildWar;								// ±æµå ÀüÀï ÁßÀÎ°¡?
+	BOOL ga_bGuildWar;								// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½?
 
 
 	CTString ga_strRequiredMod;						// set if connection failed due to a different mod running on the server
@@ -261,20 +261,20 @@ public:
 	int						wo_iNumOfSkill;			// yjpark
 	int						wo_iNumOfJewelGradeData;
 
-	CStaticArray<JewelComosInfo>	wo_aJewelData;		// º¸¼® ¼Ò¸ð ³ª½º °ª µ¥ÀÌÅÍ ÀúÀå
-	CStaticArray<CMakeItemData>		wo_aMakeItemData;	// Á¦ÀÛ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ
-	CSmcParserList					wo_aItemSmcInfo;	// ¾ÆÀÌÅÛ Smc Á¤º¸
+	CStaticArray<JewelComosInfo>	wo_aJewelData;		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CStaticArray<CMakeItemData>		wo_aMakeItemData;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	CSmcParserList					wo_aItemSmcInfo;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Smc ï¿½ï¿½ï¿½ï¿½
 	CStaticArray<CAffinityData>		wo_aAffinityData;
-	CStaticArray<CLacarette>		wo_aLacaretteData;	// ¶óÄ«·¿
+	CStaticArray<CLacarette>		wo_aLacaretteData;	// ï¿½ï¿½Ä«ï¿½ï¿½
 	
 	std::map<int, _vecJewelInfo> wo_mapJewelGradeInfo;
 	std::map<int, _vecJewelInfo> wo_mapChaosJewelGradeInfo;
 	
 	int						wo_iNumOfAffinity;
-	int						wo_dwEnemyCount;		// ¿¡³Ê¹ÌÀÇ °¹¼ö.
+	int						wo_dwEnemyCount;		// ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	int						wo_dwKilledEnemyCount;
-	int						wo_iNomOfMakeItemData;	// Á¦ÀÛ ¾ÆÀÌÅÛ µ¥ÀÌÅÍ
-	struct CHECKPOINT{								// ÇØ´ç Ã¼Å© Æ÷ÀÎÆ® ÁøÇà ¿©ºÎ
+	int						wo_iNomOfMakeItemData;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	struct CHECKPOINT{								// ï¿½Ø´ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		int m_iQuestIndex;
 		int m_iMaxCheckFlag;				
 		int m_iCheckFlag;
@@ -284,11 +284,11 @@ public:
 	//0917
 	CTString	m_strUserID;
 	CTString	m_strUserPW;
-	CTString	m_strUserCID; // Á¢¼ÓÇÑ À¥»çÀÌÆ® ½Äº°ÀÚ	
+	CTString	m_strUserCID; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Äºï¿½ï¿½ï¿½	
 	int			m_iServerGroup;
 	int			m_iServerCh;
 	int			m_iServerType;
-	int			m_iNetworkResponse[MSG_END];			// ³×Æ®¿öÅ© ÀÀ´ä ÇÃ·¡±×
+	int			m_iNetworkResponse[MSG_END];			// ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 	int			m_iNetworkResponseEx[MSG_EX_END];
 	
 
@@ -296,7 +296,7 @@ public:
 	void	SetPvpMode() { m_bIsPvp = !m_bIsPvp; };
 	LONG	m_lLoadingZone;
 
-	BOOL	IsRvrZone()	{ return m_bIsRvr;	}	// ÇöÀç RVRÁ¸(42)¿¡ ÀÖ³Ä.
+	BOOL	IsRvrZone()	{ return m_bIsRvr;	}	// ï¿½ï¿½ï¿½ï¿½ RVRï¿½ï¿½(42)ï¿½ï¿½ ï¿½Ö³ï¿½.
 	void	SetRvrZone(BOOL bRvr)	{ m_bIsRvr = bRvr;	}
 
 	// interface
@@ -430,8 +430,8 @@ public:
 	void SendChatMessage(int index, CTString& strRecvName, CTString& strMessage, std::list<ItemChat> list, SLONG nExpChatType = -1);//0616 kwon
 //0105
 	void SendMessagetoServer(char *msg);
-	//BOOL IsTcpServer;					// by seo-40225 ºÎ¸ðÅ¬·¡½º CMessageDispatcher·Î º¯¼ö À§Ä¡ ¿Å±è.
-	BOOL m_bReadyStart; //0311 kwon serverloop()°¡ ±¸µ¿µÉ ÁØºñ°¡ µÇ¾ú´Â°¡.
+	//BOOL IsTcpServer;					// by seo-40225 ï¿½Î¸ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ CMessageDispatcherï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½Å±ï¿½.
+	BOOL m_bReadyStart; //0311 kwon serverloop()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ ï¿½Ç¾ï¿½ï¿½Â°ï¿½.
 	BOOL IsReadyStart(){return m_bReadyStart;}
 	void SetReadyStart(BOOL bstart){ m_bReadyStart = bstart;}
 	BOOL m_bSingleMode;
@@ -441,7 +441,7 @@ public:
 	int ReturnCCC(int iSCC);
 	
 	//-----------------------------------------
-	// Pet °ü·Ã ±¸Á¶Ã¼.
+	// Pet ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼.
 	struct sPetInfo
 	{
 		sPetInfo()
@@ -504,7 +504,7 @@ public:
 		}
 	};
 
-	// FIXME : ³×Æ®¿öÅ©¿¡ ³Ö´Â°Ç Á»...-_-;;;
+	// FIXME : ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½ï¿½...-_-;;;
 	struct sMoveInfo
 	{
 		sMoveInfo()
@@ -523,7 +523,7 @@ public:
 		FLOAT	fAngle;
 	};
 
-	// FIXME : ³×Æ®¿öÅ©¿¡ ³Ö´Â°Ç Á»...-_-;;;
+	// FIXME : ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½ï¿½...-_-;;;
 	struct sAttackInfo
 	{
 		sAttackInfo()
@@ -540,7 +540,7 @@ public:
 		INDEX	iTargetIndex;
 	};
 
-	// FIXME : ³×Æ®¿öÅ©¿¡ ³Ö´Â°Ç Á»...-_-;;;
+	// FIXME : ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½ï¿½...-_-;;;
 	struct sRegenInfo
 	{
 		sRegenInfo()
@@ -566,28 +566,28 @@ public:
 
 	std::vector<sPetInfo>		m_vectorPetList;
 	std::vector<sMoveInfo>		m_vectorMoveList;
-	std::vector<sAttackInfo>	m_vectorAttackNPCList;		// NPC¸¦ °ø°ÝÇÏ´Â ¸®½ºÆ®.
-	std::vector<sAttackInfo>	m_vectorAttackPCList;		// PC¸¦ °ø°ÝÇÏ´Â ¸®½ºÆ®.
-	std::vector<sAttackInfo>	m_vectorAttackSummonList;	// ¼ÒÈ¯¼ö¸¦ °ø°ÝÇÏ´Â ¸®½ºÆ®.
-	std::vector<sAttackInfo>	m_vectorAttackPetList;	// ¼ÒÈ¯¼ö¸¦ °ø°ÝÇÏ´Â ¸®½ºÆ®.
+	std::vector<sAttackInfo>	m_vectorAttackNPCList;		// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®.
+	std::vector<sAttackInfo>	m_vectorAttackPCList;		// PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®.
+	std::vector<sAttackInfo>	m_vectorAttackSummonList;	// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®.
+	std::vector<sAttackInfo>	m_vectorAttackPetList;	// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®.
 	std::vector<sRegenInfo>		m_vectorRegenList;
-	std::vector<int>			m_vectorLegitList; // Á¤´ç¹æÀ§ À¯Àú ¸ñ·Ï
-	std::list<int>				m_listAffinityRewardNPCList;	// [100322: selo] Ä£È­µµ º¸»ó NPC ¸®½ºÆ®
-	// FIXME : ³×Æ®¿öÅ©¿¡ ³Ö´Â°Ç Á»...-_-;;;
-	//0527 kwon struct Ãß°¡.
+	std::vector<int>			m_vectorLegitList; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	std::list<int>				m_listAffinityRewardNPCList;	// [100322: selo] Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NPC ï¿½ï¿½ï¿½ï¿½Æ®
+	// FIXME : ï¿½ï¿½Æ®ï¿½ï¿½Å©ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½ï¿½...-_-;;;
+	//0527 kwon struct ï¿½ß°ï¿½.
 	struct MyChaInfo 
 	{
 		CTString name;
 		SLONG	 index;
 		UBYTE	 job;
-		SBYTE	 job2;					// ÀüÁ÷½Ã...
+		SBYTE	 job2;					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 		ULONG	 zoneNo;
 		ULONG	 areaNo;
-		ULONG	 LocalNo;				// Áö¿ª Á¤º¸ ( show signboard )
+		ULONG	 LocalNo;				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( show signboard )
 		FLOAT	 x;
 		FLOAT	 h;
 		FLOAT	 z;
-		FLOAT	 r; //¹æÇâ
+		FLOAT	 r; //ï¿½ï¿½ï¿½ï¿½
 		SBYTE	 yLayer;
 		SLONG    userIndex;
 		SBYTE	 hairStyle, faceStyle;
@@ -598,9 +598,9 @@ public:
 		SBYTE attackspeed;
 		SQUAD sp, money, curExp, needExp;
 		SLONG StatPoint;//1013
-		SBYTE sbJoinFlagMerac;			// °ø¼º Âü¿©½Ã °ª.
+		SBYTE sbJoinFlagMerac;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 		SBYTE sbJoinFlagDratan;			// WSS_DRATAN_SIEGEWARFARE 070720
-		UWORD sbAttributePos;			// ¼Ó¼º¸Ê °ª.
+		UWORD sbAttributePos;			// ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½.
 		SBYTE sbMountPet;
 		#ifdef DOMINATION_EVENT_SYSTEM
 		int dominationJoin;
@@ -612,37 +612,43 @@ public:
 		SBYTE pktitle;
 		SLONG pkpenalty, pkcount;
 		SBYTE pk_mode;
-		SLONG fame;						// ¸í¼º.
+		SLONG fame;						// ï¿½ï¿½ï¿½ï¿½.
+
+#ifdef QUICK_PANEL
+		SLONG cloud_QuickPanelBtnType[25];
+		SLONG cloud_QuickPanelBtnIdx[25];
+#endif
+
 		BOOL  bOtherZone;
-		BOOL  bConsensus;							// WSS_DRATAN_SEIGEWARFARE 2007/08/01 ±³°¨Áß
-		std::map<int,int> mQuarter;					// WSS_DRATAN_SEIGEWARFARE 2007/08/09 ºÎÈ°ÁøÁö
-		std::map<int,CTString> mQuarterName;		// WSS_DRATAN_SEIGEWARFARE 2007/08/09 ºÎÈ°ÁøÁö ÀÌ¸§(¼ÒÀ¯ ±æµåÀÌ¸§ Ãß°¡)
+		BOOL  bConsensus;							// WSS_DRATAN_SEIGEWARFARE 2007/08/01 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		std::map<int,int> mQuarter;					// WSS_DRATAN_SEIGEWARFARE 2007/08/09 ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½
+		std::map<int,CTString> mQuarterName;		// WSS_DRATAN_SEIGEWARFARE 2007/08/09 ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ß°ï¿½)
 
 		SBYTE			sbShopType;		
-		LONG			lGuildIndex;		// ÀÓ½Ã	±æµåÀÇ ÀÎµ¦½º
-		LONG			lGuildLevel;		// ÀÓ½Ã ±æµåÀÇ ·¹º§
-		LONG			lGuildPosition;		// ÀÓ½Ã ±æµå¿¡¼­ÀÇ Ä³¸¯ÅÍÀÇ ·¹º§
-		CTString		strGuildName;		// ±æµå¸í.
-		int				iGuildMasterKickStatus;		// ±æµå Ãß¹æ »óÅÂ		0 : »óÅÂ ÀÌ»ó ¾øÀ½, 1 : Ãß¹æ ½ÅÃ» ´çÇÑ »óÅÂ		[trylord 11/12/28]
+		LONG			lGuildIndex;		// ï¿½Ó½ï¿½	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+		LONG			lGuildLevel;		// ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		LONG			lGuildPosition;		// ï¿½Ó½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		CTString		strGuildName;		// ï¿½ï¿½ï¿½ï¿½.
+		int				iGuildMasterKickStatus;		// ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½		0 : ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½, 1 : ï¿½ß¹ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		[trylord 11/12/28]
 		UBYTE			ubGuildNameColor;	//[071123: Su-won] DRATAN_SIEGE_DUNGEON
 		SBYTE			sbGuildRank;
-		BOOL			bExtension;			// µÎ¹øÂ° Å¸ÀÔÀÇ ¹«±â¸¦ µç °æ¿ì...
+		BOOL			bExtension;			// ï¿½Î¹ï¿½Â° Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ ï¿½ï¿½ï¿½...
 
-		INDEX			iPetType;			// ¾Ö¿Ïµ¿¹° Á¾·ù...(?)
-		INDEX			iPetAge;			// ¾Ö¿Ïµ¿¹° ³ªÀÌ...(?)
-		BOOL			bPetRide;			// ¾Ö¿Ïµ¿¹°À» Å¸°í ÀÖ³ª?
-		BOOL			bWildPetRide;		// °ø°ÝÇü Æê ¸¶¿îÆ®
+		INDEX			iPetType;			// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...(?)
+		INDEX			iPetAge;			// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...(?)
+		BOOL			bPetRide;			// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö³ï¿½?
+		BOOL			bWildPetRide;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		
-		int 			nEvocationIndex;		// °­½Å Å¸ÀÔ.
+		int 			nEvocationIndex;		// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½.
 
 		int                autopickup;
         int                autoigni;
-		LONG			lTeacherIndex;		// ³» ½º½ÂÀÇ ÀÎµ¦½º
-		CTString		strTeacherName;		// ³» ½º½ÂÀÇ ÀÌ¸§.
+		LONG			lTeacherIndex;		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+		CTString		strTeacherName;		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½.
 
 		ChatMsgBuffer	ChatMsg;		// yjpark
 		ChatMsgBuffer	ShopMsg;		// yjpark
-		FLOAT			fWaterHeight;	// yjpark - ÀÓ½Ã·Î Ãß°¡ÇÑ ÆÄÀÏ. Àû´çÇÑ À§Ä¡¿¡ Àû´çÇÑ Çü½ÄÀ¸·Î ¼öÁ¤ ¿¹Á¤..
+		FLOAT			fWaterHeight;	// yjpark - ï¿½Ó½Ã·ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..
 
 		SLONG	magicspeed;
 		SLONG	skillSpeed;
@@ -662,15 +668,15 @@ public:
 		SBYTE	sbItemEffectOption;
 //0707
 		SLONG secretkey;
-		SLONG lLocation;// Date : 2006-04-27(¿ÀÈÄ 2:33:10), By eons( NetCafe )
+		SLONG lLocation;// Date : 2006-04-27(ï¿½ï¿½ï¿½ï¿½ 2:33:10), By eons( NetCafe )
 
 		SLONG lWarpZone;
 		SLONG lWarpPos;
 
-// ¼Ó¼º ½Ã½ºÅÛ [1/17/2013 Ranma]
+// ï¿½Ó¼ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ [1/17/2013 Ranma]
 		UBYTE attrdef, attratt;
 		UBYTE attrdefLv, attrattLv;
-		// °­½ÅÃ¼ÀÇ Á¤º¸°¡ À¯ÁöµÇµµ·Ï...
+		// ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½...
 		MyChaInfo()
 		{
 			autoigni = 0;
@@ -685,7 +691,7 @@ public:
 			runspeed = 1.0f;
 
 			iGuildMasterKickStatus = 0;
-// ¼Ó¼º ½Ã½ºÅÛ [1/17/2013 Ranma]
+// ï¿½Ó¼ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ [1/17/2013 Ranma]
 			attrdef = 0;
 			attratt = 0;
 
@@ -707,17 +713,17 @@ public:
 		};
 		
 		// WSS_VISIBLE 070511
-		// ¿î¿µÀÚ ¸ðµå Ä³¸¯Æ® ºñÀúºí Ã³¸®
-		// visible ¸í·É¾î »ç¿ë½Ã ¼¼ÆÃµÊ
+		// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		// visible ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½
 		COLOR m_ModelColor;
 
-		// 080623 ¶óÄ« ±âÀÚ´Ü ÇýÅÃ
+		// 080623 ï¿½ï¿½Ä« ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½
 		SBYTE			sbPresscorps;
 		SBYTE			sbSoulCount;
 
-		SLONG			slLabel;	  // [sora] ´ë»ó Ç¥½Ä
+		SLONG			slLabel;	  // [sora] ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
-		// 080901 UI°³Æí
+		// 080901 UIï¿½ï¿½ï¿½ï¿½
 		SLONG			baseHP, baseMP, addedAttack, addedMagic, addedDefense, addedResist;
 		SLONG			dodgeRate, baseDodgeRate, magicDodgeRate, baseMagicDodgeRate, hitRate, baseHitRate, magicHitRate, baseMagicHitRate;
 		SLONG			critical, baseCritical, deadly, baseDeadly;
@@ -725,10 +731,10 @@ public:
 		SBYTE           baseAttackSpeed;
 		CTString		guildPosName;
 		ULONG			ChatFlag, ulPlayerState;
-		CurEnterType	EntranceType; // °ÔÀÓÁß ÇöÀç Á¸ ÀÔÀå »óÅÂ or °ÔÀÓ ¸ðµå »óÅÂ(Æ¯º°ÇÑ »óÅÂ·Î ÀÎÇØ ¿¹¿ÜÀûÀÎ Àû¿ëÀ» À§ÇÑ ºÎºÐ)(¿¹:ÀÍ½ºÆ®¸² Å¥ºê)
+		CurEnterType	EntranceType; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½)(ï¿½ï¿½:ï¿½Í½ï¿½Æ®ï¿½ï¿½ Å¥ï¿½ï¿½)
 		
-		INDEX			iNickType;	  // È£Äª Å¸ÀÔ ( 0 : È£Äª ¾øÀ½)
-		SQUAD			iGP;		  // ±æµå Æ÷ÀÎÆ®
+		INDEX			iNickType;	  // È£Äª Å¸ï¿½ï¿½ ( 0 : È£Äª ï¿½ï¿½ï¿½ï¿½)
+		SQUAD			iGP;		  // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		
 		INDEX			ep, maxEP;			  // [7/15/2010 kiny8216] Monseter Energy Point
 
@@ -756,7 +762,7 @@ public:
 
 		INDEX			iStudentGiveUpCnt;
 
-		BOOL			bOneSuit;		  // ÇÑ¹ú ÀÇ»óÀ» ÀÔ°í ÀÖ´ÂÁö ÆÇ´Ü.
+		BOOL			bOneSuit;		  // ï¿½Ñ¹ï¿½ ï¿½Ç»ï¿½ï¿½ï¿½ ï¿½Ô°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½.
 		INDEX			iOneSuitDBIndex;
 		INDEX			iOneSuitUniIndex;
 		CTString GetPlayerName(void) { return name; }
@@ -765,23 +771,23 @@ public:
 		
 		ULONG			pkSysRewardFlag;
 		BOOL			bpkSysRewardLate;
-		INDEX			iSyndicateType;	// °á»ç´ë Å¸ÀÔ : 0 ¹«¼Ò¼Ó, 1 Ä«ÀÌ·è½º, 2 µô¶ó¹®, 3 ÇÃ·Î·Î
+		INDEX			iSyndicateType;	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ : 0 ï¿½ï¿½ï¿½Ò¼ï¿½, 1 Ä«ï¿½Ì·è½º, 2 ï¿½ï¿½ï¿½ï¿½, 3 ï¿½Ã·Î·ï¿½
 		INDEX			iSyndicateGrade;
 		LONGLONG		lSyndicateAccPoint;
 		INDEX			iHitEffectType;
 		bool			useTotem;
 
 		stCustomTitleStatForPc stCustomTitle;
-		// °­½Å/º¯½Å »óÅÂ ÇÃ·¡±×
+		// ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½
 		typedef enum	_eMORPHSTATUS
 		{
-			eMORPH_END		= 0,				// º¯È­ Á¾·á
-			eMORPH_EVOCATION_BEGIN,				// °­½Å º¯È­ ÁØºñ (³×Æ®¿öÅ© ¿äÃ»)
-			eMORPH_EVOCATION_CONVERTING,		// °­½Å Áß
-			eMORPH_EVOCATION,					// °­½Å ¿Ï·á »óÅÂ
-			eMORPH_TRANSFORMATION_BEGIN,		// º¯½Å º¯È­ ÁØºñ (³×Æ®¿öÅ© ¿äÃ»)
-			eMORPH_TRANSFORMATION_CONVERTING,	// º¯½Å Áß
-			eMORPH_TRANSFORMATION,				// º¯½Å ¿Ï·á »óÅÂ
+			eMORPH_END		= 0,				// ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+			eMORPH_EVOCATION_BEGIN,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Øºï¿½ (ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½Ã»)
+			eMORPH_EVOCATION_CONVERTING,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			eMORPH_EVOCATION,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
+			eMORPH_TRANSFORMATION_BEGIN,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Øºï¿½ (ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½Ã»)
+			eMORPH_TRANSFORMATION_CONVERTING,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+			eMORPH_TRANSFORMATION,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}eMORPHSTATUS;
 		eMORPHSTATUS	eMorphStatus;
 #ifndef	ISEVOCATION
@@ -829,7 +835,7 @@ public:
 
 	_AffinityInfo		AffinityInfo;
 	
-	struct _MonsterMercenaryInfo // [2010/10/20 : Sora] ¸ó½ºÅÍ ¿ëº´ Ä«µå
+	struct _MonsterMercenaryInfo // [2010/10/20 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ Ä«ï¿½ï¿½
 	{
 		INDEX	index;
 		SLONG	grade;
@@ -864,8 +870,8 @@ public:
 
 	_MonsterMercenaryInfo MonsterMercenaryInfo;
 
-	// EDIT : BS : 070413 : ½Å±Ô ÆÐÅ¶ ¾ÏÈ£È­		
-	// EDIT : BS : ÆÐÅ¶ ¾ÏÈ£È­
+	// EDIT : BS : 070413 : ï¿½Å±ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­		
+	// EDIT : BS : ï¿½ï¿½Å¶ ï¿½ï¿½È£È­
 #ifdef CRYPT_NET_MSG
 	CNM_KEY_TYPE cnmKey;
 #ifndef CRYPT_NET_MSG_MANUAL
@@ -875,7 +881,7 @@ public:
 	ULONG cnmKey;
 #endif // #ifdef CRYPT_NET_MSG
 
-//helper¼­¹ö ÆÐÅ¶ ¾ÏÈ£È­ Å° ÀúÀå
+//helperï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½È£È­ Å° ï¿½ï¿½ï¿½ï¿½
 #ifdef CRYPT_NET_MSG
 	CNM_KEY_TYPE subHelperKey;
 #ifndef CRYPT_NET_MSG_MANUAL
@@ -885,25 +891,25 @@ public:
 	ULONG subHelperKey;
 #endif // #ifdef CRYPT_NET_MSG
 
-	// ¼­¹ö Å¸ÀÓ ÀúÀå¿ë º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SLONG slServerTimeGap;
 	SLONG slServerTime;
 
-	// Ä³¸¯ÅÍ ¼±ÅÃÃ¢À¸·Î ÀÌµ¿
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	BOOL bMoveCharacterSelectUI;
 
 /*
-	//0729 kwon ½ºÅ³ ¾Ö´Ï¸ÞÀÌ¼Ç ¾ÆÀÌµð.
+	//0729 kwon ï¿½ï¿½Å³ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½Ìµï¿½.
 	struct SkillAnimationID
 	{
 		BOOL bIsBuff;
 		INDEX idPlayer_Anim_Skill[3];
 	};
 	
-	SkillAnimationID	_SkillAnimID[300];//¿ì¼± ½ºÅ³ 300°³¸¸ ÇÏÀÚ.
+	SkillAnimationID	_SkillAnimID[300];//ï¿½ì¼± ï¿½ï¿½Å³ 300ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 */
 	void SendLoginMessage(CTString& strID, CTString& strPW, ULONG ulVersion);
-	void SendSecurityMessage(CTString& strSecurity);							//070901_ttos: º¸¾ÈÄ«µå UI
+	void SendSecurityMessage(CTString& strSecurity);							//070901_ttos: ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ UI
 	void SendDeleteCharacter(ULONG ulIndex, BYTE del = FALSE);
 	void SendDeleteCharacter(ULONG ulIndex, CTString& strSecuNum, BYTE del);
 	void SendGameStart(ULONG ulIndex);
@@ -911,11 +917,11 @@ public:
 	void SendCreateCharacter( CTString& strName, UBYTE ubJob, UBYTE ubHair, UBYTE ubFace );
 
 	void SendItemUse( SWORD nTab, SWORD nInvenIdx, LONG lIndex, LONG lEtc );
-	// Å¸°ÙÀÌ ÇÊ¿äÇÑ ¾ÆÀÌÅÛ »ç¿ë
+	// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void SendtargetItemUse( SWORD nTab, SWORD nInvenIdx, LONG lIndex, SBYTE sbType, LONG lMobIndex );	
-	// °áÇÕ ÁÖ¹®¼­ »ç¿ë
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void SendMixItemUse( SWORD nTab, SWORD nInvenIdx, LONG lMixItemidx, LONG lCashItemIdx, LONG lgameItemIdx);
-	// ºÐ¸® ÁÖ¹®¼­ »ç¿ë
+	// ï¿½Ð¸ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void SendUnMixItemUse( SWORD nTab, SWORD nIdx, LONG lMixItemidx, LONG lCashItemIdx);
 	
 	// Inventory
@@ -931,7 +937,7 @@ public:
 	// yjpark |<--
 	// Teleport
 	void SendWarpCancel();
-// [KH_070316] º¯°æ ÇÁ¸®¹Ì¾ö ¸Þ¸ð¸® °ü·Ã
+// [KH_070316] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendTeleportWrite( UBYTE sendMSG, UBYTE ubSlot, CTString &strComment );
 	void SendTeleportWriteRus( UBYTE sendMSG, UBYTE ubSlot, CTString &strComment );
 	void SendTeleportMove( UBYTE sendMSG, UBYTE ubSlot );
@@ -942,23 +948,23 @@ public:
 	// Stat point
 	void SendUseStatPoint( UBYTE ubStatType );
 
-	// HP, MP È¸º¹
+	// HP, MP È¸ï¿½ï¿½
 	void SendRecoverHPMP( SBYTE sbHPCount, SBYTE sbMPCount );
 	void SendRecoverItemSeal( SWORD nTab, SWORD nIdx, SLONG slIndex);
 
-	// ÀÌº¥Æ® º¸»ó.
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 	void SendEventPrize();
 
-	// ¼­¹ö¿¡ º¸¹°ÀÇ ¾ÆÀÌÅÛ Áö±Þ ¸ñ·ÏÀ» ¾òÀ½.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	void SendEventTreasureList();
 
-	// ¼­¹ö·Î º¸¹°»óÀÚ¸¦ ¿­°Ú´Ù°í ¸Þ¼¼Áö¸¦ º¸³¿.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ú´Ù°ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	void SendEventOpenTreasure();
 	
-	// Å©¸®½º¸¶½º,»õÇØ ÀÌº¥Æ® 
+	// Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® 
 	void SendEventNewyear(int tv_event);
 
-// [KH_070413] ½º½ÂÀÇ³¯ ÀÌº¥Æ® °ü·Ã Ãß°¡
+// [KH_070413] ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	void SendEventMaster();
 
 	void SendReqServerTime();
@@ -969,7 +975,7 @@ public:
 	// Item Level Down
 	void ItemLevelDown(SWORD inven_idx1, SWORD inven_idx2);
 
-	// ºí·¯µå ¾ÆÀÌÅÛ & Á¤È­¼®.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½È­ï¿½ï¿½.
 	void OptionAddItem(UWORD slWearPos, int WearVirIdx, SWORD nTab, SWORD inven_idx, int JemVirIdx);
 	void OptionDelItem(UWORD slWearPos, int WearVirIdx, SWORD nTab, SWORD inven_idx, int JemVirIdx);
 
@@ -983,10 +989,10 @@ public:
 	// Process
 	void ProcessReq( SWORD nTab, SWORD inven_idx, SLONG slResultIndex, SLONG slResultCount, CNeedItems* NeedItems );
 
-	// ÀÌ±âÈ¯ Ãß°¡ ( 12. 6 ) : Á¦Á¶ ¸Þ¼¼Áö 
+	// ï¿½Ì±ï¿½È¯ ï¿½ß°ï¿½ ( 12. 6 ) : ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ 
 	void ProductReq( SWORD nTab, SWORD inven_idx, SLONG slResultIndex, SLONG slResultCount, CNeedItems* NeedItems );
 
-	// ÀÌ±âÈ¯ Ãß°¡ ( 12. 8 ) : Á¶ÇÕ ¸Þ¼¼Áö 
+	// ï¿½Ì±ï¿½È¯ ï¿½ß°ï¿½ ( 12. 8 ) : ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ 
 	void MixReq( SWORD nTab, SWORD inven_idx, SWORD* arrTab, SWORD* arrIdx );
 	
 	// Date : 2005-01-12,   By Lee Ki-hwan
@@ -1000,19 +1006,19 @@ public:
 	void	SendWareHouseSetupPassWord( const CTString& strPW, const CTString& strOldPW );
 
 	/****   Guild   ***********************************************************/
-	void GuildJoin( SLONG slGuildIndex, SLONG slSrcIndex, SLONG slDestIndex );				// °¡ÀÔ ½ÅÃ»
-	void GuildQuit( );									// Å»Åð ½ÅÃ»
+	void GuildJoin( SLONG slGuildIndex, SLONG slSrcIndex, SLONG slDestIndex );				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	void GuildQuit( );									// Å»ï¿½ï¿½ ï¿½ï¿½Ã»
 
-	void GuildCreate( const CTString &strGuildName );	// ±æµå »ý¼º
-	void GuildUpgrade();								// ±æµå ½Â±Þ
-	void GuildDestroy();								// ±æµå ÇØÃ¼
-	void GuildChangeBoss( SLONG slDestIndex );			// ´ÜÀå ÀÌÀÓ
-	void GuildAddViceBoss( SLONG slDestIndex );			// ºÎ´ÜÀå ÀÓ¸í
-	void GuildDelViceBoss( SLONG slDestIndex );			// ºÎ´ÜÀå ÇØÀÓ
-	void GuildMemberFire( SLONG slDestIndex );			// ¸â¹ö ÅðÃâ
+	void GuildCreate( const CTString &strGuildName );	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void GuildUpgrade();								// ï¿½ï¿½ï¿½ ï¿½Â±ï¿½
+	void GuildDestroy();								// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+	void GuildChangeBoss( SLONG slDestIndex );			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void GuildAddViceBoss( SLONG slDestIndex );			// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½
+	void GuildDelViceBoss( SLONG slDestIndex );			// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void GuildMemberFire( SLONG slDestIndex );			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	void GuildApplicantAccept( SLONG slDestIndex );		// °¡ÀÔ ½ÂÀÎ
-	void GuildApplicantReject( SBYTE sbWhoCancel );		// °¡ÀÔ °ÅºÎ
+	void GuildApplicantAccept( SLONG slDestIndex );		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void GuildApplicantReject( SBYTE sbWhoCancel );		// ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½
 
 	// Date : 2005-03-18,   By Lee Ki-hwan
 	void GBReq( SLONG nCharIndex, SLONG nPrize, SLONG nTime );	
@@ -1022,17 +1028,17 @@ public:
 	void GBStopReqReject();	
 	void GBStopReqAccept();
 	/****   Teach   ***********************************************************/
-	void TeachTeacherRegister(SBYTE sbStartPlayTime = -1, SBYTE sbEndPlayTime = -1);			// ¼±»ý ¸ñ·Ï¿¡ Ãß°¡
-	void TeachTeacherCancelRegister();		// ¼±»ý ¸ñ·Ï¿¡¼­ »©Áà
-	void TeachRefreshTeacherList();			// ÈÄ°ßÀÎ ¸ñ·Ï °»½Å
-	void TeachTeacherRequest( SLONG slCharIndex, CTString& strName );				// ¼±»ýÀÌ µÇ¾î´Þ¶ó°í ¿äÃ»ÇÔ.
-	void TeachTeacherReject( BOOL bStudent, SLONG slCharIndex, CTString& strName );	// ¼±»ý ¾ÈÇÒ·¡.
-	void TeachTeacherAccept( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName );	// ¼±»ý ÇØÁÙ²².
-	void TeachTeacherGiveUp( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName );	// ¼±»ý ÇÊ¿ä¾ø¾î~!!!
+	void TeachTeacherRegister(SBYTE sbStartPlayTime = -1, SBYTE sbEndPlayTime = -1);			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ ï¿½ß°ï¿½
+	void TeachTeacherCancelRegister();		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void TeachRefreshTeacherList();			// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void TeachTeacherRequest( SLONG slCharIndex, CTString& strName );				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½Þ¶ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½.
+	void TeachTeacherReject( BOOL bStudent, SLONG slCharIndex, CTString& strName );	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò·ï¿½.
+	void TeachTeacherAccept( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName );	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù²ï¿½.
+	void TeachTeacherGiveUp( SLONG slTeacherIndex, CTString& strTeacherName, SLONG slStudentIndex, CTString& strStudentName );	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½~!!!
 
 	/****   ChangeJob ***********************************************************/
-	void ChangeJobReq( SBYTE sbJob, int nNpcVirIdx );		// ÀüÁ÷ ¿äÃ»
-	void ChangeJobGiveUp(int nNpcVirIdx);					// Á÷¾÷ Æ÷±â
+	void ChangeJobReq( SBYTE sbJob, int nNpcVirIdx );		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	void ChangeJobGiveUp(int nNpcVirIdx);					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendClassChange(SBYTE sbJob, int nNpcVirIdx);
 
 #ifdef BATTLE_PASS_SYSTEM
@@ -1043,10 +1049,10 @@ public:
 	void ChangeWeaponReq( SWORD nTab, SWORD inven_idx, LONG lItemVirIndex, LONG lTradeIndex, LONG lChangeType, LONG lTokenVirIndex = -1, LONG lTokenCount = -1 );
 	void ChangeWeaponEventReq( LONG lItemIndex, LONG lChangeType );
 
-	// ½ºÅÈ ÃÊ±âÈ­
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	void StatReset( int iStr, int iDex, int iInt, int iCon );
 
-	// ¹«±â ±³È¯ ÀÌº¥Æ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ìºï¿½Æ®
 	void SendChangeWeaponEvent();
 
 	/************************************************************************/
@@ -1064,11 +1070,11 @@ public:
 	void SendPetChangeRide();
 	void SendPetSkillInit();
 	void SendPetWarpTown();
-	void SendPetDestruction();	// eons	Æê ¼Ò¸ê
-	void SendPetItemMix( SLONG slPetItemIndex, SLONG slmethod );		// eons Æê Á¶ÇÕ
-	void SendPetRebirth( SLONG slPetIndex );		// eons Æê ºÀÀÎ ÇØÁ¦ ¿äÃ» ¸Þ¼¼Áö
+	void SendPetDestruction();	// eons	ï¿½ï¿½ ï¿½Ò¸ï¿½
+	void SendPetItemMix( SLONG slPetItemIndex, SLONG slmethod );		// eons ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void SendPetRebirth( SLONG slPetIndex );		// eons ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Þ¼ï¿½ï¿½ï¿½
 	void SendWildPetRebirth( int nTab, int nIdx, int nNpcIdx );
-	void SendPetitemInfo(SLONG slOwnerIndex,int nitemIndex);		//ÀÎº¥ÀÇ Æê ¾ÆÀÌÅÛ Á¤º¸¹Þ
+	void SendPetitemInfo(SLONG slOwnerIndex,int nitemIndex);		//ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	/****   Exchange   ********************************************************/
 	void ExchangeReq_Req( SLONG slDestIndex, CTString &strDestName );
@@ -1082,7 +1088,7 @@ public:
 	void AddQuickSlot( int nPage, int nSlotNum, int nSlotType, int nData0, int nData1 );
 	void SwapQuickSlot( int nPage1, int nSlot1, int nPage2, int nSlot2 );
 	// Party
-	// TO-KR-T20090903-005 °ü·Ã ÆÄÆ¼ ½ÅÃ» ¼öÁ¤. [11/27/2009 rumist]
+	// TO-KR-T20090903-005 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½. [11/27/2009 rumist]
 	//void PartyInvite( SBYTE sbType, SLONG slIndex );
 	void PartyInvite( SBYTE sbType, SLONG slIndex, CTString strName ="" );
 	void PartyAllow();
@@ -1093,23 +1099,23 @@ public:
 	void ItemPlusEffectReq( SBYTE sbOption );
 	// yjpark     -->|
 
-	// ¶óÄ« ±âÀÚ´Ü Çý´ì ÀÌº¥Æ®
+	// ï¿½ï¿½Ä« ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	void SendPresscorpsMessage(ULONG ulItemIndex, CTString Sendstr);
 	
-	void SendInput(void); // SendUsingSpeedHack --> SendInput ÀÛ¸í º¯°æ // ½ºÇÇµåÇÙ »ç¿ëÀÚ Åëº¸ 
+	void SendInput(void); // SendUsingSpeedHack --> SendInput ï¿½Û¸ï¿½ ï¿½ï¿½ï¿½ï¿½ // ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëº¸ 
     BOOL New_Ranking_Reset(void);//Cloud Ant-hack
 	// [2010/08/25 : Sora] ADD_SUBJOB
 	BOOL IsMySubJob( SLONG slSubJob ) { return MyCharacterInfo.slSubJob & slSubJob; }
 	
-	// PLAYTIME 10ºÐ°£°ÝÀ¸·Î Àü´Þ
+	// PLAYTIME 10ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendUpdatePlayTime(ULONG nTime);
 	void SendInitSSkillReq(void);
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Zone Change System)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Zone Change System)(0.1)
 	void GoZone(int zone, int extra, int NpcIdx = -1 );
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Zone Change System)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Zone Change System)(0.1)
 
-	void ResetSkillDelayTime(); // ½ºÅ³ ÄðÅ¸ÀÓ ÃÊ±âÈ­
-	void ResetItemDelayTime(); // ¾ÆÀÌÅÛ ÄðÅ¸ÀÓ ÃÊ±âÈ­
+	void ResetSkillDelayTime(); // ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	void ResetItemDelayTime(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	
 	//-------------------Item Data---------------------------
 	inline CItemData*	GetItemData(int iIndex)
@@ -1210,31 +1216,31 @@ public:
 		return wo_aMakeItemData[0]; 
 	}
 
-	CTString GetWearingEffect(eEquipment Type, INDEX subType);	// Àåºñ ¾ÆÀÌÅÛÀÇ ÀÌÆåÆ® ÀÌ¸§À» °¡Á®¿Â´Ù.
+	CTString GetWearingEffect(eEquipment Type, INDEX subType);	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 
 	void SendLeaseItem(int iItemIdx);
 	void SendEventItem(int iItemIdx, int iItemcont);
-	void BuyItem(int iShopID, int iNumOfItem, __int64 iTotalPrice);			// »óÁ¡ÀÌ ÆÈ°í ÀÖ´Â ¾ÆÀÌÅÛÀ» ±¸ÀÔÇÔ.
-	void SellItem(int iShopID, int iNumOfItem, __int64 iTotalPrice);		// ÀÚ½ÅÀÌ °¡Áö°í ÀÖ´Â ¾ÆÀÌÅÛÀ» ÆÇ¸ÅÇÔ.
-	void FieldShopBuyItem( int iNumOfItem, __int64 iTotalPrice);			// ttos : ÀâÈ­»ó ÀÌ¿ë ÁÖ¹®¼­ »ç¿ë½Ã
-	void FieldShopSellItem(int iNumOfItem, __int64 iTotalPrice);			// ttos : ÀâÈ­»ó ÀÌ¿ë ÁÖ¹®¼­ »ç¿ë½Ã
+	void BuyItem(int iShopID, int iNumOfItem, __int64 iTotalPrice);			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	void SellItem(int iShopID, int iNumOfItem, __int64 iTotalPrice);		// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ï¿½ï¿½.
+	void FieldShopBuyItem( int iNumOfItem, __int64 iTotalPrice);			// ttos : ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void FieldShopSellItem(int iNumOfItem, __int64 iTotalPrice);			// ttos : ï¿½ï¿½È­ï¿½ï¿½ ï¿½Ì¿ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendWhoAmI();
 	void SendGMCommand(const char *szCommand);
 
-// °­µ¿¹Î ¼öÁ¤ ½ÃÀÛ		// 2nd Single Dungeon
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		// 2nd Single Dungeon
 	void AddRescueNPC(CEntity* pEntity);	
 	void UpdateRescueNPC(CEntity* pEntity, int iHP, int iMP);	
 	void EndRescueNPC();
-// °­µ¿¹Î ¼öÁ¤ ³¡		// 2nd Single Dungeon
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½		// 2nd Single Dungeon
 
-// °­µ¿¹Î ¼öÁ¤ ½ÃÀÛ
-	// NOTE : ¸Þ¼¼Áö¸¦ º¸³½ ½Ã°£.
-	// NOTE : Å¸ÀÓ ¾Æ¿ôÀ» Ã¼Å©ÇÏ±â À§ÇÑ ºÎºÐ.
-	unsigned int	m_uiSendedTime;		// ¸Þ¼¼Áö¸¦ º¸³ÂÀ»¶§ÀÇ ½Ã°£.
-	BOOL			m_bSendMessage;		// ¸Þ¼¼Áö¸¦ º¸³ÂÀ¸¸ç(TRUE), ±×¿¡ ´ëÇÑ ÀÀ´äÀ» ¹ÞÀ¸¸é(FALSE)
-// °­µ¿¹Î ¼öÁ¤ ³¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// NOTE : ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
+	// NOTE : Å¸ï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
+	unsigned int	m_uiSendedTime;		// ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
+	BOOL			m_bSendMessage;		// ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(TRUE), ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(FALSE)
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	UBYTE	m_ubGMLevel;
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(GM Command)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(GM Command)(0.1)
 	
 	//0701 kwon	
 	SLONG SearchClientChaIndex(ULONG Index);
@@ -1256,7 +1262,7 @@ public:
 	void SendPetSkillMessage(int nSkillIndex, CEntity *pSourceEntity, CEntity *pTargetEntity, BOOL bFire);
 	void SendPetCommandMessage( int nSkillIndex, CEntity *pSourceEntity );
 
-	// ¼ÒÈ¯¼öÀÇ ½ºÅ³ ¸Þ¼¼Áö.
+	// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Þ¼ï¿½ï¿½ï¿½.
 	void SendSlaveSkillMessage(int nSkillIndex, CEntity *pSourceEntity, CEntity *pTargetEntity, BOOL bFire);
 	void SendSlaveSkillMessageInContainer(int nSkillIndex, CEntity *pSourceEntity, CSelectedEntities &dcEntities, BOOL bFire);
 	
@@ -1270,7 +1276,7 @@ public:
 	void DeleteAllMob();
 	
 	//wooss 050805
-	//È®ÀåµÈ ¸®¹ö½º ¸Þ½ÃÁö 
+	//È®ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ 
 	void SendRebirthMessageEx(int, BOOL ,BOOL);
 	//wooss 050808
 	//send warp message
@@ -1315,7 +1321,7 @@ public:
 	void RankingGladesReq();
 #endif
 
-	// ½Ì±Û´øÁ¯¿¡¼­ ¸Þ¼¼Áö¸¦ ¹­¾î¼­ º¸³»±â À§ÇØ¼­ ÇÊ¿äÇÑ ºÎºÐ.
+	// ï¿½Ì±Û´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
 	void AddAttackList( UBYTE ubAttackType, INDEX iAttackIndex, UBYTE ubTargetType, INDEX iTargetIndex );
 	void SendAttackList();
 	void ClearAttackList();
@@ -1331,19 +1337,19 @@ public:
 	void SendRegenList();
 	void ClearRegenList();
 
-	// Á¤´ç¹æÀ§ ¸®½ºÆ® °ü¸®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	void AddLegitList(int Index);
 	BOOL SearchLegitList(int Index, BOOL bDel = FALSE);
 	void DelLegitList(int Index);
 
-	// [100322: selo] Ä£È­µµ º¸»ó NPC ¸®½ºÆ® °ü¸®
+	// [100322: selo] Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ NPC ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	void AddAffinityRewardNPC(int iIndex);
 	void RemoveAffinityRewardNPC(int iIndex);
 	void ClearAffinityRewardNPC();
 	const int GetAffinityRewardNPCListCount();
 	const std::list<int>& GetAffinityRewardNPCList();
 
-	// ¸ÖÆ¼ Å¸°ÙÀ» À§ÇØ¼­ ¹üÀ§³»ÀÇ ÀûµéÀ» ¸ðµÎ Ã£¾Æ³À´Ï´Ù.
+	// ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã£ï¿½Æ³ï¿½ï¿½Ï´ï¿½.
 	void FindTargetsInRange(
 								 CEntity* pPlayer, 
 								 CEntity* pCenter,
@@ -1357,10 +1363,10 @@ public:
 	void FindTargetsInRangeEx(CEntity* pCenter,	CSelectedEntities& cen, FLOAT fFallOffRange, INDEX iMaxEnemies);
 
 	void CheckAttackTarget( INDEX iSkillIndex, CEntity* pTargetEntity, FLOAT fDist = 0.0f, BOOL bElementalAttack = FALSE ); 
-	// ½ºÅ³ °ø°ÝÀ» ÇÒ¼ö ÀÖ´ÂÁö ÆÇ´ÜÇÕ´Ï´Ù.
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Õ´Ï´ï¿½.
 	BOOL CheckSkillAttack( INDEX iSkillIndex, CEntity* pEntity );
 
-	// Date : 2005-05-19(¿ÀÈÄ 8:25:50), By Lee Ki-hwan
+	// Date : 2005-05-19(ï¿½ï¿½ï¿½ï¿½ 8:25:50), By Lee Ki-hwan
 	void MgrRegistReq( int nCharIndex, CTString strCharName );
 	void MgrRegistAllow( int nCharIndex, CTString strReqCharName );
 	void MgrSetCondition( int nCharIndex, int nCondition );
@@ -1369,7 +1375,7 @@ public:
 	void MgrFriendDeleteBlock(int nCharIndex);
 	void MgrDeleteMember( int nCharIndex, int nTargetIndex, CTString strName );
 	void SendFriendCatting( int nCharIndex, CTString strName, CTString strTargetName, CTString strMessage );
-	//¸Þ½ÅÀú Ãß°¡ ±â´É
+	//ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
 	void MgrFriendInvite( int nCharIndex, int nChatIndex, int nTargetIndex);
 	void MgrFriendOut( int nCharIndex, int nChatIndex );
 	void MgrFriendChat( int nCharIndex, int nChatIndex, CTString strChat);
@@ -1382,49 +1388,49 @@ public:
 	void MgrSetChatColor( int nColIndex);
 	void MgrOneVsOneConnect( int nCharIndex, int nOtherCharIndex, CTString strChat );
 	
-	// Date : 2005-07-06(¿ÀÈÄ 2:36:01), By Lee Ki-hwan
-	//  °ø¼º °ü·Ã ¸Þ¼¼Áö 
-	void SetTimeReq( int nDay, int nHour, int nZone ); // °ø¼º½Ã°£ ¼³Á¤ ¿äÃ»	// [2010/11/01 : Sora] °ø¼º °³Æí
-	void GetTimeReq();						// °ø¼º ½Ã°£ È®ÀÎ ¿äÃ»
-	void AttackReq();						// °ø¼º ½ÅÃ» 
-	void DefenseGuildReq();					// ¼ö¼º ½ÅÃ» 
-	void AttackCharReq();					// °ø¼º ¿ëº´½ÅÃ»
-	void AttackGuildReq();					// ¼ö¼º ¿ëº´ ½ÅÃ» 
-	void WarItemMixReq( SWORD* arrTab, SWORD* arrIdx ); // °ø¼º ¾ÆÀÌÅÛ Á¶ÇÕ ½ÅÃ» 
+	// Date : 2005-07-06(ï¿½ï¿½ï¿½ï¿½ 2:36:01), By Lee Ki-hwan
+	//  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ 
+	void SetTimeReq( int nDay, int nHour, int nZone ); // ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	// [2010/11/01 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	void GetTimeReq();						// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½ ï¿½ï¿½Ã»
+	void AttackReq();						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+	void DefenseGuildReq();					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+	void AttackCharReq();					// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ï¿½ï¿½Ã»
+	void AttackGuildReq();					// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½Ã» 
+	void WarItemMixReq( SWORD* arrTab, SWORD* arrIdx ); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
 
-	// ¾Ö¿Ïµ¿¹° °ü·Ã...
-	void CallPet( LONG lIndex );													// ÆêÀ» È£ÃâÇÔ.
-	void CheckPetType( SBYTE sbPetTypeGrade, INDEX &iPetType, INDEX &iPetAge );		// Æê Å¸ÀÔ°ú ³ªÀÌ¸¦ ¾òÀ½.
-	void RidePet( CEntity *pCharacter, CEntity *pPet, INDEX iPetType );		// ¾Ö¿Ïµ¿¹°À» Å¸µµ·Ï Ã³¸®.
-	void LeavePet( CEntity *pCharacter );									// ¾Ö¿Ïµ¿¹°¿¡¼­ ³»¸®µµ·Ï Ã³¸®.
+	// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
+	void CallPet( LONG lIndex );													// ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½.
+	void CheckPetType( SBYTE sbPetTypeGrade, INDEX &iPetType, INDEX &iPetAge );		// ï¿½ï¿½ Å¸ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	void RidePet( CEntity *pCharacter, CEntity *pPet, INDEX iPetType );		// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.
+	void LeavePet( CEntity *pCharacter );									// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½.
 	// wildpet riding functions [12/21/2010 rumist]
 	void RideWildPet( CEntity *pCharacter, CEntity* pWildPet, CTString strFileName );
 	void LeaveWildPet( CEntity *pCharacter );
-	void UpdatePetTargetInfo( INDEX iPetIndex );						// ¾Ö¿Ïµ¿¹°ÀÇ Á¤º¸¸¦ °»½ÅÇÔ.
+	void UpdatePetTargetInfo( INDEX iPetIndex );						// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	void ClearPetList();
 	void SendMovingGuildWarArea();
 
-	// Date : 2005-09-06(¿ÀÀü 11:22:30), By Lee Ki-hwan
+	// Date : 2005-09-06(ï¿½ï¿½ï¿½ï¿½ 11:22:30), By Lee Ki-hwan
 	void SendGuildStashHistroyReq();
 	void SendGuildStashViewReq();
 	void SendGuildStashTakeReq( LONGLONG llMoney );
-	// ±æµåÃ¢°í ÀÌ¿ë³»¿ª ¸®½ºÆ® ¿äÃ».
+	// ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½Ì¿ë³»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã».
 	void SendGuildStashUseRecord(INDEX iLastIdx = 0);
 	
-	// Date : 2005-09-08(¿ÀÈÄ 5:59:52), By Lee Ki-hwan
+	// Date : 2005-09-08(ï¿½ï¿½ï¿½ï¿½ 5:59:52), By Lee Ki-hwan
 	void SendChuseokUpgrade();
 	void SendChuseokExchange();
 
 	///////////////////////////////////////////////////////////////////////////////////
-	// 2006 Ãß¼® ÀÌº¥Æ® :Su-won	|---------->
+	// 2006 ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® :Su-won	|---------->
 	
-	//¼ÛÆí ¸¸µé±â
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	void Send2006ChuseokRicecakeMake();
 	void Send2006ChuseokRainbowMake();
-	//¿À»ö¼ÛÆí º¸»óÇ°À¸·Î ±³È¯ÇÏ±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï±ï¿½
 	void Send2006ChuseokExchange();
 	
-	// 2006 Ãß¼® ÀÌº¥Æ® :Su-won	<----------|
+	// 2006 ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® :Su-won	<----------|
 	///////////////////////////////////////////////////////////////////////////////////
 	
 	// 2006 X-Mase Event [12/12/2006 Theodoric]
@@ -1447,14 +1453,14 @@ public:
 
 	// 060306 wooss Party Recall CashItem
 	void SendPartyRecallConfirm(CTString tmp_str,LONG tmp_idx,BOOL tmp_answer);
-	// Date : 2006-04-27(¿ÀÈÄ 2:36:02), By eons
+	// Date : 2006-04-27(ï¿½ï¿½ï¿½ï¿½ 2:36:02), By eons
 	void SendNetCafeOpenBox( void );
 
-	// Date : 2006-11-16(¿ÀÀü 11:08:04), By eons
+	// Date : 2006-11-16(ï¿½ï¿½ï¿½ï¿½ 11:08:04), By eons
 	void SendUsaOpenBetaGift(void);
 
-	// Date : 2006-05-09(¿ÀÈÄ 5:08:22), By eons
-	//ÆÄÆ¼ ¸ÅÄª °ü·Ã
+	// Date : 2006-05-09(ï¿½ï¿½ï¿½ï¿½ 5:08:22), By eons
+	//ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ï¿½
 	void SendPartyRegistNormal( int nType );
 	void SendPartyRegistParty( CTString strComment, DWORD JobFlag, int LimitLevel );
 	void SendPartyListReq( int nPage, int nJob, int nLimitLv, int nPtType, BOOL bState );
@@ -1468,16 +1474,16 @@ public:
 	void SendWorldCupEvent( int msgCmd, int iSelCountry );
 	void SendWorldCupGoldenBallEvent( int nSendType, int nTeamAScore, int nTeamBScore );
 
-	// Date : 2006-06-27(¿ÀÀü 10:42:39), By eons
+	// Date : 2006-06-27(ï¿½ï¿½ï¿½ï¿½ 10:42:39), By eons
 	void SendBuddhismEvent( BYTE nType );
 
-	// Date : 2006-06-28(¿ÀÈÄ 4:18:06), By eons
-	// °ïÃæ Ã¤Áý ÀÌº¥Æ®
+	// Date : 2006-06-28(ï¿½ï¿½ï¿½ï¿½ 4:18:06), By eons
+	// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	void SendBuyCollectBox( void );
 	void SendGiftCollectBox( void );
 	void SendDropInsect( int nInsect, LONG lBoxVIndex );
 
-	// ·¯ºê ·¯ºê ÀÌº¥Æ®( 2007 ¹ß·»Å¸ÀÎ µ¥ÀÌ )
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®( 2007 ï¿½ß·ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 	void SendSaveBingoItem(BYTE nPos, int nGiftItemIndex, int nBoxItemIndex);
 	void SendReqGiftChocoBox(int nUniItemIndex);
 
@@ -1530,13 +1536,13 @@ public:
 	/***********************************************************************/
 
 	//////////////////////////////////////////////////////////////////////////
-	// ÇÇ´Ð½º ÀÌº¥Æ®
+	// ï¿½Ç´Ð½ï¿½ ï¿½Ìºï¿½Æ®
 
-	void SendPhoenixCharacterCondition();		//ÇÇ´Ð½º Ä³¸¯ÅÍ »ý¼º °¡´É¿©ºÎ
-	void SendCreatePhoenixCharacter();	//ÇÇ´Ð½º Ä³¸¯ÅÍ »ý¼º	
+	void SendPhoenixCharacterCondition();		//ï¿½Ç´Ð½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¿ï¿½ï¿½ï¿½
+	void SendCreatePhoenixCharacter();	//ï¿½Ç´Ð½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 
 	//////////////////////////////////////////////////////////////////////////
-	// [sora] ¿øÁ¤´ë ½Ã½ºÅÛ
+	// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	
 
 #ifdef CLOUD_ANTI_INJECT
@@ -1563,24 +1569,24 @@ public:
 	void ExpeditionViewDetailReq( SLONG slGroup, SLONG slIndex );
 	void ExpeditionSetLabelReq(SLONG slCharType, SLONG slMode, SLONG slLabelType, SLONG slIndex);
 	
-	void ExpeditionCollectQuestItemReq(SLONG slIndex);													// ¿øÁ¤´ë Äù½ºÆ® ¾ÆÀÌÅÛ ¼öÁý
+	void ExpeditionCollectQuestItemReq(SLONG slIndex);													// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// [sora] ÆÄÆ¼ ·¹ÀÌµå
-	void PartyEndReq();							// ÆÄÆ¼ ÇØÃ¼
-	void InitInZoneReq();						// ÀÎ´ø ÃÊ±âÈ­
+	// [sora] ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Ìµï¿½
+	void PartyEndReq();							// ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼
+	void InitInZoneReq();						// ï¿½Î´ï¿½ ï¿½Ê±ï¿½È­
 
-	// [sora] ÀÎÁ¸ ÀÌµ¿
+	// [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	void RaidInzoneJoinReq(SLONG slZoneNo, SLONG exParam = -1);
 	void RaidInzoneQuitReq(SLONG slZoneNo = -1, SLONG slExtraNo = -1);
 	
-	// [sora] ÀÎ½ºÅÏÆ® Á¸ ±Í¼ÓÁ¤º¸¿äÃ»
+	// [sora] ï¿½Î½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»
 	void SendRaidInfoReq();
 	//////////////////////////////////////////////////////////////////////////
 
 	// [070613: Su-won]
-	// ¹«±â,¹æ¾î±¸ ±³È¯Ä«µå »ç¿ë ¿äÃ»
+	// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½î±¸ ï¿½ï¿½È¯Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	void UseChangeWeaponItem( SWORD nTab, SWORD inven_idx, LONG lItemIndex, LONG lChangeType, LONG lTradeItemIndex );
-	// Æê ¸íÂû ¾ÆÀÌÅÛ »ç¿ë ¿äÃ»
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	void SendPetNameChageReq( int nPetIndex, CTString strPetName );
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -1592,20 +1598,20 @@ public:
 
 	// Eons 070905
 	void SendBJMono2007Req(UBYTE subType, ULONG ulNum=0); // SK BJ Mono Event
-	void SendLC1000DayHatUpgradeReq(SWORD nIdx, LONG lItemIndex); // 1000ÀÏ ÀÌº¥Æ® ±â³ä¸ðÀÚ ¾÷±×·¹ÀÌµå
+	void SendLC1000DayHatUpgradeReq(SWORD nIdx, LONG lItemIndex); // 1000ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
 	void SendLC1000DayTakeHatReq();
 	void SendTakeFireCracker();
 
 	// [070807: Su-won] EVENT_ADULT_OPEN
-	// ¼ºÀÎ¼­¹ö ¿ÀÇÂ ÀÌº¥Æ® °ü·Ã º¸»ó ¿äÃ»
+	// ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	void SendAdultOpenEventReq( int iEvent, int tv_tab=-1, int tv_row=-1, int tv_col=-1);
 	
 	// WSS_TG2007 2007/09/14
-	// ½ºÅ©¸°¼¦ ÀÌº¥Æ®
+	// ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	void SendTG2007ScreenshotReq();
 	void SendTG2007RichYearReq(int subType);
 	
-	// Eons 071012 ÇÒ·ÎÀ© ÀÌº¥Æ® 2007
+	// Eons 071012 ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® 2007
 	void SendHalloween2007Req(UBYTE subType);
 	
 	// [071122: Su-won] NEW_MOONSTONE
@@ -1626,43 +1632,43 @@ public:
 	void SendUseGoDungeon(INDEX iItemIndex);
 
 	void SendItemDelete(SWORD iTab, SWORD inven_idx, INDEX UniIndex, SQUAD count);
-	//°ø°Ý Æê Àåºñ ¾ÆÀÌÅÛ »ç¿ë½Ã
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendUseWildPetItem(int posId, int tabId, int inven_idx, int item_index);
 	
-	void SendSupportSkill(UBYTE ubMsg); // ÃÊº¸ ¹× ÁßÀú·¹º§ Áö¿ø»ç ½ºÅ³ ¸Þ½ÃÁö ¿äÃ»(°í·¹º§ Áö¿ø»çÃß°¡½Ã °°ÀÌ »ç¿ë)
+	void SendSupportSkill(UBYTE ubMsg); // ï¿½Êºï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
 
 	void SendHanaposEvent(int nNpcVirIdx);
 	
 	void SendEventRequital(int nRequital);
 
-	// ·¹ÀÌµå ½Ã½ºÅÛ ¿ÀºêÁ§Æ® ÇÒ¼ºÈ­ ¸Þ¼¼Áö(Å¬¸¯ ¹× ÁøÀÔ)
+	// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò¼ï¿½È­ ï¿½Þ¼ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	void SendRaidObjectEvent(ULONG iObjectID);
 
-	void SendMakeItemList(ULONG sealtype, UBYTE UItype);		//¹è¿î Á¦ÀÛ ¸®½ºÆ® ¿äÃ»
+	void SendMakeItemList(ULONG sealtype, UBYTE UItype);		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 
 	inline _AffinityInfo*		GetAffinityPointer() { return (&AffinityInfo);	}
 	void SendAffinityConnectReq( SLONG npcIdx );
 	void SendAffinityShopReq( SLONG npcIdx );
 	void SendAffinityGiftInfoReq( SLONG npcIdx );
 	void SendAffinityGiftReq( SLONG npcIdx );
-	void SendAffinityInfoTabReq( SLONG npcIdx ); // Ä£È­µµ °³Æí2 Ä£È­µµ Á¤º¸ ¿äÃ» [2/13/2013 Ranma]
+	void SendAffinityInfoTabReq( SLONG npcIdx ); // Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2 Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» [2/13/2013 Ranma]
 	inline CAffinityData*		GetAffinityData()	{ return &wo_aAffinityData[0]; }
 	void ClearAffinityData();
 	
-	// connie [2009/9/15] - NPC Ã£±â
+	// connie [2009/9/15] - NPC Ã£ï¿½ï¿½
 	void SendNPCPortalGoReq(SLONG slIndex);
 	void SendNPCPortalLocationReq(SLONG slIndex);
 
-	// [091028 sora] ÀÇ»ó ¾ÆÀÌÅÛ°ú ¿¬°áµÈ ¾ÆÀÌÅÛÀ» Ã£±â ¿äÃ»
+	// [091028 sora] ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½Ã»
 	void SendCheckComposition(SWORD nTab, SWORD nInvenIdx, SLONG slUniIndex);
 
-	// [100208: selo] Æ÷±â Äù½ºÆ® º¹±¸
+	// [100208: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	void SendRestoreAbandonQuest(SQUAD llMoney);
 
-	// [100208: selo] Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â ¿äÃ»
+	// [100208: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½Ã»
 	void SendTakeAgainQuestItem();
 
-	// [100324 : sora] ¶óÄ«·¿
+	// [100324 : sora] ï¿½ï¿½Ä«ï¿½ï¿½
 	void SendLacaretteTokenReq();
 	void SendLacaretteRetteReq( SLONG courseNum, SLONG couseIndex, SLONG tokenIndex );
 	void SendLacaretteUseCountReq();
@@ -1670,50 +1676,50 @@ public:
 	void SendLacaretteCloseReq();
 	void SendLacaretteTokenReadyReq();
 	
-	// [2010/08/25 : Sora] ADD_SUBJOB º¸Á¶ Á÷¾÷ µî·Ï
+	// [2010/08/25 : Sora] ADD_SUBJOB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	void SendSubJobRegister( SLONG subJobCode );
 
-	// [100513: selo] ($E_WC2010) 2010 ³²¾Æ°ø ¿ùµåÄÅ
+	// [100513: selo] ($E_WC2010) 2010 ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void SendWorldCup2010_Event(MSG_EVENT_WORLDCUP2010_TYPE e_Type, INDEX iParam = 0);
 	
-	// [2010/06/30 : Sora] ¼ºÁÖ ±æµå ¹öÇÁºÎ¿©
+	// [2010/06/30 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½
 	void SendOwnerGuildBuffReq();
 
-	//  [7/2/2010 kiny8216] ATTENDANCE_SYSTEM : Ãâ¼® ½Ã½ºÅÛ
+	//  [7/2/2010 kiny8216] ATTENDANCE_SYSTEM : ï¿½â¼® ï¿½Ã½ï¿½ï¿½ï¿½
 	void SendAttendanceReq( INDEX subType );
 
 	// [7/15/2010 kiny8216] MONSTER_ENERGY_IGNITION_SYSTEM
 	void SendEnergySkillMessage();
 
-	// [8/31/2010 kiny8216] ÈÄ°ßÀÎ ½Ã½ºÅÛ °³Æí
+	// [8/31/2010 kiny8216] ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void TeachGiftReq();
 	
-	// [9/29/2010 kiny8216] ¼ºÁÖ ÄÚ½ºÆ¬
+	// [9/29/2010 kiny8216] ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬
 	void LordCostumeReq();
-	// ¼ºÁÖ ±æµå ÄÚ½ºÆ¬ [1/21/2011 ldy1978220]
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ [1/21/2011 ldy1978220]
 	void LordGuildCostumeReq();
 	void LordGuildTitleReq();
 
-	// [10/6/2010 kiny8216] ÄíÆù ÇÁ·Î¸ð¼Ç ÀÌº¥Æ®
+	// [10/6/2010 kiny8216] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	void SendPromotionEventReq(CTString strNum);
-	// [2010/11/01 : Sora] °ø¼º °³Æí
+	// [2010/11/01 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendGuildWarTimeMenu();
 	void SendGuildWarTimeReq();
 	
-	// [2011/01/18 : Sora] Ãâ¼® ÀÌº¥Æ®
+	// [2011/01/18 : Sora] ï¿½â¼® ï¿½Ìºï¿½Æ®
 	void SendAttendanceRewardReq();
 
-	// [2011/02/09 : Sora] Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â
+	// [2011/02/09 : Sora] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½
 	void SendRestoreQuestItem( SLONG questIndex );
 
 	void SendFaceOffMessage( UBYTE ubType, UBYTE ubFaceType = -1, UBYTE ubHairType = -1 );
 	//////////////////////////////////////////////////////////////////////////
-	// void SendEventMsg()´Â ÀÌº¥Æ® ¸Þ¼¼Áö ÇÔ¼ö°¡ °è¼Ó ´Ã¾î³ª´Â°ÍÀ» È¸ÇÇÇÏ±â À§ÇÏ¿© ÅëÇÕ Ã³¸®¸¦ ÇÏµµ·Ï ÇÕ½Ã´Ù.
-	// CNetwork class¿¡¼­ ÀÌº¥Æ® Àü¼Û ÆÄ¶ó¹ÌÅÍ¸¦ ¹Þ¾Æ¼­ ÇÑ¹ø¿¡ SendEventMsg()·Î Àü¼ÛÇÏµµ·Ï ÇÕ½Ã´Ù.
-	// Àü¼Û ÆÄ¶ó¹ÌÅÍ´Â °¢ º¯¼ö Å¸ÀÔ º°·Î, ULONG, UBYTE, CTString 3°¡Áö Å¸ÀÔ¸¸À¸·Î Àü¼Û Ã³¸®°¡ ¿ëÀÇÇÏ¹Ç·Î(type casting),
-	// Àü¼Û ÆÄ¶ó¹ÌÅÍ º¯¼ö´Â static_Array<ULONG>, static_array<UBYTE>, static_array<CTString>À¸·Î ÇÕ½Ã´Ù.
-	// ÀÌº¥Æ® ¸Þ¼¼Áö ÆÐÅ¶ ÇÁ·ÎÅäÄÝÀ» ¼­¹ö¿Í ³íÀÇÇÏ¿© ¸ÂÃßµµ·Ï ÇÕ½Ã´Ù.
-	// ÀÌÇØ ¾ÈµÇ¸é ¹Ùº¸~
+	// void SendEventMsg()ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã¾î³ªï¿½Â°ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+	// CNetwork classï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ SendEventMsg()ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ULONG, UBYTE, CTString 3ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½(type casting),
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ static_Array<ULONG>, static_array<UBYTE>, static_array<CTString>ï¿½ï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+	// ï¿½Ìºï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ ï¿½Õ½Ã´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ¸ï¿½ ï¿½Ùºï¿½~
 	void SendEventMsg(UBYTE ubEventType);
 	
 	void SendRaidScene(INDEX ObjType, INDEX Id, INDEX iData = -1);
@@ -1725,12 +1731,12 @@ public:
 	void SendComebackMessage();
 	void SendBirthdayMessage( INDEX index );
 	// royal rumble [4/19/2011 rumist]
-	void SendRoyalRumbleJoinReq();			// Âü°¡
-	void SendRoyalRumbleRejectReq();		// Âü°¡ Ãë¼Ò.
-	void SendRoyalRumbleRewardReq();		// º¸»ó ¿äÃ»
-	void SendRoyalRumblePointReq();			// Æ÷ÀÎÆ® Á¶È¸.
-	void SendRoyalRumbleNextTimeReq();		// ´ÙÀ½ °æ±â ÀÏÁ¤ Á¶È¸.
-	void SendRoyalRumbleStartReq();			// ÃÖÁ¾ Âü°¡ ¿äÃ».
+	void SendRoyalRumbleJoinReq();			// ï¿½ï¿½ï¿½ï¿½
+	void SendRoyalRumbleRejectReq();		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	void SendRoyalRumbleRewardReq();		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	void SendRoyalRumblePointReq();			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸.
+	void SendRoyalRumbleNextTimeReq();		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸.
+	void SendRoyalRumbleStartReq();			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 
 	void SendMasterStoneUseReq(SWORD nMStoneTab, SWORD ubMStoneIdx, SLONG slMStone, 
 		SWORD nTargetTab, SWORD ubItemTgtIdx, SLONG slItemTgt);
@@ -1742,7 +1748,7 @@ public:
 	void SendGuildMarkWndOpenReq();	// [sora] GUILD_MARK
 	void SendGuildMarkEditEndReq( SBYTE gm_row, SBYTE gm_col, SBYTE bg_row, SBYTE bg_col, SWORD nTab, SWORD nInvenIdx ); // [sora] GUILD_MARK
 
-	// ·©Å· ½Ã½ºÅÛ °³Æí [trylord : 110825]
+	// ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [trylord : 110825]
 	void SendRankingListEx(UCHAR ucType, UCHAR ucSubType);
 	void SendRankingSearchListEx(UCHAR ucType, UCHAR ucSubType, CTString pcstrSearch);
 
@@ -1750,11 +1756,11 @@ public:
 
 	void SendEventKrathongReq();
 	void SendUserNotice(CTString strMessage);
-	// [2011/11/14 : Sora] ÅÂ±¹ ±¹¿Õ Åº»ýÀÏ ÀÌº¥Æ®
+	// [2011/11/14 : Sora] ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ Åºï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	void SendKBRewardReq( UCHAR commandNum );
-	// ±æµå ½Ã½ºÅÛ °³Æí [trylord 111227]
-	void SendGuildMasterKickReq(INDEX idxGuild);				// ±æ¸¶ Ãß¹æ ½ÅÃ» [trylord 111228]
-	void SendGuildMasterKickCancelReq(INDEX idxGuild);		// ±æ¸¶ Ãß¹æ ÀÌÀÇÁ¦±â [trylord 111228]
+	// ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [trylord 111227]
+	void SendGuildMasterKickReq(INDEX idxGuild);				// ï¿½æ¸¶ ï¿½ß¹ï¿½ ï¿½ï¿½Ã» [trylord 111228]
+	void SendGuildMasterKickCancelReq(INDEX idxGuild);		// ï¿½æ¸¶ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [trylord 111228]
 	void SendGuildRemoteJoinReq(CTString strTargetName, LONG lType);
 	void SendGuildRemoteJoinOKReq(CTString strTargetName, LONG lType);
 	void SendGuildRemoteJoinNOReq();
@@ -1762,14 +1768,14 @@ public:
 
 	void SendPetAccumulateUse(SBYTE scType, LONG lIndex);
 
-	// Å¸°Ù´ë»óÀ» ¼­¹ö¿¡ ¾Ë·ÁÁØ´Ù. (ÇöÀç´Â pc¸¸)
+	// Å¸ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ø´ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ pcï¿½ï¿½)
 	void SendClickObject(int charIndex);
 
-	// ÇÁ¸®¹Ì¾ö Ä³¸¯ÅÍ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void SendPremiumCharItemUse(SWORD tab, SWORD invenIdx, int VirtualIdx);
 	void SendPremiumCharJumpReq(CTString strCharName);
 
-	//	FD_TEST ±è¿µÈ¯ : ±â´ÉÇÔ¼ö Ãß°¡
+	//	FD_TEST ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ ï¿½ß°ï¿½
 	void	Set_MyChar_MorphStatus_EVOCATION_CONVERTING();
 	void	Set_MyChar_MorphStatus_EVOCATION();
 	void	Set_MyChar_MorphStatus_MORPH_END();
@@ -1789,8 +1795,8 @@ public:
 		SWORD magnifierTab, SWORD magnifierIdx, ULONG magnifierCount, 
 		SWORD reformItemTab, SWORD reformItemIdx, int nNPCVIdx );
 
-	UINT	getSeq()	{ return ++m_seq; }		// ¼­¹ö¿¡ ÆÐÅ¶À» Àü¼ÛÇÒ ¶§ Áõ°¡½ÃÅ´.
-	void	resetSeq()	{ m_seq = 0; }			// ¼­¹ö ¿¬°á½Ã¿¡ ÃÊ±âÈ­ ½ÃÅ´.
+	UINT	getSeq()	{ return ++m_seq; }		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´.
+	void	resetSeq()	{ m_seq = 0; }			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å´.
 
 	void	RestartGame();
 private:

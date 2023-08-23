@@ -386,12 +386,13 @@ void CUIInventory::Create( CUIWindow *pParentWnd, int nX, int nY, int nWidth, in
 
 	// newslot - alanssoares
 	m_pIconsWearing[WEAR_ACCESSORY_ANYWHERE]->Create( this, 77, 56, BTN_SIZE, BTN_SIZE, UI_INVENTORY, UBET_ITEM );
+#ifdef RUNE_ACCESSORY_SLOT_08232023
 	m_pIconsWearing[WEAR_ACCESSORY_SPECIAL1]->Create( this, 219, 110, BTN_SIZE_SMALL, BTN_SIZE_SMALL, UI_INVENTORY, UBET_ITEM );
 	m_pIconsWearing[WEAR_ACCESSORY_SPECIAL2]->Create( this, 194, 85, BTN_SIZE_SMALL, BTN_SIZE_SMALL, UI_INVENTORY, UBET_ITEM );
 	m_pIconsWearing[WEAR_ACCESSORY_SPECIAL3]->Create( this, 219, 85, BTN_SIZE_SMALL, BTN_SIZE_SMALL, UI_INVENTORY, UBET_ITEM );
 	m_pIconsWearing[WEAR_ACCESSORY_SPECIAL4]->Create( this, 194, 110, BTN_SIZE_SMALL, BTN_SIZE_SMALL, UI_INVENTORY, UBET_ITEM );
 	m_pIconsWearing[WEAR_ACCESSORY_SPECIAL5]->Create( this, 166, 146, BTN_SIZE, BTN_SIZE, UI_INVENTORY, UBET_ITEM );
-
+#endif
 	m_pIconsWearing[WEAR_BACKWING]->Create( this, 147, 64, BTN_SIZE, BTN_SIZE, UI_INVENTORY, UBET_ITEM );
 
 	// ÀÌÁ¦ ½ºÅ©·ÑÀÌ ¾ø¾îÁüÀ¸·Î, ¾ÆÀÌÅÛ ¹öÆ°ÀÇ À§Ä¡¸¦ ¹Ì¸® °»½ÅÇÏ¿© µÐ´Ù.
@@ -2716,7 +2717,11 @@ void CUIInventory::OptionAddItem( SBYTE sbWearPos, SLONG slIndex, SWORD nTab, SW
 	// ¹«±â ¹æ¾î±¸¿¡¸¸ »ç¿ë°¡´É
 	// ¾Ç¼¼¼­¸®´Â Á¦¿Ü
 	if (sbWearPos == WEAR_ACCESSORY1 || sbWearPos == WEAR_ACCESSORY2 ||
-		sbWearPos == WEAR_ACCESSORY3 ||	sbWearPos == WEAR_PET || sbWearPos == WEAR_ACCESSORY_ANYWHERE || (sbWearPos >= WEAR_ACCESSORY_SPECIAL1 && sbWearPos <= WEAR_ACCESSORY_SPECIAL5))
+    sbWearPos == WEAR_ACCESSORY3 || sbWearPos == WEAR_PET || sbWearPos == WEAR_ACCESSORY_ANYWHERE
+#ifdef RUNE_ACCESSORY_SLOT_08232023
+    || (sbWearPos >= WEAR_ACCESSORY_SPECIAL1 && sbWearPos <= WEAR_ACCESSORY_SPECIAL5)
+#endif
+		)
 	{
 		pUIManager->GetChattingUI()->AddSysMessage( _S( 170, "¾÷±×·¹ÀÌµå °¡´É ¾ÆÀÌÅÛÀÌ ¾Æ´Õ´Ï´Ù." ), SYSMSG_ERROR );
 		return;

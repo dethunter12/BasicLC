@@ -660,7 +660,9 @@
 #define		ITEM_FLAG_COMPOSE				((LONGLONG)1 << 34)		// ?? ?? ???
 #define		ITEM_FLAG_NOTSINGLE				((LONGLONG)1 << 35)		// ???? ???? ???
 #define		ITEM_FLAG_INVISIBLE_COSTUME		((LONGLONG)1 << 36)		// ?? ??? ???
+#ifdef PICK_BOX_07272023
 #define   ITEM_FLAG_PICK_BOX					((LONGLONG)1 << 37) // Pick Box System
+#endif
 //?? ??? ??
 #define		ITEM_NORMAL			0	//?? ?? ???
 #define		ITEM_COSTUM			1	//?? ??? ???
@@ -911,12 +913,15 @@
 
 #define WEARING_BACKWING			11
 #define WEARING_ACCESSORY4			12 // newslot - alanssoares
+//RUNE_ACCESSORY_SLOT_08232023
+/*
 #define WEARING_SPECIAL_ACCESSORY1	13 // newslot - alanssoares
 #define WEARING_SPECIAL_ACCESSORY2	14 // newslot - alanssoares
 #define WEARING_SPECIAL_ACCESSORY3	15 // newslot - alanssoares
 #define WEARING_SPECIAL_ACCESSORY4	16 // newslot - alanssoares
 #define WEARING_SPECIAL_ACCESSORY5	17 // newslot - alanssoares
-
+*/
+//RUNE_ACCESSORY_SLOT_08232023
 #define COSTUME2_WEARING_HELMET				20	// ?? ?? ??
 #define COSTUME2_WEARING_ARMOR_UP			21
 #define COSTUME2_WEARING_WEAPON				22
@@ -2375,6 +2380,7 @@ enum MasterStone { LOWER_MASTERSTONE=6111, LOW_MASTERSTONE=6112, NORMAL_MASTERST
 #define SP_ITEM_100		16671
 #define SP_ITEM_50		16672
 #define SP_ITEM_20		16673
+#define	QUICK_PANEL
 #define LUCKDRAW_RELOAD
 #define REWARD_RELOAD
 #define OPTION_RELOAD

@@ -1,8 +1,8 @@
 /************************************
-  ¼öÁ¤»çÇ×
-  ¼öÁ¤ÇÑ »ç¶÷: bs
-  ¼öÁ¤ÀÏ: 2004-11-18 ¿ÀÈÄ 3:42:52
-  ¼³¸í: PCÀÇ º¸Á¶ È¿°ú Àû¿ë ¹× ·¹º§¾÷ ¹ö±× ¼öÁ¤
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: bs
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 2004-11-18 ï¿½ï¿½ï¿½ï¿½ 3:42:52
+  ï¿½ï¿½ï¿½ï¿½: PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  ************************************/
 
 #include "stdhdrs.h"
@@ -34,7 +34,7 @@
 #include "../ShareLib/packetType/ptype_server_to_server.h"
 #include "../ShareLib/packetType/ptype_old_do_friend.h"
 
-// ¼ø¼­´ë·Î Å¸ÀÌÅº, ³ªÀÌÆ®, Èú·¯, ¸ÞÀÌÁö, ·Î±×, ¼Ò¼­·¯, ³ªÀÌÆ®½¦µµ¿ì(dummy), EX ·Î±×, EX ¸ÞÀÌÁö
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Åº, ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Î±ï¿½, ï¿½Ò¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(dummy), EX ï¿½Î±ï¿½, EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int student20LEVELGiftTable[JOBCOUNT][2] =
 {
 	{ 6105,  460},
@@ -52,9 +52,9 @@ int student20LEVELGiftTable[JOBCOUNT][2] =
 #endif // EX_MAGE
 };
 
-// ¼ø¼­´ë·Î Å¸ÀÌÅº, ³ªÀÌÆ®, Èú·¯, ¸ÞÀÌÁö, ·Î±×, ¼Ò¼­·¯ 1-20 ·¹º§±îÁö ±âº» »ó½Â ¼öÄ¡
-// ·¹º§¾÷½Ã °¢ ½ºÅÈ º¯È­
-// ½ºÅÈÀº str, dex, int, con ¼ø¼­
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Åº, ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Î±ï¿½, ï¿½Ò¼ï¿½ï¿½ï¿½ 1-20 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ str, dex, int, con ï¿½ï¿½ï¿½ï¿½
 int levelup_stat[JOBCOUNT][4]	=
 {
 	{3, 1, 1, 3},
@@ -71,7 +71,7 @@ int levelup_stat[JOBCOUNT][4]	=
 	{1, 3, 3, 1},
 #endif // EX_MAGE
 };
-// ·¹º§¾÷½Ã °¢ ½ºÅÈ´ç hp, mp Áõ°¡·®
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½È´ï¿½ hp, mp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int levelup_hp[JOBCOUNT][4]		=
 {
 	{4, 0, 0, 8},
@@ -106,7 +106,7 @@ int levelup_mp[JOBCOUNT][4]		=
 #endif // EX_MAGE
 };
 
-// ±âº» ´É·ÂÄ¡
+// ï¿½âº» ï¿½É·ï¿½Ä¡
 int base_stat[JOBCOUNT][4]		=
 {
 	{50, 20, 20, 50},
@@ -137,8 +137,8 @@ int base_hp[JOBCOUNT]				= {180, 150, 110,  90, 130, 110, 120};
 int base_mp[JOBCOUNT]				= { 68,  86, 108, 122,  56, 128, 120};
 #endif // EX_ROGUE
 
-// ÀüÁ÷ ±âº» ´É·ÂÄ¡
-// ¼ø¼­´ë·Î ÇÏÀÌ·£´õ, ¿ö¸¶½ºÅÍ, ·Î¿­³ªÀÌÆ®, ÅÛÇÃ³ªÀÌÆ®, ¾ÆÃ³, Èú·¯, À§ÀÚµå, À§Ä¡, ¾î½Ø½Å, ·¹ÀÎÀú, ¿¤¸®¸àÅ»¸®½ºÆ®, ½ºÆä¼È¸®½ºÆ®, ³ªÀÌÆ® ½¦µµ¿ì, EX ¾î½Ø½Å, EX ·¹ÀÎÀú, EX À§ÀÚµå, EX À§Ä¡
+// ï¿½ï¿½ï¿½ï¿½ ï¿½âº» ï¿½É·ï¿½Ä¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì·ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½Ã³, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Úµï¿½, ï¿½ï¿½Ä¡, ï¿½ï¿½Ø½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, EX ï¿½ï¿½Ø½ï¿½, EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, EX ï¿½ï¿½ï¿½Úµï¿½, EX ï¿½ï¿½Ä¡
 int base_stat2[JOB2COUNT][4]		=
 {
 	{167,  79,  79, 167},
@@ -155,8 +155,8 @@ int base_stat2[JOB2COUNT][4]		=
 	{ 79, 132, 161, 116},
 	{ 69, 167, 167, 118},
 #ifdef EX_ROGUE
-	{126, 167, 126,  87},	// EX ¾î½Ø½Å
-	{126, 167, 126,  87},	// EX ·¹ÀÎÀú
+	{126, 167, 126,  87},	// EX ï¿½ï¿½Ø½ï¿½
+	{126, 167, 126,  87},	// EX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #endif // EX_ROGUE
 #ifdef EX_MAGE
 	{ 79, 167, 167,  79},
@@ -252,7 +252,7 @@ int levelup_mp2[JOB2COUNT]				=
 #endif //EX_MAGE
 };
 
-// ÀÌµ¿ ¼Óµµ
+// ï¿½Ìµï¿½ ï¿½Óµï¿½
 #ifdef EX_ROGUE
 #ifdef EX_MAGE
 float run_speed[JOBCOUNT]			= {6.0f, 6.0f, 7.0f, 6.0f, 6.5f, 7.0f, 6.5f, 6.5f, 6.0f};
@@ -266,7 +266,7 @@ float run_speed[JOBCOUNT]			= {6.0f, 6.0f, 7.0f, 6.0f, 6.5f, 7.0f, 6.5f};
 float walk_speed[JOBCOUNT]			= {1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f, 1.5f};
 #endif // EX_ROGUE
 
-// ±âº» ¸íÁßµµ : Á÷¾÷-(±ÙÁ¢,¿ø°Å¸®,¸¶¹ý)
+// ï¿½âº» ï¿½ï¿½ï¿½ßµï¿½ : ï¿½ï¿½ï¿½ï¿½-(ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Å¸ï¿½,ï¿½ï¿½ï¿½ï¿½)
 int nBaseHitrate[JOBCOUNT][3]	=
 {
 	{137, 137, 137},
@@ -283,7 +283,7 @@ int nBaseHitrate[JOBCOUNT][3]	=
 	{142, 142, 142},
 #endif // EX_MAGE
 };
-// ±âº» È¸ÇÇµµ : Á÷¾÷-(±ÙÁ¢,¿ø°Å¸®,¸¶¹ý)
+// ï¿½âº» È¸ï¿½Çµï¿½ : ï¿½ï¿½ï¿½ï¿½-(ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Å¸ï¿½,ï¿½ï¿½ï¿½ï¿½)
 int nBaseAvoid[JOBCOUNT][3]	=
 {
 	{20, 20, 20},
@@ -300,8 +300,8 @@ int nBaseAvoid[JOBCOUNT][3]	=
 	{50, 50, 50},
 #endif // EX_MAGE
 };
-// ±âº» °ø°Ý Å¸ÀÔ
-// ¹°¸®/¸¶¹ý, À§Å©/³ë¸Ö/½ºÆ®·Õ/ÇÏµå/Å©¸®/µ¥µé¸®
+// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å©/ï¿½ï¿½ï¿½/ï¿½ï¿½Æ®ï¿½ï¿½/ï¿½Ïµï¿½/Å©ï¿½ï¿½/ï¿½ï¿½ï¿½é¸®
 int nBaseHitTypeProb[2][6] =
 {
 	{ 50, 575, 125, 100,  90,  60},
@@ -328,6 +328,14 @@ CPC::CPC()
 {
 	m_type = MSG_CHAR_PC;
 
+	#ifdef QUICK_PANEL
+	for (int i = 0; i <= 24; i++)
+	{
+		m_QuickPanelBtnType[i] = -1;
+		m_QuickPanelBtnIdx[i] = -1;
+	}
+#endif
+
 	m_billReqTime = 0;
 	m_listIdx = -1;
 	m_bPlaying = false;
@@ -351,10 +359,10 @@ CPC::CPC()
 	m_gladeKillPts = 0;
 #endif
 
-	m_bTradeAgentRegIng = false;	//µî·Ï Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	m_bTradeAgentCalcIng = false;	//Á¤»ê Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	m_bTradeAgentBuyIng = false;	//±¸¸Å Ã³¸®ÁßÀÎ°¡(°Å·¡´ëÇà)
-	m_nCalcPageNo		 = 0;		//Á¤»ê ÇöÀç ÆäÀÌÁö ¹øÈ£
+	m_bTradeAgentRegIng = false;	//ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	m_bTradeAgentCalcIng = false;	//ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	m_bTradeAgentBuyIng = false;	//ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½(ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½)
+	m_nCalcPageNo		 = 0;		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 
 #ifdef GMTOOL
 	m_bGmMonitor = false;
@@ -372,13 +380,13 @@ CPC::CPC()
 
 	m_autoSkillTime = 0;
 	m_SkillTime_511 = 0;
-	m_cashBalance = 0;		// º¸À¯ Ä³½¬
+	m_cashBalance = 0;		// ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½
 	m_onlineCash = 0;
 
 	m_secretkey = 0;
 
 	/////////////////////////////////////////////
-	// BANGWALL : 2005-06-27 ¿ÀÈÄ 8:52:59
+	// BANGWALL : 2005-06-27 ï¿½ï¿½ï¿½ï¿½ 8:52:59
 	// Comment : pd4time
 	m_pd4StartTime = 0;
 
@@ -390,11 +398,11 @@ CPC::CPC()
 	m_facestyle = 0;
 	m_admin = 0;
 
-// 050401 : bs : plus¿¡ µû¸¥ È®·ü º¯¼ö Ãß°¡
+// 050401 : bs : plusï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_plusStrong = 0;
 	m_plusHard = 0;
 	m_plusWeak = 0;
-// --- 050401 : bs : plus¿¡ µû¸¥ È®·ü º¯¼ö Ãß°¡
+// --- 050401 : bs : plusï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	m_statpt_remain = 0;
 	m_statpt_str = 0;
@@ -413,7 +421,7 @@ CPC::CPC()
 	m_color_name = 0;
 	m_wins = 0;
 	m_loses = 0;
-#ifdef REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû
+#ifdef REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	m_pkPenaltyReward = 0;
 	m_pkDispositionRateValue = 0;
 	m_pkDispositionAddValue = 0;
@@ -468,8 +476,8 @@ CPC::CPC()
 	m_silencePulse = gserver->m_pulse;
 	m_lastProducePulse = 0;
 
-	m_hackProduceCount = PULSE_HACK_ATTACK_COUNT;	// »÷»ó¸Þ¼¼Áö ¿Â ¼ö ÀúÀå
-	m_ProduceClientTime = 0; // Å¬¶óÀÌ¾ðÆ®°¡ º¸³½ »ý»ê½Ã°£
+	m_hackProduceCount = PULSE_HACK_ATTACK_COUNT;	// ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_ProduceClientTime = 0; // Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 
 	// INVENTORY INITIALIZE
 	m_bChangeStash = false;
@@ -482,8 +490,8 @@ CPC::CPC()
 
 	m_Exped				= NULL;
 
-	m_nJoinInzone_ZoneNo = -1;			//ÇöÀç ÀÎÁ¸ Á¸ ¹øÈ£
-	m_nJoinInzone_RoomNo = -1;			//ÇöÀç ÀÎÁ¸ ·ë ¹øÈ£
+	m_nJoinInzone_ZoneNo = -1;			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	m_nJoinInzone_RoomNo = -1;			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
 	m_nJoinInzone_AreaNo = -1;
 	m_nRaidBoxItemTime = 0;
 
@@ -536,7 +544,7 @@ CPC::CPC()
 	m_nMoonStoneDigit = -1;
 
 #ifdef LACARETTE_SYSTEM
-	m_lacaretteCosArrNum = -1;				// ´çÃµµÈ ¾ÆÀÌÅÛ ÀÎµ¦½º¸¦ ÀÓ½Ã·Î °¡Áö°í ÀÖÀÚ. ¤Ñ¤Ñ;; // ÀÌ·¸°Ô ÇØ¾ßÇÏ³ª? ¤Ñ¤Ñ;;
+	m_lacaretteCosArrNum = -1;				// ï¿½ï¿½Ãµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ñ¤ï¿½;; // ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½Ï³ï¿½? ï¿½Ñ¤ï¿½;;
 	m_lacaretteItemArrNum = -1;
 	m_lacaretteTokenArrNum= -1;
 	m_lacaretteRepeat = -1;
@@ -569,8 +577,8 @@ CPC::CPC()
 	memset(m_pulseElemental, -1, sizeof(m_pulseElemental));
 
 	m_evocationIndex = EVOCATION_NONE;
-	m_pulseEvocation[0] = 0;		// Çï¿îµå °­½Å ³²Àº ½Ã°£
-	m_pulseEvocation[1] = 0;		// ¿¤·¹³Ù °­½Å ³²Àº ½Ã°£
+	m_pulseEvocation[0] = 0;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	m_pulseEvocation[1] = 0;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
 	m_nExpDamage = 0;
 
@@ -592,14 +600,14 @@ CPC::CPC()
 	m_bEventGomdori2007Start = false;
 	m_bEventGomdori2007CanSelect = false;
 #if defined(LC_BILA)
-	m_bEventGomdori2007Drop = gserver->m_pulse;			// ºê¶óÁúÀº pulse °ª ÀúÀå
+	m_bEventGomdori2007Drop = gserver->m_pulse;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pulse ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
 	m_bEventGomdori2007Drop = true;
 #endif // LC_BRZ
 
 	m_bEventIndependenceDay2007drop = true;
-	m_GuildExp	= 0;			// ±æµåÆ÷ÀÎÆ®·Î ÀüÈ¯µÉ °æÇèÄ¡
-	m_GuildFame = 0;		// ±æµå Æ÷ÀÎÆ®·Î ÀüÈ¯µÉ ¸í¼ºÄ¡
+	m_GuildExp	= 0;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	m_GuildFame = 0;		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 	m_nRespondTime = 0;
 
 #ifdef CHAT_BLOCK_USA
@@ -637,7 +645,7 @@ CPC::CPC()
 	m_nAttendance_exp = 0;
 
 #ifdef XTRAP
-	m_xtrapCheckPulse = 1 * PULSE_REAL_SEC; // ITS-5545 XTRAP Á¢¼Ó ÈÄ ¹Ù·Î Ã¼Å©ÇÏµµ·Ï Ã¼Å© ½Ã°£ ÃÊ±â¼³Á¤À» 20ÃÊ¿¡¼­ 1ÃÊ·Î ÁÙÀÓ.
+	m_xtrapCheckPulse = 1 * PULSE_REAL_SEC; // ITS-5545 XTRAP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù·ï¿½ Ã¼Å©ï¿½Ïµï¿½ï¿½ï¿½ Ã¼Å© ï¿½Ã°ï¿½ ï¿½Ê±â¼³ï¿½ï¿½ï¿½ï¿½ 20ï¿½Ê¿ï¿½ï¿½ï¿½ 1ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 #endif // xTRAP
 	int i;
 	for(i=0; i<SUMMON_NPC_MAX; i++)
@@ -647,7 +655,7 @@ CPC::CPC()
 	m_SummonOwners_target = NULL;
 	m_nBombSummonCnt = 0;
 
-// [110207:selo] ÇÑ ¹ú ÀÇ»ó
+// [110207:selo] ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç»ï¿½
 	m_suitWearingPos[0] = WEARING_HELMET;
 	m_suitWearingPos[1] = WEARING_ARMOR_UP;
 	m_suitWearingPos[2] = WEARING_ARMOR_DOWN;
@@ -912,7 +920,7 @@ void CPC::SendStatus()
 
 	m_bChangeStatus = false;
 
-	// ÆÄÆ¼¿¡ ¼ÓÇØ ÀÖÀ¸¸é ÆÄÆ¼¿ø¿¡°Ôµµ º¸³½´Ù
+	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (IsParty())
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -934,7 +942,7 @@ void CPC::SendStatus()
 
 void CPC::SendElementalStatus()
 {
-	// ¼ÒÈ¯¼ö »óÅÂ Á¤º¸µµ
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CElemental* pElemental = m_elementalList;
 	while (pElemental)
 	{
@@ -992,8 +1000,8 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 
 	if(gserver->m_bDungeonTimeToggle == true && gserver->m_bIsTime == true)
 	{
-		// ´øÀüÅ¸ÀÓÀº ÇØ´ç ´øÀüÀÇ npc ±âº»(original) °æÇèÄ¡°¡ 1.5¹è°¡ µÈ´Ù. ±×¿Ü Áö¿ª¿¡¼± 1¹è°¡ °è»êµÇ¹Ç·Î °æÇèÄ¡ Áõ°¡¿¡ ¿µÇâÀÌ ¾ø´Ù.
-		// °æÇèÄ¡ Áõ°¡À²Àº ±âº» 1.5¹èÀÌÁö¸¸ ¿î¿µÀÚÀÇ ¼³Á¤À¸·Î ÃÖ´ë 6¹è°¡ µÉ ¼öµµ ÀÖ´Ù.
+		// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ npc ï¿½âº»(original) ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 1.5ï¿½è°¡ ï¿½È´ï¿½. ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½è°¡ ï¿½ï¿½ï¿½Ç¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» 1.5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î¿µï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ 6ï¿½è°¡ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
 		if(IsQuestExp == false)
 			exp = exp * gserver->m_iZoneExp[this->m_pZone->m_index] / 100;
 	}
@@ -1002,10 +1010,10 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 		exp = exp * 2;
 	}
 	LONGLONG nOrgExp = exp;
-	// SP Áõ°¡ Á¦ÇÑ
+	// SP ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	LONGLONG nOrgSP = lsp;
 
-#ifdef EVENT_PCBANG_2ND	// ³Ý¶ì¸ð ÇÇ¾¾¹æ °æÇèÄ¡ 150%
+#ifdef EVENT_PCBANG_2ND	// ï¿½Ý¶ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 150%
 	if(m_desc->m_location == BILL_LOCATION_PCBANG)
 	{
 		exp = exp * 130 / 100;
@@ -1015,7 +1023,7 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 	if (bUseEvent)
 	{
 #ifdef EVENT_DOUBLE
-		// ´õºí ÀÌº¥Æ®
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 		if (gserver->m_bDoubleEvent)
 		{
 #ifdef NEW_DOUBLE_EVENT_AUTO
@@ -1060,40 +1068,40 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 		}
 #endif // NEW_DOUBLE_EVENT_AUTO
 
-		// °æÇèÄ¡ ´õºí ÀÌº¥Æ®
+		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 		if (gserver->m_bDoubleExpEvent)
 		{
 			exp = (exp * gserver->m_expPercent ) / 100;
 		}
 
-		// ¶±±¹
+		// ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus)
 			exp = exp * NEWYEAR_EVENT_RICESOUP_UP_EXP / 10;
 
-		// ¶±¸¸µÎ±¹
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Î±ï¿½
 		if (m_assist.m_avAddition.hcSPPlus)
 			lsp = lsp * NEWYEAR_EVENT_RICEMANDO_UP_SP / 10;
 
-		// ¼ö¹Ú
+		// ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus_836)
 			exp = exp * 3 / 2;
 
-		// Âü¿Ü
+		// ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcSPPlus_837)
 			lsp = lsp * 2;
 
-		// °æÇèÀÇ½ºÅ©·Ñ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½Å©ï¿½ï¿½
 		if (m_assist.m_avAddition.hcScrollExp)
 			exp = exp * 3 / 2;
 
-		// ³ë·ÂÀÇ½ºÅ©·Ñ
+		// ï¿½ï¿½ï¿½ï¿½Ç½ï¿½Å©ï¿½ï¿½
 		if (m_assist.m_avAddition.hcScrollSP)
 			lsp = lsp * 3 / 2;
 
 		if( !IsQuestExp )
 		{
 #if defined( LC_GAMIGO ) || defined(LC_USA)
-			// GAMIGO´Â °æÇèÄ¡ ¾÷µ¥ÀÌÆ® ¾ÈÇÔ
+			// GAMIGOï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 #else
 			exp = exp + ( exp * m_nAttendance_exp / 100 );
 #endif
@@ -1101,46 +1109,46 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 #if defined( LC_GAMIGO ) || defined(LC_USA) || defined(LC_TLD)
 			lsp	= lsp + ( lsp * m_nAttendance_exp / 100 );
 #else
-			// ¼÷·Ãµµ´Â GAMIGO ÀÌ¿ÜÀÇ ±¹°¡¸¸ Àû¿ë
-			// [110106: selo] È«ÄáÀº °æÇèÄ¡, ¼÷·Ãµµ ¸ðµÎ Àû¿ë
-			// [111226: swkwon] ÅÂ±¹Àº °æÇèÄ¡, ¼÷·Ãµµ ¸ðµÎ Àû¿ë
+			// ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ GAMIGO ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// [110106: selo] È«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡, ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			// [111226: swkwon] ï¿½Â±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡, ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif // LC_GAMIGO
 
 		}
 
-		// 060227 : bs : À¯·á °æÇèÄ¡ Çâ»óÁ¦
+		// 060227 : bs : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avRate.hcCashExpUp > 0)
 			exp += exp * m_assist.m_avRate.hcCashExpUp / SKILL_RATE_UNIT;
 
-		// °æÇèÄ¡ Æ÷¼Ç : 1.5¹è
+		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ : 1.5ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus_S354)
 			exp = exp * 3 / 2;
 
-		// ÃßÃµ¼­¹öÆ÷¼Ç °æÇèÄ¡ »ó½Â
+		// ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus_S355)
 			exp = exp * 3 / 2;
 
-		// ÃßÃµ¼­¹öÆ÷¼Ç SP »ó½Â
+		// ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SP ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcSPPlus_S356)
 			lsp = lsp * 3 / 2;
 
-		// °æÇèÄ¡ »ó½Â % ´ÜÀ§ ´©Àû Àû¿ë
+		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ % ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlusPer100 > 0)
 			exp += exp * m_assist.m_avAddition.hcExpPlusPer100 / 100;
 
-		// ¼÷·Ãµµ »ó½Â %´ÜÀ§ ´©Àû Àû¿ë
+		// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ %ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcSPPlusPer100 > 0)
 			lsp += lsp * m_assist.m_avAddition.hcSPPlusPer100 / 100;
 
-		// ¸»·¹ÀÌ½Ã¾Æ °æÇèÄ¡ Æ÷¼Ç : À¯·á ¾ÆÀÌÅÛ : 1840, 1841, 1842 : ´ÜÀ§´Â %
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 1840, 1841, 1842 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %
 		if (m_assist.m_avAddition.hcExpPlus_398 > 0)
 			exp += exp * m_assist.m_avAddition.hcExpPlus_398 / 100;
 
-		// ÄÉÀÌÅ© : 2006 Å©¸®½º¸¶½º
+		// ï¿½ï¿½ï¿½ï¿½Å© : 2006 Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus_1975 > 0)
 			exp += exp * m_assist.m_avAddition.hcExpPlus_1975 / 100;
 
-		// ´«»ç¶÷ : 2006 Å©¸®½º¸¶½º
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ : 2006 Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (m_assist.m_avAddition.hcExpPlus_1976 > 0)
 			exp += exp * m_assist.m_avAddition.hcExpPlus_1976 / 100;
 
@@ -1240,7 +1248,7 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 
 		if( max_limitSP < 300 )
 		{
-			// ÇÃ·¡Æ¼´½ ¼÷·ÃÀÇ ¹¦¾à »ç¿ë¶§¸¸ 300% ¸®¹ÌÆ®
+			// ï¿½Ã·ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë¶§ï¿½ï¿½ 300% ï¿½ï¿½ï¿½ï¿½Æ®
 			if(this->m_assist.FindByItemIndex(2453) || this->m_assist.FindByItemIndex(5088) ||
 					this->m_assist.FindByItemIndex(5089) || this->m_assist.FindByItemIndex(5090)||
 					this->m_assist.FindByItemIndex(7611) )
@@ -1268,12 +1276,12 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 	else
 	{
 		LONGLONG nExtraExp = 0;
-		// ¾ÆÀÌ¸®½ºÀÇ ¿­Á¤Àº °æÇèÄ¡ Á¦ÇÑ¹× ¸ðµç °è»êÀÌ ³¡³­ ÈÄ¿¡ nOrgExp ¿¡ 30% ¸¸Å­ exp ¸¦ Áõ°¡½ÃÄÑ ÁØ´Ù
+		// ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ nOrgExp ï¿½ï¿½ 30% ï¿½ï¿½Å­ exp ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½
 		if( m_assist.m_avAddition.hcIrisFervor == true )
 		{
 			m_assist.CureByItemIndex(7345);
 			m_assist.CureByItemIndex(7346);
-			// org ¿¡ 30% Ãß°¡
+			// org ï¿½ï¿½ 30% ï¿½ß°ï¿½
 			nExtraExp = nOrgExp / 10 * 3;
 		}
 		exp = exp + nExtraExp;
@@ -1286,7 +1294,7 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 	}
 
 #ifdef IMP_SPEED_SERVER
-	// ÃÖÁ¾¿¡ ÃÖÁ¾ LIMIT ¹«½Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ LIMIT ï¿½ï¿½ï¿½ï¿½
 	if( gserver->m_bSpeedServer )
 	{
 		LONGLONG	_ZoneExp = exp * m_pZone->GetZoneExp() / 100 ;
@@ -1301,7 +1309,7 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 
 	sp = (int)lsp;
 
-	//À¯¹° ¾ÆÀÌÅÛ È¿°úÀû¿ëÀ» ÇÏ±âÀü¿¡ °æÇèÄ¡ ÁõÆøÁ¦, ¶Ç´Â Äù½ºÆ® º¸»óÀÏ °æ¿ì¿¡´Â Àû¿ëÇÏÁö ¾Ê´Â´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 	if(IsQuestExp == false
 		&& bArtifact == false
 		&& m_assist.m_avAddition.hcExpPlus_836 == false
@@ -1334,7 +1342,7 @@ bool CPC::AddExpSP(LONGLONG exp, int sp, bool bUseEvent, bool IsQuestExp, bool b
 #endif // LC_TLD
 
 	{
-		// Exp, SP ¸Þ½ÃÁö Àü¼Û
+		// Exp, SP ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CNetMsg::SP rmsg(new CNetMsg);
 		ExpSPMsg(rmsg, exp, sp);
 		SEND_Q(rmsg, m_desc);
@@ -1393,7 +1401,7 @@ void CPC::CalcLevelup()
 				SEND_Q(rmsg, gserver->m_subHelper);
 			}
 
-			// stat point Áõ°¡
+			// stat point ï¿½ï¿½ï¿½ï¿½
 			if (m_job2)
 			{
 				m_statpt_remain += 3;
@@ -1410,7 +1418,7 @@ void CPC::CalcLevelup()
 				SEND_Q(rmsg, m_desc);
 			}
 
-			// ·¹º§¾÷ È¿°ú
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 			LevelUp(true);
 
 			{
@@ -1492,7 +1500,7 @@ void CPC::InitStat()
 			m_walkSpeed = walk_speed[i];
 			//m_runSpeed = run_speed[i];
 			SetRunSpeed(run_speed[i]);
-			m_flySpeed = 15.0f;		// ±âº» ³ª´Â ¼Óµµ
+			m_flySpeed = 15.0f;		// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 			break;
 		default:
 			{
@@ -1712,7 +1720,7 @@ bool CPC::GiveItem(int itemIndex, int plus, int flag, LONGLONG itemNum, bool bdr
 	if (!item)
 	{
 		//////////////////////////////
-		// item »ý¼º ½ÇÆÐ
+		// item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		GAMELOG << init("CREATE_AND_GIVE_ITEM_ERROR CANNOT CREATE", this)
 //					<< itemIndex << delim
 //					<< itemNum << delim
@@ -1738,12 +1746,12 @@ bool CPC::GiveItem(int itemIndex, int plus, int flag, LONGLONG itemNum, bool bdr
 	{
 		const static int Option_table[5][4] =
 		{
-			{ 22, 12 ,13, 18 },		// ±Ù·ÂÀÇ ¹ÝÁö ¿É¼Ç Å¸ÀÔ a_type
-			{ 23, 14, 15, 18 },		// ¹ÎÃ¸ÀÇ ¸ñ°ÉÀÌ ¿É¼Ç Å¸ÀÔ a_type
-			{ 7, 11, 18, 20 },		// ÁöÇýÀÇ ±Í°ÉÀÌ ¿É¼Ç Å¸ÀÔ a_type
-			{ 20, 8, 11, 18 },		// »ý¸íÀÇ ¸ñ°ÉÀÌ ¿É¼Ç Å¸ÀÔ a_type
+			{ 22, 12 ,13, 18 },		// ï¿½Ù·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Å¸ï¿½ï¿½ a_type
+			{ 23, 14, 15, 18 },		// ï¿½ï¿½Ã¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Å¸ï¿½ï¿½ a_type
+			{ 7, 11, 18, 20 },		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Í°ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Å¸ï¿½ï¿½ a_type
+			{ 20, 8, 11, 18 },		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Å¸ï¿½ï¿½ a_type
 			{ 0, 1, 2, 3}
-		};		// ¿µÈ¥ÀÇ ¹ÝÁö ¿É¼Ç Å¸ÀÔ a_type
+		};		// ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ Å¸ï¿½ï¿½ a_type
 
 		int Option_type = 0;
 		switch( itemIndex )
@@ -1801,7 +1809,7 @@ bool CPC::GiveItem(int itemIndex, int plus, int flag, LONGLONG itemNum, bool bdr
 			return false;
 		}
 
-		// ÀÎº¥Åä¸® °¡µæÂü
+		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		item = this->m_pArea->DropItem(item, this);
 		if (!item)
 			return false;
@@ -1825,16 +1833,16 @@ bool CPC::GiveItem(int itemIndex, int plus, int flag, LONGLONG itemNum, bool bdr
 
 void CPC::LevelUp(bool bSendEffect)
 {
-	if(m_level > 45)	// 45·¹º§ ÃÊ°ú½Ã ÃÊº¸ÀÚ¿ë ¸ñ°ÉÀÌ ¹þ±â±â
+	if(m_level > 45)	// 45ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½Êºï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		int newbie_item[9] =
 		{
-			2669,	// Å¸ÀÌÅº ¸ñ°ÉÀÌ
-			2670,	// ³ªÀÌÆ® ¸ñ°ÉÀÌ
-			2671,	// Èú·¯ ¸ñ°ÉÀÌ
-			2672,	// ¸ÞÀÌÁö ¸ñ°ÉÀÌ
-			2673,	// ·Î±× ¸ñ°ÉÀÌ
-			2674,	// ¼Ò¼­·¯ ¸ñ°ÉÀÌ
+			2669,	// Å¸ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ï¿½
+			2670,	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½
+			2671,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			2672,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			2673,	// ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+			2674,	// ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			-1,
 			2673,
 			2672,
@@ -1860,6 +1868,7 @@ void CPC::LevelUp(bool bSendEffect)
 			wear_position = WEARING_ACCESSORY4;
 		}
 		//dethunter12 mod
+		#ifdef RUNE_ACCESSORY_SLOT_08232023
 		if (m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1] != NULL
 			&& m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1]->m_itemProto != NULL
 			&& m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1]->m_itemProto->getItemIndex() == newbie_item[m_job])
@@ -1895,6 +1904,7 @@ void CPC::LevelUp(bool bSendEffect)
 		{
 			wear_position = WEARING_SPECIAL_ACCESSORY5;
 		}
+		#endif
 
 		if(wear_position != -1)
 		{
@@ -1911,7 +1921,7 @@ void CPC::LevelUp(bool bSendEffect)
 	InitStat();
 	CalcStatus(true);
 
-	// ·¹º§¾÷ È¿°ú ¸Þ½ÃÁö Àü¼Û
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (bSendEffect)
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -1919,22 +1929,22 @@ void CPC::LevelUp(bool bSendEffect)
 		this->m_pArea->SendToCell(rmsg, this, true);
 	}
 
-	// »çÁ¦ ½Ã½ºÅÛ Ã¼Å©
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ Ã¼Å©
 	if ( MSG_TEACH_STUDENT_TYPE == m_teachType )
 	{
 		CPC* tch = PCManager::instance()->getPlayerByCharIndex(m_teachIdx[0]);
 
-		// ¿ì¼± ¹öÇÁºÎÅÍ Áàº¸Àå. ¹«±â ±×¸®°í ¸¶Áö¸· È£Äª°ú ¸í¼ºÄ¡.
+		// ï¿½ì¼± ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àº¸ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£Äªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡.
 		int skillLevel = -1;
 		int Fame = 0;
 		switch( m_level )
 		{
 		case 10:
 			skillLevel = 1;
-			break;	// exp + 50% ¹öÇÁ (24½Ã°£)
+			break;	// exp + 50% ï¿½ï¿½ï¿½ï¿½ (24ï¿½Ã°ï¿½)
 		case 20:
 			{
-				// + 15¹«±â Áö±Þ
+				// + 15ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				int i=0;
 				for(i=0; i<2; i++)
 				{
@@ -1945,25 +1955,25 @@ void CPC::LevelUp(bool bSendEffect)
 					}
 				}
 			}
-			skillLevel = 2; 	// sp + 50% ¹öÇÁ (24½Ã°£)
+			skillLevel = 2; 	// sp + 50% ï¿½ï¿½ï¿½ï¿½ (24ï¿½Ã°ï¿½)
 			break;
 		case 30:
 			skillLevel = 3;
-			break; // exp + 100% ¹öÇÁ (24½Ã°£)
+			break; // exp + 100% ï¿½ï¿½ï¿½ï¿½ (24ï¿½Ã°ï¿½)
 		case 35:
 			Fame = 2;
-			break;	// ÈÄ°ßÀÎ ¸í¼ºÄ¡ 2
+			break;	// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 2
 		case 40:
-			skillLevel = 4;		// sp + 100% ¹öÇÁ (24½Ã°£)
+			skillLevel = 4;		// sp + 100% ï¿½ï¿½ï¿½ï¿½ (24ï¿½Ã°ï¿½)
 			Fame = 3;
-			break;  // ÈÄ°ßÀÎ ¸í¼ºÄ¡ 3
+			break;  // ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 3
 		case 45:
-			skillLevel = 5;		// exp,sp + 100% ¹öÇÁ (24½Ã°£)
+			skillLevel = 5;		// exp,sp + 100% ï¿½ï¿½ï¿½ï¿½ (24ï¿½Ã°ï¿½)
 			Fame = 5;
-			break;  // ÈÄ°ßÀÎ ¸í¼ºÄ¡ 5
+			break;  // ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 5
 		case 50:
 			{
-				// °ß½À»ý Å¬·¡½ºº° ¾ÆÀÌÅÛ Áö±Þ ( ±âÁ¸ 5953 Æ÷ÇÔ )
+				// ï¿½ß½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ 5953 ï¿½ï¿½ï¿½ï¿½ )
 #ifdef EX_ROGUE
 #ifdef EX_MAGE
 				const int nGiveItem[JOBCOUNT] = { 6878, 6879, 6880, 6881, 6882, 6883, NAS_ITEM_DB_INDEX, 6882, 6881 };
@@ -1978,22 +1988,22 @@ void CPC::LevelUp(bool bSendEffect)
 					GAMELOG << init("STUDENT_LEVELUP_ITEM_GIVE_FAIL", this)	<< nGiveItem[(int)this->m_job] << end;
 				}
 
-				// ÈÄ°ßÀÎ ¸®´º¾ó ÀÌÈÄ º¸»ó¿¡¼­ Á¦¿Ü µÇ¾ú´ø È£ÄªÀº °¡¹Ì°í¿¡¼­´Â Áö±ÞÇÏ±â·Î °áÁ¤
+				// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ È£Äªï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-#if defined(LC_GAMIGO) // 120222 °¡¹Ì°í ¿äÃ»À¸·Î È£Äª ¾ÆÀÌÅÛ Áö±Þ
+#if defined(LC_GAMIGO) // 120222 ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ È£Äª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if( false == GiveItem(5953, 0, 0, 1, true, false))
 				{
 					GAMELOG << init("STUDENT_LEVELUP_ITEM_GIVE_FAIL", this)	<< 5953 << end;
 				}
-#endif // LC_GAMIGO 120222 °¡¹Ì°í ¿äÃ»À¸·Î È£Äª ¾ÆÀÌÅÛ Áö±Þ
+#endif // LC_GAMIGO 120222 ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ È£Äª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-				// ÈÄ°ßÀÎÀº Á¢¼ÓÁßÀÎ°¡?
+				// ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½?
 				if( this->m_teachIdx[0] == -1 )
 					break;
 
 				bool bHelper = false;
 				CPC * tch = PCManager::instance()->getPlayerByCharIndex(this->m_teachIdx[0]);
-				if( tch ) // ÈÄ°ßÀÎÀÌ Á¢¼ÓÁßÀÌ¸é (5952)ÈÄ°ßÀÎÀÇ ÁõÇ¥ Áö±Þ.
+				if( tch ) // ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ (5952)ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½.
 				{
 					tch->m_cntCompleteStudent++;
 					tch->m_cntTeachingStudent--;
@@ -2009,7 +2019,7 @@ void CPC::LevelUp(bool bSendEffect)
 					bHelper = true;
 				}
 
-				// ÈÄ°ßÀÎÀÌ Á¢¼ÓÁßÀÌÁö ¾ÊÀ¸¸é DB¿¡ ±â·ÏÇØ¼­ ³ªÁß¿¡ ¹Þ¾Æ°¡°Ô²û Ã³¸®ÇÏÀå.
+				// ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Þ¾Æ°ï¿½ï¿½Ô²ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				if( bHelper )
 				{
 					if(gserver->isRunHelper())
@@ -2025,7 +2035,7 @@ void CPC::LevelUp(bool bSendEffect)
 					}
 				}
 
-				// ±×¿Ü ±âÅ¸ ÀÌº¥Æ®¿ë Áö±Þ
+				// ï¿½×¿ï¿½ ï¿½ï¿½Å¸ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef EVENT_CHILDERN_DAY
 				if(true == GiveItem(NAS_ITEM_DB_INDEX, 0, 0, 500000, true))
@@ -2036,7 +2046,7 @@ void CPC::LevelUp(bool bSendEffect)
 				}
 #endif // EVENT_CHILDERN_DAY
 
-				// Áö±ÞÀÌ ¿Ï·á µÇ¾ú´Ù¸é ¿Ï·á ¸Þ½ÃÁö¸¦ º¸³»Àå~
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ç¾ï¿½ï¿½Ù¸ï¿½ ï¿½Ï·ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~
 
 				{
 					CNetMsg::SP rmsg(new CNetMsg);
@@ -2059,7 +2069,7 @@ void CPC::LevelUp(bool bSendEffect)
 					SEND_Q(rmsg, m_desc);
 				}
 
-				// DB¸¦ ±ú²ýÀÌ ¼¼ÆÃ ÇÏÀÚ ¤Ñ¤Ñ;;
+				// DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¤ï¿½;;
 				{
 					CNetMsg::SP rmsg(new CNetMsg);
 					HelperTeachStudentSucMsg(rmsg, this->m_index, m_teachIdx[0]);
@@ -2069,11 +2079,11 @@ void CPC::LevelUp(bool bSendEffect)
 				if( !tch )
 				{
 					CNetMsg::SP rmsg(new CNetMsg);
-					HelperStuentListRefresh( rmsg, this->m_teachIdx[0] ); // ¸®½ºÆ®¸¦ °»½ÅÇÏµµ·Ï ¸Þ½ÃÁö¸¦ º¸³½´Ù
+					HelperStuentListRefresh( rmsg, this->m_teachIdx[0] ); // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					SEND_Q(rmsg, gserver->m_helper);
 				}
 
-				// È¥ÀÚ ¼ÂÆÃ ÇØÁ¦
+				// È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				memset(m_teachIdx, -1, sizeof(int)*TEACH_MAX_STUDENTS );
 				m_teachJob[0] = -1;
 				m_teachJob2[0] = 0;
@@ -2085,10 +2095,10 @@ void CPC::LevelUp(bool bSendEffect)
 			break;
 		}
 
-		// ½ºÅ³ ·¹º§ÀÌ ÀÖ´Ù¸é Àû¿ë ÇÑ´Ù.
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 		if( skillLevel != -1)
 		{
-			// 1061 ÈÄ°ßÀÎÀÇ Ãàº¹
+			// 1061 ï¿½Ä°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àº¹
 			CSkill * pSkill = gserver->m_skillProtoList.Create(1061, skillLevel);
 			if( pSkill )
 			{
@@ -2099,7 +2109,7 @@ void CPC::LevelUp(bool bSendEffect)
 			}
 		}
 
-		//if( (m_level % 5) == 0 ) // 5·¹º§ ´ÜÀ§·Î ·¹º§¾÷ Çß´Ù´Â ¸Þ½ÃÁö¸¦ º¸³½´Ù.
+		//if( (m_level % 5) == 0 ) // 5ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß´Ù´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		{
 			CNetMsg::SP rmsg(new CNetMsg);
 			TeachStudentLevelUPMsg(rmsg, this);
@@ -2117,48 +2127,48 @@ void CPC::LevelUp(bool bSendEffect)
 #endif
 
 				/*
-				±æµå ¸¶½ºÅÍ°¡ ±æµå¿öÀÇ ¸í¼ºÄ¡ »ó³³ Á¤µµ¸¦ ¼³Á¤ÇØµÎ¸é,
-				±× ÀÌÈÄºÎÅÍ ±æµå¿øÀÌ È¹µæÇÏ´Â ¸í¼ºÄ¡ÀÇ ÀÏºÎ°¡ ¾Æ·¡¿Í °°ÀÌ °è»êµÇ¾î ÀÚµ¿À¸·Î ±æµåÆ÷ÀÎÆ®·Î ÀüÈ¯µÈ´Ù.
+				ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ØµÎ¸ï¿½,
+				ï¿½ï¿½ ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ÏºÎ°ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½È¯ï¿½È´ï¿½.
 
-				¸í¼ºÄ¡ÀÇ ±æµå Æ÷ÀÎÆ® ÀüÈ¯ ºñÀ² = »ó³³µÉ ¸í¼ºÄ¡ 10 ´ç GP 1
+				ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ = ï¿½ó³³µï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 10 ï¿½ï¿½ GP 1
 
-				±æµå¿¡ °¡ÀÔÇÑ Ä³¸¯ÅÍ´Â »ó¾Ð Á¤µµ°¡ ¼³Á¤µÈ ÀÌÈÄºÎÅÍ È¹µæÇÑ ¸í¼ºÄ¡ Áß »ó³³µÉ ¸í¼ºÄ¡°¡ µû·Î ±â¾ïµÇ¾î¾ß ÇÏ¸ç,
-				»ó³³µÉ ¸í¼ºÄ¡°¡ ½×¿© 10ÀÌ ³ÑÀ» ¶§ ¸¶´Ù ÀÚµ¿À¸·Î GP 1·Î º¯È¯ÇÏ¿© ±æµåÆ÷ÀÎÆ®·Î µî·ÏµÈ´Ù.
+				ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äºï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ ï¿½ó³³µï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ ï¿½Ï¸ï¿½,
+				ï¿½ó³³µï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½×¿ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ GP 1ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ÏµÈ´ï¿½.
 
-				Ex. ³ªÀÇ ¸í¼ºÄ¡ »ó³³ % -> 50%
-				°ß½À»ý 2¸íÀ» Á¹¾÷ ½ÃÅ³½Ã È¹µæÇÏ´Â ¸í¼ºÄ¡°¡ 20 ÀÌ¶ó°í °¡Á¤
-				½ÇÁ¦ Ä³¸¯ÅÍ°¡ È¹µæÇÏ´Â ¸í¼ºÄ¡ = 20 * 0.5 =10
-				±æµå Æ÷ÀÎÆ®·Î »ó³³µÉ °æÇèÄ¡ = 20 * 0.5 = 10 µû¶ó¼­ GP 1
+				Ex. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ % -> 50%
+				ï¿½ß½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ È¹ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 20 ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ È¹ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ = 20 * 0.5 =10
+				ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ó³³µï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ = 20 * 0.5 = 10 ï¿½ï¿½ï¿½ï¿½ GP 1
 
-				ÇØ´ç Ä³¸¯ÅÍ°¡ ±æµå¿¡¼­ Å»ÅðÇØµµ ÀÌ¹Ì º¯È¯µÇ¾î µî·ÏµÈ GP´Â È¸¼öµÇÁö ¾ÊÀ¸¸ç,
-				10ÀÌ µÇÁö ¾Ê¾Æ º¯È¯ µÇÁö ¾Ê°í ³²¾Æ ÀÖ´Â »ó³³ ¸í¼ºÄ¡´Â ÃÊ±âÈ­ µÇÁö ¾Ê°í ±×´ë·Î º¸°üµÈ´Ù.
+				ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Øµï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½È¯ï¿½Ç¾ï¿½ ï¿½ï¿½Ïµï¿½ GPï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+				10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 				*/
 				if(tch && NULL != tch->m_guildInfo
 						&& NULL != tch->m_guildInfo->guild())
 				{
-					// ±æµå°¡ ÀÖ´Â °æ¿ì
-					// 1-1. ±æ¸¶°¡ Á¤ÇÑ »ó³³ ¸í¼ºÄ¡ %°¡ Á¸Àç
+					// ï¿½ï¿½å°¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
+					// 1-1. ï¿½æ¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ %ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if(0 != tch->m_guildInfo->GetcontributeFame())
 					{
 						int guildindex = tch->m_guildInfo->guild()->index();
 						CGuild * guild = gserver->m_guildlist.findguild(guildindex);
 
-						// ±æµå¿¡ »ó³³ÇÏ´Â ¸í¼ºÄ¡
+						// ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 						int GuildFame = Fame * tch->m_guildInfo->GetcontributeFame() / 100;
-						// Ä³¸¯ÅÍ°¡ ¹Þ´Â ¸í¼ºÄ¡
+						// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 						Fame = Fame - GuildFame;
 
-						// »ó³³µÉ GP
+						// ï¿½ó³³µï¿½ GP
 						tch->m_GuildFame += GuildFame;
 						LONGLONG  GP = tch->m_GuildFame / 10; //RomeoST Adjust
-						// »ó³³ º¯È¯ ´ë±â ¸í¼ºÄ¡
+						// ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 						tch->m_GuildFame = tch->m_GuildFame % 10;
 
-						// »ó³³µÉ GP°¡ ÀÖ´Â °æ¿ì
+						// ï¿½ó³³µï¿½ GPï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 						if(GP > 0 )
 						{
-							guild->AddGuildPoint( GP );				// ±æµå¿¡ GP Ãß°¡
-							tch->m_guildInfo->AddCumulatePoint( GP );	// ÀÚ½ÅÀÌ ¹ÙÄ£ GP ÃÑÇÕ
+							guild->AddGuildPoint( GP );				// ï¿½ï¿½å¿¡ GP ï¿½ß°ï¿½
+							tch->m_guildInfo->AddCumulatePoint( GP );	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ GP ï¿½ï¿½ï¿½ï¿½
 
 							{
 								CNetMsg::SP rmsg(new CNetMsg);
@@ -2171,9 +2181,9 @@ void CPC::LevelUp(bool bSendEffect)
 								HelperSaveGuildMemberPointMsg( rmsg, guild->index(), tch->m_index, GP );
 								SEND_Q( rmsg, gserver->m_helper );
 							}
-						}	// end if »ó³³µÉ GP°¡ ÀÖ´Â °æ¿ì
-					}	// end if ±æ¸¶°¡ Á¤ÇÑ »ó³³ ¸í¼ºÄ¡ %°¡ Á¸Àç
-				}	// end if ±æµå°¡ ÀÖ´Â °æ¿ì
+						}	// end if ï¿½ó³³µï¿½ GPï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
+					}	// end if ï¿½æ¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ %ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				}	// end if ï¿½ï¿½å°¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 
 				if( gserver->isRunHelper())
 				{
@@ -2200,22 +2210,22 @@ void CPC::LevelUp(bool bSendEffect)
 		m_teachType = MSG_TEACH_NO_TYPE;
 	}
 
-	// ·¹º§¾÷À¸·Î ½ÃÀÛÇÏ´Â Äù½ºÆ® °Ë»ö
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½
 	int i;
 	int count = 0;
 	for (i=0; i < gserver->m_questProtoList.m_nCount; i++)
 	{
 		if (gserver->m_questProtoList.m_proto[i].m_startType == QSTART_LEVEL)
 		{
-			// ÇÊ¿ä ·¹º§ Á¶°Ç
+			// ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (gserver->m_questProtoList.m_proto[i].m_needMinLevel > m_level || gserver->m_questProtoList.m_proto[i].m_needMaxLevel < m_level)
 				continue;
 
-			// ÇÊ¿ä Á÷¾÷ Á¶°Ç
+			// ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (gserver->m_questProtoList.m_proto[i].m_needJob != -1 && gserver->m_questProtoList.m_proto[i].m_needJob != m_job)
 				continue;
 
-			// ÇÏµåÄÚµù : ÆÛ½º³Î ´øÀü Äù½ºÆ® , Æ©Åä¸®¾ó Äù½ºÆ® Á¦¿Ü
+			// ï¿½Ïµï¿½ï¿½Úµï¿½ : ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® , Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			if (gserver->m_questProtoList.m_proto[i].m_index == 42 || gserver->m_questProtoList.m_proto[i].m_index == 45)
 				continue;
 
@@ -2235,19 +2245,19 @@ void CPC::LevelUp(bool bSendEffect)
 		{
 			if (gserver->m_questProtoList.m_proto[i].m_startType == QSTART_LEVEL)
 			{
-				// ÇÊ¿ä ·¹º§ Á¶°Ç
+				// ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (gserver->m_questProtoList.m_proto[i].m_needMinLevel > m_level || gserver->m_questProtoList.m_proto[i].m_needMaxLevel < m_level)
 					continue;
 
-				// ÇÊ¿ä Á÷¾÷ Á¶°Ç
+				// ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (gserver->m_questProtoList.m_proto[i].m_needJob != -1 && gserver->m_questProtoList.m_proto[i].m_needJob != m_job)
 					continue;
 
-				// ÇÏµåÄÚµù : ÆÛ½º³Î ´øÀü Äù½ºÆ® , Æ©Åä¸®¾ó Äù½ºÆ® Á¦¿Ü
+				// ï¿½Ïµï¿½ï¿½Úµï¿½ : ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® , Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 				if (gserver->m_questProtoList.m_proto[i].m_index == 42 || gserver->m_questProtoList.m_proto[i].m_index == 45)
 					continue;
 
-				// °¡Áö°í ÀÖ°Å³ª Æ÷±âÇß°Å³ª ¿Ï·á ÇßÀ»¶§´Â º¸³»Áö ¾Ê´Â´Ù.
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß°Å³ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 				if( m_questList.FindQuest( gserver->m_questProtoList.m_proto[i].m_index, QUEST_STATE_ALL) )
 					continue;
 
@@ -2263,7 +2273,7 @@ void CPC::LevelUp(bool bSendEffect)
 		}
 	}
 
-	// ·¹º§ÀÌ 4ÀÌ»ó ³ª´Â Äù½ºÆ®´Â Æ÷±â½ÃÅ²´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 4ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
 	CQuest* pQuest;
 	CQuest* pQuestNext = m_questList.GetNextQuest(NULL, QUEST_STATE_RUN);
 	while ((pQuest = pQuestNext))
@@ -2275,7 +2285,7 @@ void CPC::LevelUp(bool bSendEffect)
 		}
 	}
 
-	// ½Ì±Û´øÀüÀÔÀå±Ç Á¦°ø
+	// ï¿½Ì±Û´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (m_level >= S2_TICKET_LEVEL_START && m_level <= S2_TICKET_LEVEL_END)
 	{
 		CItem* item = gserver->m_itemProtoList.CreateItem(gserver->m_itemProtoList.m_sTicketItem2->getItemIndex(), -1, 0 ,0, 1);
@@ -2285,7 +2295,7 @@ void CPC::LevelUp(bool bSendEffect)
 
 		if (this->m_inventory.addItem(item) == false)
 		{
-			// ÀÎÁ¨Åä¸® ²ËÂ÷¼­ ¸ø ¹ÞÀ» ¶§ Drop
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Drop
 			item = m_pArea->DropItem(item, this);
 			if (!item)
 				return;
@@ -2303,8 +2313,8 @@ void CPC::LevelUp(bool bSendEffect)
 	}
 
 #ifdef HANARO_EVENT
-#if defined(LC_BILA)// ¸ß½ÃÄÚ ÇÏ³ª·Î ÀÌº¥Æ®
-	{} // ¸ß½ÃÄÚ´Â ¸ñÇ¥ ·¹º§ ´Þ¼º ½Ã ¾ÆÀÌÅÛÀ» Áö±ÞÇÏÁö ¾Ê´Â´Ù.
+#if defined(LC_BILA)// ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
+	{} // ï¿½ß½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 #else
 	if (m_level == 31 || m_level == 60)
 	{
@@ -2315,8 +2325,8 @@ void CPC::LevelUp(bool bSendEffect)
 
 		static int nTitanItem[2][7] =
 		{
-			{321, 313, 315, 317, 319, 608, 310},			// 31 ·¹º§ ´Þ¼º
-			{1349, 1350, 1351, 1352, 1353, 1333, 1334}		// 60 ·¹º§ ´Þ¼º
+			{321, 313, 315, 317, 319, 608, 310},			// 31 ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½
+			{1349, 1350, 1351, 1352, 1353, 1333, 1334}		// 60 ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½
 		};
 
 		static int nNightItem[2][8] =
@@ -2394,12 +2404,12 @@ void CPC::LevelUp(bool bSendEffect)
 		int i = 0;
 		for (i = 0; i < nItemCount; i++)
 		{
-			// ¾ÆÀÌÅÛ Áö±Þ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (!GiveItem(pItemIndex[i], nItemPlus, 0, 1, false, false))
 			{
 				GAMELOG << init("HANARO_EVENT ERROR", this) << "ITEM" << delim << pItemIndex[i] << end;
 
-				// ·Ñ¹é
+				// ï¿½Ñ¹ï¿½
 				for( ; i > 0; i--)
 				{
 					CItem* item = this->m_inventory.FindByDBIndex(pItemIndex[i], 0, 0);
@@ -2407,14 +2417,14 @@ void CPC::LevelUp(bool bSendEffect)
 					{
 						this->m_inventory.decreaseItemCount(item, 1);
 					}
-				}// ·Ñ¹é end
+				}// ï¿½Ñ¹ï¿½ end
 				break;
 			}
 
 			GAMELOG << init("HANARO_EVENT", this) << "ITEM" << delim << pItemIndex[i] << end;
 		} // for
 	}
-#endif // #if defined(LC_BILA)// ¸ß½ÃÄÚ ÇÏ³ª·Î ÀÌº¥Æ®
+#endif // #if defined(LC_BILA)// ï¿½ß½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 #endif // #ifdef HANARO_EVENT
 
 	if( this->GetSummonNpc(SUMMON_NPC_TYPE_MERCENARY) )
@@ -2431,7 +2441,7 @@ void CPC::RemoveItemFromQuickSlot(CItem* item)
 	CItem* quickSlotItem = NULL;
 	int quickSlotType = QUICKSLOT_TYPE_EMPTY;
 
-	//¾ÆÀÌÅÛÀ» ÀåÂøÇÏ¿´À»¶§´Â Äü½½·Ô¿¡¼­ Á¦°ÅÇÏÁö ¾Ê°í Äü½½·Ô Á¤º¸¸¦ ¼öÁ¤ÇÑ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if(item->getWearPos() != WEARING_NONE)
 	{
 		quickSlotItem = item;
@@ -2487,13 +2497,13 @@ void CPC::RecoverPC()
 
 	if (IsSetPlayerState(PLAYER_STATE_MOVING) || IsCombatMode() || m_currentSkill != NULL)
 	{
-		// ÀÌµ¿/°ø°Ý
+		// ï¿½Ìµï¿½/ï¿½ï¿½ï¿½ï¿½
 		rhp = 1;
 		rmp = 1;
 	}
 	else if (!IsSetPlayerState(PLAYER_STATE_SITDOWN) && !(m_assist.m_state & AST_FAKEDEATH))
 	{
-		// ¾É±â ¿Ü¿¡
+		// ï¿½É±ï¿½ ï¿½Ü¿ï¿½
 		rhp = rhp * 25 / 100;
 		rmp = rmp * 25 / 100;
 	}
@@ -2515,7 +2525,7 @@ void CPC::RecoverPC()
 	if(m_opRecoverMP_NoRate > 0)
 		rmp += m_opRecoverMP_NoRate;
 
-	// Áê³ë, ÇÇ½ºÁ¸ÀÌ¸é È¸º¹·® 10¹è
+	// ï¿½ï¿½ï¿½, ï¿½Ç½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½
 	if(m_pZone && m_pZone->m_index == ZONE_START)
 	{
 		if(GetMapAttr() & MATT_PEACE)
@@ -2542,7 +2552,7 @@ void CPC::RecoverPC()
 
 	m_bChangeStatus = true;
 
-	// ¼ÒÈ¯¼ö È¸º¹
+	// ï¿½ï¿½È¯ï¿½ï¿½ È¸ï¿½ï¿½
 	CElemental* pElemental = m_elementalList;
 	while (pElemental)
 	{
@@ -2593,7 +2603,7 @@ void CPC::GoMemPos(int slot)
 
 void CPC::CalcStatus(bool bSend)
 {
-	// ¿ø»óÅÂ·Î
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½
 	m_maxHP = m_dbHP;
 	m_maxMP = m_dbMP;
 	m_str = m_dbStr;
@@ -2757,10 +2767,10 @@ void CPC::CalcStatus(bool bSend)
 	m_plusHard = 0;
 	m_plusWeak = 0;
 
-	// ¾ÆÀÌÅÛ Àû¿ë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	ApplyItemValue(bSend);
 
-	// ÆÐ½Ãºê ½ºÅ³ Àû¿ë
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 	ApplyPassive();
 
 	ApplyTitle();
@@ -2796,15 +2806,15 @@ void CPC::CalcStatus(bool bSend)
 	{
 		if(m_job2 == 0)
 		{
-			m_maxHP += m_statPall * levelup_hp[(int)m_job][0]; //Èû
-			m_maxMP += m_statPall * levelup_mp[(int)m_job][2]; //ÁöÇý
-			m_maxHP += m_statPall * levelup_hp[(int)m_job][3]; //Ã¼Áú
-			m_maxMP += m_statPall * levelup_mp[(int)m_job][3]; //Ã¼Áú
+			m_maxHP += m_statPall * levelup_hp[(int)m_job][0]; //ï¿½ï¿½
+			m_maxMP += m_statPall * levelup_mp[(int)m_job][2]; //ï¿½ï¿½ï¿½ï¿½
+			m_maxHP += m_statPall * levelup_hp[(int)m_job][3]; //Ã¼ï¿½ï¿½
+			m_maxMP += m_statPall * levelup_mp[(int)m_job][3]; //Ã¼ï¿½ï¿½
 		}
 		else
 		{
-			m_maxHP += m_statPall * levelup_hp2[ (int)m_job * JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ]; //Ã¼Áú
-			m_maxMP += m_statPall * levelup_mp2[ (int)m_job * JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ]; //Ã¼Áú
+			m_maxHP += m_statPall * levelup_hp2[ (int)m_job * JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ]; //Ã¼ï¿½ï¿½
+			m_maxMP += m_statPall * levelup_mp2[ (int)m_job * JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ]; //Ã¼ï¿½ï¿½
 		}
 
 		if(m_maxHP < 1)
@@ -2822,15 +2832,15 @@ void CPC::CalcStatus(bool bSend)
 	{
 		if(m_job2 == 0)
 		{
-			m_maxHP += levelup_hp[(int)m_job][0] * m_str*m_statPall_per/100; //Èû
-			m_maxMP += levelup_mp[(int)m_job][2] * m_int*m_statPall_per/100; //ÁöÇý
-			m_maxHP += levelup_hp[(int)m_job][3] * m_con*m_statPall_per/100; //Ã¼Áú
-			m_maxMP += levelup_mp[(int)m_job][3] * m_con*m_statPall_per/100; //Ã¼Áú
+			m_maxHP += levelup_hp[(int)m_job][0] * m_str*m_statPall_per/100; //ï¿½ï¿½
+			m_maxMP += levelup_mp[(int)m_job][2] * m_int*m_statPall_per/100; //ï¿½ï¿½ï¿½ï¿½
+			m_maxHP += levelup_hp[(int)m_job][3] * m_con*m_statPall_per/100; //Ã¼ï¿½ï¿½
+			m_maxMP += levelup_mp[(int)m_job][3] * m_con*m_statPall_per/100; //Ã¼ï¿½ï¿½
 		}
 		else
 		{
-			m_maxHP += levelup_hp2[ (int)m_job* JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ] * m_con*m_statPall_per/100; //Ã¼Áú
-			m_maxMP += levelup_mp2[ (int)m_job* JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ] * m_con*m_statPall_per/100; //Ã¼Áú
+			m_maxHP += levelup_hp2[ (int)m_job* JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ] * m_con*m_statPall_per/100; //Ã¼ï¿½ï¿½
+			m_maxMP += levelup_mp2[ (int)m_job* JOB_2ND_SPLIT_INDEX + (int)m_job2 -1 ] * m_con*m_statPall_per/100; //Ã¼ï¿½ï¿½
 		}
 
 		m_opStr += m_str*m_statPall_per/100;
@@ -2838,7 +2848,7 @@ void CPC::CalcStatus(bool bSend)
 		m_opInt += m_int*m_statPall_per/100;
 		m_opCon += m_con*m_statPall_per/100;
 	}
-	// °­½Å Àû¿ë : HP
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : HP
 	switch (m_evocationIndex)
 	{
 	case EVOCATION_HELLOUND:
@@ -2848,8 +2858,8 @@ void CPC::CalcStatus(bool bSend)
 		m_maxHP = m_maxHP + m_con * 15 / 10;
 		break;
 	}
-	// À§ÀÇ ¶È°°Àº ±¸¹®À» ÁÖ¼® Ã³¸®ÇÏ°í ¾Æ·¡¿¡ ³Ö¾ú½À´Ï´Ù. ±× ÀÌÀ¯´Â CAssistList::DecreaseTime(CCharacter* ch, LONGLONG* changestate) ¶§¹®ÀÔ´Ï´Ù. m_hp, m_mp°¡ maxº¸´Ù Å¬¶§ ½ºÅ³À» Ãë¼ÒÇÏ´Â ¹®Á¦°¡ ÀÖ½À´Ï´Ù.
-	// CPCÀÇ recovery pulse°¡ DecreaseTimeº¸´Ù ¸ÕÀú ½ÇÇà µÉ °æ¿ì ¹®Á¦°¡ ¾øÀ¸³ª ±×·¸Áö ¾ÊÀ» °æ¿ì ¹®Á¦°¡ »ý±é´Ï´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ Ã³ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CAssistList::DecreaseTime(CCharacter* ch, LONGLONG* changestate) ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. m_hp, m_mpï¿½ï¿½ maxï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+	// CPCï¿½ï¿½ recovery pulseï¿½ï¿½ DecreaseTimeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	if(m_maxHP < 1)
 		m_maxHP = 1;
 	if(m_maxMP < 1)
@@ -2859,13 +2869,13 @@ void CPC::CalcStatus(bool bSend)
 		m_hp = m_maxHP;
 	if(m_mp > m_maxMP)
 		m_mp = m_maxMP;
-	// Æä½Ãºê ½ºÅ³ ½ºÅÝ °è»ê
+	// ï¿½ï¿½Ãºï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 // 	m_opStr = ( m_opStr + m_avPassiveAddition.stat_str ) + ( m_statpt_str * m_avPassiveRate.stat_str / 100 );
 // 	m_opDex = ( m_opStr + m_avPassiveAddition.stat_dex ) + ( m_statpt_dex * m_avPassiveRate.stat_dex / 100 );
 // 	m_opInt = ( m_opStr + m_avPassiveAddition.stat_int ) + ( m_statpt_int * m_avPassiveRate.stat_int / 100 );
 //	m_opCon = ( m_opStr + m_avPassiveAddition.stat_con ) + ( m_statpt_con * m_avPassiveRate.stat_con / 100 );
 
-	// ¸Ç¼ÕÀº ¿ø·¡ ¼Óµµ·Î
+	// ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½
 	if (m_wearInventory.wearItemInfo[WEARING_WEAPON] == NULL)
 	{
 		m_attackSpeed = 12;
@@ -2897,13 +2907,13 @@ void CPC::CalcStatus(bool bSend)
 	}
 
 
-	// TODO : ÇÏµåÄÚµù
+	// TODO : ï¿½Ïµï¿½ï¿½Úµï¿½
 	if (m_admin > 0 && m_speedup != 0)
 	{
 		//m_runSpeed = m_speedup / 10.0f;
 		SetRunSpeed( m_speedup / 10.0f );
 	}
-	// --- TODO : ÇÏµåÄÚµù
+	// --- TODO : ï¿½Ïµï¿½ï¿½Úµï¿½
 
 	m_bChangeStatus = true;
 
@@ -2991,11 +3001,11 @@ bool CPC::UseStatPoint(MSG_STATPOINT_USE_TYPE type, int* val)
 
 void CPC::ApplyItemValue(bool bSend)
 {
-	// TODO : ÇÃ·¯½º ¼öÄ¡/¿É¼Ç °í·Á
+	// TODO : ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡/ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CItem* item;
 	int i, j;
 
-	// ¹«±â
+	// ï¿½ï¿½ï¿½ï¿½
 	item = m_wearInventory.getCalcWear(WEARING_WEAPON);
 	m_eqMelee = m_eqRange = m_eqMagic = 0;
 
@@ -3127,18 +3137,18 @@ void CPC::ApplyItemValue(bool bSend)
 			static const int nPetUniqueItemCount = 12;
 			static const int nPetUniqueItemIndex[nPetUniqueItemCount] =
 			{
-				887,	// ÇÑ¼Õ°Ë
-				907,	// ÀÌµµ·ù
-				908,	// ´ë°Ë
-				909,	// µµ³¢
-				910,	// Èú·¯¿Ïµå
+				887,	// ï¿½Ñ¼Õ°ï¿½
+				907,	// ï¿½Ìµï¿½ï¿½ï¿½
+				908,	// ï¿½ï¿½ï¿½
+				909,	// ï¿½ï¿½ï¿½ï¿½
+				910,	// ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½
 				911,	// È°
-				912,	// ¼ô½ºÅ×ÇÁ
-				913,	// ½ºÅ×ÇÁ
-				914,	// ´Ü°Ë
-				915,	// ¼®±Ã
-				916,	// »çÀÌµå
-				917		// Æú¾Ï
+				912,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				913,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				914,	// ï¿½Ü°ï¿½
+				915,	// ï¿½ï¿½ï¿½ï¿½
+				916,	// ï¿½ï¿½ï¿½Ìµï¿½
+				917		// ï¿½ï¿½ï¿½ï¿½
 			};
 			for (i = 0; i < nPetUniqueItemCount; i++)
 			{
@@ -3218,7 +3228,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 			}
 
-			// °áÇÕ ¾ÆÀÌÅÛ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (bNormalItem && (item->m_itemProto->getItemFlag() & ITEM_FLAG_COMPOSITE) && (item->getFlag() & FLAG_ITEM_COMPOSITION))
 			{
 				CItem* pItemEquip = m_inventory.FindByVirtualIndex(item->m_nCompositeItem);
@@ -3238,14 +3248,14 @@ void CPC::ApplyItemValue(bool bSend)
 			{
 				int rareoption_damage = 0;
 
-				if (pItemNormal->IsRangeWeapon())	// È°ÀÌ¸é ¿ø°Å¸®
+				if (pItemNormal->IsRangeWeapon())	// È°ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Å¸ï¿½
 				{
 					if(pItemNormal->m_pRareOptionProto)
 						rareoption_damage = pItemNormal->m_pRareOptionProto->GetDamageUp();
 						
 					m_eqRange = ItemUpgradeFuckingFunction( nNormalPlus, pItemNormal->GetItemLevel(), pItemNormal->m_itemProto->getItemNum0() + pItemNormal->getPlus_2() + rareoption_damage );
 				}
-				else	// ±×¿Ü ¹«±â´Â ¸ðµÎ ±ÙÁ¢
+				else	// ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					int rareoption_damage = 0;
 					if(pItemNormal->m_pRareOptionProto)
@@ -3272,7 +3282,7 @@ void CPC::ApplyItemValue(bool bSend)
 								COption::ApplyOptionValue(this, rod->optiontype, rod->optionval, pItemNormal);
 							}
 						}
-						// ½ºÅÈ »ó½Â Àû¿ë
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						COption::ApplyOptionValue(this, OPTION_DAMAGE_UP,  pItemNormal->m_pRareOptionProto->GetDamageUp(), NULL);
 						COption::ApplyOptionValue(this, OPTION_DEFENSE_UP, pItemNormal->m_pRareOptionProto->GetDefenseUp(), NULL);
 						COption::ApplyOptionValue(this, OPTION_MAGIC_UP,   pItemNormal->m_pRareOptionProto->GetMagicUp(), NULL);
@@ -3317,7 +3327,7 @@ void CPC::ApplyItemValue(bool bSend)
 		m_flySpeed = (float)(item->m_itemProto->getItemNum2())  / 10 ;
 	}
 
-	// ¹æ¾î±¸
+	// ï¿½ï¿½î±¸
 	if(m_opAttrdef)
 		m_opAttrdef = 0;
 	m_eqDefense = 0;
@@ -3336,37 +3346,37 @@ void CPC::ApplyItemValue(bool bSend)
 			// itemIndex, f1, f2 : (f1 + (f2 * level)) * pow(1.06, 6)
 			static const int nPetUniqueItemIndex[nPetUniqueItemCount][3] =
 			{
-				{918,  10, 20},			// Çï¸ä,Å¸ÀÌÅº
-				{919,  16, 20},			// »óÀÇ,
-				{920,  12, 20},			// ÇÏÀÇ,
-				{921,  10, 20},			// ºÎÃ÷,
-				{922,   8, 20},			// Àå°©,
-				{923,  14, 15},			// Çï¸ä,³ªÀÌÆ®
-				{924,  20, 15},			// »óÀÇ,
-				{925,  16, 15},			// ÇÏÀÇ,
-				{926,  14, 15},			// ºÎÃ÷,
-				{927,  14, 15},			// Àå°©,
-				{1280, 24, 30},			// ¹æÆÐ,
-				{928,  10, 10},			// Çï¸ä,¸ÞÀÌÁö
-				{929,  12, 15},			// »óÀÇ,
-				{930,  12, 15},			// ÇÏÀÇ,
-				{931,  10, 20},			// ºÎÃ÷,
-				{932,  10, 20},			// Àå°©,
-				{933,  14, 15},			// Çï¸ä,·Î±×
-				{934,  20, 20},			// »óÀÇ,
-				{935,  16, 20},			// ÇÏÀÇ,
-				{936,  14, 15},			// ºÎÃ÷,
-				{937,  14, 15},			// Àå°©,
-				{938,  10, 10},			// Çï¸ä,Èú·¯
-				{939,  12, 10},			// »óÀÇ,
-				{940,  12, 10},			// ÇÏÀÇ,
-				{941,  10, 10},			// ºÎÃ÷,
-				{942,  10, 10},			// Àå°©,
-				{943,  12, 16},			// Çï¸ä,¼Ò¼­·¯
-				{944,  14, 18},			// »óÀÇ,
-				{945,  14, 18},			// ÇÏÀÇ,
-				{946,  12, 16},			// ºÎÃ÷,
-				{947,  12, 16},			// Àå°©,
+				{918,  10, 20},			// ï¿½ï¿½ï¿½,Å¸ï¿½ï¿½Åº
+				{919,  16, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{920,  12, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{921,  10, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{922,   8, 20},			// ï¿½å°©,
+				{923,  14, 15},			// ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Æ®
+				{924,  20, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{925,  16, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{926,  14, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{927,  14, 15},			// ï¿½å°©,
+				{1280, 24, 30},			// ï¿½ï¿½ï¿½ï¿½,
+				{928,  10, 10},			// ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				{929,  12, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{930,  12, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{931,  10, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{932,  10, 20},			// ï¿½å°©,
+				{933,  14, 15},			// ï¿½ï¿½ï¿½,ï¿½Î±ï¿½
+				{934,  20, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{935,  16, 20},			// ï¿½ï¿½ï¿½ï¿½,
+				{936,  14, 15},			// ï¿½ï¿½ï¿½ï¿½,
+				{937,  14, 15},			// ï¿½å°©,
+				{938,  10, 10},			// ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½
+				{939,  12, 10},			// ï¿½ï¿½ï¿½ï¿½,
+				{940,  12, 10},			// ï¿½ï¿½ï¿½ï¿½,
+				{941,  10, 10},			// ï¿½ï¿½ï¿½ï¿½,
+				{942,  10, 10},			// ï¿½å°©,
+				{943,  12, 16},			// ï¿½ï¿½ï¿½,ï¿½Ò¼ï¿½ï¿½ï¿½
+				{944,  14, 18},			// ï¿½ï¿½ï¿½ï¿½,
+				{945,  14, 18},			// ï¿½ï¿½ï¿½ï¿½,
+				{946,  12, 16},			// ï¿½ï¿½ï¿½ï¿½,
+				{947,  12, 16},			// ï¿½å°©,
 			};
 			int j;
 			for (j = 0; j < nPetUniqueItemCount; j++)
@@ -3381,7 +3391,7 @@ void CPC::ApplyItemValue(bool bSend)
 //				m_eqResist  += (int)((nPetUniqueItemIndex[j][1] + (nPetUniqueItemIndex[j][2] * m_level / 10)) * pow(1.06, 6));
 			}
 
-			// °áÇÕ ¾ÆÀÌÅÛ
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if (bNormalItem && (item->m_itemProto->getItemFlag() & ITEM_FLAG_COMPOSITE) && (item->getFlag() & FLAG_ITEM_COMPOSITION))
 			{
 				CItem* pItemEquip = m_inventory.FindByVirtualIndex(item->m_nCompositeItem);
@@ -3414,7 +3424,7 @@ void CPC::ApplyItemValue(bool bSend)
 								COption::ApplyOptionValue(this, rod->optiontype, rod->optionval, pItemNormal);
 							}
 						}
-						// ½ºÅÈ »ó½Â Àû¿ë
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						COption::ApplyOptionValue(this, OPTION_DAMAGE_UP,  pItemNormal->m_pRareOptionProto->GetDamageUp(), NULL);
 						COption::ApplyOptionValue(this, OPTION_DEFENSE_UP, pItemNormal->m_pRareOptionProto->GetDefenseUp(), NULL);
 						COption::ApplyOptionValue(this, OPTION_MAGIC_UP,   pItemNormal->m_pRareOptionProto->GetMagicUp(), NULL);
@@ -3453,17 +3463,20 @@ void CPC::ApplyItemValue(bool bSend)
 	}
 
 	static int accessory_item[] = { 
-		WEARING_ACCESSORY1, WEARING_ACCESSORY2, WEARING_ACCESSORY3, WEARING_ACCESSORY4, 
-		WEARING_SPECIAL_ACCESSORY1, WEARING_SPECIAL_ACCESSORY2, WEARING_SPECIAL_ACCESSORY3, WEARING_SPECIAL_ACCESSORY4, WEARING_SPECIAL_ACCESSORY5 }; // newslot - alanssoares
-	// ????õê
+    WEARING_ACCESSORY1, WEARING_ACCESSORY2, WEARING_ACCESSORY3, WEARING_ACCESSORY4, 
+#ifdef RUNE_ACCESSORY
+    WEARING_SPECIAL_ACCESSORY1, WEARING_SPECIAL_ACCESSORY2, WEARING_SPECIAL_ACCESSORY3, WEARING_SPECIAL_ACCESSORY4, WEARING_SPECIAL_ACCESSORY5
+#endif
+	}; // newslot - alanssoares	// ????ï¿½ï¿½
+
 	for (i = 0; i < sizeof(accessory_item) / sizeof(accessory_item[0]); i++)
 	{
-		// Ä³½¬ ¾Ç¼¼¼­¸® ´É·ÂÄ¡ Áßº¹ ¾ÈµÇ°Ô
+		// Ä³ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É·ï¿½Ä¡ ï¿½ßºï¿½ ï¿½ÈµÇ°ï¿½
 		int cashNotDup = 0;
 		item = m_wearInventory.getCalcWear(accessory_item[i]);
 		if (item)
 		{
-			// 060227 : bs : ¾Ç¼­¼­¸®
+			// 060227 : bs : ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			time_t timeCur;
 			time(&timeCur);
 			struct tm tmCur = *localtime(&timeCur);
@@ -3471,7 +3484,7 @@ void CPC::ApplyItemValue(bool bSend)
 
 			switch (item->getDBIndex())
 			{
-			case 1301:		// 18:00 - 02:00, ¸íÁß 20%
+			case 1301:		// 18:00 - 02:00, ï¿½ï¿½ï¿½ï¿½ 20%
 				if ((nCurTime >= 1800 || nCurTime < 200) && !(cashNotDup & ( 1 << 1 )) )
 				{
 					m_opMeleeHitRate += (int)(m_opMeleeHitRate * 0.2);
@@ -3481,7 +3494,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 1302:		// 10:00 - 18:00, ¸íÁß 20%
+			case 1302:		// 10:00 - 18:00, ï¿½ï¿½ï¿½ï¿½ 20%
 				if ((nCurTime >= 1000 && nCurTime < 1800) && !(cashNotDup & ( 1 << 2 )) )
 				{
 					m_opMeleeHitRate += (int)(m_opMeleeHitRate * 0.2);
@@ -3491,7 +3504,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 1303:		// 02:00 - 10:00, ¸íÁß 20%
+			case 1303:		// 02:00 - 10:00, ï¿½ï¿½ï¿½ï¿½ 20%
 				if ((nCurTime >= 200 && nCurTime < 1000) && !(cashNotDup & ( 1 << 3 )) )
 				{
 					m_opMeleeHitRate += (int)(m_opMeleeHitRate * 0.2);
@@ -3501,7 +3514,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 1304:		// 18:00 - 02:00, È¸ÇÇ 10%
+			case 1304:		// 18:00 - 02:00, È¸ï¿½ï¿½ 10%
 				if ((nCurTime >= 1800 || nCurTime < 200) && !(cashNotDup & ( 1 << 4 )) )
 				{
 					m_opMeleeAvoid += (int)(m_opMeleeAvoid * 0.1);
@@ -3511,7 +3524,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 1305:		// 10:00 - 18:00, È¸ÇÇ 10%
+			case 1305:		// 10:00 - 18:00, È¸ï¿½ï¿½ 10%
 				if ((nCurTime >= 1000 && nCurTime < 1800) && !(cashNotDup & ( 1 << 5 )) )
 				{
 					m_opMeleeAvoid += (int)(m_opMeleeAvoid * 0.1);
@@ -3521,7 +3534,7 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 1306:		// 02:00 - 10:00, È¸ÇÇ 10%
+			case 1306:		// 02:00 - 10:00, È¸ï¿½ï¿½ 10%
 				if ( (nCurTime >= 200 && nCurTime < 1000) && !(cashNotDup & ( 1 << 6 )) )
 				{
 					m_opMeleeAvoid += (int)(m_opMeleeAvoid * 0.1);
@@ -3532,7 +3545,7 @@ void CPC::ApplyItemValue(bool bSend)
 				break;
 
 #ifdef NEW_ACCERY_ADD
-			case 2039:		// °Ç°­ÀÇ ¹ÝÁö HP 150Áõ°¡
+			case 2039:		// ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ HP 150ï¿½ï¿½ï¿½ï¿½
 				if( !(cashNotDup & ( 1 << 7 )) )
 				{
 					m_maxHP += 150;
@@ -3540,15 +3553,15 @@ void CPC::ApplyItemValue(bool bSend)
 				}
 				break;
 
-			case 2040:		// ¸¶³ª Àë  MP 150 Áõ°¡
+			case 2040:		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½  MP 150 ï¿½ï¿½ï¿½ï¿½
 				if( !(cashNotDup & ( 1 << 8 )) )
 				{
 					m_maxMP += 150;
 					cashNotDup = cashNotDup | ( 1 << 8 );
 				}
 				break;
-			case 2041:		// °æÇèÀÇ ¸ñ°ÉÀÌ È¹µæÇÑ °æÇèÄ¡ 5%Áõ°¡
-			case 2042:		// SP ºÎ½ºÅÍ
+			case 2041:		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ 5%ï¿½ï¿½ï¿½ï¿½
+			case 2042:		// SP ï¿½Î½ï¿½ï¿½ï¿½
 				if( !(cashNotDup & ( 1 << 9 )) )
 				{
 					m_AddProb = 5;
@@ -3574,7 +3587,7 @@ void CPC::ApplyItemValue(bool bSend)
 									COption::ApplyOptionValue(this, rod->optiontype, rod->optionval, item);
 								}
 							}
-							// ½ºÅÈ »ó½Â Àû¿ë
+							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							COption::ApplyOptionValue(this, OPTION_DAMAGE_UP,  item->m_pRareOptionProto->GetDamageUp(), NULL);
 							COption::ApplyOptionValue(this, OPTION_DEFENSE_UP, item->m_pRareOptionProto->GetDefenseUp(), NULL);
 							COption::ApplyOptionValue(this, OPTION_MAGIC_UP,   item->m_pRareOptionProto->GetMagicUp(), NULL);
@@ -3662,15 +3675,15 @@ void CPC::ApplyStoneValue(CItem* pItem) //dethunter12 adjust
 }
 void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 {
-	int nNormalPlus = NomalPlus;  // °áÇÕ °ü·Ã º¯°æ
+	int nNormalPlus = NomalPlus;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// 146·¹º§ ÀÌÇÏ
+	// 146ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (pItem->GetItemLevel() < ITEM_UPGRADE_GENERAL_MAXLEVEL)
 	{
-		// ¹«±â
+		// ï¿½ï¿½ï¿½ï¿½
 		if (pItem->IsWeaponType())
 		{
-			// °ø°Ý·Â »ó½Â : ¼Ò¼­·¯ Ãß°¡½Ã ¸¶°ø
+			// ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ : ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (nNormalPlus >= 6)
 			{
 				switch (pItem->m_itemProto->getItemSubTypeIdx())
@@ -3699,7 +3712,7 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 				}
 			}
 
-			// ¸íÁß or »çÁ¤°Å¸® Áõ°¡ : ¼Ò¼­·¯ Ãß°¡½Ã »ç°Å¸®
+			// ï¿½ï¿½ï¿½ï¿½ or ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½
 			if (nNormalPlus >=8)
 			{
 				switch (pItem->m_itemProto->getItemSubTypeIdx())
@@ -3711,7 +3724,7 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 				case IWEAPON_TWOSWORD:
 				case IWEAPON_SCYTHE:
 				case IWEAPON_POLEARM:
-					// ¿É¼ÇÀÇ È®·ü ´ÜÀ§´Â %
+					// ï¿½É¼ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %
 					m_opMeleeHitRate += 3;
 					m_opRangeHitRate += 3;
 					m_opMagicHitRate += 3;
@@ -3723,21 +3736,21 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 				case IWEAPON_BOW:
 				case IWEAPON_WAND:
 				case IWEAPON_SOUL:
-					// ±âº»°ø°Ý¸¸ 2m Áõ°¡
+					// ï¿½âº»ï¿½ï¿½ï¿½Ý¸ï¿½ 2m ï¿½ï¿½ï¿½ï¿½
 					m_attackRange += 2.0f;
 					break;
 				}
 			}
 
-			// °­°ø È®·ü Áõ°¡
+			// ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (nNormalPlus >= 10)
 				m_plusStrong += 300;
 
-			// ¸Å°­°ø È®·ü Áõ°¡
+			// ï¿½Å°ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (nNormalPlus >= 12)
 				m_plusHard += 400;
 
-			// +15ÀÌ»óÀº Ãß°¡ °ø°Ý·Â
+			// +15ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½
 			if (nNormalPlus >= 15)
 			{
 				switch (pItem->m_itemProto->getItemSubTypeIdx())
@@ -3766,20 +3779,20 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 				}
 			}
 		}
-		// ¹æ¾î±¸
+		// ï¿½ï¿½î±¸
 		else if (pItem->IsArmorType())
 		{
 			if (pItem->m_itemProto->getItemSubTypeIdx() != IWEAR_SHIELD)
 			{
-				// Ãß°¡ ¹æ¾î·Â 10
+				// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ 10
 				if (nNormalPlus >=8)
 					m_eqDefense += 10;
 
-				// Ãß°¡ ¸¶¹æ 10
+				// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ 10
 				if (nNormalPlus >=10)
 					m_eqResist += 10;
 
-				// À§Å© È®·ü 5%
+				// ï¿½ï¿½Å© È®ï¿½ï¿½ 5%
 				if (nNormalPlus >=12)
 					m_plusWeak += 500;
 			}
@@ -3791,10 +3804,10 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 			}
 		}
 	}
-	// 146·¹º§ ÀÌ»óºÎÅÍ´Â ¼öÄ¡º°·Î ´Ù¸£°Ô Àû¿ë..
+	// 146ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..
 	else
 	{
-		// ¹«±â
+		// ï¿½ï¿½ï¿½ï¿½
 		if (pItem->IsWeaponType())
 		{
 			if(nNormalPlus >= 6)
@@ -3837,7 +3850,7 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 				}
 			}
 		}
-		// ¹æ¾î±¸
+		// ï¿½ï¿½î±¸
 		else if (pItem->IsArmorType())
 		{
 			if(nNormalPlus >= 6)
@@ -3907,7 +3920,7 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 		}
 	}
 
-	//pvpµ¥¹ÌÁö Èí¼ö ¿É¼Ç È¿°ú
+	//pvpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ È¿ï¿½ï¿½
 	if(pItem->IsArmorType() && nNormalPlus >= 15)
 	{
 		int optionLevel = 0;
@@ -3930,18 +3943,18 @@ void CPC::ApplyItemPlusValue(CItem* pItem, int NomalPlus )
 	}
 }
 
-// Âø¿ë ¾ÆÀÌÅÛ Áß ¹«±â, ¹æ¾î±¸¿¡ ¿É¼ÇÀ» ºÙÀÏ ¼ö ÀÖµµ·Ï ¼±ÅÃ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½î±¸ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 int CPC::SettingItemOption()
 {
-	int enableIndex[WEARING_BOOTS + 1];	// ¿É¼Ç ºÙÀÏ ¼ö ÀÖ´Â ¾ÆÀÌÅÛ ÀÎµ¦½º
-	int	nEnable = 0;					// ¿É¼Ç ºÙÀÏ ¼ö ÀÖ´Â ¾ÆÀÌÅÛ ¸î°³ÀÎ°¡?
+	int enableIndex[WEARING_BOOTS + 1];	// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+	int	nEnable = 0;					// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î°³ï¿½Î°ï¿½?
 
 	int i;
 	for (i = WEARING_HELMET; i <= WEARING_BOOTS; i++)
 	{
 		if (m_wearInventory.wearItemInfo[i])
 		{
-			// ¹«±â : ¹«±â ÃÖ´ë ¿É¼Ç °¡´É ÃÊ°ú Ã¼Å©
+			// ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ Ã¼Å©
 			if (m_wearInventory.wearItemInfo[i]->IsWeaponType())
 			{
 				if (m_wearInventory.wearItemInfo[i]->m_nOption >= MAX_WEAPON_OPTION)
@@ -3950,26 +3963,26 @@ int CPC::SettingItemOption()
 						m_wearInventory.wearItemInfo[i]->m_itemProto->getItemSubTypeIdx() == IWEAPON_GATHERING ||
 						m_wearInventory.wearItemInfo[i]->m_itemProto->getItemSubTypeIdx() == IWEAPON_CHARGE)
 					continue;
-				// ¼ºÁÖ Àü¿ë ¾ÆÀÌÅÛÀº Á¦¿Ü
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (m_wearInventory.wearItemInfo[i]->m_itemProto->getItemFlag() & ITEM_FLAG_LORD)
 					continue ;
 			}
-			// ¹æ¾î±¸ : ¹æ¾î±¸ ÃÖ´ë ¿É¼Ç °¡´É ÃÊ°ú Ã¼Å©
+			// ï¿½ï¿½î±¸ : ï¿½ï¿½î±¸ ï¿½Ö´ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ Ã¼Å©
 			else if (m_wearInventory.wearItemInfo[i]->IsArmorType())
 			{
 				if (m_wearInventory.wearItemInfo[i]->m_nOption >= MAX_ARMOR_OPTION)
 					continue;
 			}
 
-			// ¾÷±×·¹ÀÌµå ºÒ´ÉÀº ºí¿É ºÒ°¡
+			// ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 			if (!m_wearInventory.wearItemInfo[i]->CanBloodGem())
 				continue ;
 
-			// ÀÌ¹Ì ¿É¼Ç ºÙÀÏ ¼ö ÀÖ´Â »óÅÂÀÎ°ÍÀº Á¦¿Ü
+			// ï¿½Ì¹ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (m_wearInventory.wearItemInfo[i]->getFlag() & FLAG_ITEM_OPTION_ENABLE)
 				continue;
 
-			// ¹«±â³ª ¹æ¾î±¸ ÀÏ¶§¸¸
+			// ï¿½ï¿½ï¿½â³ª ï¿½ï¿½î±¸ ï¿½Ï¶ï¿½ï¿½ï¿½
 			if (m_wearInventory.wearItemInfo[i]->IsWeaponType() || m_wearInventory.wearItemInfo[i]->IsArmorType())
 			{
 				enableIndex[nEnable] = i;
@@ -3978,7 +3991,7 @@ int CPC::SettingItemOption()
 		}
 	}
 
-	// ¿É¼Ç ºÙÀÏ ¼ö ÀÖ´Â ¾ÆÀÌÅÛ ¾øÀ½
+	// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (nEnable == 0)
 		return -1;
 
@@ -3987,7 +4000,7 @@ int CPC::SettingItemOption()
 	if (!m_wearInventory.wearItemInfo[enableIndex[where]])
 		return -1;
 
-	// ¾ÆÀÌÅÛ ¿É¼ÇÀ» ºÙÀÏ ¼ö ÀÖ´Â »óÅÂ·Î flag °ª ¼ÂÆÃ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ flag ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_wearInventory.wearItemInfo[enableIndex[where]]->setFlag(m_wearInventory.wearItemInfo[enableIndex[where]]->getFlag() | FLAG_ITEM_OPTION_ENABLE);
 
 	{
@@ -4003,22 +4016,22 @@ int CPC::SettingItemOption()
 
 int CPC::CanWarp()
 {
-	// Á×¾úÀ»¶§
+	// ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (DEAD(this))
 		return MSG_SYS_CANT_WARP_STATE;
 
-	// ¾É¾Æ ÀÖÀ»¶§
+	// ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_state & PLAYER_STATE_SITDOWN)
 		return MSG_SYS_CANT_WARP_STATE;
 
-	// ´Ù¸¥ ÀÌµ¿ÀåÄ¡ »ç¿ëÁß
+	// ï¿½Ù¸ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_state & PLAYER_STATE_WARP)
 		return MSG_SYS_CANT_WARP_OTHER;
 
-	// ½ºÅ³ »ç¿ëÁß
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_currentSkill)
 	{
-		if( m_pZone->IsPersonalDungeon() ) // ÆÛ½º³Î ´øÀü¿¡¼­ ÀÌµ¿½Ã¿¡¸¸ ½ºÅ³À» ÇØÁ¦ÇÏÀÚ
+		if( m_pZone->IsPersonalDungeon() ) // ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			CNetMsg::SP rmsg(new CNetMsg);
 			ResponseClient::makeSkillCancelMsg(rmsg, this);
@@ -4030,7 +4043,7 @@ int CPC::CanWarp()
 			return MSG_SYS_CANT_WARP_STATE;
 	}
 
-	// ±³È¯ Áß
+	// ï¿½ï¿½È¯ ï¿½ï¿½
 	if (m_exchange)
 		return MSG_SYS_CANT_WARP_STATE;
 
@@ -4038,7 +4051,7 @@ int CPC::CanWarp()
 	if (m_party && m_party->GetRequestIndex() > 0)
 		return MSG_SYS_CANT_WARP_STATE;
 #else
-	// ÆÄÆ¼ ½ÅÃ»Áß
+	// ï¿½ï¿½Æ¼ ï¿½ï¿½Ã»ï¿½ï¿½
 	if (m_party && m_party->GetBossIndex() == m_index && m_party->GetRequestIndex() > 0)
 		return MSG_SYS_CANT_WARP_STATE;
 #endif // defined (LC_KOR) || defined (LC_USA)
@@ -4068,11 +4081,11 @@ CSkill* CPC::FindSkill(int index)
 
 void CPC::ApplyPassive()
 {
-	// ÃÊ±âÈ­
+	// ï¿½Ê±ï¿½È­
 	memset(&m_avPassiveAddition, 0, sizeof(m_avPassiveAddition));
 	memset(&m_avPassiveRate, 0, sizeof(m_avPassiveRate));
 
-	// ÆÐ½Ãºê ¸®½ºÆ®¿¡¼­ Àû¿ë
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CSkill* pSkill;
 	void* pos = m_passiveSkillList.GetHeadPosition();
 	while (pos)
@@ -4082,7 +4095,7 @@ void CPC::ApplyPassive()
 		if (pSkill && pSkill->m_proto)
 		{
 			bool bApply = true;
-			// ¼Ò¼­·¯ ÇÃ·¡±×°¡ ÀÖÀ¸¸é °­½Å »óÅÂ¿¡ µû¶ó Àû¿ë °áÁ¤
+			// ï¿½Ò¼ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (pSkill->m_proto->CheckSorcererFlag(SSF_APP_ALL))
 			{
 				switch (m_evocationIndex)
@@ -4109,7 +4122,7 @@ void CPC::ApplyPassive()
 		}
 	}
 
-	//±æµå½ºÅ³ ¸®½ºÆ®¿¡¼­ Àû¿ë
+	//ï¿½ï¿½å½ºÅ³ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(this->m_guildInfo != NULL)
 	{
 		pos = this->m_guildInfo->guild()->m_passiveSkillList.GetHeadPosition();
@@ -4126,11 +4139,11 @@ void CPC::ApplyPassive()
 		}
 	}
 	
-	// ÆêÀÇ ÆÐ½Ãºê ½ºÅ³
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½Ãºï¿½ ï¿½ï¿½Å³
 	if (m_wearInventory.wearItemInfo[WEARING_PET])
 	{
 		CPet* pet = GetPet();
-		// 050309: bw ÆêÀÌ ¸Ö¸® ÀÖÀ¸¸é ½ºÅ³ Àû¿ë ¾ÈÇÔ 20¹ÌÅÍ
+		// 050309: bw ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 20ï¿½ï¿½ï¿½ï¿½
 		if (pet && pet->GetDistanceFromOwner() < 20 && (pet->IsSummon() || pet->IsMount()))
 		{
 			pos = pet->GetSkillList()->GetHeadPosition();
@@ -4138,7 +4151,7 @@ void CPC::ApplyPassive()
 			{
 				pSkill = pet->GetSkillList()->GetNext(pos);
 				if (pSkill->m_proto->m_type == ST_PET_SKILL_PASSIVE)
-					ApplyPassiveSkill(pSkill, pet->GetSympathyPoint() * 100 / PET_MAX_SYMPATHY);		// ±³°¨µµ ºñÀ²·Î Àû¿ë
+					ApplyPassiveSkill(pSkill, pet->GetSympathyPoint() * 100 / PET_MAX_SYMPATHY);		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 	}
@@ -4229,8 +4242,8 @@ int CPC::GetDefenseLevel()
 
 MSG_DAMAGE_TYPE CPC::GetAttackType(const CSkillProto* proto) const
 {
-	// ÇÁ·ÎÅä°¡ MAGICÀÏ¶§¸¸ ½ºÅ³ ¼Ó¼ºÀ» µû¸£°í
-	// ±×¿Ü¿¡¼­´Â Âø¿ë ¹«±â¸¦ µû¸¥´Ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ä°¡ MAGICï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// ï¿½×¿Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (proto)
 	{
 		switch (proto->m_type)
@@ -4242,7 +4255,7 @@ MSG_DAMAGE_TYPE CPC::GetAttackType(const CSkillProto* proto) const
 		}
 	}
 
-	// ±âº» °ø°ÝÀÌ MAGICÀÏ ¶§ Ã³¸®
+	// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MAGICï¿½ï¿½ ï¿½ï¿½ Ã³ï¿½ï¿½
 	if (m_wearInventory.wearItemInfo[WEARING_WEAPON])
 	{
 		if (m_wearInventory.wearItemInfo[WEARING_WEAPON]->IsRangeWeapon())
@@ -4303,7 +4316,7 @@ bool CPC::CanSpell()
 		return false;
 	if (IsSetPlayerState(PLAYER_STATE_WARP))
 		return false;
-// TODO : ¿©±â ½ºÆç °¡´É ¿©ºÎ °Ë»ç ºÎºÐ ³ªÁß¿¡ ´Ù½Ã ºÎÈ°ÇÏ±â
+// TODO : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½È°ï¿½Ï±ï¿½
 //	if (IsSetPlayerState(PLAYER_STATE_MOVING))
 //		return false;
 
@@ -4312,31 +4325,31 @@ bool CPC::CanSpell()
 
 int CPC::CanChange()
 {
-	// Á×¾úÀ»¶§
+	// ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (DEAD(this))
 		return MSG_CHANGE_ERR_DEAD;
 
-	// ¾É¾Æ ÀÖÀ»¶§
+	// ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_state & PLAYER_STATE_SITDOWN)
 		return MSG_CHANGE_ERR_SITDOWN;
 
-	// ´Ù¸¥ ÀÌµ¿ÀåÄ¡ »ç¿ëÁß
+	// ï¿½Ù¸ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_state & PLAYER_STATE_WARP)
 		return MSG_CHANGE_ERR_WRAP;
 
-	// ½ºÅ³ »ç¿ëÁß
+	// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_currentSkill)
 		return MSG_CHANGE_ERR_SKILL;
 
-	// ±³È¯ Áß
+	// ï¿½ï¿½È¯ ï¿½ï¿½
 	if (m_exchange)
 		return MSG_CHANGE_ERR_EXCHANGE;
 
-	// ÆÄÆ¼ ½ÅÃ»Áß
+	// ï¿½ï¿½Æ¼ ï¿½ï¿½Ã»ï¿½ï¿½
 	if (m_party && m_party->GetBossIndex() == m_index && m_party->GetRequestIndex() > 0)
 		return MSG_CHANGE_ERR_PARTY;
 
-	//PKÁß
+	//PKï¿½ï¿½
 #if defined ( FREE_PK_SYSTEM )
 	if( !gserver->m_bFreePk )
 	{
@@ -4348,11 +4361,11 @@ int CPC::CanChange()
 		return MSG_CHANGE_ERR_PK;
 #endif // FREE_PK_SYSTEM
 
-	// ÀüÅõÁß
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (IsCombatMode())
 		return MSG_CHANGE_ERR_BATTLE;
 
-	// °³ÀÎ»óÁ¡Áß
+	// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (m_personalshop)
 		return MSG_CHANGE_ERR_PERSONAL_SHOP;
 
@@ -4370,7 +4383,7 @@ void CPC::do_QuestGiveUp(CPC* ch, CQuest* quest)
 
 	switch (pQuestProto->m_type[0])
 	{
-	// ¼öÁý, Àü´Þ, ±¸Ãâ Äù½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	case QTYPE_KIND_COLLECTION:
 	case QTYPE_KIND_DELIVERY:
 	case QTYPE_KIND_SAVE:
@@ -4415,8 +4428,8 @@ void CPC::do_QuestGiveUp(CPC* ch, CQuest* quest)
 			<< pQuestProto->m_index
 			<< end;
 
-// ¿©±â¼­ Æ÷±âÇÑ Äù½ºÆ® ÀÎµ¦½º¸¦ ÀúÀåÇÏ¿© ´ÙÀ½¿¡´Â ¹ÞÁö ¸øÇÏµµ·Ï ÇÑ´Ù.
-// Æ÷±âÇÑ Äù½ºÆ®¸¦ ÀúÀåÇÑ´Ù.
+// ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if (pQuestProto->m_type[1] == QTYPE_REPEAT_ONCE)
 	{
 		ch->m_questList.SetQuestState(quest, QUEST_STATE_ABANDON);
@@ -4432,7 +4445,7 @@ void CPC::do_QuestGiveUp(CPC* ch, CQuest* quest)
 		SEND_Q(rmsg, ch->m_desc);
 	}
 	
-	// Æ÷±âÇßÀ¸¸é ½Ì±Û´øÀü ÀÔÀå±Ç ¹ÞÀ» ±âÈ¸ ÁÙÀÎ´Ù. ÃÖ¼Ò 0
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì±Û´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½Î´ï¿½. ï¿½Ö¼ï¿½ 0
 	ch->m_questList.DecreaseQuestComepleteCount();
 }
 
@@ -4488,7 +4501,7 @@ void CheckQuestCondition(CPC* ch, CItem* item, LONGLONG itemSum)
 								SEND_Q(rmsg, ch->m_desc);
 							}
 
-							// °°À¸¸é bComplete true ¼ÂÆÃ
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ bComplete true ï¿½ï¿½ï¿½ï¿½
 							if (itemSum >= pQuestProto->m_conditionNum[j])
 							{
 								bComplete[j] = true;
@@ -4563,7 +4576,7 @@ void CheckQuestCondition(CPC* ch, CItem* item, LONGLONG itemSum)
 							continue;
 						}
 					}
-					else if ( pQuestProto->m_conditionType[j] == QCONDITION_ITEM_USE ) // »ç¿ëÇØ¾ß ¿Ï·áÇÏ´Â Äù½ºÆ®ÀÌ¹Ç·Î ÆÐ½º
+					else if ( pQuestProto->m_conditionType[j] == QCONDITION_ITEM_USE ) // ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï·ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ì¹Ç·ï¿½ ï¿½Ð½ï¿½
 					{
 						continue;
 					}
@@ -4572,8 +4585,8 @@ void CheckQuestCondition(CPC* ch, CItem* item, LONGLONG itemSum)
 						bComplete[j] = true;
 					}
 				}
-				//pQuest->CheckComplete(ch); // À§ ¿Ï·á Ã¼Å© ¹æ½ÄÀÌ ÁîÁú ÀÌ´Ù. ÀÔ½Ã ¹æÆíÀ¸·Î ÀÌ³ÑÀ¸·Î ¿Ï·á Ã¼Å© ÇÑ´Ù. [7/31/2009 derek]
-				if(pQuest->IsCompleted())//ÀÌ¹Ì ¿Ï·áµÈ Äù½ºÆ®´Â skip
+				//pQuest->CheckComplete(ch); // ï¿½ï¿½ ï¿½Ï·ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½. ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ Ã¼Å© ï¿½Ñ´ï¿½. [7/31/2009 derek]
+				if(pQuest->IsCompleted())//ï¿½Ì¹ï¿½ ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ skip
 				{
 					continue;
 				}
@@ -4587,7 +4600,7 @@ void CheckQuestCondition(CPC* ch, CItem* item, LONGLONG itemSum)
 					{
 						pQuest->SetComplete2(true);
 
-						if(pQuest->GetComplete1())//Äù½ºÆ® ¾ÆÀÌÅÛµµ ¿Ï·á°¡ µÇ¾ú´Ù¸é,
+						if(pQuest->GetComplete1())//ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½Ûµï¿½ ï¿½Ï·á°¡ ï¿½Ç¾ï¿½ï¿½Ù¸ï¿½,
 						{
 							GAMELOG << init("QUEST COMPLETE (CheckQeustCondition)", ch)
 									<< pQuestProto->m_index
@@ -4608,7 +4621,7 @@ void CheckQuestCondition(CPC* ch, CItem* item, LONGLONG itemSum)
 //									<< endGer;
 //							}
 //#endif //GER_LOG
-							// ¿Ï·á ¸Þ½ÃÁö
+							// ï¿½Ï·ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 							CNetMsg::SP rmsg(new CNetMsg);
 							QuestCompleteMsg(rmsg, pQuest);
 							SEND_Q(rmsg, ch->m_desc);
@@ -4683,7 +4696,7 @@ bool CPC::InitSkill(CSkillList *skillList, bool isPassive)
 
 	if(!skillList)
 	{
-		// ÃÊ±âÈ­ÇÒ ½ºÅ³ÀÌ ¾øÀ½À» ¸Þ¼¼Áöº¸³¿
+		// ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return false;
 	}
 
@@ -4695,7 +4708,7 @@ bool CPC::InitSkill(CSkillList *skillList, bool isPassive)
 
 	if(!node)
 	{
-		// ÃÊ±âÈ­ÇÒ ½ºÅ³ÀÌ ¾øÀ½À» ¸Þ¼¼Áöº¸³¿
+		// ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return false;
 	}
 	skill = node->skill();
@@ -4757,14 +4770,14 @@ bool CPC::InitSkill(CSkillList *skillList, bool isPassive)
 			break;
 #ifdef EX_ROGUE
 		case JOB_EX_ROGUE:
-			skill = gserver->m_skillProtoList.Create(116);	// EXROGUE : ÃÊ±â ½ºÅ³ ÀÎµ¦½º ¼öÁ¤
+			skill = gserver->m_skillProtoList.Create(116);	// EXROGUE : ï¿½Ê±ï¿½ ï¿½ï¿½Å³ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			skillList->Add(skill);
 			skillPoint -= skill->m_proto->Level(1)->m_learnSP * 10000;
 			break;
 #endif // EX_ROGUE
 #ifdef EX_MAGE
 		case JOB_EX_MAGE:
-			skill = gserver->m_skillProtoList.Create(1637);	// EXMAGE : ÃÊ±â ½ºÅ³ ÀÎµ¦½º ¼öÁ¤(?)
+			skill = gserver->m_skillProtoList.Create(1637);	// EXMAGE : ï¿½Ê±ï¿½ ï¿½ï¿½Å³ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(?)
 			skillList->Add(skill);
 			skillPoint -= skill->m_proto->Level(1)->m_learnSP * 10000;
 			break;
@@ -4805,7 +4818,7 @@ bool CPC::InitSSkill()
 				skillLevel = skill->m_level - 1;
 				for(; skillLevel >= 0; skillLevel--)
 				{
-					// TODO: ½ºÅ³ Æ÷ÀÎÆ® °è»ê ¹× SSkillÆ÷ÀÎÆ® ±¸ÇÏ±â À§ÇÑ ¾Ë°í¸®Áò ÇÊ¿ä
+					// TODO: ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ SSkillï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 					skillPoint += skill->m_proto->m_needSP[(int)skillLevel] * 10000;
 				}
 			}
@@ -4883,7 +4896,7 @@ bool CPC::InitSSkill()
 
 void CPC::resetCoolTime( CSkillList* skillList )
 {
-	//ÄðÅ¸ÀÓ ¹× Äü½½·Ô ÃÊ±âÈ­ ÆÐÅ¶ Àü¼Û
+	//ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
 		rmsg->Init(MSG_SKILL);
@@ -4902,7 +4915,7 @@ void CPC::resetCoolTime( CSkillList* skillList )
 
 	if(!node)
 	{
-		//ÃÊ±â ½ºÅ³ Áö±Þ ¾øÀ½
+		//ï¿½Ê±ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return;
 	}
 	skill = node->skill();
@@ -4933,17 +4946,17 @@ bool CPC::IsCombatMode()
 
 void CPC::UpdatePetValue()
 {
-	// 060221 : bs : ÇÇ½ºÁ¸/°ø¼ºÁö¿ª¿¡¼­´Â °æÇèÄ¡/±³°¨µµ/¹è°íÇÄ º¯È­ ¾øÀ½
+	// 060221 : bs : ï¿½Ç½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 	if (IsInPeaceZone(true) || GetMapAttr() & MATT_WAR)
 		return ;
 
 	CPet* p = m_petList;
 	while (p)
 	{
-		// 060221 : bs : Æê ºÀÀÎ »óÅÂ Ãß°¡
+		// 060221 : bs : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		if (p->GetRemainRebirthTime() > 0)
 		{
-			// °ø°ÝÁßÀÏ¶§
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
 			if (IsCombatMode() && (gserver->m_pulse - m_pulseLastAttackSkill) < PULSE_ATTACKMODE_DELAY)
 			{
 				p->SetRemainRebirthTime(p->GetRemainRebirthTime() - 1);
@@ -4970,11 +4983,11 @@ void CPC::UpdatePetValue()
 		}
 		else
 		{
-			// 060221 : bs : ÇÇ½ºÁ¸/°ø¼ºÁö¿ª¿¡¼­´Â °æÇèÄ¡/±³°¨µµ/¹è°íÇÄ º¯È­ ¾øÀ½
+			// 060221 : bs : ï¿½Ç½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 			if (!p->IsSummon() || !(p->IsInPeaceZone(true) || p->GetMapAttr() & MATT_WAR))
 			{
-				// 050309: bw ÆêÀÌ 20¹ÌÅÍ ÀÌ»ó ¶³¾îÁö°Å³ª ¾È¿¡ µé¾î¿À´Â ¼ø°£ °Å½Ã±â calcstatusÈ£Ãâ
-				// ¹è°íÇÄ 0ÀÌ¸é °æÇèÄ¡ °íÁ¤, ½ºÅ³ À¯Áö, ±³°¨µµ 5ºÐ¿¡ 1Æ÷ÀÎÆ® ÇÏ¶ô
+				// 050309: bw ï¿½ï¿½ï¿½ï¿½ 20ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å½Ã±ï¿½ calcstatusÈ£ï¿½ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½Ð¿ï¿½ 1ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï¶ï¿½
 				bool bexp = false;
 				bool bchangenear = false;
 				bool bnear = false;
@@ -4995,13 +5008,13 @@ void CPC::UpdatePetValue()
 						bchangenear = false;
 				}
 
-				// ¹è°íÇÄÀÌ 0 ¾Æ´Ï°í ±ÙÃ³¿¡ ÀÖÀ¸¸é
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0 ï¿½Æ´Ï°ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if( p->IsActive() && bnear)
 					bexp = p->AddExp();
 
 				bool bsympathy = p->UpdateSympathyPoint(bnear);
 				bool bhungry = p->DecreaseHungryPoint();
-				//ÆêÀÌ ÆêÃ¢°í¿¡ ÀÖ´Â °æ¿ì¿¡´Â 1½Ã°£¸¶´Ù
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ 1ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½
 				if(p->GetOwner()->m_petStashManager.GetPetItemByPlus(p->m_index) != NULL)
 				{
 					if( p->m_petStashHungrySeconds + (60 * 60/*sec*/) < gserver->m_nowseconds)
@@ -5058,10 +5071,10 @@ CPet* CPC::GetPet(int index)
 
 void CPC::DelPet(int petIndex)
 {
-	// Æê ¸®½ºÆ®¿¡¼­ »èÁ¦ ´ë»óÀ» Ã£¾Æ
-	// ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ ÇØ´ç ¾Ç¼¼ »èÁ¦
-	// ÆêÀ» ¸®½ºÆ®¿¡¼­ Á¦°Å
-	// Æê »èÁ¦
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½Ç¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	CPet* petNext = m_petList;
 	CPet* pet;
@@ -5076,12 +5089,12 @@ void CPC::DelPet(int petIndex)
 			switch (pet->GetPetType())
 			{
 			/*
-			#define PET_HORSE_ITEM_INDEX			871				// ¸» ¾ÆÀÌÅÛ ÀÎµ¦½º
-			#define PET_DRAGON_ITEM_INDEX			872				// ¿ë ¾ÆÀÌÅÛ ÀÎµ¦½º
-			#define PET_BLUE_HORSE_ITEM_INDEX		1710			// ¸» ¾ÆÀÌÅÛ ÀÎµ¦½º
-			#define PET_PINK_DRAGON_ITEM_INDEX		1711			// ¿ë ¾ÆÀÌÅÛ ÀÎµ¦½º
-			#define PET_UNKOWN_HORSE_ITEM_INDEX		1713			// ¸» ¾ÆÀÌÅÛ ÀÎµ¦½º
-			#define PET_UNKOWN_DRAGON_ITEM_INDEX	1712			// ¿ë ¾ÆÀÌÅÛ ÀÎµ¦½º
+			#define PET_HORSE_ITEM_INDEX			871				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+			#define PET_DRAGON_ITEM_INDEX			872				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+			#define PET_BLUE_HORSE_ITEM_INDEX		1710			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+			#define PET_PINK_DRAGON_ITEM_INDEX		1711			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+			#define PET_UNKOWN_HORSE_ITEM_INDEX		1713			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+			#define PET_UNKOWN_DRAGON_ITEM_INDEX	1712			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 			*/
 			case PET_TYPE_HORSE:
 				itemdbindex = PET_HORSE_ITEM_INDEX;
@@ -5111,13 +5124,13 @@ void CPC::DelPet(int petIndex)
 
 			CItem* item = NULL;
 
-			// ¼ÒÈ¯µÇ¾î ÀÖ´Â ÆêÀº ¼¿¿¡¼­ Á¦°Å
+			// ï¿½ï¿½È¯ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if (pet->IsSummon())
 			{
 				pet->Disappear();
 				item = this->m_wearInventory.getWearItem(WEARING_PET);
 			}
-			// Å¸°í ÀÖÀ¸¸é ³»¸®±â
+			// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			else if (pet->IsMount())
 			{
 				pet->Mount(false);
@@ -5130,7 +5143,7 @@ void CPC::DelPet(int petIndex)
 
 			if (item)
 			{
-				// Æê ÀåÂø ÇØÁ¦
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (pet->IsWearing())
 				{
 					this->m_wearInventory.RemoveItem(item->getWearPos());
@@ -5153,7 +5166,7 @@ void CPC::DelPet(int petIndex)
 					<< pet->m_exp
 					<< end;
 
-			// Æê ¸®½ºÆ®¿¡¼­ »èÁ¦
+			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			REMOVE_FROM_BILIST(pet, m_petList, m_prevPet, m_nextPet);
 			DelAttackList(pet);
 			delete pet;
@@ -5189,11 +5202,11 @@ bool CPC::CanPvP(CCharacter* target, bool bIgnoreInvisible)
 	if (!tpc)
 		return true;
 
-	// »ç¸Á°Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½Ë»ï¿½
 	if (DEAD(this))								return false;
 	if (DEAD(target))							return false;
 
-	// ¿î¿µÀÚ °Ë»ç
+	// ï¿½î¿µï¿½ï¿½ ï¿½Ë»ï¿½
 	if (m_bImmortal && m_bFirstDoIt == false)	return false;
 	if (tpc->m_bImmortal)						return false;
 
@@ -5204,7 +5217,7 @@ bool CPC::CanPvP(CCharacter* target, bool bIgnoreInvisible)
 	{
 		if( (m_pZone->m_index == target->m_pZone->m_index) &&
 				(GetMapAttr() & MATT_WAR || m_pZone->IsWarZone((int)m_pos.m_x, (int)m_pos.m_z) ) &&
-				( target->GetMapAttr() & MATT_WAR || target->m_pZone->IsWarZone((int)target->m_pos.m_x, (int)target->m_pos.m_z)) ) // µÑ´Ù °ø¼ºÁö¿ª ¾È¿¡ ÀÖ¾î¾ß ÇÏ°í, °ø°ÝÀÚ°¡ °ø¼º¿¡ Âü¿©ÇØÀÖ¾î¾ß ÇÑ´Ù.
+				( target->GetMapAttr() & MATT_WAR || target->m_pZone->IsWarZone((int)target->m_pos.m_x, (int)target->m_pos.m_z)) ) // ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ï°ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
 			bSkipLevel = true;
 	}
 
@@ -5217,39 +5230,39 @@ bool CPC::CanPvP(CCharacter* target, bool bIgnoreInvisible)
 		bSkipLevel = true;
 	}
 		
-	// ÀûÀ¸·Î ÀÎ½Ä °¡´É?
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 	if (!IsEnemy(tpc))						return false;
 
 	if (!bSkipLevel && tpc->m_level <= PKMODE_LIMIT_LEVEL)
 	{
-		// ´ë»ó ÄÉ¸¯ÀÇ ·¹º§ÀÌ °Å½Ã±âÇã¿ä ¸Þ¼¼Áö º¸³¿
+		// ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å½Ã±ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		CNetMsg::SP rmsg(new CNetMsg);
 		SysMsg(rmsg, MSG_SYS_TARGET_PKLIMITLEVEL);
 		SEND_Q(rmsg, this->m_desc);
 		return false;
 	}
 
-	// º¸ÀÌ´ÂÁö °Ë»ç
+	// ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if (!bIgnoreInvisible && !CanVisible(target))
 		return false;
 
-	// ·¹º§ °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if (!bSkipLevel && m_level <= PKMODE_LIMIT_LEVEL)	return false;
 
-	// Çàµ¿ ºÒ´É °Ë»ç
+	// ï¿½àµ¿ ï¿½Ò´ï¿½ ï¿½Ë»ï¿½
 	if (IsDisable())							return false;
 	if (tpc->IsDisable())						return false;
 
-	// ÇÇ½ºÁ¸ °Ë»ç : °ø°ÝÀÚ´Â ¼Ó¼º¸Ê BLOCK Æ÷ÇÔ
+	// ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ BLOCK ï¿½ï¿½ï¿½ï¿½
 	if (IsInPeaceZone(true))					return false;
 
-	// ÇÇ½ºÁ¸ °Ë»ç : ¹æ¾îÀÚ´Â ¼Ó¼º¸Ê BLOCK ¹ÌÆ÷ÇÔ
+	// ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ BLOCK ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (target->IsInPeaceZone(false))			return false;
 
-	// PK·Î ½Ãµµ½Ã¿¡¸¸ Á¤¹æ
+	// PKï¿½ï¿½ ï¿½Ãµï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (IsSetPlayerState(PLAYER_STATE_PKMODE) && !tpc->IsSetPlayerState(PLAYER_STATE_PKMODE))
 	{
-		// ¼­·Î ¸®½ºÆ®¿¡ ¾øÀ» ¶§
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		if (!IsRaList(this, tpc))
 		{
 			AddRaList(this, tpc);
@@ -5308,11 +5321,11 @@ CElemental* CPC::SummonElemental(char elementalType)
 	CElemental* elemental = new CElemental(this, elementalType);
 	ADD_TO_BILIST(elemental, m_elementalList, m_prevElemental, m_nextElemental);
 
-	// ÁÂÇ¥ ÁöÁ¤
+	// ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
 	GET_R(elemental) = GET_R(this);
 	GET_YLAYER(elemental) = GET_YLAYER(this);
 
-	// ÀûÁ¤ ÁÂÇ¥ ±¸ÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½Ï±ï¿½
 	float x, z;
 	int nTry = 10;
 	while (nTry--)
@@ -5329,7 +5342,7 @@ CElemental* CPC::SummonElemental(char elementalType)
 	m_pArea->PointToCellNum(x, z, &cx, &cz);
 	m_pArea->CharToCell(elemental, GET_YLAYER(elemental), cx, cz);
 
-	// ÆÐ½Ãºê Àû¿ëÀ» À§ÇØ
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	elemental->CalcStatus(true);
 	elemental->m_maxHP += elemental->GetOwner()->m_opJewelElementPetHPUP;
 	elemental->m_opMelee += elemental->GetOwner()->m_opJewelElementAttUP;
@@ -5339,20 +5352,20 @@ CElemental* CPC::SummonElemental(char elementalType)
 	elemental->m_mp = elemental->m_maxMP;
 
 	{
-		// ³ªÅ¸³ª±â
+		// ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½
 		CNetMsg::SP rmsg(new CNetMsg);
 		AppearMsg(rmsg, elemental, true);
 		m_pArea->SendToCell(rmsg, GET_YLAYER(elemental), cx, cz);
 	}
 
 	{
-		// ÁÖÀÎ¿¡°Ô ¼ÒÈ¯ ¾Ë¸®±â
+		// ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ë¸ï¿½ï¿½ï¿½
 		CNetMsg::SP rmsg(new CNetMsg);
 		ExElementalStatusMsg(rmsg, elemental);
 		SEND_Q(rmsg, m_desc);
 	}
 
-	//¼ÒÈ¯¼ö¿¡°Ô ÁÖÀÎÀÇ °á»ç´ë Å¸ÀÔÀ» ÀúÀå
+	//ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	elemental->setSyndicateType(getSyndicateType());
 
 	return elemental;
@@ -5407,21 +5420,21 @@ bool CPC::CanSummonElemental(char newElementalType, char* duplicationType, int* 
 	*errElementalType = false;
 
 	int pulseSummon = -1;
-	char elementalType[3];		// { ¼ÒÈ¯ÇÏ·Á´Â Å¸ÀÔ, Áßº¹ ºÒ°¡ 1, Áßº¹ ºÒ°¡ 2 }
+	char elementalType[3];		// { ï¿½ï¿½È¯ï¿½Ï·ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½, ï¿½ßºï¿½ ï¿½Ò°ï¿½ 1, ï¿½ßºï¿½ ï¿½Ò°ï¿½ 2 }
 	elementalType[0] = newElementalType;
 
 	switch (elementalType[0])
 	{
 	case ELEMENTAL_FIRE:
 	case ELEMENTAL_WIND:
-		// ´ëÁö, ¹°°ú´Â ºÒ°¡´É
+		// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 		elementalType[1] = ELEMENTAL_EARTH;
 		elementalType[2] = ELEMENTAL_WATER;
 		break;
 
 	case ELEMENTAL_EARTH:
 	case ELEMENTAL_WATER:
-		// ºÒ, ¹Ù¶÷°ú´Â ºÒ°¡´É
+		// ï¿½ï¿½, ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 		elementalType[1] = ELEMENTAL_FIRE;
 		elementalType[2] = ELEMENTAL_WIND;
 		break;
@@ -5431,7 +5444,7 @@ bool CPC::CanSummonElemental(char newElementalType, char* duplicationType, int* 
 		return false;
 	}
 
-	// Áßº¹ °Ë»ç
+	// ï¿½ßºï¿½ ï¿½Ë»ï¿½
 	CElemental* elemental = m_elementalList;
 	while (elemental)
 	{
@@ -5447,7 +5460,7 @@ bool CPC::CanSummonElemental(char newElementalType, char* duplicationType, int* 
 		elemental = elemental->m_nextElemental;
 	}
 
-	// ½Ã°£ °Ë»ç
+	// ï¿½Ã°ï¿½ ï¿½Ë»ï¿½
 	pulseSummon = m_pulseElemental[(int)elementalType[0]];
 	if (pulseSummon >= 0 && pulseSummon + SUMMON_DELAY >= gserver->m_pulse)
 	{
@@ -5477,7 +5490,7 @@ void CPC::ChangeEvocationState(int skillIndex)
 
 	if( m_evocationIndex != EVOCATION_NONE )
 	{
-		//Ç®¾î¶ó
+		//Ç®ï¿½ï¿½ï¿½
 		if(skillIndex != m_evocationIndex)
 			return;
 
@@ -5568,7 +5581,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 	if (bDisconnect)
 		m_bProcDisconnect = true;
 
-	//À¯¹° ¾ÆÀÌÅÛÀ» °®°í ÀÖ´Â À¯Àú¶ó¸é »èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(bDisconnect == true)
 	{
 		ArtifactManager::instance()->disconnect(this);
@@ -5596,9 +5609,9 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 		}
 	}
 
-	// ÄÞº¸Á¸°ú °ü·ÃµÈ ÄÞº¸½ºÅ³ ¸ðµÎ Á¦°Å
+	// ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½Þºï¿½ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_assist.CureAssist(SF_COMBO);
-	// ÄÞº¸ÆíÁýÁß Á¾·áÃ³¸®
+	// ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	if(bDisconnect)
 		m_listSaveComboData.clear();
 #endif
@@ -5610,7 +5623,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 #endif // EXTREME_CUBE_VER2
 #endif// EXTREME_CUBE
 
-	// ±æµå °¡ÀÔ ½ÅÃ» »óÅÂ ÇØÁ¦
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (m_regGuild)
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -5621,20 +5634,20 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 		do_Guild(this, rmsg);
 	}
 
-	// ±æµåÀåÀÌ°í ±æµåÀü °ü·Ã ½ÅÃ»ÁßÀÌ¸é Ãë¼Ò
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½
 	if (m_guildInfo && m_guildInfo->guild() && m_guildInfo->guild()->boss() && m_guildInfo->guild()->boss()->charindex() == m_index)
 	{
 		CGuild* guild = m_guildInfo->guild();
 		if (guild && (guild->battleState() == GUILD_BATTLE_STATE_START_WAIT || guild->battleState() == GUILD_BATTLE_STATE_STOP_WAIT))
 		{
-			// ±æµå ½ÅÃ»ÁßÀÏ¶§
+			// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¶ï¿½
 			if (guild->battleState() == GUILD_BATTLE_STATE_START_WAIT)
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
 				GuildBattleReqRejectMsg(rmsg, m_index);
 				do_Guild(this, rmsg);
 			}
-			// ±æµå Áß´Ü ½ÅÃ» ÁßÀÏ¶§
+			// ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ï¶ï¿½
 			else if (guild->battleState() == GUILD_BATTLE_STATE_STOP_WAIT)
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
@@ -5646,11 +5659,11 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 
 	if (m_guildInfo != NULL)
 	{
-		// ±æµå ½ºÅ³ ½ÃÀü½Ã Ready »óÅÂÀÎ °æ¿ì ÇÃ·¡±×¸¦ clearÇÔ
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ready ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½×¸ï¿½ clearï¿½ï¿½
 		m_guildInfo->guild()->clearReadySkill();
 	}
 
-	// ±³È¯ ÁßÀÌ¸é Ãë¼ÒÇÏ±â
+	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	if (m_exchange)
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -5658,7 +5671,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 		do_Exchange(this, rmsg);
 	}
 
-	// »çÁ¦ ½ÅÃ»ÁßÀÌ¸é Ãë¼ÒÇÏ±â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 	if (m_teachWait != -1)
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -5666,18 +5679,18 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 		do_Teach(this, rmsg);
 	}
 
-	// °³ÀÎ »óÁ¡ Ãë¼Ò
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	m_personalshop.reset();
 
-	if(m_nMoonStoneDigit != -1) //¹®½ºÅæÀ» µ¹¸®´Â ÁßÀÌ¾ú´Ù..
+	if(m_nMoonStoneDigit != -1) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½..
 	{
 		gserver->MoonStoneEndProcess(this);
 	}
 
-	// ´Ù¸¥ Á¸À¸·Î ÀÌµ¿ÇÏ°Å³ª Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®µÇ´Â ·çÆ¾
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ¾
 	if (!bGoto)
 	{
-		// Å×ÀÌ¹Ö ÁßÀÌ¸é Å×ÀÌ¹ÖÀ» ÇØÁ¦
+		// ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if( IsTaming() )
 		{
 			set_npc_t::iterator it = m_listTaming.begin();
@@ -5700,7 +5713,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				|| pCurZone->m_index == ZONE_TARIAN_DUNGEON
 				)
 			{
-				//°¨¼Ò¸¦ ½ÃÅ³¶§´Â bInCount °¡ falseÀÎ »óÈ²¿¡¼­¸¸ °¨¼Ò¸¦ ½ÃÅ²´Ù. true´Â ¿ÏÀüÈ÷ ÀÌµ¿ÀÌ µÈ »óÅÂÀÌ±â¶§¹®¿¡ Á¦¿ÜÇÑ´Ù.
+				//ï¿½ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ bInCount ï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½Å²ï¿½ï¿½. trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±â¶§ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				if(this->bMoveInsDunFinish == false)
 					pCurArea->m_inCount--;
 			}
@@ -5708,7 +5721,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 
 		SummonNpcRemoveAll(true);
 
-		// ±æµå °¡ÀÔÀÚ´Â ¿ÀÇÁ¶óÀÎ ¾Ë¸®±â
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½
 		if (bDisconnect && m_guildInfo && m_guildInfo->GetPC() != NULL)
 		{
 			m_guildInfo->online(0);
@@ -5720,7 +5733,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 			SEND_Q(rmsg, gserver->m_helper);
 		}
 
-		// Æê »ç¶óÁü
+		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 		CPet* petNext = m_petList;
 		CPet* pet;
 		while ((pet = petNext))
@@ -5749,19 +5762,19 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 			}
 		}
 
-		// ¼ÒÈ¯¼ö Á¦°Å
+		// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		while (m_elementalList)
 			UnsummonElemental(m_elementalList);
 
-		// º¯½ÅÇØÁ¦
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (IsSetPlayerState(PLAYER_STATE_CHANGE) && m_changeIndex != -1)
 			CancelChange();
 
-		// ÆÄÆ¼ Ã³¸®
-		// Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®, Á¸ÀÌµ¿ µîÀº GoZone()¿¡¼­ Ã³¸®ÇÔ
+		// ï¿½ï¿½Æ¼ Ã³ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ GoZone()ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½
 		if (m_party == NULL && bDisconnect)
 		{
-			// ÆÄÆ¼ÁßÀÌ¸ç, Á¸ÀÌµ¿À» ÇÏ´Ù°¡ Á¾·áµÇ¾úÀ» °æ¿ì
+			// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			m_party = gserver->FindPartyByMemberIndex(m_index, false);
 			if (m_party != NULL)
 			{
@@ -5771,7 +5784,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 
 		if (m_party != NULL && bDisconnect)
 		{
-			// ÃÊ´ëÇÏ°Å³ª, ÃÊ´ë¹ÞÀº »ç¶÷ÀÏ °æ¿ì °ÅÀý·Î Ã³¸®
+			// ï¿½Ê´ï¿½ï¿½Ï°Å³ï¿½, ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			if (m_party->GetRequestIndex() > 0 && (m_party->GetBossIndex() == m_index || m_party->GetRequestIndex() == m_index))
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
@@ -5779,7 +5792,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				do_Party(this, rmsg);
 			}
 
-			// Á¸ÀÌµ¿ÀÌ ¾Æ´Ï¸é ÆÄÆ¼ Å»Åð·Î Ã³¸®
+			// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½Æ¼ Å»ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 			if (!m_desc->m_bGoZone )
 			{
 				CNetMsg::SP rmsg(new CNetMsg);
@@ -5787,8 +5800,8 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				do_Party(this, rmsg);
 			}
 
-			// ÀÚ±â ÀÚ½ÅÀÌ Á¸ÀçÇÏ¹Ç·Î ¾Æ¹«µµ ¾øÀ¸¸é 1¸íÀÌ´Ù.
-			// area°¡ disableµÇ´Â »óÈ²ÀÌ¸é ÆÄÆ¼ÀÇ areanumÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.
+			// ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½Æ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Ì´ï¿½.
+			// areaï¿½ï¿½ disableï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½Ì¸ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ areanumï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.
 			if (pCurZone && (pCurZone->m_index == ZONE_ALTER_OF_DARK || pCurZone->m_index == ZONE_CAPPELLA_1)
 					&& pCurArea && pCurArea->GetAllClientCount_Area() <= 1 )
 			{
@@ -5797,7 +5810,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 			}
 
 			{
-				//´Ù¸¥ ÆÄÆ¼¿ø ·Î±×¾Æ¿ô ¾Ë¸²(·¹º§:0)
+				//ï¿½Ù¸ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½Ë¸ï¿½(ï¿½ï¿½ï¿½ï¿½:0)
 				CNetMsg::SP rmsg(new CNetMsg);
 				PartyInfoMsg(rmsg, this, false);
 				m_party->SendToAllPC(rmsg, m_index);
@@ -5805,16 +5818,16 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 			
 			m_party->updateCalcMember();
 
-			// Á¸ÀÌµ¿ÀÌ¸é ÆÄÆ¼ Á¤º¸¿¡¼­ Æ÷ÀÎÅÍ¸¸ Áö¿î´Ù
+			// ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			m_party->SetMemberPCPtr(m_index, NULL);
 			m_party = NULL;
 		}
 
-		// ¿øÁ¤´ë Ã³¸®
-		// Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®, Á¸ÀÌµ¿ µîÀº GoZone()¿¡¼­ Ã³¸®ÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ GoZone()ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½
 		if (m_Exped == NULL && bDisconnect)
 		{
-			// ÆÄÆ¼ÁßÀÌ¸ç, Á¸ÀÌµ¿À» ÇÏ´Ù°¡ Á¾·áµÇ¾úÀ» °æ¿ì
+			// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ï´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			m_Exped = gserver->FindExpedByMemberIndex(m_index, false);
 			if (m_Exped != NULL)
 			{
@@ -5825,7 +5838,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 		{
 			if (m_Exped->GetRequestIndex() > 0 && (m_Exped->GetBossIndex() == m_index || m_Exped->GetRequestIndex() == m_index))
 			{
-				// ÃÊ´ë °ÅºÎ
+				// ï¿½Ê´ï¿½ ï¿½Åºï¿½
 				CNetMsg::SP rmsg(new CNetMsg);
 				ExpedRejectReqMsg(rmsg);
 				do_Expedition(this, rmsg);
@@ -5837,8 +5850,8 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				do_Expedition(this, rmsg);
 			}
 
-			// ÀÚ±â ÀÚ½ÅÀÌ Á¸ÀçÇÏ¹Ç·Î ¾Æ¹«µµ ¾øÀ¸¸é 1¸íÀÌ´Ù.
-			// area°¡ disableµÇ´Â »óÈ²ÀÌ¸é ÆÄÆ¼ÀÇ areanumÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.
+			// ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½Æ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Ì´ï¿½.
+			// areaï¿½ï¿½ disableï¿½Ç´ï¿½ ï¿½ï¿½È²ï¿½Ì¸ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ areanumï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.
 			if (pCurZone && (pCurZone->m_index == ZONE_ALTER_OF_DARK || pCurZone->m_index == ZONE_CAPPELLA_1 || pCurZone->m_index == ZONE_AKAN_TEMPLE
 							 || pCurZone->m_index == ZONE_TARIAN_DUNGEON
 							)
@@ -5851,7 +5864,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				}
 			}
 
-			//´Ù¸¥ ¿øÁ¤´ë¿ø ·Î±×¾Æ¿ô ¾Ë¸²(·¹º§:0)
+			//ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½Ë¸ï¿½(ï¿½ï¿½ï¿½ï¿½:0)
 			const CExpedMember* pMember = m_Exped->GetMemberByCharIndex(m_index);
 			if(pMember)
 			{
@@ -5868,7 +5881,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 
 		if (bDisconnect && !m_desc->m_bGoZone)
 		{
-			// ÆÄÆ¼ ¸ÅÄª¿¡¼­ Á¦°Å
+			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CNetMsg::SP rmsg(new CNetMsg);
 			rmsg->Init(MSG_EXTEND);
 			RefMsg(rmsg) << MSG_EX_PARTY_MATCH
@@ -5876,10 +5889,10 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 			do_Extend(this, rmsg);
 		}
 
-		// Ä£±¸ Ã³¸®
+		// Ä£ï¿½ï¿½ Ã³ï¿½ï¿½
 		if (m_Friend)
 		{
-			// Ä£±¸µî·Ï ¿äÃ»ÁßÀÌ°Å³ª ¿äÃ»¹Þ°í ÀÖ´ÂÁÖÀÌ¾ú´Ù¸é..
+			// Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ì°Å³ï¿½ ï¿½ï¿½Ã»ï¿½Þ°ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½Ù¸ï¿½..
 			if (m_nRegFriend != 0)
 			{
 				CPC* pRegFriendPC = PCManager::instance()->getPlayerByCharIndex(m_nRegFriend);
@@ -5910,7 +5923,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 
 		if (pCurZone && pCurArea)
 		{
-			// ±æµå·ë¿¡¼­ ³ª°¡´Â°Å¶ó¸é
+			// ï¿½ï¿½ï¿½ë¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°Å¶ï¿½ï¿½
 			if (pCurZone->IsGuildRoom())
 			{
 				if (pCurArea->GetPCCount(0, 0, MAX(pCurArea->m_size[0], pCurArea->m_size[1])) < 1)
@@ -5921,14 +5934,14 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				}
 			}
 
-			// ÆÛ´øÀÌ¸é
+			// ï¿½Û´ï¿½ï¿½Ì¸ï¿½
 			else if (pCurZone->IsPersonalDungeon())
 			{
 				pCurZone->SetDisableArea(pCurArea->m_index);
 				pCurArea = NULL;
 
-				// ½Ì±ÛÀüÀü Äù½ºÆ®¸¦ ¼öÇàÁßÀÎ °æ¿ì Á¸ÀÌµ¿½Ã
-				// Äù½ºÆ® Ãë¼Ò Ã³¸®
+				// ï¿½Ì±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½
+				// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				CQuest* pQuestNext = m_questList.GetNextQuest(NULL, QUEST_STATE_RUN);
 				CQuest* pQuest;
 				const CQuestProto* pQuestProto;
@@ -5937,7 +5950,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				{
 					pQuestNext = m_questList.GetNextQuest(pQuestNext, QUEST_STATE_RUN);
 
-					// Äù½ºÆ®¸¦ ÇÏ°í ¼öÇàÁßÀÌ°í ¿Ï·á°¡ ¾Æ´Ï°í
+					// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï·á°¡ ï¿½Æ´Ï°ï¿½
 					if (!pQuest->IsCompleted())
 					{
 						pQuestProto = pQuest->GetQuestProto();
@@ -5960,11 +5973,11 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 				{
 					pQuestNext = m_questList.GetNextQuest(pQuestNext, QUEST_STATE_RUN);
 
-					// Äù½ºÆ®¸¦ ÇÏ°í ¼öÇàÁßÀÌ°í ¿Ï·á°¡ ¾Æ´Ï°í
+					// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï·á°¡ ï¿½Æ´Ï°ï¿½
 					if (!pQuest->IsCompleted())
 					{
 						pQuestProto = pQuest->GetQuestProto();
-						// ¹ß·Ï °ÝÆÄ Äù½ºÆ®
+						// ï¿½ß·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 						if (pQuestProto->m_type[0] == QTYPE_KIND_DEFEAT)
 						{
 							// Quest Fail Log
@@ -5973,7 +5986,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 									<< end;
 
 							{
-								// ¾øÀ¸¸é ¹Ù·Î ½ÇÆÐ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½
 								CNetMsg::SP rmsg(new CNetMsg);
 								QuestFailMsg(rmsg, pQuest);
 								if (!bDisconnect) SEND_Q(rmsg, m_desc);
@@ -5982,10 +5995,10 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 							m_questList.DelQuest(this, pQuest);
 							goto EXIT_PROC_PD;
 						}
-						// °øÁÖ ±¸Ãâ Äù½ºÆ®
+						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 						else if (pQuestProto->m_type[0] == QTYPE_KIND_SAVE)
 						{
-							// ¾ÆÀÌÅÛ »èÁ¦
+							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							pQuest->RemoeQuestItem(this);
 
 							// Quest Fail Log
@@ -6007,7 +6020,7 @@ void CPC::ProcDisconnect(bool bDisconnect, bool bGoto)
 					}
 				} // while ((pQuest = pQuestNext))
 
-			} // ÆÛ´øÀÌ¸é
+			} // ï¿½Û´ï¿½ï¿½Ì¸ï¿½
 EXIT_PROC_PD:
 			;
 		}
@@ -6061,12 +6074,12 @@ EXIT_PROC_PD:
 			}
 			gserver->m_RoyalRumble.m_WaitPlayerList.DelNode(this->m_index);
 		}
-	} // ´Ù¸¥ Á¸À¸·Î ÀÌµ¿ÇÏ°Å³ª Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®µÇ´Â ·çÆ¾
+	} // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ¾
 
-	// Attack List ÃÊ±âÈ­
+	// Attack List ï¿½Ê±ï¿½È­
 	DelAttackList(this);
 
-	// ÀÚ½ÅÀÌ »ç¶óÁüÀ» ¾Ë¸²
+	// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 	if (pCurArea && IS_IN_CELL(this))
 	{
 		if (bDisconnect)
@@ -6074,16 +6087,16 @@ EXIT_PROC_PD:
 		else
 			SendDisappearAllInCell(true);
 
-		// ¼¿¿¡¼­ Á¦°Å
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pCurArea->CharFromCell(this, true);
 		if ( !bGoto && pCurZone->IsFieldZone() && pCurArea->GetAllClientCount_Area() < 1 )
 		{
 			pCurArea->SetFreeze(gserver->m_pulse);
 		}
-		// ¿¬°áÀÌ ²÷±â°Å³ª ´Ù¸¥ Á¸À¸·Î ÀÌµ¿ÇÒ ¶§ ÄÞº¸Á¸ Ã³¸®
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þºï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 		if(!bGoto && pCurZone->IsComboZone())
 		{
-			// ÄÞº¸´øÀü¿¡ pc°¡ ÀüÇô ¾øÀ¸¸é ÄÞº¸Á¸ ÇØÃ¼
+			// ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pcï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
 			if(pCurArea->GetPCCount(0, 0, 1) < 1)
 			{
 				GAMELOG << init("CLOSE COMBO AREA", this)
@@ -6091,21 +6104,21 @@ EXIT_PROC_PD:
 						<< "COMBO INDEX: " << pCurArea->m_monsterCombo->m_nIndex
 						<< end;
 
-				// ÄÞº¸´øÀü ÇØÃ¼µÉ ¶§ ÆÄÆ¼°¡ ÀÖÀ¸¸é
+				// ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #if defined (EXTREME_CUBE)
 				if(pParty)
 					pParty->m_comboAreaIndex = -1;
 #endif
 
-				// Á¸¿¡ ÀÖ´Â ÄÞº¸Á¤º¸ ÇØÁ¦
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				pCurArea->m_monsterCombo->InitAllVar();
 
-				// ¹æ¹® ´ÝÀ½
+				// ï¿½æ¹® ï¿½ï¿½ï¿½ï¿½
 				pCurZone->SetDisableArea(pCurArea->m_index);
 				pCurArea = NULL;
 			}
 		}
-		// ·¹ÀÌµå¿¡¼­ ³ª°¡´Â °Å¶ó¸é
+		// ï¿½ï¿½ï¿½Ìµå¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¶ï¿½ï¿½
 		if(pCurZone && !bGoto)
 		{
 			if (pCurZone->m_index == ZONE_AKAN_TEMPLE)
@@ -6169,7 +6182,7 @@ EXIT_PROC_PD:
 //#endif // MONSTER_COMBO_BUGFIX
 
 #ifdef EXTREME_CUBE
-	// CCMemList ¿¡¼­ PC »èÁ¦
+	// CCMemList ï¿½ï¿½ï¿½ï¿½ PC ï¿½ï¿½ï¿½ï¿½
 	if(pCurZone != NULL && !bGoto && pCurZone->IsExtremeCube())
 	{
 		CCubeMemList* memlist = NULL;
@@ -6208,15 +6221,15 @@ EXIT_PROC_PD:
 
 	gserver->discCharChatGroup(this->GetName() );
 
-	// ´Ù¸¥ Á¸À¸·Î ÀÌµ¿ÇÏ°Å³ª Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®µÇ´Â ·çÆ¾
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ¾
 	if (!bGoto)
 	{
-		// ·¹ÀÌ¾î Á¸¿¡ ÀÖÀ» °æ¿ì ½ºÅ¸Æ® Á¸À¸·Î º¯°æ, Á¸ÀÌµ¿ÀÌ ¾Æ´Ò¶§¿¡¸¸
+		// ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (pCurZone && bDisconnect)
 		{
 			if (!m_desc->m_bGoZone && pCurZone->m_countArea > 1)
 			{
-				// ½ºÅ¸Æ®Á¸ ÁöÁ¡
+				// ï¿½ï¿½Å¸Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				m_pZone				= gserver->FindZone(ZONE_START);
 				m_pArea				= NULL;
 				GET_YLAYER(this)	= m_pZone->m_zonePos[0][0];
@@ -6226,7 +6239,7 @@ EXIT_PROC_PD:
 			}
 		}
 
-		// Á¢¼Ó Á¾·á½Ã¸¸ Ã³¸®
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ Ã³ï¿½ï¿½
 		if( bDisconnect )
 		{
 			m_assist.CureAssist(SF_LOGOUT);
@@ -6234,7 +6247,7 @@ EXIT_PROC_PD:
 			m_passiveSkillList.DeleteInstantSkill(SF_INSTANT);
 			m_etcSkillList.DeleteInstantSkill(SF_INSTANT);
 		}
-	} // ´Ù¸¥ Á¸À¸·Î ÀÌµ¿ÇÏ°Å³ª Á¢¼Ó Á¾·á½Ã¿¡¸¸ Ã³¸®µÇ´Â ·çÆ¾
+	} // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ¾
 }
 
 void CPC::OutputDBItemLog()
@@ -6349,10 +6362,10 @@ void CPC::ChangeName(const char* name)
 		}
 	}
 
-	// ±æµå¿ø ÀüÃ¼¿¡°Ô ¸Þ¼¼Áö º¸³¿
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_guildInfo )
 	{
-		//member nickºÎºÐ »èÁ¦ : bw 060403
+		//member nickï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ : bw 060403
 		//pc->m_guildInfo->nick(pc->GetName() );
 		m_guildInfo->name(GetName() );
 
@@ -6366,7 +6379,7 @@ void CPC::ChangeName(const char* name)
 	}
 
 	{
-		// ÀÚ½ÅÀÇ ÁÖÀ§ÀÇ ¸ðµç ÄÉ¸¯ÅÍ¿¡°Ô ¾îÇÇ¾î ¸Þ¼¼Áö¸¦ º¸³½´Ù.
+		// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		CNetMsg::SP rmsg(new CNetMsg);
 		DisappearMsg(rmsg, this);
 		m_pArea->SendToCell(rmsg, this);
@@ -6542,7 +6555,7 @@ void CPC::UpdateAPetValue()
 	CAPet* p = m_pApetlist;
 	while (p)
 	{
-		// ¼³Á¤Ä¡ ¾÷µ¥ÀÌÆ®
+		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 		bool bUpdate = false;
 		if( p->DecreaseStat() )
 			bUpdate = true;
@@ -6597,17 +6610,17 @@ void CPC::DelAPet(int petIndex)
 {
 	CAPet* apet = GetAPet(petIndex);
 
-	if(!apet)	// »èÁ¦ÇÒ Æê ¾øÀ½
+	if(!apet)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return;
 
-	// ¾ÆÀÌÅÛÀ» ÀÔ°íÀÖÀ¸¸é ºÒ°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 	for( int i=0; i<APET_WEARPOINT; ++i )
 	{
 		if( apet->m_wearing[i] )
 			return;
 	}
 
-	// Âø¿ëÇÑ ¾ÆÀÌÅÛÀº »èÁ¦ ºÒ°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 	if(apet->IsSummon())
 	{
 		return;
@@ -6619,7 +6632,7 @@ void CPC::DelAPet(int petIndex)
 		this->m_inventory.decreaseItemCount(item, 1);
 	}
 
-	// petIndex Helper·Î º¸³»¼­ disable
+	// petIndex Helperï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ disable
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
 		HelperAttackPetMsg( rmsg , MSG_HELPER_APET_DISABLE_REQ, m_index );
@@ -6645,7 +6658,7 @@ void CPC::DelAPet(int petIndex)
 
 void CPC::ApplyOriginOption(CItem * pItem)
 {
-	// 0 : ±Í¼Ó ¼³Á¤, 1~6 : ¿É¼Ç, 7~9 : ½ºÅ³
+	// 0 : ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½, 1~6 : ï¿½É¼ï¿½, 7~9 : ï¿½ï¿½Å³
 	int i = 0;
 	for (i = 0; i < MAX_ORIGIN_OPTION; i++)
 	{
@@ -6804,7 +6817,7 @@ void CPC::RemoveSetItemValue(CItem * pItem)
 			{
 				if (pSkill->m_proto->IsActive())
 				{
-					//¾ÆÀÌÅÛ ½ºÅ³ Äð Å¸ÀÓÀ» ÀúÀå
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					CSkill* skill = this->m_activeSkillList.Find(pSkill->m_proto->m_index);
 
 					if(skill != NULL)
@@ -6943,7 +6956,7 @@ void CPC::SummonNpcRemove(CNPC* pNpc, bool bAutoDelete)
 			
 			if(m_pSummnonNpc[i]->m_proto && m_pSummnonNpc[i]->m_proto->CheckFlag1(NPC1_TOTEM_ITEM))
 			{
-				//ÅäÅÛÀÏ °æ¿ì¿¡´Â Å¬¶óÀÌ¾ðÆ® ÀÌÆåÆ® Ãâ·ÂÀ» À§ÇØ¼­ µð½º¾îÇÇ¾î ÆÐÅ¶À» º¸³»Áö ¾Ê´Â´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ð½º¾ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 				if(m_pSummnonNpc[i]->GetOwner() != NULL)
 					m_pSummnonNpc[i]->SendRemoveAllInCellForClientEffect(m_pSummnonNpc[i]->GetOwner());
 			}
@@ -6994,7 +7007,7 @@ void CPC::SummonNpcRemove(SUMMON_NPC_TYPE summonType, bool bAutoDelete)
 		
 		if(m_pSummnonNpc[summonType]->m_proto && m_pSummnonNpc[summonType]->m_proto->CheckFlag1(NPC1_TOTEM_ITEM))
 		{
-			//ÅäÅÛÀÏ °æ¿ì¿¡´Â Å¬¶óÀÌ¾ðÆ® ÀÌÆåÆ® Ãâ·ÂÀ» À§ÇØ¼­ µð½º¾îÇÇ¾î ÆÐÅ¶À» º¸³»Áö ¾Ê´Â´Ù.
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ð½º¾ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 			if(m_pSummnonNpc[summonType]->GetOwner() != NULL)
 				m_pSummnonNpc[summonType]->SendRemoveAllInCellForClientEffect(m_pSummnonNpc[summonType]->GetOwner());
 		}
@@ -7053,7 +7066,7 @@ void CPC::SummonNpcRemoveAll(bool bAutoDelete)
 				if(summonNpc->GetOwner() != NULL)
 				{
 					summonNpc->SendRemoveAllInCellForClientEffect(summonNpc->GetOwner());
-					//ÁÖÀÎ¿¡°Ô »ç¶óÁüÀ» ¾Ë·ÁÁØ´Ù.
+					//ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ø´ï¿½.
 					CNetMsg::SP rmsg(new CNetMsg);
 					DisappearMsgForClientEffect(rmsg, summonNpc, summonNpc->GetOwner()->m_index);
 					SEND_Q(rmsg, summonNpc->GetOwner()->m_desc);
@@ -7150,22 +7163,22 @@ void CPC::GuildGradeSkill( bool apply )
 	{
 	case MSG_GUILD_POSITION_RUSH_CAPTAIN:
 		skillIndex = 1177;
-		break;	// µ¹°ÝÁ¶ ´ëÀå
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case MSG_GUILD_POSITION_SUPPORT_CAPTAIN:
 		skillIndex = 1181;
-		break;	// Áö¿øÁ¶ ´ëÀå
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case MSG_GUILD_POSITION_RECON_CAPTAIN:
 		skillIndex = 1179;
-		break;	// Á¤ÂûÁ¶ ´ëÀå
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	case MSG_GUILD_POSITION_RUSH_MEMBER:
 		skillIndex = 1178;
-		break;	// µ¹°ÝÁ¶¿ø
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	case MSG_GUILD_POSITION_SUPPORT_MEMBER:
 		skillIndex = 1182;
-		break;	// Áö¿øÁ¶¿ø
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	case MSG_GUILD_POSITION_RECON_MEMBER:
 		skillIndex = 1180;
-		break;	// Á¤ÂûÁ¶¿ø
+		break;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	default:
 		return;
 	}
@@ -7198,14 +7211,14 @@ void CPC::GuildGradeSkill( bool apply )
 }
 
 //Item Upgrade Fucking Function 2011
-// ¾ÆÀÌÅÛ UPGRADE ¹«±â ¹æ¾î±¸ °ø½ÄÀÌ °°À½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ UPGRADE ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 int CPC::ItemUpgradeFuckingFunction( int itemPlus, int itemLevel, int itemAttack )
 {
-	// ÇÃ·¯½º 0ÀÏ¶§´Â °è»ê ¾ÈÇÏ°í °ø°Ý·ÂÀ» ±×³É µ¹·ÁÁÜ
+	// ï¿½Ã·ï¿½ï¿½ï¿½ 0ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if( itemPlus == 0 )
 		return itemAttack;
 
-	// °øÅë »ó¼ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	double plusFactor = 1.06 ;
 
 	if (itemLevel < ITEM_UPGRADE_GENERAL_MAXLEVEL )
@@ -7218,7 +7231,7 @@ int CPC::ItemUpgradeFuckingFunction( int itemPlus, int itemLevel, int itemAttack
 		plusFactor = 1.188;
 	}
 
-	// ¹«±â / ¹æ¾î±¸ °ø½ÄÀÌ °°À½
+	// ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	const int itemUpgradeLimit = 17;
 
 	// USA : plusFactor^27 , plusFactor^26 ETC: plusFactor^17 , plusFactor^16
@@ -7229,22 +7242,22 @@ int CPC::ItemUpgradeFuckingFunction( int itemPlus, int itemLevel, int itemAttack
 
 	if( itemLevel < ITEM_UPGRADE_GENERAL_MAXLEVEL )
 	{
-		if ( itemPlus > itemUpgradeLimit )	// ¿À¹ÙµÇ´Â ÀÎÃ¾Æ® °ø½Ä
+		if ( itemPlus > itemUpgradeLimit )	// ï¿½ï¿½ï¿½ÙµÇ´ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½
 		{
 			nRetAttack = (int)( itemAttack * func_value_1 + (itemPlus-itemUpgradeLimit) * itemAttack * (func_value_1-func_value_2) ) ;
 		}
-		else	// ±âº» °ø½Ä
+		else	// ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 		{
 			nRetAttack = (int)(itemAttack * pow(plusFactor, itemPlus));
 		}
 	}
 	else
 	{
-		if ( itemPlus > itemUpgradeLimit )	// ¿À¹ÙµÇ´Â ÀÎÃ¾Æ® °ø½Ä
+		if ( itemPlus > itemUpgradeLimit )	// ï¿½ï¿½ï¿½ÙµÇ´ï¿½ ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½
 		{
 			nRetAttack = (int)( itemAttack + itemAttack * (func_value_1/10) + (itemPlus-itemUpgradeLimit) * itemAttack * ((func_value_1-func_value_2)/10) );
 		}
-		else	// ±âº» °ø½Ä
+		else	// ï¿½âº» ï¿½ï¿½ï¿½ï¿½
 		{
 			nRetAttack = (int)(itemAttack + itemAttack * pow(plusFactor, itemPlus) / 10 );
 		}
@@ -7375,21 +7388,21 @@ void CPC::AddWarGroundAccPoint(int n)
 		m_nWarGroundAccPoint = 0;
 }*/
 
-#ifdef REFORM_PK_PENALTY_201108 // PK ÆÐ³ÎÆ¼ ¸®Æû
+#ifdef REFORM_PK_PENALTY_201108 // PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 int CPC::GetPKPenaltyRewardNum()
 {
 	if( m_pkPenalty <= PK_CHAOTIC_POINT_MAX )
-		return 0; // Ä«¿À :: ÀÚÆ÷ÀÚ±â
+		return 0; // Ä«ï¿½ï¿½ :: ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½
 	else if( m_pkPenalty > PK_CHAOTIC_POINT_MAX && m_pkPenalty <= PK_CHAOTIC_POINT_2 )
-		return 1; // Ä«¿À :: ÁÂÀý ±ÝÁö
+		return 1; // Ä«ï¿½ï¿½ :: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else if( m_pkPenalty > PK_CHAOTIC_POINT_2 && m_pkPenalty <= PK_CHAOTIC_POINT_1 )
-		return 2; // Ä«¿À :: ´«Ä¡ º¸´Â »ç³É²Û
+		return 2; // Ä«ï¿½ï¿½ :: ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½É²ï¿½
 	else if( m_pkPenalty >= PK_HUNTER_POINT_1 && m_pkPenalty < PK_HUNTER_POINT_2 )
-		return 3; // ÇåÅÍ :: ¾ó¶³¶³ÇÑ »ç³É²Û
+		return 3; // ï¿½ï¿½ï¿½ï¿½ :: ï¿½ó¶³¶ï¿½ï¿½ï¿½ ï¿½ï¿½É²ï¿½
 	else if( m_pkPenalty >= PK_HUNTER_POINT_2 && m_pkPenalty < PK_HUNTER_POINT_MAX )
-		return 4; // ÇåÅÍ :: ÀÚ½Å°¨ ¸¸¶¥
+		return 4; // ï¿½ï¿½ï¿½ï¿½ :: ï¿½Ú½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	else if( m_pkPenalty >= PK_HUNTER_POINT_MAX )
-		return 5; // ÇåÅÍ :: µ¶ºÒÀå±º
+		return 5; // ï¿½ï¿½ï¿½ï¿½ :: ï¿½ï¿½ï¿½ï¿½ï¿½å±º
 
 	return -1;
 }
@@ -7435,10 +7448,10 @@ void CPC::StartRockPaperScissors()
 
 bool CPC::CanRockPaperScissors()
 {
-	// 1. °¡À§¹ÙÀ§º¸ °ÔÀÓÀ» ½ÃÀÛÇÏÁö ¾ÊÀº »óÅÂ,
-	// 2.ÀÌ±ä È½¼ö°¡ ÃÑ ½ºÅ×ÀÌÁöº¸´Ù Å« »óÅÂ,
-	// 3. ¼±ÅÃÀ» ÇÒ ¾ø´Â »óÅÂ
-	// À§ 3°¡Áö °æ¿ì¿¡´Â °¡À§¹ÙÀ§º¸¸¦ ¼±ÅÃÇÒ ¼ö ¾ø´Ù.
+	// 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,
+	// 2.ï¿½Ì±ï¿½ È½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½,
+	// 3. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if (!m_RockPaperScissorsInfo.IsStart() || m_RockPaperScissorsInfo.GetWinCount() >= gserver->m_XmasRockPaperScissorsGame->GetTotalStage() || !m_RockPaperScissorsInfo.CanPlay() )
 		return false;
 
@@ -7475,7 +7488,7 @@ void CPC::calcDurability_for_weapon()
 	if (item == NULL)
 		return;
 
-	// °áÇÕÇÑ ¹«±âÀÌ¸é °áÇÕµÈ ¾ÆÀÌÅÛÀ» ÃëÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Õµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if ((item->getFlag() & FLAG_ITEM_COMPOSITION) && (item->m_itemProto->getItemFlag() & ITEM_FLAG_COMPOSITE))
 	{
 		item = this->m_inventory.FindByVirtualIndex(item->m_nCompositeItem);
@@ -7526,11 +7539,13 @@ void CPC::calcDurability_for_armor()
 		WEARING_ACCESSORY2,
 		WEARING_ACCESSORY3,
 		WEARING_ACCESSORY4, // newslot - alanssoares
+		#ifdef RUNE_ACCESSORY_SLOT_08232023
 		WEARING_SPECIAL_ACCESSORY1,// newslot - alanssoares
 		WEARING_SPECIAL_ACCESSORY2,// newslot - alanssoares
 		WEARING_SPECIAL_ACCESSORY3,// newslot - alanssoares
 		WEARING_SPECIAL_ACCESSORY4,// newslot - alanssoares
 		WEARING_SPECIAL_ACCESSORY5,// newslot - alanssoares
+		#endif
 		WEARING_BACKWING
 	};
 
@@ -7545,7 +7560,7 @@ void CPC::calcDurability_for_armor()
 
 		bool wear_inven_flag = true;
 
-		// °áÇÕÇÑ ¹«±âÀÌ¸é °áÇÕµÈ ¾ÆÀÌÅÛÀ» ÃëÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Õµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if ((item->getFlag() & FLAG_ITEM_COMPOSITION) && (item->m_itemProto->getItemFlag() & ITEM_FLAG_COMPOSITE))
 		{
 			item = this->m_inventory.FindByVirtualIndex(item->m_nCompositeItem);
@@ -7581,7 +7596,7 @@ void CPC::calcDurability_for_armor()
 		}
 	}
 
-	// ³»±¸µµ »óÈ²¿¡ µû¶ó ¹æ¾î·Â Àç °è»ê
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	if (recalc_flag)
 	{
 		this->CalcStatus(true);

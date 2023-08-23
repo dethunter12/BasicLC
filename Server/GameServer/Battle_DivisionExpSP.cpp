@@ -237,7 +237,7 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 					if (expNode->pc->m_assist.m_avAddition.hcSepExp)
 					{
 						expNode->pc->m_assist.CureByItemIndex(882);	// 경험치
-						nGiveExp = nGiveExp * 4;
+						nGiveExp = nGiveExp * 2;
 						CNetMsg::SP rmsg(new CNetMsg);
 						EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
 						SEND_Q(rmsg, expNode->pc->m_desc);
@@ -249,7 +249,7 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 					else if (expNode->pc->m_assist.m_avAddition.hcSepExp_Cash)
 					{
 						expNode->pc->m_assist.CureByItemIndex(6094);	// 경험치
-						nGiveExp = nGiveExp * 4;
+						nGiveExp = nGiveExp * 2;
 						CNetMsg::SP rmsg(new CNetMsg);
 						EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
 						SEND_Q(rmsg, expNode->pc->m_desc);
@@ -257,20 +257,9 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 						//유물 아이템 적용하지 않도록 처리
 						bArtifact = true;
 					}
-					//dethunter12 add 3/5/2023
-					else if (expNode->pc->m_assist.m_avAddition.hcSepExp_Prem)
-					{
-						expNode->pc->m_assist.CureByItemIndex(17309);
-						nGiveExp = nGiveExp * 6;
-						CNetMsg::SP rmsg(new CNetMsg);
-						EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
-						SEND_Q(rmsg, expNode->pc->m_desc);
-
-						bArtifact = true;
-					}
 					else if( expNode->pc->m_assist.m_avAddition.hcRandomExpUp > 0  && GetRandom(0,100) <= expNode->pc->m_assist.m_avAddition.hcRandomExpUp )
 					{
-						nGiveExp = nGiveExp * 4;
+						nGiveExp = nGiveExp * 2;
 
 						CNetMsg::SP rmsg(new CNetMsg);
 						EffectEtcMsg(rmsg, expNode->pc, MSG_EFFECT_ETC_RANDOM_EXP);
@@ -283,7 +272,7 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 					if (expNode->pc->m_assist.m_avAddition.hcSepSP)
 					{
 						expNode->pc->m_assist.CureByItemIndex(883);	// 숙련도
-						nGiveSP = nGiveSP * 4;
+						nGiveSP = nGiveSP * 2;
 						CNetMsg::SP rmsg(new CNetMsg);
 						EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_SP);
 						SEND_Q(rmsg, expNode->pc->m_desc);
@@ -292,7 +281,7 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 					else if (expNode->pc->m_assist.m_avAddition.hcSepSP_Cash)
 					{
 						expNode->pc->m_assist.CureByItemIndex(6095);	// 숙련도
-						nGiveSP = nGiveSP * 4;
+						nGiveSP = nGiveSP * 2;
 						CNetMsg::SP rmsg(new CNetMsg);
 						EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_SP);
 						SEND_Q(rmsg, expNode->pc->m_desc);
@@ -307,7 +296,7 @@ bool DivisionExpSP(CNPC* npc, CPC* pPreferencePC, LONGLONG nTotalDamage)
 					}
 					else if( expNode->pc->m_assist.m_avAddition.hcRandomSpUp > 0  && GetRandom(0,100) <= expNode->pc->m_assist.m_avAddition.hcRandomSpUp )
 					{
-						nGiveSP = nGiveSP * 4;
+						nGiveSP = nGiveSP * 2;
 
 						CNetMsg::SP rmsg(new CNetMsg);
 						EffectEtcMsg(rmsg, expNode->pc, MSG_EFFECT_ETC_RANDOM_SP);
@@ -684,17 +673,7 @@ void DivisionExpSPParty(CParty* party, CNPC* npc, CPC* pPreferencePC, LONGLONG n
 
 				bArtifact = true;
 			}
-			//dethunter12 add 3/5/2023
-			else if (expNode->pc->m_assist.m_avAddition.hcSepExp_Prem)
-			{
-				expNode->pc->m_assist.CureByItemIndex(17309);
-				nGiveExp = nGiveExp * 6;
-				CNetMsg::SP rmsg(new CNetMsg);
-				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
-				SEND_Q(rmsg, expNode->pc->m_desc);
 
-				bArtifact = true;
-			}
 			else if( expNode->pc->m_assist.m_avAddition.hcRandomExpUp > 0  && GetRandom(0,100) <= expNode->pc->m_assist.m_avAddition.hcRandomExpUp )
 			{
 				nGiveExp = nGiveExp * 4;
@@ -1207,7 +1186,7 @@ void DivisionExpSPExped(CExpedition* Exped, CNPC* npc, CPC* pPreferencePC, LONGL
 			if (expNode->pc->m_assist.m_avAddition.hcSepExp)
 			{
 				expNode->pc->m_assist.CureByItemIndex(882);	// 경험치
-				nGiveExp = nGiveExp * 4;
+				nGiveExp = nGiveExp * 2;
 				CNetMsg::SP rmsg(new CNetMsg);
 				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
 				SEND_Q(rmsg, expNode->pc->m_desc);
@@ -1218,18 +1197,7 @@ void DivisionExpSPExped(CExpedition* Exped, CNPC* npc, CPC* pPreferencePC, LONGL
 			else if (expNode->pc->m_assist.m_avAddition.hcSepExp_Cash)
 			{
 				expNode->pc->m_assist.CureByItemIndex(6094);	// 경험치
-				nGiveExp = nGiveExp * 4;
-				CNetMsg::SP rmsg(new CNetMsg);
-				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
-				SEND_Q(rmsg, expNode->pc->m_desc);
-
-				bArtifact = true;
-			}
-			//dethunter12 add 3/5/2023
-			else if (expNode->pc->m_assist.m_avAddition.hcSepExp_Prem)
-			{
-				expNode->pc->m_assist.CureByItemIndex(17309);
-				nGiveExp = nGiveExp * 6;
+				nGiveExp = nGiveExp * 2;
 				CNetMsg::SP rmsg(new CNetMsg);
 				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_EXP);
 				SEND_Q(rmsg, expNode->pc->m_desc);
@@ -1238,7 +1206,7 @@ void DivisionExpSPExped(CExpedition* Exped, CNPC* npc, CPC* pPreferencePC, LONGL
 			}
 			else if( expNode->pc->m_assist.m_avAddition.hcRandomExpUp > 0  && GetRandom(0,100) <= expNode->pc->m_assist.m_avAddition.hcRandomExpUp )
 			{
-				nGiveExp = nGiveExp * 4;
+				nGiveExp = nGiveExp * 2;
 
 				CNetMsg::SP rmsg(new CNetMsg);
 				EffectEtcMsg(rmsg, expNode->pc, MSG_EFFECT_ETC_RANDOM_EXP);
@@ -1251,7 +1219,7 @@ void DivisionExpSPExped(CExpedition* Exped, CNPC* npc, CPC* pPreferencePC, LONGL
 			if (expNode->pc->m_assist.m_avAddition.hcSepSP)
 			{
 				expNode->pc->m_assist.CureByItemIndex(883);	// 숙련도
-				nGiveSP = nGiveSP * 4;
+				nGiveSP = nGiveSP * 2;
 				CNetMsg::SP rmsg(new CNetMsg);
 				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_SP);
 				SEND_Q(rmsg, expNode->pc->m_desc);
@@ -1260,22 +1228,14 @@ void DivisionExpSPExped(CExpedition* Exped, CNPC* npc, CPC* pPreferencePC, LONGL
 			else if (expNode->pc->m_assist.m_avAddition.hcSepSP_Cash)
 			{
 				expNode->pc->m_assist.CureByItemIndex(6095);	// 숙련도
-				nGiveSP = nGiveSP * 4;
-				CNetMsg::SP rmsg(new CNetMsg);
-				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_SP);
-				SEND_Q(rmsg, expNode->pc->m_desc);
-			}
-			else if (expNode->pc->m_assist.m_avAddition.hcSepSPPrem_Cash)
-			{
-				expNode->pc->m_assist.CureByItemIndex(16670);	// 숙련도
-				nGiveSP = nGiveSP * 6;
+				nGiveSP = nGiveSP * 2;
 				CNetMsg::SP rmsg(new CNetMsg);
 				EventErrorMsg(rmsg, MSG_EVENT_ERROR_SEPTEMBER_SP);
 				SEND_Q(rmsg, expNode->pc->m_desc);
 			}
 			else if( expNode->pc->m_assist.m_avAddition.hcRandomSpUp > 0  && GetRandom(0,100) <= expNode->pc->m_assist.m_avAddition.hcRandomSpUp )
 			{
-				nGiveSP = nGiveSP * 4;
+				nGiveSP = nGiveSP * 2;
 
 				CNetMsg::SP rmsg(new CNetMsg);
 				EffectEtcMsg(rmsg, expNode->pc, MSG_EFFECT_ETC_RANDOM_SP);

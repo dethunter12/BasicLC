@@ -2046,6 +2046,9 @@
     <ClCompile Include="Contents\function\IdentifyItemUI.cpp">
       <Filter>Contents\function</Filter>
     </ClCompile>
+    <ClCompile Include="Contents\function\UIQuickPanel.cpp">
+      <Filter>Contents\function</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XTrapInterface\XTrapInterface.h">
@@ -3969,6 +3972,9 @@
       <Filter>Header Files\Interface Headers</Filter>
     </ClInclude>
     <ClInclude Include="Contents\function\IdentifyItemUI.h">
+      <Filter>Contents\function</Filter>
+    </ClInclude>
+    <ClInclude Include="Contents\function\UIQuickPanel.h">
       <Filter>Contents\function</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,6 +22,7 @@
 //#define     DOMINATION_EVENT_SYSTEM
 //#define CUBE_RANKING_12202022
 #define IDENTIFY_ITEM_02212023
+#define QUICK_PANEL
 //#define GLADES_RANKING_04182023
 // �ӽ� define //////
 #define WEARING_SHOW_END	6

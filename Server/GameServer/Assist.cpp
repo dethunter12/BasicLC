@@ -1363,10 +1363,6 @@ void CAssistList::Apply(CCharacter* ch, ASSISTVALUE* addition, ASSISTVALUE* rate
 			addition->hcCubeBooster = true;
 			bSkip = true;
 			break;
-		case 17309: //dethunter12 add 3/5/2023
-			addition->hcSepExp_Prem = true;
-			bSkip = true;
-			break;
 #endif
 		}
 		// 060227 : bs : 스킬 인덱스 하드 코딩

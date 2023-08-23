@@ -217,13 +217,16 @@ enum eEquipment
 	WEAR_ACCESSORY4				= 10,
 	WEAR_PET					= WEAR_ACCESSORY4,
 	WEAR_BACKWING				= 11,	// ????
+
 	WEAR_ACCESSORY_ANYWHERE		= 12, // newslot - alanssoares
-	WEAR_ACCESSORY_SPECIAL1		= 13, // newslot - alanssoares
-	WEAR_ACCESSORY_SPECIAL2		= 14, // newslot - alanssoares
-	WEAR_ACCESSORY_SPECIAL3		= 15, // newslot - alanssoares
-	WEAR_ACCESSORY_SPECIAL4		= 16, // newslot - alanssoares
-	WEAR_ACCESSORY_SPECIAL5		= 17, // newslot - alanssoares
-	WEAR_TOTAL					= 18,	// ?????? ?????????? ?? ??????? ????? ????????? ???????.
+		//RUNE_ACCESSORY_SLOT_08232023
+	//WEAR_ACCESSORY_SPECIAL1		= 13, // newslot - alanssoares
+	//WEAR_ACCESSORY_SPECIAL2		= 14, // newslot - alanssoares
+	//WEAR_ACCESSORY_SPECIAL3		= 15, // newslot - alanssoares
+	//WEAR_ACCESSORY_SPECIAL4		= 16, // newslot - alanssoares
+	//WEAR_ACCESSORY_SPECIAL5		= 17, // newslot - alanssoares
+		//RUNE_ACCESSORY_SLOT_08232023
+	WEAR_TOTAL					= 13,	// 18 w/RUNE -
 };
 
 enum eWildPetWear

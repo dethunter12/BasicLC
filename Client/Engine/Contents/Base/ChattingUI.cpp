@@ -22,13 +22,15 @@
 #ifdef GLADES_RANKING_04182023
 #include <Engine/Interface/UIRankingGlades.h>
 #endif
-
+#ifdef QUICK_PANEL
+#include <Engine/Contents/function/UIQuickPanel.h>
+#endif
 extern INDEX g_iCountry;
 
-const	int	   SPAM_CHAT_LENGTH					= 300;  //Àå¹®À» ÆÇ´ÜÇÏ´Â ±âÁØ ±æÀÌ 
-const   int	   SPAM_CHAT_BLOCK_INPUT_COUNT		= 150;	// 1?¬Ö??? ??? ???? ???? ???? 
-const	int	   SPAM_CHAT_INPUT_TIME				= 60000; // 1ºÐ 
-const	int	   SPAM_CHAT_LONG_SENT_TIME			= 5000; // 5ÃÊ	
+const	int	   SPAM_CHAT_LENGTH					= 300;  //ï¿½å¹®ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+const   int	   SPAM_CHAT_BLOCK_INPUT_COUNT		= 150;	// 1?ï¿½ï¿½??? ??? ???? ???? ???? 
+const	int	   SPAM_CHAT_INPUT_TIME				= 60000; // 1ï¿½ï¿½ 
+const	int	   SPAM_CHAT_LONG_SENT_TIME			= 5000; // 5ï¿½ï¿½	
 const	int	   CHATMSG_USERNOTICE_LENGTH		= 48;
 const	int	   CHATMSG_USERNOTICEINPUT_LENGTH	= 30;
 const	int	   CHATMSG_USERNOTICE_DELAY			= 10000;
@@ -175,6 +177,10 @@ void CChattingUI::initialize()
 	m_btn_glade_rnk_func = static_cast<CUIButton*>(findUI("btn_glade_rnk"));
 	m_btn_glade_rnk_func->SetCommandFUp(boost::bind(&CChattingUI::OpenGladesRank, this));
 #endif
+#ifdef QUICK_PANEL
+	m_btn_buff_func = static_cast<CUIButton*>(findUI("btn_buff_sys"));
+	m_btn_buff_func->SetCommandFUp(boost::bind(&CChattingUI::OpenBuffAll, this));
+#endif
 	if (m_pTabMainChat = (CUITab*)findUI("tab_main_chat"))
 	{
 		CTString strMainName[eMAIN_END] = {"channel", "general"};
@@ -291,7 +297,7 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 		if (ubChatType != CHATMSG_GM && ubChatType != CHATMSG_NOTICE &&
 			g_iCountry != KOREA && ubChatType != CHATMSG_PRESSCORPS)
 		{
-			AddSysMessage(_S(437, "¹®Àå¿¡ ±ÝÁöµÈ ´Ü¾î°¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù."));
+			AddSysMessage(_S(437, "ï¿½ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾î°¡ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."));
 			return;
 		}
 	}
@@ -309,12 +315,12 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 	{
 		if (ubChatType == CHATMSG_EXPEDITION)
 		{
-			if (slGroup == -1)	// ¿øÁ¤´ë ÀüÃ¼ Ã¤ÆÃ
-				strOutputName.PrintF("[%s]%s >", _S(4493, "¿øÁ¤´ë"), strSendName);
-			else	// ¿øÁ¤´ë ±×·ì Ã¤ÆÃ
+			if (slGroup == -1)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½
+				strOutputName.PrintF("[%s]%s >", _S(4493, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"), strSendName);
+			else	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ Ã¤ï¿½ï¿½
 			{
 				CTString strTemp;
-				strTemp.PrintF(_S(4494, "±×·ì%d"), slGroup + 1);
+				strTemp.PrintF(_S(4494, "ï¿½×·ï¿½%d"), slGroup + 1);
 				strOutputName.PrintF("[%s]%s >", strTemp, strSendName);
 
 				colName = colChat = m_colExGroup[slGroup];
@@ -323,7 +329,7 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 		else
 		{
 			if (channelNumber > 0)
-				strOutputName.PrintF("[%s%d]%s > ", _S(5392, "Ã¤³Î"), channelNumber, strSendName);
+				strOutputName.PrintF("[%s%d]%s > ", _S(5392, "Ã¤ï¿½ï¿½"), channelNumber, strSendName);
 			else
 				strOutputName.PrintF("%s > ", strSendName);
 		}
@@ -361,7 +367,7 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 	case CHATMSG_NOTICE_SERVERDOWN:
 		{
 			CTString strTemp;
-			strTemp.PrintF(_S(2573, "¼­¹ö Á¾·á±îÁö %dÃÊ ³²¾Ò½À´Ï´Ù."), atoi(strChatMessage.str_String));
+			strTemp.PrintF(_S(2573, "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½."), atoi(strChatMessage.str_String));
 			_UIAutoHelp->SetGMNotice(strTemp);
 
 			return;
@@ -371,7 +377,7 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 		{
 			bool bShowGMNotice = ACTORMGR()->CheckNPCNotice(slSendIndex, strChatMessage);
 
-			// Ä³¸¯ÅÍ°¡ ÁÖº¯¿¡ ÀÖ´Ù¸é ¸Þ½ÃÁö Ãâ·Â.
+			// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Öºï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 			if (bShowGMNotice == true)
 				_UIAutoHelp->SetGMNotice(strOutputName + strChatMessage, colChat);
 
@@ -387,7 +393,7 @@ void CChattingUI::AddChatMessage(UBYTE ubChatType, SLONG slSendIndex, CTString &
 				{
 					UIMGR()->GetChatFilter()->AddCharName(strSendName.str_String);
 					CTString strTemp;
-					strTemp.PrintF(_S(3006, "%s´ÔÀÌ Â÷´ÜµÇ¾ú½À´Ï´Ù."), strSendName);
+					strTemp.PrintF(_S(3006, "%sï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÜµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."), strSendName);
 					AddSysMessage(strTemp);
 
 					return;
@@ -607,11 +613,11 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 		strChatString = &pcChatString[0];
 	else if( ubType == CHATMSG_EXPEDITION )
 	{
-		if(nChatType == -1)	// ¿øÁ¤´ë ÀüÃ¼ Ã¤ÆÃÀÇ °æ¿ì
+		if(nChatType == -1)	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		{
 			strChatString = &pcChatString[1];
 		}
-		else				// ±×·ì Ã¤ÆÃÀÇ °æ¿ì @µÚÀÇ ¼ýÀÚ°¡ ±×·ìÀÌ¹Ç·Î 3¹øÂ° ¹®ÀÚºÎÅÍ ½ÃÀÛ
+		else				// ï¿½×·ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ @ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½×·ï¿½ï¿½Ì¹Ç·ï¿½ 3ï¿½ï¿½Â° ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			strChatString = &pcChatString[2];
 		}
@@ -619,15 +625,15 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 	else
 		strChatString = &pcChatString[1];
 
-	// ÀÌ±âÈ¯ ¼öÁ¤ ½ÃÀÛ (11.29) : ºÒ·® ´Ü¾î ÇÊÅÍ¸µ 
+	// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (11.29) : ï¿½Ò·ï¿½ ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ 
 	char szBuffer[256];
 	int nIndexBuffer[32];
 	strcpy ( szBuffer, strChatString.str_String );
 
-	// ¿î¿µÀÚ ÀÎ °æ¿ì¿¡ ÇÊÅÍ¸µ ¾ÈÇÔ
+	// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ì¿¡ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( _pNetwork->m_ubGMLevel > 1 )
 	{
-		// ITS 7999 ÅÂ±¹ GMÆùÆ® »ö»ó ¿äÃ» Àû¿ë
+		// ITS 7999 ï¿½Â±ï¿½ GMï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
 #if defined(G_THAI)
 		if( ubType == CHATMSG_NORMAL || ubType == CHATMSG_RANKER )
 		{
@@ -640,7 +646,7 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 	}
 	else
 	{
-		//[ttos_2009_1_23]:Ã¤ÆÃ ±ÝÁö
+		//[ttos_2009_1_23]:Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (_pNetwork->MyCharacterInfo.ChatFlag != 0 )
 		{
 			if (
@@ -652,7 +658,7 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 				(ubType == CHATMSG_SHOUT && _pNetwork->MyCharacterInfo.ChatFlag&CHAT_FLAG_NO_SHOUT)
 				)
 			{
-				AddSysMessage(_S(4320,"Ã¤ÆÃ±â´ÉÀÌ ±ÝÁöµÇ¾î ´ëÈ­¸¦ ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù. "));
+				AddSysMessage(_S(4320,"Ã¤ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. "));
 				m_pChatInput->ResetString();
 				InsertChatPrefix( ChattingMsgType( nCurSelTab ) );
 				return;
@@ -662,7 +668,7 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 		if ( _UIFiltering.Filtering ( szBuffer, nIndexBuffer ) == TRUE )
 		{
 			strChatString.Clear();
-			AddSysMessage ( _S( 437, "¹®Àå¿¡ ±ÝÁöµÈ ´Ü¾î°¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù." ) );
+			AddSysMessage ( _S( 437, "ï¿½ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾î°¡ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." ) );
 
 			strChatString.Clear();
 
@@ -691,7 +697,7 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 				{
 					if(CeilWritingCut_CompareStr(strChatString))
 					{
-						strChatString = _S(4221, "1ºÐ³» °°Àº ¹®Àå, ´Ü¾î¸¦ 2È¸ ÀÌ»ó ÀÔ·Â ÇÒ ¼ö ¾ø½À´Ï´Ù.");					
+						strChatString = _S(4221, "1ï¿½Ð³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ü¾î¸¦ 2È¸ ï¿½Ì»ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");					
 						AddSysMessage(strChatString);
 					}
 					else
@@ -734,7 +740,7 @@ void CChattingUI::SendChatMessage( char *pcChatString, BOOL bLord )
 //#endif	//	ADD_CHAT_CEILWRITING_CUT_NA_20081029
 		}
 	}
-	// ÀÌ±âÈ¯ ¼öÁ¤ ³¡ 
+	// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 	// Reset string of input box
 	m_pChatInput->ResetString();
@@ -872,7 +878,7 @@ CTString CChattingUI::ArrangeCharString(const CTString& strChat)
 	memcpy(chComp, strChat, len);
 	chComp[len] = '\0';
 
-	// space ¸¦ ¸ðµÎ ¾ø¾Ö°í, space °¡ ÀÖ´ø 
+	// space ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½, space ï¿½ï¿½ ï¿½Ö´ï¿½ 
 	for ( i = 0; i < len; i++ ) 
 	{
 		if ( IS_SPACE( chComp[i] ) || !IS_CHAR(chComp[i]))
@@ -939,7 +945,7 @@ void CChattingUI::OpenChatOption()
 		ChangeChatOption(m_pTabSubChat[m_pTabMainChat->getCurSelTab()]->getCurSelTab(), -1);
 	}
 
-	// ÅØ½ºÆ® ±æÀÌ¿¡ ¸ÂÃç ¹öÆ° À§Ä¡¹× ¹è°æ »çÀÌÁî Àç°è»ê.
+	// ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if (m_bRearrangeOption == false)
 	{
 		m_bRearrangeOption = true;
@@ -957,12 +963,12 @@ void CChattingUI::OpenChatOption()
 				nMaxSize = nCurSize;
 		}
 
-		// 9 : ÅØ½ºÆ® ½ÃÀÛ °¸, 13 : Ã¼Å© ¹öÆ° »çÀÌÁî, 10 : ÅØ½ºÆ®¿Í Ã¼Å©¹öÆ° °¸, 10 : Ã¼Å© ¹öÆ°°ú ¹è°æ °¸
+		// 9 : ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, 13 : Ã¼Å© ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 10 : ï¿½Ø½ï¿½Æ®ï¿½ï¿½ Ã¼Å©ï¿½ï¿½Æ° ï¿½ï¿½, 10 : Ã¼Å© ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
 		m_pImgOptionBack->SetWidth(nMaxSize + (9 + 13  + 10 + 10));
 		m_pImgOptionBack->UpdateSplit();
 		m_pImgOptionBack->updatePosition(true);
 
-		// ¿É¼ÇÃ¢ÀÌ ´Ã¾î³­ ¸¸Å­ Ã¤ÆÃ ÀüÃ¼ »çÀÌÁîµµ ´Ã¸².
+		// ï¿½É¼ï¿½Ã¢ï¿½ï¿½ ï¿½Ã¾î³­ ï¿½ï¿½Å­ Ã¤ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½îµµ ï¿½Ã¸ï¿½.
 		SetWidth(m_pImgSysback->GetWidth() + m_pImgOptionBack->GetWidth());
 	}
 }
@@ -1010,9 +1016,9 @@ void CChattingUI::UpdateChatOption( int nTab )
 		if(i == eCM_GROUP)
 		{
 			if (UIMGR()->IsCSFlagOn(CSF_EXPEDITION))
-				m_pTextOption[i]->SetText(_S(4492, "¿øÁ¤´ë(@)" ));
+				m_pTextOption[i]->SetText(_S(4492, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(@)" ));
 			else
-				m_pTextOption[i]->SetText( _S( 453, "ÆÄÆ¼(@)" ) );
+				m_pTextOption[i]->SetText( _S( 453, "ï¿½ï¿½Æ¼(@)" ) );
 		}
 		
 		m_pChatOption[i]->SetCheck(m_bChatOption[nTab][i] ? TRUE : FALSE);
@@ -1181,7 +1187,7 @@ BOOL CChattingUI::CheckSpamCount( CTString& strName, CTString& strChat )
 	}
 	else
 	{	
-		//ÀÌ¹Ì ºí·°µÇ¾úÀ¸¸é Ã³¸® ÇÏÁö ¾Ê´Â´Ù. 
+		//ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½. 
 		if ( it->second.bBlocked )
 			return TRUE;;
 
@@ -1196,7 +1202,7 @@ BOOL CChattingUI::CheckSpamCount( CTString& strName, CTString& strChat )
 			if ( it->second.nStrLength > SPAM_CHAT_LENGTH )
 			{
 				it->second.bBlocked = true;
-				//ºí·° ½ÃÅ²´Ù.
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 				SpamerBlock( strName );
 				return TRUE;
 			}			
@@ -1213,13 +1219,13 @@ BOOL CChattingUI::CheckSpamCount( CTString& strName, CTString& strChat )
 			if ( it->second.nCount >= SPAM_CHAT_BLOCK_INPUT_COUNT )
 			{					
 				it->second.bBlocked = true;
-				//ºí·° ½ÃÅ²´Ù.		 
+				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.		 
 				SpamerBlock( strName );
 
 				return TRUE;
 			}
 		}
-		//1ºÐ Áö³µ´Ù.
+		//1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 		else 
 		{	
 			it->second.llStartTime = llCurTime;
@@ -1234,7 +1240,7 @@ void CChattingUI::SpamerBlock ( CTString& strName )
 {
 	CUIManager::getSingleton()->GetChatFilter()->AddCharName(strName.str_String);
 	CTString temStr;
-	temStr.PrintF(_S(3006, "%s´ÔÀÌ Â÷´ÜµÇ¾ú½À´Ï´Ù."),strName);
+	temStr.PrintF(_S(3006, "%sï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÜµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."),strName);
 	AddSysMessage(temStr);
 }
 
@@ -1258,9 +1264,9 @@ void CChattingUI::RemoveSpamerFromMap ( std::string& strTemp )
 
 int CChattingUI::CheckExpeditionChatGroup( char* pcChatString )
 {
-	if( (pcChatString[1] >= '1') && (pcChatString[1] <= '4') )	//@µÚÀÇ °ªÀÌ ¼ýÀÚ 1~4ÀÏ °æ¿ì ±×·ì Ã¤ÆÃ À¸·Î ÀÎ½Ä
+	if( (pcChatString[1] >= '1') && (pcChatString[1] <= '4') )	//@ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1~4ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×·ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½
 	{
-		return pcChatString[1] - 49;							//±×·ì Ã¤ÆÃÀÏ°æ¿ì 0~3 ¹ÝÈ¯
+		return pcChatString[1] - 49;							//ï¿½×·ï¿½ Ã¤ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ 0~3 ï¿½ï¿½È¯
 	}
 	else
 		return -1;	
@@ -1473,6 +1479,16 @@ void CChattingUI::OpenBattlePass()
 #endif
 }
 #endif
+#ifdef QUICK_PANEL
+void CChattingUI::OpenBuffAll()
+{
+	if (CUIManager::getSingleton()->GetQuickPanel()->IsVisible())
+		CUIManager::getSingleton()->GetQuickPanel()->Close();
+	else
+		CUIManager::getSingleton()->GetQuickPanel()->Open();
+}
+#endif
+
 void CChattingUI::ChatColorInI()
 {
 	int		i;
@@ -1592,7 +1608,7 @@ void CChattingUI::EraseListCeilWriting()
 	for (; iter != iterEnd; ++iter)
 	{
 		//		if (iter == NULL)			continue;
-		if ( llCurTime - iter->llStartTime > 60000 )//1ºÐ
+		if ( llCurTime - iter->llStartTime > 60000 )//1ï¿½ï¿½
 			iter = m_listCeilWriting.erase(iter);
 	}
 }
@@ -1615,9 +1631,9 @@ BOOL CChattingUI::CheckInputChannelChat( ChattingMsgType cmtType, CTString strMe
 	{
 	case CHATMSG_CHANNEL_LEVEL:
 		{
-			if (_pNetwork->MyCharacterInfo.level < CHANNEL_CHAT_NEEDLEVEL) // 50·¹º§ ÀÌ»ó ÀÔ·Â °¡´É
+			if (_pNetwork->MyCharacterInfo.level < CHANNEL_CHAT_NEEDLEVEL) // 50ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
-				strMoney.PrintF(_S(5388, "[%s] %d·¹º§ ÀÌ»ó¿¡¼­¸¸ ÀÌ¿ëÀÌ °¡´ÉÇÕ´Ï´Ù."), _S(5390, "ÀüÃ¼ Ã¤³Î¸ðµå"), CHANNEL_CHAT_NEEDLEVEL);
+				strMoney.PrintF(_S(5388, "[%s] %dï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ó¿¡¼ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."), _S(5390, "ï¿½ï¿½Ã¼ Ã¤ï¿½Î¸ï¿½ï¿½"), CHANNEL_CHAT_NEEDLEVEL);
 				AddSysMessage(strMoney, SYSMSG_ERROR);
 				bResult = FALSE;
 			}
@@ -1625,14 +1641,14 @@ BOOL CChattingUI::CheckInputChannelChat( ChattingMsgType cmtType, CTString strMe
 		break;
 	case CHATMSG_CHANNEL_TRADE:
 		{
-			if (_pNetwork->MyCharacterInfo.level < CHANNEL_TRADE_NEEDLEVEL) // 10·¹º§ ÀÌ»ó ÀÔ·Â °¡´É
+			if (_pNetwork->MyCharacterInfo.level < CHANNEL_TRADE_NEEDLEVEL) // 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
-				strMoney.PrintF(_S(5388, "[%s] %d·¹º§ ÀÌ»ó¿¡¼­¸¸ ÀÌ¿ëÀÌ °¡´ÉÇÕ´Ï´Ù."), _S(5391, "¸Å¸Å Ã¤³Î¸ðµå"), CHANNEL_TRADE_NEEDLEVEL);
+				strMoney.PrintF(_S(5388, "[%s] %dï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ó¿¡¼ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."), _S(5391, "ï¿½Å¸ï¿½ Ã¤ï¿½Î¸ï¿½ï¿½"), CHANNEL_TRADE_NEEDLEVEL);
 				AddSysMessage(strMoney, SYSMSG_ERROR);
 				bResult = FALSE;
 			}
 
-			int nNeedNas = strMessage.Length() * 10; // 1byte´ç 10³ª½º¾¿ ¼Òºñ
+			int nNeedNas = strMessage.Length() * 10; // 1byteï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Òºï¿½
 
 			if (nNeedNas > _pNetwork->MyCharacterInfo.money)
 			{
@@ -1640,7 +1656,7 @@ BOOL CChattingUI::CheckInputChannelChat( ChattingMsgType cmtType, CTString strMe
 				strNas.PrintF("%d", nNeedNas);
 				UIMGR()->InsertCommaToString(strNas);
 
-				strMoney.PrintF(_S(5389, "[%s] ³ª½º°¡ ºÎÁ·ÇÕ´Ï´Ù.(%s ³ª½º)"), _S(5391, "¸Å¸Å Ã¤³Î¸ðµå"), strNas);
+				strMoney.PrintF(_S(5389, "[%s] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.(%s ï¿½ï¿½ï¿½ï¿½)"), _S(5391, "ï¿½Å¸ï¿½ Ã¤ï¿½Î¸ï¿½ï¿½"), strNas);
 				AddSysMessage(strMoney, SYSMSG_ERROR);
 				bResult = FALSE;
 			}
@@ -1660,13 +1676,13 @@ void CChattingUI::ConditionsysMsg(ChattingMsgType cmtType)
 	{
 	case CHATMSG_NORMAL:
 		{
-			strMessage.PrintF(_S(5386, "[%s] 50·¹º§ ÀÌ»ó ÀÔ·ÂÇÒ ¼ö ÀÖ½À´Ï´Ù."), _S(5390, "ÀüÃ¼ Ã¤³Î¸ðµå"));
+			strMessage.PrintF(_S(5386, "[%s] 50ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½."), _S(5390, "ï¿½ï¿½Ã¼ Ã¤ï¿½Î¸ï¿½ï¿½"));
 			AddSysMessage(strMessage, SYSMSG_USER, 0x6BD2FFFF);
 		}
 		break;
 	case CHATMSG_TRADE:
 		{
-			strMessage.PrintF(_S(5387, "[%s] 10·¹º§ ÀÌ»ó ³ª½º¸¦ ¼Ò¸ðÇÏ¸é¼­ »ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù."), _S(5391, "¸Å¸Å Ã¤³Î¸ðµå"));
+			strMessage.PrintF(_S(5387, "[%s] 10ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½."), _S(5391, "ï¿½Å¸ï¿½ Ã¤ï¿½Î¸ï¿½ï¿½"));
 			AddSysMessage(strMessage, SYSMSG_USER, 0xE18600FF);
 		}
 		break;
@@ -1675,7 +1691,7 @@ void CChattingUI::ConditionsysMsg(ChattingMsgType cmtType)
 
 void CChattingUI::SaveSysMessageStart()
 {
-	// ÀÌ¹Ì ÀúÀåÇÏ°í ÀÖ´ø °ÍÀÌ ÀÖÀ¸¸é ±âÁ¸ °Í ³¡³¿
+	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_fpSaveSysMsg )
 	{
 		fprintf(m_fpSaveSysMsg, "\nunexpected end\n");
@@ -1691,7 +1707,7 @@ void CChattingUI::SaveSysMessageStart()
 
 	m_fpSaveSysMsg = fopen(m_strSaveSysMsgFileName.str_String, "w");
 
-	if( !m_fpSaveSysMsg )	// ÆÄÀÏ ¿­±â ½ÇÆÐ ÇÏ¸é 	
+	if( !m_fpSaveSysMsg )	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ 	
 	{
 		m_bSaveSysMsg = false;
 		m_strSaveSysMsgFileName = "";
@@ -1721,9 +1737,9 @@ void CChattingUI::SaveSysMessageComplete(int iType/* = 0*/)
 	m_strSaveSysMsgFileName = "";
 
 	// iType 
-	// 0 : /save_sysmsg_end ¸í·ÉÀ» »ç¿ë ÇÏ¿© ÀúÀå
-	// 1 : Á¸ ÀÌµ¿ÇÏ¿© ÀÚµ¿ ÀúÀå
-	// 2 : ÇÁ·Î±×·¥ Á¾·á ÀÚµ¿ ÀúÀå
+	// 0 : /save_sysmsg_end ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 1 : ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï¿ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
+	// 2 : ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	if( 1 == iType )
 	{
@@ -1964,7 +1980,7 @@ WMSG_RESULT CChattingUI::OnCharMessage( MSG* pMsg )
 {
 #ifdef	IMPROV1107_NOTICESYSTEM
 	if ( _pNetwork->m_ubGMLevel >= 1 )
-	{	// /echo ? ... - ...¸Þ¼¼Áö 100 byte Á¦ÇÑ
+	{	// /echo ? ... - ...ï¿½Þ¼ï¿½ï¿½ï¿½ 100 byte ï¿½ï¿½ï¿½ï¿½
 		char*	pcChatInput		= m_pChatInput->GetString();
 		if(pcChatInput && strlen(pcChatInput) > 0)
 		{
@@ -1973,7 +1989,7 @@ WMSG_RESULT CChattingUI::OnCharMessage( MSG* pMsg )
 
 			char*		pcCmdToken			= strtok(strInput, " ");
 			if(pcCmdToken && (stricmp(pcCmdToken, "/echo") == 0))
-			{	// /echo ? <= /echo + ? ´Â Á¦¿ÜÇÏ°í ±æÀÌ¸¦ Ã¼Å©
+			{	// /echo ? <= /echo + ? ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ Ã¼Å©
 				pcCmdToken	= strtok(NULL, " ");
 				if(pcCmdToken)
 				{
@@ -2013,7 +2029,7 @@ WMSG_RESULT CChattingUI::OnIMEMessage( MSG* pMsg )
 {
 #ifdef	IMPROV1107_NOTICESYSTEM
 	if ( _pNetwork->m_ubGMLevel >= 1 )
-	{	// /echo ? ... - ...¸Þ¼¼Áö 100 byte Á¦ÇÑ
+	{	// /echo ? ... - ...ï¿½Þ¼ï¿½ï¿½ï¿½ 100 byte ï¿½ï¿½ï¿½ï¿½
 		char*	pcChatInput		= m_pChatInput->GetString();
 		if(pcChatInput && strlen(pcChatInput) > 0)
 		{
@@ -2022,7 +2038,7 @@ WMSG_RESULT CChattingUI::OnIMEMessage( MSG* pMsg )
 
 			char*		pcCmdToken			= strtok(strInput, " ");
 			if(pcCmdToken && (stricmp(pcCmdToken, "/echo") == 0))
-			{	// /echo ? <= /echo + ? ´Â Á¦¿ÜÇÏ°í ±æÀÌ¸¦ Ã¼Å©
+			{	// /echo ? <= /echo + ? ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ Ã¼Å©
 				pcCmdToken	= strtok(NULL, " ");
 				if(pcCmdToken)
 				{
@@ -2069,11 +2085,11 @@ void CChattingUI::ProcessParty( char* szMsg )
 	szMsg[iChar] = NULL;
 	strCommand = &szMsg[0];
 
-	if( !strcmp( strCommand, _S( 124, "½ÅÃ»" ) ) )
+	if( !strcmp( strCommand, _S( 124, "ï¿½ï¿½Ã»" ) ) )
 		pParty->SendPartyInvite( 0, strOther );
-	else if( !strcmp( strCommand, _S( 125, "Å»Åð" ) ) )
+	else if( !strcmp( strCommand, _S( 125, "Å»ï¿½ï¿½" ) ) )
 		pParty->SendPartyQuit();
-	else if( !strcmp( strCommand, _S( 126, "°­Åð" ) ) )
+	else if( !strcmp( strCommand, _S( 126, "ï¿½ï¿½ï¿½ï¿½" ) ) )
 		pParty->SendPartyKick( strOther );
 }
 
@@ -2089,7 +2105,7 @@ void CChattingUI::PetTransform( char* szMsg )
 {
 	int nLength = strlen(szMsg);
 	CTString strNpcIndex = CTString(""), strPetSize = CTString("");
-	// º¯½Å ¸ó½ºÅÍÀÇ ÀÎµ¦½º¿Í »çÀÌÁî¸¦ °¡Á® ¿Â´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½î¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½.
 	int iChar;
 	for (iChar=0; iChar<nLength; iChar++)
 	{
@@ -2113,7 +2129,7 @@ void CChattingUI::PetTransform( char* szMsg )
 	}
 	else
 	{
-		AddSysMessage ( CTString("Npc Index¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä!") );
+		AddSysMessage ( CTString("Npc Indexï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½!") );
 		return;
 	}
 
@@ -2179,10 +2195,10 @@ void CChattingUI::PopupUserNotice()
 	if (m_msgID >= 0)
 		MSGBOXMGR()->Close(m_msgID);
 
-	CTString strDesc1 = _S(5609, "°øÁö ÇÏ°íÀÚ ÇÏ´Â ³»¿ëÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
-	CTString strDesc2 = _S(5630, "(´Ü, ÃÖ´ë 30ÀÚ ±îÁö ÀÔ·ÂÀÌ °¡´ÉÇÕ´Ï´Ù.)");
+	CTString strDesc1 = _S(5609, "ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½.");
+	CTString strDesc2 = _S(5630, "(ï¿½ï¿½, ï¿½Ö´ï¿½ 30ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.)");
 
-	m_msgID = MSGBOXMGR()->CreateMsgBox(_S(5610, "À¯Àú °øÁö"), 
+	m_msgID = MSGBOXMGR()->CreateMsgBox(_S(5610, "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"), 
 		strDesc1 + strDesc2, eMSG_INPUT, true);
 
 	if (m_msgID > 0)
@@ -2204,7 +2220,7 @@ void CChattingUI::CheckUserNoitce(int msgID)
 
 	if (_UIFiltering.Filtering(strBuffer.str_String, nIndexBuffer) == TRUE)
 	{
-		AddSysMessage ( _S( 437, "¹®Àå¿¡ ±ÝÁöµÈ ´Ü¾î°¡ Æ÷ÇÔµÇ¾î ÀÖ½À´Ï´Ù." ) );
+		AddSysMessage ( _S( 437, "ï¿½ï¿½ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾î°¡ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." ) );
 		return;
 	}
 
@@ -2221,7 +2237,7 @@ void CChattingUI::AddUserNotice( CTString strOwner, CTString strMsg )
 
 	m_timeUserNoticeDelay	= _pTimer->GetHighPrecisionTimer().GetMilliseconds();
 
-	// À¯Àú°øÁö Çü½Ä »ý¼º (Ã¤ÆÃ°ú °°´Ù)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ã¤ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½)
 	CTString	strGenerate;
 	strGenerate.PrintF("%s > %s", strOwner, strMsg);
 	m_pTextUserNotice->SetText(strGenerate);
@@ -2466,7 +2482,7 @@ void CChattingUI::UpdateAlert()
 		{
 			for (i = 0; i < eCM_END; ++i)
 			{
-				// ÀÏ¹Ý Ã¤ÆÃ ¸ðµå <-> ÀüÃ¼ Ã¤ÆÃ ¸ðµå º¯°æ½Ã Ã¤ÆÃ ¿É¼Ç¿¡ µû¶ó Ã¤ÆÃ ¾Ë¸² ²¨ÁÖ±â.
+				// ï¿½Ï¹ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ <-> ï¿½ï¿½Ã¼ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½É¼Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½.
 				m_bChatAlert[nCurMainTab][i] = false;
 				m_nChatAlertType[nCurMainTab][i] = -1;
 			}

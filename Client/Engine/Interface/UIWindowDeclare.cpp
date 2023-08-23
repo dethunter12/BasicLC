@@ -167,6 +167,9 @@
 #ifdef GLADES_RANKING_04182023
 #include <Engine/Interface/UIRankingGlades.h>
 #endif
+#ifdef QUICK_PANEL
+#include <Engine/Contents/function/UIQuickPanel.h>
+#endif
 
 void CUIWindowDeclare::initUI()
 {
@@ -178,7 +181,7 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_PLAYERINFO] = new CUIPlayerInfo;
 	m_apUIs[UI_PLAYERINFO]->Create( NULL, 0, 0, PLAYERINFO_WIDTH, PLAYERINFO_HEIGHT );
 
-	// [12/6/2012 ¹ÚÈÆ] UIQuickslot °³Æí 
+	// [12/6/2012 ï¿½ï¿½ï¿½ï¿½] UIQuickslot ï¿½ï¿½ï¿½ï¿½ 
 	m_apUIs[UI_QUICKSLOT2] = new CUIChildQuickSlot(UI_QUICKSLOT2);
 	m_apUIs[UI_QUICKSLOT2]->Create( NULL,0 , 0, CHILD_QUICKSLOT_WIDTH, CHILD_QUICKSLOT_HEIGHT );
 
@@ -369,11 +372,11 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_PROCESS] = new CUIProcess;
 	LoadXML("Process.xml", m_apUIs[UI_PROCESS]);
 
-	// process ¿Í µðÀÚÀÎ °øÀ¯
+	// process ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_apUIs[UI_PRODUCT] = new CUIProduct;
 	LoadXML("Process.xml", m_apUIs[UI_PRODUCT]);
 
-	// Mix :  ÀÌ±âÈ¯ (12.7)
+	// Mix :  ï¿½Ì±ï¿½È¯ (12.7)
 	m_apUIs[UI_MIX] = new CUIMix;
 	m_apUIs[UI_MIX]->Create( NULL, 0, 0, MIX_WIDTH, MIX_HEIGHT );
 
@@ -391,11 +394,11 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_SELECTWORD] = new CUISelectWord;
 	m_apUIs[UI_SELECTWORD]->Create( NULL, 0, 0, SELECTREWORD_WIDTH, SELECTREWORD_HEIGHT );
 
-	// Ä£±¸ Ã£±â ÀÌº¥Æ® 060126
+	// Ä£ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ìºï¿½Æ® 060126
 	m_apUIs[UI_SELECTLIST] = new CUISelectList;
 	m_apUIs[UI_SELECTLIST]->Create( NULL, 0, 0, SELECTLIST_WIDTH, SELECTLIST_HEIGHT );
 
-	// Æê ¾ÆÀÌÅÛ Á¶ÇÕ( À¯´ÏÅ© ¾ÆÀÌÅÛ Á¦ÀÛ )
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½( ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 	m_apUIs[UI_PET_ITEM_MIX] = new CPetItemMixUI;
 	LoadXML( "PetItemMix.xml", m_apUIs[UI_PET_ITEM_MIX] );
 
@@ -410,11 +413,11 @@ void CUIWindowDeclare::initUI()
 
 	m_apUIs[UI_BINGOBOX] = new CBingoBoxUI;
 	LoadXML( "bingobox.xml", m_apUIs[UI_BINGOBOX] );
-	// NPC ¾È³» ½Ã½ºÅÛ
+	// NPC ï¿½È³ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	m_apUIs[UI_NPCHELP]	= new CUINpcHelp;
 	m_apUIs[UI_NPCHELP]->Create( NULL, 0, 0, UI_NPCHELP_WIDTH, UI_NPCHELP_HEIGHT );
 
-	// connie [2009/9/9] - NPC Ã£±â
+	// connie [2009/9/9] - NPC Ã£ï¿½ï¿½
 	m_apUIs[UI_NPC_SCROLL] = new CUINpcScroll;
 	LoadXML( "NPCScroll.xml", m_apUIs[UI_NPC_SCROLL] );
 
@@ -440,27 +443,27 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_JEWEL_COMPOS] = new CJewelComposUI;
 	LoadXML( "Socket system_Compos.xml", m_apUIs[UI_JEWEL_COMPOS] );
 
-	// Äù½ºÆ® ¸ñ·Ï
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	m_apUIs[UI_QUESTBOOK_LIST] = new CUIQuestBook;
 	LoadXML( "questBook.xml", m_apUIs[UI_QUESTBOOK_LIST] );
 
-	// Äù½ºÆ® ¿Ï·á
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½
 	m_apUIs[UI_QUESTBOOK_COMPLETE] = new CUIQuestComplete;
 	LoadXML( "questComplete.xml", m_apUIs[UI_QUESTBOOK_COMPLETE] );
 
-	// ½Å±Ô Äù½ºÆ®
+	// ï¿½Å±ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	m_apUIs[UI_QUEST_ACCEPT] = new CUIQuestAccept;
 	LoadXML( "questAccept.xml", m_apUIs[UI_QUEST_ACCEPT] );
 
-	// Äù½ºÆ® º¹±¸
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	m_apUIs[UI_QUEST_RESTORE] = new CUIQuestRestore;
 	LoadXML( "questRestore.xml", m_apUIs[UI_QUEST_RESTORE] );
 
-	// Äù½ºÆ® ¹Ì¸®º¸±â
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_apUIs[UI_QUEST_VIEW] = new CUIQuestView;
 	LoadXML( "questView.xml", m_apUIs[UI_QUEST_VIEW] );
 
-	// ¼ÒÈ¯¼ö ÄÁÆ®·Ñ...
+	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½...
 	m_apUIs[UI_SUMMON_FIRST] = new CSummonUI(UI_SUMMON_FIRST);
 	LoadXML( "Summon.xml", m_apUIs[UI_SUMMON_FIRST]);
 
@@ -475,10 +478,10 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_SSKILLLEARN] = new CSSkillLearnUI;
 	LoadXML( "SSkillLearn.xml", m_apUIs[UI_SSKILLLEARN]);
 
-	// ³ë¸Ö ¾ÆÀÌÅÛ ±³È¯ 29 ~ 72 Lv
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ 29 ~ 72 Lv
 	m_apUIs[UI_CHANGEWEAPON] = new CUIChangeWeapon;
 	LoadXML( "ChangeWeapon.xml", m_apUIs[UI_CHANGEWEAPON]);
-	// ·¹¾î ¾ÆÀÌÅÛ ±³È¯
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	m_apUIs[UI_CHANGE_EQUIPMENT] = new CUIChangeEquipment;
 	LoadXML( "ChangeEquipment.xml", m_apUIs[UI_CHANGE_EQUIPMENT]);
 	
@@ -502,12 +505,12 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_WEBBOARD] = new CUIWebBoard;
 	m_apUIs[UI_WEBBOARD]->Create( NULL, 0, 0, WBOARD_WIDTH, WBOARD_HEIGHT );
 
-	// SiegeWarfare(°ø¼ºÀü)
+	// SiegeWarfare(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	m_apUIs[UI_SIEGE_WARFARE] = new CUISiegeWarfare;
 	m_apUIs[UI_SIEGE_WARFARE]->Create( NULL, 0, 0, 0, 0 );
 
 	// WSS_DRATAN_SIEGEWARFARE
-	// SiegeWarfareNew(½Å°ø¼ºÀü) -DRATAN
+	// SiegeWarfareNew(ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½) -DRATAN
 	m_apUIs[UI_SIEGE_WARFARE_NEW] = new CUISiegeWarfareNew;
 	m_apUIs[UI_SIEGE_WARFARE_NEW]->Create( NULL, 0, 0, 0, 0 );
 
@@ -535,15 +538,15 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_CUBERANK] = new CCubeRankingUI;
 	LoadXML( "cuberank.xml", m_apUIs[UI_CUBERANK]);
 
-	// [2010/10/20 : Sora] ¸ó½ºÅÍ ¿ëº´ Ä«µå
+	// [2010/10/20 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ Ä«ï¿½ï¿½
 	m_apUIs[UI_MONSTER_MERCENARY] = new CUIMonsterMercenary;
 	m_apUIs[UI_MONSTER_MERCENARY]->Create( NULL, 0, 0, UI_MONSTER_MERCENARY_WIDTH, UI_MONSTER_MERCENARY_HEIGHT);
 
-	// [2010/11/01 : Sora] °ø¼º °³Æí
+	// [2010/11/01 : Sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_apUIs[UI_SIEGE_WARFARE_INFO] = new CUISiegeWarfareInfo;
 	m_apUIs[UI_SIEGE_WARFARE_INFO]->Create( NULL, 0, 0, 400, 350 );
 
-	// º¸¹°Áöµµ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	m_apUIs[UI_TREASURE_MAP] = new CTreasureMapUI;
 	LoadXML( "TreasureMap.xml", m_apUIs[UI_TREASURE_MAP]);
 
@@ -590,7 +593,7 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_CREATE_CHAR] = new CUICharacterCreateNew;
 	LoadXML( "Character_create.xml", m_apUIs[UI_CREATE_CHAR] );
 
-	// [KH_070420]	Ãß°¡
+	// [KH_070420]	ï¿½ß°ï¿½
 	m_apUIs[UI_SIMPLE_POP] = new CUISimplePop;
 	m_apUIs[UI_SIMPLE_POP]->Create(NULL, 0, 0, 0, 0);
 
@@ -609,7 +612,7 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_GUILD_NOTICE] = new CUIGuildNotice;
 	m_apUIs[UI_GUILD_NOTICE]->Create(NULL, 0, 0, GUILD_NOTICE_WIDTH, GUILD_NOTICE_HEIGHT);
 	// ------------------------------------------------------------------------<<
-	// ttos_080116 : ¸ó½ºÅÍ ÄÞº¸
+	// ttos_080116 : ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½
 	m_apUIs[UI_MONSTER_COMBO] = new CUIMonsterCombo;
 	m_apUIs[UI_MONSTER_COMBO]->Create(NULL, 0, 0, UI_MONSTERCOMBO_WIDTH, UI_MONSTERCOMBO_HEIGHT);
 	// ------------------------------------------------------------------------<<
@@ -620,18 +623,18 @@ void CUIWindowDeclare::initUI()
 	LoadXML("ProductNPC.xml", m_apUIs[UI_PRODUCTNPC]);
 
 	// NPC Affinity System ---------------------------------------------------->>
-	// [6/2/2009 rumist]  Ä£È­µµ.
+	// [6/2/2009 rumist]  Ä£È­ï¿½ï¿½.
 	m_apUIs[UI_NPC_AFFINITYINFO] = new CAffinityInfoUI;
 	LoadXML("affinity_info.xml", m_apUIs[UI_NPC_AFFINITYINFO]);
 
 	// ---------------------------------------------------->>
-	// Ä£È­µµ UI¿¡¼­ Á¦ÀÛ UI ºÐ¸® [2/25/2013 Ranma]
+	// Ä£È­ï¿½ï¿½ UIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UI ï¿½Ð¸ï¿½ [2/25/2013 Ranma]
 	m_apUIs[UI_ITEMPRODUCT] = new CItemProductUI;
 	LoadXML("itemproduct.xml", m_apUIs[UI_ITEMPRODUCT]);
 
 	// ------------------------------------------------------------------------<<
 	// NPC Affinity System ---------------------------------------------------->>
-	// [6/2/2009 rumist]  Ä£È­µµ ±âºÎ.
+	// [6/2/2009 rumist]  Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	m_apUIs[UI_NPC_AFFINITY] = new CAffinityUI;
 	LoadXML("affinity.xml", m_apUIs[UI_NPC_AFFINITY]);
 	// ------------------------------------------------------------------------<<
@@ -655,7 +658,7 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_GUILD_MARK] = new CUIGuildMark;
 	m_apUIs[UI_GUILD_MARK]->Create( NULL, 0, 0, 0, 0 );
 
-	// reform system [8/28/2012 ¹ÚÈÆ]
+	// reform system [8/28/2012 ï¿½ï¿½ï¿½ï¿½]
 	m_apUIs[UI_REFORM_SYSTEM] = new CUIReformSystem;
 	m_apUIs[UI_REFORM_SYSTEM]->Create(NULL, 0, 0, 0, 0);
 
@@ -663,7 +666,7 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_FORTUNE] = new CUIFortune;
 	m_apUIs[UI_FORTUNE]->Create(NULL, 0, 0, CUIFortune::FORTUNE_WIDTH, CUIFortune::FORTUNE_HEIGHT);
 
-	// ¶ó½ºÆ® Ä«¿À½º ÀÍ½ºÇÁ·¹½º ½Ã½ºÅÛ
+	// ï¿½ï¿½Æ® Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	m_apUIs[UI_LCE_SYSTEM] = new CUIExpressSystem;
 	m_apUIs[UI_LCE_SYSTEM]->Create(NULL, 0, 0, LCE_UI_INFO_WIDTH, LCE_UI_INFO_HEIGHT);
 
@@ -769,6 +772,10 @@ void CUIWindowDeclare::initUI()
 	m_apUIs[UI_IDENTIFYFUNC] = new CUIIdentifyItem;
 	LoadXML("IdentifyMulti.xml", m_apUIs[UI_IDENTIFYFUNC]);
 #endif
+#ifdef QUICK_PANEL
+	m_apUIs[UI_QuickPanel] = new CUIQuickPanel;
+	LoadXML("MultipleBuff.xml", m_apUIs[UI_QuickPanel]);
+#endif
 }
 
 void CUIWindowDeclare::InitRankSystem()
@@ -783,7 +790,7 @@ bool CUIWindowDeclare::LoadXML( const char* strPath, CUIBase* parent )
 	FileName += "Data\\Interface\\xml\\";
 	FileName += strPath;
 
-	// ÆÄÀÏ À¯È¿¼º °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Ë»ï¿½
 	if( FileExists( FileName ) == FALSE )
 		return false;
 
@@ -805,7 +812,7 @@ bool CUIWindowDeclare::LoadXML( const char* strPath, CUIBase* parent )
 
 bool CUIWindowDeclare::LoadXML( const char* strPath )
 {
-	// ÆÄÀÏ À¯È¿¼º °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ ï¿½Ë»ï¿½
 	if( FileExists( strPath ) == FALSE )
 		return false;
 

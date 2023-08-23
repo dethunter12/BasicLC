@@ -99,6 +99,8 @@ void AppearMsg(CNetMsg::SP& msg, CCharacter* _ch, bool bNew, bool bAction)
 				packet->accessory[3] = ch->m_wearInventory.wearItemInfo[WEARING_ACCESSORY4 + 1]->getDBIndex();
 			else
 				packet->accessory[3] = -1;
+
+			#ifdef RUNE_ACCESSORY_SLOT_08232023
 			//dethunter12 mod 1 accessory  only each slot.
 			if (ch->m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1 + 1])
 				packet->accessory[4] = ch->m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY1 + 1]->getDBIndex();
@@ -125,7 +127,7 @@ void AppearMsg(CNetMsg::SP& msg, CCharacter* _ch, bool bNew, bool bAction)
 				packet->accessory[8] = ch->m_wearInventory.wearItemInfo[WEARING_SPECIAL_ACCESSORY5 + 1]->getDBIndex();
 			else
 				packet->accessory[8] = -1;
-
+			#endif
 
 			
 
@@ -202,12 +204,12 @@ void AppearMsg(CNetMsg::SP& msg, CCharacter* _ch, bool bNew, bool bAction)
 				packet->isPlayerStateSupporter = false;
 
 			packet->pressCorps = ch->m_bPressCorps;
-			packet->expedLabel = ch->GetExpedLabel();		//¿øÁ¤´ë Ç¥½Ä(PC)
+			packet->expedLabel = ch->GetExpedLabel();		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½(PC)
 
-			// ÇöÀç ½ºÅ³À» ¾²°í ÀÖ´Ù¸é, Áö¼Ó ½Ã°£ÀÌ ±æ´Ù¸é
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½
 			if (ch->m_currentSkill && ch->m_currentSkill->m_state == SKILL_CON_FIRE)
 			{
-				// AppearMsg¸¦ º¸³ÂÀ¸¹Ç·Î À¯ÀúÀÇ ÃÊ´ç Ã¼Å©¿¡¼­ skillfireMsg¸¦ º¸³½´Ù.
+				// AppearMsgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ skillfireMsgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				ch->m_bCheckAppear = true;
 			}
 
@@ -271,7 +273,7 @@ void AppearMsg(CNetMsg::SP& msg, CCharacter* _ch, bool bNew, bool bAction)
 			packet->attratt = ch->m_attratt;
 
 			packet->mapAttr = ch->GetMapAttr();
-			packet->expedLabel = ch->GetExpedLabel();		//¿øÁ¤´ë Ç¥½Ä(NPC)
+			packet->expedLabel = ch->GetExpedLabel();		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½(NPC)
 
 			if( ch->GetOwner() && !ch->Check_MobFlag(STATE_MONSTER_PARASITE) )
 			{
@@ -369,7 +371,7 @@ void AppearMsg(CNetMsg::SP& msg, CCharacter* _ch, bool bNew, bool bAction)
 			packet->maxHp = ch->m_maxHP;
 			packet->mapAttr = ch->GetMapAttr();
 
-			// ¼ÒÈ¯¼ö Å©±â¸¦ Å©°Ô ÇÒ °ÍÀÎ°¡? : ¿¤¸®¸àÅ» ¸®½ºÆ®·Î ÀüÁ÷ÇÏ¸é Ä¿Áü
+			// ï¿½ï¿½È¯ï¿½ï¿½ Å©ï¿½â¸¦ Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½? : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Ä¿ï¿½ï¿½
 			packet->isBigSize = (ch->GetOwner()->m_job2 == JOB_2ND_ELEMENTALLIST);
 
 			ch->m_assist.AppendAssistToNetStructMsg(packet->assistInfo);
@@ -563,7 +565,7 @@ void TargetClearMsg(CNetMsg::SP& msg, int targetIndex)
 	UpdateClient::targetClear* packet = reinterpret_cast<UpdateClient::targetClear*>(msg->m_buf);
 	packet->type = MSG_UPDATE_DATA_FOR_CLIENT;
 	packet->subType = MSG_SUB_UPDATE_TARGET_CLEAR;
-	packet->targetIndex = targetIndex;				//targetIndex°¡ -1ÀÌ¸é ³»°¡ µé°í ÀÖ´Â Å¸°ÙÀ» ºñ±³ÇÏÁö¾Ê°í ¹«Á¶²« ÇØÁ¦ ½ÃÅ²´Ù.
+	packet->targetIndex = targetIndex;				//targetIndexï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 	msg->setSize(sizeof(UpdateClient::targetClear));
 }
 
@@ -577,7 +579,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	packet->type = MSG_UPDATE_DATA_FOR_CLIENT;
 	packet->subType = MSG_SUB_UPDATE_STATUS;
 
-	// ¿É¼Ç¿¡ ÀÇÇÑ ½ºÅÈ »ó½Â ¼öÄ¡ Àû¿ë
+	// ï¿½É¼Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	int str = ch->m_statpt_str + ch->m_opStr + ch->m_artiStr;
 	int dex = ch->m_statpt_dex + ch->m_opDex + ch->m_artiDex;
 	int intl = ch->m_statpt_int + ch->m_opInt + ch->m_artiInt;
@@ -598,7 +600,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 
 	MSG_DAMAGE_TYPE meleetype;
 
-	// ¹°¸®È¸ÇÇ°è»ê, ¹°¸®¸íÁß°è»ê
+	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½Ç°ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½
 	if(ch->m_wearInventory.wearItemInfo[WEARING_WEAPON])
 	{
 		if(ch->m_wearInventory.wearItemInfo[WEARING_WEAPON]->IsRangeWeapon())
@@ -632,7 +634,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		rateattack80 = 80;
 	attack += addattack80 + rateattack80;
 
-// NPC °ø°Ý·Â Áõ°¡ Ç¥½Ã´Â ¹«Á¶°Ç ÇÕ´Ï´Ù.
+// NPC ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.
 	attack += ch->m_avPassiveAddition.npcAttack + attack * ch->m_avPassiveAddition.npcAttack / SKILL_RATE_UNIT ;
 	attack += ch->m_avPassiveAddition.npcMagic + magic * ch->m_avPassiveAddition.npcMagic / SKILL_RATE_UNIT ;
 
@@ -649,7 +651,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		rateattack80 = 80;
 	attack += addattack80 + rateattack80;
 
-	// ¹öÇÁÈ¿°ú Ç¥½Ã
+	// ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½ Ç¥ï¿½ï¿½
 	if (ch->m_wearInventory.wearItemInfo[WEARING_WEAPON] && ch->m_wearInventory.wearItemInfo[WEARING_WEAPON]->IsRangeWeapon())
 	{
 		attack += ch->m_assist.m_avAddition.attack + attack * ch->m_assist.m_avRate.attack / SKILL_RATE_UNIT
@@ -673,11 +675,11 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		resist += ch->m_assist.m_avAddition.war_resist;
 	}
 
-// NPC °ø°Ý·Â Áõ°¡ Ç¥½Ã´Â ¹«Á¶°Ç ÇÕ´Ï´Ù.
+// NPC ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.
 	attack += ch->m_assist.m_avAddition.npcAttack + attack * ch->m_assist.m_avRate.npcAttack / SKILL_RATE_UNIT;
 	magic += ch->m_assist.m_avAddition.npcMagic + magic * ch->m_assist.m_avRate.npcMagic / SKILL_RATE_UNIT;
 
-	// ¾ÆÀÌÅÛ Æä³ÎÆ¼ °ü·Ã
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 	int adef = ch->GetAttackLevel() - ch->m_level;
 	int ddef = ch->GetDefenseLevel() - ch->m_level;
 
@@ -734,7 +736,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 
 	if (ch->m_wearInventory.wearItemInfo[WEARING_WEAPON] && ch->m_wearInventory.wearItemInfo[WEARING_WEAPON]->m_itemProto == NULL)
 	{
-		// TODO : DEBUGING¿ë
+		// TODO : DEBUGINGï¿½ï¿½
 		char debug_buf[MAX_STRING_LENGTH] = {0,};
 		sprintf(debug_buf, "ERR:ITEM:PROTO:%s:%s:%d", (const char *)ch->m_name, (const char *)ch->m_nick, ch->m_wearInventory.wearItemInfo[WEARING_WEAPON]->getDBIndex());
 		LOG_INFO(debug_buf);
@@ -749,7 +751,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		magic += ch->m_int * 10 / 15;
 	}
 
-	// °­½Å Àû¿ë : ¹°¸®¹æ¾î
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	switch (ch->m_evocationIndex)
 	{
 	case EVOCATION_HELLOUND:
@@ -760,7 +762,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		break;
 	}
 
-	// °­½Å Àû¿ë : ¸¶°ø
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
 	switch (ch->m_evocationIndex)
 	{
 	case EVOCATION_HELLOUND:
@@ -772,7 +774,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		break;
 	}
 
-	// °­½Å Àû¿ë : ¸¶¹ý¹æ¾î
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	switch (ch->m_evocationIndex)
 	{
 	case EVOCATION_HELLOUND:
@@ -838,10 +840,10 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	}
 
 	///////////////////////////////////////////////////////
-	float avoid_magic_org = 0.0, avoid_magic = 0.0;			// ¸¶¹ýÈ¸ÇÇ
-	float avoid_melee_org = 0.0, avoid_melee = 0.0;			// ¹°¸®È¸ÇÇ
-	float fhitrate_magic_org = 0.0, fhitrate_magic = 0.0;	// ¸¶¹ý¸íÁß
-	float fhitrate_melee_org = 0.0, fhitrate_melee = 0.0;	// ¹°¸®¸íÁß
+	float avoid_magic_org = 0.0, avoid_magic = 0.0;			// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½
+	float avoid_melee_org = 0.0, avoid_melee = 0.0;			// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½
+	float fhitrate_magic_org = 0.0, fhitrate_magic = 0.0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float fhitrate_melee_org = 0.0, fhitrate_melee = 0.0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 	avoid_melee = ch->GetAvoid(ch, meleetype);
@@ -865,13 +867,13 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 		break;
 	}
 
-	avoid_melee_org = avoid_melee;			// ¹°¸®È¸ÇÇ°è»ê
+	avoid_melee_org = avoid_melee;			// ï¿½ï¿½ï¿½ï¿½È¸ï¿½Ç°ï¿½ï¿½
 	avoid_melee += ch->m_assist.m_avAddition.avoid + (avoid_melee * ch->m_assist.m_avRate.avoid / SKILL_RATE_UNIT);
 
-	fhitrate_melee_org = fhitrate_melee;	// ¹°¸®¸íÁß°è»ê
+	fhitrate_melee_org = fhitrate_melee;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½
 	fhitrate_melee += ch->m_assist.m_avAddition.hitrate + (fhitrate_melee * ch->m_assist.m_avRate.hitrate / SKILL_RATE_UNIT);
 
-	// ¸¶¹ýÈ¸ÇÇ°è»ê
+	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½Ç°ï¿½ï¿½
 	avoid_magic = ch->GetAvoid(ch, MSG_DAMAGE_MAGIC);
 	avoid_magic += ch->m_opResistAvoid + ch->m_avPassiveAddition.Avoid_2034;
 	avoid_magic += ch->m_avPassiveAddition.magicavoid + (avoid_magic * ch->m_avPassiveRate.magicavoid / SKILL_RATE_UNIT);
@@ -879,7 +881,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	avoid_magic_org = avoid_magic;
 	avoid_magic += ch->m_assist.m_avAddition.magicavoid + (avoid_magic * ch->m_assist.m_avRate.magicavoid / SKILL_RATE_UNIT);
 
-	// ¸¶¹ý¸íÁß°è»ê
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½
 	fhitrate_magic = ch->GetHitrate(ch, MSG_DAMAGE_MAGIC);
 	fhitrate_magic += ch->m_opMagicHitRate + ch->m_avPassiveAddition.HitRate_2033;
 	fhitrate_magic += ch->m_avPassiveAddition.magichitrate + (fhitrate_magic * ch->m_avPassiveRate.magichitrate / SKILL_RATE_UNIT);
@@ -887,7 +889,7 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	fhitrate_magic_org = fhitrate_magic;
 	fhitrate_magic += ch->m_assist.m_avAddition.magichitrate + (fhitrate_magic * ch->m_assist.m_avRate.magichitrate / SKILL_RATE_UNIT);
 
-	// Å©¸®Æ¼ÄÃ, µ¥µé¸®
+	// Å©ï¿½ï¿½Æ¼ï¿½ï¿½, ï¿½ï¿½ï¿½é¸®
 	int critical = 0, deadly = 0;
 	int critical_org = 0, deadly_org = 0;
 	int nOffenseDexBase = 0;
@@ -942,17 +944,17 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	packet->opInt = ch->m_opInt;
 	packet->opCon = ch->m_opCon;
 	packet->attack = attack;
-	packet->attack_diff = attack_diff; // (Áõ°¨°ª)
+	packet->attack_diff = attack_diff; // (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	packet->magic = magic;
-	packet->magic_diff = magic_diff; // (Áõ°¨°ª)
+	packet->magic_diff = magic_diff; // (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	packet->defense = defense;
-	packet->defense_diff = defense_diff; // (Áõ°¨°ª)
+	packet->defense_diff = defense_diff; // (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	packet->resist = resist;
-	packet->resist_diff = resist_diff; // (Áõ°¨°ª)
-	packet->avoid_melee = avoid_melee;	// ¹°¸®È¸ÇÇ(ÃÖÁ¾)
-	packet->avoid_melee_org = avoid_melee_org; 	// ¹°¸®È¸ÇÇ(Ãß°¡µÇ´Â°Å »« °ª)
-	packet->avoid_magic = avoid_magic;	// ¸¶¹ýÈ¸ÇÇ(ÃÖÁ¾)
-	packet->avoid_magic_org = avoid_magic_org; // ¸¶¹ýÈ¸ÇÇ(Ãß°¡µÇ´Â°Å »« °ª)
+	packet->resist_diff = resist_diff; // (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	packet->avoid_melee = avoid_melee;	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	packet->avoid_melee_org = avoid_melee_org; 	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½(ï¿½ß°ï¿½ï¿½Ç´Â°ï¿½ ï¿½ï¿½ ï¿½ï¿½)
+	packet->avoid_magic = avoid_magic;	// ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	packet->avoid_magic_org = avoid_magic_org; // ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½(ï¿½ß°ï¿½ï¿½Ç´Â°ï¿½ ï¿½ï¿½ ï¿½ï¿½)
 	packet->fhitrate_melee = fhitrate_melee;
 	packet->fhitrate_melee_org = fhitrate_melee_org;
 	packet->fhitrate_magic = fhitrate_magic;
@@ -974,18 +976,18 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	if( ch->IsSetPlayerState(PLAYER_STATE_FLYING))
 	{
 		packet->run_or_fly_speed = flySpeed;
-		packet->run_or_fly_speed_org = ch->m_flySpeed; // (Ãß°¡µÇ´Â°Å »« °ª)
+		packet->run_or_fly_speed_org = ch->m_flySpeed; // (ï¿½ß°ï¿½ï¿½Ç´Â°ï¿½ ï¿½ï¿½ ï¿½ï¿½)
 	}
 	else
 	{
 		packet->run_or_fly_speed = runSpeed;
 		packet->run_or_fly_speedfix = runSpeed * 2 + 38.1f;//Cloud ant-hack																	   
-		packet->run_or_fly_speed_org = ch->m_runSpeed_org; // (?????¡Æ? ?? ??)
+		packet->run_or_fly_speed_org = ch->m_runSpeed_org; // (?????ï¿½ï¿½? ?? ??)
 	}
 
 	packet->attackSpeed = ch->m_attackSpeed;
 	packet->attackSpeedfix = ch->m_attackSpeed * 2 + 63;//Cloud ant-hack
-	packet->attackSpeedOrg = ch->m_attackSpeed_org;  // (?????¡Æ? ?? ??)
+	packet->attackSpeedOrg = ch->m_attackSpeed_org;  // (?????ï¿½ï¿½? ?? ??)
 
 	packet->magicSpeed = ch->m_magicSpeed;
 	packet->pkName = ch->GetPKName();
@@ -993,10 +995,15 @@ void StatusMsg(CNetMsg::SP& msg, CPC* ch)
 	packet->pkCount  = ch->m_pkCount;
 	packet->fame = ch->m_fame;
 	packet->attackRange = ch->m_attackRange;
-
+#ifdef QUICK_PANEL
+	for (int j = 0; j <= 24; j++)
+	{
+		packet->m_cloud_m_QuickPanelBtnType[j] = ch->m_QuickPanelBtnType[j];
+		packet->m_cloud_m_QuickPanelBtnIdx[j] = ch->m_QuickPanelBtnIdx[j];
+	}
+#endif
 	packet->joinForMerac = ch->GetJoinFlag(ZONE_MERAC);
 	packet->joinForDratan = ch->GetJoinFlag(ZONE_DRATAN);
-
 	packet->skillSpeed = ch->m_skillSpeed;
 	packet->skillSpeedfix = ch->m_skillSpeed + 7;//Cloud ant-hack														
 	packet->mapAttr = ch->GetMapAttr();
@@ -1125,7 +1132,7 @@ void DamageMsg(CNetMsg::SP& msg, CCharacter* ch, CCharacter* tch, MSG_DAMAGE_TYP
 	packet->damage = damage;
 	packet->holyitemIndex = holyItemIndex;
 
-	// °ø°Ý¼Óµµ
+	// ï¿½ï¿½ï¿½Ý¼Óµï¿½
 	if (IS_NPC(tch) && TO_NPC(tch)->m_proto->CheckFlag(NPC_LORD_SYMBOL))
 	{
 		packet->attackSpeed = 12;
@@ -1152,7 +1159,7 @@ void DamageMsg(CNetMsg::SP& msg, CCharacter* ch, CCharacter* tch, MSG_DAMAGE_TYP
 
 void WearingMsg(CNetMsg::SP& msg, CPC* ch, char wearpos, int item_db_index, int item_plus)
 {
-	// ¾È º¸ÀÌ¸é ¹«½Ã
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!ch->m_bVisible)
 	{
 		msg->Init();
@@ -1164,19 +1171,19 @@ void WearingMsg(CNetMsg::SP& msg, CPC* ch, char wearpos, int item_db_index, int 
 	RefMsg(msg) << ch->m_index		// char_index
 				<< wearpos
 				<< item_db_index;
-// 050223 : bs : plus È¿°ú¸¦ À§ÇÑ Á¤º¸ Ãß°¡
+// 050223 : bs : plus È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	RefMsg(msg) << item_plus;
-// --- 050223 : bs : plus È¿°ú¸¦ À§ÇÑ Á¤º¸ Ãß°¡
+// --- 050223 : bs : plus È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 }
 
-// ¾ÆÀÌÅÛ Á¤º¸ Àü¼Û ½Ã °øÅë ÀûÀÎ ºÎºÐÀ» ÀÌ ÇÔ¼ö ¾È¿¡ Ãß°¡ÇÑ´Ù..
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½È¿ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½..
 void ItemPublicMsg(CNetMsg::SP& msg, CItem * pItem, bool bOption)
 {
-	// bOption : ¾Æ·¡ÀÇ ¸Þ¼¼Áö Àü¼Û ½Ã ¿É¼Ç Á¤º¸°¡ ¸¶Áö¸· À§Ä¡°¡ ¾Æ´Ñ,
-	//           Áß°£¿¡ À§Ä¡ÇØ ÀÖ´Â °æ¿ì´Â bOptionÀ» false·Î »ç¿ëÇÏ¿©,
-	//           ¿É¼Ç Àü¼ÛÀ» »ç¿ëÇÏÁö ¾Ê´Â´Ù.
-	//           ** ÃßÈÄ ½Ã°£ÀÌ ³²´Â´Ù¸é^^ ¾Æ·¡ÀÇ ¸Þ¼¼Áö¿¡¼­
-	//              ¿É¼Ç À§Ä¡ ¸ÂÃç¼­ ÀÌ°÷¿¡¼­ Àü¼ÛÇÒ ¼ö ÀÖµµ·Ï ¼öÁ¤ÇÏ¸é ÁÁ°Ú´Ù.
+	// bOption : ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Æ´ï¿½,
+	//           ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ bOptionï¿½ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½,
+	//           ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	//           ** ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´Ù¸ï¿½^^ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//              ï¿½É¼ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ç¼­ ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Öµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½.
 	// MSG_PERSONALSHOP_SELL_LIST
 	// MSG_STASH - MSG_STASH_LIST_REP
 	// MSG_TRADEAGENT - MSG_TRADEAGENT_REG_LIST_REP
@@ -1187,7 +1194,7 @@ void ItemPublicMsg(CNetMsg::SP& msg, CItem * pItem, bool bOption)
 	{
 		if (pItem->IsOriginItem())
 		{
-			// ¿É¼Ç
+			// ï¿½É¼ï¿½
 			RefMsg(msg) << (char)pItem->GetOriginOptionCnt();
 			int i = 0;
 			for (i = 0; i < MAX_ORIGIN_OPTION; i++)
@@ -1200,8 +1207,8 @@ void ItemPublicMsg(CNetMsg::SP& msg, CItem * pItem, bool bOption)
 				}
 			}
 
-			// ½ºÅ³
-			RefMsg(msg) << (char)pItem->GetBelongType()					// ±Í¼Ó ¼³Á¤
+			// ï¿½ï¿½Å³
+			RefMsg(msg) << (char)pItem->GetBelongType()					// ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 						<< (char)pItem->GetOriginSkillCnt();
 			for (i = MAX_ORIGIN_OPTION; i < MAX_ORIGIN; i++)
 			{
@@ -1225,7 +1232,7 @@ void ItemPublicMsg(CNetMsg::SP& msg, CItem * pItem, bool bOption)
 		}
 	}
 
-	// Ãß°¡µÇ´Â µ¥ÀÌÅ¸´Â ¾Æ·¡¿¡ Ãß°¡ÇÑ´Ù.
+	// ï¿½ß°ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
 	RefMsg(msg) << pItem->getPlus_2();
 }
 
@@ -1270,7 +1277,7 @@ void ItemDropMsg(CNetMsg::SP& msg, CCharacter* ch, CItem* item)
 				<< GET_X(item)
 				<< GET_Z(item);
 
-	// ½Ì±Û´øÀü itemdrop
+	// ï¿½Ì±Û´ï¿½ï¿½ï¿½ itemdrop
 	if (ch->m_pZone->IsGuildRoom() || ch->m_pZone->IsPersonalDungeon())
 		RefMsg(msg) << item->m_pos.m_h + 1.0f;
 	else
@@ -1320,8 +1327,8 @@ void ItemUpgradeRepMsg(CNetMsg::SP& msg, char result, bool isRune, char nPlusNum
 	RefMsg(msg) << (unsigned char)MSG_ITEM_UPGRADE_REP
 				<< result;
 
-	// 146·¹º§ ÀÌ»ó ºÎÅÍ´Â Àû¿ëµÇ´Â Á¦·Ã¼®(·é)Àº
-	// ·éÀÇ ¿©ºÎ¿Í +,-µÇ´Â ¼öÄ¡¸¦ Ãß°¡ Àü¼ÛÇÑ´Ù.
+	// 146ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½(ï¿½ï¿½)ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ +,-ï¿½Ç´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	RefMsg(msg) << (char)isRune;
 
 	if (isRune)
@@ -1433,7 +1440,7 @@ void DBCharExistMsg(CNetMsg::SP& msg, int index, const char* name, const char* n
 	if (mp > maxmp)
 		mp = maxmp;
 
-	// Ä³¸¯ÅÍ Á¤º¸
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	RefMsg(msg) << (unsigned char)MSG_DB_CHAR_EXIST
 				<< index;
@@ -1457,9 +1464,9 @@ void DBCharExistMsg(CNetMsg::SP& msg, int index, const char* name, const char* n
 	for (i = WEARING_SHOW_START; i <= WEARING_BOOTS; i++)
 	{
 		RefMsg(msg) << wear[i - WEARING_SHOW_START];
-// 050223 : bs : plus È¿°ú¸¦ À§ÇÑ Á¤º¸ Ãß°¡
+// 050223 : bs : plus È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		RefMsg(msg) << plus[i - WEARING_SHOW_START];
-// --- 050223 : bs : plus È¿°ú¸¦ À§ÇÑ Á¤º¸ Ãß°¡
+// --- 050223 : bs : plus È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	}
 	RefMsg(msg) << wear[WEARING_BACKWING];
 	RefMsg(msg) << plus[WEARING_BACKWING];
@@ -1779,7 +1786,7 @@ void MsgGmKickIDCommandReqMsg(CNetMsg::SP& msg, int seq, int server, int subno, 
 				<< (unsigned char) MSG_MSGR_GMTOOL_KICKID_REQ
 				<< thisServer
 				<< thisSubno
-				<< charindex		// Áö¿¥Åø Ä³¸¯ÅÍ ÀÎµ¦½º
+				<< charindex		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 				<< id;
 }
 
@@ -1806,7 +1813,7 @@ void MsgGmKickCommandReqMsg(CNetMsg::SP& msg, int seq, int server, int subno, in
 				<< (unsigned char) MSG_MSGR_GMTOOL_KICK_REQ
 				<< thisServer
 				<< thisSubno
-				<< charindex		// Áö¿¥Åø Ä³¸¯ÅÍ ÀÎµ¦½º
+				<< charindex		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 				<< name;
 }
 
@@ -2866,7 +2873,7 @@ void NPCRegenMsg(CNetMsg::SP& msg, CNPC* npc, int entityIndex)
 				<< npc->m_idNum
 				<< GET_X(npc)
 				<< GET_Z(npc)
-				// TODO : ³ôÀÌ¸Ê¿¡ µû¸¥ height °ª Á¶Á¤
+				// TODO : ï¿½ï¿½ï¿½Ì¸Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ height ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				<< npc->m_pos.m_h //GET_H(npc)
 				<< GET_R(npc)
 				<< GET_YLAYER(npc)
@@ -2967,7 +2974,7 @@ void AssistListMsg(CNetMsg::SP& msg, CPC* ch)
 	ch->m_assist.AppendAssistToNetMsg(msg);
 }
 
-// ¸÷ »óÅÂ ¸Þ½ÃÁö
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 void CharStatusMsg(CNetMsg::SP& msg, CCharacter* ch, LONGLONG state2)
 {
 	switch (ch->m_type)
@@ -3253,8 +3260,8 @@ void ConnCashItemPurchaseReqMsg(CNetMsg::SP& msg, int userindex, const char* idn
 				<< cash;
 
 	int i;
-	// ¹°Ç° ±¸¸Å ¿äÃ»ÀÌ ¿À¸é
-	// ÇÑÁ¤ ÆÇ¸Å ¹°Ç°ÀÎÁö ±¸ºÐÇÏ¿© ÇÑÁ¤ ÆÇ¸Å ¹°Ç°ÀÌ¸é ºÐ·ùÇÏ¿© µÚ¿¡ ºÙÀÎ´Ù.
+	// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½Ç°ï¿½Ì¸ï¿½ ï¿½Ð·ï¿½ï¿½Ï¿ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 	std::vector<int> limitList;
 	CNetMsg ctlist;
 	ctlist.Init();
@@ -3675,7 +3682,7 @@ void PersonalShopSellListMsg(CNetMsg::SP& msg, CPC* ch)
 
 			if (pitem->IsOriginItem())
 			{
-				RefMsg(msg) << (char)pitem->GetBelongType()					// ±Í¼Ó ¼³Á¤
+				RefMsg(msg) << (char)pitem->GetBelongType()					// ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 							<< (char)pitem->GetOriginSkillCnt();
 				for (int j = MAX_ORIGIN_OPTION; j < MAX_ORIGIN; j++)
 				{
@@ -3827,7 +3834,7 @@ void GuildErrorMsg(CNetMsg::SP& msg, MSG_GUILD_ERROR_TYPE errcode, CGuild * guil
 
 void GuildInfoMsg(CNetMsg::SP& msg, CPC* pc)
 {
-	// TODO : GUILD : Æ®¸® ±¸¼º½Ã Æ®¸® Á¤º¸ º¸³»±â
+	// TODO : GUILD : Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	msg->Init(MSG_GUILD);
 	RefMsg(msg) << (unsigned char)MSG_GUILD_INFO;
 	if (pc->m_guildInfo)
@@ -3871,7 +3878,7 @@ void GuildListMsg(CNetMsg::SP& msg, CPC* pc)
 		return ;
 	}
 
-	// ±æµå ÀÖÀ»¶§
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	CGuild* guild = pc->m_guildInfo->guild();
 
 	int i;
@@ -4636,15 +4643,15 @@ void TeachInfoMsg(CNetMsg::SP& msg, CPC* ch)
 							<< tpc->m_cntCompleteStudent
 							<< tpc->m_cntFailStudent;
 
-				// ÀÚ½ÅÀÌ ÇÐ»ýÀÌ¸é idx[1]À» ¼±»ýÀÇ ¸í¼º¼öÄ¡·Î, idx[2]¸¦ ¼±»ýÀÇ ¾ç¼ºÁßÀÌ ÃÊº¸·Î, time[1]À» ¿Ï·áÀÎ¿ø, time[2]À» ½ÇÆÐÀÎ¿øÀ¸·Î ¾´´Ù.
+				// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ð»ï¿½ï¿½Ì¸ï¿½ idx[1]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½, idx[2]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ç¼ºï¿½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ï¿½ï¿½, time[1]ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Î¿ï¿½, time[2]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				ch->m_teachIdx[1] = tpc->m_fame;
 				ch->m_teachIdx[2] = tpc->m_cntTeachingStudent;
 				ch->m_teachTime[1] = tpc->m_cntCompleteStudent;
 				ch->m_teachTime[2] = tpc->m_cntFailStudent;
 			}
-			else //Á¢¼ÓÇØ ÀÖÁö ¾ÊÀº ½º½ÂÀÇ Á¤º¸¸¦ ¾îÂî ¾Ë¸®¿À..
+			else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½..
 			{
-				// ÀÚ½ÅÀÌ ÇÐ»ýÀÌ¸é idx[1]À» ¼±»ýÀÇ ¸í¼º¼öÄ¡·Î, idx[2]¸¦ ¼±»ýÀÇ ¾ç¼ºÁßÀÌ ÃÊº¸·Î, time[1]À» ¿Ï·áÀÎ¿ø, time[2]À» ½ÇÆÐÀÎ¿øÀ¸·Î ¾´´Ù.
+				// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ð»ï¿½ï¿½Ì¸ï¿½ idx[1]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½, idx[2]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ç¼ºï¿½ï¿½ï¿½ï¿½ ï¿½Êºï¿½ï¿½ï¿½, time[1]ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½Î¿ï¿½, time[2]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				RefMsg(msg) << ch->m_teachIdx[1]
 							<< ch->m_teachIdx[2]
 							<< ch->m_teachTime[1]
@@ -4677,7 +4684,7 @@ void TeachTeacherGiveUPMsg(CNetMsg::SP& msg, CPC* teacher, CPC* student, int giv
 					<< giveupCnt;
 	}
 
-	if( giveupCnt == -1) // ÈÄ°ßÀÎÀÌ´Ù.
+	if( giveupCnt == -1) // ï¿½Ä°ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 	{
 		RefMsg(msg) << teacher->m_cntTeachingStudent
 					<< teacher->m_cntCompleteStudent
@@ -5735,23 +5742,23 @@ void ExAPetStatusMsg(CNetMsg::SP& msg, CAPet* pet)
 		}
 	}
 
-	// °è»êÀÌ ÇÊ¿äÇÑ Ç¥½ÃºÎºÐ
-	int nAttack = pet->m_nAttack + nEqAttack;	// °ø°Ý·Â
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ Ç¥ï¿½ÃºÎºï¿½
+	int nAttack = pet->m_nAttack + nEqAttack;	// ï¿½ï¿½ï¿½Ý·ï¿½
 	nAttack += pet->m_avPassiveAddition.attack + (nAttack * pet->m_avPassiveRate.attack / SKILL_RATE_UNIT);
-	// ¸¶¹ý °ø°Ý·Â
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½
 	int nMAttack = pet->m_nMagicAttack + pet->m_eqMagic + pet->m_opMagic;
 	nMAttack += pet->m_avPassiveAddition.magic + (nMAttack * pet->m_avPassiveRate.magic / SKILL_RATE_UNIT);
-	// ¹æ¾î
+	// ï¿½ï¿½ï¿½
 	int nDeffence = pet->m_nDefence + pet->m_eqDefense + pet->m_opDMelee;
 	nDeffence += pet->m_avPassiveAddition.defense + (nDeffence * pet->m_avPassiveRate.defense / SKILL_RATE_UNIT);
-	// ¸¶¹ý ¹æ¾î
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	int nMDeffence = pet->m_nMagicDefence + pet->m_eqResist + pet->m_opResist;
 	nMDeffence += pet->m_avPassiveAddition.resist + (nMDeffence * pet->m_avPassiveRate.resist / SKILL_RATE_UNIT);
-	// ¹°¸® ¸íÁß
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int nHitPoint = (int)( pet->m_nHitPoint + pet->m_dex + pet->m_opMeleeHitRate );
 	nHitPoint += pet->m_avPassiveAddition.hitrate + (nHitPoint * pet->m_avPassiveRate.hitrate / SKILL_RATE_UNIT);
 
-	// ¹°¸® È¸ÇÇ
+	// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 	int nAvoid = (int)( pet->m_nAvoid + ( pet->m_dex * 0.25 ) + pet->m_opMeleeAvoid );
 	nAvoid += pet->m_avPassiveAddition.avoid + (nAvoid * pet->m_avPassiveRate.avoid / SKILL_RATE_UNIT);
 
@@ -6027,7 +6034,7 @@ void ExCastleMapRecentMsg(CNetMsg::SP& msg, CWarCastle* castle, CPC* pc)
 
 	int towercount = 0;
 
-	// ±ÇÁÂ
+	// ï¿½ï¿½ï¿½ï¿½
 	CNPC* lord = castle->GetLordSymbol();
 	if (lord)
 	{
@@ -6037,16 +6044,16 @@ void ExCastleMapRecentMsg(CNetMsg::SP& msg, CWarCastle* castle, CPC* pc)
 		lordmaxhp = lord->m_maxHP;
 	}
 
-	// ¼öÈ£Å¾
+	// ï¿½ï¿½È£Å¾
 	towercount = castle->GetGateNPCCount();
 
-	// ¸®Á¨ À§Ä¡
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	int joinflag = pc->GetJoinFlag(castle->GetZoneIndex());
 	int pos = castle->GetRegenPoint(joinflag, pc);
 	float regenx = (pZone->m_zonePos[pos][1] + pZone->m_zonePos[pos][3]) / 2 / 2.0f;
 	float regenz = (pZone->m_zonePos[pos][2] + pZone->m_zonePos[pos][4]) / 2 / 2.0f;
 
-	// ½Ã±×³Î
+	// ï¿½Ã±×³ï¿½
 	int flag = -1;
 	int senderindex = -1;
 	float signalx = 0.0f;
@@ -7420,7 +7427,7 @@ void GuildNewManageRep( CNetMsg::SP& msg, int membercount, int* membercharindex,
 							<< contributeExp[i]
 							<< contributeFame[i]
 							<< guildmember->charindex();
-				RefMsg(msg) << stashAuth[i];			//TODO:: ÁÖÀÇ
+				RefMsg(msg) << stashAuth[i];			//TODO:: ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
@@ -8392,7 +8399,7 @@ void InitSSkillMsg(CNetMsg::SP& msg, MSG_EX_INIT_SSkill_ERROR_TYPE type)
 				<< (char)type;
 }
 
-// Á¤»ê ¸®½ºÆ® Á¤º¸
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 void TradeAgentCalcListRepMsg(CNetMsg::SP& msg,int nCharIndex, int nMaxPageNo, int nPageNo, int nItemCount,int* pItemSerial,int* pItemPlus,int* pItemFlag,S_ITEMOPTION* pItemOption,int* pQuantity,LONGLONG* ptotalmoney,int* pState, int* pPassDay,CLCString *pCharname, int* pItemOrigin0, int* pItemOrigin1, int* pItemOrigin2, int* pItemOrigin3, int* pItemOrigin4, int* pItemOrigin5)
 {
 	msg->Init( MSG_TRADEAGENT );
@@ -8497,7 +8504,7 @@ void TradeAgentCalcListRepMsg(CNetMsg::SP& msg,int nCharIndex, int nMaxPageNo, i
 	}
 }
 
-//Á¤»ê
+//ï¿½ï¿½ï¿½ï¿½
 void TradeAgentCalculateRepMsg(CNetMsg::SP& msg,int nCharIndex)
 {
 	msg->Init( MSG_TRADEAGENT );
@@ -8505,7 +8512,7 @@ void TradeAgentCalculateRepMsg(CNetMsg::SP& msg,int nCharIndex)
 				<< nCharIndex;
 }
 
-//Ã¼Å© Á¤»ê
+//Ã¼Å© ï¿½ï¿½ï¿½ï¿½
 void TradeAgentCheckCalcRepMsg(CNetMsg::SP& msg,int nCharIndex,int nIsBeCalcdata)
 {
 	msg->Init( MSG_TRADEAGENT );
@@ -8514,7 +8521,7 @@ void TradeAgentCheckCalcRepMsg(CNetMsg::SP& msg,int nCharIndex,int nIsBeCalcdata
 				<< nIsBeCalcdata;
 }
 
-//Á¤»ê ¾Ë¸²
+//ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 void TradeAgentNeedCalcMotifyMsg(CNetMsg::SP& msg,int nCharIndex,unsigned char ucState,CLCString stItemname,int nItemCount)
 {
 	msg->Init( MSG_TRADEAGENT );
@@ -8525,7 +8532,7 @@ void TradeAgentNeedCalcMotifyMsg(CNetMsg::SP& msg,int nCharIndex,unsigned char u
 				<< nItemCount;
 }
 
-#ifdef DISCONNECT_HACK_CHARACTER  // ÇÙ ÇÁ·Î±×·¥ À¯Àú ¹æÃâ
+#ifdef DISCONNECT_HACK_CHARACTER  // ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void HelperDisconnectHackCharacter(CNetMsg::SP& msg, int nUserIndex, const char* user_id, int nCharIndex, const char* char_id, int nHack_type, float delay)
 {
 	msg->Init(MSG_HELPER_COMMAND);
@@ -8539,7 +8546,7 @@ void HelperDisconnectHackCharacter(CNetMsg::SP& msg, int nUserIndex, const char*
 }
 #endif // DISCONNECT_HACK_CHARACTER
 
-//¿¡·¯
+//ï¿½ï¿½ï¿½ï¿½
 void ExpedErrorMsg(CNetMsg::SP& msg, unsigned char errorType)
 {
 	msg->Init(MSG_EXPEDITION);
@@ -8678,7 +8685,7 @@ void HelperExpendOnlineMsg( CNetMsg::SP& msg, int nBossIndex, int nTargetIndex, 
 }
 
 
-//ÆÄÆ¼ ÀüÈ¯ ÀÀ´ä
+//ï¿½ï¿½Æ¼ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 void ExpedCreateRepMsg(CNetMsg::SP& msg, char cExpedType1, char cExpedType2, char cExpedType3, int nBossIndex,CLCString BossCharName,int nMemberCount,int *pCharIdex,CLCString* pCharName,int* pGroupType,int* pMemberType,int* pSetLabelType,int* pQuitType)
 {
 	msg->Init(MSG_EXPEDITION);
@@ -8699,7 +8706,7 @@ void ExpedCreateRepMsg(CNetMsg::SP& msg, char cExpedType1, char cExpedType2, cha
 	}
 }
 
-//ÃÊ´ë Àü´Þ
+//ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 void ExpedInviteRepMsg(CNetMsg::SP& msg, char cExpedType1, char cExpedType2, char cExpedType3, int nBossIndex, CLCString strBossName)
 {
 	msg->Init(MSG_EXPEDITION);
@@ -8773,13 +8780,13 @@ void ExpedQuitRepMsg(CNetMsg::SP& msg, int nTargetIndex,int nQuitMode)
 	msg->Init(MSG_EXPEDITION);
 	RefMsg(msg) << MSG_QUIT_REP
 				<< nTargetIndex
-				<< nQuitMode;		// Á¤»ó,ºñÁ¤»ó ±¸ºÐ
+				<< nQuitMode;		// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 void ExpedQuitReqMsg(CNetMsg::SP& msg, int nQuitMode)
 {
 	msg->Init(MSG_EXPEDITION);
 	RefMsg(msg) << (unsigned char) MSG_QUIT_REQ
-				<< nQuitMode;		// Á¤»ó,ºñÁ¤»ó ±¸ºÐ
+				<< nQuitMode;		// ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 void ExpendOfflineMsg(CNetMsg::SP& msg)
@@ -8807,7 +8814,7 @@ void ExpedRejectReqMsg(CNetMsg::SP& msg)
 	RefMsg(msg) << (unsigned char) MSG_REJECT_REQ;
 }
 
-//ÇØÃ¼ ½ÃÀÛ
+//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 void ExpedEndExpedStartMsg(CNetMsg::SP& msg)
 {
 	msg->Init(MSG_EXPEDITION);
@@ -8820,7 +8827,7 @@ void ExpedChangeBoss(CNetMsg::SP& msg, int nBossIndex,  int nNewBossIndex, int n
 	RefMsg(msg) << MSG_CHANGEBOSS_REP
 				<< nBossIndex
 				<< nNewBossIndex
-				<< nChangeMode;			// ¼öµ¿,ÀÚµ¿
+				<< nChangeMode;			// ï¿½ï¿½ï¿½ï¿½,ï¿½Úµï¿½
 }
 
 void ExpedTypeinfo(CNetMsg::SP& msg, char cType1, char cType2, char cType3)
@@ -9058,7 +9065,7 @@ void RaidInfoMsg(CNetMsg::SP& msg, int nRaidCount, int* nZoneNum, int* nRoomNum)
 	RefMsg(msg) << MSG_EX_RAID_INFO
 				<< nRaidCount;
 
-	// ÁöÁ¤µÈ ¿øÁ¤´ë ·¹ÀÌµåÀÇ °³¼ö¿¡ µû¶ó Á¤º¸°¡ Ãß°¡ µÊ.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½.
 	for (int i=0; i < nRaidCount; i++)
 	{
 		RefMsg(msg) << nZoneNum[i]
@@ -9066,7 +9073,7 @@ void RaidInfoMsg(CNetMsg::SP& msg, int nRaidCount, int* nZoneNum, int* nRoomNum)
 	}
 }
 
-//¿¡·¯
+//ï¿½ï¿½ï¿½ï¿½
 void RaidErrorMsg(CNetMsg::SP& msg, unsigned char errorType,int nErrData1, int nErrData2)
 {
 	msg->Init(MSG_RAID);
@@ -9076,7 +9083,7 @@ void RaidErrorMsg(CNetMsg::SP& msg, unsigned char errorType,int nErrData1, int n
 				<< nErrData2;
 }
 
-//°ÔÀÓ ¼­¹ö ³»ºÎ »ç¿ë
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 void RaidInzoneQuitReq(CNetMsg::SP& msg, int nGoZone,int nRebirth)
 {
 	msg->Init(MSG_RAID);
@@ -9164,7 +9171,7 @@ void AffinityUpdatePointMsg(CNetMsg::SP& msg, int affinityidx, int point, bool b
 				<< affinityidx
 				<< point
 				<< bonus;
-	/*Ä£È­µµ ºÎ½ºÅÍ Àû¿ë Ç¥½Ã¸¦ À§ÇÑ boolean°ª*/
+	/*Ä£È­ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½ booleanï¿½ï¿½*/
 	RefMsg(msg) << bBoostered;
 }
 
@@ -9338,7 +9345,7 @@ void SubHelperTitleSystemCheckTimeReq(CNetMsg::SP& msg, int char_index, CTitleNo
 
 void SubHelperTitleSystemDeleteReq(CNetMsg::SP& msg, int char_index, int title_index, int custom_title_index)
 {
-	// »ç¿ëÀÚ ¼öµ¿»èÁ¦
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	msg->Init(MSG_SUBHELPER_COMMAND);
 	RefMsg(msg) << MSG_SUBHELPER_TITLE_SYSTEM_TITLE_DELETE_REQ
 				<< char_index
@@ -9347,7 +9354,7 @@ void SubHelperTitleSystemDeleteReq(CNetMsg::SP& msg, int char_index, int title_i
 }
 void SubHelperTitleSystemTitleDelReq(CNetMsg::SP& msg, int char_index, int title_index, int custom_title_index)
 {
-	// ±â°£¸¸·á·Î ÀÎÇÑ ÀÚµ¿»èÁ¦
+	// ï¿½â°£ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½
 	msg->Init(MSG_SUBHELPER_COMMAND);
 	RefMsg(msg) << MSG_SUBHELPER_TITLE_SYSTEM_TITLE_AUTO_DELETE
 				<< char_index
@@ -9364,7 +9371,7 @@ void TakeAgainQuestItemMsg(CNetMsg::SP& msg, MSG_EX_TAKE_AGAIN_QUEST_ITEM_TYPE t
 
 void HelperPartyDataInitReqMsg(CNetMsg::SP& msg)
 {
-	// °ÔÀÓ¼­¹ö ´Ù¿î ½Ã ÇïÆÛÆÄÆ¼ Á¤º¸ ÃÊ±âÈ­.
+	// ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 	msg->Init(MSG_HELPER_COMMAND);
 	RefMsg(msg) << MSG_HELPER_PARTY_EXPED_INIT_REQ;
 }
@@ -9950,7 +9957,7 @@ void MonsterMercenarySummonMsg(CNetMsg::SP& msg, int index, char enable )
 	RefMsg(msg) << MSG_EX_MONSTER_MERCENARY
 				<< (unsigned char) MSG_EX_MERCENARY_SUMMON
 				<< index
-				<< enable; // 1 ¼ÒÈ¯,   -1 ¼ÒÈ¯ ÇØÁö
+				<< enable; // 1 ï¿½ï¿½È¯,   -1 ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 }
 
 void MonsterMercenaryErrorMsg(CNetMsg::SP& msg, MSG_EX_MONSTER_MERCENARY_ERROR_TYPE errorType )
@@ -10101,7 +10108,7 @@ void MsgCashShopLock(CNetMsg::SP& msg, MSG_EX_CASHITEM_TYPE type)
 				<< (unsigned char) type;
 }
 
-// [selo: 110104] ¸Þ½ÃÁö ¹Ú½º
+// [selo: 110104] ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½
 void MsgMessageBox(CNetMsg::SP& msg, MSG_EX_MSGBOX_TYPE type)
 {
 	msg->Init(MSG_EXTEND);
@@ -10221,7 +10228,7 @@ void EventEUR2PromotionMsg(CNetMsg::SP& msg, MSG_EVENT_EUR2_PROMOTION_ERROR_TYPE
 
 void NpcNoticeMsg(CNetMsg::SP& msg, MSG_CHAT_TYPE chatType, int npcIndex, const char* chat)
 {
-	char dummy[10] = "sora";	// ÀÌÀü Å¬¶óÀÌ¾ðÆ® ¸Þ¼¼Áö¿Í ¿¬°áÀ» À§ÇØ ´õ¹Ì Ãß°¡
+	char dummy[10] = "sora";	// ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 
 	msg->Init(MSG_CHAT);
 	RefMsg(msg) << (unsigned char)chatType
@@ -10243,7 +10250,7 @@ void HelperGuildMarkRegistReqMsg(CNetMsg::SP& msg, int GuildIndex, int CharIndex
 				<< bg_col
 				<< tab
 				<< invenIndex
-				<< markTime // ÇïÆÛ·Î º¸³»´Â markTimeÀº ½ÇÁ¦ Çö½Ç½Ã°£ÀÌ´Ù.
+				<< markTime // ï¿½ï¿½ï¿½Û·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ markTimeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç½Ã°ï¿½ï¿½Ì´ï¿½.
 				<< itemserial;
 }
 
@@ -10396,7 +10403,7 @@ void HelperWarCastleStateCync(CNetMsg::SP& msg)
 	if( gserver->m_subno != WAR_CASTLE_SUBNUMBER_MERAC && gserver->m_subno != WAR_CASTLE_SUBNUMBER_DRATAN )
 		return;
 
-	// ¸Þ¶óÅ© °ø¼º È®ÀÎ.
+	// ï¿½Þ¶ï¿½Å© ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½.
 	msg->Init(MSG_HELPER_REQ);
 	RefMsg(msg) << -1
 				<< gserver->m_serverno
@@ -10444,7 +10451,7 @@ void MsgrRoyalRumbleWinner(CNetMsg::SP& msg, int seq, int server, int subno, int
 
 void RoyalRumbleNotice(CNetMsg::SP& msg, unsigned char command)
 {
-	// command 0:½ÅÃ»½Ã°£ÀÔ´Ï´Ù. 1:5ºÐ³²¾Ò½À´Ï´Ù. 2:Á¾·áµÇ¾ú½À´Ï´Ù.
+	// command 0:ï¿½ï¿½Ã»ï¿½Ã°ï¿½ï¿½Ô´Ï´ï¿½. 1:5ï¿½Ð³ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½. 2:ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	msg->Init(MSG_EXTEND);
 	RefMsg(msg) << MSG_EX_ROYAL_RUMBLE
 				<< (unsigned char)MSG_EX_ROYAL_RUMBLE_NOTICE
@@ -10461,7 +10468,7 @@ void RoyalRumbleRegistMenu(CNetMsg::SP& msg, unsigned char command)
 
 void RoyalRumbleRegist(CNetMsg::SP& msg, unsigned char command)
 {
-	// command 0:¼º°ø, 1:µ·¾øÀ½, 2:¼±¼öµî·ÏÀÌ ºÒ°¡´É ÇÕ´Ï´Ù. 3:ÀÌ¹Ì µî·ÏÇÏ¿´½À´Ï´Ù.
+	// command 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½. 3:ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	msg->Init(MSG_EXTEND);
 	RefMsg(msg) << MSG_EX_ROYAL_RUMBLE
 				<< (unsigned char)MSG_EX_ROYAL_RUMBLE_PLAYER_REP
@@ -10470,7 +10477,7 @@ void RoyalRumbleRegist(CNetMsg::SP& msg, unsigned char command)
 
 void RoyalRumbleUnRegist(CNetMsg::SP& msg, unsigned char command)
 {
-	// command 0:Ãë¼Ò ¼º°ø, 1:Ãë¼ÒÇÒ ¼ö ÀÖ´Â ½Ã°£ÀÌ ¾Æ´Õ´Ï´Ù, 2:µî·ÏÀÚ ¸í´Ü¿¡ ¾ø½À´Ï´Ù.
+	// command 0:ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½, 2:ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	msg->Init(MSG_EXTEND);
 	RefMsg(msg) << MSG_EX_ROYAL_RUMBLE
 				<< (unsigned char)MSG_EX_ROYAL_RUMBLE_PLAYER_UNREGIST_REP
@@ -10523,7 +10530,7 @@ void RoyalRumbleWinner(CNetMsg::SP& msg, int leveltype, int charindex, CLCString
 
 void RoyalRumbleReward(CNetMsg::SP& msg, unsigned char command)
 {
-	// (s->c) (uc)command 0: º¸»ó ´ë»óÀÚ°¡ ¾Æ´Õ´Ï´Ù, 1:ÀÌ¹Ì º¸»óÀ» ¹Þ¾Ò½À´Ï´Ù.
+	// (s->c) (uc)command 0: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Õ´Ï´ï¿½, 1:ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Ò½ï¿½ï¿½Ï´ï¿½.
 	msg->Init(MSG_EXTEND);
 	RefMsg(msg) << MSG_EX_ROYAL_RUMBLE
 				<< (unsigned char)MSG_EX_ROYAL_RUMBLE_REWARD_REP
@@ -10560,7 +10567,7 @@ void RoyalRumbleLeftCount(CNetMsg::SP& msg, int count)
 }
 void RoyalRumbleTimeNotice(CNetMsg::SP& msg, unsigned char command, int remain)
 {
-	// command 0: 20ºÐ ³²À½, 1:10ºÐ³²À½, 2:5ºÐ ³²À½, 3:Á¾·á
+	// command 0: 20ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1:10ï¿½Ð³ï¿½ï¿½ï¿½, 2:5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 3:ï¿½ï¿½ï¿½ï¿½
 	msg->Init(MSG_EXTEND);
 	RefMsg(msg) << MSG_EX_ROYAL_RUMBLE
 				<< (unsigned char) MSG_EX_ROYAL_RUMBLE_TIME_NOTICE
@@ -10715,7 +10722,7 @@ void RankingEXError(CNetMsg::SP& msg, unsigned char type)
 				<< type;
 }
 
-#ifdef REFORM_PK_PENALTY_201108 // 2011-08 PK ÆÐ³ÎÆ¼ ¸®Æû
+#ifdef REFORM_PK_PENALTY_201108 // 2011-08 PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 void MsgPKPenaltyRewardRep(CNetMsg::SP& msg, int rewardNum, int errorType)
 {
 	msg->Init(MSG_EXTEND);
@@ -10751,7 +10758,7 @@ void MsgSubHelperPKPenaltyRewardInfoReq(CNetMsg::SP& msg, int charindex)
 				<< (unsigned char) MSG_SUBHELPER_PKPENALTY_REFORM_REWARD_INFO_REQ
 				<< charindex;
 }
-#endif // REFORM_PK_PENALTY_201108 // 2011-08 PK ÆÐ³ÎÆ¼ ¸®Æû
+#endif // REFORM_PK_PENALTY_201108 // 2011-08 PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 
 #ifdef NOTICE_SYSTEM
 void SubHelperUserNoticeRegMsg(CNetMsg::SP& msg, int _characterIndex, CLCString _name, CLCString _contents)
@@ -10949,7 +10956,7 @@ void ReformerSystemRep(CNetMsg::SP& msg, unsigned char cmdType_, CItem *pReformI
 
 	if (pReformItem_ != NULL)
 	{
-		// ¸®Æû¿¡ ¼º°øÇÑ ¾ÆÀÌÅÛ Á¤º¸ º¸³»±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		RefMsg(msg) << (unsigned short)pReformItem_->tab()
 					<< (unsigned short)pReformItem_->getInvenIndex()
 					<< pReformItem_->getVIndex()

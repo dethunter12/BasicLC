@@ -16,191 +16,191 @@
 // ADD NEW MESSAGE TYPES TO THE END!!!
 typedef enum NetworkMessageType {
 
-//0522 kwon Ãß°¡.
+//0522 kwon ï¿½ß°ï¿½.
 	MSG_UNKNOWN		= 0,		// unknown
 
-	// ¼­¹ö ¸Þ½ÃÁö
-	MSG_FAIL,					// ¿À·ù ¹ß»ý ¾Ë¸²	: errcode(uc)
-	MSG_DB,						// DB °ü·Ã			: errcode(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_FAIL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ ï¿½Ë¸ï¿½	: errcode(uc)
+	MSG_DB,						// DB ï¿½ï¿½ï¿½ï¿½			: errcode(uc) ...
 
 
-	// LOGIN °úÁ¤
+	// LOGIN ï¿½ï¿½ï¿½ï¿½
 	MSG_LOGIN,					// LOGIN			: version(n) mode(uc) id(str) pw(str) nation(c) seed(n)
-	MSG_MENU,					// MENU È­¸é		: mode(uc) ...
-	MSG_START_GAME,				// °ÔÀÓ ½ÃÀÛ		:
+	MSG_MENU,					// MENU È­ï¿½ï¿½		: mode(uc) ...
+	MSG_START_GAME,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		:
 
 
-	// Ä³¸¯ÅÍ Á¤º¸
-	MSG_STATUS,					// Ä³¸¯ÅÍ Á¤º¸		: level(n) exp(ll) need_exp(ll) hp(n) addhp(n) maxhp(n) // º¯°æ»çÇ× mp(n) addmp(n) maxmp(n) // º¯°æ»çÇ× str(n) dex(n) int(n) con(n) opstr(n) opdex(n) opint(n) opcon(n) attack(n) addattack(n) // º¯°æ»çÇ× magic(n) addmagic(n) // º¯°æ»çÇ× defense(n) adddefense(n) // º¯°æ»çÇ× resist(n) addresist(n) // º¯°æ»çÇ× skillpoint(n) weight(n) maxweight(n) walkspeed(f) runspeed(f) attackspeed(c) magicspeed(c) pktitle(c) pkpenalty(n) pkcount(n) fame(n) attackrange(f) join_flag_merac(c) skillspeed(n) attrmap(uc) mountPet(c) evocationType(c) evocationRemain(n) presscorps(c)(±âÀÚ´Ü¿©ºÎ)
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STATUS,					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: level(n) exp(ll) need_exp(ll) hp(n) addhp(n) maxhp(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ mp(n) addmp(n) maxmp(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ str(n) dex(n) int(n) con(n) opstr(n) opdex(n) opint(n) opcon(n) attack(n) addattack(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ magic(n) addmagic(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ defense(n) adddefense(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ resist(n) addresist(n) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ skillpoint(n) weight(n) maxweight(n) walkspeed(f) runspeed(f) attackspeed(c) magicspeed(c) pktitle(c) pkpenalty(n) pkcount(n) fame(n) attackrange(f) join_flag_merac(c) skillspeed(n) attrmap(uc) mountPet(c) evocationType(c) evocationRemain(n) presscorps(c)(ï¿½ï¿½ï¿½Ú´Ü¿ï¿½ï¿½ï¿½)
 
-	MSG_APPEAR,					// ³ªÅ¸³²			: PC : isNew(uc) type(c) index(n) name(str) job(c) job2(c) hairstyle(c) facestyle(c) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) state(c) pkstate(c) pktitle(c) pluseffect(c) [wear_item_index(n) wear_item_plus(n)]:6 assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count shoptype(c) shopname(str) guildindex(n) guildname(str) guildposition(n) mobindex(n) map_attr(uc) join_flag_merac(c) mountPet(c) evocationType(c) issupporter(c)
+	MSG_APPEAR,					// ï¿½ï¿½Å¸ï¿½ï¿½			: PC : isNew(uc) type(c) index(n) name(str) job(c) job2(c) hairstyle(c) facestyle(c) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) state(c) pkstate(c) pktitle(c) pluseffect(c) [wear_item_index(n) wear_item_plus(n)]:6 assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count shoptype(c) shopname(str) guildindex(n) guildname(str) guildposition(n) mobindex(n) map_attr(uc) join_flag_merac(c) mountPet(c) evocationType(c) issupporter(c)
 								//					: NPC: isNew(uc) type(c) index(n) vnum(n) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count map_attr(uc)
 								//					: Pet: isNew(uc) type(c) index(n) owner_index(n) owner_name(str) petTypeGrade(c) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) map_attr(uc)
-								//					: ¼ÒÈ¯¼ö: isNew(uc) type(c) index(n) elemental_type(c) owner_index(n) owner_name(str) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count map_attr(uc) isbigsize(c)
-	MSG_DISAPPEAR,				// »ç¶óÁü			: type(c) index(n)
-	MSG_AT,						// À§Ä¡ Á¤º¸		: index(n) name(str) job(c) job2(c) hair(c) face(c) zoneNo(n) areaNo(n) x(f) z(f) h(f) r(f) yLayer(n) userindex(n) guildoutdate(n) pluseffect(c) map_attr(uc)
+								//					: ï¿½ï¿½È¯ï¿½ï¿½: isNew(uc) type(c) index(n) elemental_type(c) owner_index(n) owner_name(str) x(f) z(f) h(f) r(f) yLayer(n) hp(n) maxHP(n) assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count map_attr(uc) isbigsize(c)
+	MSG_DISAPPEAR,				// ï¿½ï¿½ï¿½ï¿½ï¿½			: type(c) index(n)
+	MSG_AT,						// ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½		: index(n) name(str) job(c) job2(c) hair(c) face(c) zoneNo(n) areaNo(n) x(f) z(f) h(f) r(f) yLayer(n) userindex(n) guildoutdate(n) pluseffect(c) map_attr(uc)
 
 	// 10
-	MSG_INVENTORY,				// ÀÎº¥Åä¸® Á¤º¸	: resultArrange(c) tab_idx(c) row_idx(c) [item_idx(n) item_type(n) wear_pos(c) plus(n) flag(n) used(n) used_2(n) count(ll) option_count(c) {(option_type(c) option_level(c)} * option_count] * 5 socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
-								// ºóÄ­Àº item_idx°¡ -1ÀÌ°í ÀÌÈÄ´Â ¹«½Ã, resultArrange ºñÆ® ÇÊµå(0ºñÆ®-½ÃÀÛ, 1ºñÆ®-³¡)
-								// used_2(n) Àº COMPOSITE_TIME »ç¿ë½Ã¸¸
-	MSG_WEARING,				// Âø¿ë Á¤º¸ º¯°æ	: char_index(n) wear_pos(c) item_db_index(n) item_plus(n)
+	MSG_INVENTORY,				// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½	: resultArrange(c) tab_idx(c) row_idx(c) [item_idx(n) item_type(n) wear_pos(c) plus(n) flag(n) used(n) used_2(n) count(ll) option_count(c) {(option_type(c) option_level(c)} * option_count] * 5 socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
+								// ï¿½ï¿½Ä­ï¿½ï¿½ item_idxï¿½ï¿½ -1ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Ä´ï¿½ ï¿½ï¿½ï¿½ï¿½, resultArrange ï¿½ï¿½Æ® ï¿½Êµï¿½(0ï¿½ï¿½Æ®-ï¿½ï¿½ï¿½ï¿½, 1ï¿½ï¿½Æ®-ï¿½ï¿½)
+								// used_2(n) ï¿½ï¿½ COMPOSITE_TIME ï¿½ï¿½ï¿½Ã¸ï¿½
+	MSG_WEARING,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: char_index(n) wear_pos(c) item_db_index(n) item_plus(n)
 
-	// Ä³¸¯ÅÍ ¸í·É
-	MSG_MOVE,					// ÀÌµ¿				: chartype(c) movetype(uc) index(n) speed(f) x(f) z(f) h(f) r(f) y(n) map_attr(uc)
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MOVE,					// ï¿½Ìµï¿½				: chartype(c) movetype(uc) index(n) speed(f) x(f) z(f) h(f) r(f) y(n) map_attr(uc)
 
-	// °ø°Ý °ü·Ã
-	MSG_ATTACK,					// °ø°Ý				: attackchartype(c) attackcharindex(n) targetchartype(c) targetindex(n) attackType(c) multicount(c) multiindex(n:multicount)
-	MSG_DAMAGE,					// °ø°ÝÈÄ »óÅÂ		: attackchartype(c) attackcharindex(n) attackerattacktype(c) targetcount(n) [targetchartypc(c) targetindex(n) hp(n) mp(n) damage(n) flag(c)] * targetcount ¹Ýº¹
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ATTACK,					// ï¿½ï¿½ï¿½ï¿½				: attackchartype(c) attackcharindex(n) targetchartype(c) targetindex(n) attackType(c) multicount(c) multiindex(n:multicount)
+	MSG_DAMAGE,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: attackchartype(c) attackcharindex(n) attackerattacktype(c) targetcount(n) [targetchartypc(c) targetindex(n) hp(n) mp(n) damage(n) flag(c)] * targetcount ï¿½Ýºï¿½
 
-	// Ã¤ÆÃ
-	MSG_CHAT,					// Ã¤ÆÃ				: chat_type(c) sender_index(n) sender_name(str) receiver_name(str) chat(str)
+	// Ã¤ï¿½ï¿½
+	MSG_CHAT,					// Ã¤ï¿½ï¿½				: chat_type(c) sender_index(n) sender_name(str) receiver_name(str) chat(str)
 
-	// ¾ÆÀÌÅÛ
-	MSG_ITEM,					// ¾ÆÀÌÅÛ °ü·Ã		: sub_type(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: sub_type(uc) ...
 
-	// ½Ã½ºÅÛ ¸Þ½ÃÁö
-	MSG_SYS,					// ½Ã½ºÅÛ ¸Þ½ÃÁö	: sub_type(uc) ...
+	// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_SYS,					// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	: sub_type(uc) ...
 
-	// Á¸ÀÌµ¿
-	MSG_GO_ZONE,				// Á¸ÀÌµ¿			: zone_no(n) extra(n) ip(str) port(n)
-	MSG_GOTO,					// °°Àº Á¸³» ÀÌµ¿	: zone_no(n) x(f) z(f) h(f) r(f) y(n)
+	// ï¿½ï¿½ï¿½Ìµï¿½
+	MSG_GO_ZONE,				// ï¿½ï¿½ï¿½Ìµï¿½			: zone_no(n) extra(n) ip(str) port(n)
+	MSG_GOTO,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½	: zone_no(n) x(f) z(f) h(f) r(f) y(n)
 
 	// 20
-	// ±³È¯
-	MSG_EXCHANGE,				// ±³È¯ °ü·Ã		: sub_type(uc) ...
+	// ï¿½ï¿½È¯
+	MSG_EXCHANGE,				// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½		: sub_type(uc) ...
 
-	// Àå¼Ò ±â¾ï °ü·Ã
-	MSG_MEMPOS,					// Àå¼Ò ±â¾ï °ü·Ã	: sub_type(uc) ...
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MEMPOS,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: sub_type(uc) ...
 
-	// È¯°æ °ü·Ã
-	MSG_ENV,					// È¯°æ °ü·Ã		: sub_type(uc) ...
+	// È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ENV,					// È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: sub_type(uc) ...
 
-	// ¿î¿µÀÚ ¸í·É °ü·Ã
-	MSG_GM,						// ¿î¿µÀÚ ¸í·É °ü·Ã	: sub_type(uc) ...
+	// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GM,						// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: sub_type(uc) ...
 
-	// ÆÄÆ¼ °ü·Ã
-	MSG_PARTY,					// ÆÄÆ¼ °ü·Ã		: sub_type(uc) ...
+	// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
+	MSG_PARTY,					// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½		: sub_type(uc) ...
 
-	// Quick Slot °ü·Ã
-	MSG_QUICKSLOT,				// Äü½½·Ô °ü·Ã		: sub_type(uc) ...
+	// Quick Slot ï¿½ï¿½ï¿½ï¿½
+	MSG_QUICKSLOT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: sub_type(uc) ...
 
-	// ½Ì±Û´øÀü NPC ¸®Á¨
-	MSG_NPC_REGEN,				// NPC ¸®Á¨ °ü·Ã	: index(n) dbIndex(n) x(f) z(f) h(f) r(f) yLayer(int) entityindex(n)
+	// ï¿½Ì±Û´ï¿½ï¿½ï¿½ NPC ï¿½ï¿½ï¿½ï¿½
+	MSG_NPC_REGEN,				// NPC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: index(n) dbIndex(n) x(f) z(f) h(f) r(f) yLayer(int) entityindex(n)
 
-	// ½ºÅ³ ¸Þ½ÃÁö
-	MSG_SKILL,					// ½ºÅ³ °ü·Ã		: subtype(uc) ...
+	// ï¿½ï¿½Å³ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_SKILL,					// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// º¸Á¶/ÀúÁÖ »óÅÂ ¸Þ½ÃÁö
-	MSG_ASSIST,					// º¸Á¶ »óÅÂ ¸Þ½ÃÁö	: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_ASSIST,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	: subtype(uc) ...
 
-	// PC »óÅÂ ¸Þ½ÃÁö
-	MSG_CHAR_STATUS,			// PC »óÅÂ ¸Þ½ÃÁö	: chartype(c) inedx(n) hp(n) maxHP(n) mp(n) maxMP(n) pkstate(c) pktitle(c) state(n) state2(n)
+	// PC ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_CHAR_STATUS,			// PC ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	: chartype(c) inedx(n) hp(n) maxHP(n) mp(n) maxMP(n) pkstate(c) pktitle(c) state(n) state2(n)
 
 	// 30
-	// Ä³¸¯ÅÍ ºÎÈ° ¸Þ½ÃÁö
-	MSG_PC_REBIRTH,				// pc ºÎÈ° ¸Þ½ÃÁö	:
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È° ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_PC_REBIRTH,				// pc ï¿½ï¿½È° ï¿½Þ½ï¿½ï¿½ï¿½	:
 
-	// ÀÌÆåÆ® ¸Þ½ÃÁö
-	MSG_EFFECT,					// ÀÌÆåÆ® ¸Þ½ÃÁö	: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EFFECT,					// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½	: subtype(uc) ...
 
-	// EXP, SP ¸Þ½ÃÁö
-	MSG_EXP_SP,					// EXP,SP È¹µæ		: exp(n) sp(n)
+	// EXP, SP ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EXP_SP,					// EXP,SP È¹ï¿½ï¿½		: exp(n) sp(n)
 
-	// ¾×¼Ç
-	MSG_ACTION,					// ¾×¼Ç »ç¿ë		: charindex(n) type(c) action(n) state(c),
-								//						targetcharindex(n) -> #ifdef EVENT_TLD_2007_SONGKRAN ÀÏ¶§¸¸ Àü¼Û
+	// ï¿½×¼ï¿½
+	MSG_ACTION,					// ï¿½×¼ï¿½ ï¿½ï¿½ï¿½		: charindex(n) type(c) action(n) state(c),
+								//						targetcharindex(n) -> #ifdef EVENT_TLD_2007_SONGKRAN ï¿½Ï¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ·Î±ä¼­¹ö
-	MSG_LOGINSERV_PLAYER,		// »ç¿ëÀÚ¼ö Àü¼Û	: recentserver(n) recentsubnum(n) count(n) seqNo(n) serverno(n) subservercount(n) isrecommendserver(c) [subnum(n) playernum(n) ip_addr(str) portno(n)]... subservercount¸¸Å­ ¹Ýº¹
+	// ï¿½Î±ä¼­ï¿½ï¿½
+	MSG_LOGINSERV_PLAYER,		// ï¿½ï¿½ï¿½ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½	: recentserver(n) recentsubnum(n) count(n) seqNo(n) serverno(n) subservercount(n) isrecommendserver(c) [subnum(n) playernum(n) ip_addr(str) portno(n)]... subservercountï¿½ï¿½Å­ ï¿½Ýºï¿½
 
-	// Äù½ºÆ®
-	MSG_QUEST,					// Äù½ºÆ® °ü·Ã		: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_QUEST,					// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// ½ºÅÈ Æ÷ÀÎÆ® »ç¿ë
-	MSG_STATPOINT,				// ½ºÅÈÆ÷ÀÎÆ® »ç¿ë	: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
+	MSG_STATPOINT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½	: subtype(uc) ...
 
-	// ¼ø°£ ÀÌµ¿ °ü·Ã
-	MSG_WARP,					// ¼ø°£ÀÌµ¿ °ü·Ã	: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP,					// ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½	: subtype(uc) ...
 
-	// ÆÞ½º °Ë»ç °ü·Ã
-	MSG_PULSE,					// ÆÞ½º °ü·Ã		: pulse(n), nationalcodetype(c), tickDelayTime(f)
+	// ï¿½Þ½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PULSE,					// ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ï¿½		: pulse(n), nationalcodetype(c), tickDelayTime(f)
 
-	// ¹«ÀÛÀ§ »ý»ê
-	MSG_RANDOM_PRODUCE,			// ¹«ÀÛÀ§ »ý»ê		: npcindex(n)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_RANDOM_PRODUCE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: npcindex(n)
 
 	// 40
-	// Special Skill °ü·Ã
-	MSG_SSKILL,					// Æ¯¼ö¼öÅ³ °ü·Ã	: subtype(uc) .....
+	// Special Skill ï¿½ï¿½ï¿½ï¿½
+	MSG_SSKILL,					// Æ¯ï¿½ï¿½ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½	: subtype(uc) .....
 
-	// PK °ü·Ã
-	MSG_PK,						// PK °ü·Ã			: subtype(uc) ...
+	// PK ï¿½ï¿½ï¿½ï¿½
+	MSG_PK,						// PK ï¿½ï¿½ï¿½ï¿½			: subtype(uc) ...
 
-	// ±æµå °ü·Ã
-	MSG_GUILD,					// ±æµå °ü·Ã		: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// ÀÌº¥Æ® °ü·Ã
-	MSG_EVENT,					// ÀÌº¥Æ® °ü·Ã		: subtype(uc) ...
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT,					// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// °³ÀÎ»óÁ¡
-	MSG_PERSONALSHOP,			// °³ÀÎ »óÁ¡		: subtype(uc) ...
+	// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½
+	MSG_PERSONALSHOP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// Á¤´ç¹æÀ§
-	MSG_RIGHT_ATTACK,			// Á¤´ç¹æÀ§			: subtype(uc) target_type(c) target_index(n) 
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_RIGHT_ATTACK,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½			: subtype(uc) target_type(c) target_index(n) 
 
-	// Ã¢°í
-	MSG_STASH,					// Ã¢°í				: subtype(uc) ...
+	// Ã¢ï¿½ï¿½
+	MSG_STASH,					// Ã¢ï¿½ï¿½				: subtype(uc) ...
 
-	// º¯½Å
-	MSG_CHANGE,					// º¯½Å				: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE,					// ï¿½ï¿½ï¿½ï¿½				: subtype(uc) ...
 
-	// ÀÎÅÍÆäÀÌ½º ¿É¼Ç
-	MSG_UI,						// UI ¿É¼Ç°ü·Ã		: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½É¼ï¿½
+	MSG_UI,						// UI ï¿½É¼Ç°ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	// »çÁ¦ ½Ã½ºÅÛ
-	MSG_TEACH,					// »çÁ¦				: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
+	MSG_TEACH,					// ï¿½ï¿½ï¿½ï¿½				: subtype(uc) ...
 
 	// 50
-	// ÀüÁ÷°ü·Ã
-	MSG_CHANGEJOB,				// ÀüÁ÷ °ü·Ã		: subtype(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGEJOB,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
 
-	MSG_FRIEND,					//¸Þ½ÅÀú °ü·Ã.
+	MSG_FRIEND,					//ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	// ÆÛ½º³Î ´øÀü¿ë ¸ÖÆ¼ ¾îÅÃ ¹× ¹«ºê(NPC)
-	MSG_PD_ATTACK,				//¾îÅÃ				: targetchartype(c) targetindex(n) attackType(c) multicount(c) multiindex(n:multicount) 
-	MSG_PD_MOVE,				//¹«ºê				: movetype(uc) speed(f) multicount(c) multiindex(n:multicount) x(f) z(f) h(f) r(f) y(n)
+	// ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(NPC)
+	MSG_PD_ATTACK,				//ï¿½ï¿½ï¿½ï¿½				: targetchartype(c) targetindex(n) attackType(c) multicount(c) multiindex(n:multicount) 
+	MSG_PD_MOVE,				//ï¿½ï¿½ï¿½ï¿½				: movetype(uc) speed(f) multicount(c) multiindex(n:multicount) x(f) z(f) h(f) r(f) y(n)
 
-	// ¼±ÅÃ °¡°ø
-	MSG_SELECT_PRODUCE,			// ¼±ÅÃ °¡°ø		: npc_server_index(n) itemdbindex(n)
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SELECT_PRODUCE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: npc_server_index(n) itemdbindex(n)
 
 	//wooss050817
-	// ÀÌÈÄ ¸Þ½ÃÁö´Â ´ÙÀ½ ¸Þ½ÃÁöÀÇ ¼­ºê Å¸ÀÔÀ¸·Î
-	MSG_EXTEND,					// ¸Þ½ÃÁö È®Àå(55)		: exmsg(n) ...
-								// do_Extend¿¡¼­ Movefirst¿Í exmsg¸¦ ÀÐÀ¸¹Ç·Î ¼­ºêÅ¸ÀÔ Ã³¸® ·çÆ¾¿¡¼­´Â MoveFirst¸¦ ÇÏ¸é ¾ÈµÊ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EXTEND,					// ï¿½Þ½ï¿½ï¿½ï¿½ È®ï¿½ï¿½(55)		: exmsg(n) ...
+								// do_Extendï¿½ï¿½ï¿½ï¿½ Movefirstï¿½ï¿½ exmsgï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MoveFirstï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Èµï¿½
 
-	MSG_RECOVER_EXP_SP,			// [2012/08/10 : Sora] ºÎÈ° ÁÖ¹®¼­ »ç¿ë½Ã º¹±¸ÇÑ °æÇèÄ¡, ¼÷·Ãµµ °ª Àü¼Û(56)
+	MSG_RECOVER_EXP_SP,			// [2012/08/10 : Sora] ï¿½ï¿½È° ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡, ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(56)
 
-	//2013/04/03 jeil ³ª½º ¾ÆÀÌÅÛ »èÁ¦ 
-	MSG_MONEY,					//³ª½º ¾ÆÀÌÅÛ »èÁ¦ : subtype(uc) ...
+	//2013/04/03 jeil ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_MONEY,					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : subtype(uc) ...
 
 #ifdef HP_PERCENTAGE
 	MSG_DAMAGE_REAL = 58,
 	XXXMSG_MEMPOSPLUS = MSG_DAMAGE_REAL,
 #else	//	HP_PERCENTAGE
-	XXXMSG_MEMPOSPLUS,	// 55 ÇÁ¸®¹Ì¾ö ¸Þ¸ð¸® ºÏ : sub_type(uc) ...
-	// ¼­ºê Å¸ÀÔÀº ±âÁ¸ÀÇ ¸Þ¸ð¸®ºÏ°ú °°ÀÌ »ç¿ë
+	XXXMSG_MEMPOSPLUS,	// 55 ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ : sub_type(uc) ...
+	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ð¸®ºÏ°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 #endif	//	HP_PERCENTAGE 
-// [KH_070316] Ãß°¡
-	// (´ë¸¸)ºô¸µ 
-	MSG_BILLINFO = 60,			// ºô¸µ °ü·Ã		: SUBTYPE(UC) ...
+// [KH_070316] ï¿½ß°ï¿½
+	// (ï¿½ë¸¸)ï¿½ï¿½ï¿½ï¿½ 
+	MSG_BILLINFO = 60,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: SUBTYPE(UC) ...
 
-	MSG_TRADEAGENT,				// °Å·¡ ´ëÇà
+	MSG_TRADEAGENT,				// ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_EXPEDITION,				// [sora] ¿øÁ¤´ë(Ãß°¡) 
+	MSG_EXPEDITION,				// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ß°ï¿½) 
 
-	MSG_FACTORY,    // Á¦ÀÛ ½Ã½ºÅÛ
+	MSG_FACTORY,    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_RAID, // [sora] ÀÎÁ¸ °ü·Ã
+	MSG_RAID, // [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_PET_STASH,				// 65
 	MSG_RVR,
 #ifdef DURABILITY
@@ -208,7 +208,7 @@ typedef enum NetworkMessageType {
 #endif	//	DURABILITY
 	MSG_GPS,
 	MSG_ITEMCOLLECTION,
-	MSG_GUILD_BATTLE,			// ±æµå¹èÆ² È®Àå
+	MSG_GUILD_BATTLE,			// ï¿½ï¿½ï¿½ï¿½Æ² È®ï¿½ï¿½
 	MSG_ARTIFACT,
 	MSG_AUTO_SETTING,	//Val add new auto igni/pickup to chat
 #ifdef BATTLE_PASS_SYSTEM
@@ -222,16 +222,16 @@ typedef enum NetworkMessageType {
 #endif
 	MSG_UPDATE_DATA_FOR_CLIENT = 96,
 
-	MSG_RESERVED_GM_COMMAND = 97,	// Calendar ÀÌº¥Æ® Á¤º¸ ÆÐÅ¶.
+	MSG_RESERVED_GM_COMMAND = 97,	// Calendar ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶.
 	MSG_TIMER_ITEM = 98,
 
-	MSG_EXPRESS_SYSTEM = 99,	// Ã¢°íNPC (Express system)ÀÇ ÆÐÅ¶À» Ã³¸®ÇÏ´Â ºÎºÐ
-	//MSG_NPC_PORTAL_SCROLL,		// connie [2009/9/8] - NPC Ã£±â
+	MSG_EXPRESS_SYSTEM = 99,	// Ã¢ï¿½ï¿½NPC (Express system)ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½
+	//MSG_NPC_PORTAL_SCROLL,		// connie [2009/9/8] - NPC Ã£ï¿½ï¿½
 
 	MSG_MAX,
 
-// ÀÌÈÄ ¸Þ¼¼Áö´Â Å¬¶óÀÌ¾ðÆ®¸¸ »ç¿ë ¸Þ¼¼Áö
-/* //0522 kwon  »èÁ¦.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+/* //0522 kwon  ï¿½ï¿½ï¿½ï¿½.
   // broadcast requesting server infos
   MSG_REQ_ENUMSERVERS,
   MSG_SERVERINFO,
@@ -247,7 +247,7 @@ typedef enum NetworkMessageType {
   // main session state connecting to server
   MSG_REQ_CONNECTLOCALSESSIONSTATE = 50,
   MSG_REP_CONNECTLOCALSESSIONSTATE,
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   // remote session state connecting to server
   MSG_REQ_CONNECTREMOTESESSIONSTATE,
   MSG_REP_CONNECTREMOTESESSIONSTATE,
@@ -264,7 +264,7 @@ typedef enum NetworkMessageType {
   // player connecting to server
   MSG_REQ_CONNECTPLAYER,
   MSG_REP_CONNECTPLAYER,
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   MSG_REQ_PAUSE,  // request pause/unpause game
 */
   // request character change for a player
@@ -272,7 +272,7 @@ typedef enum NetworkMessageType {
 
   // action packet from client to server
   MSG_ACTIONS,
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   // data to check for lost synchronization (client to server) - NO LONGER USED
   MSG_SYNCCHECK,     
   // a copy of action stored for prediction
@@ -280,7 +280,7 @@ typedef enum NetworkMessageType {
 */
   // sequenced packets from server to session states
   MSG_SEQ_ALLACTIONS,    // packed actions of all players from server to clients
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   MSG_SEQ_ADDPLAYER,     // instructions for adding a new player to session states
   MSG_SEQ_REMPLAYER,     // instructions for removing a new player from session states
   MSG_SEQ_PAUSE,         // game was paused/unpaused
@@ -291,7 +291,7 @@ typedef enum NetworkMessageType {
   MSG_REQUESTGAMESTREAMRESEND,  // request for resend of a game stream message
 
   
-/* //0522 kwon »èÁ¦.
+/* //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   // chat messages
   MSG_CHAT_IN,    // chat request from client to server
   MSG_CHAT_OUT,   // chat message routed to certain clients
@@ -310,7 +310,7 @@ typedef enum NetworkMessageType {
   // disconnection confirmation from the client
 	MSG_REP_DISCONNECTED,
 
- //0522 kwon »èÁ¦.
+ //0522 kwon ï¿½ï¿½ï¿½ï¿½.
   // server/client messages
   MSG_TICK_DATA,         // incoming server tick data (client side)
   MSG_TICK_ACKNOWLEDGE,  // incoming tick acknowledge (server side)
@@ -385,296 +385,296 @@ typedef enum _tagBattlePassType
 #endif
 typedef enum __tagMsgRaidType
 {
-	MSG_RAID_ERROR,							// ¿¡·¯
+	MSG_RAID_ERROR,							// ï¿½ï¿½ï¿½ï¿½
 
-	MSG_RAID_INZONE_JOIN,					// ÀÎÁ¸ µé¾î°¨ 
-	MSG_RAID_INZONE_QUIT,					// ÀÎÁ¸ ³ª°¨
+	MSG_RAID_INZONE_JOIN,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨ 
+	MSG_RAID_INZONE_QUIT,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_RAID_TYPE;
 
 typedef enum __tagMsgRaidInzoneMisCompleteType
 {
-	MSG_RAID_INZONE_MISCLEAR_INCOMPLETE,	// ÀÎÁ¸ ¹Ì¼Ç Å¬¸®¾î ¹Ì¿Ï·á
-	MSG_RAID_INZONE_MISCLEAR_COMPLETE,		// ÀÎÁ¸ ¹Ì¼Ç Å¬¸®¾î ¿Ï·á
+	MSG_RAID_INZONE_MISCLEAR_INCOMPLETE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿Ï·ï¿½
+	MSG_RAID_INZONE_MISCLEAR_COMPLETE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 }MSG_RAID_INZONE_MISCOMPLETE_TYPE;
 
 
-//·¹ÀÌµå ¿¡·¯
+//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgRaidErrorType
 {
-	MSG_RAID_ERROR_SUCESS=0,       // ¼º°ø
-	MSG_RAID_ERROR_INZONE_JOIN_CLEAR_COMPLETE,   // ÀÎÁ¸ ÀÔÀå ºÒ°¡(ÀÎÁ¸ Å¬¸®¾î ¿Ï·á) - %ÀÏ %½Ã µÚ¿¡ ÀÔÀå°¡´É
-	MSG_RAID_ERROR_INZONE_JOIN_ROOMCOUNT_FULL,   // ÇöÀç ÀÎ½ºÅÏ½º ³Ê¹« ¸¹¾Æ ´õÀÌ»ó »ý¼º ºÒ°¡
-	MSG_RAID_ERROR_INZONE_JOIN_ALREADY,     // ÀÎÁ¸ ÀÌ¹Ì ·Î±×ÀÎ 
-	MSG_RAID_ERROR_INZONE_JOIN_MEMBER_FULL,    // ÀÎÁ¸ ÀÔÀå °¡´ÉÇÑ ÃÖ´ë ÀÎ¿ø¼ö ÃÊ°ú
-	MSG_RAID_ERROR_INZONE_JOIN_ALREADY_OTHERTEAM,  // ÇØ´ç Á¸¿¡ ´Ù¸¥ ÆÄÆ¼,¿øÁ¤´ë°¡ ÀÖ½À´Ï´Ù.
-	MSG_RAID_ERROR_INZONE_JOIN_THISZONE_PARTYZONE,  // ÆÄÆ¼ »óÅÂ¿¡¼­¸¸ ÀÔÀå °¡´É ÇÕ´Ï´Ù
-	MSG_RAID_ERROR_INZONE_JOIN_THISZONE_EXPEDZONE,  // ¿øÁ¤´ë »óÅÂ¿¡¼­¸¸ ÀÔÀå °¡´É ÇÕ´Ï´Ù  
-	MSG_RAID_ERROR_INZONE_JOIN_NOTJOIN_PARTYOREXPED, // ÆÄÆ¼³ª ¿øÁ¤´ë¿¡ °¡ÀÔ µÇ¾î  ÀÖÁö ¾ÊÀ½
-	MSG_RAID_ERROR_INZONE_QUIT_NOTINZONEJOINED,   // ÇØ´ç ÀÎÁ¸¿¡ ÀÔÀå ÇÏÁö ¾Ê¾ÒÀ½ 
-	MSG_RAID_ERROR_INZONE_NOT_5MIN_GETBOX,    // ´õ ÀÌ»ó »óÀÚ ÁÖ¿ï ¼ö ¾øÀ½(È¹µæ ½Ã°£ 5ºÐ) 
-	MSG_RAID_ERROR_INZONE_ALREADY_GETBOX,    // ÀÌÀü¿¡ ¹ÞÀº »óÀÚ ¿ÀÇÂ ÇÏ°í ´Ù½Ã ½Ãµµ
-	MSG_RAID_ERROR_INZONE_JOIN_INVALIDELEVEL,			// ·¹º§ Á¦ÇÑÀ¸·Î ÀÔÀåÇÒ¼ö ¾øÀ½
-	MSG_RAID_ERROR_INZONE_JOIN_NOTSAMEBOSSROOMNO,		// ±Í¼ÓµÈ ÀÎÁ¸ Á¤º¸°¡ ¿øÁ¤´ëÀå ´Þ¶ó Á¢¼Ó ºÒ°¡ (Ãß°¡ ¿¡·¯ ¸Þ¼¼Áö)
-	MSG_RAID_ERROR_INZONE_NOT_EXPED_RAID_SUBNUMBER,		// ÁöÁ¤µÈ ¿øÁ¤´ë ·¹ÀÌµå Ã¤³ÎÀÌ ¾Æ´Ï¶ó¼­ ÀÔÀå ºÒ°¡
-	MSG_RAID_ERROR_INZONE_NOT_JOIN_BOSS,				// ¿øÁ¤´ëÀåÀÌ ¾ÆÁ÷ ·¹ÀÌµå¿¡ ÀÔÀåÇÏÁö ¾Ê¾Ò´Ù.
-	MSG_RAID_ERROR_INZONE_INVALID_DIFFICULTY,			// ÇöÀç ¿øÁ¤´ë ³­ÀÌµµ¿Í ÀÔÀåÇÏ·Á´Â ³­ÀÌµµ°¡ Æ²¸².
-	MSG_RAID_ERROR_INZONE_INIT_TIME,       // (17) ·¹ÀÌµå ´øÀü ÃÊ±âÈ­ ÁßÀÔ´Ï´Ù.\n Àá½ÃÈÄ ´Ù½Ã ½ÃµµÇÏ¿© ÁÖ½Ê½Ã¿À.(ÀÔÀå ½Ãµµ½Ã ¸Þ½ÃÁö ¹Ú½º)
-	MSG_RAID_ERROR_INZONE_NOT_QUEST,		// 18 ·¹ÀÌµå ´øÀü ÀÔÀåÁ¶°Ç ºÎÁ· : Äù½ºÆ® ¹Ì¼öÇà
-	MSG_RAID_ERROR_INZONE_NOT_FOUND_ZONE_INFO,			// ÀÎ½ºÅÏ½º Á¸ Á¤º¸¸¦ Ã£À» ¼ö ¾øÀ½
+	MSG_RAID_ERROR_SUCESS=0,       // ï¿½ï¿½ï¿½ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_CLEAR_COMPLETE,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½(ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½) - %ï¿½ï¿½ %ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½å°¡ï¿½ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_ROOMCOUNT_FULL,   // ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_ALREADY,     // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ 
+	MSG_RAID_ERROR_INZONE_JOIN_MEMBER_FULL,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_ALREADY_OTHERTEAM,  // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Æ¼,ï¿½ï¿½ï¿½ï¿½ï¿½ë°¡ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+	MSG_RAID_ERROR_INZONE_JOIN_THISZONE_PARTYZONE,  // ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_THISZONE_EXPEDZONE,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½  
+	MSG_RAID_ERROR_INZONE_JOIN_NOTJOIN_PARTYOREXPED, // ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_RAID_ERROR_INZONE_QUIT_NOTINZONEJOINED,   // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ 
+	MSG_RAID_ERROR_INZONE_NOT_5MIN_GETBOX,    // ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(È¹ï¿½ï¿½ ï¿½Ã°ï¿½ 5ï¿½ï¿½) 
+	MSG_RAID_ERROR_INZONE_ALREADY_GETBOX,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Ù½ï¿½ ï¿½Ãµï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_INVALIDELEVEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_RAID_ERROR_INZONE_JOIN_NOTSAMEBOSSROOMNO,		// ï¿½Í¼Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ (ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)
+	MSG_RAID_ERROR_INZONE_NOT_EXPED_RAID_SUBNUMBER,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_RAID_ERROR_INZONE_NOT_JOIN_BOSS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´ï¿½.
+	MSG_RAID_ERROR_INZONE_INVALID_DIFFICULTY,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ Æ²ï¿½ï¿½.
+	MSG_RAID_ERROR_INZONE_INIT_TIME,       // (17) ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½Ô´Ï´ï¿½.\n ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.(ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½)
+	MSG_RAID_ERROR_INZONE_NOT_QUEST,		// 18 ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¼ï¿½ï¿½ï¿½
+	MSG_RAID_ERROR_INZONE_NOT_FOUND_ZONE_INFO,			// ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 }MSG_RAID_ERROR_TYPE;
 
 //////////////////////////////////////////////////////////////////////////
-//  [sora] ¿øÁ¤´ë °ü·Ã
+//  [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //////////////////////////////////////////////////////////////////////////
-typedef enum _tagMsgExpedType			//¿øÁ¤´ë °ü·Ã ¸Þ¼¼Áö 
+typedef enum _tagMsgExpedType			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ 
 {
-	MSG_EXPED_ERROR,						// ¿¡·¯
+	MSG_EXPED_ERROR,						// ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_CREATE_REQ,							// ¿øÁ¤´ë »ý¼º(ÆÄÆ¼ÀüÈ¯) ¿äÃ»			
-	MSG_CREATE_REP,							// ¿øÁ¤´ë »ý¼º(ÆÄÆ¼ÀüÈ¯) ÀÀ´ä	
+	MSG_CREATE_REQ,							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ¼ï¿½ï¿½È¯) ï¿½ï¿½Ã»			
+	MSG_CREATE_REP,							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ¼ï¿½ï¿½È¯) ï¿½ï¿½ï¿½ï¿½	
 
-	MSG_INVITE_REQ,							// ÃÊ´ë ¿äÃ»
-	MSG_INVITE_REP,							// ÃÊ´ë ÀÀ´ä
+	MSG_INVITE_REQ,							// ï¿½Ê´ï¿½ ï¿½ï¿½Ã»
+	MSG_INVITE_REP,							// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EXPED_ADD,							// Ä³¸¯ Ãß°¡ 
-	MSG_EXPED_MEMBER_INFO,					// ´ë¿ø Á¤º¸
+	MSG_EXPED_ADD,							// Ä³ï¿½ï¿½ ï¿½ß°ï¿½ 
+	MSG_EXPED_MEMBER_INFO,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_ALLOW_REQ,							// ÃÊ´ë ¼ö¶ô
-	MSG_ALLOW_REP,							// ÃÊ´ë ÀÀ´ä
+	MSG_ALLOW_REQ,							// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ALLOW_REP,							// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_REJECT_REQ,							// ÃÊ´ë °ÅºÎ ¿äÃ»
-	MSG_REJECT_DEST,						// °Å¹«	
+	MSG_REJECT_REQ,							// ï¿½Ê´ï¿½ ï¿½Åºï¿½ ï¿½ï¿½Ã»
+	MSG_REJECT_DEST,						// ï¿½Å¹ï¿½	
 	MSG_REJECT_SRC,
 
-	MSG_QUIT_REQ,							// Å»Åð ¿äÃ»
-	MSG_QUIT_REP,							// Å»Åð ÀÀ´ä
+	MSG_QUIT_REQ,							// Å»ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_QUIT_REP,							// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_ENDEXPED_REQ,						// ¿øÁ¤´ë ÇØÃ¼
-	MSG_ENDEXPED_START,      // ¿øÁ¤´ë ÇìÃ¼ ½ÃÀÛ ¾Ë¸²(20ÃÊ ÈÄ¿¡) (Ãß°¡)
-	MSG_ENDEXPED_REP,						// ¿øÁ¤´ë ÇØÃ¼	
+	MSG_ENDEXPED_REQ,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+	MSG_ENDEXPED_START,      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½(20ï¿½ï¿½ ï¿½Ä¿ï¿½) (ï¿½ß°ï¿½)
+	MSG_ENDEXPED_REP,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼	
 
-	MSG_KICK_REQ,							// Ãß¹æ ¿äÃ»
-	MSG_KICK_REP,							// Ãß¹æ ÀÀ´ä
+	MSG_KICK_REQ,							// ï¿½ß¹ï¿½ ï¿½ï¿½Ã»
+	MSG_KICK_REP,							// ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_CHANGETYPE_REQ,						// ¿øÁ¤´ë Å¸ÀÔ º¯°æ(°æÇèÄ¡, ³ª½º, ÀÏ¹Ý ¾ÆÀÌÅÛ, ½ºÆä¼È ¾ÆÀÌÅÛ ºÐ¹è ¹æ¹ý)
+	MSG_CHANGETYPE_REQ,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ä¡, ï¿½ï¿½ï¿½ï¿½, ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½)
 	MSG_CHANGETYPE_REP,		
 
-	MSG_MEMBERINFO_REQ,						// ¿øÁ¤´ë ¸â¹ö(U.I)
+	MSG_MEMBERINFO_REQ,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(U.I)
 	MSG_MEMBERINFO_REP,		
 
-	MSG_ADMIN_REQ,							// ¿øÁ¤´ë °ü¸®(U.I)
+	MSG_ADMIN_REQ,							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(U.I)
 	MSG_ADMIN_REP,
 
-	MSG_CHANGEBOSS_REQ,						// ¿øÁ¤ ´ëÀå À§ÀÓ(º¯°æ)
-	MSG_CHANGEBOSS_REP,						// ¿øÁ¤ ´ëÀå À§ÀÓ
+	MSG_CHANGEBOSS_REQ,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)
+	MSG_CHANGEBOSS_REP,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_SETMBOSS_REQ,						// ºÎ´ëÀå ÀÓ¸í
+	MSG_SETMBOSS_REQ,						// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½
 	MSG_SETMBOSS_REP,
 
-	MSG_RESETMBOSS_REQ,						// ºÎ´ëÀå ÀÓ¸í ÇØÁ¦
+	MSG_RESETMBOSS_REQ,						// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_RESETMBOSS_REP,	
 
-	MSG_MOVEGROUP_REQ,						// ±×·ì ÀÌµ¿ 
+	MSG_MOVEGROUP_REQ,						// ï¿½×·ï¿½ ï¿½Ìµï¿½ 
 	MSG_MOVEGROUP_REP,						
 
-	MSG_ADDMEMBER_REQ,						// ´ë¿ø Ãß°¡
+	MSG_ADDMEMBER_REQ,						// ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	MSG_ADDMEMBER_REP,
 
-	MSG_VIEWDETAIL_REQ,						// »ìÆìº¸±â
-	MSG_VIEWDETAIL_INVEN,					// ÀÎº¥Á¤º¸
-	MSG_VIEWDETAIL_PET,						// ÆêÁ¤º¸
-	MSG_VIEWDETAIL_APET,					// °ø°ÝÆê
+	MSG_VIEWDETAIL_REQ,						// ï¿½ï¿½ï¿½ìº¸ï¿½ï¿½
+	MSG_VIEWDETAIL_INVEN,					// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_VIEWDETAIL_PET,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_VIEWDETAIL_APET,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_SET_LABEL_REQ,						// Ç¥½Ä ÁöÁ¤
+	MSG_SET_LABEL_REQ,						// Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_SET_LABEL_REP,
 
-	MSG_EXPED_TYPEINFO,						// ¿øÁ¤´ë Å¸ÀÔ Á¤º¸
+	MSG_EXPED_TYPEINFO,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_QUESTITEM_CHECK_REQ,				//Ãß°¡(Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¼­¹ö·Î Äù½ºÆ®¾ÆÀÌÅÛ °Ë»ö ¿äÃ»
-	MSG_GET_QUESTITEM_SUCCESS_REP,			//¿øÁ¤´ëÀåÀÌ Äù½ºÆ®¾ÆÀÌÅÛÀ» °Ë»öÇÏ¿© ¼º°øÀûÀ¸·Î ¾òÀ½
-	MSG_GET_QUESTITEM_FAILED_REP,			//¿øÁ¤´ëÀåÀÌ Äù½ºÆ®¾ÆÀÌÅÛÀ» °Ë»öÇÏÁö ¸øÇÔ.
+	MSG_QUESTITEM_CHECK_REQ,				//ï¿½ß°ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½Ã»
+	MSG_GET_QUESTITEM_SUCCESS_REP,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GET_QUESTITEM_FAILED_REP,			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	MSG_EXPED_ADD_SYSMSG,					// [110609 selo] ¿øÁ¤´ë¿ø Ãß°¡ SysMSG
+	MSG_EXPED_ADD_SYSMSG,					// [110609 selo] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ SysMSG
 
-	MSG_EXPEND_OFFLINE,						// ¿øÁ¤´ë ¿ÀÇÁ¶óÀÎ //¼­¹ö¿¡¼­¸¸ ¾¸
+	MSG_EXPEND_OFFLINE,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 } MSG_EXPEDITION_TYPE;
 
-typedef enum __tagMsgExpedSetLabelIndex	// [sora] Ç¥½Ä 
+typedef enum __tagMsgExpedSetLabelIndex	// [sora] Ç¥ï¿½ï¿½ 
 {
-	MSG_EXPED_SETLABEL_INDEX_1,			// µµ³¢
-	MSG_EXPED_SETLABEL_INDEX_2,			// À¯·É 
-	MSG_EXPED_SETLABEL_INDEX_3,			// ¹ß¹Ù´Ú 
-	MSG_EXPED_SETLABEL_INDEX_4,			// Á¶°¢Ä®
-	MSG_EXPED_SETLABEL_INDEX_5,			// ¶Ë 
-	MSG_EXPED_SETLABEL_INDEX_6,			// ¾Ç¸¶ 
-	MSG_EXPED_SETLABEL_INDEX_7,			// ÇØ°ñ	
+	MSG_EXPED_SETLABEL_INDEX_1,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_SETLABEL_INDEX_2,			// ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EXPED_SETLABEL_INDEX_3,			// ï¿½ß¹Ù´ï¿½ 
+	MSG_EXPED_SETLABEL_INDEX_4,			// ï¿½ï¿½ï¿½ï¿½Ä®
+	MSG_EXPED_SETLABEL_INDEX_5,			// ï¿½ï¿½ 
+	MSG_EXPED_SETLABEL_INDEX_6,			// ï¿½Ç¸ï¿½ 
+	MSG_EXPED_SETLABEL_INDEX_7,			// ï¿½Ø°ï¿½	
 }MSG_EXPEDITION_SETLABEL_INDEX;
 
-typedef enum __tagMsgExpedSetLabelType	// [sora] ´ë»ó Å¸ÀÔ
+typedef enum __tagMsgExpedSetLabelType	// [sora] ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 {
 	MSG_EXPED_SETLABEL_TYPE_PC,			
 	MSG_EXPED_SETLABEL_TYPE_NPC,		
 }MSG_EXPEDITION_SETLABEL_TYPE;
 
-typedef enum __tagMsgExpedSetLabelMode	 // [sora] ÁöÁ¤ Å¸ÀÔ
+typedef enum __tagMsgExpedSetLabelMode	 // [sora] ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 {
 	MSG_EXPED_SETLABEL_MODE_SET,			
 	MSG_EXPED_SETLABEL_MODE_RESET,		
 }MSG_EXPEDITION_SETLABEL_MODE;
 
 
-// [sora] ¿øÁ¤´ë ¿¡·¯(ÀüÈ¯ °ü·Ã ¿¡·¯ ¸Þ¼¼Áö Ãß°¡)
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß°ï¿½)
 typedef enum __tagMsgExpedErrorType
 {
-	MSG_EXPED_ERROR_NORMAL,     // ÀÏ¹Ý
+	MSG_EXPED_ERROR_NORMAL,     // ï¿½Ï¹ï¿½
 
-	MSG_EXPED_ERROR_ALREADY_REQUEST,  // ´Ù¸¥ »ç¶÷¿¡°Ô ÀÌ¹Ì ¿äÃ» Áß
+	MSG_EXPED_ERROR_ALREADY_REQUEST,  // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½
 
-	MSG_EXPED_ERROR_ALLOW_OK,    // ÃÊ´ë ¼ö¶ô ¼º°ø(¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
-	MSG_EXPED_ERROR_ALLOW_NOT_EXPED,      // ½ÇÆÐ(¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
+	MSG_EXPED_ERROR_ALLOW_OK,    // ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
+	MSG_EXPED_ERROR_ALLOW_NOT_EXPED,      // ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
 
-	MSG_EXPED_ERROR_REJECT_OK,    // °ÅÀý ¼º°ø(¼­¹ö°£ ¿¡·¯)  
-	MSG_EXPED_ERROR_REJECT_FAIL,   // °ÅÀý ½ÇÆÐ(¼­¹ö°£ ¿¡·¯)
+	MSG_EXPED_ERROR_REJECT_OK,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)  
+	MSG_EXPED_ERROR_REJECT_FAIL,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_EXPED_ERROR_QUIT_OK,    // Å»Åð ¼º°ø(¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
-	MSG_EXPED_ERROR_QUIT_END,    // Å»Åð ¼º°ø, ¿øÁ¤´ë ÇØÃ¼(¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
+	MSG_EXPED_ERROR_QUIT_OK,    // Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
+	MSG_EXPED_ERROR_QUIT_END,    // Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
 
-	MSG_EXPED_ERROR_KICK_OK,    // °­Åð ¼º°ø(¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
-	MSG_EXPED_ERROR_KICK_END,    // °­Åð ¼º°ø, ¿øÁ¤´ë (¼­¹ö°£ ¿¡·¯ ¸Þ¼¼Áö)  
+	MSG_EXPED_ERROR_KICK_OK,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
+	MSG_EXPED_ERROR_KICK_END,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)  
 
-	MSG_EXPED_ERROR_INVITE_PVP,    // ¿äÃ»ÀÚ³ª ´ë»óÀÚ°¡ PVP Áß
-	MSG_EXPED_ERROR_NOT_PARTY,    // ÆÄÆ¼¿¡ ¼Ò¼ÓµÇÁö ¾ÊÀ½(ÆÄÆ¼ ÀüÈ¯ ºÒ°¡)
-	MSG_EXPED_ERROR_NOT_EXPED,    // ¿øÁ¤´ë ¼Ò¼ÓµÇÁö ¾ÊÀ½
-	MSG_EXPED_ERROR_NOT_PARTYBOSS,   // ÆÄÆ¼ÀåÀÌ ¾Æ´Ï´Ù. (ÆÄÆ¼ÀüÈ¯ ºÒ°¡) 
-	MSG_EXPED_ERROR_NOT_EXPEDBOSS,   // ¿øÁ¤´ëÀåÀÌ ¾Æ´Ï´Ù.
-	MSG_EXPED_ERROR_ALREADY_JOIN_ME,  // ÀÌ¹Ì ¿øÁ¤´ë¿¡ ¼Ò¼ÓµÇ¾î ÀÖÀ½
-	MSG_EXPED_ERROR_ALREADY_JOIN_OTHER,  // ´Ù¸¥ ¿øÁ¤´ë¿¡ ¼Ò¼ÓµÇ¾î ÀÖÀ½
-	MSG_EXPED_ERROR_NOT_BE_CHAR,   // ¾ø´Â Ä³¸¯ÅÍ 
-	MSG_EXPED_ERROR_FULL_EXPED,    // ´õ ÀÌ»ó ¿øÁ¤´ë¿ø Ãß°¡ÇÒ ¼ö ¾øÀ½) 
-	MSG_EXPED_ERROR_INVALID_LEVEL,   // ·¹º§ÀÌ ¸ÂÁö ¾ÊÀ½
-	MSG_EXPED_ERROR_CREATE_INVALIDZONE,  // ¿øÁ¤´ë ÀüÈ¯ °¡´É Áö¿ªÀÌ ¾Æ´Õ´Ï´Ù.
-	MSG_EXPED_ERROR_SETLABEL_NOTINZONE,  // ÀÎÁ¸ ³»ºÎ°¡ ¾Æ´Ï¾î¼­ Ç¥½Ä ¼³Á¤ ºÒ°¡.
-	MSG_EXPED_ERROR_EXIST_LOGOUT_MEMBER, // ¿ÀÇÁ¶óÀÎ ¸â¹ö°¡ ÀÖÀ½
+	MSG_EXPED_ERROR_INVITE_PVP,    // ï¿½ï¿½Ã»ï¿½Ú³ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ PVP ï¿½ï¿½
+	MSG_EXPED_ERROR_NOT_PARTY,    // ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½Ò¼Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Æ¼ ï¿½ï¿½È¯ ï¿½Ò°ï¿½)
+	MSG_EXPED_ERROR_NOT_EXPED,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_ERROR_NOT_PARTYBOSS,   // ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½. (ï¿½ï¿½Æ¼ï¿½ï¿½È¯ ï¿½Ò°ï¿½) 
+	MSG_EXPED_ERROR_NOT_EXPEDBOSS,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+	MSG_EXPED_ERROR_ALREADY_JOIN_ME,  // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¡ ï¿½Ò¼ÓµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_ERROR_ALREADY_JOIN_OTHER,  // ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¡ ï¿½Ò¼ÓµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_ERROR_NOT_BE_CHAR,   // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EXPED_ERROR_FULL_EXPED,    // ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) 
+	MSG_EXPED_ERROR_INVALID_LEVEL,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_ERROR_CREATE_INVALIDZONE,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_EXPED_ERROR_SETLABEL_NOTINZONE,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½ ï¿½Æ´Ï¾î¼­ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½.
+	MSG_EXPED_ERROR_EXIST_LOGOUT_MEMBER, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EXPEDITION_ERROR_TYPE;
 
-// [sora] ¿øÁ¤´ë ±×·ì Å¸ÀÔ 
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ Å¸ï¿½ï¿½ 
 typedef enum _tagMsgExpedGroupType
 {
-	MSG_EXPED_GROUP_1,						// ±×·ì 1
-	MSG_EXPED_GROUP_2,						// ±×·ì 2	
-	MSG_EXPED_GROUP_3,						// ±×·ì 3
-	MSG_EXPED_GROUP_4,						// ±×·ì 4
+	MSG_EXPED_GROUP_1,						// ï¿½×·ï¿½ 1
+	MSG_EXPED_GROUP_2,						// ï¿½×·ï¿½ 2	
+	MSG_EXPED_GROUP_3,						// ï¿½×·ï¿½ 3
+	MSG_EXPED_GROUP_4,						// ï¿½×·ï¿½ 4
 
 	MSG_EXPED_GROUP_COUNT,
 
 } MSG_EXPED_GROUP_TYPE;
 
-// [sora] ¿øÁ¤´ë ±¸¼º¿ø Å¸ÀÔ
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 typedef enum _tagMsgExpedMemberType
 {
-	MSG_EXPED_MEMBERTYPE_BOSS,				// ¿øÁ¤ ´ëÀå 
-	MSG_EXPED_MEMBERTYPE_MBOSS,				// ¿øÁ¤ ºÎ´ëÀå
-	MSG_EXPED_MEMBERTYPE_NORMAL,			// ¿øÁ¤ ´ë¿ø
+	MSG_EXPED_MEMBERTYPE_BOSS,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EXPED_MEMBERTYPE_MBOSS,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½ï¿½
+	MSG_EXPED_MEMBERTYPE_NORMAL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	
 	MSG_EXPED_MEMBERTYPE_COUNT,
 }MSG_EXPED_MEMBER_TYPE;
 
-// [sora] ¿øÁ¤´ë Á¤»ó,ºñÁ¤»ó Å»Åð Å¸ÀÔ
+// [sora] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ Å¸ï¿½ï¿½
 typedef enum _tagMsgExpedQuitMode
 {
-	MSG_EXPED_QUITMODE_NORMAL,				// Á¤»ó ³ª°¨ 
-	MSG_EXPED_QUITMODE_UNUSUAL,				// ºñÁ¤»ó ³ª°¨
+	MSG_EXPED_QUITMODE_NORMAL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EXPED_QUITMODE_UNUSUAL,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EXPED_QUIT_MODE;
 
-// [sora] º¸½º À§ÀÓ(¼öµ¿,ÀÚµ¿) ¸ðµå
+// [sora] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½,ï¿½Úµï¿½) ï¿½ï¿½ï¿½
 typedef enum _tagMsgExpedChangeBossMode
 {
-	MSG_EXPED_CHANGEBOSS_MANUAL,			// ¼öµ¿ À§ÀÓ
-	MSG_EXPED_CHANGEBOSS_AUTO,				// ÀÚµ¿ À§ÀÓ
+	MSG_EXPED_CHANGEBOSS_MANUAL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXPED_CHANGEBOSS_AUTO,				// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EXPED_CHANGEBOSS_MODE;
 
-// [sora] ºÐ¹è¹æ¹ý
+// [sora] ï¿½Ð¹ï¿½ï¿½ï¿½
 typedef enum _tagMsgDiviType
 {
-    MSG_DIVITYPE_EXP=0,      // ºÐ¹è ¹æ¹ý(°æÇèÄ¡)
-    MSG_DIVITYPE_ITEM,        // ºÐ¹è ¹æ¹ý(¾ÆÀÌÅÛ)
-	MSG_DIVITYPE_SPECIAL,        // ºÐ¹è ¹æ¹ý(½ºÆä¼È ¾ÆÀÌÅÛ)
+    MSG_DIVITYPE_EXP=0,      // ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ä¡)
+    MSG_DIVITYPE_ITEM,        // ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_DIVITYPE_SPECIAL,        // ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 }MSG_DIVI_TYPE;
 
-typedef enum _tagMsgExpedDiviStyle // [sora]ºÐ¹è ¹æ½Ä (ÆÄÆ¼ ¿øÁ¤´ë °øµ¿ »ç¿ë)
+typedef enum _tagMsgExpedDiviStyle // [sora]ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
 {
-  MSG_EXPED_TYPE_RANDOM=0,   // ±Õµî ÆÄÆ¼
-  MSG_EXPED_TYPE_FIRSTGET,  // ÀÔ¼ö ¿ì¼±
-  MSG_EXPED_TYPE_BATTLE,   // ÀüÅõÇü
-  MSG_EXPED_TYPE_OPENBOX,   // »óÀÚ¿­±â
+  MSG_EXPED_TYPE_RANDOM=0,   // ï¿½Õµï¿½ ï¿½ï¿½Æ¼
+  MSG_EXPED_TYPE_FIRSTGET,  // ï¿½Ô¼ï¿½ ï¿½ì¼±
+  MSG_EXPED_TYPE_BATTLE,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  MSG_EXPED_TYPE_OPENBOX,   // ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½
 }MSG_EXPED_DIVISTYLE;
 
-// [sora] ÆÄÆ¼ Å¸ÀÔ ¼³Á¤ ¹æ½Ä
+// [sora] ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 typedef enum _tagMsgPartySetAllOneType
 {
-  MSG_PARTY_SETALLONE_ALL=1,   // ÆÄÆ¼ Å¸ÀÔ ¼³Á¤ ALL(ÀüÃ¼ ÆÄÆ¼ ¹æ½Ä)  
-  MSG_PARTY_SETALLONE_ONE,   // ÆÄÆ¼ Å¸ÀÔ ¼³Á¤ ONE
+  MSG_PARTY_SETALLONE_ALL=1,   // ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ALL(ï¿½ï¿½Ã¼ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½)  
+  MSG_PARTY_SETALLONE_ONE,   // ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ONE
 }MSG_PARTY_SETALLONE_TYPE;
 
 //////////////////////////////////////////////////////////////////////////
 
-typedef enum __tagMsgTradeAgentAlignType	// ¸®½ºÆ® Á¤·Ä Å¸ÀÔ
+typedef enum __tagMsgTradeAgentAlignType	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 {	
-	MSG_TRADEAGENT_ALIGN_NAME_ASC,			// ¾ÆÀÌÅÛ ÀÌ¸§(¿À¸§ Â÷¼ø)
-	MSG_TRADEAGENT_ALIGN_NAME_DESC,			// ¾ÆÀÌÅÛ ÀÌ¸§(³»¸² Â÷¼ø)
+	MSG_TRADEAGENT_ALIGN_NAME_ASC,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_TRADEAGENT_ALIGN_NAME_DESC,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_TRADEAGENT_ALIGN_QUANTITY_ASC,		// ¼ö·® (¿À¸§ Â÷¼ø)
-	MSG_TRADEAGENT_ALIGN_QUANTITY_DESC,		// ¼ö·® (³»¸² Â÷¼ø)
+	MSG_TRADEAGENT_ALIGN_QUANTITY_ASC,		// ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_TRADEAGENT_ALIGN_QUANTITY_DESC,		// ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_TRADEAGENT_ALIGN_TOTALMONEY_ASC,	// ÃÑ±Ý¾× (¿À¸§ Â÷¼ø)
-	MSG_TRADEAGENT_ALIGN_TOTALMONEY_DESC,	// ÃÑ±Ý¾× (³»¸² Â÷¼ø)
+	MSG_TRADEAGENT_ALIGN_TOTALMONEY_ASC,	// ï¿½Ñ±Ý¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_TRADEAGENT_ALIGN_TOTALMONEY_DESC,	// ï¿½Ñ±Ý¾ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_TRADEAGENT_ALIGN_LEVEL_ASC,			// ·¹º§ (¿À¸§ Â÷¼ø)
-	MSG_TRADEAGENT_ALIGN_LEVEL_DESC,		// ·¹º§ (³»¸² Â÷¼ø)
+	MSG_TRADEAGENT_ALIGN_LEVEL_ASC,			// ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_TRADEAGENT_ALIGN_LEVEL_DESC,		// ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 }MSG_TRADEAGENT_ALIGN_TYPE;
 
 typedef enum __tagMsgTradeAgentErrorType
 {
-	MSG_TRADEAGENT_ERROR_NORMAL,    // ÀÏ¹ÝÀû ¿¡·¯
-	MSG_TRADEAGENT_ERROR_NOT_TRADEITEM,   // °Å·¡ ºÒ°¡ ¾ÆÀÌÅÛ
-	MSG_TRADEAGENT_ERROR_NOT_ITEMCOUNT,   // ¾ÆÀÌÅÛ °³¼ö ºÎÁ¤È® 
-	MSG_TRADEAGENT_ERROR_NOT_SELL_TOTALMONEY, // ÆÇ¸Å ÃÑ ±Ý¾× ºÎÁ¤È®
-	MSG_TRADEAGENT_ERROR_NOT_ENUGH_GUARANTY, // º¸Áõ±Ý ºÎÁ·
+	MSG_TRADEAGENT_ERROR_NORMAL,    // ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_NOT_TRADEITEM,   // ï¿½Å·ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_NOT_ITEMCOUNT,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È® 
+	MSG_TRADEAGENT_ERROR_NOT_SELL_TOTALMONEY, // ï¿½Ç¸ï¿½ ï¿½ï¿½ ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½È®
+	MSG_TRADEAGENT_ERROR_NOT_ENUGH_GUARANTY, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_TRADEAGENT_ERROR_NOT_ENUGH_MONEY,  // ¼ÒÁö±Ý(³ª½º) ºÎÁ·
-	MSG_TRADEAGENT_ERROR_ALREADY_SELLITEM,  // ÀÌ¹Ì ÆÄ¸ÅµÈ ¾ÆÀÌÅÛ
-	MSG_TRADEAGENT_ERROR_FULL_INVENTORY,  // ÀÎº¥Åä¸®°¡ °¡µæ Âü(Á¤»ê ºÒ°¡)
-	MSG_TRADEAGENT_ERROR_NOT_BE_ITEM,   // ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	MSG_TRADEAGENT_ERROR_MAXREGCOUNT_FULL,  // ÃÖ´ë µî·Ï ¼ö ÃÊ°ú
-	MSG_TRADEAGENT_ERROR_CHAR_MAXREGCOUNT_FULL , // Ä³¸¯ÅÍ´ç ÃÖ´ë µî·Ï ¼ö ÃÊ°ú
-	MSG_TRADEAGENT_ERROR_CALCULATE_ING_NOCALC,	// ÇöÀç Á¤»ê Ã³¸®ÁßÀÌ¶ó Ã»»ê ÇÒ¼ö ¾øÀ½(ÇöÀç Á¤»ê Ã³¸®Áß)
+	MSG_TRADEAGENT_ERROR_NOT_ENUGH_MONEY,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_ALREADY_SELLITEM,  // ï¿½Ì¹ï¿½ ï¿½Ä¸Åµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_FULL_INVENTORY,  // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½)
+	MSG_TRADEAGENT_ERROR_NOT_BE_ITEM,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_MAXREGCOUNT_FULL,  // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_TRADEAGENT_ERROR_CHAR_MAXREGCOUNT_FULL , // Ä³ï¿½ï¿½ï¿½Í´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_TRADEAGENT_ERROR_CALCULATE_ING_NOCALC,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ Ã»ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½)
 }MSG_TRADEAGENT_ERROR_TYPE;
 
 typedef enum __tagMsgTradeAgentErrorPart
 {
-	MSG_TRADEAGENT_ERROR_PART_SEARCH,   // ¿¡·¯ ÆÄÆ®: Á¶È¸
-	MSG_TRADEAGENT_ERROR_PART_REGIST,   // ¿¡·¯ ÆÄÆ®: µî·Ï 
-	MSG_TRADEAGENT_ERROR_PART_CALCULATE, // ¿¡·¯ ÆÄÆ®: Á¤»ê
-	MSG_TRADEAGENT_ERROR_PART_BUY,    // ¿¡·¯ ÆÄÆ®: ±¸¸Å
-	MSG_TRADEAGENT_ERROR_PART_SELLCANCEL, // ¿¡·¯ ÆÄÆ®: µî·Ï Ãë¼Ò 
+	MSG_TRADEAGENT_ERROR_PART_SEARCH,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®: ï¿½ï¿½È¸
+	MSG_TRADEAGENT_ERROR_PART_REGIST,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®: ï¿½ï¿½ï¿½ 
+	MSG_TRADEAGENT_ERROR_PART_CALCULATE, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®: ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_PART_BUY,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®: ï¿½ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_ERROR_PART_SELLCANCEL, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®: ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
 }MSG_TRADEAGENT_ERROR_PART;
 
-typedef enum __tagMsgTradeAgentStateType		// »óÇ° »óÅÂ
+typedef enum __tagMsgTradeAgentStateType		// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½
 {	
-	MSG_TRADEAGENT_STATE_SELL_BEFORE,			// ÆÇ¸Å Àü 
-	MSG_TRADEAGENT_STATE_SELL_COMPLETE,			// ÆÇ¸Å ¿Ï·á
-	MSG_TRADEAGENT_STATE_SELL_RETURNED,			// ÆÇ¸Å µÇÁö ¾ÊÀ½(¹Ý¼Û)
-	MSG_TRADEAGENT_STATE_CALCULATE_COMPLETE,	// Á¤»ê ÇÏ¿´À½
-	MSG_TRADEAGENT_STATE_CALCULATE_OVERTIME,	// Á¤»ê ±âÇÑ ÃÊ°ú
-	MSG_TRADEAGENT_STATE_BUY,			        // ±¸ÀÔ
+	MSG_TRADEAGENT_STATE_SELL_BEFORE,			// ï¿½Ç¸ï¿½ ï¿½ï¿½ 
+	MSG_TRADEAGENT_STATE_SELL_COMPLETE,			// ï¿½Ç¸ï¿½ ï¿½Ï·ï¿½
+	MSG_TRADEAGENT_STATE_SELL_RETURNED,			// ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ý¼ï¿½)
+	MSG_TRADEAGENT_STATE_CALCULATE_COMPLETE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½
+	MSG_TRADEAGENT_STATE_CALCULATE_OVERTIME,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_TRADEAGENT_STATE_BUY,			        // ï¿½ï¿½ï¿½ï¿½
 }MSG_TRADEAGENT_STATE_TYPE;
 
-typedef enum __tagMsgTradeAgentFinishDayType	// »óÇ° ¸¶°¨ÀÏ ´ÜÀ§ 
+typedef enum __tagMsgTradeAgentFinishDayType	// ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 {	
-	MSG_TRADEAGENT_FINISH_DAY,					// ÀÏ
-	MSG_TRADEAGENT_FINISH_HOUR,					// ½Ã°£
-	MSG_TRADEAGENT_FINISH_MIN,					// ºÐ
+	MSG_TRADEAGENT_FINISH_DAY,					// ï¿½ï¿½
+	MSG_TRADEAGENT_FINISH_HOUR,					// ï¿½Ã°ï¿½
+	MSG_TRADEAGENT_FINISH_MIN,					// ï¿½ï¿½
 }MSG_TRADEAGENT_FINISHDAY_TYPE;
 
 
@@ -682,185 +682,185 @@ typedef enum __tagMsgTradeAgentFinishDayType	// »óÇ° ¸¶°¨ÀÏ ´ÜÀ§
 // MSG_EXTEND
 typedef enum __tagMsgExtendType
 {
-	MSG_EX_PET_STATUS,			// ¾Ö¿Ïµ¿¹° »óÅÂ	: index(n) petTypeGrade(c) level(n) exp(ll) needexp(ll) hp(n) maxhp(n) ability(n) hungry(n) maxhugry(n) sympathy(n) maxsympathy(n) x(f) z(f) h(f) r(f) y(n) mapatt(uc) remainRebirth(n)
-								// Å¬¶óÀÌ¾ðÆ® ¸®½ºÆ®¿¡ ÇØ´ç ÆêÀÌ ¾øÀ¸¸é Ãß°¡ ÀÖÀ¸¸é ¾÷µ¥ÀÌÆ® ÇÏµµ·Ï ÇÒ °Í
-	MSG_EX_PET_CALL,			// ¾Ö¿ÏµÕ¹° È£Ãâ	: index(n)
+	MSG_EX_PET_STATUS,			// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: index(n) petTypeGrade(c) level(n) exp(ll) needexp(ll) hp(n) maxhp(n) ability(n) hungry(n) maxhugry(n) sympathy(n) maxsympathy(n) x(f) z(f) h(f) r(f) y(n) mapatt(uc) remainRebirth(n)
+								// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_PET_CALL,			// ï¿½Ö¿ÏµÕ¹ï¿½ È£ï¿½ï¿½	: index(n)
 								// Client->Server
-	MSG_EX_PET_MOUNT,			// ¾Ö¿Ïµ¿¹°¿¡ Å¸±â	: owner_index(n) mountPetTypeGrade(c)
+	MSG_EX_PET_MOUNT,			// ï¿½Ö¿Ïµï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½	: owner_index(n) mountPetTypeGrade(c)
 								// Server->Client
-	MSG_EX_PET_LEARN,			// Æê ±³À°			: skillindex(n) level(c:server) errorcode(n:server)
-	MSG_EX_PET_SKILLLIST,		// Æê ½ºÅ³ ¸®½ºÆ®	: index(n) count(n) [skillindex(n) skilllevel(c)] ...
-	MSG_EX_PET_RESET_SKILL,		// Æê ½ºÅ³ ÃÊ±âÈ­
-	MSG_EX_PET_SELL_INFO,		// Æê ±³È¯/ÆÇ¸Å Á¤º¸: ownerindex(n) petindex(n) petTypeGrade(c) level(n) exp(ll) needexp(ll) hp(n) maxhp(n) ability(n) hungry(n) maxhugry(n) sympathy(n) maxsympathy(n) remainRebirth(n)
-	MSG_EX_PET_CHANGE_MOUNT,	// Æê Å¸ÀÔ º¯°æ		: errorcode(n:server)
-	//<--Ãß°¡
+	MSG_EX_PET_LEARN,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: skillindex(n) level(c:server) errorcode(n:server)
+	MSG_EX_PET_SKILLLIST,		// ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®	: index(n) count(n) [skillindex(n) skilllevel(c)] ...
+	MSG_EX_PET_RESET_SKILL,		// ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ê±ï¿½È­
+	MSG_EX_PET_SELL_INFO,		// ï¿½ï¿½ ï¿½ï¿½È¯/ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½: ownerindex(n) petindex(n) petTypeGrade(c) level(n) exp(ll) needexp(ll) hp(n) maxhp(n) ability(n) hungry(n) maxhugry(n) sympathy(n) maxsympathy(n) remainRebirth(n)
+	MSG_EX_PET_CHANGE_MOUNT,	// ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(n:server)
+	//<--ï¿½ß°ï¿½
 	//wooss 050926 
-	MSG_EX_NAMECHANGE,			// ÀÌ¸§ º¯°æc->s	: item_idx(n) name(str)
+	MSG_EX_NAMECHANGE,			// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½c->s	: item_idx(n) name(str)
 								//			s->c	: errorcode(c) name(str) bguild(c)
-	MSG_EX_CASHITEM,			// ¾ÆÀÌÅÛ ±¸¸Å		: subtype(uc) ...
-	MSG_EX_PET_COMMAND,			// Æê »ç±³µ¿ÀÛ		: pet_index(n) command_skill_index(n) targettype(c) targetindex(n)
-	MSG_EX_PET_MIX_ITEM,		// Æê ÀÌ¾ÆÅÛ Á¶ÇÕ	: 
+	MSG_EX_CASHITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: subtype(uc) ...
+	MSG_EX_PET_COMMAND,			// ï¿½ï¿½ ï¿½ç±³ï¿½ï¿½ï¿½ï¿½		: pet_index(n) command_skill_index(n) targettype(c) targetindex(n)
+	MSG_EX_PET_MIX_ITEM,		// ï¿½ï¿½ ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: 
 								// Client->Server	: itemdbindex(n), method(n)
 								// Server->Client	: errcode(n)
-	MSG_EX_FRIENDNAMECHANGE,	// ÀÌ¸§º¯°æ¿¡ µû¸¥ ¸Þ½ÅÁ® ÀÌ¸§ º¯°æ s->c : charindex(n) name(str)
-	MSG_EX_PET_LEVELUP,			// Æê ·¹º§¾÷		: petindex(n) typegrade(c) level(n)
-	MSG_EX_PET_WARPTOWN,		// ¸¶À»·Î ±ÍÈ¯		: 
+	MSG_EX_FRIENDNAMECHANGE,	// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ s->c : charindex(n) name(str)
+	MSG_EX_PET_LEVELUP,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		: petindex(n) typegrade(c) level(n)
+	MSG_EX_PET_WARPTOWN,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯		: 
 
-	MSG_EX_CASTLE_MAP_RECENT,	// °ø¼º¸Ê ÃÖ±Ù Á¤º¸	: lord_x(f) lord_z(f) lord_hp(n) lord_maxhp(n) tower_count(n) [tower_dbindex(n) tower_x(f) tower_z(f) tower_hp(n) tower_maxhp(n)]*count regen_x(f) regen_z(f) signal_sender_flag(n) signal_sender_index(n) signal_x(f) signal_z(f)
-								// Å¬¶óÀÌ¾ðÆ®¿¡¼­ º¸³¾¶§´Â ¸Þ½ÃÁö Å¸ÀÔ¸¸
-								// sender_flag ´Â MSG_GUILD_POSITION_TYPE
-	MSG_EX_CASTLE_MAP_SIGNAL,	// °ø¼º¸Ê ½Ã±×³Î	: x(f) z(f) sender_flag(n:server) sender_index(n:server)
+	MSG_EX_CASTLE_MAP_RECENT,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½	: lord_x(f) lord_z(f) lord_hp(n) lord_maxhp(n) tower_count(n) [tower_dbindex(n) tower_x(f) tower_z(f) tower_hp(n) tower_maxhp(n)]*count regen_x(f) regen_z(f) signal_sender_flag(n) signal_sender_index(n) signal_x(f) signal_z(f)
+								// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¸ï¿½
+								// sender_flag ï¿½ï¿½ MSG_GUILD_POSITION_TYPE
+	MSG_EX_CASTLE_MAP_SIGNAL,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã±×³ï¿½	: x(f) z(f) sender_flag(n:server) sender_index(n:server)
 
-	MSG_EX_ELEMENTAL_STATUS,	// ¼ÒÈ¯¼ö Á¤º¸		: index(n) elementaltype(c) remain(n) hp(n) maxhp(n) attackspeed(c) magicspeed(c) skillspeed(n) walkspeed(f) runspeed(f) attackrange(f) x(f) z(f) h(f) r(f) ylayer(c) mapattr(uc) assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count
-	MSG_EX_ELEMENTAL_DELETE,	// ¼ÒÈ¯¼ö Á¦°Å		: index(n)
+	MSG_EX_ELEMENTAL_STATUS,	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: index(n) elementaltype(c) remain(n) hp(n) maxhp(n) attackspeed(c) magicspeed(c) skillspeed(n) walkspeed(f) runspeed(f) attackrange(f) x(f) z(f) h(f) r(f) ylayer(c) mapattr(uc) assist_state(n) assist_count(c) [itemidx(n) index(n) level(c) remain(n)]:count
+	MSG_EX_ELEMENTAL_DELETE,	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: index(n)
 
-	MSG_EX_EVOCATION_START,		// °­½Å ½ÃÀÛ		: charindex(n) type(c)
-	MSG_EX_EVOCATION_STOP,		// 20 °­½Å ³¡			: charindex(n)
+	MSG_EX_EVOCATION_START,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: charindex(n) type(c)
+	MSG_EX_EVOCATION_STOP,		// 20 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½			: charindex(n)
 
-	MSG_EX_GUILDMEMBERNAMECHANGE,// ÀÌ¸§º¯°æ¿¡ µû¸¥ ±æµåÁ¤º¸ÀÇ ÀÌ¸§ º¯°æ s->c : charindex(n) name(str)
+	MSG_EX_GUILDMEMBERNAMECHANGE,// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½æ¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ s->c : charindex(n) name(str)
 
-	MSG_EX_KEYCHANGE,			// ¾ÏÈ£Å° º¯°æ		: key(unsigned int)
+	MSG_EX_KEYCHANGE,			// ï¿½ï¿½È£Å° ï¿½ï¿½ï¿½ï¿½		: key(unsigned int)
 
-	MSG_EX_PET_CHANGE_ITEM,		// Æê ¾ÆÀÌÅÛ ±³È¯	: errorcode(n:server)
+	MSG_EX_PET_CHANGE_ITEM,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯	: errorcode(n:server)
 
-	MSG_EX_PET_REBIRTH,			// Æê ºÀÀÎ ÇØÁ¦		: pet_index(n) errcode(n:server)
+	MSG_EX_PET_REBIRTH,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: pet_index(n) errcode(n:server)
 
-	MSG_EX_PARTY_RECALL,		// ÆÄÆ¼ ¸®ÄÝ		: subtype(n) ... 060306 wooss
+	MSG_EX_PARTY_RECALL,		// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½		: subtype(n) ... 060306 wooss
 	
-	MSG_EX_PARTY_MATCH,			// ÆÄÆ¼ ¸ÅÄª		: subtype(n) ... // Date : 2006-05-09(¿ÀÈÄ 5:03:37), By eons
+	MSG_EX_PARTY_MATCH,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª		: subtype(n) ... // Date : 2006-05-09(ï¿½ï¿½ï¿½ï¿½ 5:03:37), By eons
 	
-	MSG_EX_STRING,				// Å¬¶óÀÌ¾ðÆ® ¸Þ¼¼ÁöÃâ·Â : outputtype(uc) stringIndex(n) argcount(n) argtype(n) arg
-								// GS->C¸¸ ±ÞÇÒ¶§¸¸ : 
-	MSG_EX_MESSENGER,			// ¸Þ½ÅÀú Ãß°¡ ±â´É : subtype(c)
+	MSG_EX_STRING,				// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : outputtype(uc) stringIndex(n) argcount(n) argtype(n) arg
+								// GS->Cï¿½ï¿½ ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ : 
+	MSG_EX_MESSENGER,			// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ : subtype(c)
 	
-	MSG_EX_HAIR_CHANGE,			// Çì¾î º¯°æ ¸Þ½ÃÁö : charindex(n) hairstyle(c)
+	MSG_EX_HAIR_CHANGE,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ : charindex(n) hairstyle(c)
 
-	MSG_EX_PLAYER_STATE_CHANGE, // ÇÃ·¹ÀÌ¾î »óÅÂ º¯°æ : charindex(n) state(n)
+	MSG_EX_PLAYER_STATE_CHANGE, // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : charindex(n) state(n)
 
-	MSG_EX_PLAYER_REALIP,			// User real IP Àü¼Û : user_ip(s)
+	MSG_EX_PLAYER_REALIP,			// User real IP ï¿½ï¿½ï¿½ï¿½ : user_ip(s)
 
-	MSG_EX_MEMPOSPLUS,			// ÇÁ¸®¹Ì¾ö ¸Þ¸ð¸® ºÏ : sub_type(uc) ...									
+	MSG_EX_MEMPOSPLUS,			// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ : sub_type(uc) ...									
 
-	MSG_EX_NPROTECT,			// NPROTECT °ü·Ã ¸Þ½ÃÁö : gg_auth_index(n) gg_auth_val1(n) gg_auth_val2(n) gg_auth_val3(n)
+	MSG_EX_NPROTECT,			// NPROTECT ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ : gg_auth_index(n) gg_auth_val1(n) gg_auth_val2(n) gg_auth_val3(n)
 
-	MSG_EX_PET_CHANGE_NAME,		// Æê ÀÌ¸§ º¯°æ : pet_index(n), name(str)
-	MSG_EX_PET_CHANGE_COLOR,		// Æê »ö±ò  º¯°æ : pet_index(n), color( c );
+	MSG_EX_PET_CHANGE_NAME,		// ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ : pet_index(n), name(str)
+	MSG_EX_PET_CHANGE_COLOR,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ : pet_index(n), color( c );
 
-	MSG_EX_GO_ZONE,				// Á¸ ÀÌµ¿¹æ½Ä Ãß°¡ ±â´É : subtype(c) ...
+	MSG_EX_GO_ZONE,				// ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ : subtype(c) ...
 	
-	MSG_EX_CASTLE_WAR,			// µå¶óÅº °ø¼º : subtype(uc) ...
+	MSG_EX_CASTLE_WAR,			// ï¿½ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ : subtype(uc) ...
 
-	MSG_EX_SECURE_CARD,			// È«Äá º¸¾È Ä«µå : gs->cl s1(c), s2(c), s3(c), s4(c)   cl->gs s1(c), s2(c), s3(c), s4(c)
+	MSG_EX_SECURE_CARD,			// È«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ : gs->cl s1(c), s2(c), s3(c), s4(c)   cl->gs s1(c), s2(c), s3(c), s4(c)
 
-	MSG_EX_DVD,					// µå¶óÅº °ø¼º ´øÀü : subtype(uc), subsubtype(uc)...
+	MSG_EX_DVD,					// ï¿½ï¿½ï¿½Åº ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : subtype(uc), subsubtype(uc)...
 
-	MSG_EX_ALTERNATE_MERCHANT,	// ´ë¸® »óÀÎ : subtype( uc ) ....
+	MSG_EX_ALTERNATE_MERCHANT,	// ï¿½ë¸® ï¿½ï¿½ï¿½ï¿½ : subtype( uc ) ....
 
 	MSG_EX_PET_TURNTO_NPC,		// (int)(nPetIndex, nToNPC, nOwnerCharIndex )
 	
-	MSG_EX_MONSTERCOMBO,		// ¸ó½ºÅÍ ÄÞº¸
+	MSG_EX_MONSTERCOMBO,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½
 	
-	MSG_EX_RESTART,				// Connector ¿¡ ÀÓ½ÃÆÐ½º¿öµå ¿¬Àå°ú ·Î±×¾Æ¿ô ´ë±â 15ÃÊ¸¦ Á¦°ÅÈÄ Å¬¶óÀÌ¾ðÆ®¿Í Connection Á¦°Å
+	MSG_EX_RESTART,				// Connector ï¿½ï¿½ ï¿½Ó½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½ 15ï¿½Ê¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Connection ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_CHAOSBALL,			//Ä«¿À½º º¼ ±³È¯ : row(n), col(n)
+	MSG_EX_CHAOSBALL,			//Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ : row(n), col(n)
 	
-	MSG_EX_UPDATE_PLAYTIME,		// Client¿¡¼­ 10ºÐ °£°ÝÀ¸·Î PLAYTME ´©Àû ¿äÃ»
+	MSG_EX_UPDATE_PLAYTIME,		// Clientï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PLAYTME ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 
-	MSG_EX_ATTACK_PET,			// attack pet °ü·Ã (c)subtype
+	MSG_EX_ATTACK_PET,			// attack pet ï¿½ï¿½ï¿½ï¿½ (c)subtype
 
-	MSG_EX_EXTREME_CUBE,		//ÀÍ½ºÆ®¸² Å¥ºê °ü·Ã
+	MSG_EX_EXTREME_CUBE,		//ï¿½Í½ï¿½Æ®ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_INIT_SSKILL,  // Æ¯¼ö½ºÅ³ÃÊ±âÈ­
+	MSG_EX_INIT_SSKILL,  // Æ¯ï¿½ï¿½ï¿½ï¿½Å³ï¿½Ê±ï¿½È­
 
-	MSG_EX_DISCONNECT_HACK_CHARACTER,	// ÇÙ À¯Àú ¹æÃâ : 
+	MSG_EX_DISCONNECT_HACK_CHARACTER,	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : 
 	
-	MSG_EX_TRIGGER_EVENT,		// Æ®¸®°Å ÀÌº¥Æ® ½Ã½ºÅÛ
+	MSG_EX_TRIGGER_EVENT,		// Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_AFFINITY,			// ÆòÆÇ
+	MSG_EX_AFFINITY,			// ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_TUTORIAL,			// Æ©Åä¸®¾ó ½Ã½ºÅÛ
+	MSG_EX_TUTORIAL,			// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 	
-	MSG_EX_LOADING_END,			// ·Îµù½Ã ¼­¹ö·ÎºÎÅÍ ¹Þ´Â ¸Þ½ÃÁöÀÇ ³¡À» Àü´ÞÇÏ´Â ºÎºÐ.	
+	MSG_EX_LOADING_END,			// ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½.	
 
-	MSG_EX_RAID_INFO,			// ±Í¼ÓµÈ Á¸ Á¤º¸ Ç¥½Ã
+	MSG_EX_RAID_INFO,			// ï¿½Í¼Óµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
-	MSG_EX_NPC_PORTAL_SCROLL,		// connie [2009/9/8] - NPC Ã£±â 
+	MSG_EX_NPC_PORTAL_SCROLL,		// connie [2009/9/8] - NPC Ã£ï¿½ï¿½ 
 	
 	MSG_EX_LUCKYDRAW_BOX,
 
 	MSG_EX_TITLE_SYSTEM,			// È£Äª
 
-	MSG_EX_TAKE_AGAIN_QUEST_ITEM,	// [100208: selo] Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â
+	MSG_EX_TAKE_AGAIN_QUEST_ITEM,	// [100208: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½
 	
-	MSG_EX_LACARETTE,				// [100324 : sora] ¶óÄ«·¿ ½Ã½ºÅÛ
+	MSG_EX_LACARETTE,				// [100324 : sora] ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_COSTUME2,				// [100421 : kiny8216]ÄÚ½ºÆ¬2 ½Ã½ºÅÛ
+	MSG_EX_COSTUME2,				// [100421 : kiny8216]ï¿½Ú½ï¿½Æ¬2 ï¿½Ã½ï¿½ï¿½ï¿½
 	
-	MSG_EX_DUNGEONTIME,				// ´øÀü Å¸ÀÓ
+	MSG_EX_DUNGEONTIME,				// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 
 	MSG_EX_SOCKET,					// socket system. [4/8/2010 rumist]
 	
-	MSG_EX_ATTENDANCE_EXP_SYSTEM,	// Ãâ¼® ½Ã½ºÅÛ : ´©ÀûÃâ¼®ÀÏ¼öº°°æÇèÄ¡REQ : (c)subtype 0:È®ÀÎ, 1:´©Àûº¸»ó¹Þ±â/ REP (c) subtype 0:°ÔÀÓÁ¢¼Ó1:È®ÀÎ2:Ãâ¼®¿Ï·á3:´©Àûdº°º¸»ó(n)accCount ´©ÀûÀÏ, (c)upExp Ãß°¡°æÇèÄ¡
+	MSG_EX_ATTENDANCE_EXP_SYSTEM,	// ï¿½â¼® ï¿½Ã½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½â¼®ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡REQ : (c)subtype 0:È®ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ±ï¿½/ REP (c) subtype 0:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1:È®ï¿½ï¿½2:ï¿½â¼®ï¿½Ï·ï¿½3:ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(n)accCount ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, (c)upExp ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡
 
 	MSG_EX_XTRAP,
 	
-	MSG_EX_TUTORIAL_RENEWER_2010,	// Æ©Åä¸®¾ó °³¼±
+	MSG_EX_TUTORIAL_RENEWER_2010,	// Æ©ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_EX_RAID_SCENE,				// ¾ÆÄ­»ç¿ø ·¹ÀÌµå
+	MSG_EX_RAID_SCENE,				// ï¿½ï¿½Ä­ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 
-	MSG_EX_SUBJOB,					// [2010/08/25 : Sora] ADD_SUBJOB º¸Á¶Á÷¾÷(»óÀÎÄ³¸¯)
+	MSG_EX_SUBJOB,					// [2010/08/25 : Sora] ADD_SUBJOB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½)
 	
-	MSG_EX_CASTLLAN,				// ¼ºÁÖ ÄÚ½ºÆ¬ °ü·Ã
+	MSG_EX_CASTLLAN,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_EX_MONSTER_MERCENARY,		// ¸ó½ºÅÍ ¿ëº´ °ü·Ã ÆÐÅ¶
+	MSG_EX_MONSTER_MERCENARY,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶
 	
-	MSG_EX_FACEOFF,						// Çì¾î ¹× ¾ó±¼ ±³Ã¼
+	MSG_EX_FACEOFF,						// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ã¼
 	
-	MSG_EX_RANKING_SYSTEM,			// [selo: 101104] ·©Å· ½Ã½ºÅÛ	
+	MSG_EX_RANKING_SYSTEM,			// [selo: 101104] ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½	
 
-	MSG_EX_MSGBOX,					// [selo: 110104] ¸Þ½ÃÁö ¹Ú½º
+	MSG_EX_MSGBOX,					// [selo: 110104] ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½
 
 	MSG_EX_LCBALL,					// lacaball system [1/11/2011 rumist]
 
 	MSG_EX_ROYAL_RUMBLE,			// royal rumble [4/19/2011 rumist]
 
-	MSG_EX_CASH_AUTHENTICATION_CODE, // °¡¹Ì°í¿äÃ» °áÁ¦ ÆÐÀÌÁö ¿ÀÇÂÀ» À§ÇÑ AUTHENTICATION_CODE »ý¼º
+	MSG_EX_CASH_AUTHENTICATION_CODE, // ï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ AUTHENTICATION_CODE ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_TREASURE_MAP_SYSTEM_KEY_EXCHANGE, // °¡¹Ì°í ¿äÃ» : 100°³ÀÇ ³ª¹«¿­¼èÅ°·Î È²±Ý¿­¼èÅ° 1°³·á ±³È¯.
+	MSG_EX_TREASURE_MAP_SYSTEM_KEY_EXCHANGE, // ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½Ã» : 100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ È²ï¿½Ý¿ï¿½ï¿½ï¿½Å° 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯.
 
-	MSG_EX_RANKING_SYSTEM_EX,		// ·©Å· ½Ã½ºÅÛ °³Æí : [trylord 110817]
+	MSG_EX_RANKING_SYSTEM_EX,		// ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : [trylord 110817]
 
 	MSG_EX_PKPENALTY_REFORM,				 // REFORM_PK_PENALTY_201108
 
-	MSG_EX_SHUTDOWN,				// ¼Ë´Ù¿î ¸Þ½ÃÁö
+	MSG_EX_SHUTDOWN,				// ï¿½Ë´Ù¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
-	MSG_EX_USER_NOTICE,				// À¯Àú °øÁö
+	MSG_EX_USER_NOTICE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_CRAFT_SYSTEM,			// Á¦ÀÛ2 ½Ã½ºÅÛ
+	MSG_EX_CRAFT_SYSTEM,			// ï¿½ï¿½ï¿½ï¿½2 ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_DECOMPOSE_SYSTEM,		// ºÐÇØ ½Ã½ºÅÛ
+	MSG_EX_DECOMPOSE_SYSTEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_PRODUCE_SYSTEM,			// Ã¤Áý ½Ã½ºÅÛ
+	MSG_EX_PRODUCE_SYSTEM,			// Ã¤ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_LOOT_SYSTEM,				// ·íÆÃ ½Ã½ºÅÛ
+	MSG_EX_LOOT_SYSTEM,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_CRAFT_POINT,				// Å©·¡ÇÇÆÃ Æ÷ÀÎÆ®
+	MSG_EX_CRAFT_POINT,				// Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	
-	MSG_EX_PROGRESS_CANCEL,			// Å¬¶óÀÌ¾ðÆ® ÇÁ·Î±×·¡½º ÁøÇà µµÁß Ãë¼Ò.
+	MSG_EX_PROGRESS_CANCEL,			// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	MSG_EX_POST_SYSTEM,				// ¿ìÆí ½Ã½ºÅÛ
+	MSG_EX_POST_SYSTEM,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
-	MSG_EX_EVENT_AUTOMATION_SYSTEM,	// ÀÌº¥Æ® ÀÚµ¿È­
+	MSG_EX_EVENT_AUTOMATION_SYSTEM,	// ï¿½Ìºï¿½Æ® ï¿½Úµï¿½È­
 
-	MSG_EX_JUMPING_SYSTEM,			 // Á¡ÇÎ ½Ã½ºÅÛ
+	MSG_EX_JUMPING_SYSTEM,			 // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	MSG_EX_REFORMER_SYSTEM,			// REFORM_SYSTEM
 
-	MSG_EX_SERVER_TIME,		//  ¼­¹ö ½Ã°£
+	MSG_EX_SERVER_TIME,		//  ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
-	MSG_EX_SET_TARGET,				// Å¸°Ù ¿ÀºêÁ§Æ®¸¦ ¼­¹ö¿¡°Ô ¾Ë·ÁÁØ´Ù. ( ÇöÀç´Â PC¸¸ )
+	MSG_EX_SET_TARGET,				// Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ø´ï¿½. ( ï¿½ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ )
 
-	MSG_EX_NOTICE,				// GM °øÁö ½Ã½ºÅÛ
+	MSG_EX_NOTICE,				// GM ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 	MSG_EX_SET_AGGRESSIVE_MOB,
 #ifdef PROMO_KEY_03312023
@@ -869,71 +869,75 @@ typedef enum __tagMsgExtendType
 #ifdef IDENTIFY_ITEM_02212023
 	MSG_EX_IDENTIFY_ITEMS_USE,
 #endif
+#ifdef QUICK_PANEL
+		MSG_EX_CLOUD_SKILLS_USE,
+		MSG_EX_CLOUD_SAVE_QUICKPANEL,
+#endif
 
 	MSG_EX_END,
 } MSG_EXTEND_TYPE;
 
 typedef enum _tagMsgReformSystemType
 {
-	MSG_EX_REFORMER_SYSTEM_REQ,						// ¸®Æ÷¸Ó »ç¿ë
-	MSG_EX_REFORMER_SYSTEM_NOT_GRADE_REP,			// ÀûÀýÇÑ µî±ÞÀÇ ¸®Æ÷¸Ó°¡ ¾Æ´Ô
-	MSG_EX_REFORMER_SYSTEM_NOT_GOLD_MAGNIFIER_REP,	// È²±Ý µ¸º¸±â°¡ ¾Æ´Ô
-	MSG_EX_REFORMER_SYSTEM_NOT_REFORM_ITEM_REP,		// ¸®Æû °¡´ÉÇÑ ¾ÆÀÌÅÛÀÌ ¾Æ´Ô
-	MSG_EX_REFORMER_SYSTEM_NOT_MID_ITEM_REP,		// Áß±Þ ¾ÆÀÌÅÛÀÌ ¾Æ´Ô
-	MSG_EX_REFORMER_SYSTEM_NOT_HIGH_ITEM_REP,		// °í±Þ ¾ÆÀÌÅÛÀÌ ¾Æ´Ô
-	MSG_EX_REFORMER_SYSTEM_EXCEPTION_ERROR_REP,		// ±×¿Ü ¹®Á¦ ¹ß»ý
-	MSG_EX_REFORMER_SYSTEM_REFORM_SUCCESS_REP,		// ¸®Æû ¼º°ø
+	MSG_EX_REFORMER_SYSTEM_REQ,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EX_REFORMER_SYSTEM_NOT_GRADE_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Æ´ï¿½
+	MSG_EX_REFORMER_SYSTEM_NOT_GOLD_MAGNIFIER_REP,	// È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â°¡ ï¿½Æ´ï¿½
+	MSG_EX_REFORMER_SYSTEM_NOT_REFORM_ITEM_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_EX_REFORMER_SYSTEM_NOT_MID_ITEM_REP,		// ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_EX_REFORMER_SYSTEM_NOT_HIGH_ITEM_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_EX_REFORMER_SYSTEM_EXCEPTION_ERROR_REP,		// ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
+	MSG_EX_REFORMER_SYSTEM_REFORM_SUCCESS_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EX_REFORMER_SYSTEM_TYPE;
 
 typedef enum _tagMsgExJumpingSystemType
 {
-	MSG_EX_JUMPING_SUCCESS,     // Á¡ÇÎ ¼º°ø
-	MSG_EX_JUMPING_ERROR_LEVEL,    // Á¡ÇÎ ¿¡·¯ : ÇöÀç Ä³¸¯ÅÍ ·¹º§ÀÌ Á¡ÇÎÇÏ·Á´Â ·¹º§º¸´Ù °°°Å³ª ³ôÀ½
-	MSG_EX_JUMPING_ERROR_NOT_EXIST_CHAR, // Á¡ÇÎ ¿¡·¯ : °èÁ¤ ³» Á¡ÇÎÇÏ·Á´Â ·¹º§º¸´Ù °°°Å³ª ³ôÀº Ä³¸¯ÅÍ°¡ ¾øÀ½
+	MSG_EX_JUMPING_SUCCESS,     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_JUMPING_ERROR_LEVEL,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_JUMPING_ERROR_NOT_EXIST_CHAR, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EX_JUMPING_SYSTEM_TYPE;
 
 typedef enum _tagMsgExPkPenaltyReformType // REFORM_PK_PENALTY_201108
 {
-	MSG_EX_PKPENALTY_REFORM_REWARD_INFO,		// (s->c) Áö±ÞÇÒ Å¸ÀÌÆ² °ü·Ã Á¤º¸¸¦ º¸³½´Ù. : titleInfo(n)
-	MSG_EX_PKPENALTY_REFORM_REWARD_REQ,			// (c->s) Å¸ÀÌÆ² Áö±Þ ¿äÃ». : titleNum(n)	
-	MSG_EX_PKPENALTY_REFORM_REWARD_REP,			// (s->c) Å¸ÀÌÆ² Áö±Þ ´äº¯ : titleNum(n), MSG_EX_PKPENALTY_REFORM_ERROR_TYPE
+	MSG_EX_PKPENALTY_REFORM_REWARD_INFO,		// (s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. : titleInfo(n)
+	MSG_EX_PKPENALTY_REFORM_REWARD_REQ,			// (c->s) Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã». : titleNum(n)	
+	MSG_EX_PKPENALTY_REFORM_REWARD_REP,			// (s->c) Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ : titleNum(n), MSG_EX_PKPENALTY_REFORM_ERROR_TYPE
 
 }MSG_EX_PKPENALTY_REFORM_TYPE;
 
 typedef enum _tagMsgExPkPenaltyReformErrorType // REFORM_PK_PENALTY_201108
 {	
-	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_SUC,	// ¼º°ø.
-	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_COUNT,	// Å¸ÀÌÆ² °³¼ö Á¦ÇÑ¿¡ °É¸² 
-	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_ONCE,	// ÀÌ¹Ì Áö±Þ ¹ÞÀ½
-	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_FAIL,	// ±âÅ¸ ½ÇÆÐ
+	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_SUC,	// ï¿½ï¿½ï¿½ï¿½.
+	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_COUNT,	// Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ¿ï¿½ ï¿½É¸ï¿½ 
+	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_ONCE,	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PKPENALTY_REFORM_REWARD_ERROR_FAIL,	// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
 
 }MSG_EX_PKPENALTY_REFORM_ERROR_TYPE;
 
 
-// [2010/12/10 : Sora] ·°Å° µå·Î¿ì ¹Ú½º ¿¡·¯¸Þ½ÃÁö Ã³¸®
+// [2010/12/10 : Sora] ï¿½ï¿½Å° ï¿½ï¿½Î¿ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 typedef enum __tagMsgLuckyDrowBoxErrorType
 {
 	MSG_LUCKYDRAWBOX_ERROR_SUCESS=0,
-	MSG_LUCKYDRAWBOX_ERROR_NEED,			// "»óÀÚ¸¦ ¿­±â À§ÇØ¼­´Â ¾ÆÀÌÅÛÀÌ ÇÊ¿äÇÕ´Ï´Ù È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇÏ¿© ÁÖ½Ê½Ã¿À."
-	MSG_LUCKYDRAWBOX_ERROR_INVEN,			// "°ø°£ÀÌ ºÎÁ·ÇÕ´Ï´Ù È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇÏ¿© ÁÖ½Ê½Ã¿À"
-	MSG_LUCKYDRAWBOX_ERROR_USE,				// "ÀÌ ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù."
-	MSG_LUCKYDRAWBOX_ERROR_OVER_WEIGHT,		// "¹«°Ô°¡ 100%°¡ ³Ñ¾ú½À´Ï´Ù. È®ÀÎ ÈÄ ´Ù½Ã ½ÃµµÇÏ¿© ÁÖ½Ê½Ã¿À."
+	MSG_LUCKYDRAWBOX_ERROR_NEED,			// "ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Õ´Ï´ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½."
+	MSG_LUCKYDRAWBOX_ERROR_INVEN,			// "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½"
+	MSG_LUCKYDRAWBOX_ERROR_USE,				// "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½."
+	MSG_LUCKYDRAWBOX_ERROR_OVER_WEIGHT,		// "ï¿½ï¿½ï¿½Ô°ï¿½ 100%ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. È®ï¿½ï¿½ ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ê½Ã¿ï¿½."
 }MSG_EX_LUCKYDRAW_BOX_ERROR_TYPE;
 
 typedef enum _tagMsgExMonsterMercenaryType // (unsigned char)
 {	
-	MSG_EX_MERCENARY_SUMMON,			// ¼ÒÈ¯ ¼º°ø ¸Þ½ÃÁö uniqItemIndex(n) toggle(char 1:¼ÒÇÑ -1: ¼ÒÈ¯ ÇØÁ¦)
-	MSG_EX_MERCENARY_LIMIT_TIME,		// ³²Àº ½Ã°£ Á¤º¸ time(n)
+	MSG_EX_MERCENARY_SUMMON,			// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ uniqItemIndex(n) toggle(char 1:ï¿½ï¿½ï¿½ï¿½ -1: ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½)
+	MSG_EX_MERCENARY_LIMIT_TIME,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ time(n)
 	MSG_EX_MERCENARY_ERROR				// (unsigned char)MSG_EX_MONSTER_MERCENARY_ERROR_TYPE
 }MSG_EX_MONSTER_MERCENARY_TYPE;
 
 typedef enum _tagMsgExMonsterMercenaryErrorType // (unsigned char)
 {	
-	MSG_EX_MERCENARY_ERROR_USE_FAIL,		// »ç¿ë ½ÇÆÐ
-	MSG_EX_MERCENARY_ERROR_SUMMON_ALREADY,	// ÀÌ¹Ì ´Ù¸¥³ÑÀÌ ¼ÒÈ¯µÇ¾î ÀÖ¾î »ç¿ëÇÒ ¼ö ¾øÀ½
-	MSG_EX_MERCENARY_ERROR_DONT_SUMMON,		// ¼ÒÈ¯ ºÒ°¡
-	MSG_EX_MERCENARY_ERROR_MON_AUTO_DEL,	// ¸ó½ºÅÍ ÀÚµ¿ »èÁ¦(°Å¸®°¡ ¸Ö¾îÁ³°Å³ª ½Ã°£ÀÌ ´ÙµÇ¾î¼­
-	MSG_EX_MERCENARY_ERROR_AREA,			// ÀÌ Áö¿ª¿¡¼­´Â ¿ëº´À» ¼ÒÈ¯ ÇÒ ¼ö ¾ø½À´Ï´Ù. 
+	MSG_EX_MERCENARY_ERROR_USE_FAIL,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_MERCENARY_ERROR_SUMMON_ALREADY,	// ï¿½Ì¹ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ç¾ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_MERCENARY_ERROR_DONT_SUMMON,		// ï¿½ï¿½È¯ ï¿½Ò°ï¿½
+	MSG_EX_MERCENARY_ERROR_MON_AUTO_DEL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ÙµÇ¾î¼­
+	MSG_EX_MERCENARY_ERROR_AREA,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. 
 }MSG_EX_MONSTER_MERCENARY_ERROR_TYPE;
 
 typedef enum _tagMsgExRaidInfoType
@@ -942,151 +946,151 @@ typedef enum _tagMsgExRaidInfoType
 	MSG_EX_RAID_SCENE_SEND_PADOX_SKILL,	//(1)
 	MSG_EX_RAID_SCENE_SEND_OBJECT_REFRESH,
 	MSG_EX_RAID_SCENE_SEND_OBJECT_ALL_STATE,
-	MSG_EX_RAID_SCENE_SEND_COUNT_DOWN,					// %dÃÊ ÈÄ ÆÄµ¶½ºÀÇ °ÅÃ³ÀÇ ¹®ÀÌ ´ÝÈü´Ï´Ù. (4)	
+	MSG_EX_RAID_SCENE_SEND_COUNT_DOWN,					// %dï¿½ï¿½ ï¿½ï¿½ ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (4)	
 } MSG_EX_RAID_INFO_TYPE;
 
 typedef enum __tagMsgExSubJob		// [2010/08/25 : Sora] ADD_SUBJOB
 {
-	MSG_EX_SUBJOB_REGIST,			// º¸Á¶Á÷¾÷µî·Ï(n)subJobCode 1:»óÀÎ(Æ®·¹ÀÌ´õ)
-	MSG_EX_SUBJOB_ERROR_SUCESS,		// º¸Á¶Á÷¾÷µî·Ï¼º°ø(n) subJobCode 1: »óÀÎ(Æ®·¹ÀÌ´õ)
-	MSG_EX_SUBJOB_ERROR_FAIL,		// º¸Á¶Á÷¾÷µî·Ï½ÇÆÐ(n) error 1:·¹º§ºÎÁ·, 2:¸í¼ºÄ¡ºÎÁ·, 3: ½ºÅ³Æ÷ÀÎÆ®ºÎÁ·4: ³ª½ººÎÁ·
+	MSG_EX_SUBJOB_REGIST,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(n)subJobCode 1:ï¿½ï¿½ï¿½ï¿½(Æ®ï¿½ï¿½ï¿½Ì´ï¿½)
+	MSG_EX_SUBJOB_ERROR_SUCESS,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½(n) subJobCode 1: ï¿½ï¿½ï¿½ï¿½(Æ®ï¿½ï¿½ï¿½Ì´ï¿½)
+	MSG_EX_SUBJOB_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½(n) error 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½, 3: ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½4: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_SUBJOB_ERROR_NOT_TRADER,	// »óÀÎÀÌ¾Æ´Õ´Ï´Ù
+	MSG_EX_SUBJOB_ERROR_NOT_TRADER,	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾Æ´Õ´Ï´ï¿½
 }MSG_EX_SUBJOB_TYPE;
 
 typedef enum _tagMsgDungeonTimeType
 {
-	// ¸Þ¼¼Áö´Â unsigned char ÇüÀ¸·Î ¹ß¼ÛµÈ´Ù.
-	MSG_EX_DUNGEONTIME_NOTICE,		// Á¸ÀÌµ¿ ¹× ·Î±×ÀÎ ½Ã ´øÀü Å¸ÀÓ ÁßÀÏ¶§ º¸³»´Â ¸Þ½ÃÁö
-	MSG_EX_DUNGEONTIME_END,			// ´øÀü Å¸ÀÓ ³¡³¯¶§ º¸³»´Â ¸Þ½ÃÁö
-	MSG_EX_DUNGEONTIME_START,		// ´øÀü Å¸ÀÓ ½ÃÀÛ ÇÒ¶§ º¸³»´Â ¸Þ½ÃÁö
+	// ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ unsigned char ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½.
+	MSG_EX_DUNGEONTIME_NOTICE,		// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_DUNGEONTIME_END,			// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_DUNGEONTIME_START,		// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 } MSG_EX_DUNGEONTIME_TYPE;
 
 typedef enum _tagMsgLacaretteSystemType
 {
-	MSG_EX_LACARETTE_TOKEN_READY_REQ,	// ÅäÅ« Áö±Þ °¡´É È®ÀÎ ¿äÃ»
-	MSG_EX_LACARETTE_TOKEN_READY_REP,	// ÅäÅ« Áö±Þ °¡´É È®ÀÎ ´äº¯
-	MSG_EX_LACARETTE_TOKEN_REQ,		// ÅäÅ« Áö±Þ ¿äÃ»
-	MSG_EX_LACARETTE_TOKEN_REP,		// ÅäÅ« Áö±Þ ´äº¯ : MSG_EX_LACARETTE_TOKEN_ERROR_TYPE
-	MSG_EX_LACARETTE_RETTE_REQ,		// ´çÃ· ¿©ºÎ ¿äÃ» : courseArrNum(n), courseIndex(n), tokenItemIndex(n)
-	MSG_EX_LACARETTE_RETTE_REP,		// ´çÃ· ¿©ºÎ ´äº¯ : MSG_EX_LACARETTE_RETTE_ERROR_TYPE
-	MSG_EX_LACARETTE_RESULT_REQ,	// ¾ÆÀÌÅÛ Áö±Þ ¿äÃ» : itemIndex(int)
-	MSG_EX_LACARETTE_RESULT_REP,	// ¾ÆÀÌÅ× Áö±Þ È®ÀÎ : MSG_EX_LACARETTE_RESULT_ERROR_TYPE
-	MSG_EX_LACARETTE_UI_REQ,		// ÀÌ¿ë È½¼ö ¿äÃ»
-	MSG_EX_LACARETTE_UI_REP,		// ÀÌ¿ë È½¼ö ´äº¯ : repeatcount(n)
-	MSG_EX_LACARETTE_JACKPOT,		// Á§ÆÌ ¸Þ½ÃÁö (s -> c) : itemindex(n), char_name(str)
-	MSG_EX_LACARETTE_UI_COLSE,		// Ã¢À» ´Ý´Â´Ù.
+	MSG_EX_LACARETTE_TOKEN_READY_REQ,	// ï¿½ï¿½Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_LACARETTE_TOKEN_READY_REP,	// ï¿½ï¿½Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½äº¯
+	MSG_EX_LACARETTE_TOKEN_REQ,		// ï¿½ï¿½Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_LACARETTE_TOKEN_REP,		// ï¿½ï¿½Å« ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ : MSG_EX_LACARETTE_TOKEN_ERROR_TYPE
+	MSG_EX_LACARETTE_RETTE_REQ,		// ï¿½ï¿½Ã· ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : courseArrNum(n), courseIndex(n), tokenItemIndex(n)
+	MSG_EX_LACARETTE_RETTE_REP,		// ï¿½ï¿½Ã· ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ : MSG_EX_LACARETTE_RETTE_ERROR_TYPE
+	MSG_EX_LACARETTE_RESULT_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : itemIndex(int)
+	MSG_EX_LACARETTE_RESULT_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ : MSG_EX_LACARETTE_RESULT_ERROR_TYPE
+	MSG_EX_LACARETTE_UI_REQ,		// ï¿½Ì¿ï¿½ È½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_LACARETTE_UI_REP,		// ï¿½Ì¿ï¿½ È½ï¿½ï¿½ ï¿½äº¯ : repeatcount(n)
+	MSG_EX_LACARETTE_JACKPOT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ (s -> c) : itemindex(n), char_name(str)
+	MSG_EX_LACARETTE_UI_COLSE,		// Ã¢ï¿½ï¿½ ï¿½Ý´Â´ï¿½.
 } MSG_EX_LACARETTE_SYSTEM_TYPE;
 
 typedef enum _tagMsgLacaretteTokenErrorType
 {
 	MSG_EX_LACARETTE_TOKEN_ERROR_SUC,
-	MSG_EX_LACARETTE_TOKEN_ERROR_ALREADY,	// ÀÌ¹Ì Áö±Þ µÇ¾úÀ½ 
-	MSG_EX_LACARETTE_TOKEN_ERROR_INVEN,		// ÀÎº¥ ²Ë Âü
-	MSG_EX_LACARETTE_TOKEN_ERROR_TOKEN_OVER, // 100°³ ÀÌ»ó ¼ÒÁöºÒ°¡
-	MSG_EX_LACARETTE_TOKEN_ERROR,			// ±âÅ¸
+	MSG_EX_LACARETTE_TOKEN_ERROR_ALREADY,	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ 
+	MSG_EX_LACARETTE_TOKEN_ERROR_INVEN,		// ï¿½Îºï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_LACARETTE_TOKEN_ERROR_TOKEN_OVER, // 100ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
+	MSG_EX_LACARETTE_TOKEN_ERROR,			// ï¿½ï¿½Å¸
 } MSG_EX_LACARETTE_TOKEN_ERROR_TYPE;
 
 typedef enum _tagMsgLacaretteRetteErrorType
 {
-	MSG_EX_LACARETTE_RETTE_ERROR_SUC,			// ¼º°ø : giveItemArrNum(n), giveItemIndex(n)
-	MSG_EX_LACARETTE_RETTE_ERROR_TOKEN,			// ÅäÅ«ºÎÁ·
-	MSG_EX_LACARETTE_RETTE_ERROR_WEIGHT,		// ¹«°Ô ÃÊ°ú
-	MSG_EX_LACARETTE_RETTE_ERROR,				// ±âÅ¸ 
+	MSG_EX_LACARETTE_RETTE_ERROR_SUC,			// ï¿½ï¿½ï¿½ï¿½ : giveItemArrNum(n), giveItemIndex(n)
+	MSG_EX_LACARETTE_RETTE_ERROR_TOKEN,			// ï¿½ï¿½Å«ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_LACARETTE_RETTE_ERROR_WEIGHT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EX_LACARETTE_RETTE_ERROR,				// ï¿½ï¿½Å¸ 
 } MSG_EX_LACARETTE_RETTE_ERROR_TYPE;
 
 typedef enum _tagMsgLacaretteResultErrorType
 {
-	MSG_EX_LACARETTE_RESULT_ERROR_SUC,			// Áö±Þ ¼º°ø : repeatcount(n), tokenItemIndex(n), tokenDelCount(n)
-	MSG_EX_LACARETTE_RESULT_ERROR_TOKEN,		// ÅäÅ«ºÎÁ·
-	MSG_EX_LACARETTE_RESULT_ERROR_INVEN,		// ÀÎº¥ ²Ë Âü
-	MSG_EX_LACARETTE_RESULT_ERROR_WEIGHT,		// ¹«°Ô ÃÊ°ú
-	MSG_EX_LACARETTE_RESULT_ERROR,				// ±âÅ¸ 
+	MSG_EX_LACARETTE_RESULT_ERROR_SUC,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : repeatcount(n), tokenItemIndex(n), tokenDelCount(n)
+	MSG_EX_LACARETTE_RESULT_ERROR_TOKEN,		// ï¿½ï¿½Å«ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_LACARETTE_RESULT_ERROR_INVEN,		// ï¿½Îºï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_LACARETTE_RESULT_ERROR_WEIGHT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EX_LACARETTE_RESULT_ERROR,				// ï¿½ï¿½Å¸ 
 } MSG_EX_LACARETTE_RESULT_ERROR_TYPE;
 
 typedef enum __tagMsgExTrigerEventType
 {
-	MSG_EX_TRIGGER_EVENT_ERROR,			// ¿¡·¯	
-	MSG_EX_TRIGGER_EVENT_ALREADY_PLAY,		// ÀÌ¹Ì ½ÇÇà µÊ
-	MSG_EX_TRIGGER_EVENT_NO_CONDITION,		// Á¶°ÇÀÌ ¼º¸³ÀÌ ¾ÈµÊ
-	MSG_EX_TRIGGER_EVENT_TRIGER_EXIST_AREA,  // Æ®¸®°Å°¡ Á¸ÀçÇÏ´Â Áö¿ª¿¡ µµÂøÇÏ¸é Á¤º¸¸¦ º¸³»ÁØ´Ù.
-	MSG_EX_TRIGGER_EVENT_ITEM_COMPOSITION,		// ¾ÆÀÌÅÛ °áÇÕ
-	MSG_EX_TRIGGER_EVENT_ITEM_DROP,			// ¾ÆÀÌÅÛ µå¶ø
-	MSG_EX_TRIGGER_EVENT_OPEN_THE_DOOR,		// ¹® ¿­±â
-	MSG_EX_TRIGGER_EVENT_START_RAID,			// ·¹ÀÌµå ½ÃÀÛ
-	MSG_EX_TRIGGER_EVENT_MESSAGE_PRINT,		// °ÔÀÓ ¸Þ¼¼Áö Ãâ·Â
-	MSG_EX_TRIGGER_EVENT_SUMMON_NPC,			// npc ¼ÒÈ¯
-	MSG_EX_TRIGGER_EVENT_USE_DEBUF,			// µð¹öÇÁ °É¸²
-	MSG_EX_TRIGGER_EVENT_ACTIVE_OBJECT,		// object È°¼ºÈ­
-	MSG_EX_TRIGGER_EVENT_REMOVE_NPC,			// npc ÀÚµ¿ Á¦°Å
-	MSG_EX_TRIGGER_EVENT_TIME_LIMIT,		// ½Ã°£Á¦ÇÑ (subtype : long(-1)[Secondtime])
-	MSG_EX_TRIGGER_EVENT_RESTORE_OBJECT,		// ¿ÀºêÁ§Æ® ÃÊ±âÈ­
+	MSG_EX_TRIGGER_EVENT_ERROR,			// ï¿½ï¿½ï¿½ï¿½	
+	MSG_EX_TRIGGER_EVENT_ALREADY_PLAY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_NO_CONDITION,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+	MSG_EX_TRIGGER_EVENT_TRIGER_EXIST_AREA,  // Æ®ï¿½ï¿½ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+	MSG_EX_TRIGGER_EVENT_ITEM_COMPOSITION,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_ITEM_DROP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_OPEN_THE_DOOR,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_START_RAID,			// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_MESSAGE_PRINT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_SUMMON_NPC,			// npc ï¿½ï¿½È¯
+	MSG_EX_TRIGGER_EVENT_USE_DEBUF,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½
+	MSG_EX_TRIGGER_EVENT_ACTIVE_OBJECT,		// object È°ï¿½ï¿½È­
+	MSG_EX_TRIGGER_EVENT_REMOVE_NPC,			// npc ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRIGGER_EVENT_TIME_LIMIT,		// ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ (subtype : long(-1)[Secondtime])
+	MSG_EX_TRIGGER_EVENT_RESTORE_OBJECT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­
 	
-	// [100222: selo] Æ®¸®°Å ÀÌº¥Æ® Ãß°¡
-	MSG_EX_TRIGGER_EVENT_ITEM_GET_INVEN,		// ¾ÆÀÌÅÛ ÀÎº¥Åä¸®·Î µé¾î°¡±â = 15
-	MSG_EX_TRIGGER_EVENT_CONSECUTIVE_DIALOGUE,	// ¿¬¼Ó ´ëÈ­ = 16
-	MSG_EX_TRIGGER_EVENT_ACTIVE_EFFECT,			// ÀÌÆåÆ® ³ªÅ¸³»±â = 17
+	// [100222: selo] Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½
+	MSG_EX_TRIGGER_EVENT_ITEM_GET_INVEN,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ = 15
+	MSG_EX_TRIGGER_EVENT_CONSECUTIVE_DIALOGUE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ = 16
+	MSG_EX_TRIGGER_EVENT_ACTIVE_EFFECT,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ = 17
 }MSG_EX_TRIGER_EVENT_TYPE;
 
 typedef enum __tagMsgExInitSSkillErrorType
 {
- MSG_EX_INIT_SSkill_ERROR_SUCCESS, // ¼º°ø
- MSG_EX_INIT_SSkill_ERROR_FAIL,  // ½ÇÆÐ
+ MSG_EX_INIT_SSkill_ERROR_SUCCESS, // ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_INIT_SSkill_ERROR_FAIL,  // ï¿½ï¿½ï¿½ï¿½
 } MSG_EX_INIT_SSkill_ERROR_TYPE;
 
 typedef enum _tagMsgExExtremeCubeType
 {
-	MSG_EX_EXTREME_CUBE_PARTY,					// ÆÄÆ¼Å¥ºê ´ÜÃ¼ÀÔÀå½Ã
-	MSG_EX_EXTREME_CUBE_PARTY_PERSON,			// ÆÄÆ¼Å¥ºê °³ÀÎÀÔÀå½Ã
-	MSG_EX_EXTREME_CUBE_GUILD,							// ±æµåÅ¥ºê ´ÜÃ¼ÀÔÀå½Ã
-	MSG_EX_EXTREME_CUBE_GUILD_PERSON,			// ±æµåÅ¥ºê °³ÀÎÀÔÀå½Ã
-	MSG_EX_EXTREME_CUBE_STATE_REQ,					// Å¥ºêÇöÈ² Ã¢ È£Ãâ½Ã
-	MSG_EX_EXTREME_CUBE_STATE_REP,					// Å¥ºêÇöÈ² ÀÀ´ä, ¼Ò¼ÓÅ¥ºêÆ÷ÀÎÆ®(n), (ÇöÀç ¼øÀ§) count(c), rank(c), guildname(s), guildmaster(s), cubepoint(n) 
-													// (Áö³­ÁÖ ¼øÀ§) count(c), rank(c), guildname(s), guildmaster(s), cubepoint(n)  (Ãß°¡ºÎºÐ)
-	MSG_EX_EXTREME_CUBE_COMPLETE,					// ¿Ï·áÄ«¿îÆ® count(c)
+	MSG_EX_EXTREME_CUBE_PARTY,					// ï¿½ï¿½Æ¼Å¥ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_PARTY_PERSON,			// ï¿½ï¿½Æ¼Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_GUILD,							// ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_GUILD_PERSON,			// ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_STATE_REQ,					// Å¥ï¿½ï¿½ï¿½ï¿½È² Ã¢ È£ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_STATE_REP,					// Å¥ï¿½ï¿½ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½, ï¿½Ò¼ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®(n), (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) count(c), rank(c), guildname(s), guildmaster(s), cubepoint(n) 
+													// (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) count(c), rank(c), guildname(s), guildmaster(s), cubepoint(n)  (ï¿½ß°ï¿½ï¿½Îºï¿½)
+	MSG_EX_EXTREME_CUBE_COMPLETE,					// ï¿½Ï·ï¿½Ä«ï¿½ï¿½Æ® count(c)
 	MSG_EX_EXTREME_CUBE_ERROR,							// errortype
 	MSG_EX_EXTREME_CUBE_STATE_PERSONAL_REQ,     
-	//(Ãß°¡ºÎºÐ)
-	MSG_EX_EXTREME_CUBE_STATE_PERSONAL_REP,   // Å¥ºê °³ÀÎÆ÷ÀÎÆ® È®ÀÎ½Ã ÀÀ´ä , °³ÀÎÅ¥ºêÁ¡¼ö(n) (ÇöÀç ¼øÀ§)count(c) rank(c) guildname(s) charname(s) cubepoint(n) 
-												// (Áö³­ÁÖ ¼øÀ§)count(c) rank(c) guildname(s) charname(s) cubepoint(n)
-	MSG_EX_EXTREME_CUBE_REWARD_GUILDPOINT_REP, // ±æµå¿ø¿¡°Ô ±æµåÆ÷ÀÎÆ® º¸»óÀ» ¾Ë¸², rank(c) guildpoint(n)
-	MSG_EX_EXTREME_CUBE_REWARD_PERSONAL_REQ,   // °³ÀÎÅ¥ºêº¸»ó ¿äÃ»	
+	//(ï¿½ß°ï¿½ï¿½Îºï¿½)
+	MSG_EX_EXTREME_CUBE_STATE_PERSONAL_REP,   // Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È®ï¿½Î½ï¿½ ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(n) (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)count(c) rank(c) guildname(s) charname(s) cubepoint(n) 
+												// (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)count(c) rank(c) guildname(s) charname(s) cubepoint(n)
+	MSG_EX_EXTREME_CUBE_REWARD_GUILDPOINT_REP, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½, rank(c) guildpoint(n)
+	MSG_EX_EXTREME_CUBE_REWARD_PERSONAL_REQ,   // ï¿½ï¿½ï¿½ï¿½Å¥ï¿½êº¸ï¿½ï¿½ ï¿½ï¿½Ã»	
 }MSG_EX_EXTREME_CUBE_TYPE;
 
 
 typedef enum _tagMsgExExtremeCubeErrorType
 {
-	MSG_EX_EXTREME_CUBE_ERROR_NOITEM,							// ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	MSG_EX_EXTREME_CUBE_ERROR_OVERCOUNT,					// ¹æÀÌÁ¸ÀçÇÏÁö ¾ÊÀ½
-	MSG_EX_EXTREME_CUBE_ERROR_CANNOT_MOVE,						// ÀÌµ¿ºÒ°¡
-	MSG_EX_EXTREME_CUBE_ERROR_CANNOT_CAHNGE_RATE,		// ¼¼À²º¯°æºÒ°¡
-	MSG_EX_EXTREME_CUBE_ERROR_NOT_GUILD_CUBE_TIME, // ±æµåÅ¥ºê½Ã°£¾Æ´Ô
-	MSG_EX_EXTREME_CUBE_ERROR_NOT_PARTY_CUBE_TIME, // ÆÄÆ¼Å¥ºê½Ã°£¾Æ´Ô
-	MSG_EX_EXTREME_CUBE_ERROR_PARTYCUBE,   // ÆÄÆ¼Å¥ºê µé¾î°¨
-	MSG_EX_EXTREME_CUBE_ERROR_GUILDCUBE,   // ±æµåÅ¥ºê µé¾î°¨
-	MSG_EX_EXTREME_CUBE_ERROR_START_NOTICE, // ±æµåÅ¥ºê ½ÃÀÛ¸Þ½ÃÁö
-	MSG_EX_EXTREME_CUBE_ERROR_END_NOTICE,     // ±æµåÅ¥ºê Á¾·á¸Þ½ÃÁö
-	MSG_EX_EXTREME_CUBE_ERROR_START_REMAINTIME, // ±æµåÅ¥ºê ½ÃÀÛ 1ºÐÀü ¸Þ½ÃÁö
-	MSG_EX_EXTREME_CUBE_ERROR_END_REMAINTIME,    // ±æµåÅ¥ºê Á¾·á 1ºÐÀü ¸Þ½ÃÁö	
-	//(Ãß°¡ºÎºÐ)
-	MSG_EX_EXTREME_CUBE_ERROR_INVEN_NOSPACE,		// ÀÎº¥ °ø°£ºÎÁ·
-	MSG_EX_EXTREME_CUBE_ERROR_REWARD_PERSONAL_CANNOT,	// °³ÀÎº¸»ó Á¶°Ç ¾È¸ÂÀ½
-	MSG_EX_EXTREME_CUBE_ERROR_REWARD_PERSONAL_ALREADY,	// °³ÀÎº¸»ó ÀÌ¹Ì ¹Þ¾ÒÀ½	
+	MSG_EX_EXTREME_CUBE_ERROR_NOITEM,							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_OVERCOUNT,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_CANNOT_MOVE,						// ï¿½Ìµï¿½ï¿½Ò°ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_CANNOT_CAHNGE_RATE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_NOT_GUILD_CUBE_TIME, // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½Ã°ï¿½ï¿½Æ´ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_NOT_PARTY_CUBE_TIME, // ï¿½ï¿½Æ¼Å¥ï¿½ï¿½Ã°ï¿½ï¿½Æ´ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_PARTYCUBE,   // ï¿½ï¿½Æ¼Å¥ï¿½ï¿½ ï¿½ï¿½î°¨
+	MSG_EX_EXTREME_CUBE_ERROR_GUILDCUBE,   // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½î°¨
+	MSG_EX_EXTREME_CUBE_ERROR_START_NOTICE, // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½Û¸Þ½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_END_NOTICE,     // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_START_REMAINTIME, // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_END_REMAINTIME,    // ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	
+	//(ï¿½ß°ï¿½ï¿½Îºï¿½)
+	MSG_EX_EXTREME_CUBE_ERROR_INVEN_NOSPACE,		// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_REWARD_PERSONAL_CANNOT,	// ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½ï¿½
+	MSG_EX_EXTREME_CUBE_ERROR_REWARD_PERSONAL_ALREADY,	// ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½	
 }MSG_EX_EXTREME_CUBE_ERROR_TYPE;
 
 
 typedef enum __tagMsgExAttackPetErrorType
 {
 	MSG_SUB_STAT,					// CAHR STAT MSG
-	MSG_SUB_ITEM_WEAR,				// ¾ÆÀÌÅÛ ÀÔ±â ¹þ±â°ü·Ã
-	MSG_SUB_ITEM_WEARING,				// ÁÖÀ§ Àåºñ º¯È­ ¾Ë¸®±â	
-	MSG_SUB_REBIRTH,				// Req item, Rep errorcode ºÎÈ°¿äÃ»
-	MSG_SUB_SKILLLIST,				// ½ºÅ³¸®½ºÆ® ¿äÃ»
-	MSG_SUB_SKILLLEAN,				// ½ºÅ³ ¹è¿ì±â
-	MSG_SUB_STATUP,					// ½ºÅÝ ¿Ã¸®±â
+	MSG_SUB_ITEM_WEAR,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_ITEM_WEARING,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ë¸ï¿½ï¿½ï¿½	
+	MSG_SUB_REBIRTH,				// Req item, Rep errorcode ï¿½ï¿½È°ï¿½ï¿½Ã»
+	MSG_SUB_SKILLLIST,				// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	MSG_SUB_SKILLLEAN,				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_STATUP,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
 	MSG_SUB_LEVELUP,
-	MSG_SUB_DELETE_EQUIP,			// Æê Àåºñ ±â°£ ¸¸·á
-	MSG_SUB_APET_INFO,				// Æê Á¤º¸
+	MSG_SUB_DELETE_EQUIP,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_APET_INFO,				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_SUB_ADDITEM_MSG,
 	MSG_SUB_AI_LIST_REQ,
 	MSG_SUB_AI_LIST_NTF,
@@ -1094,16 +1098,16 @@ typedef enum __tagMsgExAttackPetErrorType
 	MSG_SUB_AI_ONOFF_REP,
 	MSG_SUB_AI_UPDATE_REQ,
 	MSG_SUB_AI_UPDATE_REP,
-	MSG_SUB_EVOLUTION,				//ÁøÈ­ ¿äÃ» row(n),col(n) /ÀÀ´ä errcode(uc)
-	MSG_SUB_MOUNT_REQ,				// ÆêÅ¸±â(c)type 0:³»¸®±â, 1:Å¸±â
-	MSG_SUB_MOUNT_REP,				// ÆêÅ¸±âÀÀ´äerror code (c)error 0:¿äÃ»¼º°ø 1:¿äÃ»½ÇÆÐ , (c) ÇöÀç¼­¹ö»ó¸¶¿îÆ®»óÅÂ, (n) ÁÖÀÎIndex, (n) ÆêÀÎµ¦½º
-	MSG_SUB_SUMMON_ERROR,			// Æê¼ÒÈ¯¿¡·¯(c) error ÃÊ
-	MSG_SUB_STATINIT,			// Æê ½ºÅÝ ÃÊ±âÈ­ (c) error 0:¼º°ø, 1:Æê¾øÀ½, 2:»ç¸ÁÇÏ°Å³ªºÀÀÎ, 3:ÃÊ±âÈ­ÇÒ ½ºÅÝ ¾øÀ½
+	MSG_SUB_EVOLUTION,				//ï¿½ï¿½È­ ï¿½ï¿½Ã» row(n),col(n) /ï¿½ï¿½ï¿½ï¿½ errcode(uc)
+	MSG_SUB_MOUNT_REQ,				// ï¿½ï¿½Å¸ï¿½ï¿½(c)type 0:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 1:Å¸ï¿½ï¿½
+	MSG_SUB_MOUNT_REP,				// ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½error code (c)error 0:ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ 1:ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ , (c) ï¿½ï¿½ï¿½ç¼­ï¿½ï¿½ï¿½ó¸¶¿ï¿½Æ®ï¿½ï¿½ï¿½ï¿½, (n) ï¿½ï¿½ï¿½ï¿½Index, (n) ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½
+	MSG_SUB_SUMMON_ERROR,			// ï¿½ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½(c) error ï¿½ï¿½
+	MSG_SUB_STATINIT,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ (c) error 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ï¿½ï¿½ï¿½ï¿½, 3:ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_SUB_EXPINFO,
 	MSG_SUB_EXPUSE,
-	MSG_SUB_ERROR_NOT_EXIST_NPC,// NPC°¡ ÁÖÀ§¿¡ ¾øÀ½
-	MSG_SUB_INIT_COOLTIME,		// Æê ÄðÅ¸ÀÓ Á¦°Å
-	MSG_SUB_DELETE_ITEM,		// Æê Àåºñ Á¦°Å
+	MSG_SUB_ERROR_NOT_EXIST_NPC,// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_INIT_COOLTIME,		// ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SUB_DELETE_ITEM,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 } MSG_EX_ATTACK_PET_ERRORTYPE;
 
@@ -1111,148 +1115,148 @@ typedef enum _tagMsgAPetErrorType
 {
 	 MSG_APET_ERROR_OK,
 	 MSG_APET_ERROR,
-	 MSG_APET_ERR_NOT_HAVE_ITEM,  // °®°í ÀÖÁö ¾ÊÀº ¾ÆÀÌÅÛ : ai_index(n)
-	 MSG_APET_ERR_WRONG_AI   // Àß¸øµÈ AI ¼³Á¤ : ai_index(n)
+	 MSG_APET_ERR_NOT_HAVE_ITEM,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : ai_index(n)
+	 MSG_APET_ERR_WRONG_AI   // ï¿½ß¸ï¿½ï¿½ï¿½ AI ï¿½ï¿½ï¿½ï¿½ : ai_index(n)
 }MSG_APET_ERROR_TYPE;
 
 typedef enum __tagMsgExChaosBallErrorType
 {
-	MSG_CHAOSBALL_ERROR_SUCCESS,		// Ä«¿À½º º¼ ¾ÆÀÌÅÛ ¼º°ø
-	MSG_CHAOSBALL_ERROR_ITEM_COUNT,		// ¾ÆÀÌÅÛ °¹¼ö ¿À·ù
-	MSG_CHAOSBALL_ERROR_NOSPACE,		// ÀÎº¥Åä¸®¿¡ ºó °ø°£ÀÌ ¾ø´Ù.
-	MSG_CHAOSBALL_ERROR_ITEM_FAULT,		// Ä«¿À½º º¼ ¾ÆÀÌÅÛ ½ÇÆÐ
+	MSG_CHAOSBALL_ERROR_SUCCESS,		// Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAOSBALL_ERROR_ITEM_COUNT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAOSBALL_ERROR_NOSPACE,		// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_CHAOSBALL_ERROR_ITEM_FAULT,		// Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EX_CHAOSBALL_ERRORTYPE;
 
 typedef enum __tagMsgDVDInfoType
 {
-	MSG_DUNGEON_INFO,		//´øÀü Á¤º¸ ¿äÃ»
-	MSG_MANAGEMENT,			//´øÀü °ü¸®
-	MSG_DUNGEON_ENTER,		//´øÀüÀ¸·Î ÀÌµ¿
-	MSG_GUILD_NAME_COLOR,	//¼ºÁÖ ±æµå ÀÌ¸§ »ö
-	MSG_CHANGE_NORMAL_NOTICE, // ´øÀü ÀÏ¹Ý ¸ðµå °øÁö
-	MSG_CHANGE_NORMAL_NOTICE_TO_OWNER	// ´øÀü ÀÏ¹Ý ¸ðµå °øÁö(¼ºÁÖ¿¡°Ô¸¸)
+	MSG_DUNGEON_INFO,		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT,			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DUNGEON_ENTER,		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	MSG_GUILD_NAME_COLOR,	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½
+	MSG_CHANGE_NORMAL_NOTICE, // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE_NORMAL_NOTICE_TO_OWNER	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ô¸ï¿½)
 } MSG_DVD_INFO_TYPE;
 
 typedef enum __tagMsgDVDInfoSubType
 {
-	MSG_MANAGEMENT_MANAGER_CONFIRM,					//°ü¸® ¿äÃ»
-	MSG_MANAGEMENT_MANAGER_ENV_INFO,				//´øÀü ³»ºÎ È¯°æ Á¤º¸ ¿äÃ»
-	MSG_MANAGEMENT_MANAGER_ENV_CHANGE,				//´øÀü ³»ºÎÈ¯°æ º¯°æ
-	MSG_MANAGEMENT_MANAGER_MONSTER_INFO,			//´øÀü ³»ºÎ ¸ó½ºÅÍ Á¤º¸ ¿äÃ»
-	MSG_MANAGEMENT_MANAGER_MONSTER_CHANGE,			//´øÀü ³»ºÎ ¸ó½ºÅÍ »óÅÂ º¯°æ
-	MSG_MANAGEMENT_MANAGER_TAX_INFO,				//ÀÔÀå·á ¼¼±Ý Á¤º¸ ¿äÃ»
-	MSG_MANAGEMENT_MANAGER_TAX_CHANGE,				//ÀÔÀå·á ¼¼±Ý º¯°æ
-	MSG_MANAGEMENT_MANAGER_HUNTER_TAX_INFO,			//¼ö·Æ¼¼ Á¤º¸ ¿äÃ»
-	MSG_MANAGEMENT_MANAGER_HUNTER_TAX_CHANGE,		//¼ö·Æ¼¼ º¯°æ
-	MSG_MANAGEMENT_MANAGER_ETC,						//±âÅ¸ ¿¡·¯
-	MSG_DUNGEON_ENTER_FEE,							//´øÀü ÀÔÀå·á 
-	MSG_DUNGEON_GO,									//´øÀüÀ¸·Î ÀÌµ¿
-	MSG_MANAGEMENT_MANAGER_CONFIRM_NORMAL,			// °ü¸® ¿äÃ»(ÀÏ¹Ý)
-	MSG_NAMAGEMENT_CHANGE_OWNER_MODE,				// ¼ºÁÖ °ü¸® ¸ðµå·Î º¯°æ ¿äÃ»
+	MSG_MANAGEMENT_MANAGER_CONFIRM,					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT_MANAGER_ENV_INFO,				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT_MANAGER_ENV_CHANGE,				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MANAGEMENT_MANAGER_MONSTER_INFO,			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT_MANAGER_MONSTER_CHANGE,			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MANAGEMENT_MANAGER_TAX_INFO,				//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT_MANAGER_TAX_CHANGE,				//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MANAGEMENT_MANAGER_HUNTER_TAX_INFO,			//ï¿½ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_MANAGEMENT_MANAGER_HUNTER_TAX_CHANGE,		//ï¿½ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MANAGEMENT_MANAGER_ETC,						//ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
+	MSG_DUNGEON_ENTER_FEE,							//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	MSG_DUNGEON_GO,									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	MSG_MANAGEMENT_MANAGER_CONFIRM_NORMAL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(ï¿½Ï¹ï¿½)
+	MSG_NAMAGEMENT_CHANGE_OWNER_MODE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 } MSG_DVD_INFO_SUBTYPE;
 
 typedef enum __tagMsgDVDInfoErrorType
 {
-	MSG_DVD_ERROR_OK,			//¼º°ø
-	MSG_DVD_ERROR_CONFIRM,		//´øÀü °ü¸® ±ÇÇÑ ¾øÀ½
-	MSG_DVD_ERROR_MONEY,		//´øÀü ÀÔÀå½Ã ÀÔÀå·á ºÎÁ·
-	MSG_DVD_ERROR_ZONE,			//°ø¼ºÀÌ³ª Á¸¿¡ ´ëÇÑ ¿¡·¯
-	MSG_DVD_ERROR_GUILD,		//±æµå°¡ ¾ø°Å³ª, Ã£À» ¼ö ¾øÀ» ¶§
-	MSG_DVD_ERROR_NORMAL_MODE,	// ÀÏ¹Ý¸ðµå »óÅÂÀÌ´Ù.
+	MSG_DVD_ERROR_OK,			//ï¿½ï¿½ï¿½ï¿½
+	MSG_DVD_ERROR_CONFIRM,		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DVD_ERROR_MONEY,		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DVD_ERROR_ZONE,			//ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DVD_ERROR_GUILD,		//ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½Å³ï¿½, Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_DVD_ERROR_NORMAL_MODE,	// ï¿½Ï¹Ý¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 }MSG_DVD_INFO_ERROR_TYPE;
 
 typedef enum __tagMsgExCastleWarType
 {
-	MSG_CASTLE_CRISTAL_RESPOND_START,	// ±³°¨ ½ÃÀÛ	charindex(n), starttime(ll)	
-	MSG_CASTLE_CRISTAL_RESPOND_END,		// ±³°¨ ¿Ï·á	charindex(n)
-	MSG_CASTLE_CRISTAL_RESPOND_FAIL,	// ±³°¨ ½ÇÆÐ	charindex(n)
-	MSG_CASTLE_TOWER_CONTRAL,			// ¸¶½ºÅÍ Å¸¿ö ¼³Á¤
-	MSG_CASTLE_TOWER_CONTRAL_LIST,		// ¸¶½ºÆ® Å¸¿ö ¼³Á¤ ¸®½ºÆ®
-	MSG_CASTLE_TOWER_REINFORCE,			// ¸¶½ºÅÍ Å¸¿ö °­È­ ¼³Á¤		type(c), step(c)
-	MSG_CASTLE_TOWER_REINFORCE_LIST,	// ¸¶½ºÅÍ Å¸¿ö °­È­ ¸®½ºÆ®		3*(type(c), step(c))
-	MSG_CASTLE_TOWER_REPAIRE,			// °ø¼º Å¸¿ö ¼ö¸®				cl->gs idx(n) | gs->cl	idx(n)
-	MSG_CASTLE_TOWER_REPAIRE_LIST,		// °ø¼º Å¸¿ö ¼ö¸® »óÅÂ			cl->gs idx(n) | gs->cl	money(n)
-	MSG_CASTLE_TOWER_WARP_LIST,			// °ø¼º ¿öÇÁ Å¸¿ö À¯È¿ ¸®½ºÆ®   cl->gs idx(n) | gs->cl  cnt(c) * idx(n)	
-	MSG_CASTLE_QUARTERS_INSTALL,		// ºÎÈ°ÁøÁö ¼³Ä¡		cl->gs idx(n) | gs->cl  idx(n), gidx(n)
-	MSG_CASTLE_QUARTERS_CRUSH,			// ºÎÈ° ÁøÁö ÆÄ±«		gs->cl idx(n)
-	MSG_CASTLE_QUARTERS_LIST,			// ºÎÈ° ÁøÁö ¸®½ºÆ®		gs->cl 7*(nindex(n), gindex(n))
-	MSG_CASTLE_WAIT_TIME,				// ºÎÈ° ´ë±â ½Ã°£		gs->cl wait_time(n) sec  
-	MSG_EX_CASTLE_ERROR,				// °ø¼º ¿¡·¯ subtype(c)
+	MSG_CASTLE_CRISTAL_RESPOND_START,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	charindex(n), starttime(ll)	
+	MSG_CASTLE_CRISTAL_RESPOND_END,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½	charindex(n)
+	MSG_CASTLE_CRISTAL_RESPOND_FAIL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	charindex(n)
+	MSG_CASTLE_TOWER_CONTRAL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CASTLE_TOWER_CONTRAL_LIST,		// ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_CASTLE_TOWER_REINFORCE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½		type(c), step(c)
+	MSG_CASTLE_TOWER_REINFORCE_LIST,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½Æ®		3*(type(c), step(c))
+	MSG_CASTLE_TOWER_REPAIRE,			// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				cl->gs idx(n) | gs->cl	idx(n)
+	MSG_CASTLE_TOWER_REPAIRE_LIST,		// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			cl->gs idx(n) | gs->cl	money(n)
+	MSG_CASTLE_TOWER_WARP_LIST,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½È¿ ï¿½ï¿½ï¿½ï¿½Æ®   cl->gs idx(n) | gs->cl  cnt(c) * idx(n)	
+	MSG_CASTLE_QUARTERS_INSTALL,		// ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡		cl->gs idx(n) | gs->cl  idx(n), gidx(n)
+	MSG_CASTLE_QUARTERS_CRUSH,			// ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½		gs->cl idx(n)
+	MSG_CASTLE_QUARTERS_LIST,			// ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		gs->cl 7*(nindex(n), gindex(n))
+	MSG_CASTLE_WAIT_TIME,				// ï¿½ï¿½È° ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½		gs->cl wait_time(n) sec  
+	MSG_EX_CASTLE_ERROR,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ subtype(c)
 } MSG_EX_CASTLE_WAR_TYPE;
 
 typedef enum __tagMsgExCastleErrorType
 {
- MSG_EX_CASTLE_ERROR_NOT_JOIN,    // °ø¼º Âü°¡ÁÖÀÌ ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_NOT_WAR,    // °ø¼ºÀü ÁßÀÌ ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_POS_FAIL,    // À§Ä¡ ÀÌ»ó
- MSG_EX_CASTLE_ERROR_MEM_5_FAIL,    // ±³°¨ ÀÎ¿ø ÀÚ¸® ¾øÀ½
- MSG_EX_CASTLE_ERROR_NOT_OWNER,    // ¼ºÁÖ ±æµå ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_NOT_RESPOND,   // ±³°¨ ÁßÀÌ ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_NOT_RESPOND_TIME,  // ±³°¨ ½Ã°£ ºÎÁ·
- MSG_EX_CASTLE_ERROR_NO_MONEY,    // µ· ºÎÁ·
- MSG_EX_CASTLE_ERROR_NOT_ATTACK,    // °ø¼º ±æµå ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_NO_DATA,    // µ¥ÀÌÅÍ ÀÌ»ó
- MSG_EX_CASTLE_ERROR_NO_DIFFER,    // ÀÌÀü µ¥ÀÌÅÍ¿Í µ¿ÀÏ
- MSG_EX_CASTLE_ERROR_NOT_BUY,    // ±¸¸ÅÇÏÁö ¾Ê¾ÒÀ½
- MSG_EX_CASTLE_ERROR_NO_NPC,     // ¾ø´Â Å¸¿ö
- MSG_EX_CASTLE_ERROR_DEAD_NPC,    // Á×Àº Å¸¿ö 
- MSG_EX_CASTLE_ERROR_HAVE_NO_GUILD,   // ±âµå ¿øÀÌ ¾Æ´Ô
- MSG_EX_CASTLE_ERROR_USE_NPC,    // »ç¿ëÁß ºÎÈ° ÁøÁö
- MSG_EX_CASTLE_ERROR_USE_NPC_OTHER,   // ÀÌ¹Ì ´Ù¸¥ ºÎÈ°ÁøÁö »ç¿ëÁß
- MSG_EX_CASTLE_ERROR_NO_NPC2,     // ¾ø´Â ºÎÈ° ÁøÁö
- MSG_EX_CASTLE_ERROR_DEAD_NPC2,    // Á×Àº ºÎÈ°ÁøÁö
- MSG_EX_CASTLE_ERROR_SAME_DATA,	   // °°Àº µ¥ÀÌÅÍ
- MSG_EX_CASTLE_ERROR_NOT_BUY_NPC,   // ´õÀÌ»ó NPC¸¦ ±¸¸Å ÇÒ¼ö ¾ø½À´Ï´Ù,
- MSG_EX_CASTLE_ERROR_PERMISSION_DENIED, // ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.
+ MSG_EX_CASTLE_ERROR_NOT_JOIN,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_WAR,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_POS_FAIL,    // ï¿½ï¿½Ä¡ ï¿½Ì»ï¿½
+ MSG_EX_CASTLE_ERROR_MEM_5_FAIL,    // ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_OWNER,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_RESPOND,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_RESPOND_TIME,  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NO_MONEY,    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_ATTACK,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_NO_DATA,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½
+ MSG_EX_CASTLE_ERROR_NO_DIFFER,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_BUY,    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NO_NPC,     // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_DEAD_NPC,    // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ 
+ MSG_EX_CASTLE_ERROR_HAVE_NO_GUILD,   // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+ MSG_EX_CASTLE_ERROR_USE_NPC,    // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_USE_NPC_OTHER,   // ï¿½Ì¹ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NO_NPC2,     // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È° ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_DEAD_NPC2,    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_SAME_DATA,	   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_CASTLE_ERROR_NOT_BUY_NPC,   // ï¿½ï¿½ï¿½Ì»ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½,
+ MSG_EX_CASTLE_ERROR_PERMISSION_DENIED, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 } MSG_EX_CASTLE_ERROR_TYPE;
 
 typedef enum __tagMsgExMessengerType
 {
-	MSG_EX_MESSENGER_INVITE,	// ÇØ´ç ÄÉ¸¯ÅÍ ÃÊ´ë : makeCharIndex(n) chatIndex(n) charIndex(n)
-								// chatIndex °¡ -1ÀÌ¸é ´ëÈ­¹æ Ãß°¡,
+	MSG_EX_MESSENGER_INVITE,	// ï¿½Ø´ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ : makeCharIndex(n) chatIndex(n) charIndex(n)
+								// chatIndex ï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß°ï¿½,
 								// GS->C			: makeCharIndex(n) chatIndex(n) charName(str) 
-	MSG_EX_MESSENGER_OUT,		// ÇØ´ç ÄÉ¸¯ÅÍ ´ëÈ­¹æ¿¡¼­ ³ª°¨ : makeCharIndex(n) chatIndex(n)
+	MSG_EX_MESSENGER_OUT,		// ï¿½Ø´ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : makeCharIndex(n) chatIndex(n)
 								// GS->C			: makeCharIndex(n) chatIndex(n) charName(str) 
-	MSG_EX_MESSENGER_CHARLIST,	// ÃÊ´ë¹ÞÀº ÄÉ¸¯ÅÍ¿¡°Ô ÇöÀç¹æ ¸®½ºÆ®¸¦ º¸³¿ 
+	MSG_EX_MESSENGER_CHARLIST,	// ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 								// GS->C			: makeCharIndex(n) chatIndex(n) count(n) charName(str)
-	MSG_EX_MESSENGER_CHAT,		// charNameÀÌ Ã¤ÆÃ ¸Þ¼¼Áö º¸³¿ : makeCharIndex(n) chatIndex(n) chat(str)
+	MSG_EX_MESSENGER_CHAT,		// charNameï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : makeCharIndex(n) chatIndex(n) chat(str)
 								// GS->C			: makeCharIndex(n) chatIndex(n) color(n) charName(str) chat(str) 
-	MSG_EX_MESSENGER_GROUP_ADD,	// Ä£±¸ ±×·ì Ãß°¡	: groupName(str)
-								// GS->C			: gIndex(n) groupName(str)  : gIndex °¡ -1ÀÌ¸é Áßº¹µÈ ÀÌ¸§ 
-	MSG_EX_MESSENGER_GROUP_DEL,	// Ä£±¸ ±×·ì »èÁ¦	: gIndex(n)
-								// GS->C			: gIndex(n) : gIndex °¡ -1ÀÌ¸é Á¸ÀçÇÏÁö ¾Ê´Â ±×·ì
-	MSG_EX_MESSENGER_GROUP_CHANGE,	// Ä£±¸ ±×·ì ÀÌ¸§º¯°æ : gIndex(n) newName(str)
-								// GS->C			: gIndex(n) groupName(str)  : gIndex°¡ -1ÀÌ¸é Áßº¹µÈ ÀÌ¸§ 
-	MSG_EX_MESSENGER_GROUP_MOVE,	// Ä£±¸ ±×·ì ÀÌµ¿	  : gIndex(n) charName(str) 
-								// GS->C			: gIndex(n) charName(str)   : gIndex°¡ -1ÀÌ¸é Á¸ÀçÇÏÁö ¾Ê´Â ±×·ì 
-	MSG_EX_MESSENGER_GROUP_LIST, // ±×·ì ¸®½ºÆ® º¸³»±â : count(n) gIndex(n) gName(str)
+	MSG_EX_MESSENGER_GROUP_ADD,	// Ä£ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ß°ï¿½	: groupName(str)
+								// GS->C			: gIndex(n) groupName(str)  : gIndex ï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ßºï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ 
+	MSG_EX_MESSENGER_GROUP_DEL,	// Ä£ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½	: gIndex(n)
+								// GS->C			: gIndex(n) : gIndex ï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½×·ï¿½
+	MSG_EX_MESSENGER_GROUP_CHANGE,	// Ä£ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ : gIndex(n) newName(str)
+								// GS->C			: gIndex(n) groupName(str)  : gIndexï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ßºï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ 
+	MSG_EX_MESSENGER_GROUP_MOVE,	// Ä£ï¿½ï¿½ ï¿½×·ï¿½ ï¿½Ìµï¿½	  : gIndex(n) charName(str) 
+								// GS->C			: gIndex(n) charName(str)   : gIndexï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½×·ï¿½ 
+	MSG_EX_MESSENGER_GROUP_LIST, // ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : count(n) gIndex(n) gName(str)
 
-	MSG_EX_MESSENGER_CHATCOLOR_CHAGNE, // Ä®¶ó º¯°æ : color(n)
-	MSG_EX_MESSENGER_BLOCK,		// ÇØ´çÀ¯Àú Â÷´Ü	: name(str)
+	MSG_EX_MESSENGER_CHATCOLOR_CHAGNE, // Ä®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : color(n)
+	MSG_EX_MESSENGER_BLOCK,		// ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: name(str)
 								// GS->C			: errcode(c) charIndex(n) name(str)
-	MSG_EX_MESSENGER_RELEASE_BLOCK,	// ÇØ´çÀ¯Àú ÇØÁ¦: charIndex(n)
+	MSG_EX_MESSENGER_RELEASE_BLOCK,	// ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: charIndex(n)
 								// GS->C			: errcode(c) charIndex(n) name(str)
-	MSG_EX_MESSENGER_BLOCK_LIST, // Â÷´ÜÇÑ ¸®½ºÆ®   : count(n) charIndex(n) name(str)
+	MSG_EX_MESSENGER_BLOCK_LIST, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®   : count(n) charIndex(n) name(str)
 
-	MSG_EX_MESSENGER_ONE_VS_ONE,	// 1:1 ´ëÈ­ : sCharIndex(n) tCharIndex(n) chat(str)
-	MSG_EX_MESSENGER_ONE_OFF_LINE,	// »óÅÂ ¿ÀÇÁ¶óÀÎÁß: sCharIndex(n), tCharIndex(n)
+	MSG_EX_MESSENGER_ONE_VS_ONE,	// 1:1 ï¿½ï¿½È­ : sCharIndex(n) tCharIndex(n) chat(str)
+	MSG_EX_MESSENGER_ONE_OFF_LINE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: sCharIndex(n), tCharIndex(n)
 } MSG_EX_MESSENGER_TYPE;
 
 typedef enum __tagMsgEMessengerErrorType
 {
-	MSG_EX_MESSENGER_SUCCESS,			// ¼º°ø
-	MSG_EX_MESSENGER_BLOCK_NOTCHAR,		// ÇØ´ç ÄÉ¸¯ÅÍ°¡ ¾ø½À´Ï´Ù
-	MSG_EX_MESSENGER_BLOCK_INVALIDNAME,	// ÀÌ¸§ÀÌ Àß¸ø ÀÔ·Â µÇ¾ú½À´Ï´Ù
-	MSG_EX_MESSENGER_NOMORE_BLOCK,		// ´õÀÌ»ó ºí·°ÇÒ¼ö ¾ø½À´Ï´Ù
-	MSG_EX_MESSENGER_ALREADY_BLOCK,		// ÀÌ¹Ì ºí·°µÇ¾ú½À´Ï´Ù
+	MSG_EX_MESSENGER_SUCCESS,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_MESSENGER_BLOCK_NOTCHAR,		// ï¿½Ø´ï¿½ ï¿½É¸ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_MESSENGER_BLOCK_INVALIDNAME,	// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_MESSENGER_NOMORE_BLOCK,		// ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_MESSENGER_ALREADY_BLOCK,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 
 } MSG_EX_MESSENGER_ERROR_TYPE;
 
 typedef enum __tagMsgExStringOutputType
 {
 	MSG_EX_STRING_OUTPUT_WINDOW,		// Ã¢
-	MSG_EX_STRING_OUTPUT_SYS,			// ½Ã½ºÅÛÃ¢
-	MSG_EX_STRING_OUTPUT_NOTICE,		// °øÁö
+	MSG_EX_STRING_OUTPUT_SYS,			// ï¿½Ã½ï¿½ï¿½ï¿½Ã¢
+	MSG_EX_STRING_OUTPUT_NOTICE,		// ï¿½ï¿½ï¿½ï¿½
 	MSG_EX_STRING_OUTPUT_CHAT,			// ÃªÃ¢
 } MSG_EX_STRING_Output_TYPE;
 
@@ -1266,551 +1270,551 @@ typedef enum __tagMsgExStringArgType
 
 typedef enum __tagMsgExPartyMatchType
 {
-	MSG_EX_PARTY_MATCH_REG_MEMBER_REQ,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ¿äÃ» : partyType(c)
-	MSG_EX_PARTY_MATCH_REG_MEMBER_REP,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ÀÀ´ä : errorcode(n)
+	MSG_EX_PARTY_MATCH_REG_MEMBER_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : partyType(c)
+	MSG_EX_PARTY_MATCH_REG_MEMBER_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n)
 
-	MSG_EX_PARTY_MATCH_REG_PARTY_REQ,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¿äÃ» : comment(str) jobFlag(n) limitlevel(c)
-	MSG_EX_PARTY_MATCH_REG_PARTY_REP,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ÀÀ´ä : errorcode(n)
+	MSG_EX_PARTY_MATCH_REG_PARTY_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : comment(str) jobFlag(n) limitlevel(c)
+	MSG_EX_PARTY_MATCH_REG_PARTY_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n)
 
-	MSG_EX_PARTY_MATCH_MEMBER_LIST_REQ,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ¸®½ºÆ® ¿äÃ» : pageno(n) job(c) limitlevel(c) partytype(c)
-											// jobÀÌ -1ÀÌ¸é ¸ðµç Á÷¾÷, partytypeÀÌ -1ÀÌ¸é ¸ðµç Á¾·ùÀÇ ÆÄÆ¼, pageno´Â 0-based index
-	MSG_EX_PARTY_MATCH_MEMBER_LIST_REP,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ¸®½ºÆ® ÀÀ´ä : pageno(n) count(n) [charindex(n) charname(str) leveldiff(c) zone(n) job(c) partytype(c)] * count
-											// leveldiff°¡ 0ÀÌ¸é +-2 »çÀÌ, 1ÀÌ¸é +-3ÀÌ»ó
+	MSG_EX_PARTY_MATCH_MEMBER_LIST_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : pageno(n) job(c) limitlevel(c) partytype(c)
+											// jobï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, partytypeï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼, pagenoï¿½ï¿½ 0-based index
+	MSG_EX_PARTY_MATCH_MEMBER_LIST_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ : pageno(n) count(n) [charindex(n) charname(str) leveldiff(c) zone(n) job(c) partytype(c)] * count
+											// leveldiffï¿½ï¿½ 0ï¿½Ì¸ï¿½ +-2 ï¿½ï¿½ï¿½ï¿½, 1ï¿½Ì¸ï¿½ +-3ï¿½Ì»ï¿½
 
-	MSG_EX_PARTY_MATCH_PARTY_LIST_REQ,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ ¸®½ºÆ® ¿äÃ» : pageno(n) job(c) limitlevel(c) partytype(c)
-											// jobÀÌ -1ÀÌ¸é ¸ðµç Á÷¾÷, partytypeÀÌ -1ÀÌ¸é ¸ðµç Á¾·ùÀÇ ÆÄÆ¼, pageno´Â 0-based index
-	MSG_EX_PARTY_MATCH_PARTY_LIST_REP,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ ¸®½ºÆ® ÀÀ´ä : pageno(n) count(n) [bossindex(n) leveldiff(c) zone(n) jobflag(n) partytype(c) limitlevel(c) comment(str)] * count
-											// leveldiff°¡ 0ÀÌ¸é +-2 »çÀÌ, 1ÀÌ¸é +-3ÀÌ»ó
+	MSG_EX_PARTY_MATCH_PARTY_LIST_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : pageno(n) job(c) limitlevel(c) partytype(c)
+											// jobï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, partytypeï¿½ï¿½ -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼, pagenoï¿½ï¿½ 0-based index
+	MSG_EX_PARTY_MATCH_PARTY_LIST_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ : pageno(n) count(n) [bossindex(n) leveldiff(c) zone(n) jobflag(n) partytype(c) limitlevel(c) comment(str)] * count
+											// leveldiffï¿½ï¿½ 0ï¿½Ì¸ï¿½ +-2 ï¿½ï¿½ï¿½ï¿½, 1ï¿½Ì¸ï¿½ +-3ï¿½Ì»ï¿½
 
-	MSG_EX_PARTY_MATCH_DEL_REQ,				// ÆÄÆ¼ ¸ÅÄª µî·Ï ÇØÁ¦ ¿äÃ»
-	MSG_EX_PARTY_MATCH_DEL_REP,				// ÆÄÆ¼ ¸ÅÄª µî·Ï ÇìÁ¦ ÀÀ´ä
+	MSG_EX_PARTY_MATCH_DEL_REQ,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_PARTY_MATCH_DEL_REP,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_PARTY_MATCH_INVITE_REQ,			// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ÃÊ´ë ¿äÃ» : charindex(n)
-	MSG_EX_PARTY_MATCH_INVITE_REP,			// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ÃÊ´ë ÀÀ´ä : errorcode(n) partytype(c) bossindex(n) bossname(str) destindex(n) destname(str)
+	MSG_EX_PARTY_MATCH_INVITE_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã» : charindex(n)
+	MSG_EX_PARTY_MATCH_INVITE_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) partytype(c) bossindex(n) bossname(str) destindex(n) destname(str)
 
-	MSG_EX_PARTY_MATCH_JOIN_REQ,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ¿äÃ» : bossindex(n)
-	MSG_EX_PARTY_MATCH_JOIN_REP,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ÀÀ´ä : errorcode(n) partytype(c) bossindex(n) bossname(str) charindex(n) charname(str) charjob(c)
-	MSG_EX_PARTY_MATCH_JOIN_ALLOW,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ Çã¶ô : reqindex(n)
-	MSG_EX_PARTY_MATCH_JOIN_REJECT,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ °ÅÀý : reqindex(n)
-											// reqindex´Â Á¶ÀÎÀ» ¿äÃ»ÇÑ »ç¶÷ÀÏ °æ¿ì ÀÚ½ÅÀÇ index, ÆÄÆ¼ÀåÀÇ °æ¿ì Á¶ÀÎÀ» ¿äÃ»ÇÑ »ç¶÷ÀÇ ÀÎµ¦½º ÀÌ´Ù
+	MSG_EX_PARTY_MATCH_JOIN_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : bossindex(n)
+	MSG_EX_PARTY_MATCH_JOIN_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) partytype(c) bossindex(n) bossname(str) charindex(n) charname(str) charjob(c)
+	MSG_EX_PARTY_MATCH_JOIN_ALLOW,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : reqindex(n)
+	MSG_EX_PARTY_MATCH_JOIN_REJECT,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : reqindex(n)
+											// reqindexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ index, ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ì´ï¿½
 
 } MSG_EX_PARTY_MATCH_TYPE;
 
 typedef enum __tagMsgExPartyMatchErrorType
 {
-	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_OK,					// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ¼º°ø
-	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_PARTY,		// ÀÌ¹Ì ÆÄÆ¼ Âü¿©ÀÚ°¡ µî·Ï ¿äÃ»
-	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_REG,		// ÀÌ¹Ì µî·ÏµÈ Ä³¸¯
+	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_OK,					// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_PARTY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_REG,		// ï¿½Ì¹ï¿½ ï¿½ï¿½Ïµï¿½ Ä³ï¿½ï¿½
 
-	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_OK,					// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¼º°ø
-	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_NO_BOSS,				// ÆÄÆ¼ÀåÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ¿äÃ»½Ã
-	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_FULL,				// ÆÄÆ¼ ÀÎ¿ø °¡µæÂü
-	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_ALREADY_REG,			// ÀÌ¹Ì µî·ÏµÈ ÆÄÆ¼
+	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_OK,					// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_NO_BOSS,				// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_FULL,				// ï¿½ï¿½Æ¼ ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_REG_PARTY_ALREADY_REG,			// ï¿½Ì¹ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½Æ¼
 
 	MSG_EX_PARTY_MATCH_ERROR_INVITE_OK,
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_NOT_FOUND,				// ÆÄÆ¼ ¸ÅÄª¿¡ ¾ø´Â »ç¶÷À» ÃÊ´ë
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_LEVEL,					// ÆÄÆ¼ Å¸ÀÔÀÌ PARTY_TYPE_BATTLE ÀÏ¶§ ·¹º§ °Ë»ç¿¡ ºÎÀûÇÕÇÔ
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_NOBOSS,					// ÆÄÆ¼ÀåÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ¿äÃ»½Ã
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_DIFF_TYPE,				// ÆÄÆ¼ Å¸ÀÔÀÌ ¸ÂÁö ¾ÊÀ½
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_ALREADY_TARGET,			// ´ë»óÀÌ ÀÌ¹Ì ÆÄÆ¼ Áß
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_FULL,					// ÆÄÆ¼ ÀÎ¿øÀÌ ÃÊ°ú
-	MSG_EX_PARTY_MATCH_ERROR_INVITE_ALREADY_REQUEST,		// ´Ù¸¥ »ç¶÷¿¡°Ô ¿äÃ» ÁßÀÏ¶§
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_NOT_FOUND,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Äªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_LEVEL,					// ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ PARTY_TYPE_BATTLE ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ç¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_NOBOSS,					// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_DIFF_TYPE,				// ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_ALREADY_TARGET,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_FULL,					// ï¿½ï¿½Æ¼ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_INVITE_ALREADY_REQUEST,		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ï¶ï¿½
 
 	MSG_EX_PARTY_MATCH_ERROR_JOIN_OK,
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_ALREADY_TARGET,			// Á¶ÀÎÀ» ¿äÃ»ÇÑ »ç¶ó¹Ö ÀÌ¹Ì ´Ù¸¥ ÆÄÆ¼¿¡ °¡ÀÔ Áß
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_NOT_FOUND,				// Á¶ÀÎ ÇÏ·Á°í ÇÏ´Â ÆÄÆ¼°¡ ¸ÅÄª Å×ÀÌºí¿¡ ¾øÀ½
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_LEVEL,					// ÆÄÆ¼ Å¸ÀÔÀÌ PARTY_TYPE_BATTLEÀÌ°í ·¹º§ °Ë»ç¿¡ ºÎÀûÇÕ
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_LIMIT_LEVEL,				// ·¹º§ Á¦ÇÑ Á¶°Ç¿¡ ºÎÀûÇÕ
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_JOB,						// Á÷¾÷ ºÎÀûÇÕ
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_FULL,						// ÀÎ¿ø °¡µæÂü
-	MSG_EX_PARTY_MATCH_ERROR_JOIN_ALREADY_REQUEST,			// ±âÁ¸ ÃÊ´ë ¿äÃ»ÀÚ°¡ ÀÖ¾î¼­ ºÒ°¡´É
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_ALREADY_TARGET,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_NOT_FOUND,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½Äª ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_LEVEL,					// ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ PARTY_TYPE_BATTLEï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ç¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_LIMIT_LEVEL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_JOB,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_FULL,						// ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_MATCH_ERROR_JOIN_ALREADY_REQUEST,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã»ï¿½Ú°ï¿½ ï¿½Ö¾î¼­ ï¿½Ò°ï¿½ï¿½ï¿½
 
 } MSG_EX_PARTY_MATCH_ERROR_TYPE;
 
 typedef enum __tagMsgExPartyRecallType
 {
-	MSG_EX_PARTY_RECALL_NOTICE,				// ¸®ÄÝ¿äÃ»ÀÚ È®ÀÎ ¸Þ½ÃÁö, ÆÄÆ¼¿øµé¿¡°Ô ¼ÒÈ¯¸Þ½ÃÁö¸¦ º¸³Â½À´Ï´Ù.
-	MSG_EX_PARTY_RECALL_PROMPT,				// ¸®ÄÝ´ë»óÀÚ È®ÀÎ ¸Þ½ÃÁö	: request_char_index(n) request_char_name(str)
-											// XXXXÆÄÆ¼¿ø²²¼­ ¼ÒÈ¯¸Þ½ÃÁö¸¦ º¸³»¿Ô½À´Ï´Ù. ¼ÒÈ¯¿¡ ÀÀÇÏ½Ã°Ú½À´Ï±î?
-	MSG_EX_PARTY_RECALL_CONFIRM,			// ¸®ÄÝ ÀÀ´ä				: request_char_index(n) request_char_name(str) yes_or_no(c)
+	MSG_EX_PARTY_RECALL_NOTICE,				// ï¿½ï¿½ï¿½Ý¿ï¿½Ã»ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½, ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_PARTY_RECALL_PROMPT,				// ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	: request_char_index(n) request_char_name(str)
+											// XXXXï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?
+	MSG_EX_PARTY_RECALL_CONFIRM,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				: request_char_index(n) request_char_name(str) yes_or_no(c)
 											// yes_or_no - yes(1), no(0)
-	MSG_EX_PARTY_RECALL_CANCEL,				// ¸®ÄÝ °ÅºÎ½Ã				: request_char_index(n) request_char_name(str) target_char_index(n) target_char_name(str)
-	MSG_EX_PARTY_RECALL_ERROR_NOT_FOUND_PARTY_PLAYER,	// ÆÄÆ¼¿¡ Âü°¡ÇÏÁö ¾Ê¾ÒÀ» °æ¿ì
-	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_INSTANT_DUNGEON,	// ÀÎ½ºÅÏÆ® ´øÁ¯¿¡¼­ »ç¿ëÇÒ °æ¿ì ¿¡·¯ ¹ß¼Û.
-	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_THIS_CONTINENT,	// ÇØ´ç ÆÄÆ¼¸®ÄÝ ¾ÆÀÌÅÛÀ» °¢ ´ë·ú¿¡¼­ »ç¿ëÇÏÁö ¾Ê¾ÒÀ» °æ¿ì.
-	MSG_EX_PARTY_RECALL_ERROR_NOT_PARTY,				// ÆÄÆ¼ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù.
-	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_EXPEND,			// ¿øÁ¤´ë´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_EX_PARTY_RECALL_CONFIRM_FAIL,					// ¸®ÄÝ ¼ö¶ô ½Ã ÀÌµ¿ÇÒ ¼ö ¾ø´Â °æ¿ì Å¬¶ó ¶ôÀ» Ç®±â À§ÇÑ ¸Þ½ÃÁö
-	MSG_EX_PARTY_RECALL_AREADY,							// ÀÌ¹Ì »ç¿ëÁßÀÎ »óÅÂÀÔ´Ï´Ù.
+	MSG_EX_PARTY_RECALL_CANCEL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ÅºÎ½ï¿½				: request_char_index(n) request_char_name(str) target_char_index(n) target_char_name(str)
+	MSG_EX_PARTY_RECALL_ERROR_NOT_FOUND_PARTY_PLAYER,	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_INSTANT_DUNGEON,	// ï¿½Î½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ï¿½.
+	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_THIS_CONTINENT,	// ï¿½Ø´ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	MSG_EX_PARTY_RECALL_ERROR_NOT_PARTY,				// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_EX_PARTY_RECALL_ERROR_CANT_USE_EXPEND,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_PARTY_RECALL_CONFIRM_FAIL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_PARTY_RECALL_AREADY,							// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 } MSG_EX_PARTY_RECALL_TYPE;
 
 typedef enum __tagMsgExPetRebirthErrorType
 {
-	MSG_EX_PET_REBIRTH_ERROR_OK,			// ¼º°ø
-	MSG_EX_PET_REBIRTH_ERROR_NOMONEY,		// ³ª½º ºÎÁ·
-	MSG_EX_PET_REBIRTH_ERROR_NOPET,			// Æê Á¸Àç ¾ÈÇÔ
-	MSG_EX_PET_REBIRTH_ERROR_NODEAD,		// Æê »ì¾ÆÀÖÀ½
+	MSG_EX_PET_REBIRTH_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_REBIRTH_ERROR_NOMONEY,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_REBIRTH_ERROR_NOPET,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_REBIRTH_ERROR_NODEAD,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 } MSG_EX_PET_REBIRTH_ERROR_TYPE;
 
 typedef enum __tagMsgExPetChangeItem
 {
-	MSG_EX_PET_CHANGE_ITEM_ERROR_OK,		// ¾ÆÀÌÅÛ È¹µæ
-	MSG_EX_PET_CHANGE_ITEM_ERROR_NOITEM,	// ¾ÆÀÌÅÛ È¹µæ ½ÇÆÐ, Æê¸¸ ¾ø¾îÁü
-	MSG_EX_PET_CHANGE_ITEM_ERROR_FAIL,		// ±³È¯ ½ÇÆÐ : Á¶°Ç ¹Ì´Þ
+	MSG_EX_PET_CHANGE_ITEM_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½
+	MSG_EX_PET_CHANGE_ITEM_ERROR_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ê¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_ITEM_ERROR_FAIL,		// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´ï¿½
 } MSG_EX_PET_CHANGE_ITEM_ERROR_TYPE;
 
 typedef enum _tagMsgExPetChangeName
 {
-	MSG_EX_PET_CHANGE_NAME_ERROR_OK,	// ÀÌ¸§ º¯°æ ¼º°ø
-	MSG_EX_PET_CHANGE_NAME_ERROR_FAIL,	// Pet ÀÌ¸§ º¯°æ ½ÇÆÐ
-	MSG_EX_PET_CHANGE_NAME_ERROR_ITEM,	// ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	MSG_EX_PET_CHANGE_NAME_ERROR_NOPET, // Pet Á¸Àç ¾ÈÇÔ
-	MSG_EX_PET_CHANGE_NAME_ERROR_DUPLICATE, // Pet ÀÌ¸§ Áßº¹
+	MSG_EX_PET_CHANGE_NAME_ERROR_OK,	// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_NAME_ERROR_FAIL,	// Pet ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_NAME_ERROR_ITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_NAME_ERROR_NOPET, // Pet ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_NAME_ERROR_DUPLICATE, // Pet ï¿½Ì¸ï¿½ ï¿½ßºï¿½
 }MSG_EX_PET_CHANGE_NAME_ERROR_TYPE;
 
 typedef enum __tagMsgExPetMixItemErrorType
 {
-	MSG_EX_PET_MIX_ITEM_ERROR_OK,		// ¼º°ø
-	MSG_EX_PET_MIX_ITEM_ERROR_FAIL,		// ½ÇÆÐ
-	MSG_EX_PET_MIX_ITEM_ERROR_NOITEM,	// Àç·áºÎÁ·
-	MSG_EX_PET_MIX_ITEM_ERROR_NOMIX,	// Á¶ÇÕ¹ý ¿À·ù
+	MSG_EX_PET_MIX_ITEM_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_MIX_ITEM_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_MIX_ITEM_ERROR_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_MIX_ITEM_ERROR_NOMIX,	// ï¿½ï¿½ï¿½Õ¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EX_PET_MIX_ITEM_ERROR_TYPE;
 
 typedef enum __tagMsgExCashItemType
 {
-	MSG_EX_CASHITEM_BALANCE_REQ,		// Ä³½¬ Á¤º¸ ¿äÃ»
-	MSG_EX_CASHITEM_BALANCE_REP,		// Ä³½¬				: errorCode(uc) cashBalance(n)
-	MSG_EX_CASHITEM_PURCHASE_REQ,		// ±¸¸Å ¿äÃ»		: count(n) ctid(n) 
-	MSG_EX_CASHITEM_PURCHASE_REP,		// ÀÀ´ä				: errorCode(uc) cashBalance(n)
-	MSG_EX_CASHITEM_BRING_REQ,			// °¡Á®¿À±â			: count(n) idx(n) ctid(n)
-	MSG_EX_CASHITEM_BRING_REP,			// ÀÀ´ä				: errorCode(uc) 
-	MSG_EX_CASHITEM_PURCHASELIST_REQ,	// ±¸¸ÅÇÑ ¹°Ç° ¸ñ·Ï
-	MSG_EX_CASHITEM_PURCHASELIST_REP,   // ÀÀ´ä				: count(n) idx(n) ctid(n)
-	MSG_EX_CASHITEM_PURCHASEHISTORY_REQ,// ±¸¸Å³»¿ª			: y(n) m(c) d(c)
-	MSG_EX_CASHITEM_PURCHASEHISTORY_REP,// ÀÀ´ä				: errorcode(uc) count(n) ctid(n)
-	MSG_EX_CASHITEM_MOONSTONE_START,	// ¾ÆÀÌÅÛÀÇ Á¶°Ç È®ÀÎ: tab_idx(c) row_idx(c) col_idx(c) item_idx(n)
+	MSG_EX_CASHITEM_BALANCE_REQ,		// Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EX_CASHITEM_BALANCE_REP,		// Ä³ï¿½ï¿½				: errorCode(uc) cashBalance(n)
+	MSG_EX_CASHITEM_PURCHASE_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: count(n) ctid(n) 
+	MSG_EX_CASHITEM_PURCHASE_REP,		// ï¿½ï¿½ï¿½ï¿½				: errorCode(uc) cashBalance(n)
+	MSG_EX_CASHITEM_BRING_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½			: count(n) idx(n) ctid(n)
+	MSG_EX_CASHITEM_BRING_REP,			// ï¿½ï¿½ï¿½ï¿½				: errorCode(uc) 
+	MSG_EX_CASHITEM_PURCHASELIST_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_PURCHASELIST_REP,   // ï¿½ï¿½ï¿½ï¿½				: count(n) idx(n) ctid(n)
+	MSG_EX_CASHITEM_PURCHASEHISTORY_REQ,// ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½			: y(n) m(c) d(c)
+	MSG_EX_CASHITEM_PURCHASEHISTORY_REP,// ï¿½ï¿½ï¿½ï¿½				: errorcode(uc) count(n) ctid(n)
+	MSG_EX_CASHITEM_MOONSTONE_START,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½: tab_idx(c) row_idx(c) col_idx(c) item_idx(n)
 										//					   result(uc) grade(c)
-	MSG_EX_CASHITEM_MOONSTONE_STOP,		// ¾ÆÀÌÅÛÀ» »èÁ¦ÇÏ°í Áö±Þ¿äÃ»							   
-	MSG_EX_CASHITEM_GIFT_REQ,			// ¼±¹° º¸³»±â ¿äÃ»	: charName(str) Msg(str) count(n) idx(n) ctid(n)
-	MSG_EX_CASHITEM_GIFT_REP,			//			ÀÀ´ä	: errcode(uc) 
-	MSG_EX_CASHITEM_GIFT_SENDHISTORY_REQ,  // ¼±¹° ³»¿ª ¸®½ºÆ® ¿äÃ» : y(n) m(c) d(c)
-	MSG_EX_CASHITEM_GIFT_SENDHISTORY_REP,  // ÀÀ´ä				: errorcode(uc) count(n) ctid(n) recvcharName(str)
-	MSG_EX_CASHITEM_GIFT_RECVHISTORY_REQ,  // ¼±¹° ³»¿ª ¸®½ºÆ® ¿äÃ» : y(n) m(c) d(c)
-	MSG_EX_CASHITEM_GIFT_RECVHISTORY_REP,  // ÀÀ´ä				: errorcode(uc) count(n) ctid(n) sendcharName(str)
-	MSG_EX_CASHITEM_GIFT_RECVLIST_REQ,	   // ¼±¹° ¹ÞÀº ¸®½ºÆ® ¿äÃ»
-	MSG_EX_CASHITEM_GIFT_RECVLIST_REP,		// ÀÀ´ä				: listflag(c) count(n) idx(n) ctid(n) date(un) sendcharName(str) msg(str)
-	MSG_EX_CASHITEM_GIFT_RECV_REQ,			// ¼±¹° ¹Þ±â		: count(n) idx(n) ctid(n)
-	MSG_EX_CASHITEM_GIFT_RECV_REP,			// ¼±¹° ¹Þ±â		: errCode(uc)
-	MSG_EX_CASHITEM_GIFT_NOTICE,			// ¼±¹°ÀÌ µµÂøÇÏ¿´½À´Ï´Ù
-	// <----------->  ÄíÆù½Ã½ºÅÛ ½ÃÀÛ
-	MSG_EX_CASHITEM_CUPON_REQ ,	// º¸À¯ ÄíÆù ¸®½ºÆ® ¿äÃ»   
-	MSG_EX_CASHITEM_CUPON_REP,	// º¸À¯ ÄíÆù ¸®½ºÆ® ÀÀ´ä  : error code(n) º¸À¯ ÄíÆù ¼ö(n) { ÄíÆù ÀÌ¸§(str), ÄíÆùID(n), ÇÒÀÎ ±Ý¾×(n) } ...
-	MSG_EX_CASHITEM_PURCHASE_WITH_COUPON_REQ ,	// ÄíÆùÀ¸·Î ±¸¸Å ÇÏ±â : ÄíÆùID(n) Count(n) { ctid(n) }...
-	MSG_EX_CASHITEM_PURCHASE_WITH_COUPON_REP, 	// ÄíÆùÀ¸·Î ±¸¸ÅÇÏ±â ÀÀ´ä : error code(c) cashBalance(n)
-	// <----------->  ÄíÆù½Ã½ºÅÛ ³¡
+	MSG_EX_CASHITEM_MOONSTONE_STOP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Þ¿ï¿½Ã»							   
+	MSG_EX_CASHITEM_GIFT_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: charName(str) Msg(str) count(n) idx(n) ctid(n)
+	MSG_EX_CASHITEM_GIFT_REP,			//			ï¿½ï¿½ï¿½ï¿½	: errcode(uc) 
+	MSG_EX_CASHITEM_GIFT_SENDHISTORY_REQ,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : y(n) m(c) d(c)
+	MSG_EX_CASHITEM_GIFT_SENDHISTORY_REP,  // ï¿½ï¿½ï¿½ï¿½				: errorcode(uc) count(n) ctid(n) recvcharName(str)
+	MSG_EX_CASHITEM_GIFT_RECVHISTORY_REQ,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : y(n) m(c) d(c)
+	MSG_EX_CASHITEM_GIFT_RECVHISTORY_REP,  // ï¿½ï¿½ï¿½ï¿½				: errorcode(uc) count(n) ctid(n) sendcharName(str)
+	MSG_EX_CASHITEM_GIFT_RECVLIST_REQ,	   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	MSG_EX_CASHITEM_GIFT_RECVLIST_REP,		// ï¿½ï¿½ï¿½ï¿½				: listflag(c) count(n) idx(n) ctid(n) date(un) sendcharName(str) msg(str)
+	MSG_EX_CASHITEM_GIFT_RECV_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½		: count(n) idx(n) ctid(n)
+	MSG_EX_CASHITEM_GIFT_RECV_REP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½		: errCode(uc)
+	MSG_EX_CASHITEM_GIFT_NOTICE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	// <----------->  ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_CUPON_REQ ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»   
+	MSG_EX_CASHITEM_CUPON_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½  : error code(n) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(n) { ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½(str), ï¿½ï¿½ï¿½ï¿½ID(n), ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½(n) } ...
+	MSG_EX_CASHITEM_PURCHASE_WITH_COUPON_REQ ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½ : ï¿½ï¿½ï¿½ï¿½ID(n) Count(n) { ctid(n) }...
+	MSG_EX_CASHITEM_PURCHASE_WITH_COUPON_REP, 	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ : error code(c) cashBalance(n)
+	// <----------->  ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	
-	// MSG_EX_CASHITEM_TYPE_LIST_REQ,		// cash first subtype ¹× second subtype list ¿äÃ»
-	MSG_EX_CASHITEM_TYPE_LIST_REP,		// cash first subtype ¹× second subtype list ÀÀ´ä 
+	// MSG_EX_CASHITEM_TYPE_LIST_REQ,		// cash first subtype ï¿½ï¿½ second subtype list ï¿½ï¿½Ã»
+	MSG_EX_CASHITEM_TYPE_LIST_REP,		// cash first subtype ï¿½ï¿½ second subtype list ï¿½ï¿½ï¿½ï¿½ 
 										// : first subtype start(uc), Count(n), firstsubType(n) * Count
 										// second subtype start(uc), Count(n), secondsubType(n) * Count
-	MSG_EX_CASHITEM_LIST_REQ,			// cash shop page(1 page per 8 goods) ¿äÃ» // Search type(n), Req_page(n)
+	MSG_EX_CASHITEM_LIST_REQ,			// cash shop page(1 page per 8 goods) ï¿½ï¿½Ã» // Search type(n), Req_page(n)
 	MSG_EX_CASHITEM_LIST_REP,			// Search type(n), catalog count(uc), [CTID(n), Remain_count(n), Price(n)]*catalog count,
 										// current page(n), total page(n)
 	MSG_EX_CASHITEM_RECOMMAND_REQ,		// category(n)
 	MSG_EX_CASHITEM_RECOMMAND_REP,		// catalog count(uc) [CTID(n),Remain_count(n),Price(n)] * catalog count
-	MSG_EX_CASHITEM_WISHLIST_REQ,		// ¼Ò¸Á»óÀÚ(wish list) ¸¦ ¿äÃ»
+	MSG_EX_CASHITEM_WISHLIST_REQ,		// ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½(wish list) ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_EX_CASHITEM_WISHLIST_REP,
 	MSG_EX_CASHITEM_SHOP_OPEN_REQ,		// SHOP Open message
-	MSG_EX_CASHITEM_WISHLIST_SAVE_REQ,	// ¼Ò¸Á»óÀÚ »óÇ° µî·Ï ¿äÃ»
+	MSG_EX_CASHITEM_WISHLIST_SAVE_REQ,	// ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_EX_CASHITEM_WISHLIST_SAVE_REP,
-	MSG_EX_CASHITEM_WISHLIST_DEL_REQ,	// ¼Ò¸Á»óÀÚ »óÇ° »èÁ¦ ¿äÃ»
+	MSG_EX_CASHITEM_WISHLIST_DEL_REQ,	// ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_EX_CASHITEM_WISHLIST_DEL_REP,
-	MSG_EX_CASHITEM_SHOP_LOCK,		// (39) Ä³½¬¾ÆÀÌÅÛ »óÁ¡ ¶ô
-	MSG_EX_CASHITEM_SHOP_UNLOCK,		// (40) Ä³½¬¾ÆÀÌÅÛ »óÁ¡ ¾ð¶ô
+	MSG_EX_CASHITEM_SHOP_LOCK,		// (39) Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_CASHITEM_SHOP_UNLOCK,		// (40) Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 } MSG_EX_CASHITEM_TYPE;
 
 typedef enum _tagExCashItemMoonstoneErrorType
 {
-	MSG_EX_CASHITEM_MOONSTONE_ERROR_SUCCESS,				// ¼º°øÀûÀ¸·Î Áö±Þ
-	MSG_EX_CASHITEM_MOONSTONE_ERROR_NOITEM,					// ±³È¯ÇÒ ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù.
-	MSG_EX_CASHITEM_MOONSTONE_ERROR_INVEN,					// ÀÎº¥Åä¸®°¡ ºÎÁ·ÇÕ´Ï´Ù
-	MSG_EX_CASHITEM_MOONSTONE_ERROR_CANTUSE_CASHMOON,		// Ä³½¬ ¹®½ºÅæÀ» »ç¿ëÇÒ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÌ ¾Æ´Õ´Ï´Ù.
+	MSG_EX_CASHITEM_MOONSTONE_ERROR_SUCCESS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_MOONSTONE_ERROR_NOITEM,					// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_CASHITEM_MOONSTONE_ERROR_INVEN,					// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½
+	MSG_EX_CASHITEM_MOONSTONE_ERROR_CANTUSE_CASHMOON,		// Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
 } MSG_EX_CASHITEM_MOONSTONE_ERROR_TYPE;
 
 typedef enum __tagMsgExCashItemErrorType
 {
-	MSG_EX_CASHITEM_ERROR_SUCCESS,				// ¼º°ø
-	MSG_EX_CASHITEM_ERROR_LACKCASH,				// º¸À¯Ä³½¬ ºÎÁ·
-	MSG_EX_CASHITEM_ERROR_NOTUSER,				// ÇØ´çÀ¯Àú ¾øÀ½
-	MSG_EX_CASHITEM_ERROR_NOTITEM,				// Á¸ÀçÇÏÁö ¾Ê´Â »óÇ°ÀÔ´Ï´Ù
-	MSG_EX_CASHITEM_ERROR_DB,					// DB¿À·ù
-	MSG_EX_CASHITEM_ERROR_PACKET,				// ÆÐÅ¶ ¿À·ù
-	MSG_EX_CASHITEM_ERROR_ETC,					// ±âÅ¸ ¿À·ù
-	MSG_EX_CASHITEM_ERROR_OVERITEM,				// ±¸ÀÔ »óÇ° °³¼ö ÃÊ°ú(10°³)
-	MSG_EX_CASHITEM_ERROR_NOSPACE,				// ±¸¸Å¹°Ç° º¸°ü¼ÒÀÇ °ø°£ ºÎÁ·
-	MSG_EX_CASHITEM_ERROR_LACKINVEN,			// ÄÉ¸¯ÅÍ ÀÎº¥ ºÎÁ·
-	MSG_EX_CASHITEM_ERROR_CONN,					// Ä¿³ØÅÍ ¼­¹ö ¿¡·¯
-	MSG_EX_CASHITEM_ERROR_BILL,					// ºô¸µ ¼­¹ö ¿¡·¯
-	MSG_BILLITEM_ERROR_NOTACCOUNT	= 12,		// °áÀç ±ÇÇÑ ¾øÀ½ 
-	MSG_EX_CASHITEM_ERROR_NOTHAVECT,			// ³²Àº ¼ö·®ÀÌ Ç°Àý wooss 060516 for platinum item
-	MSG_EX_CASHITEM_ERROR_GIFT_WRONGCHAR,		// ¼±¹°½Ã¿¡ ÇØ´ç ÄÉ¸¯ÅÍ°¡ ¾ø½À´Ï´Ù
-	MSG_EX_CASHITEM_ERROR_GIFT_SUCCESS,			// ¼±¹°º¸³»±â ¼º°ø
-	MSG_EX_CASHITEM_ERROR_GIFTRECV_SUCCESS,		// ¼±¹° ¹ÞÀº ¹°Ç°µéÀÌ ÀÎº¥Åä¸®·Î ¿Å°ÜÁ³À½
-	MSG_EX_CASHITEM_ERROR_GIFT_NOCTID,			// º¸³¾ »óÇ°ÀÌ ¾ø½À´Ï´Ù
-	MSG_EX_CASHITEM_ERROR_CANT_GIFT,			// ÀÌº¥Æ® »óÇ°Àº ¼±¹°ÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.
+	MSG_EX_CASHITEM_ERROR_SUCCESS,				// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_LACKCASH,				// ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_NOTUSER,				// ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_NOTITEM,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ç°ï¿½Ô´Ï´ï¿½
+	MSG_EX_CASHITEM_ERROR_DB,					// DBï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_PACKET,				// ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_ETC,					// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_OVERITEM,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½(10ï¿½ï¿½)
+	MSG_EX_CASHITEM_ERROR_NOSPACE,				// ï¿½ï¿½ï¿½Å¹ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_LACKINVEN,			// ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_CONN,					// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_BILL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_BILLITEM_ERROR_NOTACCOUNT	= 12,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EX_CASHITEM_ERROR_NOTHAVECT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç°ï¿½ï¿½ wooss 060516 for platinum item
+	MSG_EX_CASHITEM_ERROR_GIFT_WRONGCHAR,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ø´ï¿½ ï¿½É¸ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_CASHITEM_ERROR_GIFT_SUCCESS,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_GIFTRECV_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASHITEM_ERROR_GIFT_NOCTID,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_CASHITEM_ERROR_CANT_GIFT,			// ï¿½Ìºï¿½Æ® ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 } MSG_EX_CASHITEM_ERROR_TYPE;
 
 typedef enum __tagMsgExNamechangeErrorType
 {
-	MSG_EX_NAMECHANGE_ERROR_SUCCESS,		// ¼º°ø
-	MSG_EX_NAMECHANGE_ERROR_DUPLICATE,		// Áßº¹ÀÌ¸§
-	MSG_EX_NAMECHANGE_ERROR_HELPER,			// ÇïÆÛ ¼­¹ö ¿À·ù
-	MSG_EX_NAMECHANGE_ERROR_INVALID,		// Àß¸øµÈ ÀÔ·Â
-	MSG_EX_NAMECHANGE_ERROR_NOTGUILDBOSS,	// ±æµåÀåÀÌ ¾Æ´Ô
-	MSG_EX_NAMECHANGE_ERROR_PARTY,			// ÆÄÆ¼Áß¿¡´Â ÀÌ¸§À» º¯°æÇÒ ¼ö ¾ø½À´Ï´Ù.
+	MSG_EX_NAMECHANGE_ERROR_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_NAMECHANGE_ERROR_DUPLICATE,		// ï¿½ßºï¿½ï¿½Ì¸ï¿½
+	MSG_EX_NAMECHANGE_ERROR_HELPER,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_NAMECHANGE_ERROR_INVALID,		// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
+	MSG_EX_NAMECHANGE_ERROR_NOTGUILDBOSS,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_EX_NAMECHANGE_ERROR_PARTY,			// ï¿½ï¿½Æ¼ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 } MSG_EX_NAMECHANGE_ERROR_TYPE;
 
 typedef enum __tagMsgExPetLearnErrorType
 {
-	MSG_EX_PET_LEARN_ERROR_OK,		// ¼º°ø
-	MSG_EX_PET_LEARN_ERROR_WEAR,	// Æê ¹ÌÂø¿ë
-	MSG_EX_PET_LEARN_ERROR_POINT,	// ±â¼úÆ÷ÀÎÆ® ºÎÁ·
-	MSG_EX_PET_LEARN_ERROR_LEVEL,	// ·¹º§ ºÎÁ·
-	MSG_EX_PET_LEARN_ERROR_ITEM,	// ¾ÆÀÌÅÛ ºÎÁ·
-	MSG_EX_PET_LEARN_ERROR_AUTO,	// ÀÚµ¿ ½ÀµæµÊ
+	MSG_EX_PET_LEARN_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_LEARN_ERROR_WEAR,	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_LEARN_ERROR_POINT,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_LEARN_ERROR_LEVEL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_LEARN_ERROR_ITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_LEARN_ERROR_AUTO,	// ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 } MSG_EX_PET_LEARN_ERROR_TYPE;
 
 typedef enum __tagMsgExPetChangeMountErrorType
 {
-	MSG_EX_PET_CHANGE_MOUNT_ERROR_OK,		// ¼º°ø
-	MSG_EX_PET_CHANGE_MOUNT_ERROR_LEVEL,	// ·¹º§ ºÎÁ·
-	MSG_EX_PET_CHANGE_MOUNT_ERROR_WEAR,		// Âø¿ë¾ÈÇÔ
-	MSG_EX_PET_CHANGE_MOUNT_ERROR_GRADE,	// ÀÌ¹Ì ¸¶¿îÆ® Å¸ÀÔÀÏ ¶§
-	MSG_EX_PET_CHANGE_MOUNT_ERROR_JOB,  // ¸¶¿îÆ®¸¦ ÇÒ¼ö ¾ø´Â Á÷¾÷ÀÔ´Ï´Ù.
+	MSG_EX_PET_CHANGE_MOUNT_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_MOUNT_ERROR_LEVEL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_MOUNT_ERROR_WEAR,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_PET_CHANGE_MOUNT_ERROR_GRADE,	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EX_PET_CHANGE_MOUNT_ERROR_JOB,  // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 } MSG_EX_PET_CHANGE_MOUNT_ERROR_TYPE;
 
 extern struct ErrorTable MessageTypes;
 
-//0524 kwon Ãß°¡.
+//0524 kwon ï¿½ß°ï¿½.
 typedef enum _tagMsgMemposPlusType
 {
-	MSG_EX_MEMPOSPLUS_LIST,		// ±â¾ïÀå¼Ò ¸®½ºÆ® Àü´Þ	: count(uc) [slot(c) zone(n) x(f) z(f) comment(str)] ¹Ýº¹ busetime(n)
-	MSG_EX_MEMPOSPLUS_WRITE,	// ±â¾ïÀå¼Ò ¾²±â		: slot(c) comment(str) zone(n) x(f) z(f)
-	MSG_EX_MEMPOSPLUS_MOVE,		// ±â¾ï Àå¼Ò·Î ÀÌµ¿		: slot(c)
+	MSG_EX_MEMPOSPLUS_LIST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½	: count(uc) [slot(c) zone(n) x(f) z(f) comment(str)] ï¿½Ýºï¿½ busetime(n)
+	MSG_EX_MEMPOSPLUS_WRITE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: slot(c) comment(str) zone(n) x(f) z(f)
+	MSG_EX_MEMPOSPLUS_MOVE,		// ï¿½ï¿½ï¿½ ï¿½ï¿½Ò·ï¿½ ï¿½Ìµï¿½		: slot(c)
 } MSG_MEMPOSPLUS_TYPE;
 
-// ¿À·ù ¸Þ½ÃÁö Á¤ÀÇ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgFailType
 {
-	// ÀÏ¹Ý
-	MSG_FAIL_MANY_CONNECT,					// Á¢¼Ó ¿äÃ»ÀÌ ¸¹À½
-	MSG_FAIL_WRONG_VERSION,					// ¹öÀü ¿À·ù
-	MSG_FAIL_WRONG_CHAR,					// Àß¸øµÈ ¹®ÀÚ Æ÷ÇÔ
-	MSG_FAIL_WRONG_PASSWORD,				// ¾ÏÈ£¿¡ Àß¸øµÈ ¹®ÀÚ Æ÷ÇÔ
-	MSG_FAIL_ALREADY_CONNECT,				// ÀÌ¹Ì Á¢¼ÓÇÑ ¾ÆÀÌµð (ÇÑ ¼­¹ö¿¡ Àç Á¢¼Ó)
-	MSG_FAIL_CONNECT_SERVER,				// Á¢¼Ó ½ÇÆÐ
-	MSG_FAIL_BLOCK_CHAR,					// Ä³¸¯ÅÍ ºí·°
-	MSG_FAIL_CHECK_CHAR,					// °èÁ¤ ¿À·ù
-	MSG_FAIL_SYSTEM_ERROR,					// ½Ã½ºÅÛ ¿À·ù
-	MSG_FAIL_NOT_EXIST_CHAR,				// Ä³¸¯ÅÍ ¾øÀ½
+	// ï¿½Ï¹ï¿½
+	MSG_FAIL_MANY_CONNECT,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_WRONG_VERSION,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_WRONG_CHAR,					// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_WRONG_PASSWORD,				// ï¿½ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_ALREADY_CONNECT,				// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ (ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_FAIL_CONNECT_SERVER,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BLOCK_CHAR,					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_CHECK_CHAR,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_SYSTEM_ERROR,					// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_NOT_EXIST_CHAR,				// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// µ¥ÀÌÅÍº£ÀÌ½º °ü·Ã
-	MSG_FAIL_DB_ALREADY_NAME,				// Áßº¹µÈ ÀÌ¸§
-	MSG_FAIL_DB_NEW_CHAR,					// »õ Ä³¸¯ÅÍ »ý¼º ¿À·ù
-	MSG_FAIL_DB_FULL_CHAR,					// ½½·Ô¿¡ ºóÀÚ¸® ¾øÀ½
-	MSG_FAIL_DB_NOT_EXIST_CHAR,				// ÇØ´ç ½½·Ô¿¡ Ä³¸¯ ¾øÀ½
-	MSG_FAIL_DB_UNKNOWN,					// ¾Ë¼ö¾ø´Â ¿À·ù
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_DB_ALREADY_NAME,				// ï¿½ßºï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	MSG_FAIL_DB_NEW_CHAR,					// ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_DB_FULL_CHAR,					// ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_DB_NOT_EXIST_CHAR,				// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ Ä³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_DB_UNKNOWN,					// ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ºô¸µ °ü·Ã
-	MSG_FAIL_BILLING_NOT_PAY,				// ÀÌ¿ë °áÁ¦ È®ÀÎ ¾ÈµÊ
-	MSG_FAIL_BILLING_NOT_RIGHT,				// »ç¿ë ±ÇÇÑ ¾øÀ½
-	MSG_FAIL_BILLING_TIME_OUT,				// °èÁ¤ ±â°£ ¿ÏÀüÈ÷ ³¡³²
-	MSG_FAIL_BILLING_ALREADY_CONNECT,		// Áßº¹ Á¢¼Ó (´Ù¼öÀÇ ¼­¹ö¸¦ À§ÇÑ °Í)
-	MSG_FAIL_BILLING_OVER_IP,				// °ÔÀÓ¹æ Çã¿ë Á¢¼Ó ¾ÆÀÌÇÇ Á¦ÇÑ ÃÊ°ú
-	MSG_FAIL_BILLING_TIME_NOT_ENOUGH,		// °èÁ¤ ±â°£ ºÎÁ·
-	MSG_FAIL_BILLING_TIME_OUT_DISCONNECT,	// °èÁ¤ ½Ã°£ Á¾·á
-	MSG_FAIL_BILLING_OTHER,					// ±×¿Ü
-	MSG_FAIL_BILLING_WRONGPW,				// ¾ÆÀÌµð ÆÐ½º¿öµå ¿À·ù
-	MSG_FAIL_BILLING_BLOCKED,				// °èÁ¤ ºí·°
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_NOT_PAY,				// ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Èµï¿½
+	MSG_FAIL_BILLING_NOT_RIGHT,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_TIME_OUT,				// ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_ALREADY_CONNECT,		// ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	MSG_FAIL_BILLING_OVER_IP,				// ï¿½ï¿½ï¿½Ó¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_FAIL_BILLING_TIME_NOT_ENOUGH,		// ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_TIME_OUT_DISCONNECT,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_OTHER,					// ï¿½×¿ï¿½
+	MSG_FAIL_BILLING_WRONGPW,				// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_BILLING_BLOCKED,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-	// ¸Þ½ÅÀú °ü·Ã
-	MSG_FAIL_MSGR_TIMEOUT_WHISPER,			// ±Ó¼Ó¸» Å¸ÀÓ ¾Æ¿ô
-	MSG_FAIL_MSGR_NOT_FOUND_CHAR,			// ±Ó¸» ´ëÈ­ »ó´ë°¡ ¾øÀ½
+	// ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_MSGR_TIMEOUT_WHISPER,			// ï¿½Ó¼Ó¸ï¿½ Å¸ï¿½ï¿½ ï¿½Æ¿ï¿½
+	MSG_FAIL_MSGR_NOT_FOUND_CHAR,			// ï¿½Ó¸ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ë°¡ ï¿½ï¿½ï¿½ï¿½
 
-	// ·Î±ä¼­¹ö °ü·Ã
-	MSG_FAIL_LOGIN_SERVER,					// Á¢¼Ó ½ÇÆÐ
-	MSG_FAIL_LOGINSERV_MANY_CONNECT,		// Á¢¼Ó ¿äÃ»ÀÌ ¸¹À½
-	MSG_FAIL_LOGINSERV_WRONG_VERSION,		// ¹öÀü ¿À·ù
-	MSG_FAIL_LOGINSERV_WRONG_CHAR,			// Àß¸øµÈ ¹®ÀÚ Æ÷ÇÔ
-	MSG_FAIL_LOGINSERV_WRONG_PASSWORD,		// ¾ÏÈ£¿¡ Àß¸øµÈ ¹®ÀÚ Æ÷ÇÔ
-	MSG_FAIL_LOGINSERV_ALREADY_CONNECT,		// ÀÌ¹Ì Á¢¼ÓÇÑ ¾ÆÀÌµð (ÇÑ ¼­¹ö¿¡ Àç Á¢¼Ó)
-	MSG_FAIL_LOGINSERV_BLOCK_CHAR,			// Ä³¸¯ÅÍ ºí·°
-	MSG_FAIL_LOGINSERV_CHECK_CHAR,			// ¾ÆÀÌµð/¾ÏÈ£ Æ²¸²
-	MSG_FAIL_LOGINSERV_SYSTEM_ERROR,		// ½Ã½ºÅÛ ¿À·ù
-	MSG_FAIL_LOGINSERV_NOT_EXIST_CHAR,		// Ä³¸¯ÅÍ ¾øÀ½
-	MSG_FAIL_LOGINSERV_NO_SERVICE,			// ¼­ºñ½º ±â°£ÀÌ ¾Æ´Ô
+	// ï¿½Î±ä¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGIN_SERVER,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_MANY_CONNECT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_WRONG_VERSION,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_WRONG_CHAR,			// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_WRONG_PASSWORD,		// ï¿½ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_ALREADY_CONNECT,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ (ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_FAIL_LOGINSERV_BLOCK_CHAR,			// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_CHECK_CHAR,			// ï¿½ï¿½ï¿½Ìµï¿½/ï¿½ï¿½È£ Æ²ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_SYSTEM_ERROR,		// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_NOT_EXIST_CHAR,		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_NO_SERVICE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½Æ´ï¿½
 	
-	MSG_FAIL_WRONG_IDENTIFICATION,			// ÁÖ¹Î¹øÈ£ Æ²¸²
-	//Å×½ºÆ® °ü·Ã
-	MSG_FAIL_TEST_WRONG,					// Test ¸Þ¼¼Áö  Á¸,¿µ¿ª ÀÌµ¿ ½ÇÆÐ
-	MSG_NOT_IN_ZONE,						// Ä³¸¯ÅÍ°¡ ¾öÇÑ Á¸¿¡
+	MSG_FAIL_WRONG_IDENTIFICATION,			// ï¿½Ö¹Î¹ï¿½È£ Æ²ï¿½ï¿½
+	//ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_TEST_WRONG,					// Test ï¿½Þ¼ï¿½ï¿½ï¿½  ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NOT_IN_ZONE,						// Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_FAIL_ENABLE_AREA,					// Enable area msg error
 	MSG_FAIL_CANNT_ENABLE_AREA,				// area can't enable msg error
 
-	MSG_FAIL_LOGINSERV_NOT_ADULT,			// ¹Ì¼º³âÀÚ´Â Á¢¼ÓÇÒ¼ö ¾ø´Â ½Ã°£ÀÔ´Ï´Ù
-	MSG_FAIL_NOTLEVEL_FORDELETE,			// Áö¿ï¼ö ÀÖ´Â ·¹º§ÀÌ ¾Æ´Ô 
+	MSG_FAIL_LOGINSERV_NOT_ADULT,			// ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½Ô´Ï´ï¿½
+	MSG_FAIL_NOTLEVEL_FORDELETE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ 
 
-	MSG_FAIL_DB_DELETE_DELAY_CHAR,			// »èÁ¦ ´ë±â Ä³¸¯ÅÍ·Î °ÔÀÓ ½ÃÀÛ ¿äÃ»½Ã
+	MSG_FAIL_DB_DELETE_DELAY_CHAR,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
 
-	MSG_FAIL_SCARD_NOT_MATCHING,			// º¸¾È Ä«µå ÀÎÁõ ½ÇÆÐ
+	MSG_FAIL_SCARD_NOT_MATCHING,			// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_FAIL_LOGINSERV_BLOCK_USER,			// ÆÐ½º¿öµå3¹ø Æ²·Á¼­ ºí·°
+	MSG_FAIL_LOGINSERV_BLOCK_USER,			// ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_FAIL_LOGINSERV_BLOCK_ACCOUNT,		// °èÁ¤ºí·°
-	MSG_FAIL_LOGINSERV_USE_SECURE_SYSTEM,	// ÀüÈ­º¸¾È ½Ã½ºÅÛ »ç¿ë
-	MSG_FAIL_CANNOT_CREATE_NS,				// »ý¼ºÁ¶°ÇÀÌ ¸ÂÁö¾Ê¾Æ Ä³¸¯ÅÍ¸¦ »ý¼º ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_FAIL_DOESNOT_LASTCHAOSID,			// ¶ó½ºÆ®Ä«¿À½º¿¡ ID°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.	
-	MSG_FAIL_CANNOT_CONNECT_UNDER_FIFTEEN,  // ¿¬·É Á¦ÇÑ ¸Þ¼¼Áö(15¼¼ ÀÌÇÏ Á¢¼Ó ±ÝÁö)
-	MSG_FAIL_CANNOT_CONNECT_SOUTH_AMERICA,		// ³²¹ÌÀ¯Àú Á¢¼Ó ±ÝÁö.
-	MSG_FAIL_CANNOT_CONNECT_SHUTDOWN_TIME,		// (54)¼Ë´Ù¿î ½Ã°£ Á¢¼Ó ±ÝÁö "ID´ÔÀº ¼Ë´Ù¿îÁ¦ Àû¿ë ´ë»ó ¿¬·ÂÀ¸·Î È®ÀÎµÇ¾î °ÔÀÓ Á¢¼ÓÀÌ ºÒ°¡´É ÇÕ´Ï´Ù.(00:00~06:00) ¹®ÀÇ»çÇ×Àº °í°´Áö¿ø¼¾ÅÍ·Î ¿¬¶ô ÁÖ½Ê½Ã¿À.
-	MSG_FAIL_DB_CANNOT_DEL_CHAR,			// [2012/07/05 : Sora]  Ä³¸¯ÅÍ ½½·Ô È®Àå (½½·Ô È®Àå ¸¸·á·Î Ä³¸¯ÅÍ »èÁ¦ ºÒ°¡) (55)
-	MSG_TIME_OUT,							// ½Ã°£ ÃÊ°ú
+	MSG_FAIL_LOGINSERV_BLOCK_ACCOUNT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_FAIL_LOGINSERV_USE_SECURE_SYSTEM,	// ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_FAIL_CANNOT_CREATE_NS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_FAIL_DOESNOT_LASTCHAOSID,			// ï¿½ï¿½Æ®Ä«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.	
+	MSG_FAIL_CANNOT_CONNECT_UNDER_FIFTEEN,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½(15ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_FAIL_CANNOT_CONNECT_SOUTH_AMERICA,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_FAIL_CANNOT_CONNECT_SHUTDOWN_TIME,		// (54)ï¿½Ë´Ù¿ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ "IDï¿½ï¿½ï¿½ï¿½ ï¿½Ë´Ù¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ÎµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.(00:00~06:00) ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.
+	MSG_FAIL_DB_CANNOT_DEL_CHAR,			// [2012/07/05 : Sora]  Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½) (55)
+	MSG_TIME_OUT,							// ï¿½Ã°ï¿½ ï¿½Ê°ï¿½
 } MSG_FAIL_TYPE;
 
 
-// ·Î±×ÀÎ °ü·Ã
+// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgLoginType
 {
-	MSG_LOGIN_NEW,				// Ã³À½ Á¢¼Ó
-	MSG_LOGIN_RE,				// ¼­¹ö ÀÌµ¿
-	MSG_LOGIN_GM,				// GMTOOL Á¢¼Ó
+	MSG_LOGIN_NEW,				// Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_LOGIN_RE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	MSG_LOGIN_GM,				// GMTOOL ï¿½ï¿½ï¿½ï¿½
 } MSG_LOGIN_TYPE;
 
 
-// ¸Þ´º °ü·Ã
+// ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgMenuType
 {
 	MSG_MENU_NEW,				// NEW CHARACTER		: mode(uc) name(str) job(c) hairstyle(c) facestyle(c)
 	MSG_MENU_DEL,				// DELETE CHARACTER		: mode(uc) index(n) ident(str) bcanceldelete(c)
-								// ident				: ÁÖ¹Î¹øÈ£
-								// bcanceldelete		: »èÁ¦ Ãë¼Ò½Ã 1, »èÁ¦½Ã 0
+								// ident				: ï¿½Ö¹Î¹ï¿½È£
+								// bcanceldelete		: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ò½ï¿½ 1, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
 	MSG_MENU_START,				// START				: mode(uc) index(n)
-	MSG_RETURN_TO_SELECT_CHANNEL,	// Ä³¸¯ÅÍ ¼±ÅÃÃ¢¿¡¼­ ¼­¹ö¼±ÅÃÃ¢À¸·Î ÀÌµ¿ ÇÑ´Ù´Â ÆÐÅ¶.
+	MSG_RETURN_TO_SELECT_CHANNEL,	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ñ´Ù´ï¿½ ï¿½ï¿½Å¶.
 } MSG_MENU_TYPE;
 
 
-// ÀÌµ¿ °ü·Ã
+// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgMoveType
 {
-	MSG_MOVE_WALK,				// °È±â
-	MSG_MOVE_RUN,				// ¶Ù±â
-	MSG_MOVE_PLACE,				// ÁÂÇ¥
-	MSG_MOVE_STOP,				// ¸ØÃã
-	MSG_MOVE_FLY,				// [2012/08/22 : Sora] ºñÇà
+	MSG_MOVE_WALK,				// ï¿½È±ï¿½
+	MSG_MOVE_RUN,				// ï¿½Ù±ï¿½
+	MSG_MOVE_PLACE,				// ï¿½ï¿½Ç¥
+	MSG_MOVE_STOP,				// ï¿½ï¿½ï¿½ï¿½
+	MSG_MOVE_FLY,				// [2012/08/22 : Sora] ï¿½ï¿½ï¿½ï¿½
 } MSG_MOVE_TYPE;
 
 
-// Ä³¸¯ÅÍ Á¾·ù °ü·Ã
+// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgCharType
 {
-	MSG_CHAR_UNKNOWN = -1,		// ¾Ë ¼ö ¾øÀ½
-	MSG_CHAR_PC = 0,			// ÇÃ·¹ÀÌ¾î Ä³¸¯ÅÍ
+	MSG_CHAR_UNKNOWN = -1,		// ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAR_PC = 0,			// ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½
 	MSG_CHAR_NPC,				// NPC
-	MSG_CHAR_PET,				// ¾Ö¿Ïµ¿¹°
-	MSG_CHAR_ELEMENTAL,			// ¿¤¸®¸àÅ» ¼ÒÈ¯¼ö
-	MSG_CHAR_WILDPET			// °ø°ÝÇü Æê
+	MSG_CHAR_PET,				// ï¿½Ö¿Ïµï¿½ï¿½ï¿½
+	MSG_CHAR_ELEMENTAL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å» ï¿½ï¿½È¯ï¿½ï¿½
+	MSG_CHAR_WILDPET			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 } MSG_CHAR_TYPE;
 
 
-// DB °ü·Ã ¸Þ½ÃÁö
+// DB ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 typedef enum __tagMsgDBType
 {
-	MSG_DB_SUCCESS,				// ¿äÃ» Ã³¸® ¼º°ø			: 
-	MSG_DB_OK,					// Ä³¸¯ÅÍ Á¤º¸ ÀÐ±â ¼º°ø	: zone(n)
-	MSG_DB_CHAR_EXIST,			// Ä³¸¯ÅÍ Á¤º¸				: index(n) name(str) job(c) job2(c) hair(c) face(c) level(n) exp(ll) needexp(ll) sp(n) hp(n) maxHP(n) mp(n) maxMP(n) [wearing_index(n) wearing_plus(n)]:6 deletedelayremain(n)
-								// deletedelay : time_t·Î »ç¿ë, 0ÀÌ ¾Æ´Ï¸é »èÁ¦ ´ë±âÁß Ä³¸¯ÅÍ, 0ÀÌ¸é ÀÏ¹Ý Ä³¸¯ÅÍ
-	MSG_DB_CHAR_END,			// Ä³¸¯ÅÍ Á¤º¸ ³¡			: slot1remain(n) slot2remain(n) seed(n)
-	MSG_DB_OTHER_SERVER,		// ´Ù¸¥ ¼­¹ö Á¸ÀÇ Ä³¸¯		: zone(n) ip(str) port(n)
+	MSG_DB_SUCCESS,				// ï¿½ï¿½Ã» Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: 
+	MSG_DB_OK,					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½	: zone(n)
+	MSG_DB_CHAR_EXIST,			// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				: index(n) name(str) job(c) job2(c) hair(c) face(c) level(n) exp(ll) needexp(ll) sp(n) hp(n) maxHP(n) mp(n) maxMP(n) [wearing_index(n) wearing_plus(n)]:6 deletedelayremain(n)
+								// deletedelay : time_tï¿½ï¿½ ï¿½ï¿½ï¿½, 0ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½, 0ï¿½Ì¸ï¿½ ï¿½Ï¹ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½
+	MSG_DB_CHAR_END,			// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½			: slot1remain(n) slot2remain(n) seed(n)
+	MSG_DB_OTHER_SERVER,		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½		: zone(n) ip(str) port(n)
 
 	MSG_DB_NSCREATE,			// NS Creatable [11/6/2009 rumist]
-	MSG_DB_CHAR_SLOT_TIME,		// [2012/07/05 : Sora]  Ä³¸¯ÅÍ ½½·Ô È®Àå ¾ÆÀÌÅÛ ¸¸·á ÀÏÀÚ
+	MSG_DB_CHAR_SLOT_TIME,		// [2012/07/05 : Sora]  Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_DB_TYPE;
 
 
-// Ã¤ÆÃ°ü·Ã
+// Ã¤ï¿½Ã°ï¿½ï¿½ï¿½
 typedef enum __tagMsgChatType
-{ // UIChatting.h¿¡ Å¬¶óÀÌ¾ðÆ®¿¡¼­´Â ChattingMsgType¿¡¼­ enum»õ·Î ¼±¾ðÇÏ¿© »ç¿ë
-	MSG_CHAT_SAY,				// ÀÏ¹Ý Ã¤ÆÃ
-	MSG_CHAT_PARTY,				// ÆÄÆ¼ ´ëÈ­
-	MSG_CHAT_GUILD,				// ±æµå ´ëÈ­
-	MSG_CHAT_TRADE,				// ¸Å¸Å ´ëÈ­
-	MSG_CHAT_WHISPER,			// ±Í¿§¸»
-	MSG_CHAT_SHOUT,				// ¿ÜÄ¡±â
-	MSG_CHAT_NOTICE,			// ¿î¿µÀÚ ¾Ë¸² ¸Þ½ÃÁö : ¼­¹ö ±º ³»ÀÇ ¸ðµç Ä³¸¯¿¡°Ô Àü´Þ
-	MSG_CHAT_GM,				// ¿î¿µÀÚ Ã¤ÆÃ
-	MSG_CHAT_MESSENGER,			// ¸Þ½ÅÀú Ã¼ÆÃ
-	MSG_CHAT_LOAD,				// ¼ºÁÖ °øÁö : // °ø¼º º¸»ó ÀÛ¾÷ 2005-09-01 ÀÌ±âÈ¯ 
-	MSG_CHAT_RANKER,   // ·©Ä¿ ÃÂ
-	MSG_CHAT_RANKER_CONN,  // ·©Ä¿ ÀÔÀå job(c) name(str)
-	MSG_CHAT_NOTICE_SERVERDOWN = 12,	// ¼­¹ö ´Ù¿î ¸Þ½ÃÁö 060420
+{ // UIChatting.hï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ChattingMsgTypeï¿½ï¿½ï¿½ï¿½ enumï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½
+	MSG_CHAT_SAY,				// ï¿½Ï¹ï¿½ Ã¤ï¿½ï¿½
+	MSG_CHAT_PARTY,				// ï¿½ï¿½Æ¼ ï¿½ï¿½È­
+	MSG_CHAT_GUILD,				// ï¿½ï¿½ï¿½ ï¿½ï¿½È­
+	MSG_CHAT_TRADE,				// ï¿½Å¸ï¿½ ï¿½ï¿½È­
+	MSG_CHAT_WHISPER,			// ï¿½Í¿ï¿½ï¿½ï¿½
+	MSG_CHAT_SHOUT,				// ï¿½ï¿½Ä¡ï¿½ï¿½
+	MSG_CHAT_NOTICE,			// ï¿½î¿µï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAT_GM,				// ï¿½î¿µï¿½ï¿½ Ã¤ï¿½ï¿½
+	MSG_CHAT_MESSENGER,			// ï¿½Þ½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½
+	MSG_CHAT_LOAD,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ 2005-09-01 ï¿½Ì±ï¿½È¯ 
+	MSG_CHAT_RANKER,   // ï¿½ï¿½Ä¿ ï¿½ï¿½
+	MSG_CHAT_RANKER_CONN,  // ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ job(c) name(str)
+	MSG_CHAT_NOTICE_SERVERDOWN = 12,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ 060420
 	
-	MSG_CHAT_GM_WHISPER,		// GM_TOOL ¸Þ½ÃÁö Å¸ÀÔ(¼­¹ö¿ë) WSS_GMTOOL 070517
-	MSG_CHAT_GM_SAY,			// GM_TOOL ¸Þ½ÃÁö Å¸ÀÔ(¼­¹ö¿ë)
-	MSG_CHAT_GMTOOL =15,			// GM_TOOL ¸Þ½ÃÁö Å¸ÀÔ(Å¬¶óÀÌ¾ðÆ®¿ë)
+	MSG_CHAT_GM_WHISPER,		// GM_TOOL ï¿½Þ½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) WSS_GMTOOL 070517
+	MSG_CHAT_GM_SAY,			// GM_TOOL ï¿½Þ½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_CHAT_GMTOOL =15,			// GM_TOOL ï¿½Þ½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½)
 
-	MSG_CHAT_NOTICE_PRESSCORPS,		// ±âÀÚ´Ü °øÁö
-	MSG_CHAT_EXPEDITION,			// ¿øÁ¤´ë
-	MSG_CHAT_NPCNOTICE,				// NPC °øÁö
-	MSG_CHAT_CHANNEL_LEVEL,			// Ã¤³Î ·¹º§ Ã¤ÆÃ
-	MSG_CHAT_CHANNEL_TRADE = 20,			// Ã¤³Î ¸Å¸Å Ã¤ÆÃ
+	MSG_CHAT_NOTICE_PRESSCORPS,		// ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAT_EXPEDITION,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAT_NPCNOTICE,				// NPC ï¿½ï¿½ï¿½ï¿½
+	MSG_CHAT_CHANNEL_LEVEL,			// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
+	MSG_CHAT_CHANNEL_TRADE = 20,			// Ã¤ï¿½ï¿½ ï¿½Å¸ï¿½ Ã¤ï¿½ï¿½
 } MSG_CHAT_TYPE;
 
 typedef enum __tagMsgMoneyType
 {
-	MSG_MONEY_COUNT = 0,	//³ª½º º¯È­ : count(ll) change_count(ll)
+	MSG_MONEY_COUNT = 0,	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ : count(ll) change_count(ll)
 } MSG_MONEY_TYPE;
 
-// ¾ÆÀÌÅÛ °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 typedef enum __tagMsgItemType
 {
-	MSG_ITEM_USE,				// ¾ÆÀÌÅÛ »ç¿ë		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n)
-	MSG_ITEM_TAKE,				// ¾ÆÀÌÅÛ ÁÝ±â		: char_idx(n) item_idx(n)
-	MSG_ITEM_THROW,				// ¾ÆÀÌÅÛ ¹ö¸®±â	: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) count(ll)
-	MSG_ITEM_ARRANGE,			// ¾ÆÀÌÅÛ Á¤·Ä		: tab_idx(uc)
-	MSG_ITEM_DELETE,			// ¾ÆÀÌÅÛ Á¦°Å		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) count(ll)
-	MSG_ITEM_WEAR,				// ¾ÆÀÌÅÛ Âø¿ë		: wear_pos(uc) tab_idx1(uc) row_idx1(uc) col_idx1(uc) item_idx1(n) tab_idx2(uc) row_idx2(uc) col_idx2(uc) item_idx2(n)
-	MSG_ITEM_WEAR_TAKE_OFF,		// ¾ÆÀÌÅÛ ¹þ±â
-	MSG_ITEM_SWAP,				// ¾ÆÀÌÅÛ À§Ä¡ º¯°æ	: tab_idx(uc) row_idx1(uc) col_idx1(uc) row_idx2(uc) col_idx2(uc)
-	MSG_ITEM_ADD,				// ¾ÆÀÌÅÛ ½Àµæ		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) item_db_idx(n) wear_pos(uc) plus(n) flag(n) count(ll) option_count(c) [option_type(c) option_level(c)] socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
-	MSG_ITEM_UPDATE,			// ¾ÆÀÌÅÛ °»½Å		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) plus(n) flag(n) count(ll) change_count(ll) option_count(c) [option_type(c) option_level(c)] socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
-	MSG_ITEM_DROP,				// ¾ÆÀÌÅÛ µå·Ó		: item_idx(n) item_db_idx(n) count(ll) x(f) z(f) h(f) r(f) ylayer(n) char_type(uc) char_index(n)
-	MSG_ITEM_APPEAR,			// ¾ÆÀÌÅÛ ½Ã¾ß ¾È	: item_idx(n) item_db_idx(n) count(ll) x(f) z(f) h(f) r(f) ylayer(n)
-	MSG_ITEM_DISAPPEAR,			// ¾ÆÀÌÅÛ ½Ã¾ß ¹Û	: item_idx(n)
-	MSG_ITEM_BUY,				// ¾ÆÀÌÅÛ ±¸ÀÔ		: npc_idx(n) price(ll) item_count(n) item_db_idx(n) count(ll)....¹Ýº¹
-	MSG_ITEM_SELL,				// ¾ÆÀÌÅÛ ÆÇ¸Å		: npc_idx(n) price(ll) item_count(n) tab_idx(uc) row_idx(uc) col_idx(uc) count(ll)...¹Ýº¹
-	MSG_ITEM_UPGRADE_REQ,		// ¾ÆÀÌÅÛ ¾÷±Û ¿äÃ»	: row_idx1(uc) col_idx1(uc) plus(n) row_idx2(uc) col_idx2(uc) level(n)
-	MSG_ITEM_UPGRADE_REP,		// ¾ÆÀÌÅÛ ¾÷±Û ÀÀ´ä	: result(uc)
-	MSG_ITEM_REFINE_REQ,		// Á¦·Ã¼® ÀüÈ¯ ¿äÃ» : row(uc) col(uc)
-	MSG_ITEM_REFINE_REP,		// Á¦·Ã¼® ÀüÈ¯ ÀÀ´ä : result(uc)
-	MSG_ITEM_OPTION_ADD_REQ,	// ¾ÆÀÌÅÛ ¿É¼Ç ¿äÃ» : row_idx1(uc) col_idx1(uc) wear_pos(c) row_idx2(uc) col_idx2(uc)
-	MSG_ITEM_OPTION_ADD_REP,	// ¾ÆÀÌÅÛ ¿É¼Ç °á°ú : result(uc)
-	MSG_ITEM_OPTION_DEL_REQ,	// ¾ÆÀÌÅÛ ¿É¼Ç ¿äÃ» : row_idx1(uc) col_idx1(uc) wear_pos(c) row_idx2(uc) col_idx2(uc)
-	MSG_ITEM_OPTION_DEL_REP,	// ¾ÆÀÌÅÛ ¿É¼Ç °á°ú : result(uc)
-	MSG_ITEM_PROCESS_REQ,		// ¾ÆÀÌÅÛ °¡°ø ¿äÃ» : use_row_idx(uc) use_col_idx(uc) make_db_idx(n) material_count(n) [tab(uc) row(uc) col(uc) count(ll)].. ¹Ýº¹
-	MSG_ITEM_PROCESS_REP,		// ¾ÆÀÌÅÛ °¡°ø °á°ú : result(uc)
-	MSG_ITEM_MAKE_REQ,			// ¾ÆÀÌÅÛ Á¦ÀÛ ¿äÃ» : use_row_idx(uc) use_col_idx(uc) make_db_idx(n) material_count(n) [tab(uc) row(uc) col(uc) count(ll)].. ¹Ýº¹
-	MSG_ITEM_MAKE_REP,			// ¾ÆÀÌÅÛ Á¦ÀÛ °á°ú : result(uc)
-	MSG_ITEM_MIX_REQ,			// ¾ÆÀÌÅÛ Á¶ÇÕ ¿äÃ» : [use_row_idx(uc) use_col_idx(uc)].. ¹Ýº¹
-	MSG_ITEM_MIX_REP,			// ¾ÆÀÌÅÛ Á¶ÇÕ °á°ú : result(uc)
-	MSG_ITEM_GET,				// ¾ÆÀÌÅÛ °¡Á®°¨(Ç¥½Ã)	: char_name(str) item_db_idx(N) item_count(ll)
-	MSG_ITEM_ARCANE_REQ,		// ºñ¹ÐÀÇ »óÀÚ ¿äÃ»		: use_row_idx(uc) use_col_idx(uc) row_idx1(uc) col_idx1(uc) row_idx2(uc) col_idx2(uc) row_idx3(uc) col_idx3(uc)
-	MSG_ITEM_ARCANE_REP,		// ºñ¹ÐÀÇ »óÀÚ °á°ú		: result (uc)
-	MSG_ITEM_CHANGEWEAPON_REQ,	// ¹«±â ±³È¯ ¿äÃ»		: row(c) col(c) itemindex(n) changetype(n)
-	MSG_ITEM_CHANGEWEAPON_REP,	// ¹«±â ±³È¯ ÀÀ´ä		: old_itemdbindex(n) new_itemdbindex(n)
-								// µ·ÀÌ ¸ðÀÚ¶ó´Â °æ¿ì old == -1
-								// Àß¸øµÈ ±³È¯À» ¿äÃ»ÇÏ¸é new == -1
-	MSG_ITEM_PROCESS_NPC,		// NPC¸¦ ÅëÇØ °¡°ø		: processItemDBIndex(n) count(n) errcode(n:s)
-	MSG_ITEM_ADD_BOOSTER,		// »ý»ê µµ±¸¿¡ ºÎ½ºÅÍ ºÎÂø : flag(n)
-								// Å¬¶óÀÌ¾ðÆ®->¼­¹ö		: ºÎ½ºÅÍ ¾ÆÀÌÅÛ ¼­¹ö ÀÎµ¦½º
-								// ¼­¹ö->Å¬¶óÀÌ¾ðÆ®		: ¿À·ùÄÚµå
-	MSG_ITEM_MIX_WARITEM,		// °ø¼º ¾ÆÀÌÅÛ Á¶ÇÕ		: Å¬¶óÀÌ¾ðÆ® -> ¼­¹ö	: row_type1(c) col_type1(c) row_type2(c) col_type2(c) row_type3(c) col_type3(c)
-								//						: ¼­¹ö -> Å¬¶óÀÌ¾ðÆ®	: errcode(n)
-	MSG_ITEM_USE_PROLONG,		// c->s ¾ÆÀÌÅÛ »ç¿ë±â°£ ¿¬Àå	: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) extra1(n)
+	MSG_ITEM_USE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n)
+	MSG_ITEM_TAKE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½		: char_idx(n) item_idx(n)
+	MSG_ITEM_THROW,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) count(ll)
+	MSG_ITEM_ARRANGE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: tab_idx(uc)
+	MSG_ITEM_DELETE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) count(ll)
+	MSG_ITEM_WEAR,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: wear_pos(uc) tab_idx1(uc) row_idx1(uc) col_idx1(uc) item_idx1(n) tab_idx2(uc) row_idx2(uc) col_idx2(uc) item_idx2(n)
+	MSG_ITEM_WEAR_TAKE_OFF,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_SWAP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½	: tab_idx(uc) row_idx1(uc) col_idx1(uc) row_idx2(uc) col_idx2(uc)
+	MSG_ITEM_ADD,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) item_db_idx(n) wear_pos(uc) plus(n) flag(n) count(ll) option_count(c) [option_type(c) option_level(c)] socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
+	MSG_ITEM_UPDATE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) plus(n) flag(n) count(ll) change_count(ll) option_count(c) [option_type(c) option_level(c)] socketcreatecount(c) socketcount(c) [optionindex(n) optionlevel(c)]
+	MSG_ITEM_DROP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: item_idx(n) item_db_idx(n) count(ll) x(f) z(f) h(f) r(f) ylayer(n) char_type(uc) char_index(n)
+	MSG_ITEM_APPEAR,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¾ï¿½ ï¿½ï¿½	: item_idx(n) item_db_idx(n) count(ll) x(f) z(f) h(f) r(f) ylayer(n)
+	MSG_ITEM_DISAPPEAR,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¾ï¿½ ï¿½ï¿½	: item_idx(n)
+	MSG_ITEM_BUY,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: npc_idx(n) price(ll) item_count(n) item_db_idx(n) count(ll)....ï¿½Ýºï¿½
+	MSG_ITEM_SELL,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½		: npc_idx(n) price(ll) item_count(n) tab_idx(uc) row_idx(uc) col_idx(uc) count(ll)...ï¿½Ýºï¿½
+	MSG_ITEM_UPGRADE_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: row_idx1(uc) col_idx1(uc) plus(n) row_idx2(uc) col_idx2(uc) level(n)
+	MSG_ITEM_UPGRADE_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: result(uc)
+	MSG_ITEM_REFINE_REQ,		// ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã» : row(uc) col(uc)
+	MSG_ITEM_REFINE_REP,		// ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_OPTION_ADD_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½Ã» : row_idx1(uc) col_idx1(uc) wear_pos(c) row_idx2(uc) col_idx2(uc)
+	MSG_ITEM_OPTION_ADD_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_OPTION_DEL_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½Ã» : row_idx1(uc) col_idx1(uc) wear_pos(c) row_idx2(uc) col_idx2(uc)
+	MSG_ITEM_OPTION_DEL_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_PROCESS_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : use_row_idx(uc) use_col_idx(uc) make_db_idx(n) material_count(n) [tab(uc) row(uc) col(uc) count(ll)].. ï¿½Ýºï¿½
+	MSG_ITEM_PROCESS_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_MAKE_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : use_row_idx(uc) use_col_idx(uc) make_db_idx(n) material_count(n) [tab(uc) row(uc) col(uc) count(ll)].. ï¿½Ýºï¿½
+	MSG_ITEM_MAKE_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_MIX_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : [use_row_idx(uc) use_col_idx(uc)].. ï¿½Ýºï¿½
+	MSG_ITEM_MIX_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : result(uc)
+	MSG_ITEM_GET,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Ç¥ï¿½ï¿½)	: char_name(str) item_db_idx(N) item_count(ll)
+	MSG_ITEM_ARCANE_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: use_row_idx(uc) use_col_idx(uc) row_idx1(uc) col_idx1(uc) row_idx2(uc) col_idx2(uc) row_idx3(uc) col_idx3(uc)
+	MSG_ITEM_ARCANE_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: result (uc)
+	MSG_ITEM_CHANGEWEAPON_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»		: row(c) col(c) itemindex(n) changetype(n)
+	MSG_ITEM_CHANGEWEAPON_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½		: old_itemdbindex(n) new_itemdbindex(n)
+								// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ ï¿½ï¿½ï¿½ old == -1
+								// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï¸ï¿½ new == -1
+	MSG_ITEM_PROCESS_NPC,		// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: processItemDBIndex(n) count(n) errcode(n:s)
+	MSG_ITEM_ADD_BOOSTER,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : flag(n)
+								// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½ï¿½ï¿½ï¿½		: ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
+								// ï¿½ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®		: ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
+	MSG_ITEM_MIX_WARITEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® -> ï¿½ï¿½ï¿½ï¿½	: row_type1(c) col_type1(c) row_type2(c) col_type2(c) row_type3(c) col_type3(c)
+								//						: ï¿½ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®	: errcode(n)
+	MSG_ITEM_USE_PROLONG,		// c->s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°£ ï¿½ï¿½ï¿½ï¿½	: tab_idx(uc) row_idx(uc) col_idx(uc) item_idx(n) extra1(n)
 								// s->c						?	: item_idx(n)
-	MSG_ITEM_USE_ERROR,			// ºÎÈ°ÁÖ¹®¼­¶§¹® »ç¿ëºÒ: errorcode(c)	wooss 050818 ¾ÆÀÌÅÛ »ç¿ë ¿¡·¯
-	MSG_ITEM_LEND_WEAPON,		// ¹«±â ´ë¿©			: itemdbindex(n) errorcode(n:s)
+	MSG_ITEM_USE_ERROR,			// ï¿½ï¿½È°ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: errorcode(c)	wooss 050818 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_LEND_WEAPON,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿©			: itemdbindex(n) errorcode(n:s)
 
-	MSG_ITEM_LEVELDOWN,			// ·¹º§ ÇÐ¶ô		   :  row1(c) col1(c) row2(c) col2(c)
+	MSG_ITEM_LEVELDOWN,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¶ï¿½		   :  row1(c) col1(c) row2(c) col2(c)
 								// MSG_ITEM_LEVELDOWN_ERROR_TYPE : errorcode(n)
-	MSG_ITEM_TARGET,			// Å¸ÄÏÇÏ´Â ¾ÆÀÌÅÛ »ç¿ë : tab_idx(c) row_idx(c) col_idx(c) item_idx(n) chartype(c) charindex(n)
+	MSG_ITEM_TARGET,			// Å¸ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : tab_idx(c) row_idx(c) col_idx(c) item_idx(n) chartype(c) charindex(n)
 	
-	MSG_ITEM_EXCHANGE_EQUIP_REQ,	// ¹«±â ±³È¯ ¿äÃ»		: row(c) col(c) itemindex(n) changetype(n)
-	MSG_ITEM_EXCHANGE_EQUIP_REP,	// ¹«±â ±³È¯ ÀÀ´ä		: old_itemdbindex(n) new_itemdbindex(n)
+	MSG_ITEM_EXCHANGE_EQUIP_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»		: row(c) col(c) itemindex(n) changetype(n)
+	MSG_ITEM_EXCHANGE_EQUIP_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½		: old_itemdbindex(n) new_itemdbindex(n)
 
-	MSG_ITEM_USE_GROCERY_BUY,  // ÀâÈ­»ó ¾ÆÀÌÅÛÀ» ÀÌ¿ëÇÑ ¾ÆÀÌÅÛ ±¸¸Å : price(ll) item_count(n) item_db_idx(n) count(ll)....¹Ýº¹
+	MSG_ITEM_USE_GROCERY_BUY,  // ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : price(ll) item_count(n) item_db_idx(n) count(ll)....ï¿½Ýºï¿½
  
-	MSG_ITEM_USE_GROCERY_SELL,  // ÀâÈ­»ó ¾ÆÀÌÅÛÀ» ÀÌ¿ëÇÑ ¾ÆÀÌÅÛ ÆÇ¸Å : price(ll) item_count(n) tab_idx(c) row_idx(c) col_idx(c) count(ll)...¹Ýº¹
-	MSG_ITEM_USE_WARPDOC,		// ÀÌµ¿ÁÖ¹®¼­ »ç¿ëÇÏ±â zone(n), npcidx(n) 
+	MSG_ITEM_USE_GROCERY_SELL,  // ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ : price(ll) item_count(n) tab_idx(c) row_idx(c) col_idx(c) count(ll)...ï¿½Ýºï¿½
+	MSG_ITEM_USE_WARPDOC,		// ï¿½Ìµï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ zone(n), npcidx(n) 
 
-	MSG_ITEM_USE_PRESSCORPS,	// ¶óÄ«±âÀÚ´Ü È®¼º±â subtype(c) >> item_idx(n) >> msg(str)
-	MSG_ITEM_CHECK_COMPOSITION,	// °áÇÕ¾ÆÀÌÅÛ ¸µÅ© ¾ÆÀÌÅÛ Ã£±â  REQ <ÄÚ½ºÆ¬> : (c)row , (c)col, (n)item_index REP <¸µÅ©> : (c)row, (c)col, (n) item_index
-	MSG_ITEM_WEAR_COSTUME,		// ÄÚ½ºÆ¬ ¾ÆÀÌÅÛ ÀÔ±â/¹þ±â(48)	: wear_pos(uc), wear_item_unique_idx(n), wear_item_db_idx(n), takeoff_item_unique_idx(n), takeoff_item_db_idx(n)
+	MSG_ITEM_USE_PRESSCORPS,	// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ú´ï¿½ È®ï¿½ï¿½ï¿½ï¿½ subtype(c) >> item_idx(n) >> msg(str)
+	MSG_ITEM_CHECK_COMPOSITION,	// ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½  REQ <ï¿½Ú½ï¿½Æ¬> : (c)row , (c)col, (n)item_index REP <ï¿½ï¿½Å©> : (c)row, (c)col, (n) item_index
+	MSG_ITEM_WEAR_COSTUME,		// ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½/ï¿½ï¿½ï¿½ï¿½(48)	: wear_pos(uc), wear_item_unique_idx(n), wear_item_db_idx(n), takeoff_item_unique_idx(n), takeoff_item_db_idx(n)
 	MSG_ITEM_WEAR_COSTUME_TAKEOFF,
-	MSG_ITEM_WEAR_COSTUME_SUIT, // ÇÑ¹úÀÇ»ó ÀÔ±â/¹þ±â added by sam 11/02/01 [SAM]
+	MSG_ITEM_WEAR_COSTUME_SUIT, // ï¿½Ñ¹ï¿½ï¿½Ç»ï¿½ ï¿½Ô±ï¿½/ï¿½ï¿½ï¿½ï¿½ added by sam 11/02/01 [SAM]
 	MSG_ITEM_WEAR_COSTUME_SUIT_TAKEOFF,
-	MSG_ITEM_LETSPARTY_USE,		// ÆÄÆ¼ Àü¿ë ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁöÃ³¸®. [4/21/2011 rumist]
-	MSG_ITEM_MASTERSTONE_USE,	// ¸¶½ºÅÍ ½ºÅæ »ç¿ë
+	MSG_ITEM_LETSPARTY_USE,		// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½. [4/21/2011 rumist]
+	MSG_ITEM_MASTERSTONE_USE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	MSG_ITEM_USE_CHAR_SLOT_EXT, // [2012/07/05 : Sora]  Ä³¸¯ÅÍ ½½·Ô È®Àå ¾ÆÀÌÅÛ
-	MSG_ITEM_USE_CHAR_MOVE,		// Ä³¸¯ÅÍ ÀÌµ¿ ¾ÆÀÌÅÛ »ç¿ë ¿©ºÎ [7/19/2012 rumist]
+	MSG_ITEM_USE_CHAR_SLOT_EXT, // [2012/07/05 : Sora]  Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_CHAR_MOVE,		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [7/19/2012 rumist]
 	MSG_ITEM_COSTUME_SUIT_FORTUNE,	// [2013/02/13] sykim70 Fortune System
-									// ¿äÃ»: sbTab, sbRow, sbCol : ÀÎº¥Åä¸® tab, row, col
-									// ÀÀ´ä: nRet, nItemIndex, nSkillIndex, nSkillLevel
-									//       nRet	0 - Æ÷Ãó ºÎ¿©¹Þ±â ¼º°ø
-									//				1 - ¾ÆÀÌÅÛÀÌ ¾øÀ½
-									//				2 - ¾ÆÀÌÅÛ Å¸ÀÔ ¿À·ù
-									//				3 - Æ÷Ãó Çì´õ Á¤º¸ ¿¡·¯
-									//				4 - Æ÷Ãó µ¥ÀÌÅÍ Á¤º¸ ¿¡·¯
-									//				5 - ÀÌ¹Ì Æ÷Ãó ¹ÞÀ½
-	MSG_ITEM_AMOUNT,				// ¾ÆÀÌÅÛ ¼ö·® º¯°æ
-	MSG_ITEM_DIVIDE,				// ¾ÆÀÌÅÛ ³ª´©±â
+									// ï¿½ï¿½Ã»: sbTab, sbRow, sbCol : ï¿½Îºï¿½ï¿½ä¸® tab, row, col
+									// ï¿½ï¿½ï¿½ï¿½: nRet, nItemIndex, nSkillIndex, nSkillLevel
+									//       nRet	0 - ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½
+									//				1 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+									//				2 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+									//				3 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+									//				4 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+									//				5 - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_AMOUNT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_DIVIDE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MSG_ITEM_SORT_INVENTORY,
-	MSG_ITEM_EXCHANGE,			// ¾ÆÀÌÅÛ ±³È¯ (61)
-	MSG_ITEM_COMPOSE,			// ¾ÆÀÌÅÛ ÇÕ¼º
-	MSG_ITEM_UPGRADE_PET,		// Æê ¾ÆÀÌÅÛ °­È­
+	MSG_ITEM_EXCHANGE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ (61)
+	MSG_ITEM_COMPOSE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¼ï¿½
+	MSG_ITEM_UPGRADE_PET,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­
 	MSG_ITEM_OPEN_BOX_REQ,
 	MSG_ITEM_OPEN_BOX_REP,
 //SEAL_STONE_REMOVE_01242023
 	MSG_ITEM_LEGACY_STONE_REMOVE,
-	MSG_ITEM_END_MSG,			// MSG_ITEM_TYPE ¸¶Áö¸· ¸Þ½ÃÁö
+	MSG_ITEM_END_MSG,			// MSG_ITEM_TYPE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
 } MSG_ITEM_TYPE;
 
 typedef enum _tagItemLendWeaponErrorType
 {
-	MSG_ITEM_LEND_WEAPON_ERROR_OK,				// ¹«±â ´ë¿© : ¼º°ø
-	MSG_ITEM_LEND_WEAPON_ERROR_FULLINVEN,		// ¹«±â ´ë¿© : ÀÎº¥ °ø°£ ºÎÁ·
-	MSG_ITEM_LEND_WEAPON_ERROR_NOMONEY,			// ¹«±â ´ë¿© : ¼ÒÁö±Ý ºÎÁ·
-	MSG_ITEM_LEND_WEAPON_ERROR_FAIL,			// ¹«±â ´ë¿© : ½ÇÆÐ ( Àß¸øµÈ DB ÀÎµ¦½º ¿äÃ»µî Å¬¶óÀÌ¾ðÆ® ¹ö±× )
-	MSG_ITEM_LEND_TIMEOUT,						// ¹«±â ´ë¿© : Á¾·á
+	MSG_ITEM_LEND_WEAPON_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© : ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_LEND_WEAPON_ERROR_FULLINVEN,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_LEND_WEAPON_ERROR_NOMONEY,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_LEND_WEAPON_ERROR_FAIL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© : ï¿½ï¿½ï¿½ï¿½ ( ï¿½ß¸ï¿½ï¿½ï¿½ DB ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ )
+	MSG_ITEM_LEND_TIMEOUT,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ë¿© : ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_LEND_WEAPON_ERROR_TYPE;	
 
 typedef enum _tagItemUseErrorType
 {
-	MSG_ITEM_USE_ERROR_REVIVAL_EXP,			// ºÎÈ° ÁÖ¹®¼­ ¶§¹®¿¡ °æÇèÄ¡ º¹±¸ ÁÖ¹®¼­ »ç¿ë ÇÒ¼ö ¾øÀ½
-	MSG_ITEM_USE_ERROR_REVIVAL_SP,			// ºÎÈ° ÁÖ¹®¼­ ¶§¹®¿¡ ¼÷·Ãµµ º¹±¸ ÁÖ¹®¼­¸¦ »ç¿ëÇÒ¼ö ¾øÀ½
-	MSG_ITEM_USE_ERROR_SUMMON_NOTALLOWZONE, // ÇÇ½ºÁ¸ÀÌ¹Ç·Î ¸ó½ºÅÍ º¹±¸ ÁÖ¹®¼­¸¦ »ç¿ëÇÒ¼ö ¾øÀ½
-	MSG_ITEM_USE_ERROR_EXP_SP,				// °æÇèÄ¡ ÁÖ¹®¼­ ‹š¹®¿¡ ¼÷·Ãµµ »ç¿ë ¸øÇÔ
-	MSG_ITEM_USE_ERROR_SP_EXP,				// ¼÷·Ãµµ ¶§¹®¿¡ °æÇèÄ¡ »ç¿ë ¸øÇÔ.
-	MSG_ITEM_USE_ERROR_PLATINUM_SPECIAL,	// ÇÃ·¡Æ¼´½ Á¦·Ã¼® °¨Á¤ÀÌ ¿Ï·á 
-	MSG_ITEM_USE_ERROR_PLATINUM_SPECIAL_EXPIRE, // »ç¿ë±â°£ÀÌ ¸¸·á µÇ¾î¼­ È¿°ú°¡ »ç¶óÁü
-	MSG_ITEM_USE_ERROR_EXPUP,				// °æÇèÀÇ ¹¦¾àÀÌ »ç¿ëÁßÀÔ´Ï´Ù. ±×·¡µµ »ç¿ëÇÏ½Ã°Ú½À´Ï±î?
-	MSG_ITEM_USE_ERROR_IDENTIFY_RARE_OK,	// ·¹¾î ¾ÆÀÌÅÛ ¿É¼Ç È®ÀÎ ¼º°ø
-	MSG_ITEM_USE_ERROR_IDENTIFY_RARE_FAIL,	// ·¹¾î ¾ÆÀÌÅÛ ¿É¼Ç È®ÀÎ ½ÇÆÐ
-	MSG_ITEM_USE_ERROR_WARN_PARTYRECALL,	// °ø¼º Áß ¼º¾È ¿µ¿ª¿¡¼­ ÆÄÆ¼¸®ÄÝ »ç¿ë½Ã ÀÏºÎ ¸®ÄÝ ¾ÈµÊÀ» °æ°í
-	MSG_ITEM_USE_ERROR_SUMMON_GUARD,		// ¼ÒÈ¯¼ö°¡ ÀÖÀ» °æ¿ì ¼ÒÈ¯ ¾ÆÀÌÅÛ »ç¿ë½Ã 
-	MSG_ITEM_USE_ERROR_FLYING,    // ºñÇàÁß¿¡´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_ITEM_USE_ERROR_PARTY_OR_EXPED,		// ÆÄÆ¼³ª ¿øÁ¤´ë »óÅÂ¿¡¼± »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.  13
-	MSG_ITEM_USE_ERROR_RAIDZONE,			// ¿øÁ¤´ë ·¹ÀÌµå Á¸ ¿¡¼± »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.   14
-	MSG_ITEM_USE_ERROR_LOWLEVEL,			// ·¹º§ÀÌ ³·¾Æ¼­ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_ITEM_USE_ERROR_NS_CARD_USE_OK,		// NS »ý¼º Ä«µå »ç¿ë ¼º°ø. [11/6/2009 rumist]
-	MSG_ITEM_USE_ERROR_NS_CARD_INSUFF,		// NS »ý¼ºÄ«µå »ç¿ë Á¶°Ç ¸ÂÁö ¾ÊÀ½ [11/6/2009 rumist]
-	MSG_ITEM_USE_ERROR_DUPLICATE,			// È£Äª ¾ÆÀÌÅÛ Áßº¹¶§¹®¿¡ »ç¿ë ±ÝÁö 2009-12-16 finwell added
-	// ¼ÒÄÏ ¶Õ±â ÇÑ¹ø ´õ Âù½º Ä«µå ¾ÆÀÌÅÛ°ü·Ã Ãß°¡µÇ´Â ºÎºÐ
-	MSG_ITEM_USE_ERROR_SOCKET_CARD_USE_OK,		// ¼ÒÄÏ ¶Õ±â ÇÑ¹ø ´õ Âù½º Ä«µå »ç¿ë ¼º°ø
+	MSG_ITEM_USE_ERROR_REVIVAL_EXP,			// ï¿½ï¿½È° ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_REVIVAL_SP,			// ï¿½ï¿½È° ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_SUMMON_NOTALLOWZONE, // ï¿½Ç½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_EXP_SP,				// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_SP_EXP,				// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_ITEM_USE_ERROR_PLATINUM_SPECIAL,	// ï¿½Ã·ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ 
+	MSG_ITEM_USE_ERROR_PLATINUM_SPECIAL_EXPIRE, // ï¿½ï¿½ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾î¼­ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_EXPUP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?
+	MSG_ITEM_USE_ERROR_IDENTIFY_RARE_OK,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_IDENTIFY_RARE_FAIL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_WARN_PARTYRECALL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_ERROR_SUMMON_GUARD,		// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_ITEM_USE_ERROR_FLYING,    // ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ITEM_USE_ERROR_PARTY_OR_EXPED,		// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.  13
+	MSG_ITEM_USE_ERROR_RAIDZONE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.   14
+	MSG_ITEM_USE_ERROR_LOWLEVEL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ITEM_USE_ERROR_NS_CARD_USE_OK,		// NS ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. [11/6/2009 rumist]
+	MSG_ITEM_USE_ERROR_NS_CARD_INSUFF,		// NS ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [11/6/2009 rumist]
+	MSG_ITEM_USE_ERROR_DUPLICATE,			// È£Äª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2009-12-16 finwell added
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Õ±ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ç´ï¿½ ï¿½Îºï¿½
+	MSG_ITEM_USE_ERROR_SOCKET_CARD_USE_OK,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Õ±ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_ITEM_USE_ERROR_NOT_SELECT,			// [sora] GUILD_MARK
 	MSG_ITEM_USE_ERROR_NOITEM,				// [sora] GUILD_MARK
-	MSG_ITEM_USE_ERROR_CANNOT_USE_ZONE,		// ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡´É Áö¿ª. [4/26/2011 rumist]
-	MSG_ITEM_USE_ERROR_CANNOT_USE_COMP,		// (23) °áÇÕÁÖ¹®¼­¸¦ »ç¿ë ÇÏ½Ç ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù.
-	MSG_ITEM_USE_ERROR_DUP_COMP_PREFINE,	// (24) ÇÃ·¡Æ¼´½ Á¦·Ã¼®°ú °áÇÕÁÖ¹®¼­´Â Áßº¹ÇÏ¿© »ç¿ë ÇÏ½Ç ¼ö ¾ø½À´Ï´Ù.
-	MSG_ITEM_USE_ERROR_EXT_CHAR_SLOT,		// [2012/07/05 : Sora]  Ä³¸¯ÅÍ ½½·Ô È®Àå ¾ÆÀÌÅÛ (25)
-	MSG_ITEM_USE_ERROR_DEATH_PENALTY,		// [2012/08/10 : Sora] ºÎÈ° ÁÖ¹®¼­ ½Ã¿ë½Ã º¹±¸ÇÒ ÆÐ³ÎÆ¼°¡ ¾øÀ» °æ¿ì(26)
-	MSG_ITEM_USE_ERROR_GUARDIAN,			// [2012/12/05 : Sora] ÈÄ°ßÀÎ °ü°è°¡ ÀÖÀ» °æ¿ì ¾ÆÀÌÅÛ »ç¿ë ºÒ°¡(27)
-	MSG_ITEM_USE_ERROR_EXPIRE_CASH_INVEN,	// Ä³½¬ÀÎº¥ ¸¸·á.
-	MSG_ITEM_USE_DO_NOT_MEET_CONDITION,		// ¾ÆÀÌÅÛ »ç¿ë Á¶°Ç¿¡ ¸¸Á·ÇÏÁö ¸øÇÏ´Ù.
-	MSG_ITEM_USE_PVP_PROTECT_SUCCESS,		// PVP ¾ÆÀÌÅÛ »ç¿ë ¼º°ø
-	MSG_ITEM_USE_TOO_FAR_DISTANCE,			// °Å¸®°¡ ¸Ù´Ï´Ù.
+	MSG_ITEM_USE_ERROR_CANNOT_USE_ZONE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. [4/26/2011 rumist]
+	MSG_ITEM_USE_ERROR_CANNOT_USE_COMP,		// (23) ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+	MSG_ITEM_USE_ERROR_DUP_COMP_PREFINE,	// (24) ï¿½Ã·ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ITEM_USE_ERROR_EXT_CHAR_SLOT,		// [2012/07/05 : Sora]  Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (25)
+	MSG_ITEM_USE_ERROR_DEATH_PENALTY,		// [2012/08/10 : Sora] ï¿½ï¿½È° ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Ã¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð³ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(26)
+	MSG_ITEM_USE_ERROR_GUARDIAN,			// [2012/12/05 : Sora] ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½è°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½(27)
+	MSG_ITEM_USE_ERROR_EXPIRE_CASH_INVEN,	// Ä³ï¿½ï¿½ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_ITEM_USE_DO_NOT_MEET_CONDITION,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ITEM_USE_PVP_PROTECT_SUCCESS,		// PVP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_USE_TOO_FAR_DISTANCE,			// ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½Ù´Ï´ï¿½.
 #ifdef IDENTIFY_ITEM_02212023
 	MSG_ITEM_USE_ERROR_IDENTIFY_NO_GLASS,
 #endif
@@ -1818,92 +1822,92 @@ typedef enum _tagItemUseErrorType
 
 typedef enum _tagItemMixWarItemErrorType
 {
-	MSG_ITEM_MIX_WARITEM_ERROR_OK,			// Á¶ÇÕ ¼º°ø
-	MSG_ITEM_MIX_WARITEM_ERROR_NOTFOUND,	// Àç·á ºÎÁ·
+	MSG_ITEM_MIX_WARITEM_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_MIX_WARITEM_ERROR_NOTFOUND,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_MIX_WARITEM_ERROR_TYPE;
 
-typedef enum _tagMSG_ITEM_LEVELDOWN_ERROR_TYPE	// ·¹º§ ÇÏ¶ô ÁÖ¹®¼­
+typedef enum _tagMSG_ITEM_LEVELDOWN_ERROR_TYPE	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½ ï¿½Ö¹ï¿½ï¿½ï¿½
 {
-	MSG_ITEM_LEVELDOWN_ERROR_OK,			// ¼º°ø
-	MSG_ITEM_LEVELDOWN_ERROR_ALREADY,		// ÀÌ¹Ì ·¹º§ ÇÏ¶ô
-	MSG_ITEM_LEVELDOWN_ERROR_NOEQUIP,		// Àåºñ ¾Æ´Ô
-	MSG_ITEM_LEVELDOWN_ERROR_SCROLL,		// ÁÖ¹®¼­ ¾Æ´Ô
+	MSG_ITEM_LEVELDOWN_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_LEVELDOWN_ERROR_ALREADY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½
+	MSG_ITEM_LEVELDOWN_ERROR_NOEQUIP,		// ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_ITEM_LEVELDOWN_ERROR_SCROLL,		// ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
 }MSG_ITEM_LEVELDOWN_ERROR_TYPE;
 
 typedef enum _tagItemAddBoosterErrorType
 {
-	MSG_ITEM_ADD_BOOSTER_ERROR_OK,		// ¼º°ø
-	MSG_ITEM_ADD_BOOSTER_ERROR_USED,	// ³»±¸µµ ºÎÁ·
-	MSG_ITEM_ADD_BOOSTER_ERROR_ALREADY,	// ÀÌ¹Ì ºÙ¾î ÀÖÀ½
+	MSG_ITEM_ADD_BOOSTER_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_ADD_BOOSTER_ERROR_USED,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_ADD_BOOSTER_ERROR_ALREADY,	// ï¿½Ì¹ï¿½ ï¿½Ù¾ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_ADD_BOOSTER_ERROR_TYPE;
 
 typedef enum _tagProcessNPCErrorType
 {
-	MSG_ITEM_PROCESS_NPC_ERROR_OK,		// ¼º°ø
-	MSG_ITEM_PROCESS_NPC_ERROR_FAIL,	// ½ÇÆÐ
-	MSG_ITEM_PROCESS_NPC_ERROR_COUNT,	// Ä«¿îÆ® ¿À·ù
-	MSG_ITEM_PROCESS_NPC_ERROR_NOHAVE,	// Àç·á ºÎÁ·
-	MSG_ITEM_PROCESS_NPC_ERROR_MONEY,	// ³ª½º ºÎÁ·
+	MSG_ITEM_PROCESS_NPC_ERROR_OK,		// ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_PROCESS_NPC_ERROR_FAIL,	// ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_PROCESS_NPC_ERROR_COUNT,	// Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_PROCESS_NPC_ERROR_NOHAVE,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_PROCESS_NPC_ERROR_MONEY,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_PROCESS_NPC_ERROR_TYPE;
 
 typedef enum _tagProcessResult
 {
-	MSG_PROCESS_FAIL_SYSTEM,			// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ÀÌÀ¯·Î ½ÇÆÐ
-	MSG_PROCESS_FAIL_MATERIAL,			// Àç·á Á¤º¸ ¿À·ù
-	MSG_PROCESS_FAIL_NO_SSKILL,			// °¡°ø ½ºÅ³ ¾øÀ½
-	MSG_PROCESS_FAIL_OVER_WEIGHT,		// ¹«°Ô ÃÊ°ú·Î ÀÎÇÑ Á¦ÀÛ ½ÇÆÐ
-	MSG_PROCESS_FAIL_PROB,				// È®·ü ½ÇÆÐ
-	MSG_PROCESS_SUCCESS,				// °¡°ø ¼º°ø
+	MSG_PROCESS_FAIL_SYSTEM,			// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_FAIL_MATERIAL,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_FAIL_NO_SSKILL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_FAIL_OVER_WEIGHT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_FAIL_PROB,				// È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_SUCCESS,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_PROCESS_RESULT;
 
 typedef enum _tagMakeResult
 {
-	MSG_MAKE_FAIL_SYSTEM,				// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ÀÌÀ¯·Î ½ÇÆÐ
-	MSG_MAKE_FAIL_MATERIAL,				// Àç·á Á¤º¸ ¿À·ù
-	MSG_MAKE_FAIL_NO_SSKILL,			// Á¦ÀÛ ½ºÅ³ ¾øÀ½
-	MSG_MAKE_FAIL_ITEM_LEVEL,			// ÇöÀç ½ºÅ³·Î Á¦ÀÛ ºÒ°¡´É ¾ÆÀÌÅÛ (·¹º§)
-	MSG_MAKE_FAIL_OVER_WEIGHT,			// ¹«°Ô ÃÊ°ú·Î ÀÎÇÑ Á¦ÀÛ ½ÇÆÐ
-	MSG_MAKE_FAIL_PROB,					// È®·ü ½ÇÆÐ
-	MSG_MAKE_SUCCESS,					// Á¦ÀÛ ¼º°ø
+	MSG_MAKE_FAIL_SYSTEM,				// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MAKE_FAIL_MATERIAL,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MAKE_FAIL_NO_SSKILL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_MAKE_FAIL_ITEM_LEVEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
+	MSG_MAKE_FAIL_OVER_WEIGHT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MAKE_FAIL_PROB,					// È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MAKE_SUCCESS,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_MAKE_RESULT;
 
 typedef enum _tagItemMixResult
 {
-	MSG_MIX_FAIL_SYSTEM,				// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ¿À·ù
-	MSG_MIX_FAIL_REMAKEBOX,				// ÀçÈ°ÀÇ »óÀÚ Á¤º¸ ¿À·ù
-	MSG_MIX_FAIL_ACCESSORY,				// º¸³½ ¾Ç¼¼»ç¸® ¾ÆÀÌÅÛ Á¤º¸ ¿À·ù
-	MSG_MIX_SUCCESS,					// Á¶ÇÕ ¼º°ø
+	MSG_MIX_FAIL_SYSTEM,				// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MIX_FAIL_REMAKEBOX,				// ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MIX_FAIL_ACCESSORY,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_MIX_SUCCESS,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_MIX_RESULT;
 
 typedef enum _tagItemArcaneResult
 {
-	MSG_ARCANE_FAIL_SYSTEM,				// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ¿À·ù
-	MSG_ARCANE_FAIL_ARCANEBOX,			// ºñ¹ÐÀÇ »óÀÚ Á¤º¸ ¿À·ù
-	MSG_ARCANE_FAIL_MATERIAL,			// Àç·á Á¤º¸ ¿À·ù (Àç·á°¡ À§Ä¡¿¡ ¾ø°Å³ª Âø¿ëÁß)
-	MSG_ARCANE_FAIL_UPGRADE,			// Á¦·Ã¼® ¿À·ù
-	MSG_ARCANE_FAIL_ACCESSORY,			// ¾Ç¼¼»ç¸® ¿À·ù
-	MSG_ARCANE_FAIL_SAMPLE,				// ½Ã·á ¿À·ù
-	MSG_ARCANE_SUCCESS,					// Á¶ÇÕ ¼º°ø
+	MSG_ARCANE_FAIL_SYSTEM,				// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ARCANE_FAIL_ARCANEBOX,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ARCANE_FAIL_MATERIAL,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½á°¡ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_ARCANE_FAIL_UPGRADE,			// ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ARCANE_FAIL_ACCESSORY,			// ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½
+	MSG_ARCANE_FAIL_SAMPLE,				// ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ARCANE_SUCCESS,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_ARCANE_RESULT;
 
 typedef enum _tagItemOptionAddResult
 {
-	MSG_OPTION_ADD_ERROR_SYSTEM,		// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ¿À·ù
-	MSG_OPTION_ADD_ERROR_WEAR,			// Âø¿ëÇÑ ¾ÆÀÌÅÛ¾î¾ßÁö
-	MSG_OPTION_ADD_ERROR_KIND,			// ¹«±â³ª ¹æ¾î±¸¸¸ °¡´ÉÇÏ´Ù
-	MSG_OPTION_ADD_ERROR_ENABLE,		// ¿É¼ÇÀ» ºÙÀÏ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÌ ¾Æ´Ï´Ù
-	MSG_OPTION_ADD_ERROR_MAX,			// ÃÖ´ë ¿É¼Ç ¼ö ÃÊ°ú
-	MSG_OPTION_ADD_SUCCESS,				// ¿É¼Ç ºÙÀÌ±â ¼º°ø
-	MSG_OPTION_BLOOD_SWEAT_FRUIT_ADD_SUCCESS //ÇÇ¿Í ¶¡ÀÇ °áÁ¤À» »ç¿ëÇÏ¿© ºí·¯µå ¿É¼Ç ºÙÀÌ±â¿¡ ¼º°ø
+	MSG_OPTION_ADD_ERROR_SYSTEM,		// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_OPTION_ADD_ERROR_WEAR,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½ï¿½
+	MSG_OPTION_ADD_ERROR_KIND,			// ï¿½ï¿½ï¿½â³ª ï¿½ï¿½î±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_OPTION_ADD_ERROR_ENABLE,		// ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½
+	MSG_OPTION_ADD_ERROR_MAX,			// ï¿½Ö´ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_OPTION_ADD_SUCCESS,				// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_OPTION_BLOOD_SWEAT_FRUIT_ADD_SUCCESS //ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ì±â¿¡ ï¿½ï¿½ï¿½ï¿½
 } MSG_ITEM_OPTION_ADD_RESULT;
 
 typedef enum _tagItemOptionDelResult
 {
-	MSG_OPTION_DEL_ERROR_SYSTEM,		// ÀÖ¾î¼­´Â ¾ÈµÇ´Â ¿À·ù
-	MSG_OPTION_DEL_ERROR_WEAR,			// Âø¿ëÇÑ ¾ÆÀÌÅÛ¾î¾ßÁö
-	MSG_OPTION_DEL_ERROR_KIND,			// ¹«±â³ª ¹æ¾î±¸¸¸ °¡´ÉÇÏ´Ù
-	MSG_OPTION_DEL_ERROR_NUM,			// ¿É¼Ç3°³ ÀÌ»ó ÀÖ¾î¾ß Áö¿ï¼ö ÀÖ´Ù
-	MSG_OPTION_DEL_SUCCESS,				// ¿É¼Ç Áö¿ì±â ¼º°ø
+	MSG_OPTION_DEL_ERROR_SYSTEM,		// ï¿½Ö¾î¼­ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_OPTION_DEL_ERROR_WEAR,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½ï¿½
+	MSG_OPTION_DEL_ERROR_KIND,			// ï¿½ï¿½ï¿½â³ª ï¿½ï¿½î±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_OPTION_DEL_ERROR_NUM,			// ï¿½É¼ï¿½3ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½
+	MSG_OPTION_DEL_SUCCESS,				// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_LEGACY_OPTION_DEL_SUCCESS,
 	MSG_LEGACY_OPTION_DEL_ERROR,
 	MSG_LEGACY_OPTION_DEL_ERROR_INVENTORY,
@@ -1911,11 +1915,11 @@ typedef enum _tagItemOptionDelResult
 
 typedef enum _tagItemComposeErrortype
 {
-	MSG_ITEM_COMPOSE_ERROR_OK,			//¼º°ø
-	MSG_ITEM_COMPOSE_ERROR_NOT_RESULT,	//Á¶°Ç¿¡ ¸¸Á·ÇÏ´Â ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	MSG_ITEM_COMPOSE_ERROR_NOT_ENOUGH_MAT,	//Àç·á ºÎÁ·
-	MSG_ITEM_COMPOSE_ERROR_NOT_ENOUGH_NAS,	//³ª½º ºÎÁ·
-	MSG_ITEM_COMPOSE_ERROR_FAIL,		//ÇÕ¼º ½ÇÆÐ
+	MSG_ITEM_COMPOSE_ERROR_OK,			//ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_COMPOSE_ERROR_NOT_RESULT,	//ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_COMPOSE_ERROR_NOT_ENOUGH_MAT,	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_COMPOSE_ERROR_NOT_ENOUGH_NAS,	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ITEM_COMPOSE_ERROR_FAIL,		//ï¿½Õ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 typedef enum _tagItemOpenBoxErrortype
@@ -1928,374 +1932,374 @@ typedef enum _tagItemOpenBoxErrortype
 //0803
 typedef enum _tagMsgSysType
 {
-	MSG_SYS_WHISPER_NOTFOUND,		// ±Ó¸» ´ë»ó ¾øÀ½		:
-	MSG_SYS_TIMEOUT,				// Å¸ÀÓ ¾Æ¿ô ¹ß»ý		:
-	MSG_SYS_CANNOT_WEAR,			// Âø¿ë ¿À·ù			:
-	MSG_SYS_FULL_INVENTORY,			// ÀÎº¥Åä¸® °¡µæ Âü		: tab_index(c)
-	MSG_SYS_CUSTOM,					// Ä¿½ºÅÒ ¸Þ½ÃÁö		: msg(str)
-	MSG_SYS_SHORT_MONEY,			// µ· »ç¿ë½Ã ¸ðÁú¶÷		:
-	MSG_SYS_SHOP_CANCEL,			// »óÁ¡ °Å·¡ Ãë¼Ò		:
-	MSG_SYS_EXCHANGE_NOTFOUND,		// ±³È¯ ´ë»ó ¾øÀ½		:
-	MSG_SYS_EXCHANGE_ALREADY,		// ÀÌ¹Ì ±³È¯ Áß			:
-	MSG_SYS_NOT_OWNER_ITEM,			// ¾ÆÀÌÅÛ ¿ì¼±±ÇÀÌ ¾øÀ½
-	MSG_SYS_OVER_WEIGHT,			// ¹«°Ô°¡ ¿À¹Ù ‰çÀ½
-	MSG_SYS_UPGRADE_NOCONDITION,	// Á¶°ÇÀÌ ¾È¸Â¾Æ ¾÷±×·¹ÀÌµå ¸øÇÔ (ÀÏ¹ÝÁ¦·Ã¼® ·¹º§ÀÌ ¸ÂÁö ¾ÊÀ½)
-	MSG_SYS_MAKE_REFINE_KIND,		// ¹«±â³ª ¹æ¾î±¸°¡ ¾Æ´Ñ ´Ù¸¥°É Á¦·Ã¼®À¸·Î ÀüÈ¯ÇÏ·ÁÇÒ ¶§
-	MSG_SYS_MAKE_REFINE_WEARING,	// ÀÔ°í ÀÖ´Â ¾ÆÀÌÅÛÀ¸·Î Á¦·Ã¼® ÀüÈ¯ ºÒ°¡´É
-	MSG_SYS_MAKE_REFINE_PLUS,		// Plus °ªÀÌ ¼ÂÆÃµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛ Á¦·Ã¼® ÀüÈ¯ ºÒ°¡´É
-	MSG_SYS_MEMPOS_CANT_WRITE,		// Àå¼Ò ±â¾ï ÀåÄ¡ »ç¿ë ºÒ°¡´É Á¸
-	MSG_SYS_LAYERDUNGEON_FULL,		// ·¹ÀÌ¾î Á¸ °¡µæ Â÷¼­ ÀÔÀå ºÒ°¡
-	MSG_SYS_CANT_WARP_STATE,		// ÀÌµ¿ ÀåÄ¡ ºÒ°¡´É : Ä³¸¯ÅÍ »óÅÂ(»ç¸Á/¾É±â/½ºÅ³½ÃÀü/ÆÄÆ¼½ÅÃ»/±³È¯)
-	MSG_SYS_CANT_WARP_OTHER,		// ÀÌµ¿ ÀåÄ¡ ºÒ°¡´É : ´Ù¸¥ÀåÄ¡ÀÌ¿ë
-	MSG_SYS_MEMPOS_OTHERZONE,		// ´Ù¸¥ Á¸À¸·Î´Â Àå¼Ò ±â¾ï ÀÌµ¿ ºÒ°¡
-	MSG_SYS_SINGLEDUNGEON_FULL,		// ½Ì±Û´øÀü ²Ë Â÷´Ù
-	MSG_SYS_MAKE_REFINE_SHORT,		// Á¦·Ã¼® ¸¸µé¶§ µ· ¸ðÁú¶÷
-	MSG_SYS_PRODUCE_NOTOOL,			// »ý»êµµ±¸°¡ ¾øÀ½
-	MSG_SYS_PRODUCE_WEAR_TOOL,		// »ý»êµµ±¸¸¦ Âø¿ëÇÏ½Ã¿À
-	MSG_SYS_PRODUCE_MATCH_TOOL,		// ¸Â´Â »ý»êµµ±¸¸¦ Âø¿ëÇÏ½Ã¿À
-	MSG_SYS_PRODUCE_MAXUSE_TOOL,	// »ý»êµµ±¸ ´Ù ½èÀ½
-	MSG_SYS_PRODUCE_MAX_ACCEPTABLE,	// »ý»ê °¡´É ÀÎ¿ø ÃÊ°ú
-	MSG_SYS_PRODUCE_NO_SSKILL,		// ÇØ´çÇÏ´Â »ý»ê ½ºÅ³ÀÌ ¾ø´Ù!!
-	MSG_SYS_PROCESS_DOC_NOT_SSKILL,	// °¡°ø¹®¼­ ¾²´Âµ¥ °¡°ø½ºÅ³ÀÌ ¾øÀ½
-	MSG_SYS_WARNING_WEIGHT,			// ¹«°Ô ÃÊ°ú °æ°í
-	MSG_SYS_BLOODITEM,				// ºí·¯µå ¿É¼Ç °¡´É »óÅÂ	: itemdbindex(n)
-	MSG_SYS_MAKE_REFINE_CANNOT,		// ´ë»ó ¾ÆÀÌÅÛÀº Á¦·Ã¼® ±³È¯ ºÒ°¡´É
-	MSG_SYS_PKMODE_LIMITLEVEL,		// PK ¼±¾ðÀÌ ºÒ°¡´ÉÇÑ ·¹º§
-	MSG_SYS_CANTCHAT_INVISIBLE,		// ÀÎºñÀúºí »óÅÂ¿¡¼­´Â ÀÏ¹Ý Ã¤ÆÃ ºÒ°¡
-	MSG_SYS_SHORT_FAME,				// ¸í¼ºÄ¡ ºÎÁ·.
-	MSG_SYS_FRIEND_NOTFOUND,		// ´ëÈ­»ó´ë¸¦ Ã£À» ¼ö ¾øÀ½. 
-	MSG_SYS_UPGRADE_CANT_SUPERSTONE,// ÃÊ°í±Þ Á¦·Ã¼®À» ÀÌ¹Ì »ç¿ëÇÑ ¾ÆÀÌÅÛ
-	MSG_SYS_UPGRADE_CANT_14LEVEL,   // 14·¹º§ ¾ÆÀÌÅÛ¿¡´Â ÃÊ°í±Þ Á¦·Ã¼®À» »ç¿ë¸øÇÔ
-	MSG_SYS_FAME_NOT_ENOUGH,		// ¸í¼ºÄ¡ ºÎÁ·ÇØ¼­ ÃÊ°í±Þ Á¦·Ã¼® Áö±Þ¹ÞÁö ¸øÇÔ
-	MSG_SYS_INVEN_NOT_ENOUGH,		// ÀÎº¥ÀÌ °¡µæÂ÷¼­ ÃÊ°í±Þ Á¦·Ã¼® Áö±Þ¹ÞÁö ¸øÇÔ
-	MSG_SYS_NO_MORE_SUPERSTONE,		// ´õÀÌ»ó ÃÊ°í±Þ Á¦·Ã¼®À» Áö±Þ¹ÞÁö ¸øÇÔ(7°³ ´Ù ¹ÞÀº »óÅÂ)
-	MSG_SYS_CAN_RECEIVE_SUPERSTONE, // Æ¯Á¤ ¸í¼ºÄ¡¿¡ µµ´ÞÇØ¼­ ÃÊ°í±Þ Á¦·Ã¼®À» ¹ÞÀ»¼ö ÀÖÀ½.
-	MSG_SYS_APPEAR_NOVICE,			// ÃÊº¸ÀÚ°¡ Á¢¼ÓÇßÀ½.
-	MSG_SYS_NOTICE,					// °ÔÀÓ³» ÀÌº¥Æ® °øÁö  <-- NEW
-	MSG_SYS_MEMPOS_CASTLE,			// °ø¼ºµµÁß¿¡´Â °ø¼ºÁö¿ªÀ¸·Î Á¸ÀÌµ¿ ºÒ°¡
-	MSG_SYS_PET_CANT_SUMMON,		// ¼ÒÈ¯ ºÒ°¡´É Áö¿ª
-	MSG_SYS_PET_CANT_MOUNT,			// ¸¶¿îÆ® ºÒ°¡´É Áö¿ª
-	MSG_SYS_PRODUCE_NO_MONEY,		// µ·¾ø¾î¼­ »ý»ê ºÒ°¡
-	MSG_SYS_PRODUCE_CANNT_BOOST,	// ºÎ½ºÅÍ·Î´Â ·£´ý »ý»ê ºÒ°¡
-	MSG_SYS_INVALID_CHAR,			// Àß¸øµÈ ¹®ÀÚ°¡ Æ÷ÇÔµÇ¾ú½À´Ï´Ù 050830
-	MSG_SYS_CANNOT_DUPLICATION,		// ¾ÆÀÌÅÛ Áßº¹ »ç¿ë ºÒ°¡ : new_item(n) cur_item(n)
-	MSG_SYS_UPGRADE_CANT_6LEVEL_LUCKY, // Çà¿îÀÇ Á¦·Ã¼®Àº 6ÀÌ»óÀÇ ¾ÆÀÌÅÛ¿¡ ¹ß¸¦¼ö ¾ø´Ù. //wooss 051024
-	MSG_SYS_PET_NOT_HAVE_ONEMORE,	// ÇÏ³ª ÀÌ»óÀÇ ÆêÀ» ¼ÒÀ¯ÇÒ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_TARGET_PKLIMITLEVEL,	// Å¸°ÙÀÌ PVP ·¹º§ÀÌ µÇÁö ¾Ê¾Æ¼­ °ø°ÝÇÒ¼ö ¾ø´Ù
-	MSG_SYS_NOT_ADULT,				// ¼ºÀÎÀÌ ¾Æ´Ï¸é 10½Ã¿¡ Á¢¼ÓÇÑ´Ù ¸Þ¼¼Áö
-	MSG_SYS_NOTTIME_GOZONE,			// Áö±ÝÀº ÀÌµ¿ÇÒ¼ö ÀÖ´Â ½Ã°£ÀÌ ¾Æ´Õ´Ï´Ù.
-	MSG_SYS_CANNOT_WEAR_DEADPET,	// 060221 : bs : »ç¸ÁÇÑ Æê Âø¿ë ºÒ°¡ : petindex(n) remainRebirth(n)
-	MSG_SYS_ITEMCOMPOSITED,			// ¾ÆÀÌÅÛ ÇÕ¼º ¼º°ø
-	MSG_SYS_EXPIRE_ITEMCOMPOSITE,	// ¾ÆÀÌÅÛ ÇÕ¼º ¸¸·á : itemdbindex(n)
-	MSG_SYS_CANNOT_RESET_MOUNT,		// Æê ¸¶¿îÆ® Å¸ÀÔ Ãë¼Ò ºÒ°¡
-	MSG_SYS_RESET_MOUNT,			// Æê ¸¶¿îÆ® Å¸ÀÔ Ãë¼Ò
-	MSG_SYS_CANNOT_SEPARATE_ITEM,	// °áÇÕµÈ ÀÇ»óÀÌ ¾Æ´Ñ ¾ÆÀÌÅÛ ºÐ¸® ¿äÃ»½Ã
-	MSG_SYS_SEPARATE_ITEM,			// °áÇÕµÈ ÀÇ»ó ÇØÁ¦ : itemdbindex(n)
-	MSG_SYS_RAIDMOB_REGEN,			// ·¹ÀÌµå ¸ó½ºÅÍ ÃâÇö ¾Ë¸² : npcdbindex(n) x(f) z(f)
-	MSG_SYS_TIMEOUT_LUCKY_ACCESSORY,// ·°Å° ¾Ç¼¼¼­¸® »ç¿ë±â°£ ¸¸·á : itemdbindex(n)
-	MSG_SYS_CHANGE_LUCKY_BOX,		// ·°Å° µå·Î¿ì »óÀÚ ±³È¯ ¼º°ø : itemdbindex(n)	
-	MSG_SYS_CANNOT_HAVE_DUPLICATE,	// Áßº¹ÇØ¼­ ¼ÒÀ¯ ÇÒ ¼ö ¾ø´Â ¾ÆÀÌÅÛ
+	MSG_SYS_WHISPER_NOTFOUND,		// ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		:
+	MSG_SYS_TIMEOUT,				// Å¸ï¿½ï¿½ ï¿½Æ¿ï¿½ ï¿½ß»ï¿½		:
+	MSG_SYS_CANNOT_WEAR,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			:
+	MSG_SYS_FULL_INVENTORY,			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½		: tab_index(c)
+	MSG_SYS_CUSTOM,					// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½		: msg(str)
+	MSG_SYS_SHORT_MONEY,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		:
+	MSG_SYS_SHOP_CANCEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ ï¿½ï¿½ï¿½		:
+	MSG_SYS_EXCHANGE_NOTFOUND,		// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		:
+	MSG_SYS_EXCHANGE_ALREADY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½			:
+	MSG_SYS_NOT_OWNER_ITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_OVER_WEIGHT,			// ï¿½ï¿½ï¿½Ô°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_UPGRADE_NOCONDITION,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¸Â¾ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_SYS_MAKE_REFINE_KIND,		// ï¿½ï¿½ï¿½â³ª ï¿½ï¿½î±¸ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_SYS_MAKE_REFINE_WEARING,	// ï¿½Ô°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SYS_MAKE_REFINE_PLUS,		// Plus ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SYS_MEMPOS_CANT_WRITE,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_SYS_LAYERDUNGEON_FULL,		// ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_CANT_WARP_STATE,		// ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ ï¿½Ò°ï¿½ï¿½ï¿½ : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½/ï¿½É±ï¿½/ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Æ¼ï¿½ï¿½Ã»/ï¿½ï¿½È¯)
+	MSG_SYS_CANT_WARP_OTHER,		// ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½Ù¸ï¿½ï¿½ï¿½Ä¡ï¿½Ì¿ï¿½
+	MSG_SYS_MEMPOS_OTHERZONE,		// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_SINGLEDUNGEON_FULL,		// ï¿½Ì±Û´ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_MAKE_REFINE_SHORT,		// ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½é¶§ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PRODUCE_NOTOOL,			// ï¿½ï¿½ï¿½êµµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PRODUCE_WEAR_TOOL,		// ï¿½ï¿½ï¿½êµµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã¿ï¿½
+	MSG_SYS_PRODUCE_MATCH_TOOL,		// ï¿½Â´ï¿½ ï¿½ï¿½ï¿½êµµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã¿ï¿½
+	MSG_SYS_PRODUCE_MAXUSE_TOOL,	// ï¿½ï¿½ï¿½êµµï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PRODUCE_MAX_ACCEPTABLE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½Ê°ï¿½
+	MSG_SYS_PRODUCE_NO_SSKILL,		// ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!!
+	MSG_SYS_PROCESS_DOC_NOT_SSKILL,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_WARNING_WEIGHT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½
+	MSG_SYS_BLOODITEM,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: itemdbindex(n)
+	MSG_SYS_MAKE_REFINE_CANNOT,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SYS_PKMODE_LIMITLEVEL,		// PK ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_CANTCHAT_INVISIBLE,		// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ Ã¤ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_SHORT_FAME,				// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	MSG_SYS_FRIEND_NOTFOUND,		// ï¿½ï¿½È­ï¿½ï¿½ë¸¦ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
+	MSG_SYS_UPGRADE_CANT_SUPERSTONE,// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_UPGRADE_CANT_14LEVEL,   // 14ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_FAME_NOT_ENOUGH,		// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_INVEN_NOT_ENOUGH,		// ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_NO_MORE_SUPERSTONE,		// ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(7ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_SYS_CAN_RECEIVE_SUPERSTONE, // Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_SYS_APPEAR_NOVICE,			// ï¿½Êºï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	MSG_SYS_NOTICE,					// ï¿½ï¿½ï¿½Ó³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½  <-- NEW
+	MSG_SYS_MEMPOS_CASTLE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_PET_CANT_SUMMON,		// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PET_CANT_MOUNT,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PRODUCE_NO_MONEY,		// ï¿½ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_PRODUCE_CANNT_BOOST,	// ï¿½Î½ï¿½ï¿½Í·Î´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_INVALID_CHAR,			// ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ 050830
+	MSG_SYS_CANNOT_DUPLICATION,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ : new_item(n) cur_item(n)
+	MSG_SYS_UPGRADE_CANT_6LEVEL_LUCKY, // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ 6ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. //wooss 051024
+	MSG_SYS_PET_NOT_HAVE_ONEMORE,	// ï¿½Ï³ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_TARGET_PKLIMITLEVEL,	// Å¸ï¿½ï¿½ï¿½ï¿½ PVP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_NOT_ADULT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ 10ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	MSG_SYS_NOTTIME_GOZONE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_SYS_CANNOT_WEAR_DEADPET,	// 060221 : bs : ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ : petindex(n) remainRebirth(n)
+	MSG_SYS_ITEMCOMPOSITED,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_EXPIRE_ITEMCOMPOSITE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ : itemdbindex(n)
+	MSG_SYS_CANNOT_RESET_MOUNT,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_SYS_RESET_MOUNT,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_SYS_CANNOT_SEPARATE_ITEM,	// ï¿½ï¿½ï¿½Õµï¿½ ï¿½Ç»ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_SYS_SEPARATE_ITEM,			// ï¿½ï¿½ï¿½Õµï¿½ ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ : itemdbindex(n)
+	MSG_SYS_RAIDMOB_REGEN,			// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : npcdbindex(n) x(f) z(f)
+	MSG_SYS_TIMEOUT_LUCKY_ACCESSORY,// ï¿½ï¿½Å° ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ : itemdbindex(n)
+	MSG_SYS_CHANGE_LUCKY_BOX,		// ï¿½ï¿½Å° ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : itemdbindex(n)	
+	MSG_SYS_CANNOT_HAVE_DUPLICATE,	// ï¿½ßºï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	// wooss 070307 -------------------------------------------------------------------->><<
 	// kw : WSS_WHITEDAY_2007
-	MSG_SYS_MATCHSEX,				// ¼ºº°ÀÌ ¸ÂÁö ¾Ê½À´Ï´Ù.  [3/8/2007 KwonYongDae]
+	MSG_SYS_MATCHSEX,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.  [3/8/2007 KwonYongDae]
 
-	MSG_SYS_MEMPOSPLUS_OPEN,		// ÇÁ¸®¹Ì¾ö ¸Þ¸ð¸®ºÏ °³ºÀ
-	MSG_SYS_PKMODE_CANDO,			// PK°¡ °¡´ÉÇÑ ·¹º§ÀÌ µÇ¾ú½À´Ï´Ù.
-	MSG_SYS_NO_AUTO_ITEM,			// »ç¿ëÇÒ¼ö ÀÖ´Â Æ÷¼ÇÀÌ ¾ø½À´Ï´Ù.
-	MSG_SYS_EGEHA_MINLEVEL,			// ¿¡°ÔÇÏ ÀÌµ¿ÇÒ¼ö ÀÖ´Â ÃÖ¼Ò·¹º§
-	MSG_SYS_IRISPOINT_ALARM,		// ¾ÆÀÌ¸®½º ¸Å´ÞÀ» %d °³ È¹µæÇÏ¿´½À´Ï´Ù. (n)Count	
-	MSG_SYS_FACTORY_EXP,			// ¼÷·Ãµµ°¡ xxx»ó½ÂÇÏ¿´½À´Ï´Ù. (ll)sealskill_exp
-	MSG_SYS_CHANGE_RAID_BOX,		// ·¹ÀÌµå »óÀÚ ±³È¯ ¼º°ø : itemdbindex(n) 						(·¹ÀÌµå Ãß°¡)
-	MSG_SYS_CANNOT_DESTROY,			// ÆÄ±« ºÒ°¡´ÉÇÑ ¾ÆÀÌÅÛ.
-	MSG_SYS_TITLE_EXPIRED,			// È£Äª ±â°£¸¸·á ¸Þ¼¼Áö(76)
-	MSG_SYS_IRISPOINT_DROPMEDAL,	// 1½Ã°£ÀÌ °æ°úµÇ¾î ¾ÆÀÌ¸®½º ¸Þ´ÞÀÌ µå¶øµË´Ï´Ù.
-	MSG_SYS_CANNOT_GOZONE_LEVEL,	// ÀÌµ¿ÇÒ¼öÀÖ´ÂÁö¿ªÀÇ·¹º§Á¶°Ç°ú´Ù¸¨´Ï´Ù.
-	MSG_SYS_COSTUME2_ITEM_EXPIRED,	// ÄÚ½ºÆ¬2 ¾ÆÀÌÅÛ ±â°£ÀÌ ¸¸·áµÇ¾ú½À´Ï´Ù. : item_db_idx(uc)
-	MSG_SYS_TRANSLATE_START,		// Æêº¯½Å½ÃÀÛ
-	MSG_SYS_CANT_MOUNT_EVOCATION,	// (81)°­½ÅÁß ¸¶¿îÆ® ºÒ°¡´É
-	MSG_SYS_CANT_MAKE_PET_EVOCATION, // (82)°­½ÅÁß Æê Å»°Í ¸¸µé±â ¸øÇÔ.
-	MSG_SYS_FULL_INVENTORY_AND_DROP, // ÀÎº¥Åä¸®°¡ °¡µæÂ÷¼­ ¾ÆÀÌÅÛÀÌ µå¶øµÊ
-	MSG_SYS_ENTER_RAID_ZONE_REMAIN,       // (84) %dºÐ µÚ ·¹ÀÌµå ´øÀüÀÌ ÃÊ±âÈ­ µË´Ï´Ù. (°øÁö ¸Þ½ÃÁö)
-	MSG_SYS_RAID_RESET_COMPLETE,          // (85) ·¹ÀÌµå ´øÀü ÃÊ±âÈ­°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù. (°øÁö ¸Þ½ÃÁö)
-	MSG_SYS_NO_ENTER_RAID_ZONE,           // (86) ·¹ÀÌµå ´øÀü ÃÊ±âÈ­ ÁßÀÔ´Ï´Ù. (°øÁö ¸Þ½ÃÁö) 
-	MSG_SYS_GMCOMMAND_NOTICE,		// GM Command(kick, Ã¤ÆÃ±ÝÁö) »ç¿ë ½Ã, ÀüÃ¼ °øÁö : Command Type(uc), GM Name(str), User Name(str)
-	MSG_SYS_PET_CANT_MOUNT_ETC,		// ¸¶¿îÆ®°¡ ºÒ°¡´ÉÇÕ´Ï´Ù.(¸¶¿îÆ® °¡´ÉÇÑ °ø°ÝÇü ÆêÀÌ ¾Æ´Ò ¶§)	// Æê Å¾½Â ºÒ°¡ Ã³¸®. [5/18/2011 rumist]
-	MSG_SYS_DUP_PREFINE_COMPOSITE,	//  (89) ÇÃ·¡Æ¼´½ Á¦·Ã¼®°ú °áÇÕÁÖ¹®¼­´Â Áßº¹ÇÏ¿© »ç¿ë ÇÏ½Ç ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_NPC_PORTAL_EXPIRED = 93, //À¯·á NPCÆ÷Å» ½ºÅ©·Ñ ¾ÆÀÌÅÛ ½Ã°£ ¸¸·á [8/22/2012 Ranma]
-	MSG_SYS_NOT_EXIST_NPC,			// NPC°¡ Á¸ÀçÇÏÁö ¾ÊÀ½
-	MSG_SYS_NOT_ENOUGH_MONEY,		//2013/04/09 jeil ³ª½º ¾ÆÀÌÅÛ Á¦°Å (5902)ÇöÀç °¡Áö°í ÀÖ´Â ³ª½º º¸´Ù ¸¹Àº ³ª½º¸¦ ±³È¯ ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_DO_NOT_ATTACK_IMMOTAL,	// ´ë»óÀº ¹«Àû ¸ðµå »óÅÂÀÌ¹Ç·Î °ø°Ý ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_DO_NOT_ATTACK_DO_MOVE,	// ³»°¡ ¹«Àû ¸ðµå »óÅÂÀÌ¹Ç·Î ¿òÁ÷ÀÎ ÈÄ¿¡ °ø°Ý ÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	MSG_SYS_DO_NOT_CHANGE_PK_MODE,	// pk¸ðµå·Î ÀüÈ¯ÇÒ ¼ö ¾ø½À´Ï´Ù.	
-	MSG_SYS_DO_NOT_SYSTEM_NOT_EQ_RVRTYPE,	//´Ù¸¥ °á»ç´ë¿ø ³¢¸®´Â »ç¿ë ÇÒ ¼ö ¾ø´Â ½Ã½ºÅÛ.
-	MSG_SYS_DO_NOT_PARTY_THISZONE,	// ÀÌ Á¸¿¡¼­´Â ÆÄÆ¼ ½Ã½ºÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_DO_NOT_USE_DURING_IMMORTAL,			// ¹«Àû¹öÇÁ »óÅÂ¿¡¼­´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_DO_NOT_USE_ITEM_STATE,	//¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¼ö ÀÖ´Â »óÅÂ°¡ ¾Æ´Õ´Ï´Ù.
-	MSG_SYS_DO_NOT_GO_ZONE_GMORDER,	//¿î¿µÀÚ ¸í·É¾î·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_DO_NOT_PLAY_PVP,		// PVP¸¦ ÇÒ ¼ö ¾ø´Â »óÅÂÀÔ´Ï´Ù.
-	MSG_SYS_DO_NOT_ATTACK_PROTECT_PVP, // PVPº¸È£ »óÅÂÀÌ¹Ç·Î °ø°ÝÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_PVP_PROTECT_ITEM_END,	// PVPº¸È£ ¹æÆÐÀÇ »ç¿ë±â°£ÀÌ ¸¸·áµÇ¾î PVP°¡ °¡´ÉÇÑ »óÅÂ°¡ µÇ¾ú½À´Ï´Ù.
-	MSG_SYS_AREADY_USE,				// ÀÌ¹Ì »ç¿ëÁß ÀÔ´Ï´Ù.
-	MSG_SYS_WAR_BUF_NOT_IN_ZONE,	// °ø¼º Áö¿ªÀ» ¹þ¾î³ª¼­ ¹öÇÁÈ¿°ú°¡ »ç¶óÁý´Ï´Ù.
-	MSG_SYS_WAR_BUF_END_WAR,		// °ø¼º ½Ã°£ÀÌ Á¾·á µÇ¾î ¹öÇÁÈ¿°ú°¡ »ç¶óÁý´Ï´Ù.
-	MSG_SYS_ARTIFACT_DONT_IN_DUNGEON, //À¯¹° ¾ÆÀÌÅÛÀ» º¸À¯ÇÑ »óÅÂ·Î ´øÀüÀ» ÀÔÀå ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_ARTIFACT_PVP_GET_ITEM,	// PVP°¡ ºÒ°¡´ÉÇÑ Ä³¸¯ÅÍ´Â À¯¹° ¾ÆÀÌÅÛÀ» È¹µæ ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_ARTIFACT_ITEM_DELETE_EVENT_OFF,	//ÀÌº¥Æ®°¡ Á¾·áµÇ¾î ¾ÆÀÌÅÛÀÌ »ç¶óÁü
-	MSG_SYS_ARTIFACT_ITEM_DO_NOT_USE_PVPPROTECT,	//À¯¹° ¾ÆÀÌÅÛÀ» °®°í ÀÖ´Â »óÅÂ¿¡¼­´Â PVPº¸È£¹æÆÐ¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SYS_ARTIFACT_USE_PVPPROTECT,	//PVPº¸È£ ¹æÆÐ¸¦ »ç¿ëÁßÀÔ´Ï´Ù.
+	MSG_SYS_MEMPOSPLUS_OPEN,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Þ¸ð¸®ºï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_PKMODE_CANDO,			// PKï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_NO_AUTO_ITEM,			// ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_EGEHA_MINLEVEL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ö¼Ò·ï¿½ï¿½ï¿½
+	MSG_SYS_IRISPOINT_ALARM,		// ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ %d ï¿½ï¿½ È¹ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (n)Count	
+	MSG_SYS_FACTORY_EXP,			// ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ xxxï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (ll)sealskill_exp
+	MSG_SYS_CHANGE_RAID_BOX,		// ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : itemdbindex(n) 						(ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ß°ï¿½)
+	MSG_SYS_CANNOT_DESTROY,			// ï¿½Ä±ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	MSG_SYS_TITLE_EXPIRED,			// È£Äª ï¿½â°£ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½(76)
+	MSG_SYS_IRISPOINT_DROPMEDAL,	// 1ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½.
+	MSG_SYS_CANNOT_GOZONE_LEVEL,	// ï¿½Ìµï¿½ï¿½Ò¼ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ù¸ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_COSTUME2_ITEM_EXPIRED,	// ï¿½Ú½ï¿½Æ¬2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. : item_db_idx(uc)
+	MSG_SYS_TRANSLATE_START,		// ï¿½êº¯ï¿½Å½ï¿½ï¿½ï¿½
+	MSG_SYS_CANT_MOUNT_EVOCATION,	// (81)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SYS_CANT_MAKE_PET_EVOCATION, // (82)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_SYS_FULL_INVENTORY_AND_DROP, // ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_ENTER_RAID_ZONE_REMAIN,       // (84) %dï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ë´Ï´ï¿½. (ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½)
+	MSG_SYS_RAID_RESET_COMPLETE,          // (85) ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½)
+	MSG_SYS_NO_ENTER_RAID_ZONE,           // (86) ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½Ô´Ï´ï¿½. (ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½) 
+	MSG_SYS_GMCOMMAND_NOTICE,		// GM Command(kick, Ã¤ï¿½Ã±ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ : Command Type(uc), GM Name(str), User Name(str)
+	MSG_SYS_PET_CANT_MOUNT_ETC,		// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.(ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½)	// ï¿½ï¿½ Å¾ï¿½ï¿½ ï¿½Ò°ï¿½ Ã³ï¿½ï¿½. [5/18/2011 rumist]
+	MSG_SYS_DUP_PREFINE_COMPOSITE,	//  (89) ï¿½Ã·ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_NPC_PORTAL_EXPIRED = 93, //ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½Å» ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ [8/22/2012 Ranma]
+	MSG_SYS_NOT_EXIST_NPC,			// NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_NOT_ENOUGH_MONEY,		//2013/04/09 jeil ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (5902)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_ATTACK_IMMOTAL,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_ATTACK_DO_MOVE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_CHANGE_PK_MODE,	// pkï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.	
+	MSG_SYS_DO_NOT_SYSTEM_NOT_EQ_RVRTYPE,	//ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½.
+	MSG_SYS_DO_NOT_PARTY_THISZONE,	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_USE_DURING_IMMORTAL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_USE_ITEM_STATE,	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_SYS_DO_NOT_GO_ZONE_GMORDER,	//ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½Î´ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_DO_NOT_PLAY_PVP,		// PVPï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+	MSG_SYS_DO_NOT_ATTACK_PROTECT_PVP, // PVPï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_PVP_PROTECT_ITEM_END,	// PVPï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ PVPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_AREADY_USE,				// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.
+	MSG_SYS_WAR_BUF_NOT_IN_ZONE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_WAR_BUF_END_WAR,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_ARTIFACT_DONT_IN_DUNGEON, //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_ARTIFACT_PVP_GET_ITEM,	// PVPï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_ARTIFACT_ITEM_DELETE_EVENT_OFF,	//ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SYS_ARTIFACT_ITEM_DO_NOT_USE_PVPPROTECT,	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ PVPï¿½ï¿½È£ï¿½ï¿½ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_ARTIFACT_USE_PVPPROTECT,	//PVPï¿½ï¿½È£ ï¿½ï¿½ï¿½Ð¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 	MSG_SYS_SUMMON_TOTEM_NPC, 
-	MSG_SYS_NOT_CONDITION_ITEM_ALL_USER,	// ¾ÆÀÌÅÛÀ» È¹µæÇÒ ¼ö ÀÖ´Â À¯Àú°¡ ¾ø½À´Ï´Ù.
-	MSG_SYS_BELONG_ITEM,					// ±Í¼ÓµÇ¾î ÀÖ´Â ¾ÆÀÌÅÛ ÀÔ´Ï´Ù.
+	MSG_SYS_NOT_CONDITION_ITEM_ALL_USER,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SYS_BELONG_ITEM,					// ï¿½Í¼ÓµÇ¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.
 	MSG_SYS_PLAYER_DEAD,
 	MSG_SYS_EVENT_SUMMON_NPC_DEAD,
-	MSG_SYS_END_MSG,				// MSG_SYS_TYPEÀÇ ¸¶Áö¸· ¸Þ½ÃÁö
+	MSG_SYS_END_MSG,				// MSG_SYS_TYPEï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 } MSG_SYS_TYPE;
 
 typedef enum _tagMsgExchangeType
 {
-	MSG_EXCHANGE_REQ,			// ±³È¯ Çàµ¿ 		: req_type(uc) src_index(n) src_name(str) dest_index(n) dest_name(str)
-	MSG_EXCHANGE_ITEM,			// ¾ÆÀÌÅÛ µî·Ï/º¯°æ	: action(uc) item_index(n) item_db_index(n) plus(n) flag(n) used(n) used_2(n) count(ll)
-								// COMPOSITE_TIME »ç¿ë½Ã used_2(n) Ãß°¡
+	MSG_EXCHANGE_REQ,			// ï¿½ï¿½È¯ ï¿½àµ¿ 		: req_type(uc) src_index(n) src_name(str) dest_index(n) dest_name(str)
+	MSG_EXCHANGE_ITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½	: action(uc) item_index(n) item_db_index(n) plus(n) flag(n) used(n) used_2(n) count(ll)
+								// COMPOSITE_TIME ï¿½ï¿½ï¿½ï¿½ used_2(n) ï¿½ß°ï¿½
 } MSG_EXCHANGE_TYPE;
 
 typedef enum _tagMsgExchangeReqType
 {
-	MSG_EXCHANGE_REQ_REQ,			// ±³È¯ ¿äÃ»	
-	MSG_EXCHANGE_REQ_REP,			// ±³È¯ ¼ö¶ô
-	MSG_EXCHANGE_REQ_REJECT,		// ±³È¯ °ÅÀý/Ãë¼Ò
-	MSG_EXCHANGE_REQ_REJECT_SRC,	// ±³È¯ °ÅÀý/Ãë¼Ò - ¿äÃ»ÇÑ »ç¶÷
-	MSG_EXCHANGE_REQ_REJECT_DEST,	// ±³È¯ °ÅÀý/Ãë¼Ò - ¿äÃ»¹ÞÀº »ç¶÷
-	MSG_EXCHANGE_REQ_READY,			// ÁØºñ ¿Ï·á
-	MSG_EXCHANGE_REQ_READY_SRC,		// ÁØºñ ¿Ï·á - ¿äÃ»ÇÑ »ç¶÷
-	MSG_EXCHANGE_REQ_READY_DEST,	// ÁØºñ ¿Ï·á - ¿äÃ»¹ÞÀº »ç¶÷
-	MSG_EXCHANGE_REQ_FULL_SRC,		// ÀÎº¥Åä¸® ¿À·ù - ¿äÃ»ÇÑ »ç¶÷
-	MSG_EXCHANGE_REQ_FULL_DEST,		// ÀÎº¥Åä¸® ¿À·ù - ¿äÃ»¹ÞÀº »ç¶÷
-	MSG_EXCHANGE_REQ_OK,			// È®ÀÎ
-	MSG_EXCHANGE_REQ_OK_SRC,		// È®ÀÎ - ¿äÃ»ÇÑ »ç¶÷
-	MSG_EXCHANGE_REQ_OK_DEST,		// È®ÀÎ - ¿äÃ»¹ÞÀº »ç¶÷
-	MSG_EXCHANGE_REQ_SRC_PET_ANYMORE,		// Æê °¹¼ö ¿À·ù - ¿äÃ»ÇÑ »ç¶÷
-	MSG_EXCHANGE_REQ_DEST_PET_ANYMORE,		// Æê °¹¼ö ¿À·ù - ¿äÃ»¹ÞÀº »ç¶÷
+	MSG_EXCHANGE_REQ_REQ,			// ï¿½ï¿½È¯ ï¿½ï¿½Ã»	
+	MSG_EXCHANGE_REQ_REP,			// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_REJECT,		// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_REJECT_SRC,	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_REJECT_DEST,	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_READY,			// ï¿½Øºï¿½ ï¿½Ï·ï¿½
+	MSG_EXCHANGE_REQ_READY_SRC,		// ï¿½Øºï¿½ ï¿½Ï·ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_READY_DEST,	// ï¿½Øºï¿½ ï¿½Ï·ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_FULL_SRC,		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_FULL_DEST,		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_OK,			// È®ï¿½ï¿½
+	MSG_EXCHANGE_REQ_OK_SRC,		// È®ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_OK_DEST,		// È®ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_SRC_PET_ANYMORE,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_REQ_DEST_PET_ANYMORE,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 } MSG_EXCHANGE_REQ_TYPE;
 
 typedef enum _tagMsgExchangeItemAction
 {
-	MSG_EXCHANGE_ITEM_ADD,			// ¾ÆÀÌÅÛ Ãß°¡ - ¸ðµç ÇÊµå »ç¿ë
-	MSG_EXCHANGE_ITEM_ADD_SRC,		// ¾ÆÀÌÅÛ Ãß°¡ - ¿äÃ»ÇÑ »ç¶÷, ¸ðµç ÇÊµå »ç¿ë
-	MSG_EXCHANGE_ITEM_ADD_DEST,		// ¾ÆÀÌÅÛ Ãß°¡ - ¿äÃ»¹ÞÀº »ç¶÷, ¸ðµç ÇÊµå »ç¿ë
-	MSG_EXCHANGE_ITEM_DEL,			// ¾ÆÀÌÅÛ Á¦°Å - ACTION/ITEM INDEX/COUNT
-	MSG_EXCHANGE_ITEM_DEL_SRC,		// ¾ÆÀÌÅÛ Á¦°Å - ¿äÃ»ÇÑ »ç¶÷, ACTION/ITEM INDEX/COUNT »ç¿ë
-	MSG_EXCHANGE_ITEM_DEL_DEST,		// ¾ÆÀÌÅÛ Á¦°Å - ¿äÃ»¹ÞÀº »ç¶÷, ACTION/ITEM INDEX/COUNT »ç¿ë
-	MSG_EXCHANGE_ITEM_UPDATE_SRC,	// ¾ÆÀÌÅÛ ¼ö·® º¯°æ - ¿äÃ»ÇÑ »ç¶÷, ACTION/ITEM INDEX/COUNT »ç¿ë
-	MSG_EXCHANGE_ITEM_UPDATE_DEST,	// ¾ÆÀÌÅÛ ¼ö·® º¯°æ - ¿äÃ»¹ÞÀº »ç¶÷, ACTION/ITEM INDEX/COUNT »ç¿ë
+	MSG_EXCHANGE_ITEM_ADD,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_ADD_SRC,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_ADD_DEST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_DEL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ACTION/ITEM INDEX/COUNT
+	MSG_EXCHANGE_ITEM_DEL_SRC,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½, ACTION/ITEM INDEX/COUNT ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_DEL_DEST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ACTION/ITEM INDEX/COUNT ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_UPDATE_SRC,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½, ACTION/ITEM INDEX/COUNT ï¿½ï¿½ï¿½
+	MSG_EXCHANGE_ITEM_UPDATE_DEST,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ACTION/ITEM INDEX/COUNT ï¿½ï¿½ï¿½
 } MSG_EXCHANGE_ITEM_ACTION;
 
 typedef enum _tagMsgMemposType
 {
-	MSG_MEMPOS_LIST,			// ±â¾ïÀå¼Ò ¸®½ºÆ® Àü´Þ	: count(uc) [slot(c) zone(n) x(f) z(f) comment(str)] ¹Ýº¹ busetime(n)
-	MSG_MEMPOS_WRITE,			// ±â¾ïÀå¼Ò ¾²±â		: slot(c) comment(str) zone(n) x(f) z(f)
-	MSG_MEMPOS_MOVE,			// ±â¾ï Àå¼Ò·Î ÀÌµ¿		: slot(c)
+	MSG_MEMPOS_LIST,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½	: count(uc) [slot(c) zone(n) x(f) z(f) comment(str)] ï¿½Ýºï¿½ busetime(n)
+	MSG_MEMPOS_WRITE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: slot(c) comment(str) zone(n) x(f) z(f)
+	MSG_MEMPOS_MOVE,			// ï¿½ï¿½ï¿½ ï¿½ï¿½Ò·ï¿½ ï¿½Ìµï¿½		: slot(c)
 } MSG_MEMPOS_TYPE;
 
 typedef enum _tagMsgEnvType
 {
-	MSG_ENV_TAX_CHANGE,			// ¼¼À² º¯°æ	: zone(n) sellrate(n) buyrate(n)
-	MSG_ENV_WEATHER,			// ³¯¾¾ º¯°æ	: weather(n)
-	MSG_ENV_TIME,				// ½Ã°£ ¾Ë¸²	: year(n) mon(c) day(c) hour(c) min(c) sec(c)
+	MSG_ENV_TAX_CHANGE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: zone(n) sellrate(n) buyrate(n)
+	MSG_ENV_WEATHER,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: weather(n)
+	MSG_ENV_TIME,				// ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: year(n) mon(c) day(c) hour(c) min(c) sec(c)
 } MSG_ENV_TYPE;
 
 typedef enum _tagMsgGMType
 {
-	MSG_GM_WHOAMI,				// ¿î¿µÀÚ ·¹º§ È®ÀÎ : level(uc)
-	MSG_GM_COMMAND,				// ¿î¿µÀÚ ¸í·É	: command(str)
+	MSG_GM_WHOAMI,				// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ : level(uc)
+	MSG_GM_COMMAND,				// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: command(str)
 } MSG_GM_TYPE;
 
 typedef enum _tagMsgPartyType
 {
-	MSG_PARTY_INVITE,			// ÆÄÆ¼ ÃÊ´ë			: party_type(c) src_index(n) src_name(str) : Å¬¶óÀÌ¾ðÆ®¿¡¼­ ¼­¹ö·Î ¿Ã¶§´Â destÀÇ Á¤º¸
-	MSG_PARTY_ALLOW,			// ÃÊ´ë ¼ö¶ô			: 
-	MSG_PARTY_REJECT,			// ÃÊ´ë °ÅÀý/Ãë¼Ò ¿äÃ»	: 
-	MSG_PARTY_REJECT_SRC,		// ÃÊ´ë °ÅÀý/Ãë¼Ò ÀÀ´ä	: 
-	MSG_PARTY_REJECT_DEST,		// ÃÊ´ë °ÅÀý/Ãë¼Ò ÀÀ´ä	: 
-	MSG_PARTY_ADD,				// ÆÄÆ¼¿ø Ãß°¡			: is_boss(c) char_index(n) char_name(str) job(c) job2(c) level(n) cur_hp(n) max_hp(n) cur_mp(n) max_mp(n) x(f) z(f) ylayer(c) zone(n)
-	MSG_PARTY_QUIT,				// ÆÄÆ¼ Å»Åð			: char_index(n)
-	MSG_PARTY_KICK,				// ÆÄÆ¼¿ø Ãß¹æ			: char_index(n)
-	MSG_PARTY_END,				// ÆÄÆ¼ ÇØÃ¼			: 
-	MSG_PARTY_MEMBER_INFO,		// ÆÄÆ¼¿ø Á¤º¸			: char_index(n) level(n) cur_hp(n) max_hp(n) cur_mp(n) max_mp(n) x(f) z(f) h(f) r(f) ylayer(c) zone(n)
-	MSG_PARTY_ERROR,			// ÆÄÆ¼ °ü·Ã ¿¡·¯		: errorcode(c)
-	MSG_PARTY_ASSISTINFO,		// ÆÄÆ¼¿ø º¸Á¶ È¿°ú Á¤º¸: char_index(n) assist_state(n:s) assist_count(c:s) [itemidx(n:s) index(n:s) level(c:s) remain(n:s)]:count
-	MSG_PARTY_CHANGEBOSS,		// ÆÄÆ¼Àå À§ÀÓ	C->S	: charname(str)
+	MSG_PARTY_INVITE,			// ï¿½ï¿½Æ¼ ï¿½Ê´ï¿½			: party_type(c) src_index(n) src_name(str) : Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ destï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PARTY_ALLOW,			// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½			: 
+	MSG_PARTY_REJECT,			// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: 
+	MSG_PARTY_REJECT_SRC,		// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: 
+	MSG_PARTY_REJECT_DEST,		// ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: 
+	MSG_PARTY_ADD,				// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ß°ï¿½			: is_boss(c) char_index(n) char_name(str) job(c) job2(c) level(n) cur_hp(n) max_hp(n) cur_mp(n) max_mp(n) x(f) z(f) ylayer(c) zone(n)
+	MSG_PARTY_QUIT,				// ï¿½ï¿½Æ¼ Å»ï¿½ï¿½			: char_index(n)
+	MSG_PARTY_KICK,				// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ß¹ï¿½			: char_index(n)
+	MSG_PARTY_END,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼			: 
+	MSG_PARTY_MEMBER_INFO,		// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: char_index(n) level(n) cur_hp(n) max_hp(n) cur_mp(n) max_mp(n) x(f) z(f) h(f) r(f) ylayer(c) zone(n)
+	MSG_PARTY_ERROR,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(c)
+	MSG_PARTY_ASSISTINFO,		// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: char_index(n) assist_state(n:s) assist_count(c:s) [itemidx(n:s) index(n:s) level(c:s) remain(n:s)]:count
+	MSG_PARTY_CHANGEBOSS,		// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	C->S	: charname(str)
 								// S->C			        : bossname(str) newbossindex(n) newname(str) bmandate(c)
-	MSG_PARTY_EMPTY,			// ÆÄÆ¼ ¾øÀ½			: 
-	MSG_PARTY_CHANGETYPE,		// ÆÄÆ¼ Á¾·ù º¯°æ		: party_type(c)
-	MSG_PARTY_ENDPARTY_REQ,		// ÆÄÆ¼ ÇØÁ¦ ¿äÃ»
-	MSG_PARTY_ENDPARTY_START,  // ÆÄÆ¼ ÇØÃ¼ ½ÃÀÛ ¾Ë¸²(20ÃÊ ÈÄ¿¡)
-	MSG_PARTY_INZONE_CLEAR_REQ, // ÆÄÆ¼ ÀÎ½ºÅÏÆ® Á¸ ÃÊ±âÈ­
-	MSG_PARTY_INZONE_CLEAR_REP,  // ÆÄÆ¼ ÀÎ½ºÅÏÆ® Á¸ ÃÊ±âÈ­ ÀÀ´ä
-	MSG_PARTY_TYPEINFO,						// ÆÄÆ¼Å¸ÀÔ Á¤º¸ 
+	MSG_PARTY_EMPTY,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½			: 
+	MSG_PARTY_CHANGETYPE,		// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: party_type(c)
+	MSG_PARTY_ENDPARTY_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_PARTY_ENDPARTY_START,  // ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½(20ï¿½ï¿½ ï¿½Ä¿ï¿½)
+	MSG_PARTY_INZONE_CLEAR_REQ, // ï¿½ï¿½Æ¼ ï¿½Î½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	MSG_PARTY_INZONE_CLEAR_REP,  // ï¿½ï¿½Æ¼ ï¿½Î½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+	MSG_PARTY_TYPEINFO,						// ï¿½ï¿½Æ¼Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 } MSG_PARTY_TYPE;
 
 typedef enum _tagMsgPartyErrorType
 {
-	MSG_PARTY_ERROR_NOTFOUND,			// ´ë»óÀÌ ¾øÀ½			:
-	MSG_PARTY_ERROR_ALREADY_ME,			// ³»°¡ ÀÌ¹Ì ÆÄÆ¼ Áß	:
-	MSG_PARTY_ERROR_FULL,				// ÆÄÆ¼ °¡µæÂü			:
-	MSG_PARTY_ERROR_ALREADY_TARGET,		// ´ë»óÀÌ ÀÌ¹Ì ÆÄÆ¼ Áß	:
-	MSG_PARTY_ERROR_ALREADY_REQUEST,	// ÀÌ¹Ì ÆÄÆ¼ ½ÅÃ» Áß	:
-	MSG_PARTY_ERROR_DIFF_TYPE,			// ÆÄÆ¼ ÇüÅÂ°¡ Æ²¸²		:
-	MSG_PARTY_ERROR_NOT_BOSS,			// ÆÄÆ¼ÀåÀÌ ¾Æ´Ï¶ó¼­ ¼öÇà ºÒ°¡
-	MSG_PARTY_ERROR_INVALID_LEVEL,      // ·¹º§ÀÌ ¸ÂÁö ¾Ê¾Æ ÆÄÆ¼ ºÒ°¡
-	MSG_PARTY_ERROR_NOT_PARTY,			// ÆÄÆ¼ÁßÀÌ ¾Æ´Õ´Ï´Ù
-	MSG_PARTY_ERROR_NOT_PARTY_MEMBER,	// ÆÄÆ¼¿øÀÌ ¾Æ´Õ´Ï´Ù.
-	MSG_PARTY_ERROR_PVP,				// PVP Áß¿¡´Â ÆÄÆ¼ ºÒ°¡
-	MSG_PARTY_ERROR_INZONECLEAR_FAIL,	// ÀÎÁ¸ Å¬¸®¾î ½ÇÆÐ
-	MSG_PARTY_ERROR_DO_NOT_CHANGE_BOSS,	// [090728: selo] ¸ó½ºÅÍ ÄÞº¸ Áß¿¡ ÆÄÆ¼Àå º¯°æ ºÒ°¡
-	MSG_PARTY_ERROR_LEVEL_CHANGE_BOSS,	// ·¹º§ÀÌ ¸ÂÁö ¾Ê¾Æ ÆÄÆ¼Àå À§ÀÓÀ» ÇÒ ¼ö ¾ø½À´Ï´Ù.
+	MSG_PARTY_ERROR_NOTFOUND,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			:
+	MSG_PARTY_ERROR_ALREADY_ME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½	:
+	MSG_PARTY_ERROR_FULL,				// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½			:
+	MSG_PARTY_ERROR_ALREADY_TARGET,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½	:
+	MSG_PARTY_ERROR_ALREADY_REQUEST,	// ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½ï¿½	:
+	MSG_PARTY_ERROR_DIFF_TYPE,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½Â°ï¿½ Æ²ï¿½ï¿½		:
+	MSG_PARTY_ERROR_NOT_BOSS,			// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_PARTY_ERROR_INVALID_LEVEL,      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½Æ¼ ï¿½Ò°ï¿½
+	MSG_PARTY_ERROR_NOT_PARTY,			// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½
+	MSG_PARTY_ERROR_NOT_PARTY_MEMBER,	// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_PARTY_ERROR_PVP,				// PVP ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½Ò°ï¿½
+	MSG_PARTY_ERROR_INZONECLEAR_FAIL,	// ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PARTY_ERROR_DO_NOT_CHANGE_BOSS,	// [090728: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ ï¿½ß¿ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_PARTY_ERROR_LEVEL_CHANGE_BOSS,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	
 } MSG_PARTY_ERROR_TYPE;
 
 typedef enum _tagMsgQuickSlotType
 {
-	MSG_QUICKSLOT_LIST,			// Äü½½·Ô ¸®½ºÆ®		: page(uc) [slottype(c) skilltype(n) or actiontype(n) or  row(c) col(c)] 10È¸¹Ýº¹
-	MSG_QUICKSLOT_ADD,			// Äü½½·Ô Ãß°¡, »èÁ¦	: page(uc) slot(uc) slottype(c) skilltype(n) or actiontype(n) or row(c) col(c)
-	MSG_QUICKSLOT_SWAP,			// Äü½½·Ô ½º¿Ò			: page(uc) slotNum1(uc) slotNum2(uc)
+	MSG_QUICKSLOT_LIST,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		: page(uc) [slottype(c) skilltype(n) or actiontype(n) or  row(c) col(c)] 10È¸ï¿½Ýºï¿½
+	MSG_QUICKSLOT_ADD,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½ï¿½ï¿½	: page(uc) slot(uc) slottype(c) skilltype(n) or actiontype(n) or row(c) col(c)
+	MSG_QUICKSLOT_SWAP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: page(uc) slotNum1(uc) slotNum2(uc)
 } MSG_QUICKSLOT_TYPE;
 
 typedef enum _tagMsgSkillType
 {
-	MSG_SKILL_LIST,				// ½ºÅ³ ¸®½ºÆ®			: count(n) [skill_index(n) skill_level(c)] * count
-	MSG_SKILL_LEARN,			// ½ºÅ³ ¹è¿ì±â			: skill_index(n) is_new(uc) skill_level(c)
-	MSG_SKILL_READY,			// ½ºÅ³ ½ÃÀü			: char_type(c) char_index(n) skill_index(n) target_type(c) target_index(n) skillspeed(n)
-	MSG_SKILL_FIRE,				// ½ºÅ³ ¹ßµ¿			: char_type(c) char_index(n) skill_index(n) target_type(c) target_index(n) count(n) [target_type(c) target_index(n)] * count skillspeed(n) movechar(c) x(z) z(f) h(f) r(f) y(c)
-	MSG_SKILL_CANCEL,			// ½ºÅ³ Ãë¼Ò			: char_type(c) char_index(n)
-	MSG_SKILL_LEARN_ERROR,		// ¹è¿ì±â ¿À·ù ¹ß»ý		: errorcode(uc)
-	MSG_SKILL_ERROR,			// ½ºÅ³ °ü·Ã ¿À·ù		: errorcode(c) skillindex(n) extraInfo(n)
-	MSG_SKILL_AUTO_USE,		// ½ºÅ³ ÀÚµ¿ ½ÃÀüÃ» C->S: skillindex(n)
-	MSG_SKILL_NEWYEAR_2008,		// 2008³â ½Å³â ÀÌº¥Æ® ½ºÅ³ : charindex1(n), charindex2(n)
-	MSG_SKILL_HANARO_EVENT,  // ÇÏ³ª·Î ¿ÀÇÂ ÀÌº¥Æ®( ÃÊº¸ Áö¿ø»ç ½ºÅ³)
-	MSG_SKILL_LEARN_SEAL,		// ¾ÆÀÌÅÛ Á¦ÀÛ ½ºÅ³ ¹è¿ì±â
-	MSG_SKILL_SOUL,				// ÇöÀç ¿µÈ¥ÀÇ °³¼ö		: soulCount(n)           11¹øÀÓ
-	MSG_SKILL_MIDLEVEL_SUPPORT,		// ÁßÀú·¹º§ Áö¿ø»ç ½ºÅ³
-	MSG_SKILL_HIGHLEVEL_SUPPORT,		// °í·¹º§ Áö¿ø»ç ½ºÅ³
-	MSG_SKILL_USEEP,				// EP¸¦ ÀÌ¿ëÇÑ ½ºÅ³ »ç¿ë
-	MSG_SKILL_ERROR_NOT_EXIST_NPC,	// NPC°¡ ³Ê¹« ¸Ö
-	MSG_SKILL_RESET_COOLTIME,		// ÄðÅ¸ÀÓ ÃÊ±âÈ­
-	MSG_SKILL_TOGGLE,				// Åä±Û On/Off
+	MSG_SKILL_LIST,				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®			: count(n) [skill_index(n) skill_level(c)] * count
+	MSG_SKILL_LEARN,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½			: skill_index(n) is_new(uc) skill_level(c)
+	MSG_SKILL_READY,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½			: char_type(c) char_index(n) skill_index(n) target_type(c) target_index(n) skillspeed(n)
+	MSG_SKILL_FIRE,				// ï¿½ï¿½Å³ ï¿½ßµï¿½			: char_type(c) char_index(n) skill_index(n) target_type(c) target_index(n) count(n) [target_type(c) target_index(n)] * count skillspeed(n) movechar(c) x(z) z(f) h(f) r(f) y(c)
+	MSG_SKILL_CANCEL,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½			: char_type(c) char_index(n)
+	MSG_SKILL_LEARN_ERROR,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½		: errorcode(uc)
+	MSG_SKILL_ERROR,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(c) skillindex(n) extraInfo(n)
+	MSG_SKILL_AUTO_USE,		// ï¿½ï¿½Å³ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½Ã» C->S: skillindex(n)
+	MSG_SKILL_NEWYEAR_2008,		// 2008ï¿½ï¿½ ï¿½Å³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½Å³ : charindex1(n), charindex2(n)
+	MSG_SKILL_HANARO_EVENT,  // ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®( ï¿½Êºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³)
+	MSG_SKILL_LEARN_SEAL,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_SOUL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: soulCount(n)           11ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_MIDLEVEL_SUPPORT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+	MSG_SKILL_HIGHLEVEL_SUPPORT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+	MSG_SKILL_USEEP,				// EPï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_NOT_EXIST_NPC,	// NPCï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½
+	MSG_SKILL_RESET_COOLTIME,		// ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	MSG_SKILL_TOGGLE,				// ï¿½ï¿½ï¿½ On/Off
 	MSG_SKILL_REMOVE_BUFF,
 	MSG_SKILL_ARENA_HEAL,
 } MSG_SKILL_TYPE;
 
 typedef enum _tagMsgSkillErrorType
 {
-// 050401 : bs : ½ºÅ³ »ç¿ë ºÒ°¡ »óÅÂ
-	MSG_SKILL_ERROR_ALREADY_USE,			// ´Ù¸¥ ½ºÅ³ »ç¿ëÁß
-	MSG_SKILL_ERROR_NOTFOUND,				// ±×·± ½ºÅ³ ¾ø¾î¿ä
-	MSG_SKILL_ERROR_NOTREADY,				// ½ºÅ³ ÁØºñ Áß... Áï, ÀÌÀü ½ºÅ³ ½ÃÀüÈÄ ´ÙÀ½ ½ºÅ³ °¡´É ½Ã°£ÀÌ ¾ÈµÇ¾úÀ»¶§
-	MSG_SKILL_ERROR_INVAL_TARGET,			// Å¸°ÙÀÌ Àß¸øµÇ¾úÀ½
-	MSG_SKILL_ERROR_INSUFF_HP,				// Á¶°ÇÀÌ ºÎÁ·ÇÔ HP
-	MSG_SKILL_ERROR_INSUFF_MP,				// Á¶°ÇÀÌ ºÎÁ·ÇÔ MP
-	MSG_SKILL_ERROR_INSUFF_ITEM,			// Á¶°ÇÀÌ ºÎÁ·ÇÔ Item
-	MSG_SKILL_ERROR_LONG,					// ¸Ö¾î¼­ ¾ÈµÊ
-	MSG_SKILL_ERROR_INVAL_STATE_DEATH,		// »óÅÂ ºÒ¸¸Á· : Á×¾î¼­¸¸ °¡´É
-	MSG_SKILL_ERROR_INVAL_STATE_WEAPON,		// »óÅÂ ºÒ¸¸Á· : ¹«±â Àåºñ½Ã¸¸ °¡´É
-	MSG_SKILL_ERROR_INVAL_STATE_SITDOWN,	// »óÅÂ ºÒ¸¸Á· : ¾É¾Æ¼­¸¸ °¡´É
-	MSG_SKILL_ERROR_INVAL_STATE_PEACEZONE,	// »óÅÂ ºÒ¸¸Á· : ÇÇ½ºÁ¸ ºÒ°¡´É
-	MSG_SKILL_ERROR_INVAL_STATE_STAND,		// »óÅÂ ºÒ¸¸Á· : ¼­¼­¸¸ °¡´É
-	MSG_SKILL_ERROR_INVAL_STATE_SHIELD,		// »óÅÂ ºÒ¸¸Á· : ¹æÆÐ ¹ÌÂø¿ë
-	MSG_SKILL_ERROR_INVAL_STATE_MAGIC,		// »óÅÂ ºÒ¸¸Á· : ÇÊ¿ä ¹öÇÁ ºÒÃæºÐ
-	MSG_SKILL_ERROR_STATPOINT_STR,			// Èû ºÎÁ·
-	MSG_SKILL_ERROR_STATPOINT_DEX,			// ¹ÎÃ¸ ºÎÁ·
-	MSG_SKILL_ERROR_STATPOINT_INT,			// ÁöÇý ºÎÁ·
-	MSG_SKILL_ERROR_STATPOINT_CON,			// Ã¼Áú ºÎÁ·
-	MSG_SKILL_ERROR_CANNOT_SPELL,			// ½ºÅ³ »ç¿ë ºÒ°¡´É »óÅÂ
-	MSG_SKILL_ERROR_TARGET_PKLIMITLEVEL,	// ½ºÅ³·Î °ø°ÝÇÒ ¼ö ¾ø´Â »óÅÂ ( pvp )
-// --- 050401 : bs : ½ºÅ³ »ç¿ë ºÒ°¡ »óÅÂ
-	MSG_SKILL_ERROR_ELEMENTAL_TIME,			// ¼ÒÈ¯ ºÒ°¡´É : ¼ÒÈ¯¼ö »ç¸ÁÈÄ 5ºÐµ¿¾È ¼ÒÈ¯ ºÒ°¡
-	MSG_SKILL_ERROR_ELEMENTAL_FIRE,			// ¼ÒÈ¯ ºÒ°¡´É : ºÒÀÇÁ¤·É°ú Áßº¹ ºÒ°¡
-	MSG_SKILL_ERROR_ELEMENTAL_WIND,			// ¼ÒÈ¯ ºÒ°¡´É : ¹Ù¶÷ÀÇÁ¤·É°ú Áßº¹ ºÒ°¡
-	MSG_SKILL_ERROR_ELEMENTAL_EARTH,		// ¼ÒÈ¯ ºÒ°¡´É : ´ëÁöÀÇÁ¤·É°ú Áßº¹ ºÒ°¡
-	MSG_SKILL_ERROR_ELEMENTAL_WATER,		// ¼ÒÈ¯ ºÒ°¡´É : ¹°ÀÇÁ¤·É°ú Áßº¹ ºÒ°¡
-	MSG_SKILL_ERROR_EVOCATION_ALREADY,		// °­½Å ºÒ°¡´É : ÀÌ¹Ì °­½Å»óÅÂ
-	MSG_SKILL_ERROR_EVOCATION_TIME,			// °­½Å ºÒ°¡´É : °­½Å Á¾·áÈÄ 5ºÐµ¿¾È ºÒ°¡
+// 050401 : bs : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_ALREADY_USE,			// ï¿½Ù¸ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_NOTFOUND,				// ï¿½×·ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_NOTREADY,				// ï¿½ï¿½Å³ ï¿½Øºï¿½ ï¿½ï¿½... ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_TARGET,			// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INSUFF_HP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HP
+	MSG_SKILL_ERROR_INSUFF_MP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MP
+	MSG_SKILL_ERROR_INSUFF_ITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Item
+	MSG_SKILL_ERROR_LONG,					// ï¿½Ö¾î¼­ ï¿½Èµï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_DEATH,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½×¾î¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_WEAPON,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_SITDOWN,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½É¾Æ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_PEACEZONE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_STAND,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_SHIELD,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_MAGIC,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ : ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_STATPOINT_STR,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_STATPOINT_DEX,			// ï¿½ï¿½Ã¸ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_STATPOINT_INT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_STATPOINT_CON,			// Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_CANNOT_SPELL,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_TARGET_PKLIMITLEVEL,	// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( pvp )
+// --- 050401 : bs : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_ELEMENTAL_TIME,			// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½Ðµï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ò°ï¿½
+	MSG_SKILL_ERROR_ELEMENTAL_FIRE,			// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É°ï¿½ ï¿½ßºï¿½ ï¿½Ò°ï¿½
+	MSG_SKILL_ERROR_ELEMENTAL_WIND,			// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É°ï¿½ ï¿½ßºï¿½ ï¿½Ò°ï¿½
+	MSG_SKILL_ERROR_ELEMENTAL_EARTH,		// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É°ï¿½ ï¿½ßºï¿½ ï¿½Ò°ï¿½
+	MSG_SKILL_ERROR_ELEMENTAL_WATER,		// ï¿½ï¿½È¯ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É°ï¿½ ï¿½ßºï¿½ ï¿½Ò°ï¿½
+	MSG_SKILL_ERROR_EVOCATION_ALREADY,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_EVOCATION_TIME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½Ðµï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 
-	MSG_SKILL_ERROR_CANNOT_INVISIBLE,		// ¸÷¿¡°Ô Å¸°ÔÆÃ µÇ¾î ÀÎºñÀúºô¸®Æ¼ ºÒ°¡´É
-	MSG_SKILL_ERROR_CANNOT_DEATHMOTION_ANOTHER_PC,	// 15¹ÌÅÍ ÀÌ³»¿¡ ´Ù¸¥ À¯Àú°¡ ÀÖ¾î µ¥½º¸ð¼Ç ºÒ°¡´É
-	MSG_SKILL_ERROR_MISS_ROGUE_SKILL,		// ¿ÍÀÏµå ¶ó½î ½ºÅ³(index 125) ½ÇÆÐ
-	MSG_SKILL_ERROR_COMPETITION,			// ´ëÀü¿ë ¾ÆÀÌÅÛ »ç¿ë ½Ã°£ÀÌ ¾ÈµÇ¾úÀ½
-	MSG_SKILL_ERROR_INVAL_STATE_DARKNESS,	// »çµµ¸ðµåÀÏ¶§ »ç¿ë ºÒ°¡ ½ºÅ³
-	MSG_SKILL_ERROR_WARP_CAN_NOT_GO_THERE,		// Áß°£¿¡ °¡·Î¸·È÷°Å³ª °¥ ¼ö ¾ø´Â °÷ÀÌ´Ù
-	MSG_SKILL_ERROR_SOUL_COUNT_ALREADY_FULL,	// ¿µÈ¥ ¼ÒÀ¯ °³¼ö°¡ ÃÖ´ëÀÌ´Ù.    34
-	MSG_SKILL_ERROR_CANNOT_TO_PC,			// PC¿¡°Ô »ç¿ë ºÒ°¡´ÉÇÏ´Ù.(PK ¶§µµ ºÒ°¡´É)   35
-	MSG_SKILL_ERROR_DONT_HAS_SOUL,			// ÀÌ¹Ì ¿µÈ¥À» »©¾Ñ°Ü¼­ ¿µÈ¥ÀÌ ¾ø´Ù.	36
-	MSG_SKILL_ERROR_INSUFF_GP,	 			// GP°¡ ºÎÁ·ÇÏ¿© ½ºÅ³ »ç¿ëÀÌ ºÒ°¡´ÉÇÔ. (37)
-	MSG_SKILL_ERROR_NOT_GUILD_MASTER,		// ½ºÅ³»ç¿ëÀÚ°¡ ±æµå¸¶½ºÅÍ°¡ ¾Æ´Ô (38)
-	MSG_SKILL_ERROR_INVAL_STATE_PSERSONAL_DUNGEON,  // ½Ì±Û ´øÀü¿¡¼­ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SKILL_ERROR_DUPLICATE,					// ¾ÆÀÌÅÛ Áßº¹»ç¿ë
-	MSG_SKILL_ERROR_CANNOT_ZONE,				// ÇöÀç Á¸¿¡¼­´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_SKILL_ERROR_NON_MSG,					// ½ºÅ³ »ç¿ë ¿¡·¯, Ãâ·ÂX
+	MSG_SKILL_ERROR_CANNOT_INVISIBLE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_CANNOT_DEATHMOTION_ANOTHER_PC,	// 15ï¿½ï¿½ï¿½ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_MISS_ROGUE_SKILL,		// ï¿½ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³(index 125) ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_COMPETITION,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_INVAL_STATE_DARKNESS,	// ï¿½çµµï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½Å³
+	MSG_SKILL_ERROR_WARP_CAN_NOT_GO_THERE,		// ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½
+	MSG_SKILL_ERROR_SOUL_COUNT_ALREADY_FULL,	// ï¿½ï¿½È¥ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½Ì´ï¿½.    34
+	MSG_SKILL_ERROR_CANNOT_TO_PC,			// PCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.(PK ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½)   35
+	MSG_SKILL_ERROR_DONT_HAS_SOUL,			// ï¿½Ì¹ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ°Ü¼ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.	36
+	MSG_SKILL_ERROR_INSUFF_GP,	 			// GPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½. (37)
+	MSG_SKILL_ERROR_NOT_GUILD_MASTER,		// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Æ´ï¿½ (38)
+	MSG_SKILL_ERROR_INVAL_STATE_PSERSONAL_DUNGEON,  // ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SKILL_ERROR_DUPLICATE,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_ERROR_CANNOT_ZONE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_SKILL_ERROR_NON_MSG,					// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½X
 	MSG_SKILL_ERROR_CANNOT_ARTIFACT_INVIS,
-	//MSG_SKILL_ERROR_CANNOT_USE_AFFINITY_BOOSTER,  //Ä£È­µµ ºÎ½ºÅÍ´Â Áßº¹ »ç¿ëÀÌ ºÒ°¡´É ÇÕ´Ï´Ù.(40)	2012/11/13 jeil Ä£È­µµ ºÎ½ºÅÍ ¾ÆÀÌÅÆ°ü·Ã Ãß°¡ 
-// --- 050401 : bs : ½ºÅ³ »ç¿ë ºÒ°¡ »óÅÂ
+	//MSG_SKILL_ERROR_CANNOT_USE_AFFINITY_BOOSTER,  //Ä£È­ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Í´ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.(40)	2012/11/13 jeil Ä£È­ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
+// --- 050401 : bs : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_SKILL_ERROR_TYPE;
 
 typedef enum _tagMsgAssistType
 {
-	MSG_ASSIST_ADD,				// »óÅÂ º¯È­ Ãß°¡		: chartype(c) charidx(n) itemidx(n) index(n) level(c) time(n)
-	MSG_ASSIST_DEL,				// »óÅÂ º¯È­ Á¦°Å		: chartype(c) charidx(n) itemidx(n) index(n)
-	MSG_ASSIST_LIST,			// ¸®½ºÆ® Àü´Þ(ÀÚ½Å¿¡°Ô): state(n) count(c) [itemidx(n) index(n) level(c) time(n)]:count
-	MSG_ASSIST_MODIFY,			//2012/11/12 jeil Ãß°¡ 1119ºôµå ½ºÅ³È®Àå ¹öÇÁ/µð¹öÇÁ ¼öÁ¤ : chartype(c) charidx(n) itemidx(n) index(n) level(c) time(n) count(n)
+	MSG_ASSIST_ADD,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ß°ï¿½		: chartype(c) charidx(n) itemidx(n) index(n) level(c) time(n)
+	MSG_ASSIST_DEL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½		: chartype(c) charidx(n) itemidx(n) index(n)
+	MSG_ASSIST_LIST,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½(ï¿½Ú½Å¿ï¿½ï¿½ï¿½): state(n) count(c) [itemidx(n) index(n) level(c) time(n)]:count
+	MSG_ASSIST_MODIFY,			//2012/11/12 jeil ï¿½ß°ï¿½ 1119ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : chartype(c) charidx(n) itemidx(n) index(n) level(c) time(n) count(n)
 } MSG_ASSIST_TYPE;
 
 typedef enum _tagMsgEffectType
 {
-	MSG_EFFECT_SKILL,			// ½ºÅ³ ÀÌÆåÆ®			: skill_index(n) targettype(c) target_index(n)
-	MSG_EFFECT_ETC,				// ±âÅ¸ ÀÌÆåÆ®			: type(c) chartype(c) char_index(n) effect_type(uc)
-	MSG_EFFECT_PRODUCE,			// »ý»ê ÀÌÆåÆ®			: type(c) chartype(c) char_index(n) target_chartype(c) target_index(n) target_hp(n)
-	MSG_EFFECT_ITEM,			// ¾ÆÀÌÅÛ »ç¿ë ÀÌÆåÆ®	: type(c) chartype(c) char_index(n) item_db_idx(n)
-	MSG_EFFECT_FIRE,			// ºÒ±âµÕ ÀÌÆåÆ®		: type(c) 
+	MSG_EFFECT_SKILL,			// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®			: skill_index(n) targettype(c) target_index(n)
+	MSG_EFFECT_ETC,				// ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½Æ®			: type(c) chartype(c) char_index(n) effect_type(uc)
+	MSG_EFFECT_PRODUCE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®			: type(c) chartype(c) char_index(n) target_chartype(c) target_index(n) target_hp(n)
+	MSG_EFFECT_ITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®	: type(c) chartype(c) char_index(n) item_db_idx(n)
+	MSG_EFFECT_FIRE,			// ï¿½Ò±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		: type(c) 
 } MSG_EFFECT_TYPE;
 
 typedef enum _tagMsgEffectEtcType
 {
-	MSG_EFFECT_ETC_LEVELUP,				// ·¹º§¾÷ ÀÌÆåÆ®
-	MSG_EFFECT_ETC_GOZONE,				// Gozone ÀÌÆåÆ®
-	MSG_EFFECT_ETC_PRODUCE_MINING,		// ±¤¼® ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_PRODUCE_GATHERING,	// ½Ä¹° ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_PRODUCE_CHARGE,		// ¿ø¼Ò ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_ITEM_PROCESS,		// °¡°ø ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_ITEM_MAKE,			// Á¦ÀÛ ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_MP_STEEL,			// MP ½ºÆ¿ ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_HP_STEEL,			// HP ½ºÆ¿ ¼º°ø ÀÌÆåÆ®
-	MSG_EFFECT_ETC_FIRECRACKER,			// ÆøÁ× ¾ÆÀÌÅÛ 
-	MGS_EFFECT_ETC_COMPETITION,			// ´ëÀü¿ë ¾ÆÀÌÅÛ ÀÌÆåÆ®
-	MSG_EFFECT_ETC_RANDOM_EXP,			// ·»´ý °æÇëÄ¡ ÁõÆø 
-	MSG_EFFECT_ETC_RANDOM_SP,			// ·»´ý SP ÁõÆø
-	MSG_EFFECT_ETC_RANDOM_DROP,			// ·»´ý µå¶ø·ü ÁõÆø
+	MSG_EFFECT_ETC_LEVELUP,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_GOZONE,				// Gozone ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_PRODUCE_MINING,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_PRODUCE_GATHERING,	// ï¿½Ä¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_PRODUCE_CHARGE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_ITEM_PROCESS,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_ITEM_MAKE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_MP_STEEL,			// MP ï¿½ï¿½Æ¿ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_HP_STEEL,			// HP ï¿½ï¿½Æ¿ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_FIRECRACKER,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	MGS_EFFECT_ETC_COMPETITION,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_EFFECT_ETC_RANDOM_EXP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EFFECT_ETC_RANDOM_SP,			// ï¿½ï¿½ï¿½ï¿½ SP ï¿½ï¿½ï¿½ï¿½
+	MSG_EFFECT_ETC_RANDOM_DROP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EFFECT_ETC_TYPE;
 
 typedef enum _tagQuestType
 {
-	MSG_QUEST_PC_LIST,			// Äù½ºÆ® ¸®½ºÆ®(PC)	: quest_count(n) [quest_index(n) current_count0-2(n)] quest_count ¸¸Å­ ¹Ýº¹
-	MSG_QUEST_REQUEST,			// Äù½ºÆ® ¿äÃ»			: npc_index(n)
-	MSG_QUEST_NPC_LIST,			// Äù½ºÆ® ¸®½ºÆ®(NPC)	: quest_count(n) [quest_index(n) flag(c)]
-	MSG_QUEST_CREATE_LIST,		// Äù½ºÆ® ¸®½ºÆ®(»ý¼º)	: quest_count(n) [quest_index(n)]
-	MSG_QUEST_START,			// Äù½ºÆ® ½ÃÀÛ			: quest_index(n)
-	MSG_QUEST_COMPLETE,			// Äù½ºÆ® ¿Ï·á			: quest_index(n)
-	MSG_QUEST_STATUS,			// Äù½ºÆ® ÇöÈ²			: quest_index(n) current_count0-2(n)
-	MSG_QUEST_PRIZE,			// Äù½ºÆ® º¸»ó			: quest_index(n)
-	MSG_QUEST_GIVEUP,			// Äù½ºÆ® Æ÷±â			: quest_index(n)
-	MSG_QUEST_FAIL,				// Äù½ºÆ® ½ÇÆÐ			: quest_index(n)
-	MSG_QUEST_ERROR,			// Äù½ºÆ® ¿¡·¯			: error_type(c)
-	MSG_QUEST_DONE_LIST,		// ¼öÇà¿Ï·á Äù½ºÆ® ¸®½ºÆ® : quest_count(n) [quest_index(n)]
-	MSG_QUEST_ABANDON_LIST,		// ¼öÇàÆ÷±â Äù½ºÆ® ¸®½ºÆ® : quest_count(n) [quest_index(n)]
-	MSG_QUEST_FORCE_GIVEUP,		// Äù½ºÆ® °­Á¦ Æ÷±â(·¹º§¾÷¿¡ ÀÇÇÑ..) : quest_index(n)
-	MSG_QUEST_UNCOMPLETE,		// Äù½ºÆ® ¿Ï·á->¹Ì¿Ï·á	: quest_index(n)
+	MSG_QUEST_PC_LIST,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®(PC)	: quest_count(n) [quest_index(n) current_count0-2(n)] quest_count ï¿½ï¿½Å­ ï¿½Ýºï¿½
+	MSG_QUEST_REQUEST,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»			: npc_index(n)
+	MSG_QUEST_NPC_LIST,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®(NPC)	: quest_count(n) [quest_index(n) flag(c)]
+	MSG_QUEST_CREATE_LIST,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®(ï¿½ï¿½ï¿½ï¿½)	: quest_count(n) [quest_index(n)]
+	MSG_QUEST_START,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: quest_index(n)
+	MSG_QUEST_COMPLETE,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½			: quest_index(n)
+	MSG_QUEST_STATUS,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È²			: quest_index(n) current_count0-2(n)
+	MSG_QUEST_PRIZE,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: quest_index(n)
+	MSG_QUEST_GIVEUP,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: quest_index(n)
+	MSG_QUEST_FAIL,				// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: quest_index(n)
+	MSG_QUEST_ERROR,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: error_type(c)
+	MSG_QUEST_DONE_LIST,		// ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® : quest_count(n) [quest_index(n)]
+	MSG_QUEST_ABANDON_LIST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® : quest_count(n) [quest_index(n)]
+	MSG_QUEST_FORCE_GIVEUP,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..) : quest_index(n)
+	MSG_QUEST_UNCOMPLETE,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½->ï¿½Ì¿Ï·ï¿½	: quest_index(n)
 
-	// ÆÛ½º³Î ´øÁ¯ 4¿ë ¸Þ¼¼Áö
-	MSG_QUEST_PD4_RANK_VIEW_REQ,		// ·©Å© ºä¿äÃ»	: charjob(c)
-	MSG_QUEST_PD4_RANK_VIEW_REP,		// ·©Å© ºäÀÀ´ä	: multicount(c) charname(str) bclear(c) deadmon(n) time(ll)   
-	MSG_QUEST_PD4_RANK_REWARD_RANK_REQ,	// º¸»ó ºä¿äÃ»
-	MSG_QUEST_PD4_RANK_REWARD_RANK_REP,	// º¸»ó ºäÀÀ´ä	: multicount(c) charname(str) itemindex(n) itemnum(c) breward(c)
-	MSG_QUEST_PD4_REWARD,				// º¸»ó ¿äÃ»
+	// ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 4ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+	MSG_QUEST_PD4_RANK_VIEW_REQ,		// ï¿½ï¿½Å© ï¿½ï¿½ï¿½Ã»	: charjob(c)
+	MSG_QUEST_PD4_RANK_VIEW_REP,		// ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: multicount(c) charname(str) bclear(c) deadmon(n) time(ll)   
+	MSG_QUEST_PD4_RANK_REWARD_RANK_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã»
+	MSG_QUEST_PD4_RANK_REWARD_RANK_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: multicount(c) charname(str) itemindex(n) itemnum(c) breward(c)
+	MSG_QUEST_PD4_REWARD,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_QUEST_PD4_ERROR,
 	
 #ifdef CUBE_RANKING_12202022
@@ -2305,14 +2309,14 @@ typedef enum _tagQuestType
 
 	MSG_QUEST_RANKING_PVP_REQ,
 	MSG_QUEST_RANKING_PVP_REP,
-	MSG_QUEST_COLLECT,			// ¼öÁý Äù½ºÆ®			: npcserverindex(n:c,s) charindex(n:s) itemdbindex(n:s)
-								// C->S·Î MSG_QUEST_COLLECT°¡ 8ÃÊ¿¡ °ÉÃÄ 4È¸¿À¸é Äù½ºÆ® ¾ÆÀÌÅÛÀ» Áö±ÞÇÔ
-								// itemdbindex > 0  : NPC´Â »ç¸ÁÇÏ°í itemdbindex¸¦ Áö±ÞÇÔ
-								// itemdbindex == 0 : NPC´Â »ç¸ÁÇÏ°í ¾ÆÀÌÅÛ Áö±Þ ¾øÀ½
-								// itemdbindex < 0  : NPC´Â ±×´ë·Î ÀÖ°í ¾ÆÀÌÅÛ Áö±Þ ¾øÀ½
+	MSG_QUEST_COLLECT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®			: npcserverindex(n:c,s) charindex(n:s) itemdbindex(n:s)
+								// C->Sï¿½ï¿½ MSG_QUEST_COLLECTï¿½ï¿½ 8ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ 4È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+								// itemdbindex > 0  : NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ itemdbindexï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+								// itemdbindex == 0 : NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+								// itemdbindex < 0  : NPCï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_QUEST_RESTORE_ABANDON ,	// Æ÷±â Äù½ºÆ® º¹±¸
-	MSG_QUEST_ITEM_REQ,			// ¿Ï·áµÈ Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â : nQuestIndex(n)
+	MSG_QUEST_RESTORE_ABANDON ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ITEM_REQ,			// ï¿½Ï·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½ : nQuestIndex(n)
 #ifdef GLADES_RANKING_04182023
 	MSG_QUEST_RANKING_GLADES_REQ, //dethunter12 add
 	MSG_QUEST_RANKING_GLADES_REP,
@@ -2321,38 +2325,38 @@ typedef enum _tagQuestType
 
 typedef enum _tagQuestListFlag
 {
-	MSG_QUEST_FLAG_NOT_LEVEL,		// ¼öÇà ºÒ°¡´É : ·¹º§
-	MSG_QUEST_FLAG_NOT_JOB,			// ¼öÇà ºÒ°¡´É : Á÷¾÷
-	MSG_QUEST_FLAG_NOT_ITEM,		// ¼öÇà ºÒ°¡´É : ¾ÆÀÌÅÛ
-	MSG_QUEST_FLAG_CAN,				// ¼öÇà °¡´É
-	MSG_QUEST_FLAG_ING,				// ¼öÇà Áß
-	MSG_QUEST_FLAG_COMPLETE,		// ¼öÇà ¿Ï·á
-	MSG_QUEST_FLAG_NOT_EXP,			// ¼öÇà ºÒ°¡´É : °æÇèÄ¡ ºÎÁ·.
-	MSG_QUEST_FLAG_NOT_PREQUEST,	// ¼öÇà ºÒ°¡´É : ¼±Çà Äù½ºÆ® ¹Ì¿Ï·á.
-	MSG_QUEST_FLAG_NOTENOUGH_AREA,	// ¼öÇà ºÒ°¡´É : ÆÛ½º³Î ´øÀü ¿©À¯ºÐ ºÎÁ·
-	MSG_QUEST_FLAG_OVERCOUNT,		// ¼öÇà ºÒ°¡´É : ÆÛ½º³Î ´øÀü ÀÔÀå Á¦ÇÑ ÃÊ°ú
-	MSG_QUEST_FLAG_NOT_PENALTY	,	// ¼öÇà ºÒ°¡´É : ¼ºÇâÄ¡ ºÎÁ·
+	MSG_QUEST_FLAG_NOT_LEVEL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_FLAG_NOT_JOB,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_FLAG_NOT_ITEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_FLAG_CAN,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_FLAG_ING,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_QUEST_FLAG_COMPLETE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
+	MSG_QUEST_FLAG_NOT_EXP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	MSG_QUEST_FLAG_NOT_PREQUEST,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ì¿Ï·ï¿½.
+	MSG_QUEST_FLAG_NOTENOUGH_AREA,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_FLAG_OVERCOUNT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½Û½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_QUEST_FLAG_NOT_PENALTY	,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 } MSG_QUEST_LIST_FLAG;
 
 typedef enum _tagMsgQuestErrorType
 {
-	MSG_QUEST_ERR_START_ONCE,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ÀÌ¹Ì ¼öÇàÇÑ 1È¸¿ë Äù½ºÆ®
-	MSG_QUEST_ERR_START_ALREADY,	// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ÀÌ¹Ì ¼öÇàÁßÀÓ
-	MSG_QUEST_ERR_START_LEVEL,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ·¹º§ Á¶°Ç ¾È¸ÂÀ½
-	MSG_QUEST_ERR_START_JOB,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : Á÷¾÷ Á¶°Ç ¾È¸ÂÀ½
-	MSG_QUEST_ERR_START_ITEM,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ¾ÆÀÌÅÛ Á¶°Ç ¾È¸ÂÀ½
-	MSG_QUEST_ERR_START_MAX,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ÃÖ´ë ¼öÇà °¡´É ¼ö ÃÊ°ú
-	MSG_QUEST_ERR_START_FULL,		// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : ½Ì±Û´øÀüÀÇ °æ¿ì ½Ì±Û´øÀü ²ËÂü
+	MSG_QUEST_ERR_START_ONCE,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	MSG_QUEST_ERR_START_ALREADY,	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_START_LEVEL,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_START_JOB,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_START_ITEM,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_START_MAX,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_QUEST_ERR_START_FULL,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ì±Û´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì±Û´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_QUEST_ERR_DELIVERY_FULL,	// Àü´Þ Äù½ºÆ® ½Ã : ÀÎº¥Åä¸®°¡ ²ËÂ÷¼­ ¾ÆÀÌÅÛ Äù½ºÆ® ¿¡·¯
-	MSG_QUEST_ERR_PRIZE_FULL,		// º¸»ó ¹ÞÀ»¶§ ÀÎº¥ ²Ë Â÷¼­ º¸»ó ½ÇÆÐ
-	MSG_QUEST_ERR_PRZIE_ITEM,		// º¸»ó ¹ÞÀ»¶§ ¾ÆÀÌÅÛ ¶§¹®¿¡ ¿À·ù
-	MSG_QUEST_ERR_PET_NOT_HAVE_ONEMORE,		// Æê ÇÏ³ª ÀÌ»ó ¼ÒÀ¯ ¸øÇÔ
-	MSG_QUEST_ERR_START_PENALTY	,	// Äù½ºÆ® ½ÃÀÛ½Ã ¿¡·¯ : Æä³ÎÆ¼ Á¶°Ç ¾È¸ÂÀ½
-	MSG_QUEST_ERR_NOT_EXIST_ABANDON_QUEST,	// Æ÷±â Äù½ºÆ® º¹±¸ ¿¡·¯ : Æ÷±âÇÑ Äù½ºÆ®°¡ ¾ø´Ù.
-	MSG_QUEST_ERR_DONT_HAVE_NAS,	// Æ÷±â Äù½ºÆ® º¹±¸ ¿¡·¯ : ³ª½º°¡ ºÎÁ·ÇÏ´Ù.
-	MSG_QUEST_ERR_NOT_EXIST_NPC,	// ÁÖÀ§¿¡ ¼öÇà°¡´ÉÇÑ NPC°¡ ¾øÀ½.
-	MSG_QUEST_ERR_CHECK_DONE_ING,	// ÁøÇà ÁßÀÌ°Å³ª, ¿Ï·á°¡ ¾Æ´Ô
+	MSG_QUEST_ERR_DELIVERY_FULL,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ : ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_PRIZE_FULL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_PRZIE_ITEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_PET_NOT_HAVE_ONEMORE,		// ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_START_PENALTY	,	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Û½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½È¸ï¿½ï¿½ï¿½
+	MSG_QUEST_ERR_NOT_EXIST_ABANDON_QUEST,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_QUEST_ERR_DONT_HAVE_NAS,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_QUEST_ERR_NOT_EXIST_NPC,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_QUEST_ERR_CHECK_DONE_ING,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°Å³ï¿½, ï¿½Ï·á°¡ ï¿½Æ´ï¿½
 	MSG_QUEST_ERR_DONT_HAVE_SPACE,
 
 } MSG_QUEST_ERROR_TYPE;
@@ -2360,18 +2364,18 @@ typedef enum _tagMsgQuestErrorType
 typedef enum _tagMsgQuestPD4ErrorType
 {
 
-	MSG_QUEST_ERR_REWARD_NOT_RANK,	// º¸»ó½Ã ·©Ä¿°¡ ¾Æ´Ô
-	MSG_QUEST_ERR_BREWARD,			// ÀÌ¹Ì º¸»ó ¹Þ¾ÒÀ½
+	MSG_QUEST_ERR_REWARD_NOT_RANK,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_QUEST_ERR_BREWARD,			// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½
 
 } MSG_QUEST_PD4_ERROR_TYPE;
 
 
 typedef enum _tagStatPointType
 {
-	MSG_STATPOINT_REMAIN,			// ³²Àº ¼ºÀå Æ÷ÀÎÆ® : statpoint_remain(n)
-	MSG_STATPOINT_USE,				// ¼ºÀå Æ÷ÀÎÆ® »ç¿ë : dest_stat(uc:client,server) change_value1(int:server:´É·ÂÄ¡º¯È­·®) change_value2(int:server:´É·ÂÄ¡º¯È­·®) statpoint_remain(uc:server:³²Àº¼ö)
-	MSG_STATPOINT_ERROR,			// ¿À·ù				: errorcode(c)
-	MSG_STATPOINT_RESET,			// Æ÷ÀÎÆ® ÃÊ±âÈ­	: reset_str(n) reset_dex(n) reset_int(n) reset_con(n)
+	MSG_STATPOINT_REMAIN,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® : statpoint_remain(n)
+	MSG_STATPOINT_USE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ : dest_stat(uc:client,server) change_value1(int:server:ï¿½É·ï¿½Ä¡ï¿½ï¿½È­ï¿½ï¿½) change_value2(int:server:ï¿½É·ï¿½Ä¡ï¿½ï¿½È­ï¿½ï¿½) statpoint_remain(uc:server:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_STATPOINT_ERROR,			// ï¿½ï¿½ï¿½ï¿½				: errorcode(c)
+	MSG_STATPOINT_RESET,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ê±ï¿½È­	: reset_str(n) reset_dex(n) reset_int(n) reset_con(n)
 } MSG_STATPOINT_TYPE;
 
 
@@ -2390,351 +2394,351 @@ typedef enum _tagStatPointUseType
 
 typedef enum _tagStatPointErrorType
 {
-	MSG_STATPOINT_ERROR_NOTENOUGH,		// ½ºÅÈ Æ÷ÀÎÆ® ºÎÁ·
-	MSG_STATPOINT_ERROR_CANTUSE,		// ½ºÅÈ Æ÷ÀÎÆ® »ç¿ë ºÒ°¡
-	MSG_STATPOINT_ERROR_WRONGPACKET,	// Å¬¶óÀÌ¾ðÆ®¿¡¼­ ÀÌ»óÇÑ ÆÐÅ¶ÀÌ ¿Ô´Ù
-	MSG_STATPOINT_ERROR_NOMONEY,		// µ·µµ ¾øÀÌ ÃÊ±âÈ­ ¿äÃ»
+	MSG_STATPOINT_ERROR_NOTENOUGH,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_STATPOINT_ERROR_CANTUSE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_STATPOINT_ERROR_WRONGPACKET,	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ï¿½ï¿½ ï¿½Ô´ï¿½
+	MSG_STATPOINT_ERROR_NOMONEY,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Ã»
 } MSG_STATPOINT_ERROR_TYPE;
 
 
 typedef enum _tagSkillLearnErrorType
 {
-	MSG_SKILL_LEARN_ERROR_LEVEL,		// ·¹º§ ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_SP,			// Æ÷ÀÎÆ® ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_ITEM,			// ¾ÆÀÌÅÛ ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_SKILL,		// ½ºÅ³ ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_SYSTEM,		// ±×¿Ü ½Ã½ºÅÛ ¿À·ù(½ºÅ³ ÃÖ´ë ¼öÄ¡¿¡ ÀÇÇÑ ¿À·ù µîµî, ¿ø·¡´Â ¹ß»ýÇÏ¸é ¾ÈµÇ´Â °æ¿ì!)
-	MSG_SKILL_LEARN_ERROR_STR,			// Èû ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_DEX,			// µ¦½º ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_INT,			// ÁöÇý ºÎÁ·
-	MSG_SKILL_LEARN_ERROR_CON,			// Ã¼Áú ºÎÁ·
+	MSG_SKILL_LEARN_ERROR_LEVEL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_SP,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_ITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_SKILL,		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_SYSTEM,		// ï¿½×¿ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Å³ ï¿½Ö´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½!)
+	MSG_SKILL_LEARN_ERROR_STR,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_DEX,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_INT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SKILL_LEARN_ERROR_CON,			// Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_SKILL_LEARN_ERROR_TYPE;
 
 typedef enum _tagAttackDamageType //1013
 {
-	MSG_DAMAGE_UNKNOWN = -1,			// ¾Ë¼ö¾ø´Â ¿À·ù!
-	MSG_DAMAGE_MELEE = 0,				// ±Ù°Å¸® ¹°¸® °ø°Ý
-	MSG_DAMAGE_RANGE,					// ¿ø°Å¸® ¹°¸® °ø°Ý
-	MSG_DAMAGE_MAGIC,					// ½ºÅ³ °ø°Ý
-	MSG_DAMAGE_REFLEX,					// ¹Ý»ç °ø°Ý
-	MSG_DAMAGE_LINK,					// µ¥¹ÌÁö ¸µÅ©¿¡ ÀÇÇÑ °ø°Ý
-	MSG_DAMAGE_COMBO,					// ¸ó½ºÅÍ ÄÞº¸ µ¥¹ÌÁö °ø°Ý
+	MSG_DAMAGE_UNKNOWN = -1,			// ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!
+	MSG_DAMAGE_MELEE = 0,				// ï¿½Ù°Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DAMAGE_RANGE,					// ï¿½ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DAMAGE_MAGIC,					// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_DAMAGE_REFLEX,					// ï¿½Ý»ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DAMAGE_LINK,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_DAMAGE_COMBO,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_ATTACK_DAMAGE_TYPE;
 
 typedef enum _tagWarpType
 {
-	MSG_WARP_START,						// ÀÌµ¿ÀåÄ¡ »ç¿ë ½ÃÀÛ
-	MSG_WARP_CANCEL,					// ÀÌµ¿ÀåÄ¡ »ç¿ë ÁßÁö
-	MSG_WARP_END,						// ÀÌµ¿ÀåÄ¡ »ç¿ë ³¡(10ÃÊ µô·¹ÀÌ ³¡)
-	MSG_WARP_TELEPORT,					// ¼ø°£ ÀÌµ¿				: pos(n) x(f:s) z(f:s) h(f:s) r(f:s) ylayer(c:s)
-	MSG_WARP_PROMPT,					// ÀÌµ¿ È®ÀÎ				: zone(n) pos(n)
+	MSG_WARP_START,						// ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP_CANCEL,					// ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP_END,						// ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ ï¿½ï¿½(10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	MSG_WARP_TELEPORT,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½				: pos(n) x(f:s) z(f:s) h(f:s) r(f:s) ylayer(c:s)
+	MSG_WARP_PROMPT,					// ï¿½Ìµï¿½ È®ï¿½ï¿½				: zone(n) pos(n)
 
-										// ¼ÒÈ¯¸¶¹ý¼­ »ç¿ëÀ¸·Î Ãß°¡µÈ ¸Þ½ÃÁö wooss 050808
-	MSG_WARP_TO_REQING,					// gs->c :¼ø°£ÀÌµ¿ ¿©ºÎ¸¦ ¹¯°í ÀÖÀ½
-	MSG_WARP_TO_REQ,					// PC·Î ¼ø°£ÀÌµ¿¿äÃ» : charname(str)
-										// gs-> c charname´ÔÀ» ½ÂÀÎ? : charname(str)
-	MSG_WARP_TO,						// C->GS charname´ÔÀ» ½ÂÀÎ¿©ºÎ¿¡ µû¶ó ¿öÇÁ : charname(str) ballow(c)
-	MSG_WARP_TAKE_REQ,					// pc¸¦ ¼ÒÈ¯ ¿äÃ»	 : charname(str)
-										// gs-> c charname´ÔÀ» ½ÂÀÎ? : charname(str)
-	MSG_WARP_TAKE_REQING,				// gs->c ¼ÒÈ¯ ¿©ºÎ 
-	MSG_WARP_TAKE,						// C->GS charname´ÔÀ» ½ÂÀÎ¿©ºÎ¿¡ µû¶ó ¼ÒÈ¯ : charname(str) ballow(c)
+										// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ wooss 050808
+	MSG_WARP_TO_REQING,					// gs->c :ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP_TO_REQ,					// PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½Ã» : charname(str)
+										// gs-> c charnameï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? : charname(str)
+	MSG_WARP_TO,						// C->GS charnameï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : charname(str) ballow(c)
+	MSG_WARP_TAKE_REQ,					// pcï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»	 : charname(str)
+										// gs-> c charnameï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? : charname(str)
+	MSG_WARP_TAKE_REQING,				// gs->c ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_WARP_TAKE,						// C->GS charnameï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ : charname(str) ballow(c)
 	MSG_WARP_ERROR,						// errorcode(c)
 } MSG_WARP_TYPE;
 
 
 //wooss 050808
-//warp °ü·Ã ¸Þ½ÃÁö
+//warp ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 typedef enum _tagWarpErrorType
 {
-	MSG_WARP_ERROR_NOTCHAR,				// Á¢¼ÓÁßÀÌ ¾Æ´Ï°Å³ª Á¸ÀçÇÏÁö ¾ÊÀ½
-	MSG_WARP_ERROR_NOTALLOW,			// ÀÌµ¿À» ½ÂÀÎÇÏÁö ¾ÊÀ½
-	MSG_WARP_ERROR_NOTALLOWZONE,		// ÀÌµ¿ÇÒ¼ö ¾ø´Â Á¸¿¡ ÀÖ½À´Ï´Ù
-	MSG_WARP_ERROR_CANCEL,				// ½ÅÃ»ÀÚ°¡ Ãë¼Ò
+	MSG_WARP_ERROR_NOTCHAR,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP_ERROR_NOTALLOW,			// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_WARP_ERROR_NOTALLOWZONE,		// ï¿½Ìµï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½
+	MSG_WARP_ERROR_CANCEL,				// ï¿½ï¿½Ã»ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½
 } MSG_WARP_ERROR_TYPE;
 
 
 
 typedef enum _tagProduceKind
 {
-	MSG_PRODUCE_MINING,					// Ã¤±¼
-	MSG_PRODUCE_GATHERING,				// Ã¤Áý
-	MSG_PRODUCE_CHARGE,					// Â÷Áö
+	MSG_PRODUCE_MINING,					// Ã¤ï¿½ï¿½
+	MSG_PRODUCE_GATHERING,				// Ã¤ï¿½ï¿½
+	MSG_PRODUCE_CHARGE,					// ï¿½ï¿½ï¿½ï¿½
 } MSG_PRODUCE_KIND;
 
 typedef enum _tagProcessKind
 {
-	MSG_PROCESS_STONE,					// ±¤¼® °¡°ø
-	MSG_PROCESS_PLANT,					// ½Ä¹° °¡°ø
-	MSG_PROCESS_ELEMENT,				// ¿ø¼Ò °¡°ø
+	MSG_PROCESS_STONE,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_PLANT,					// ï¿½Ä¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PROCESS_ELEMENT,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_PROCESS_KIND;
 
 typedef enum _tagMsgSSkillType
 {
-	MSG_SSKILL_LIST,					// Æ¯¼ö ½ºÅ³ ¸®½ºÆ®			: count(n) [sskill_index(n) sskill_level(c)] * count
-	MSG_SSKILL_LEARN,					// Æ¯¼ö ½ºÅ³ ¹è¿ì±â			: sskill_index(n) is_new(uc) sskill_level(c)
-	MSG_SSKILL_LEARN_ERROR,				// ¹è¿ì±â ¿À·ù ¹ß»ý			: errorcode(uc)
+	MSG_SSKILL_LIST,					// Æ¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ®			: count(n) [sskill_index(n) sskill_level(c)] * count
+	MSG_SSKILL_LEARN,					// Æ¯ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½			: sskill_index(n) is_new(uc) sskill_level(c)
+	MSG_SSKILL_LEARN_ERROR,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½			: errorcode(uc)
 } MSG_SSKILL_TYPE;
 
 typedef enum _tagSSkillLearnErrorType
 {
-	MSG_SSKILL_LEARN_ERROR_LEVEL,		// ·¹º§ ºÎÁ·
-	MSG_SSKILL_LEARN_ERROR_SP,			// SP Æ÷ÀÎÆ® ºÎÁ·
-	MSG_SSKILL_LEARN_ERROR_SSKILL,		// SSkill ¾Æ¿¹ ¾øÀ½
-	MSG_SSKILL_LEARN_ERROR_SSKILL_LEVEL,// SSkill LevelÀÌ ¾ÈµÊ
-	MSG_SSKILL_LEARN_ERROR_SYSTEM,		// ±×¿Ü ½Ã½ºÅÛ ¿À·ù(½ºÅ³ ÃÖ´ë ¼öÄ¡¿¡ ÀÇÇÑ ¿À·ù µîµî, ¿ø·¡´Â ¹ß»ýÇÏ¸é ¾ÈµÇ´Â °æ¿ì!)
+	MSG_SSKILL_LEARN_ERROR_LEVEL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SSKILL_LEARN_ERROR_SP,			// SP ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_SSKILL_LEARN_ERROR_SSKILL,		// SSkill ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_SSKILL_LEARN_ERROR_SSKILL_LEVEL,// SSkill Levelï¿½ï¿½ ï¿½Èµï¿½
+	MSG_SSKILL_LEARN_ERROR_SYSTEM,		// ï¿½×¿ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Å³ ï¿½Ö´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½!)
 } MSG_SSKILL_LEARN_ERROR_TYPE;
 
 typedef enum _tagPKType
 {
-	MSG_PK_PENALTY_HPMP,				// hp, mp ÆÐ³ÎÆ¼ Ä«¿îÆ® Àü´Þ : hp_count(n) mp_count(n)
-	MSG_PK_ITEMSEAL,					// item ºÀÀÎ µÊ				 : tab(c) row(c) col(c) itemindex(n) flag(n)
-	MSG_PK_RECOVER_HPMP,				// hp, mp ¸éÁË ¿äÃ»/ÀÀ´ä	 : hp_request(c) mp_request(c)
-	MSG_PK_RECOVER_ITEMSEAL,			// item ºÀÀÎ ÇØÀç ¿äÃ»/ÀÀ´ä	 : tab(c) row(c) col(c) itemindex(n) flag(n:s)
-	MSG_PK_ERROR,						// ¿À·ù Àü´Þ				 : errorcode(c)
-										//							 : 0 - µ· ºÎÁ·, 1 - hp ½ÇÆÐ, 2 - mp ½ÇÆÐ, 3 - ¾ÆÀÌÅÛ ½ÇÆÐ
+	MSG_PK_PENALTY_HPMP,				// hp, mp ï¿½Ð³ï¿½Æ¼ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ : hp_count(n) mp_count(n)
+	MSG_PK_ITEMSEAL,					// item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½				 : tab(c) row(c) col(c) itemindex(n) flag(n)
+	MSG_PK_RECOVER_HPMP,				// hp, mp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»/ï¿½ï¿½ï¿½ï¿½	 : hp_request(c) mp_request(c)
+	MSG_PK_RECOVER_ITEMSEAL,			// item ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»/ï¿½ï¿½ï¿½ï¿½	 : tab(c) row(c) col(c) itemindex(n) flag(n:s)
+	MSG_PK_ERROR,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				 : errorcode(c)
+										//							 : 0 - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 1 - hp ï¿½ï¿½ï¿½ï¿½, 2 - mp ï¿½ï¿½ï¿½ï¿½, 3 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_PK_FREE,						// Free PK SYSTEM
-	MSG_PK_CHANGE_KING,					// Ä«¿ÀÅ· º¯°æ ¸Þ¼¼Áö : bChao(c) 0-ÇåÅÍ 1-Ä«¿À, CharIndex(n) Ä³¸¯ÅÍ ÀÎµ¦½º 
-	MSG_PK_MYZONE_ATT,					// REQ : NONE, REP : ZoneAtt(c) ( 0-Normal, 1-ÇåÅÍ , 2-Ä«¿À )
-	MSG_PK_REMOVE_PENALTY,				// REQ : type(c) 0-ÀüºÎ, 1-1´Ü°è , REP : succecc(c) : 0-½ÇÆÐ, 1-¼º°ø 
-	MSG_PK_OTHERZONE_ALRAM,				// REQ : NONE , REP : bAram(c) 0-OFF 1-ON, charIndex(n) Ä³¸¯ÅÍ ÀÎÅØ½º 
+	MSG_PK_CHANGE_KING,					// Ä«ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ : bChao(c) 0-ï¿½ï¿½ï¿½ï¿½ 1-Ä«ï¿½ï¿½, CharIndex(n) Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ 
+	MSG_PK_MYZONE_ATT,					// REQ : NONE, REP : ZoneAtt(c) ( 0-Normal, 1-ï¿½ï¿½ï¿½ï¿½ , 2-Ä«ï¿½ï¿½ )
+	MSG_PK_REMOVE_PENALTY,				// REQ : type(c) 0-ï¿½ï¿½ï¿½ï¿½, 1-1ï¿½Ü°ï¿½ , REP : succecc(c) : 0-ï¿½ï¿½ï¿½ï¿½, 1-ï¿½ï¿½ï¿½ï¿½ 
+	MSG_PK_OTHERZONE_ALRAM,				// REQ : NONE , REP : bAram(c) 0-OFF 1-ON, charIndex(n) Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø½ï¿½ 
 	MSG_PK_TARGET_SHOWHP,				// REQ : On(c) 0-OFF 1-ON REP : NONE
 } MSG_PK_TYPE;
 
 typedef enum _tagEventType
 {
-	MSG_EVENT_ERROR,							// ¿¡·¯ÄÚµå					: errcode(uc)
-	MSG_EVENT_PREOPEN_GIFT,						// ÇÁ¸®¿ÀÇÂ À¯Àú ¼±¹° ÁÖ±â	: itemdbindex(n:s)
-	MSG_EVENT_LATTO,							// ¶ó¶Ç ÀÌº¥Æ® °ü·Ã			: subtype(uc)
-	MSG_EVENT_LETTER,							// ³¹¸» ¸ÂÃß±â ÀÌº¥Æ®		: subtype(uc)
-	MSG_EVENT_CHANGEWEAPON,						// ¹«±â ±³È¯ ÀÌº¥Æ®			: olddbindex(n:s) newdbindex(n:s)
-	MSG_EVENT_MOONSTONE,						// ¹®½ºÅæ ÀÌº¥Æ®.
-	MSG_EVENT_TREASUREBOX,						// º¸¹°»óÀÚ ÀÌº¥Æ®.
-	MSG_EVENT_SUPERSTONE,						// ½´ÆÛ°íÁ¦ ÀÌº¥Æ®.//0627
-	MSG_EVENT_CHUSEOK_UPGRADE,					// Ãß¼® ÀÌº¥Æ® ¾÷±×·¹ÀÌµå	: 
-	MSG_EVENT_CHUSEOK_EXCHANGE,					// Ãß¼® ÀÌº¥Æ® ±³È¯			: 
-	MSG_EVENT_CHANGE_WITHOUT_OPTION,			// 2ÆÇ4ÆÇ ¸®´º¾ó ¹«±â ±³Ã¼ ÀÌº¥Æ® : old_itemindex(n) new_subtype(n)
-	MSG_EVENT_2PAN4PAN_LETTER,					// 2ÆÇ4ÆÇ ¸®´º¾ó ³¹¸» ÀÌº¥Æ® : MSG_EVENT_2PAN4PAN_WORD_TYPE(n)
+	MSG_EVENT_ERROR,							// ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½					: errcode(uc)
+	MSG_EVENT_PREOPEN_GIFT,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½	: itemdbindex(n:s)
+	MSG_EVENT_LATTO,							// ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½			: subtype(uc)
+	MSG_EVENT_LETTER,							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½ ï¿½Ìºï¿½Æ®		: subtype(uc)
+	MSG_EVENT_CHANGEWEAPON,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ìºï¿½Æ®			: olddbindex(n:s) newdbindex(n:s)
+	MSG_EVENT_MOONSTONE,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®.
+	MSG_EVENT_TREASUREBOX,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®.
+	MSG_EVENT_SUPERSTONE,						// ï¿½ï¿½ï¿½Û°ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®.//0627
+	MSG_EVENT_CHUSEOK_UPGRADE,					// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½	: 
+	MSG_EVENT_CHUSEOK_EXCHANGE,					// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½È¯			: 
+	MSG_EVENT_CHANGE_WITHOUT_OPTION,			// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ìºï¿½Æ® : old_itemindex(n) new_subtype(n)
+	MSG_EVENT_2PAN4PAN_LETTER,					// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® : MSG_EVENT_2PAN4PAN_WORD_TYPE(n)
 	
-	MSG_EVENT_2PAN4PAN_GOODS_CHECK,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¸®½ºÆ® ¿äÃ» : count(n:server) wooss 051031
-	MSG_EVENT_2PAN4PAN_GOODS_REQ,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¹Þ±â ¿äÃ» :
-	MSG_EVENT_2PAN4PAN_GOODS_REP,				// 2ÆÇ4ÆÇ ¸®´º¾ó ¾ÆÀÌÅÛ ¹Þ±â ÀÀ´ä : MSG_EVENT_2PAN4PAN_GOODS_ERROR_TYPE(n) count(n) [itemdbindex(n) itemcount(ll)]*count
+	MSG_EVENT_2PAN4PAN_GOODS_CHECK,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» : count(n:server) wooss 051031
+	MSG_EVENT_2PAN4PAN_GOODS_REQ,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½Ã» :
+	MSG_EVENT_2PAN4PAN_GOODS_REP,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ : MSG_EVENT_2PAN4PAN_GOODS_ERROR_TYPE(n) count(n) [itemdbindex(n) itemcount(ll)]*count
 
-	MSG_EVENT_2PAN4PAN_MONEY_REQ,				// 2ÆÇ4ÆÇ ¸Ó´Ï Ä«µå ±³È¯ ¿äÃ» : type(n)
-												// type : 1 - ¸Â°í, 2 - Æ÷Ä¿
-	MSG_EVENT_2PAN4PAN_MONEY_REP,				// 2ÆÇ4ÆÇ ¸Ó´Ï Ä«µå ±³È¯ ÀÀ´ä : success(n)
-												// success : 0 - ½ÇÆÐ, 1 - ¼º°ø
+	MSG_EVENT_2PAN4PAN_MONEY_REQ,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½Ó´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã» : type(n)
+												// type : 1 - ï¿½Â°ï¿½, 2 - ï¿½ï¿½Ä¿
+	MSG_EVENT_2PAN4PAN_MONEY_REP,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½Ó´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : success(n)
+												// success : 0 - ï¿½ï¿½ï¿½ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_2PAN4PAN_BOX_CHECK,				// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ °Ë»ç	: flag(n:server)
-												// flag : 0 - ¾øÀ½, 1 - ÀÖÀ½
-	MSG_EVENT_2PAN4PAN_BOX_REQ,					// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ ¿äÃ»	: 
-	MSG_EVENT_2PAN4PAN_BOX_REP,					// 2ÆÇ4ÆÇ »óÀÚ ±³È¯ ÀÀ´ä	: MSG_EVENT_2PAN4PAN_BOX_ERROR_TYPE(n) count(n)  [itemdbindex(n) itemcount(ll)]*count
+	MSG_EVENT_2PAN4PAN_BOX_CHECK,				// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ë»ï¿½	: flag(n:server)
+												// flag : 0 - ï¿½ï¿½ï¿½ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_BOX_REQ,					// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»	: 
+	MSG_EVENT_2PAN4PAN_BOX_REP,					// 2ï¿½ï¿½4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½	: MSG_EVENT_2PAN4PAN_BOX_ERROR_TYPE(n) count(n)  [itemdbindex(n) itemcount(ll)]*count
 	
-	MSG_EVENT_XMAS_2005,						// 2005 Å©¸®½º¸¶½º ÀÌº¥Æ® :  MSG_EVENT_XMAS_2005_ERROR_TYPE(n:server)
-	MSG_EVENT_NEWYEAR_2006_CHECK,				// 2006 ½Å³â ÀÌº¥Æ® ½Ã°£ ¿äÃ» : time_sec(n:server)
-	MSG_EVENT_NEWYEAR_2006_GOODS,				// 2006 ½Å³â ÀÌº¥Æ® º¸»ó  : MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_TYPE(n:server)
+	MSG_EVENT_XMAS_2005,						// 2005 Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® :  MSG_EVENT_XMAS_2005_ERROR_TYPE(n:server)
+	MSG_EVENT_NEWYEAR_2006_CHECK,				// 2006 ï¿½Å³ï¿½ ï¿½Ìºï¿½Æ® ï¿½Ã°ï¿½ ï¿½ï¿½Ã» : time_sec(n:server)
+	MSG_EVENT_NEWYEAR_2006_GOODS,				// 2006 ï¿½Å³ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½  : MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_TYPE(n:server)
 	
-	MSG_EVENT_SEARCHFRIEND_ADD_CHECK,			// ÈÞ¸éÄÉ¸¯ µî·Ï Ã¼Å© :
-	MSG_EVENT_SEARCHFRIEND_ADDSELECT_LIST,		// µî·ÏÇÑ ¸®½ºÆ® ºÎºÐ : listCount , [requestindex , reqnick(char)]*listCount
-	MSG_EVENT_SEARCHFRIEND_ADDSELECT_CHECK,		// µî·ÏÇÑ ¸®½ºÆ®Áß ¼±ÅÃÇÏ´Â ºÎºÐ :  requestindex , MSG_EVENT_SEARCHFRIEND_ERROR_TYPE 
-	MSG_EVENT_SEARCHFRIEND_TIME_CHECK,		// »ç³É½Ã°£ Ã¼Å© : time_sec(n:server)
-	MSG_EVENT_SEARCHFRIEND_ONETIME_CHECK,		// »ç³É½Ã°£ ÇÑ½Ã°£ ´ÜÀ§ Ã¼Å© : time_sec(n:server)
-	MSG_EVENT_SEARCHFRIEND_LIST_GOODS,		// µî·ÏµÈ Ä£±¸ º¸»ó°¡´É¿©ºÎ : request_listmember(n), (MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TYPE)errcode,[reqnick[n], request_index[n], request_time[n], item_good[n]]*request_listmember
-	MSG_EVENT_SEARCHFRIEND_GOODS_CHECK,		// ¾ÆÀÌÅÛ Áö±Þ °³ÀÎ :MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TYPE(n)
+	MSG_EVENT_SEARCHFRIEND_ADD_CHECK,			// ï¿½Þ¸ï¿½ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ Ã¼Å© :
+	MSG_EVENT_SEARCHFRIEND_ADDSELECT_LIST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îºï¿½ : listCount , [requestindex , reqnick(char)]*listCount
+	MSG_EVENT_SEARCHFRIEND_ADDSELECT_CHECK,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Îºï¿½ :  requestindex , MSG_EVENT_SEARCHFRIEND_ERROR_TYPE 
+	MSG_EVENT_SEARCHFRIEND_TIME_CHECK,		// ï¿½ï¿½É½Ã°ï¿½ Ã¼Å© : time_sec(n:server)
+	MSG_EVENT_SEARCHFRIEND_ONETIME_CHECK,		// ï¿½ï¿½É½Ã°ï¿½ ï¿½Ñ½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å© : time_sec(n:server)
+	MSG_EVENT_SEARCHFRIEND_LIST_GOODS,		// ï¿½ï¿½Ïµï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡´É¿ï¿½ï¿½ï¿½ : request_listmember(n), (MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TYPE)errcode,[reqnick[n], request_index[n], request_time[n], item_good[n]]*request_listmember
+	MSG_EVENT_SEARCHFRIEND_GOODS_CHECK,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ :MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TYPE(n)
 
-	MSG_EVENT_PACKAGE_ITEM_GIVE,				// ÆÐÅ°Áö ¾ÆÀÌÅÛ Áö±Þ ¿äÃ»  : couponNo(str)
+	MSG_EVENT_PACKAGE_ITEM_GIVE,				// ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»  : couponNo(str)
 												// gs->client				: errorcode(str)
-	MSG_EVENT_OPENBETA_CONN,					// ¿ÀÇÂº£Å¸ ¾ÆÀÌÅÛ Áö±Þ ¿äÃ»: 
+	MSG_EVENT_OPENBETA_CONN,					// ï¿½ï¿½ï¿½Âºï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»: 
 												// gs->client		
-	MSG_EVENT_SAKURABUD,						// ²ÉºÀ¿À¸® ¾ÆÀÌÅÛ Áö±Þ ¿äÃ» : cmd(c) : 0-»óÀÇÇÏÀÇ,1-Àå°©½Å¹ß,2-Åõ±¸ 
+	MSG_EVENT_SAKURABUD,						// ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : cmd(c) : 0-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,1-ï¿½å°©ï¿½Å¹ï¿½,2-ï¿½ï¿½ï¿½ï¿½ 
 
-	MSG_EVENT_OXQUIZ,							// OX ÄûÁî ÀÌº¥Æ®			: subtype(n) ...
+	MSG_EVENT_OXQUIZ,							// OX ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®			: subtype(n) ...
 
-	MSG_EVENT_RECOMMEND,						// ÃßÃµ¼­¹ö					: subtype(n) ...
-	MSG_EVENT_PCBANG,							// ÇÇ¾¾¹æ (³Ý±îÆÐ Ä·ÆóÀÎ)	: »óÀÚ Áö±ÞÈ¤Àº ±³È¯ ÀÀ´ä  GS->C : itemindex(n)    -1ÀÌ¸é ½ÇÆÐ(»óÀÚ°¡ ¾ø»ï)
-												//							: ±³È¯ ¿äÃ»½Ã C->GS :
+	MSG_EVENT_RECOMMEND,						// ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½					: subtype(n) ...
+	MSG_EVENT_PCBANG,							// ï¿½Ç¾ï¿½ï¿½ï¿½ (ï¿½Ý±ï¿½ï¿½ï¿½ Ä·ï¿½ï¿½ï¿½ï¿½)	: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¤ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½  GS->C : itemindex(n)    -1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½)
+												//							: ï¿½ï¿½È¯ ï¿½ï¿½Ã»ï¿½ï¿½ C->GS :
 
-	MSG_EVENT_WORLDCUP,							// ¿ùµåÄÅ ÀÌº¥Æ®			: subtype(n) ...
-	MSG_EVENT_GOLDENBALL,						// °ñµçº¼ ÀÌº¥Æ®			: subtype(n) ...
+	MSG_EVENT_WORLDCUP,							// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®			: subtype(n) ...
+	MSG_EVENT_GOLDENBALL,						// ï¿½ï¿½çº¼ ï¿½Ìºï¿½Æ®			: subtype(n) ...
 
-	MSG_EVENT_RAIN_2006,						// Àå¸¶ ÀÌº¥Æ®				: errorcode(n:s) // ÀÏº» Àü¿ë
+	MSG_EVENT_RAIN_2006,						// ï¿½å¸¶ ï¿½Ìºï¿½Æ®				: errorcode(n:s) // ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_TLD_BUDDHIST,						// ºÒ±³ ÃÐºÒ ÀÌº¥Æ®			: requesttype(c) errorcode(n:s)
-												// requesttype				: 0 - ¾çÃÊ, 1 - ¼º¼öº´ // ÅÂ±¹ Àü¿ë
+	MSG_EVENT_TLD_BUDDHIST,						// ï¿½Ò±ï¿½ ï¿½Ðºï¿½ ï¿½Ìºï¿½Æ®			: requesttype(c) errorcode(n:s)
+												// requesttype				: 0 - ï¿½ï¿½ï¿½ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ // ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_COLLECT_BUG,						// °ïÃæ Ã¤Áý				: subtype(n) ...
+	MSG_EVENT_COLLECT_BUG,						// ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½				: subtype(n) ...
 
-	MSG_EVENT_CHUSEOK_2006,						// 2006³â Ãß¼® ÀÌº¥Æ®		: subtype(n) ...
+	MSG_EVENT_CHUSEOK_2006,						// 2006ï¿½ï¿½ ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®		: subtype(n) ...
 
-	MSG_EVENT_OPEN_BETA_GIFT,					// ¿ÀÇÂ º£Å¸ »çÀºÇ° ÁÖ±â
+	MSG_EVENT_OPEN_BETA_GIFT,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½Ç° ï¿½Ö±ï¿½
 	
-	MSG_EVENT_XMAS_2006,						// 2006 Å©¸®½º¸¶½º ÀÌº¥Æ® ±³È¯ : cakecount( n ) errcode(n: s)
+	MSG_EVENT_XMAS_2006,						// 2006 Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½È¯ : cakecount( n ) errcode(n: s)
 	
-	MSG_EVENT_VALENTINE_2007,					// 2007 ¹ß·»Å¸ÀÎµ¥ÀÌ ÀÌº¥Æ® : subtype(n) ...
+	MSG_EVENT_VALENTINE_2007,					// 2007 ï¿½ß·ï¿½Å¸ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® : subtype(n) ...
 
-	MSG_EVENT_WHITEDAY_2007,					// 2007 È­ÀÌÆ®µ¥ÀÌ ÀÌº¥Æ® WSS_WHITEDAY_2007
-	MSG_EVENT_SONGKRAN_2007,					// [KH_070328]  ¾ø¾î¼­ Ãß°¡
-	MSG_EVENT_EGGS_HUNT_2007,					// [KH_070328]  2007 ¹Ì±¹ ºÎÈ°Àý ÀÌº¥Æ®
+	MSG_EVENT_WHITEDAY_2007,					// 2007 È­ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® WSS_WHITEDAY_2007
+	MSG_EVENT_SONGKRAN_2007,					// [KH_070328]  ï¿½ï¿½ï¿½î¼­ ï¿½ß°ï¿½
+	MSG_EVENT_EGGS_HUNT_2007,					// [KH_070328]  2007 ï¿½Ì±ï¿½ ï¿½ï¿½È°ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_NEW_EVENT_PACKAGE_ITEM_GIVE,			// NEW ÆÐÅ°Áö ¾ÆÀÌÅÛ Áö±Þ ¿äÃ»  : couponNo(str)
+	MSG_NEW_EVENT_PACKAGE_ITEM_GIVE,			// NEW ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»  : couponNo(str)
 												// gs->client				: errorcode(c)
-	MSG_EVENT_PARENTSDAY_2007,					// 2007 ¾î¹öÀÌ³¯ ÀÌº¥Æ® WSS_GUILDMASTER 070416
+	MSG_EVENT_PARENTSDAY_2007,					// 2007 ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Ìºï¿½Æ® WSS_GUILDMASTER 070416
 
-	MSG_EVENT_TEACH_2007,						// 2007³â ½º½ÂÀÇ³¯ ÀÌº¥Æ®
+	MSG_EVENT_TEACH_2007,						// 2007ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç³ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_GOMDORI_2007,						// 2007³â °õµ¹ÀÌ ÀÌº¥Æ®		: subtype(uc) ...
+	MSG_EVENT_GOMDORI_2007,						// 2007ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®		: subtype(uc) ...
 
-	MSG_EVENT_CHILDRENSDAY_2007,				// 2007 ¾î¸°ÀÌ³¯ ÀÌº¥Æ®
+	MSG_EVENT_CHILDRENSDAY_2007,				// 2007 ï¿½î¸°ï¿½Ì³ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_FLOWERTREE_2007,					// 2007³â ²É³îÀÌ ÀÌº¥Æ® : subtype(uc) ...
+	MSG_EVENT_FLOWERTREE_2007,					// 2007ï¿½ï¿½ ï¿½É³ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® : subtype(uc) ...
 	
-	MSG_EVENT_SUMMER_VACATION_2007,				// 2007³â ¿©¸§ ¹æÇÐ ÀÌº¥Æ® : subtype(uc)....
+	MSG_EVENT_SUMMER_VACATION_2007,				// 2007ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® : subtype(uc)....
 
-	MSG_EVENT_TLD_MOTHERDAY_2007,				// ¾î¸Ó´Ï³¯ ÀÌº¥Æ®			: requesttype(c) errorcode(n:s)
-												// requesttype				: 1 - °í±Þ Á¦·Ã¼® ±³È¯ , 2 - Poem Book ±³È¯ ,3Blessing of mother(red),
+	MSG_EVENT_TLD_MOTHERDAY_2007,				// ï¿½ï¿½Ó´Ï³ï¿½ ï¿½Ìºï¿½Æ®			: requesttype(c) errorcode(n:s)
+												// requesttype				: 1 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½ ï¿½ï¿½È¯ , 2 - Poem Book ï¿½ï¿½È¯ ,3Blessing of mother(red),
 												//							: 4.Blessing of mother(yellow),5.Blessing of mother(blue)
 
-	MSG_EVENT_OPEN_ADULT_SERVER,				// ¼ºÀÎ¼­¹ö ¸ÅÁ÷Ä«µåÀÌº¥Æ®
+	MSG_EVENT_OPEN_ADULT_SERVER,				// ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_GIFT_2007,						// 2007³â ÀÌº¥Æ® ±â°£ µ¿¾È À¯Àúµé¿¡°Ô ¾ÆÀÌÅÛ ¹«·áÁõÁ¤
-	MSG_EVENT_BJMONO_2007,						// SK bj mono ÀÌº¥Æ® : subtype(uc)
+	MSG_EVENT_GIFT_2007,						// 2007ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½â°£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_BJMONO_2007,						// SK bj mono ï¿½Ìºï¿½Æ® : subtype(uc)
 	
 	MSG_EVENT_SSHOT_2007,					    // Screen Shot Event : Subtype(uc) // WSS_TG2007 2007/09/14
-	MSG_EVENT_RICHYEAR,							// Ç³³â ÀÌº¥Æ® 
-	MSG_EVENT_LC_1000DAY,						// ¶ó½ºÆ®Ä«¿À½º 1000ÀÏ ÀÌº¥Æ® 	
-	MSG_EVENT_HALLOWEEN_2007,					// 2007³â ÇÒ·ÎÀ© ÀÌº¥Æ® 
+	MSG_EVENT_RICHYEAR,							// Ç³ï¿½ï¿½ ï¿½Ìºï¿½Æ® 
+	MSG_EVENT_LC_1000DAY,						// ï¿½ï¿½Æ®Ä«ï¿½ï¿½ï¿½ï¿½ 1000ï¿½ï¿½ ï¿½Ìºï¿½Æ® 	
+	MSG_EVENT_HALLOWEEN_2007,					// 2007ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® 
 
-	MSG_EVENT_NEW_MOONSTONE,					// ¹®½ºÅæ °³Æí
+	MSG_EVENT_NEW_MOONSTONE,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_XMAS_2007,						// 2007³â Å©¸®½º¸¶½º ÀÌº¥Æ®
+	MSG_EVENT_XMAS_2007,						// 2007ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_NEWYEAR_2008,						// 2008 ½Å³â ÀÌº¥Æ® gs->cl, cl->gs   charindex(n), charname(s)
+	MSG_EVENT_NEWYEAR_2008,						// 2008 ï¿½Å³ï¿½ ï¿½Ìºï¿½Æ® gs->cl, cl->gs   charindex(n), charname(s)
 
-	MSG_EVENT_TREASUREBOX_RED,					// ºÓÀº º¸¼® »óÀÚ ÀÌº¥Æ®
+	MSG_EVENT_TREASUREBOX_RED,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_SAKURA_2008,						// 2008 º¢²É ÀÌº¥Æ®
+	MSG_EVENT_SAKURA_2008,						// 2008 ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_NOM,								// ³ð³ð³ð ¿µÈ­ ÀÌº¥Æ®
+	MSG_EVENT_NOM,								// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_PHOENIX,							// ÇÇ´Ð½º ÀÌº¥Æ®
-	MSG_EVENT_PHOENIX_SUCCESS,					// ÇÇ´Ð½º ÀÌº¥Æ® ÀüÁ÷ È®ÀÎ ¸Þ½ÃÁö
+	MSG_EVENT_PHOENIX,							// ï¿½Ç´Ð½ï¿½ ï¿½Ìºï¿½Æ®
+	MSG_EVENT_PHOENIX_SUCCESS,					// ï¿½Ç´Ð½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	
-	MSG_EVENT_REQUITAL,							// º¸»ó ÀÌº¥Æ®
-	MSG_EVENT_NEW_AFRON_2009,					// afron ¼­¹ö¹öÀü ÅëÇÕ ÀÌº¥Æ®
+	MSG_EVENT_REQUITAL,							// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
+	MSG_EVENT_NEW_AFRON_2009,					// afron ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	
-	MSG_EVENT_WORLDCUP_2010,					// ($E_WC2010) [100511: selo] ¿ùµå ÃàÁ¦ ÀÌº¥Æ® (2010 ³²¾Æ°ø ¿ùµåÄÅ)
+	MSG_EVENT_WORLDCUP_2010,					// ($E_WC2010) [100511: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® (2010 ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	MSG_EVENT_AKAN_TEMPLE,	// (74)
-	MSG_EVENT_PROMOTION2,						// ÇÁ·Î¸ð¼Ç ÀÌº¥Æ® :: À¯Àú´ç ÇÑ°³ÀÇ ÄíÆù »ç¿ë °¡´É 
-	MSG_EVENT_ATTENDANCE_2011,					// [2011/01/18 : Sora] Ãâ¼® ÀÌº¥Æ®
-	MSG_EVENT_ENCHANT_RATE,						// [2011/01/18 : Sora] Ãâ¼® ÀÌº¥Æ® ÀÎÃ¾Æ® Áõ°¡À²
+	MSG_EVENT_PROMOTION2,						// ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½Ìºï¿½Æ® :: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EVENT_ATTENDANCE_2011,					// [2011/01/18 : Sora] ï¿½â¼® ï¿½Ìºï¿½Æ®
+	MSG_EVENT_ENCHANT_RATE,						// [2011/01/18 : Sora] ï¿½â¼® ï¿½Ìºï¿½Æ® ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_EVENT_USER_COMEBACK,					// ÈÞ¸Õ À¯Àú ÀÌº¥Æ®	(78)
-	MSG_EVENT_CHAR_BIRTHDAY,					// Ä³¸¯ÅÍ 1ÁÖ³â ÀÌº¥Æ®
+	MSG_EVENT_USER_COMEBACK,					// ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®	(78)
+	MSG_EVENT_CHAR_BIRTHDAY,					// Ä³ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ö³ï¿½ ï¿½Ìºï¿½Æ®
 
 	MSG_EVENT_EUR2_PROMOTION,					// #define EVENT_EUR2_PROMOTION
 
-	MSG_EVENT_MUSICAL_ZORRO,					// Á¶·Î ¹ÂÁöÄÃ ÀÌº¥Æ®(81)
+	MSG_EVENT_MUSICAL_ZORRO,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®(81)
 
-	MSG_EVENT_LOI_KRATHONG,						// (82) ÅÂ±¹ Å©¶óÅë ÀÌº¥Æ®
+	MSG_EVENT_LOI_KRATHONG,						// (82) ï¿½Â±ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_KB_REWARD,						// (83)	ÅÂ±¹ ±¹¿Õ Åº»ýÀÏ ÀÌº¥Æ®
+	MSG_EVENT_KB_REWARD,						// (83)	ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ Åºï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	MSG_EVENT_END_MSG,							// ¸ðµç ÀÌº¥Æ® °ü·Ã ¸Þ½ÃÁö´Â ÀÌº¸´Ù ¾Õ¿¡
+	MSG_EVENT_END_MSG,							// ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½
 	
 } MSG_EVENT_TYPE;
 
 typedef enum _tagMsgEventEUR2PromotionErrorType
 {
-    MSG_EVENT_EUR2_PROMOTION_SUCCESS,                       // ¼º°ø
-    MSG_EVENT_EUR2_PROMOTION_WRONG_KEY,                     // Å°°ª Àß¸ø ÀÔ·ÂÇÏ¿´À½.
-    MSG_EVENT_EUR2_PROMOTION_ALREADY_USED,                  // Å°¸¦ ÀÌ¹Ì »ç¿ëÇÏ¿´À½.
-    MSG_EVENT_EUR2_PROMOTION_LACK_INVENTORY,                // ÀÎº¥ ²ËÃ£À½.
-    MSG_EVENT_EUR2_PROMOTION_SYS_ERROR_NOT_USED,            // DB¿¡ ¾÷µ¥ÀÌÆ®°¡ ¾ÈµÇ¾î ¿¡·¯°¡ ³². ±×·¡¼­ »ç¿ë¾ÈÇÑ°ÍÀ¸·Î Ã³¸®
-    MSG_EVENT_EUR2_PROMOTION_CANT_USE_USER,                 // À¯Àú°¡ ÀÌ¹Ì ´Ù¸¥ Å°¸¦ »ç¿ëÇÏ¿´À½.
-    MSG_EVENT_EUR2_PROMOTION_HEAVY_WEIGHT,                  // ÀÎº¥ ¹«°Å¿ò.
+    MSG_EVENT_EUR2_PROMOTION_SUCCESS,                       // ï¿½ï¿½ï¿½ï¿½
+    MSG_EVENT_EUR2_PROMOTION_WRONG_KEY,                     // Å°ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½.
+    MSG_EVENT_EUR2_PROMOTION_ALREADY_USED,                  // Å°ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½.
+    MSG_EVENT_EUR2_PROMOTION_LACK_INVENTORY,                // ï¿½Îºï¿½ ï¿½ï¿½Ã£ï¿½ï¿½.
+    MSG_EVENT_EUR2_PROMOTION_SYS_ERROR_NOT_USED,            // DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½. ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+    MSG_EVENT_EUR2_PROMOTION_CANT_USE_USER,                 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ù¸ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½.
+    MSG_EVENT_EUR2_PROMOTION_HEAVY_WEIGHT,                  // ï¿½Îºï¿½ ï¿½ï¿½ï¿½Å¿ï¿½.
 }MSG_EVENT_EUR2_PROMOTION_ERROR_TYPE;
 
 typedef enum _tagMsgEventAttendance2011Type
 {
-	MSG_EVENT_ATTENDANCE_2011_NOTICE,					// ÀÌº¥Æ® Á¤º¸Ã¢ ¶ç¿ì±â
-	MSG_EVENT_ATTENDANCE_2011_CALC_RATE,				// ÀÌº¥Æ® ½Ã½ºÅÛ+°øÁö ¸Þ½ÃÁö
-	MSG_EVENT_ATTENDANCE_2011_INDIVIDUAL_REWARD_REQ,	// °³ÀÎº¸»ó ¿äÃ» ¸Þ½ÃÁö
-	MSG_EVENT_ATTENDANCE_2011_INDIVIDUAL_REWARD_REP,	// °³ÀÎº¸»ó ÀÀ´ä ¸Þ½ÃÁö
+	MSG_EVENT_ATTENDANCE_2011_NOTICE,					// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ATTENDANCE_2011_CALC_RATE,				// ï¿½Ìºï¿½Æ® ï¿½Ã½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EVENT_ATTENDANCE_2011_INDIVIDUAL_REWARD_REQ,	// ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EVENT_ATTENDANCE_2011_INDIVIDUAL_REWARD_REP,	// ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 }MSG_EVENT_ATTENDANCE_2011_TYPE;
 
 
 // ($E_WC2010)
 typedef enum _tagMsgEventWorldcup2010Type
 {
-	MSG_EVENT_WORLDCUP2010_TRADE_REQ,			// Ãà±¸°ø ±³È¯ : Ãà±¸°ø -> 1.È²±ÝÃà±¸°ø -> 2.¿ùµå ÃàÁ¦ »óÀÚ ±³È¯ : tradeType(n)
-	MSG_EVENT_WORLDCUP2010_TRADE_REP,			// Ãà±¸°ø ±³È¯ ´äº¯ MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_TRADE_REQ,			// ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½È¯ : ï¿½à±¸ï¿½ï¿½ -> 1.È²ï¿½ï¿½ï¿½à±¸ï¿½ï¿½ -> 2.ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ : tradeType(n)
+	MSG_EVENT_WORLDCUP2010_TRADE_REP,			// ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½äº¯ MSG_EVENT_WORLDCUP2010_ERROR_TYPE
 
-	MSG_EVENT_WORLDCUP2010_TOTO_REQ,			// ½Â¸®±¹°¡ TOTO µî·Ï : countryItem1(n)
-	MSG_EVENT_WORLDCUP2010_TOTO_REP,			// ½Â¸®±¹°¡ TOTO µî·Ï ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
-	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_REQ,		// TOTO ÀÀ¸ð ÇöÈ²  : resultType(n)
-	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_REP,		// TOTO ÀÀ¸ð ÇöÈ² ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_REQ,		// TOTO »óÇ° ¿äÃ» 
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_REP,		// TOTO »óÇ° ¿äÃ» ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_TOTO_REQ,			// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ TOTO ï¿½ï¿½ï¿½ : countryItem1(n)
+	MSG_EVENT_WORLDCUP2010_TOTO_REP,			// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ TOTO ï¿½ï¿½ï¿½ ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_REQ,		// TOTO ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²  : resultType(n)
+	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_REP,		// TOTO ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_REQ,		// TOTO ï¿½ï¿½Ç° ï¿½ï¿½Ã» 
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_REP,		// TOTO ï¿½ï¿½Ç° ï¿½ï¿½Ã» ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
 
-	MSG_EVENT_WORLDCUP2010_ATTENDANCE_REQ,		// Ãâ¼® ÀÌº¥Æ® : 
-	MSG_EVENT_WORLDCUP2010_ATTENDANCE_REP,		// Ãâ¼® ÀÌº¥Æ® ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_ATTENDANCE_REQ,		// ï¿½â¼® ï¿½Ìºï¿½Æ® : 
+	MSG_EVENT_WORLDCUP2010_ATTENDANCE_REP,		// ï¿½â¼® ï¿½Ìºï¿½Æ® ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
 
-	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_REQ,		// ÀÀ¿ø Ä«µå ±³È¯ : supportType(n)
-	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_REP,		// ÀÀ¿ø Ä«µå ±³È¯ ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
+	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_REQ,		// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ : supportType(n)
+	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_REP,		// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE
 
-	MSG_EVENT_WORLDCUP2010_KOREA_REQ,			// ÇÑ±¹ 16°­ ¼±¹° ¿äÃ»
-	MSG_EVENT_WORLDCUP2010_KOREA_REP,			// ÇÑ±¹ 16°­ ¼±¹° ¿äÃ» ´äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE	
+	MSG_EVENT_WORLDCUP2010_KOREA_REQ,			// ï¿½Ñ±ï¿½ 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_WORLDCUP2010_KOREA_REP,			// ï¿½Ñ±ï¿½ 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½äº¯ : MSG_EVENT_WORLDCUP2010_ERROR_TYPE	
 }MSG_EVENT_WORLDCUP2010_TYPE;
 
 // ($E_WC2010)
 typedef enum _tagMsgEventWorldcup2010ErrorType
 {
-	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_SUC,				// Ãà±¸°ø ±³È¯ ¼º°ø : totoType(n)
-	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_BALL,			// Ãà±¸°ø °¹¼ö ºÎÁ· : totoType(n)
-	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_FAIL,			// Ãà±¸°ø ±³È¯ ½ÇÆÐ
+	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_SUC,				// ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ : totoType(n)
+	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_BALL,			// ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : totoType(n)
+	MSG_EVENT_WORLDCUP2010_TRADE_ERROR_FAIL,			// ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_WORLDCUP2010_TOTO_ERROR_SUC,				// ½Â¸®±¹°¡ TOTO µî·Ï ¼º°ø
-	MSG_EVENT_WORLDCUP2010_TOTO_ERROR_FAIL,				// ½Â¸®±¹°¡ TOTO µî·Ï ½ÇÆÐ
+	MSG_EVENT_WORLDCUP2010_TOTO_ERROR_SUC,				// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ TOTO ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_TOTO_ERROR_FAIL,				// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ TOTO ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_ERROR_SUC,		// ÀÀ¸ð ÇöÈ² ÀÖÀ½ : resultType(n), countryItem1(n)
-	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_ERROR_FAIL,		// ÀÀ¸ð ÇÏÁö ¾Ê¾ÒÀ½ : resultType(n)
+	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_ERROR_SUC,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½ : resultType(n), countryItem1(n)
+	MSG_EVENT_WORLDCUP2010_TOTO_STATUS_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ : resultType(n)
 	
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_SUC,			// »óÇ° ¿äÃ» ¼º°ø
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_WEIGHT,		// ¹«°Ô ÃÊ°ú
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_INVEN,		// ÀÎº¥ °ø°£ ºÎÁ·
-	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_FAIL,		// ¹ÞÀ» »óÇ° ¾øÀ½ 
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_SUC,			// ï¿½ï¿½Ç° ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_WEIGHT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_INVEN,		// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_TOTO_GIFT_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ 
 
-	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_SUC,		// Ãâ¼® Ã¼Å© ¼º°ø
-	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_ALREADY,	// ÀÌ¹Ì Ãâ¼® µÊ	
-	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_FAIL,		// Ãâ¼® Ã¼Å© ½ÇÆÐ
+	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_SUC,		// ï¿½â¼® Ã¼Å© ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_ALREADY,	// ï¿½Ì¹ï¿½ ï¿½â¼® ï¿½ï¿½	
+	MSG_EVENT_WORLDCUP2010_ATTENDANCE_ERROR_FAIL,		// ï¿½â¼® Ã¼Å© ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_SUC,		// ÀÀ¿ø Ä«µå ±³È¯ ¼º°ø
-	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_CARD,		// ÀÀ¿ø Ä«µå °³¼ö ºÎÁ·
-	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_FAIL,		// ÀÀ¿ø Ä«µå ±³È¯ ½ÇÆÐ
+	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_SUC,		// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_CARD,		// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_SUPPORTCARD_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_SUC,				// ÇÑ±¹ 16°­ ¼±¹° ±³È¯ ¼º°ø
-	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_ALREADY,			// ÀÌ¹Ì ¹Þ¾ÒÀ½
-	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_WEIGHT,			// ¹«°Ô ÃÊ°ú
-	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_INVEN,			// ÀÎº¥ °ø°£ ºÎÁ·
-	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_FAIL,			// ÇÑ±¹ 16°­ ¼±¹° ±³È¯ ½ÇÆÐ
+	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_SUC,				// ï¿½Ñ±ï¿½ 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_ALREADY,			// ï¿½Ì¹ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_WEIGHT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_INVEN,			// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP2010_KOREA_ERROR_FAIL,			// ï¿½Ñ±ï¿½ 16ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 }MSG_EVENT_WORLDCUP2010_ERROR_TYPE;
 
 typedef enum __tagMsgEventNewAfron2009Type
 {
-	MSG_EVENT_GIVE_ITEM_SUCCESS,				// SERVER -> CLIENT ¾ÆÀÌÅÛ Áö±Þ ÈÄ ¼º°ø ¸Þ½ÃÁö
-	MSG_EVENT_GIVE_ITEM_NO_TARGET,				// SERVER -> CLIENT ¾ÆÀÌÅÛ Áö±Þ ´ë»óÀÚ ¾Æ´Ô
-	MSG_EVENT_GIVE_ITEM_ALREADY_RECEIVE,		// SERVER -> CLIENT ¾ÆÀÌÅÛÀ» ÀÌ¹Ì ¹ÞÀº ´ë»óÀÚÀÓ.
+	MSG_EVENT_GIVE_ITEM_SUCCESS,				// SERVER -> CLIENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EVENT_GIVE_ITEM_NO_TARGET,				// SERVER -> CLIENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_EVENT_GIVE_ITEM_ALREADY_RECEIVE,		// SERVER -> CLIENT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 }MSG_EVENT_NEW_AFRON_2009_TYPE;
 
 typedef enum _tagEventRequitalErroType
 {
-	MSG_EVENT_REQUITALM_OK,						// º¸»ó ¼º°ø
-	MSG_EVENT_REQUITAL_FAIL,					// º¸»ó ½ÇÆÐ
-	MSG_EVENT_REQUITAL_ERROR_ALREADY_APPLY,		// ÀÌ¹Ì ÀÀ¸ð ÇÔ
-	MSG_EVENT_REQUITAL_FAIL_TIME,				// º¸»ó ½Ã°£ÀÌ Áö³ª°¨
-	MSG_EVENT_REQUITAL_ERROR_FULL_INVEN,		// ÀÎº¥Åä¸®°¡ ²ËÂü
-	MSG_EVENT_REQUITAL_ERROR_TOO_HEAVY_INVEN,	// ÀÎº¥Åä¸®ÀÌ ³Ê¹« ¹«°Å¿ò
-	MSG_EVENT_REQUITAL_FAIL_TIME_NOPLAY,		// ÇØ´ç ³¯Â¥¿¡ °ÔÀÓÀ» ÇÏÁö ¾Ê¾Æ¼­ ½ÇÆÐ
-	MSG_EVENT_REQUITAL_FAIL_CREATE_TIME,		// À¯Àú°¡ °ÔÀÓÀ» ½ÃÀÛÇÑ ³¯Â¥°¡ ³Ê¹« ÀÌ¸§
+	MSG_EVENT_REQUITALM_OK,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_REQUITAL_FAIL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_REQUITAL_ERROR_ALREADY_APPLY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_REQUITAL_FAIL_TIME,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_REQUITAL_ERROR_FULL_INVEN,		// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_REQUITAL_ERROR_TOO_HEAVY_INVEN,	// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Å¿ï¿½
+	MSG_EVENT_REQUITAL_FAIL_TIME_NOPLAY,		// ï¿½Ø´ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_REQUITAL_FAIL_CREATE_TIME,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½Ì¸ï¿½
 
 }MSG_EVENT_REQUITAL_ERROR_TYPE;
 
@@ -2748,211 +2752,211 @@ typedef enum _tagEventPhoenixErrorType
 
 typedef enum _tagEventNomErrorType
 {
- MSG_EVENT_NOM_OK,						// ÀÀ¸ð ¼º°ø
- MSG_EVENT_NOM_ERROR_ALREADY_APPLY,		// ÀÌ¹Ì ÀÀ¸ð ÇÔ
- MSG_EVENT_NOM_ERROR_FULL_INVEN,		// ÀÎº¥Åä¸®°¡ ²ËÂü
- MSG_EVENT_NOM_ERROR_ITEM_FAIL,			// ¾ÆÀÌÅÛ ¿À·ù
- MSG_EVENT_NOM_LOTTERY_USE_OK,			// º¹±Ç »ç¿ë ¼º°ø
- MSG_EVENT_NOM_MOVIE_TICKET_OK,			// Æ¼ÄÏ »ç¿ë ¼º°ø
+ MSG_EVENT_NOM_OK,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EVENT_NOM_ERROR_ALREADY_APPLY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+ MSG_EVENT_NOM_ERROR_FULL_INVEN,		// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EVENT_NOM_ERROR_ITEM_FAIL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EVENT_NOM_LOTTERY_USE_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EVENT_NOM_MOVIE_TICKET_OK,			// Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_NOM_ERROR_TYPE;
 
 typedef enum _tagEventSakura2008Type
 {
-	MSG_EVENT_SAKURAEVENT_2008,					//º¸»ó ¾ÆÀÌÅÛ ±³È¯
-	MSG_EVENT_SAKURAEVENT_2008_ERROR,			//º¸»ó ¾ÆÀÌÅÛ ±³È¯ °á°ú errorcode(c) 0:success, 1: failed
-	MSG_EVENT_SAKURAEVENT_2008_ITEMCHANGE,		//º¸»ó ¾ÆÀÌÅÛ È¹µæ °øÁö charName(str), itemindex(n)
+	MSG_EVENT_SAKURAEVENT_2008,					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+	MSG_EVENT_SAKURAEVENT_2008_ERROR,			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ errorcode(c) 0:success, 1: failed
+	MSG_EVENT_SAKURAEVENT_2008_ITEMCHANGE,		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ charName(str), itemindex(n)
 } MSG_EVENT_SAKURA_2008_TYPE;
 
 typedef enum _tagEventNewMoonStoneType
 {
-	MSG_EVENT_NEW_MOONSTONE_START_REQ,		// ¹®½ºÅæ ½ÃÀÛ¿äÃ»
-	MSG_EVENT_NEW_MOONSTONE_START_REP,		// ¹®½ºÅæ ½ÃÀÛÀÀ´ä		nas(n)
+	MSG_EVENT_NEW_MOONSTONE_START_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½Ã»
+	MSG_EVENT_NEW_MOONSTONE_START_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		nas(n)
 
-	MSG_EVENT_NEW_MOONSTONE_TRY_REQ,		// ¹®½ºÅæ º¹±Ç ¿äÃ»		moonstone_idx(n)
-	MSG_EVENT_NEW_MOONSTONE_TRY_REP,		// ¹®½ºÅæ º¹±Ç ÀÀ´ä		giftitemindex(n) , nas(n)
+	MSG_EVENT_NEW_MOONSTONE_TRY_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		moonstone_idx(n)
+	MSG_EVENT_NEW_MOONSTONE_TRY_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		giftitemindex(n) , nas(n)
 
-	MSG_EVENT_NEW_MOONSTONE_RESULT_REQ,		// ¹®½ºÅæ º¹±Ç °á°ú ¿äÃ»	
-	MSG_EVENT_NEW_MOONSTONE_RESULT_REP,		// ¹®½ºÅæ º¹±Ç °á°ú ÀÀ´ä	giftitemidx(n), giftitemcount(n)
+	MSG_EVENT_NEW_MOONSTONE_RESULT_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	
+	MSG_EVENT_NEW_MOONSTONE_RESULT_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	giftitemidx(n), giftitemcount(n)
 
-	MSG_EVENT_NEW_MOONSTONE_JACK_POT,		// ÀèÆÌ	
+	MSG_EVENT_NEW_MOONSTONE_JACK_POT,		// ï¿½ï¿½ï¿½ï¿½	
 
-	MSG_EVENT_NEW_MOONSTONE_OK,			// ¹®½ºÅæ¾òÀ½		moonstone idx(n)
+	MSG_EVENT_NEW_MOONSTONE_OK,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		moonstone idx(n)
 
-	MSG_EVENT_NEW_MOONSTONE_NO_MOONSTONE,		// ¹®½ºÅæ ¾øÀ½		itemindex(¾ø´Â¹®½ºÅæindex)
-	MSG_EVENT_NEW_MOONSTONE_FULLINVEN,		// ÀÎº¥°¡µæÂü	
+	MSG_EVENT_NEW_MOONSTONE_NO_MOONSTONE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		itemindex(ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ï¿½ï¿½ï¿½index)
+	MSG_EVENT_NEW_MOONSTONE_FULLINVEN,		// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
 
-	MSG_EVENT_NEW_MOONSTONE_MIX_REQ,			// ¹®½ºÅæ Á¶ÇÕ ¿äÃ»	moonstone_idx(n)
-	MSG_EVENT_NEW_MOONSTONE_MIX_SUCCESS,		// ¹®½ºÅæ Á¶ÇÕ ¼º°ø	new_moonstone_idx(n),
-	MSG_EVENT_NEW_MOONSTONE_MIX_FAILED,			// ¹®½ºÅæ Á¶ÇÕ ½ÇÆÐ
-	MSG_EVENT_NEW_MOONSTONE_MIX_MISS			// ¹®½ºÅæ Á¶ÇÕ °ø½Ä¿¡ ¾î±ß³²
+	MSG_EVENT_NEW_MOONSTONE_MIX_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	moonstone_idx(n)
+	MSG_EVENT_NEW_MOONSTONE_MIX_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	new_moonstone_idx(n),
+	MSG_EVENT_NEW_MOONSTONE_MIX_FAILED,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_NEW_MOONSTONE_MIX_MISS			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ß³ï¿½
 } MSG_EVENT_NEW_MOONSTONE_TYPE;
 
 typedef enum _tagEventXMas2007Type
 {
-	MSG_EVENT_XMASTREE_ADD_POINT,		// REQ: NOT , REP (c)error 0:¼º°ø, 1:¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_XMASTREE_GET_BLESS,		// REQ: NOT , REP (c)error 0:¼º°ø, 1:¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_XMASTREE_DROP_ITEM,		// REQ: NONE, REP (n)remainTime ³²Àº ½Ã°£(ºÐ)
+	MSG_EVENT_XMASTREE_ADD_POINT,		// REQ: NOT , REP (c)error 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_XMASTREE_GET_BLESS,		// REQ: NOT , REP (c)error 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_XMASTREE_DROP_ITEM,		// REQ: NONE, REP (n)remainTime ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½(ï¿½ï¿½)
 
-	MSG_EVENT_XMAS_PUZZLE_CHECKITEM_REQ,	// ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎ ¿äÃ»
-	MSG_EVENT_XMAS_PUZZLE_CHECKITEM_REP,	// ¾ÆÀÌÅÛÀÌ Á¸ÀçÇÏ´ÂÁö È®ÀÎ ÀÀ´ä: ucResult(0:¼º°ø, 1:½ÇÆÐ)
-	MSG_EVENT_XMAS_PUZZLE_START_REQ,		// °ÔÀÓ ½ÃÀÛ ¿äÃ»
-	MSG_EVENT_XMAS_PUZZLE_START_REP,		// °ÔÀÓ ½ÃÀÛ °¡´É ¿©ºÎ ÀÀ´ä     : ucResult(0:¼º°ø, 1:½ÇÆÐ)
-	MSG_EVENT_XMAS_PUZZLE_SELECT_REQ,		// °¡À§, ¹ÙÀ§, º¸ ¼±ÅÃ ¿äÃ»     : ucChoice(0:°¡À§, 1:¹ÙÀ§, 2:º¸)
-	MSG_EVENT_XMAS_PUZZLE_SELECT_REP,		// °¡À§, ¹ÙÀ§, º¸ °á°ú          : ucResult(0:½Â¸®, 1:ºñ±è, 2:ÆÐ¹è), ucWinCount(½Â¸® È½¼ö), ucUserSelection(À¯Àú ¼±ÅÃ°ª(0:°¡À§, 1:¹ÙÀ§, 2:º¸)), ucServerSelection(¼­¹ö ¼±ÅÃ°ª(0:°¡À§, 1:¹ÙÀ§, 2:º¸))
-	MSG_EVENT_XMAS_PUZZLE_CONTINUE_REQ,		// °ÔÀÓÀ» °è¼Ó ÁøÇà ¿äÃ»
-	MSG_EVENT_XMAS_PUZZLE_CONTINUE_REP,		// °ÔÀÓ °è¼Ó ÁøÇà ½ÂÀÎ
-	MSG_EVENT_XMAS_PUZZLE_END_REQ,			// °ÔÀÓ ±×¸¸ÇÏ°í º¸»ó ¿äÃ»
-	MSG_EVENT_XMAS_PUZZLE_END_REP,			// º¸»ó Áö±Þ ¹× º¸»ó ¿Ï·á ¸Þ½ÃÁö: ucWinCount(½Â¸® È½¼ö), nGiftItemIndex(º¸»ó ¾ÆÀÌÅÛ ÀÎµ¦½º), llGiftItemCount(º¸»ó ¾ÆÀÌÅÛ ¼ö·®)
+	MSG_EVENT_XMAS_PUZZLE_CHECKITEM_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_XMAS_PUZZLE_CHECKITEM_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ucResult(0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½)
+	MSG_EVENT_XMAS_PUZZLE_START_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_XMAS_PUZZLE_START_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½     : ucResult(0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½)
+	MSG_EVENT_XMAS_PUZZLE_SELECT_REQ,		// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»     : ucChoice(0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½)
+	MSG_EVENT_XMAS_PUZZLE_SELECT_REP,		// ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ ï¿½ï¿½ï¿½          : ucResult(0:ï¿½Â¸ï¿½, 1:ï¿½ï¿½ï¿½, 2:ï¿½Ð¹ï¿½), ucWinCount(ï¿½Â¸ï¿½ È½ï¿½ï¿½), ucUserSelection(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½(0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½)), ucServerSelection(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½(0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½))
+	MSG_EVENT_XMAS_PUZZLE_CONTINUE_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_XMAS_PUZZLE_CONTINUE_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_XMAS_PUZZLE_END_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_XMAS_PUZZLE_END_REP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½: ucWinCount(ï¿½Â¸ï¿½ È½ï¿½ï¿½), nGiftItemIndex(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½), llGiftItemCount(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 } MSG_EVENT_XMAS_2007_TYPE;
 
 typedef enum _tagMsgEventHallowWeen2007
 {
-	MSG_EVENT_TAKE_DEVILHEAIR,						// ¾Ç¸¶³¯°³ ¸Ó¸®¶ì ¹Þ±â REQ: , REP: 0(SUCCESS), 1(¹ÞÀºÀûÀÖÀ½)
-	MSG_EVENT_CHANGE_CANDYBASKET,					// »çÅÁ¹Ù±¸´Ï¿¡ »çÅÁ ¹Þ±â REQ: , REP: 0(SUCCESS), 1(¹Ù±¸´Ï ¾øÀ½)
-	MSG_EVENT_CHANGE_PUMKINHEAD,					// È£¹Ú¸Ó¸® Å» ±³È¯¹Þ±â REQ: , REP: 0(SUCCESS) , 1(»çÅÁ¸ðÀÚ¶÷)
-	MSG_EVENT_CHANGE_WITCHHAT,						// ¸¶³à¸ðÀÚ ±³È¯¹Þ±â REQ: , REP: 0(SUCCESS), 1(ÁõÇ¥¾øÀ½)
-	MSG_EVENT_CHANGE_PUMKIN,						// È£¹Ú ±³È¯ ¹Þ±â REQ: , REP: 0(SUCCESS), 1(È£¹Ú¾øÀ½)
-	MSG_EVENT_TASTE_CANDY,							// »çÅÁ ¸À REQ:NONE , REP : 0(Àý¸ÁÀûÀÎ¸À),1(Åä³ª¿À´Â¸À),2(±×·°Àú·°),3(±¦ÂúÀº¸À),4(Ãµ»óÀÇ¸À)
-	MSG_EVENT_FULL_INVEN,							// ÀÎº¥ °¡µæÂü
+	MSG_EVENT_TAKE_DEVILHEAIR,						// ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ REQ: , REP: 0(SUCCESS), 1(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_EVENT_CHANGE_CANDYBASKET,					// ï¿½ï¿½ï¿½ï¿½ï¿½Ù±ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ REQ: , REP: 0(SUCCESS), 1(ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_EVENT_CHANGE_PUMKINHEAD,					// È£ï¿½Ú¸Ó¸ï¿½ Å» ï¿½ï¿½È¯ï¿½Þ±ï¿½ REQ: , REP: 0(SUCCESS) , 1(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½)
+	MSG_EVENT_CHANGE_WITCHHAT,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Þ±ï¿½ REQ: , REP: 0(SUCCESS), 1(ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½)
+	MSG_EVENT_CHANGE_PUMKIN,						// È£ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Þ±ï¿½ REQ: , REP: 0(SUCCESS), 1(È£ï¿½Ú¾ï¿½ï¿½ï¿½)
+	MSG_EVENT_TASTE_CANDY,							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ REQ:NONE , REP : 0(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½),1(ï¿½ä³ªï¿½ï¿½ï¿½Â¸ï¿½),2(ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½),3(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½),4(Ãµï¿½ï¿½ï¿½Ç¸ï¿½)
+	MSG_EVENT_FULL_INVEN,							// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_HALLOWEEN_2007_TYPE;
 
 typedef enum _tagMsgEventLC1000Day
 {
-	MSG_EVENT_LC_1000DAY_HAT,						// 1000ÀÏ ÀÌº¥Æ® ¸ðÀÚ ¿äÃ» 
-	MSG_EVENT_LC_1000DAY_HAT_UPDATE,				// ¸ðÀÚ ¿É¼Ç ¾÷µ¥ÀÌÆ® ¿äÃ» 
-	MSG_EVENT_LC_1000DAY_FIRECRACKER,				// ÆøÁ× ¿äÃ»
-	MSG_EVENT_LC_1000DAY_FULLINVEN,					// ÀÎº¥ÀÌ °¡µæ Âü
-	MSG_EVENT_LC_1000DAY_HAT_UPDATE_SUCCESS,		// ¸ðÀÚ ¿É¼Ç ¾÷µ¥ÀÌÆ® ¼º°ø
-	MSG_EVENT_LC_1000DAY_HAT_UPDATE_FAIL,			// ¸ðÀÚ ¿É¼Ç ¾÷µ¥ÀÌÆ® ½ÇÆÐ
-	MSG_EVENT_LC_1000DAY_FIRECRACKER_DUPLICATION,	// ÆøÁ× ¾ÆÀÌÅÛÀÌ ÀÎº¥¿¡ ÀÖÀ½
-	MSG_EVENT_LC_1000DAY_NOITEM,				    // ¾ÆÀÌÅÛ ºÎÁ· 
+	MSG_EVENT_LC_1000DAY_HAT,						// 1000ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+	MSG_EVENT_LC_1000DAY_HAT_UPDATE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» 
+	MSG_EVENT_LC_1000DAY_FIRECRACKER,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_LC_1000DAY_FULLINVEN,					// ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_LC_1000DAY_HAT_UPDATE_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_LC_1000DAY_HAT_UPDATE_FAIL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_LC_1000DAY_FIRECRACKER_DUPLICATION,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_LC_1000DAY_NOITEM,				    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 } MSG_EVENT_LC_1000DAY_TYPE;
 
 typedef enum _tagMsgEventRichYear
 {
-	MSG_EVENT_RICHYEAR_UPGRADE,						// ¾ÆÀÌÅÛ ¾÷±×·¹ÀÌµå ¿äÃ»
-	MSG_EVENT_RICHYEAR_EXCHANGE,					// º¸»óÇ° ±³È¯
-	MSG_EVENT_RICHYEAR_ERROR_UPGRADE_NOITEM,		// ¾÷±×·¹ÀÌµåÇÒ Àç·á ¾øÀ½
-	MSG_EVENT_RICHYEAR_ERROR_UPGRADE_FAILED,		// ¾÷±×·¹ÀÌµå ½ÇÆÐ
-	MSG_EVENT_RICHYEAR_ERROR_NOCROP,				// ÀÛ¹°ÀÌ ¾øÀ» °æ¿ì
-	MSG_EVENT_RICHYEAR_ERROR_ALREADY_UPGRADE,		// ´õÀÌ»ó ¾÷±×·¹ÀÌµå ºÒ°¡´É
-	MSG_EVENT_RICHYEAR_ERROR_FULLINVEN,				// ÀÎº¥ºÎÁ·
-	MSG_EVENT_RICHYEAR_UPGRADE_OK,					// ¾÷±×·¹ÀÌµå ¼º°ø
-	MSG_EVENT_RICHYEAR_EXCHAGE_OK,					// º¸»ó ¼º°ø
+	MSG_EVENT_RICHYEAR_UPGRADE,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_RICHYEAR_EXCHANGE,					// ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½È¯
+	MSG_EVENT_RICHYEAR_ERROR_UPGRADE_NOITEM,		// ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_ERROR_UPGRADE_FAILED,		// ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_ERROR_NOCROP,				// ï¿½Û¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_ERROR_ALREADY_UPGRADE,		// ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_ERROR_FULLINVEN,				// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_UPGRADE_OK,					// ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RICHYEAR_EXCHAGE_OK,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EVENT_RICHYEAR_TYPE;
 
 
 typedef enum _tagMsgEventSshot
 {
-	MSG_EVENT_SSHOT_2007_RECIVE,					// ¼ÛÆí ¹Þ±â REQ : ¿äÃ» - REP : ¼º°ø
-	MSG_EVENT_SSHOT_2007_ALREADY,					// ¼ÛÆíÀ» ¹ÞÀºÀûÀÌ ÀÖ´Ù.
-	MSG_EVENT_SSHOT_2007_NOSSHOT,					// ÀÀ¸ðÇÑÀû ¾øÀ½
-	MSG_EVENT_SSHOT_2007_FULLINVEN					// ÀÎº¥ÀÌ °¡µæ Âü
+	MSG_EVENT_SSHOT_2007_RECIVE,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ REQ : ï¿½ï¿½Ã» - REP : ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SSHOT_2007_ALREADY,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
+	MSG_EVENT_SSHOT_2007_NOSSHOT,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SSHOT_2007_FULLINVEN					// ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 } MSG_EVENT_SSHOT_2007_TYPE;
 
 typedef enum _tagMsgEventBjMono
 {
-	MSG_EVENT_BJMONO_2007_TICKET_REQ,			// ÀÀ¸ð±Ç ¹Þ±â REQ : ¿äÃ» - REP : ¼º°ø count 
-	MSG_EVENT_BJMONO_2007_CHANGE_TICKET_REQ,	// ÀÀ¸ð±Ç ±³È¯ REQ : ¿äÃ» - REP : ¼º°ø itemIndex(n)
-	MSG_EVENT_BJMONO_2007_NO_TICKET,			// ¹ÞÀ» ÀÀ¸ð±Ç ¾øÀ½
-	MSG_EVENT_BJMONO_2007_DONT_CHANGE_TICKET,	// ±³È¯ÇÒ ÀÀ¸ð±ÇÀÌ ¾øÀ½
-	MSG_EVENT_BJMONO_2007_PRICE_FULLINVEN,		// ÀÎº¥ÀÌ °¡µæÂ÷¼­ º¸»óÀ» ¹ÞÁö ¸øÇÔ
+	MSG_EVENT_BJMONO_2007_TICKET_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ REQ : ï¿½ï¿½Ã» - REP : ï¿½ï¿½ï¿½ï¿½ count 
+	MSG_EVENT_BJMONO_2007_CHANGE_TICKET_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ REQ : ï¿½ï¿½Ã» - REP : ï¿½ï¿½ï¿½ï¿½ itemIndex(n)
+	MSG_EVENT_BJMONO_2007_NO_TICKET,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_BJMONO_2007_DONT_CHANGE_TICKET,	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_BJMONO_2007_PRICE_FULLINVEN,		// ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_BJMONO_2007_TYPE;
 
 typedef enum _tagMSgConnEventGift2007Type
 {
 	MSG_CONN_EVENT_GIFT_2007_CHECK,
-	MSG_CONN_EVENT_GIFT_2007_GIVE,			//¼º°ø
+	MSG_CONN_EVENT_GIFT_2007_GIVE,			//ï¿½ï¿½ï¿½ï¿½
 	MSG_CONN_EVENT_GIFT_2007_CHECK_ALLOW,
-	MSG_CONN_EVENT_GIFT_2007_CHECK_DBERROR,	//ÀÌº¥Æ® DB ¿¡·¯
-	MSG_CONN_EVENT_GIFT_2007_CHECK_DENY,	//ÀÌ¹Ì Áö±Þ
-	MSG_CONN_EVENT_GIFT_2007_GIVE_DBERROR,	//DB ¾øÀ½
-	MSG_CONN_EVENT_GIFT_2007_GIVE_FULL,		//ÀÎº¥ ¸¸¶¥
+	MSG_CONN_EVENT_GIFT_2007_CHECK_DBERROR,	//ï¿½Ìºï¿½Æ® DB ï¿½ï¿½ï¿½ï¿½
+	MSG_CONN_EVENT_GIFT_2007_CHECK_DENY,	//ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CONN_EVENT_GIFT_2007_GIVE_DBERROR,	//DB ï¿½ï¿½ï¿½ï¿½
+	MSG_CONN_EVENT_GIFT_2007_GIVE_FULL,		//ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_CONN_EVENT_GIFT_2007_TYPE;
 
 typedef enum _tagMsgEventOpenAdultServer
 {
-	// ¸ÅÁ÷Ä«µå°ü·Ã
-	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_REQ,		// ¸ÅÁ÷Ä«µåº¸»ó¹Þ±â
-	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_OK,		// ½ºÅ³º¸»ó¼º°ø			exchangeType(b) 
-											// exchangeType			0 : ¹Ù¶÷ÀÇ ·¯ºê¸ÅÁ÷
-											//						1 : ÈûÀÇ ·¯ºê¸ÅÁ÷
-											//						2 : ¹ÎÃ¸ÀÇ ·¯ºê¸ÅÁ÷
-											//						3 : ÁöÇýÀÇ ·¯ºê¸ÅÁ÷
-											//						4 : Ã¼ÁúÀÇ ·¯ºê¸ÅÁ÷
-											//						5 : ·Î·¹ÀÎÀÇ ·¯ºê¸ÅÁ÷
+	// ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_REQ,		// ï¿½ï¿½ï¿½ï¿½Ä«ï¿½åº¸ï¿½ï¿½Þ±ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_OK,		// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ó¼º°ï¿½			exchangeType(b) 
+											// exchangeType			0 : ï¿½Ù¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											//						1 : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											//						2 : ï¿½ï¿½Ã¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											//						3 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											//						4 : Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+											//						5 : ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_FAILED,	// ±³È¯ ½ÇÆÐ ( ½ºÅ³Àû¿ë ½ÇÆÐÇßÀ» ¶§)
-	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_NOITEM,	// ¾ÆÀÌÅÛ ¾øÀ½			
+	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_FAILED,	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	MSG_EVENT_OPEN_ADULT_SERVER_MAGIC_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
 
-	// ÀüÁ÷°ü·Ã
-	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_EXCHANGE,		// ¾ÆÀÌÅÛ º¸»ó¿äÃ»
-	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_EXCHANGE_OK,		// º¸»ó¼º°ø	: µî¼ö(n), Àý¸ÁÀÇºÎÀû º¸»ó°³¼ö(n)
-	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_ALREADY,	// »óÇ°ÀÌ¹Ì ¹Þ¾ÒÀ½
-	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_FAILED,		// ÀüÁ÷À» ¾ÈÇØ¼­ ½ÇÆÐ		
-	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_FULLINVEN, // ÀÎº¥ºÎÁ·
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_EXCHANGE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã»
+	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_EXCHANGE_OK,		// ï¿½ï¿½ï¿½ó¼º°ï¿½	: ï¿½ï¿½ï¿½(n), ï¿½ï¿½ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°³¼ï¿½(n)
+	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_ALREADY,	// ï¿½ï¿½Ç°ï¿½Ì¹ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_FAILED,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½		
+	MSG_EVENT_OPEN_ADULT_SERVER_CHABGEJOB_ERROR_FULLINVEN, // ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-	// ¾ÆÀÌÅÛ ¿¬±Ý¼ú ÀÌº¥Æ® °ü·Ã
-	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_REQ,			// ¾ÆÀÌÅÛ ¾÷±×·¹ÀÌµå ¿äÃ» : tab(n), row(n), col(n)
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¼ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ã» : tab(n), row(n), col(n)
 	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_OK,
-	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_NOT_FOUND,	// Àç·á ºÎÁ·
-	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_FAILED,		// ¾÷±×·¹ÀÌµå ½ÇÆÐ
-	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_FULLINVEN, // ÀÎº¥ºÎÁ·
+	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_NOT_FOUND,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_FAILED,		// ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OPEN_ADULT_SERVER_UPGRADE_ERROR_FULLINVEN, // ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½
 
 }MSG_EVENT_OPEN_ADULT_SERVER_TYPE;
 
 typedef enum _tagMsgEventSummerVacation_2007
 {
- MSG_EVENT_SUMMER_VACATION_2007_PAPER_FIGURES, // Á¾ÀÌ Á¢±â ¿äÃ» REQ: papaerindex(n) papaerindex(n) papaerindex(n)
+ MSG_EVENT_SUMMER_VACATION_2007_PAPER_FIGURES, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» REQ: papaerindex(n) papaerindex(n) papaerindex(n)
              //  REP : errorcode(n) figuretype(n)
- MSG_EVENT_SUMMER_VACATION_2007_INCHEN,   // ÀÎÃ¾ ¿äÃ» : count(n) paperindex(uc) 
+ MSG_EVENT_SUMMER_VACATION_2007_INCHEN,   // ï¿½ï¿½Ã¾ ï¿½ï¿½Ã» : count(n) paperindex(uc) 
              // REP : err(n) itemname(str)
  
- MSG_EVENT_SUMMER_VACATION_2007_ERROR_INCHEN_FALIL, // ÀÎÃ¾ ½ÇÆÐ
+ MSG_EVENT_SUMMER_VACATION_2007_ERROR_INCHEN_FALIL, // ï¿½ï¿½Ã¾ ï¿½ï¿½ï¿½ï¿½
  MSG_EVENT_SUMMER_VACATION_2007_ERROR_INCHEN_OK,
- MSG_EVENT_SUMMER_VACATION_2007_ERROR_NOITEM,  // ¾ÆÀÌÅÛ ¾øÀ½
+ MSG_EVENT_SUMMER_VACATION_2007_ERROR_NOITEM,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  MSG_EVENT_SUMMER_VACATION_2007_ERROR_MAKE_FAIL,
  MSG_EVENT_SUMMER_VACATION_2007_ERROR_MAKE_OK,
- MSG_EVENT_SUMMER_VACATION_2007_ERROR_FULLINVENTORY, // ÀÎº¥Åä¸® °¡µæÂ÷¼­ ¾ÆÀÌÅÛ Áö±Þ ºÒ°¡´É
- MSG_EVENT_SUMMER_VACATION_2007_ERROR_NOMONEY,   // µ· ºÎÁ·
+ MSG_EVENT_SUMMER_VACATION_2007_ERROR_FULLINVENTORY, // ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+ MSG_EVENT_SUMMER_VACATION_2007_ERROR_NOMONEY,   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_SUMMER_VACATION_2007_TYPE;
 
 typedef enum _tagMsgEventFlowerTree_2007
 {
-	MSG_EVENT_FLOWERTREE_2007_POINT, 			// ÇöÀç ²É³ª¹« ´©Àû Æ÷ÀÎÆ®   REQ : not REP: point(un)
-	MSG_EVENT_FLOWERTREE_2007_POINT_RANK,		// ¼­¹ö±º ²É³ª¹« ´©Àû Æ÷ÀÎÆ® REQ : not REP: servercnt(n) point0 (un) point1(un)...
-	MSG_EVENT_FLOWERTREE_2007_GROWUP,			// ¾ÆÀÌÅÛÀ» »ç¿ëÇÏ¿© °³È­ µ½±â REQ : not REP: givePoint(un)	
-	MSG_EVENT_FLOWERTREE_2007_MY_POINT,			// ³»°¡ ±â¿©ÇÑ Æ÷ÀÎÆ® REQ : not REP: point(un)
-	MSG_EVENT_FLOWERTREE_2007_RECV_TICKET,		// ±³È¯±Ç ¹Þ±â REQ : not REP: count(n) 
-	MSG_EVENT_FLOWERTREE_2007_OPEN_TICKET,		// ±³È¯±Ç È®ÀÎ REQ : not REP: error(uc) 0-Æ¼ÄÏ¾øÀ½, 1-Æ¼ÄÏ»ç¿ë;
-	MSG_EVENT_FLOWERTREE_2007_PRICE_MSG,		// ´çÃ· ¸Þ¼¼Áö REP : charIndex(n), itemindex(n)
+	MSG_EVENT_FLOWERTREE_2007_POINT, 			// ï¿½ï¿½ï¿½ï¿½ ï¿½É³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®   REQ : not REP: point(un)
+	MSG_EVENT_FLOWERTREE_2007_POINT_RANK,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® REQ : not REP: servercnt(n) point0 (un) point1(un)...
+	MSG_EVENT_FLOWERTREE_2007_GROWUP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ REQ : not REP: givePoint(un)	
+	MSG_EVENT_FLOWERTREE_2007_MY_POINT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½â¿©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® REQ : not REP: point(un)
+	MSG_EVENT_FLOWERTREE_2007_RECV_TICKET,		// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Þ±ï¿½ REQ : not REP: count(n) 
+	MSG_EVENT_FLOWERTREE_2007_OPEN_TICKET,		// ï¿½ï¿½È¯ï¿½ï¿½ È®ï¿½ï¿½ REQ : not REP: error(uc) 0-Æ¼ï¿½Ï¾ï¿½ï¿½ï¿½, 1-Æ¼ï¿½Ï»ï¿½ï¿½;
+	MSG_EVENT_FLOWERTREE_2007_PRICE_MSG,		// ï¿½ï¿½Ã· ï¿½Þ¼ï¿½ï¿½ï¿½ REP : charIndex(n), itemindex(n)
 } MSG_EVENT_FLOWERTREE_2007_TYPE;
 
 typedef enum _tagMsgEventChildrensDay_2007
 {
-	MSG_EVENT_CHILDRENSDAY_2007_REQ,		// ±³È¯ ¿äÃ»	(n)ItemIndex, (n)°³³ª¸® °¹¼ö
-	MSG_EVENT_CHILDRENSDAY_2007_REP,		// ¿¡·¯ÄÚµå		(n) 0- ±³È¯ ¼º°ø (n)ItemIndex, 1-°³³ª¸® °¹¼ö ºÎÁ·, 2-ÀÌ¹Ì ¹ÞÀº Àåºñ , 3-Unknown
+	MSG_EVENT_CHILDRENSDAY_2007_REQ,		// ï¿½ï¿½È¯ ï¿½ï¿½Ã»	(n)ItemIndex, (n)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHILDRENSDAY_2007_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½		(n) 0- ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ (n)ItemIndex, 1-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 2-ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ , 3-Unknown
 }MSG_EVENT_CHILDRENSDAY_2007_TYPE;
 // WSS_MINIGAME 070420 ------------------------------------------------------------->>
 typedef enum _tagMsgEventGomdori2007
 {
-	MSG_EVENT_GOMDORI_2007_CHECKITEM,			// °¡À§¹ÙÀ§º¸ ¾ÆÀÌÅÛ °Ë»ç
-	MSG_EVENT_GOMDORI_2007_START,				// °¡À§¹ÙÀ§º¸ ½ÃÀÛÇÏ±â
-	MSG_EVENT_GOMDORI_2007_SELECT,				// °¡À§¹ÙÀ§º¸ ¼±ÅÃÇÏ±â	: type(c)
-												// type					: °¡À§-0, ¹ÙÀ§-1, º¸-2
-	MSG_EVENT_GOMDORI_2007_RESULT_WIN,			// °¡À§¹ÙÀ§º¸ ½Â¸® ¾Ë¸²	: wincount(c) usersel(c) npcsel(c)
-	MSG_EVENT_GOMDORI_2007_RESULT_LOSE,			// °¡À§¹ÙÀ§º¸ ÆÐ¹è ¾Ë¸²	: wincount(c) usersel(c) npcsel(c)
-	MSG_EVENT_GOMDORI_2007_RESULT_DRAW,			// °¡À§¹ÙÀ§º¸ ºñ±è ¾Ë¸²	: wincount(c) usersel(c) npcsel(c)
-	MSG_EVENT_GOMDORI_2007_CONTINUE,			// °¡À§¹ÙÀ§º¸ °è¼Ó ÇÏ±â
-	MSG_EVENT_GOMDORI_2007_END,					// °¡À§¹ÙÀ§º¸ ±×¸¸ ÇÏ±â	: wincount(c:s) prompttype(c:s) extar1(n:s) extar2(n:s)
-												// prompttype			: 0 - ÀÏ¹Ý º¸»ó: extra1(º¸»ó¾ÆÀÌÅÛÀÎµ¦½º) extra2(º¸»ó¾ÆÀÌÅÛ¼ö·®)
-												//						: 1 - Ã¼Çè±³º¹ º¸»ó: extra1(»ç¿ë¾ÈÇÔ) extra2(»ç¿ë¾ÈÇÔ)
-												//						: 2 - ¿±±â ¹«±â ¼±ÅÃ ÇÊ¿ä: extra1(¼±ÅÃ¾ÆÀÌÅÛ1) extra2(¼±ÅÃ¾ÆÀÌÅÛ2)
-	MSG_EVENT_GOMDORI_2007_SELECT_GIFT,			// ¿±±â¹«±â ¼±ÅÃ		: itemdbindex(n)
-	MSG_EVENT_GOMDORI_2007_VIEW_STATUS,			// ÇöÈ² º¸±â			: curserver(n:s) count(n:s) [server(n:s)]:count
-	MSG_EVENT_GOMDORI_2007_ERROR_NOITEM,		// °õµ¹ÀÌ ¾ÆÀÌÅÛ ºÎÁ·
-	MSG_EVENT_GOMDORI_2007_ERROR_FULLINVENTORY,	// ÀÎº¥Åä¸® °¡µæÂ÷¼­ ¾ÆÀÌÅÛ Áö±Þ ºÒ°¡´É
+	MSG_EVENT_GOMDORI_2007_CHECKITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+	MSG_EVENT_GOMDORI_2007_START,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+	MSG_EVENT_GOMDORI_2007_SELECT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½	: type(c)
+												// type					: ï¿½ï¿½ï¿½ï¿½-0, ï¿½ï¿½ï¿½ï¿½-1, ï¿½ï¿½-2
+	MSG_EVENT_GOMDORI_2007_RESULT_WIN,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¸ï¿½ ï¿½Ë¸ï¿½	: wincount(c) usersel(c) npcsel(c)
+	MSG_EVENT_GOMDORI_2007_RESULT_LOSE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½Ë¸ï¿½	: wincount(c) usersel(c) npcsel(c)
+	MSG_EVENT_GOMDORI_2007_RESULT_DRAW,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: wincount(c) usersel(c) npcsel(c)
+	MSG_EVENT_GOMDORI_2007_CONTINUE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï±ï¿½
+	MSG_EVENT_GOMDORI_2007_END,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½Ï±ï¿½	: wincount(c:s) prompttype(c:s) extar1(n:s) extar2(n:s)
+												// prompttype			: 0 - ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½: extra1(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½) extra2(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½)
+												//						: 1 - Ã¼ï¿½è±³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: extra1(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) extra2(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+												//						: 2 - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½: extra1(ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½1) extra2(ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½ï¿½2)
+	MSG_EVENT_GOMDORI_2007_SELECT_GIFT,			// ï¿½ï¿½ï¿½â¹«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: itemdbindex(n)
+	MSG_EVENT_GOMDORI_2007_VIEW_STATUS,			// ï¿½ï¿½È² ï¿½ï¿½ï¿½ï¿½			: curserver(n:s) count(n:s) [server(n:s)]:count
+	MSG_EVENT_GOMDORI_2007_ERROR_NOITEM,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOMDORI_2007_ERROR_FULLINVENTORY,	// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 } MSG_EVENT_GOMDORI_2007_TYPE;
 // -----------------------------------------------------------------------------------<<
 
@@ -2960,16 +2964,16 @@ typedef enum _tagMsgEventGomdori2007
 
 typedef enum _tagMsgEventParentsDay2007
 {
-	MSG_EVENT_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST, // ¾î¹öÀÌ³¯ ´©Àû Æ÷ÀÎÆ® ¸®½ºÆ® Àü¼Û ¿äÃ»  c->s´Â  MessageType¸¸
+	MSG_EVENT_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST, // ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»  c->sï¿½ï¿½  MessageTypeï¿½ï¿½
 				  // s->c : error(c) count( n ) rankig( c ) savepoint( n ) gildname(str)
-	MSG_EVENT_PARENTSDAY_2007_ADD_POINT,    // Æ÷ÀÎÆ® µî·Ï
+	MSG_EVENT_PARENTSDAY_2007_ADD_POINT,    // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 				  // c->s : CharIndex(n) echangeItemIndex(n)
 				  // s->c : errorcode(c) point(n) totalpoint(n)
-	MSG_EVENT_PARENTSDAY_2007_EXCHANGE_TICKET,   // ´©Àû Æ÷ÀÎÆ®·Î ÀÎÇÑ ±³È¯±Ç ¿äÃ»
+	MSG_EVENT_PARENTSDAY_2007_EXCHANGE_TICKET,   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»
 				  // s->c : errorcode(c) changeTicketCount(n)
-	MSG_EVENT_PARENTSDAY_2007_EXCHANGE_ITEM,   // ±³È¯±ÇÀ¸·Î ¾ÆÀÌÅÛ ±³È¯ ¿äÃ»
+	MSG_EVENT_PARENTSDAY_2007_EXCHANGE_ITEM,   // ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
 	// s->c: errcode(c)
-	MSG_EVENT_PARENTSDAY_2007_NOTICE, // °øÁö	//s-c : guildName(str) itemName(str)
+	MSG_EVENT_PARENTSDAY_2007_NOTICE, // ï¿½ï¿½ï¿½ï¿½	//s-c : guildName(str) itemName(str)
 
 	MSG_EVENT_PARENTSDAY_2007_RESULT, // s->c : ranking(n)
 
@@ -2977,144 +2981,144 @@ typedef enum _tagMsgEventParentsDay2007
 
 typedef enum _tagParentsDay2007ErrorType
 {
-	MSG_ERROR_PARENTSDAY_2007_FULLINVEN,			// ÀÎº¥ °¡µæ Âü
-	MSG_ERROR_PARENTSDAY_2007_NO_EXCHAGNE_ITEM,		// ±³È¯±Ç ¾øÀ½
-	MSG_ERROR_PARENTSDAY_2007_NOT_GUILD_OWNER,		// ±æµåÀåÀÌ ¾Æ´Õ´Ï´Ù.
-	MSG_ERROR_ACCUMULATEPOINT_NOT_RANKING,			// ·©Å· µ¥ÀÌÅ¸°¡ ¾ø½À´Ï´Ù.
-	MSG_ERROR_ADD_POINT,							// Æ÷ÀÎÆ® ´©Àû ½ÇÆÐ
-	MSG_ERROR_NOT_ENOUGH_POINT,						// Æ÷ÀÎÆ® ºÎÁ·
-	MSG_ERROR_NOT_FOUND_ACCUMULATEPOINT_LIST,		// ´©Àû Æ÷ÀÎÆ® Á¤º¸°¡ ¾ø½À´Ï´Ù.
-	MSG_ERROR_PARENTSDAY_2007_ERROR_NOITEM,			// ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_PARENTSDAY_2007_SUCCESS,					// ¼º°ø
+	MSG_ERROR_PARENTSDAY_2007_FULLINVEN,			// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_ERROR_PARENTSDAY_2007_NO_EXCHAGNE_ITEM,		// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ERROR_PARENTSDAY_2007_NOT_GUILD_OWNER,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_ERROR_ACCUMULATEPOINT_NOT_RANKING,			// ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ERROR_ADD_POINT,							// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ERROR_NOT_ENOUGH_POINT,						// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_ERROR_NOT_FOUND_ACCUMULATEPOINT_LIST,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_ERROR_PARENTSDAY_2007_ERROR_NOITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PARENTSDAY_2007_SUCCESS,					// ï¿½ï¿½ï¿½ï¿½
 }MSG_PARENTSDAY_2007_ERROR_TYPE;
 
 
 typedef enum _tagMsgEventSongkran2007
 {
-	MSG_EVENT_SONGKRAN_2007_EXCHANGE_OK,		// ±³È¯ ¼º°ø			exchangeType(b) 0-Silver,1-Gold	
-	MSG_EVENT_SONGKRAN_2007_EXCHANGE_NOITEM,	// ¾ÆÀÌÅÛ ¾øÀ½			
-	MSG_EVENT_SONGKRAN_2007_EXCHANGE_FULLINVEN,	// ÀÎº¥ °¡µæ Âü
+	MSG_EVENT_SONGKRAN_2007_EXCHANGE_OK,		// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½			exchangeType(b) 0-Silver,1-Gold	
+	MSG_EVENT_SONGKRAN_2007_EXCHANGE_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
+	MSG_EVENT_SONGKRAN_2007_EXCHANGE_FULLINVEN,	// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 }MSG_EVENT_SONGKRAN_2007_TYPE;
 	
 
 
 typedef enum _tagMsgEventEggsHunt2007Type
 {
-	MSG_EVENT_EGGS_HUNT_2007_GIFT_REP_OK,					// ¾ÆÀÌÅÛ º¸»ó ¼º°ø
-	MSG_EVENT_EGGS_HUNT_2007_ERROR_ALREADY_EXIST,			// ¾ÆÀÌÅÛ Áßº¹ ¼ÒÀ¯ ¾ÈµÊ
-	MSG_EVENT_EGGS_HUNT_2007_ERROR_GIFT_FULLINVEN,			// ÀÎº¥Åä¸® ºÎÁ·
-	MSG_EVENT_EGGS_HUNT_2007_ERROR_NOITEM,					// ¾ÆÀÌÅÛ ¾øÀ½
+	MSG_EVENT_EGGS_HUNT_2007_GIFT_REP_OK,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_EGGS_HUNT_2007_ERROR_ALREADY_EXIST,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+	MSG_EVENT_EGGS_HUNT_2007_ERROR_GIFT_FULLINVEN,			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_EGGS_HUNT_2007_ERROR_NOITEM,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_EGGS_HUNT_2007_TYPE;
 
 
 typedef enum _tagEventEggsHunt2007ChangeType
 {
-		MSG_EGGS_HUNT_CHANGE_50_NAS,				// 50³ª½º 
-		MSG_EGGS_HUNT_CHANGE_500_NAS,				// 500³ª½º
-		MSG_EGGS_HUNT_CHANGE_QUALITY_STONE,			// ½ºÅæ ¿þ¹ö
-		MSG_EGGS_HUNT_CHANGE_GAMMA_WAVE_ENERGY,		// Cµî±Þ ¿ø¼Ò
-		MSG_EGGS_HUNT_CHANGE_HERB,					// Å©¶ôÀÇ ÁÙ±â
-		MSG_EGGS_HUNT_CHANGE_PORTION_SPEED,			// ¼ÓµµÇâ»ó ¹°¾à
-		MSG_EGGS_HUNT_CHANGE_BOOSTER,				// ºÎ½ºÅÍ
-		MSG_EGGS_HUNT_CHANGE_GREEN_STONE,			// Çª¸¥µ¹
-		MSG_EGGS_HUNT_CHANGE_MAGIC_STONE,			// ¸¶¹ýµ¹
-		MSG_EGGS_HUNT_CHANGE_HEAVEN_STONE,			// °í±ÞÁ¦·Ã¼®
-		MSG_EGGS_HUNT_CHANGE_EXPERIENCE_SCROLL,		// °æÇèÀÇ ½ºÅ©·Ñ
-		MSG_EGGS_HUNT_CHANGE_PLATINUM_BOOSTER,		// ÇÃ·¡Æ¼´½ ºÎ½ºÅÍ
-		MSG_EGGS_HUNT_CHANGE_CAKE,					// ÄÉÀÌÅ©
-		MSG_EGGS_HUNT_CHANGE_CACAO_90,				// Ä«Ä«¿À 90
-		MSG_EGGS_HUNT_CHANGE_SNOWMAN,				// ´«»ç¶÷ ÀÎÇü
-		MSG_EGGS_HUNT_CHANGE_GREATEST_EXP_PORTION,	// ÅÂÇü°áÇèÀÇ ¹¦¾à
-		MSG_EGGS_HUNT_CHANGE_25000_NAS,				// 25000 ³ª½º
+		MSG_EGGS_HUNT_CHANGE_50_NAS,				// 50ï¿½ï¿½ï¿½ï¿½ 
+		MSG_EGGS_HUNT_CHANGE_500_NAS,				// 500ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_QUALITY_STONE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_GAMMA_WAVE_ENERGY,		// Cï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_HERB,					// Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ù±ï¿½
+		MSG_EGGS_HUNT_CHANGE_PORTION_SPEED,			// ï¿½Óµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_BOOSTER,				// ï¿½Î½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_GREEN_STONE,			// Çªï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_MAGIC_STONE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_HEAVEN_STONE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½
+		MSG_EGGS_HUNT_CHANGE_EXPERIENCE_SCROLL,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_PLATINUM_BOOSTER,		// ï¿½Ã·ï¿½Æ¼ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_CAKE,					// ï¿½ï¿½ï¿½ï¿½Å©
+		MSG_EGGS_HUNT_CHANGE_CACAO_90,				// Ä«Ä«ï¿½ï¿½ 90
+		MSG_EGGS_HUNT_CHANGE_SNOWMAN,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_GREATEST_EXP_PORTION,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		MSG_EGGS_HUNT_CHANGE_25000_NAS,				// 25000 ï¿½ï¿½ï¿½ï¿½
 		MSG_EGGS_HUNT_CHANGE_END,
 }MSG_EVENT_EGGS_HUNT_2007_CHANGE_TYPE;
 
 
 typedef enum _tagMsgEventWhiteday2007
 {
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_REQ,		// ±³È¯ ¿äÃ»			exchangeType(b) 0-Skill,1-SkyLetter,2-PinkLetter 
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_OK,		// ±³È¯ ¼º°ø			exchangeType(b) 0-Skill,1-SkyLetter,2-PinkLetter  if(0) skillIdx(n)-SkillIndex
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_FAILED,	// ±³È¯ ½ÇÆÐ ( ½ºÅ³ÀÌ ½ÇÆÐÇÏ°Å³ª, º¸»ó ¾ÆÀÌÅÛ »ý¼º¿¡ ½ÇÆÐ ÇÒ¶§)
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_NOITEM,	// ¾ÆÀÌÅÛ ¾øÀ½			
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_FULLINVEN,	// ÀÎº¥ °¡µæ Âü
-	MSG_EVENT_WHITEDAY_2007_EXCHANGE_MAXITEM,	// ¾ÆÀÌÅÛ ¼ÒÀ¯ ÃÖ´ë°¹¼ö ÃÊ°ú
-	MSG_EVENT_WHITEDAY_2007_LETTER_REQ,			// ÆíÁöÁö »ç¿ë ¿äÃ»		itemIndex(n), colorIndex(n), msg(str)
-	MSG_EVENT_WHITEDAY_2007_LETTER_REP,			// ÆíÁöÁö »ç¿ë ÀÀ´ä		colorIndex(n), msg(str)
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_REQ,		// ï¿½ï¿½È¯ ï¿½ï¿½Ã»			exchangeType(b) 0-Skill,1-SkyLetter,2-PinkLetter 
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_OK,		// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½			exchangeType(b) 0-Skill,1-SkyLetter,2-PinkLetter  if(0) skillIdx(n)-SkillIndex
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_FAILED,	// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½)
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_FULLINVEN,	// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_WHITEDAY_2007_EXCHANGE_MAXITEM,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ë°¹ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EVENT_WHITEDAY_2007_LETTER_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		itemIndex(n), colorIndex(n), msg(str)
+	MSG_EVENT_WHITEDAY_2007_LETTER_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		colorIndex(n), msg(str)
 } MSG_EVENT_WHITEDAY_2007_TYPE;
 
 
 typedef enum _tagMsgEventXmas2006
 {
-	MSG_EVENT_XMAS_2006_ERROR_OK,				// ¼º°ø
-	MSG_EVENT_XMAS_2006_ERROR_FULLINVEN,		// ÀÎº¥ °¡µæ Âü
-	MSG_EVENT_XMAS_2006_ERROR_NOITEM,			// ¾ÆÀÌÅÛ ¾øÀ½
+	MSG_EVENT_XMAS_2006_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_XMAS_2006_ERROR_FULLINVEN,		// ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_XMAS_2006_ERROR_NOITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_XMAS_2006_ERROR_TYPE;
 
 
 typedef enum _tagMsgEventValentine2007Type
 {
-	MSG_EVENT_VALENTINE_2007_PACKAGE_OK,					// ÃÊÄÚ·¿ ¾ÆÀÌÅÛ Æ÷Àå ¼º°ø			errcode(n)
-	MSG_EVENT_VALENTINE_2007_PACKAGE_FULLINVEN,				// ÀÎº¥ºÎÁ·							errcode(n)
+	MSG_EVENT_VALENTINE_2007_PACKAGE_OK,					// ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			errcode(n)
+	MSG_EVENT_VALENTINE_2007_PACKAGE_FULLINVEN,				// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½							errcode(n)
 
-	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE,			// ÃÊÄÚ·¿ ÀúÀå ¿äÃ»					itempos(b), itemindex(n), bingoitemindex(n)
-	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_OK,			// ÃÊÄÚ·¿ ÀúÀå ¼º°ø					errcode(n) score(n)
-	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_NOTPACKAGE,	// Æ÷ÀåµÈ ÃÊÄÚ·¿ ¾ÆÀÌÅÛÀÌ ¾Æ´Ô		errcode(n)
-	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_ALREADY,	// ÀÌ¹Ì ÀúÀåµÈ ÀÚ¸®					errcode(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE,			// ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»					itempos(b), itemindex(n), bingoitemindex(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_OK,			// ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					errcode(n) score(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_NOTPACKAGE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½		errcode(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_ARRANGE_ALREADY,	// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¸ï¿½					errcode(n)
 
-	MSG_EVENT_VALENTINE_2007_BINGO_GIFT,					// º¸»ó¿äÃ»							bingoindex(n)
-	MSG_EVENT_VALENTINE_2007_BINGO_GIFT_OK,					// º¸»ó¼º°ø							errcode(n), num(n)
-	MSG_EVENT_VALENTINE_2007_BINGO_GIFT_NOITEM,				// ºù°í°¡ ÇÏ³ªµµ ¾øÀ½				errcode(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_GIFT,					// ï¿½ï¿½ï¿½ï¿½ï¿½Ã»							bingoindex(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_GIFT_OK,					// ï¿½ï¿½ï¿½ó¼º°ï¿½							errcode(n), num(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_GIFT_NOITEM,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				errcode(n)
 
-	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_NOTFOUND,			// ºù°í¹Ú½º ¾ÆÀÌÅÛ ¾øÀ½				errcode(n)
+	MSG_EVENT_VALENTINE_2007_BINGO_ITEM_NOTFOUND,			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				errcode(n)
 } MSG_EVENT_VALENTINE_TYPE;
 
 
 typedef enum _tagMsgEventChuseok2006Type
 {
-	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE,					// ¼ÛÆí ¸¸µé±â ¿äÃ»
-	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_OK,				// ¼ÛÆí ¸¸µé±â ¼º°ø
-	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_FAIL,				// ¼ÛÆí ¸¸µé±â ½ÇÆÐ
-	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_NOITEM,			// ¼ÛÆí Àç·á ºÎÁ·
-	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_FULLINVEN,			// ÀÎº¥Åä¸® ºÎÁ·
+	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_FAIL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_NOITEM,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RICECAKE_FULLINVEN,			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE,				// ¿À»ö ¼ÛÆí ¸¸µé±â ¿äÃ»
-	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_OK,			// ¿À»ö ¼ÛÆí ¸¸µé±â ¼º°ø
-	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_FAIL,			// ¿À»ö ¼ÛÆí ¸¸µé±â ½ÇÆÐ
-	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_NOITEM,		// ¿À»ö ¼ÛÆí Àç·á ºÎÁ·
-	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_FULLINVEN,		// ÀÎº¥Åä¸® ºÎÁ·
+	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_FAIL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_NOITEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_MAKE_RAINBOW_CAKE_FULLINVEN,		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_CHUSEOK_2006_GIFT,							// ¿À»ö ¼ÛÆí ±³È¯ ¿äÃ»
-	MSG_EVENT_CHUSEOK_2006_GIFT_OK,							// ¿À»ö ¼ÛÆí ±³È¯ ¼º°ø
-	MSG_EVENT_CHUSEOK_2006_GIFT_OK_NOITEM,					// ¿À»ö ¼ÛÆí ºÎÁ·
-	MSG_EVENT_CHUSEOK_2006_GIFT_OK_FULLINVEN,				// ÀÎº¥Åä¸® ºÎÁ·
+	MSG_EVENT_CHUSEOK_2006_GIFT,							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	MSG_EVENT_CHUSEOK_2006_GIFT_OK,							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_GIFT_OK_NOITEM,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHUSEOK_2006_GIFT_OK_FULLINVEN,				// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 
 } MSG_EVENT_CHUSEOK_2006_TYPE;
 
 typedef enum _tagMsgEventCollectBugType
 {
-	MSG_EVENT_COLLECT_BUG_BUY_BOX_REQ,					// [C]»óÀÚ ±¸¸Å ¿äÃ»
-	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_OK,				// [S]»óÀÚ ±¸¸Å ÀÀ´ä 1ÀÌ¸é °ñµç: isgoldenbox(n)
-	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_DUPLICATE,	// [S]ÀÌ¹Ì °¡Áö°í ÀÖÀ½
-	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_FULLINVEN,	// [S]ÀÎº¥ °ø°£ ¾øÀ½
-	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_MONEY,		// [S]µ· ¾øÀ½
+	MSG_EVENT_COLLECT_BUG_BUY_BOX_REQ,					// [C]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_OK,				// [S]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½: isgoldenbox(n)
+	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_DUPLICATE,	// [S]ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_FULLINVEN,	// [S]ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_COLLECT_BUG_BUY_BOX_REP_ERROR_MONEY,		// [S]ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_COLLECT_BUG_GIFT_REQ,						// [C]º¸»ó ¿äÃ»
-	MSG_EVENT_COLLECT_BUG_GIFT_REP_OK,					// [S]º¸»ó 0ºÎÅÍ 11±îÁö: gifttype(n)
-	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_FULLINVEN,		// [S]ÀÎº¥ °ø°£ ¾øÀ½
-	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_NOITEM,		// [S]º¸»ó °¡´É »óÀÚ ¾øÀ½
-	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_NOTFULL,		// [S]»óÀÚ¿¡ °ïÃæÀÌ ºÎÁ·
+	MSG_EVENT_COLLECT_BUG_GIFT_REQ,						// [C]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_COLLECT_BUG_GIFT_REP_OK,					// [S]ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ 11ï¿½ï¿½ï¿½ï¿½: gifttype(n)
+	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_FULLINVEN,		// [S]ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_NOITEM,		// [S]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_COLLECT_BUG_GIFT_REP_ERROR_NOTFULL,		// [S]ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_COLLECT_BUG_PICK_OK,						// [S]°ïÃæ ¾òÀ½ : bugitemdbindex(n)
-	MSG_EVENT_COLLECT_BUG_PICK_NOITEM,					// [S]Ã¤Áý »óÀÚ ¾øÀ½
-	MSG_EVENT_COLLECT_BUG_PICK_FULL,					// [S]Ã¤Áý »óÀÚ °¡µæ Âü
+	MSG_EVENT_COLLECT_BUG_PICK_OK,						// [S]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : bugitemdbindex(n)
+	MSG_EVENT_COLLECT_BUG_PICK_NOITEM,					// [S]Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_COLLECT_BUG_PICK_FULL,					// [S]Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-	MSG_EVENT_COLLECT_BUG_DROP,							// [C,S]°ïÃæ »óÀÚ¿¡¼­ n¹ø °ïÃæ ¹ö¸² : position(n)
+	MSG_EVENT_COLLECT_BUG_DROP,							// [C,S]ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ nï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : position(n)
 														// plus -> 0 ~ 7, used 8 ~ 15
 } MSG_EVENT_COLLECT_BUG_TYPE;
 
 typedef enum _tagMsgEventTldMotherday2007ErrorType
 {
-	MSG_EVENT_TLD_MOTHERDAY_2007_ERROR_OK,			// ±³È¯ ¼º°ø
+	MSG_EVENT_TLD_MOTHERDAY_2007_ERROR_OK,			// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 	MSG_EVENT_TLD_MOTHERDAY_2007_ERROR_FULLINVEN,	// inven full
 	MSG_EVENT_TLD_MOTHERDAY_2007_ERROR_NOITEM,		// itemd not exist
 }MSG_EVENT_TLD_MOTHERDAY_2007_ERROR_TYPE;
@@ -3128,443 +3132,443 @@ typedef enum _tagMsgEventTldBuddhistErrorType
 
 typedef enum _tagMsgEventRain2006ErrorType
 {
-	MSG_EVENT_RAIN_2006_ERROR_OK,				// º¸»ó ¼º°ø
-	MSG_EVENT_RAIN_2006_ERROR_NOITEM,			// ºø¹æ¿ï/ºø¹°º´ ¾øÀ½
-	MSG_EVENT_RAIN_2006_ERROR_FULLINVEN,		// ÀÎº¥Åä¸® °¡µæÂü
+	MSG_EVENT_RAIN_2006_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RAIN_2006_ERROR_NOITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_RAIN_2006_ERROR_FULLINVEN,		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_RAIN_2006_ERROR_TYPE;
 
 typedef enum _tagMsgEventGoldenballType
 {
-	MSG_EVENT_GOLDENBALL_VOTE_START,			// ÀÀ¸ð ½ÃÀÛ(Á¸ÀÌµ¿½Ãµµ º¸³¿)	: team1(str) team2(str) yyyy(n) mm(n) dd(n) hh(n) min(n)
-	MSG_EVENT_GOLDENBALL_VOTE_END,				// ÀÀ¸ð ¸¶°¨					: team1(str) team2(str)
-	MSG_EVENT_GOLDENBALL_GIFT_START,			// º¸»ó ½ÃÀÛ(Á¸ÀÌµ¿½Ãµµ º¸³¿)	: team1(str) team1score(n) team2(str) team2score(n) yyyy(n) mm(n) dd(n) hh(n) min(n)
-	MSG_EVENT_GOLDENBALL_GIFT_END,				// º¸»ó ¸¶°¨					: team1(str) team2(str)
+	MSG_EVENT_GOLDENBALL_VOTE_START,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½)	: team1(str) team2(str) yyyy(n) mm(n) dd(n) hh(n) min(n)
+	MSG_EVENT_GOLDENBALL_VOTE_END,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					: team1(str) team2(str)
+	MSG_EVENT_GOLDENBALL_GIFT_START,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½)	: team1(str) team1score(n) team2(str) team2score(n) yyyy(n) mm(n) dd(n) hh(n) min(n)
+	MSG_EVENT_GOLDENBALL_GIFT_END,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					: team1(str) team2(str)
 
-	MSG_EVENT_GOLDENBALL_VOTE,					// ÀÀ¸ð							: team1score(n) team2score(n) errorcode(n:s)
-	MSG_EVENT_GOLDENBALL_GIFT,					// º¸»ó							: errorcode(n:s)
+	MSG_EVENT_GOLDENBALL_VOTE,					// ï¿½ï¿½ï¿½ï¿½							: team1score(n) team2score(n) errorcode(n:s)
+	MSG_EVENT_GOLDENBALL_GIFT,					// ï¿½ï¿½ï¿½ï¿½							: errorcode(n:s)
 } MSG_EVENT_GOLDENBALL_TYPE;
 
 typedef enum _tagMsgEventGoldenballErrorType
 {
-	MSG_EVENT_GOLDENBALL_ERROR_VOTE_OK,			// °ñµçº¼ ÀÀ¸ð - ¼º°ø
-	MSG_EVENT_GOLDENBALL_ERROR_VOTE_ALREADY,	// °ñµçº¼ ÀÀ¸ð - ÀÌ¹Ì ÀÀ¸ðÇÔ
-	MSG_EVENT_GOLDENBALL_ERROR_VOTE_NOITEM,		// °ñµçº¼ ÀÀ¸ð - Ãà±¸°ø ¾øÀ½
-	MSG_EVENT_GOLDENBALL_ERROR_VOTE_FULLINVEN,	// °ñµçº¼ ÀÀ¸ð - ÀÎº¥ °¡µæ Âü
-	MSG_EVENT_GOLDENBALL_ERROR_VOTE_TIME,		// °ñµçº¼ ÀÀ¸ð - ÀÀ¸ð ±â°£ ¾Æ´Ô
+	MSG_EVENT_GOLDENBALL_ERROR_VOTE_OK,			// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_VOTE_ALREADY,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_VOTE_NOITEM,		// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½à±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_VOTE_FULLINVEN,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_VOTE_TIME,		// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½Æ´ï¿½
 
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_EXACT,	// °ñµçº¼ º¸»ó - ½Â¸®±¹/Á¡¼ö ÀûÁß º¸»ó ¼º°ø
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_WINNER,	// °ñµçº¼ º¸»ó - ½Â¸®±¹ ÀûÁß º¸»ó ¼º°ø
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_NONE,	// °ñµçº¼ º¸»ó - Âü°¡»ó º¸»ó ¼º°ø
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_FULLINVEN,	// °ñµçº¼ º¸»ó - ÀÎº¥ °¡µæ Âü
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_NOITEM,		// °ñµçº¼ º¸»ó - ÀÀ¸ð Ä«µå ¾øÀ½
-	MSG_EVENT_GOLDENBALL_ERROR_GIFT_TIME,		// °ñµçº¼ º¸»ó - º¸»ó ±â°£ ¾Æ´Ô
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_EXACT,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½Â¸ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_WINNER,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½Â¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_OK_NONE,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_FULLINVEN,	// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_NOITEM,		// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_GOLDENBALL_ERROR_GIFT_TIME,		// ï¿½ï¿½çº¼ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½Æ´ï¿½
 } MSG_EVENT_GOLDENBALL_ERROR_TYPE;
 
 typedef enum _tagMsgEventWorldcupType
 {
-	MSG_EVENT_WORLDCUP_VOTE,					// ½Â¸®±¹°¡ ÀÀ¸ð			: country(n) errorcode(n:s)
-	MSG_EVENT_WORLDCUP_GIFT,					// ´çÃ· ¼±¹° ¹Þ±â			: rank(n) errorcode(n:s)
-												// rank : 1, 2, 3 - °¢ ¼øÀ§ º° º¸»ó, 4 - ±×¿Ü
+	MSG_EVENT_WORLDCUP_VOTE,					// ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: country(n) errorcode(n:s)
+	MSG_EVENT_WORLDCUP_GIFT,					// ï¿½ï¿½Ã· ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½			: rank(n) errorcode(n:s)
+												// rank : 1, 2, 3 - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 4 - ï¿½×¿ï¿½
 } MSG_EVENT_WORLDCUP_TYPE;
 
 typedef enum _tagMsgEventWorldcupErrorType
 {
-	MSG_EVENT_WORLDCUP_ERROR_VOTE_OK,			// ½Â¸® ±¹°¡ ÀÀ¸ð : ¼º°ø
-	MSG_EVENT_WORLDCUP_ERROR_VOTE_NOITEM,		// ½Â¸® ±¹°¡ ÀÀ¸ð : FIFA ÄÅ ºÎÁ·
-	MSG_EVENT_WORLDCUP_ERROR_VOTE_NOTCHANGE,	// ½Â¸® ±¹°¡ ÀÀ¸ð : ÀÀ¸ð ±â°£ ¾Æ´Ô
-	MSG_EVENT_WORLDCUP_ERROR_VOTE_FULLINVEN,	// ½Â¸® ±¹°¡ ÀÀ¸ð : ÀÎº¥ °ø°£ ºÎÁ·
-	MSG_EVENT_WORLDCUP_ERROR_VOTE_ALREADY,		// ½Â¸® ±¹°¡ ÀÀ¸ð : ÀÌ¹Ì ÀÀ¸ðÇÑ ±¹°¡
+	MSG_EVENT_WORLDCUP_ERROR_VOTE_OK,			// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_VOTE_NOITEM,		// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : FIFA ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_VOTE_NOTCHANGE,	// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½â°£ ï¿½Æ´ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_VOTE_FULLINVEN,	// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_VOTE_ALREADY,		// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_WORLDCUP_ERROR_GIFT_OK,			// ½Â¸® ±¹°¡ ÀÀ¸ð ´çÃ· È®ÀÎ : Áö±Þ ¼º°ø
-	MSG_EVENT_WORLDCUP_ERROR_GIFT_NOTCHANGE,	// ½Â¸® ±¹°¡ ÀÀ¸ð ´çÃ· È®ÀÎ : ±³È¯ ±â°£ ¾Æ´Ô
-	MSG_EVENT_WORLDCUP_ERROR_GIFT_NOITEM,		// ½Â¸® ±¹°¡ ÀÀ¸ð ´çÃ· È®ÀÎ : ±¹±â ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_WORLDCUP_ERROR_GIFT_FULLINVEN,	// ½Â¸® ±¹°¡ ÀÀ¸ð ´çÃ· È®ÀÎ : ÀÎº¥ °ø°£ ºÎÁ·
+	MSG_EVENT_WORLDCUP_ERROR_GIFT_OK,			// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã· È®ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_GIFT_NOTCHANGE,	// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã· È®ï¿½ï¿½ : ï¿½ï¿½È¯ ï¿½â°£ ï¿½Æ´ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_GIFT_NOITEM,		// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã· È®ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_WORLDCUP_ERROR_GIFT_FULLINVEN,	// ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã· È®ï¿½ï¿½ : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_WORLDCUP_ERROR_TYPE;
 
 typedef enum _tagMsgEventRecommendType
 {
-	MSG_EVENT_RECOMMEND_SET,					// ÃßÃµ ¼­¹ö ¼³Á¤			: flag(c)
-	MSG_EVENT_RECOMMEND_POTION,					// Æ÷¼Ç µå·Ó
-	MSG_EVENT_RECOMMEND_MOONSTONE,				// ¹®½ºÅæ ´çÃ·				: charindex(n) charname(str)
+	MSG_EVENT_RECOMMEND_SET,					// ï¿½ï¿½Ãµ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: flag(c)
+	MSG_EVENT_RECOMMEND_POTION,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EVENT_RECOMMEND_MOONSTONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·				: charindex(n) charname(str)
 } MSG_EVENT_RECOMMEND_TYPE;
 
 typedef enum _tagMsgEventOXQuizType
 {
-	MSG_EVENT_OXQUIZ_INVALID_TIME,				// ÄûÁî ÁøÇà ½Ã°£ÀÌ ¾Æ´Ñµ¥ µé¾î°¡·Á°í ÇÒ °æ¿ì
-	MSG_EVENT_OXQUIZ_START,						// OX ÄûÁî ½ÃÀÛ
-	MSG_EVENT_OXQUIZ_QUIZ,						// ÄûÁî Á¦½Ã				: quizno(n) limitsec(n) quiz(str)
-	MSG_EVENT_OXQUIZ_ANSWER,					// Á¤´ä ¾Ë¸²				: quizno(n) isAnswerO(c)
+	MSG_EVENT_OXQUIZ_INVALID_TIME,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´Ñµï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_EVENT_OXQUIZ_START,						// OX ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_OXQUIZ_QUIZ,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				: quizno(n) limitsec(n) quiz(str)
+	MSG_EVENT_OXQUIZ_ANSWER,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½				: quizno(n) isAnswerO(c)
 } MSG_EVENT_OXQUIZ_TYPE;
 
-//ÈÞ¸é ÄÉ¸¯ ÀÌº¥Æ®
+//ï¿½Þ¸ï¿½ ï¿½É¸ï¿½ ï¿½Ìºï¿½Æ®
 typedef enum _tagEventSearchFriendErrorType
 {
-	MSG_EVENT_SEARCHFRIEND_ERROR_OK,				 //Á¤»ó.(Ä£±¸µî·ÏOK, »èÁ¦ OK)
-	MSG_EVENT_SEARCHFRIEND_ERROR_PACKET,			 //ÆÐÅ¶¿À·ù
-	MSG_EVENT_SEARCHFRIEND_ERROR_NOT_EXIST,			 //Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
-	MSG_EVENT_SEARCHFRIEND_ERROR_FULLMEMBER,		 //Ä£±¸ Á¤¿ø ÃÊ°ú.
-	MSG_EVENT_SEARCHFRIEND_ERROR_ALREADY_EXIST,		 //ÀÌ¹Ì Ä£±¸¸®½ºÆ®¿¡ Á¸Àç.
-	MSG_EVENT_SEARCHFRIEND_ERROR_NOT_MATCH_INDEX,	 //¼­·Î°£  ¿äÃ»,½ÂÀÎ ¾ÆÀÌµð°¡ ÀÏÄ¡ÇÏ¸é ¾ÈµÊ.
-	MSG_EVENT_SEARCHFRIEND_ERROR_HELPER_SERVER,		 //ÇïÆÛ¼­¹ö¿ÍÀÇ Á¢¼Ó¿À·ù.
-	MSG_EVENT_SEARCHFRIEND_ERROR_GAMESERVER,		 //±â°£ÀÌ Áö³µÀ½.
-	MSG_EVENT_SEARCHFRIEND_ERROR_FRIENDNAME,		 //ÀÌ¸§ÀÌ Àß¸øµÇ¾ú´Ù.
+	MSG_EVENT_SEARCHFRIEND_ERROR_OK,				 //ï¿½ï¿½ï¿½ï¿½.(Ä£ï¿½ï¿½ï¿½ï¿½ï¿½OK, ï¿½ï¿½ï¿½ï¿½ OK)
+	MSG_EVENT_SEARCHFRIEND_ERROR_PACKET,			 //ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SEARCHFRIEND_ERROR_NOT_EXIST,			 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_FULLMEMBER,		 //Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_ALREADY_EXIST,		 //ï¿½Ì¹ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_NOT_MATCH_INDEX,	 //ï¿½ï¿½ï¿½Î°ï¿½  ï¿½ï¿½Ã»,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ï¿½Ï¸ï¿½ ï¿½Èµï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_HELPER_SERVER,		 //ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_GAMESERVER,		 //ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	MSG_EVENT_SEARCHFRIEND_ERROR_FRIENDNAME,		 //ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½.
 } MSG_EVENT_SEARCHFRIEND_ERROR_TYPE;
 
 typedef enum _tagEventSearchFriendGoodsErrorType
 {
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_OK,				// Áö±Þ ¼º°ø
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TIME,			// Áö±Þ ½ÇÆÐ : ½Ã°£ ºÎÁ·
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_END,				// Áö±Þ ½ÇÆÐ : ±â°£ ¾Æ´Ô
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_SOMEREMAIN,		// Áö±Þ ¼º°ø, ÀÏºÎ ¾ÆÀÌÅÛ ¹ÌÁö±Þ
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_NOGOODS,			// Áö±Þ ½ÇÆÐ, ¹ÞÀ» ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_NOSPACE,			// Áö±Þ ½ÇÆÐ : ¾ÆÀÌÅÛ Ä­ÀÌ ¸ðÀÚ¸§.
-	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_HELPER,			// ÇïÆÛ ¼­¹ö ¿À·ù.
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TIME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_END,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½â°£ ï¿½Æ´ï¿½
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_SOMEREMAIN,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_NOGOODS,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_NOSPACE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä­ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½.
+	MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_HELPER,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 } MSG_EVENT_SEARCHFRIEND_GOODS_ERROR_TYPE;
 
 typedef enum _tagEventNewYear2006ErrorType
 {
-	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_OK,				// Áö±Þ ¼º°ø
-	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_TIME,			// Áö±Þ ½ÇÆÐ : ½Ã°£ ºÎÁ·
-	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_END,				// Áö±Þ ½ÇÆÐ : ±â°£ ¾Æ´Ô
-	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_ALREADY,			// Áö±Þ ½ÇÆÐ : ÀÌ¹Ì ¹ÞÀ½
+	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_TIME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_END,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½â°£ ï¿½Æ´ï¿½
+	MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_ALREADY,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_NEWYEAR_2006_GOODS_ERROR_TYPE;
 
 typedef enum _tagEventXMas2005ErrorType
 {
-	MSG_EVENT_XMAS_2005_ERROR_OK,				// Áö±Þ ¼º°ø
-	MSG_EVENT_XMAS_2005_ERROR_NO_ITEM,			// Áö±Þ ½ÇÆÐ
+	MSG_EVENT_XMAS_2005_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_XMAS_2005_ERROR_NO_ITEM,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_XMAS_2005_ERROR_TYPE;
 
 typedef enum _tagEvent2pan4panGoodsErrorType
 {
-	MSG_EVENT_2PAN4PAN_GOODS_ERROR_OK,			// Áö±Þ ¼º°ø
-	MSG_EVENT_2PAN4PAN_GOODS_ERROR_SOMEREMAIN,	// Áö±Þ ¼º°ø, ÀÏºÎ ¾ÆÀÌÅÛ ¹ÌÁö±Þ
-	MSG_EVENT_2PAN4PAN_GOODS_ERROR_NOGOODS,		// Áö±Þ ½ÇÆÐ, ¹ÞÀ» ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_2PAN4PAN_GOODS_ERROR_NOSPACE,		// °ø°£ ºÎÁ·
+	MSG_EVENT_2PAN4PAN_GOODS_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_GOODS_ERROR_SOMEREMAIN,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_GOODS_ERROR_NOGOODS,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_GOODS_ERROR_NOSPACE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_2PAN4PAN_GOODS_ERROR_TYPE;
 
 typedef enum _tagEvent2pan4panBoxErrorType
 {
-	MSG_EVENT_2PAN4PAN_BOX_ERROR_OK,			// Áö±Þ ¼º°ø
-	MSG_EVENT_2PAN4PAN_BOX_ERROR_SOMEREMAIN,	// Áö±Þ ¼º°ø, ÀÏºÎ ¾ÆÀÌÅÛ ¹ÌÁö±Þ
-	MSG_EVENT_2PAN4PAN_BOX_ERROR_NOBOX,			// Áö±Þ ½ÇÆÐ, ¹ÞÀ» ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_2PAN4PAN_BOX_ERROR_NOSPACE,		// °ø°£ ºÎÁ·
+	MSG_EVENT_2PAN4PAN_BOX_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_BOX_ERROR_SOMEREMAIN,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_BOX_ERROR_NOBOX,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_BOX_ERROR_NOSPACE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_2PAN4PAN_BOX_ERROR_TYPE;
 
 typedef enum _tagEvent2pan4panWordType
 {
-	MSG_EVENT_2PAN4PAN_WORD_SSAWAR,				// ÄÚ¹Í¾×¼Ç½Î¿ö
-	MSG_EVENT_2PAN4PAN_WORD_2PAN4PAN,			// ÀÌÆÇ»çÆÇ
-	MSG_EVENT_2PAN4PAN_WORD_LASTCHAOS,			// ¶ó½ºÆ®Ä«¿À½º
-	MSG_EVENT_2PAN4PAN_WORD_LAGHAIM,			// ¶ó±×ÇÏÀÓ
-	MSG_EVENT_2PAN4PAN_WORD_NORABA,				// ³ë¶ó¹Ù
+	MSG_EVENT_2PAN4PAN_WORD_SSAWAR,				// ï¿½Ú¹Í¾×¼Ç½Î¿ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_2PAN4PAN,			// ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_LASTCHAOS,			// ï¿½ï¿½Æ®Ä«ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_LAGHAIM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_NORABA,				// ï¿½ï¿½ï¿½ï¿½
 
-	// ¿©±âºÎÅÍ´Â ¿À·ù ÄÚµå
-	MSG_EVENT_2PAN4PAN_WORD_OK,					// Áö±Þ¼º°ø
-	MSG_EVENT_2PAN4PAN_WORD_NOITEM,				// ¾ÆÀÌÅÛºÎÁ·
-	MSG_EVENT_2PAN4PAN_WORD_ALREADY,			// ÀÌ¹Ì Áö±Þ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
+	MSG_EVENT_2PAN4PAN_WORD_OK,					// ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_NOITEM,				// ï¿½ï¿½ï¿½ï¿½ï¿½Ûºï¿½ï¿½ï¿½
+	MSG_EVENT_2PAN4PAN_WORD_ALREADY,			// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_2PAN4PAN_WORD_TYPE;
 
 typedef enum _tagEventErrorType
 {
-	MSG_EVENT_ERROR_ALREADY_GIVE,				// ÀÌ¹Ì Áö±ÞµÇ¾úÀ½
-	MSG_EVENT_ERROR_INSUFF_CONDITION,			// Á¶°Ç ºÒÃæºÐ : ÇÁ¸®¿ÀÇÂ(Âü¿©¾ÈÇÔ) : ¿ÀÇÂ º£Å¸ ( Âü¿©¾ÈÇÔ )
-	MSG_EVENT_ERROR_FULLINVENTORY,				// ÀÎº¥Åä¸® °¡µæÂü
-	MSG_EVENT_ERROR_WRONG_PACKET,				// ¹«±â±³È¯ : ÆÐÅ¶ ¿À·ù
-	MSG_EVENT_ERROR_NO_MATCH,					// ¹«±â±³È¯ : µ¿·¹º§ ±³È¯ ´ë»ó ¾ÆÀÌÅÛ ¾øÀ½
-	MSG_EVENT_ERROR_CANT_OPTION,				// ¹«±â±³È¯ : ¿É¼Ç ÀÌµ¿ ºÒ´É
-	MSG_EVENT_ERROR_WEIGHT_OVER,				// ¹«°Ô ÃÊ°ú	
+	MSG_EVENT_ERROR_ALREADY_GIVE,				// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ÞµÇ¾ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_INSUFF_CONDITION,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ )
+	MSG_EVENT_ERROR_FULLINVENTORY,				// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_WRONG_PACKET,				// ï¿½ï¿½ï¿½â±³È¯ : ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_NO_MATCH,					// ï¿½ï¿½ï¿½â±³È¯ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CANT_OPTION,				// ï¿½ï¿½ï¿½â±³È¯ : ï¿½É¼ï¿½ ï¿½Ìµï¿½ ï¿½Ò´ï¿½
+	MSG_EVENT_ERROR_WEIGHT_OVER,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½	
 
-	MSG_EVENT_ERROR_CHUSEOK_NO_CROP,			// Ãß¼® ÀÌº¥Æ®, ÀÛ¹° ¾øÀ½
-	MSG_EVENT_ERROR_CHUSEOK_NO_SOIL,			// Ãß¼® ÀÌº¥Æ®, ¹è¾çÅä ¾øÀ½
-	MSG_EVENT_ERROR_CHUSEOK_ALREADY_UPGRADE,	// Ãß¼® ÀÌº¥Æ®, ´õÀÌ»ó ¾÷±×·¹ÀÌµå ºÒ°¡´É
-	MSG_EVENT_ERROR_CHUSEOK_UPGRADE_OK,			// Ãß¼® ÀÌº¥Æ®, ¾÷±×·¹ÀÌµå ¼º°ø
-	MSG_EVENT_ERROR_CHUSEOK_UPGRADE_FAIL,		// Ãß¼® ÀÌº¥Æ®, ¾÷±×·¹ÀÌµå ½ÇÆÐ
-	MSG_EVENT_ERROR_CHUSEOK_EXCHANGE_OK,		// Ãß¼® ÀÌº¥Æ®, ±³È¯ ¼º°ø
-	MSG_EVENT_ERROR_SEPTEMBER_NAS,				// 9¿ù ÀÌº¥Æ®, ³ª½º ´çÃ·
-	MSG_EVENT_ERROR_SEPTEMBER_DROP,				// 9¿ù ÀÌº¥Æ®, µå·ÓÀ² ´çÃ·
-	MSG_EVENT_ERROR_SEPTEMBER_EXP,				// 9¿ù ÀÌº¥Æ®, °æÇèÄ¡ ´çÃ·
-	MSG_EVENT_ERROR_SEPTEMBER_SP,				// 9¿ù ÀÌº¥Æ®, ¼÷·Ãµµ ´çÃ·
-	MSG_EVENT_GUILD_REWARD,						// ÅÂ±¹ ±æµå ¿À·ù ¶§¹®¿¡ º¸»ó : nas(ll) sp(ll) 
-	MSG_EVENT_ERROR_NOT_COUPON,					// ÆÐÅ°Áö ¾ÆÀÌÅÛ Áö±Þ, ¾ø´Â ½Ã¸®¾ó
-	MSG_EVENT_ERROR_ALREADY_USE_COUNPON,		// ÆÐÅ°Áö ¾ÆÀÌÅÛ Áö±Þ, ÀÌ¹Ì Áö±Þ ¹ÞÀº ÄíÆù
-	MSG_EVENT_ERROR_COUPON_SUCCESS,				// ÆÐÅ°Áö ¾ÆÀÌÅÛ Áö±Þ, Áö±Þ ¼º°ø
-	MSG_EVENT_ERROR_OPENBETA_SUCCESS,			// ¿ÀÇÂº£Å¸ ¾ÆÀÌÅÛ Áö±Þ ¼º°ø : ÀÏº»  : ¹Ì±¹
-	MSG_EVENT_ERROR_SAKURABUD_SUCCESS,			// ²ÉºÀ¿À¸® ¾ÆÀÌÅÛ Áö±Þ ¼º°ø : cmd(c)
-	MSG_EVENT_ERROR_SAKURABUD_LEAKITEM,			// ²ÉºÀ¿À¸® ¾ÆÀÌÅÛ Áö±Þ ½ÇÆÐ ²ÉºÀ¿À¸® ºÎÁ· : ÀÏº»
-	MSG_EVENT_AKAN_TEMPLE_ERROR_NO_ITEM,		// (24) ¿µÈ¥ÀÇ Â¡Ç¥ ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù.
-	MSG_EVENT_AKAN_TEMPLE_ERROR_LACK_ITEM,		// (25) ¿µÈ¥ÀÇ Â¡Ç¥ ¾ÆÀÌÅÛÀÇ °³¼ö°¡ ºÎÁ· ÇÕ´Ï´Ù.
-	MSG_EVENT_ERROR_LOI_KRATHONG_NO_ITEM,		// (26) Å©¶óÅë Àç·á¾ÆÀÌÅÛÀÌ ºÎÁ·ÇÏ¿© ÀÌº¥Æ® ¾ÆÀÌÅÛÀ» ¹ÞÀ» ¼ö ¾øÀ½
-	MSG_EVENT_ERROR_KB_NO_ITEM,					// (27)	±¹¿Õ Åº»ýÀÏ ¾ÆÀÌÅÛ ºÎÁ·À¸·Î ±³È¯ ºÒ°¡
+	MSG_EVENT_ERROR_CHUSEOK_NO_CROP,			// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½Û¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CHUSEOK_NO_SOIL,			// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CHUSEOK_ALREADY_UPGRADE,	// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CHUSEOK_UPGRADE_OK,			// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CHUSEOK_UPGRADE_FAIL,		// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_CHUSEOK_EXCHANGE_OK,		// ï¿½ß¼ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_SEPTEMBER_NAS,				// 9ï¿½ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·
+	MSG_EVENT_ERROR_SEPTEMBER_DROP,				// 9ï¿½ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·
+	MSG_EVENT_ERROR_SEPTEMBER_EXP,				// 9ï¿½ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½Ã·
+	MSG_EVENT_ERROR_SEPTEMBER_SP,				// 9ï¿½ï¿½ ï¿½Ìºï¿½Æ®, ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Ã·
+	MSG_EVENT_GUILD_REWARD,						// ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : nas(ll) sp(ll) 
+	MSG_EVENT_ERROR_NOT_COUPON,					// ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_ALREADY_USE_COUNPON,		// ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_COUPON_SUCCESS,				// ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_OPENBETA_SUCCESS,			// ï¿½ï¿½ï¿½Âºï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ïºï¿½  : ï¿½Ì±ï¿½
+	MSG_EVENT_ERROR_SAKURABUD_SUCCESS,			// ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : cmd(c)
+	MSG_EVENT_ERROR_SAKURABUD_LEAKITEM,			// ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ïºï¿½
+	MSG_EVENT_AKAN_TEMPLE_ERROR_NO_ITEM,		// (24) ï¿½ï¿½È¥ï¿½ï¿½ Â¡Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EVENT_AKAN_TEMPLE_ERROR_LACK_ITEM,		// (25) ï¿½ï¿½È¥ï¿½ï¿½ Â¡Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½.
+	MSG_EVENT_ERROR_LOI_KRATHONG_NO_ITEM,		// (26) Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_ERROR_KB_NO_ITEM,					// (27)	ï¿½ï¿½ï¿½ï¿½ Åºï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ò°ï¿½
 } MSG_EVENT_ERROR_TYPE;
 
 typedef enum _tagEventLetterType
 {
-	MSG_EVENT_LETTER_REQ,						// ±³È¯ ¿äÃ»	: count(n) itemdbindex(n):count		: C -> S
-	MSG_EVENT_LETTER_LASTCHAOS,					// ¶ó½ºÆ®Ä«¿À½º ´çÃ·								: S -> C
-	MSG_EVENT_LETTER_NAKO,						// ³ªÄÚ ´çÃ·										: S -> C
-	MSG_EVENT_LETTER_KNIGHT,					// ³ªÀÌÆ® ´çÃ·										: S -> C
-	MSG_EVENT_LETTER_MERAC,						// ¸Þ¶óÅ© ´çÃ·										: S -> C
-	MSG_EVENT_LETTER_CRIS,						// Å©¸®½º ´çÃ·										: S -> C
-	MSG_EVENT_LETTER_LAMIAN,					// ¶ó¹Ì¾È ´çÃ·										: S -> C
-	MSG_EVENT_LETTER_ARCHWAND,					// ¾ÆÅ©¿Ïµå ´çÃ·									: S -> C
-	MSG_EVENT_LETTER_NOMATCH,					// ³¹¸» ¸ÂÃß±â ½ÇÆÐ									: S -> C
-	MSG_EVENT_LETTER_WRONGPACKET,				// ÀÌ»óÇÑ ÆÐÅ¶ º¸³¿
+	MSG_EVENT_LETTER_REQ,						// ï¿½ï¿½È¯ ï¿½ï¿½Ã»	: count(n) itemdbindex(n):count		: C -> S
+	MSG_EVENT_LETTER_LASTCHAOS,					// ï¿½ï¿½Æ®Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·								: S -> C
+	MSG_EVENT_LETTER_NAKO,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·										: S -> C
+	MSG_EVENT_LETTER_KNIGHT,					// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã·										: S -> C
+	MSG_EVENT_LETTER_MERAC,						// ï¿½Þ¶ï¿½Å© ï¿½ï¿½Ã·										: S -> C
+	MSG_EVENT_LETTER_CRIS,						// Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã·										: S -> C
+	MSG_EVENT_LETTER_LAMIAN,					// ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ã·										: S -> C
+	MSG_EVENT_LETTER_ARCHWAND,					// ï¿½ï¿½Å©ï¿½Ïµï¿½ ï¿½ï¿½Ã·									: S -> C
+	MSG_EVENT_LETTER_NOMATCH,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½									: S -> C
+	MSG_EVENT_LETTER_WRONGPACKET,				// ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_LETTER_TYPE;
 
 typedef enum _tagEventLattoType
 {
-	MSG_EVENT_LATTO_UPGRADE_SUCCESS,			// "ÀÎÃ¾Æ® ¿ªÀü ¶ó¶Ç ¾ÆÀÌÅÛ +2¿¡ ´çÃ· µÇ¾ú½À´Ï´Ù"
-	MSG_EVENT_LATTO_BLOOD_SUCCESS,				// "ºí·¯µå ¿ªÀü ¶ó¶Ç ¾ÆÀÌÅÛ ¿É¼Ç¿¡ ´çÃ· µÇ¾ú½À´Ï´Ù"
-	MSG_EVENT_LATTO_PROCESS_SUCCESS,			// "°¡°ø ¿ªÀü ¶ó¶Ç ¾ÆÀÌÅÛ¿¡ ´çÃ· µÇ¾ú½À´Ï´Ù"
-	MSG_EVENT_LATTO_EXPSP_SUCCESS,				// "·¹º§ ¿ªÀü ¶ó¶Ç (°æÇèÄ¡ *%, ¼÷·Ãµµ *)¿¡ ´çÃ· µÇ¾ú½À´Ï´Ù" : exp(n) sp(n)
-	MSG_EVENT_LATTO_PARTY_SUCCESS,				// "ÆÄÆ¼ ¿ªÀü ¶ó¶Ç ¾ÆÀÌÅÛ º¹ÁÖ¸Ó´Ï¿¡ ´çÃ· µÇ¾ú½À´Ï´Ù" : ½Ã½ºÅÛ Ã¢À¸·Î msg Ã³¸®
-	MSG_EVENT_LATTO_CHANGE_LUCKYBAG_REQ,		// º¹ÁÖ¸Ó´Ï ±³È¯ ¿äÃ»
-	MSG_EVENT_LATTO_CHANGE_LUCKYBAG_REP,		// º¹ÁÖ¸Ó´Ï ±³È¯ ÀÀ´ä		: type (c)
+	MSG_EVENT_LATTO_UPGRADE_SUCCESS,			// "ï¿½ï¿½Ã¾Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +2ï¿½ï¿½ ï¿½ï¿½Ã· ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
+	MSG_EVENT_LATTO_BLOOD_SUCCESS,				// "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç¿ï¿½ ï¿½ï¿½Ã· ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
+	MSG_EVENT_LATTO_PROCESS_SUCCESS,			// "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½Ã· ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½"
+	MSG_EVENT_LATTO_EXPSP_SUCCESS,				// "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½Ä¡ *%, ï¿½ï¿½ï¿½Ãµï¿½ *)ï¿½ï¿½ ï¿½ï¿½Ã· ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½" : exp(n) sp(n)
+	MSG_EVENT_LATTO_PARTY_SUCCESS,				// "ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸Ó´Ï¿ï¿½ ï¿½ï¿½Ã· ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½" : ï¿½Ã½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ msg Ã³ï¿½ï¿½
+	MSG_EVENT_LATTO_CHANGE_LUCKYBAG_REQ,		// ï¿½ï¿½ï¿½Ö¸Ó´ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	MSG_EVENT_LATTO_CHANGE_LUCKYBAG_REP,		// ï¿½ï¿½ï¿½Ö¸Ó´ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½		: type (c)
 } MSG_EVENT_LATTO_TYPE;
 
 typedef enum _tagEventLattoChangeLuckyBagType
 {
-	MSG_CHANGE_26LEVEL_GENERAL_STONE,			// 26·¹º§ ÀÏ¹Ý Á¦·Ã¼®
-	MSG_CHANGE_SPECIAL_STONE,					// °í±ÞÁ¦·Ã¼®
-	MSG_CHANGE_22LEVEL_EVENT_WEAPON,			// 22·¹º§ ÀÌº¥Æ® ¹«±â (Á¾Á·º°)
-	MSG_CHANGE_31LEVEL_ARMOR,					// 31·¹º§ ¹æ¾î±¸ »óÀÇ (Á¾Á·º°)
-	MSG_CHANGE_ATTACK_UP,						// °ø°Ý·Â Çâ»óÁ¦
-	MSG_CHANGE_DEFENSE_UP,						// ¹æ¾î·Â Çâ»óÁ¦
-	MSG_CHANGE_50000NAS,						// 5¸¸ ³ª½º
-	MSG_CHANGE_NO_LUCKYBAG,						// ±³È¯ÇÒ º¹ÁÖ¸Ó´Ï°¡ ¾ø´Ù
+	MSG_CHANGE_26LEVEL_GENERAL_STONE,			// 26ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½Ã¼ï¿½
+	MSG_CHANGE_SPECIAL_STONE,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½
+	MSG_CHANGE_22LEVEL_EVENT_WEAPON,			// 22ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_CHANGE_31LEVEL_ARMOR,					// 31ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î±¸ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_CHANGE_ATTACK_UP,						// ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE_DEFENSE_UP,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE_50000NAS,						// 5ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE_NO_LUCKYBAG,						// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¸Ó´Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_LATTO_CHANGE_LUCKYBAG_TYPE;
 
 typedef enum _tagPersonalShopType
 {
-	MSG_PERSONALSHOP_ERROR,						// °³ÀÎ»óÁ¡ °ü·Ã ¿À·ù		: errorcode(uc)
-	MSG_PERSONALSHOP_CHANGE,					// »óÁ¡ »óÅÂ º¯È­			: charindex(n) shoptype(c)
-	MSG_PERSONALSHOP_SELL_START,				// ÆÇ¸Å½ÃÀÛ					: charindex(n) shoptype(c) shopname(str) [normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:client
+	MSG_PERSONALSHOP_ERROR,						// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(uc)
+	MSG_PERSONALSHOP_CHANGE,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­			: charindex(n) shoptype(c)
+	MSG_PERSONALSHOP_SELL_START,				// ï¿½Ç¸Å½ï¿½ï¿½ï¿½					: charindex(n) shoptype(c) shopname(str) [normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:client
 												// normal_item				: row(c) col(c) item_idx(n) item_db_idx(n) count(ll) price(ll)
 												// pack_item				: row(c) col(c) item_idx(n) item_db_idx(n) count(ll)
-	MSG_PERSONALSHOP_SELL_LIST,					// ÆÇ¸Å¸®½ºÆ® ¿äÃ»			: charindex(n) [ shoptype(c) normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:server
+	MSG_PERSONALSHOP_SELL_LIST,					// ï¿½Ç¸Å¸ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»			: charindex(n) [ shoptype(c) normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:server
 												// normal_item				: item_idx(n) item_db_idx(n) plus(n) flag(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll) price(ll)
 												// pack_item				: item_idx(n) item_db_idx(n) plus(n) flag(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll)
-	MSG_PERSONALSHOP_BUY,						// ±¸¸Å¿äÃ»					: charindex(n) pack_buy(c) normal_count(c) ([normal_item_index(n) normal_item_count(ll)]:normal_count)
+	MSG_PERSONALSHOP_BUY,						// ï¿½ï¿½ï¿½Å¿ï¿½Ã»					: charindex(n) pack_buy(c) normal_count(c) ([normal_item_index(n) normal_item_count(ll)]:normal_count)
 	
 } MSG_PERSONALSHOP_TYPE;
 
 typedef enum _tagPersonalShopErrorType
 {
-	MSG_PERSONALSHOP_ERROR_OK,					// Á¤»ó
-	MSG_PERSONALSHOP_ERROR_INSUFF_SKILL,		// ¿äÃ» Ä³¸¯ÅÍ°¡ ½ºÅ³ »ç¿ë ÁßÀÏ¶§
-	MSG_PERSONALSHOP_ERROR_INSUFF_WARP,			// ¿äÃ» Ä³¸¯ÅÍ°¡ ¿öÇÁ(ÀÌµ¿ÀåÄ¡) ÁßÀÏ¶§
-	MSG_PERSONALSHOP_ERROR_INSUFF_EXCHANGE,		// ¿äÃ» Ä³¸¯ÅÍ°¡ ±³È¯ ÁßÀÏ¶§
-	MSG_PERSONALSHOP_ERROR_INSUFF_ALREADY,		// ¿äÃ» Ä³¸¯ÅÍ°¡ ÀÌ¹Ì °³ÀÎ»óÁ¡ ÁßÀÏ¶§
-	MSG_PERSONALSHOP_ERROR_INSUFF_MONEY,		// ³ª½º¸¦ °³ÀÎ»óÁ¡À¸·Î °Å·¡ÇÏ°íÀÚ ÇÒ¶§
-	MSG_PERSONALSHOP_ERROR_INSUFF_ETC,			// ±×¿Ü »óÁ¡À» ¿­¼ö ¾ø´Â »óÅÂ(ÆÐÅ¶³»¿ë¿À·ù µî)
-	MSG_PERSONALSHOP_ERROR_AREA,				// »óÁ¡ °³¼³ ºÒ°¡´É Áö¿ªÀÏ¶§
-	MSG_PERSONALSHOP_ERROR_DUPLICATION,			// ÇÏ³ªÀÇ ¾ÆÀÌÅÛÀ» ¿©·¯ ¹ø µî·ÏÇÏ·Á ÇÒ ¶§
-	MSG_PERSONALSHOP_ERROR_NOTFOUND,			// ´ë»ó Ä³¸¯ÅÍ°¡ ¾øÀ» ¶§
-	MSG_PERSONALSHOP_ERROR_NOTSELL,				// ´ë»ó Ä³¸¯ÅÍ°¡ ÆÇ¸Å »óÁ¡ÀÌ ¾Æ´Ò ¶§
-	MSG_PERSONALSHOP_ERROR_NOTPACKAGE,			// ´ë»ó Ä³¸¯ÅÍ°¡ ÆÐÅ°Áö ÆÇ¸Å°¡ ¾Æ´Ò ¶§
-	MSG_PERSONALSHOP_ERROR_MONEY,				// ¼ÒÁö±Ý ºÎÁ·
-	MSG_PERSONALSHOP_ERROR_COUNT,				// ´ë»ó °³ÀÎ»óÁ¡º¸´Ù ¿äÃ» ÆÇ¸Å/±¸¸Å Ä«¿îÆ®°¡ Å¬¶§
-	MSG_PERSONALSHOP_ERROR_CANTPREMIUM,			// ¼ÒÁö±Ý ºÎÁ·À¸·Î ÆÐÅ°Áö »óÁ¡ °³¼³ ºÒ°¡
-	MSG_PERSONALSHOP_ERROR_BUY_FULLINVENTORY,	// ÀÎº¥Åä¸® °¡µæÂ÷¼­ ¸ø »ï
-	MSG_PERSONALSHOP_ERROR_ANYMORE_PET,			// Æê ¼ÒÀ¯ Á¦ÇÑÀÌ ³Ñ¾î¼­ Ãë¼Ò
-	MSG_PERSONALSHOP_ERROR_NOSPACE,				// ÆÇ¸Å´ë±ÝÀ» ÀÔ±Ý ¹ÞÀ» °ø°£ÀÌ ¾ø¾î¼­ ÆÇ¸Å ¸øÇÏ°Ô µÇ¾úÀ»¶§
-	MSG_PERSONALSHOP_ERROR_CANNOT_USE,			// ÀÌ¿ëÇÒ ¼ö ¾ø´Â °³ÀÎ»óÁ¡ ÀÔ´Ï´Ù
+	MSG_PERSONALSHOP_ERROR_OK,					// ï¿½ï¿½ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_SKILL,		// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_WARP,			// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ìµï¿½ï¿½ï¿½Ä¡) ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_EXCHANGE,		// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_ALREADY,		// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_MONEY,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½
+	MSG_PERSONALSHOP_ERROR_INSUFF_ETC,			// ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	MSG_PERSONALSHOP_ERROR_AREA,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_PERSONALSHOP_ERROR_DUPLICATION,			// ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_NOTFOUND,			// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_NOTSELL,				// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_NOTPACKAGE,			// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ç¸Å°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_MONEY,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_COUNT,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ç¸ï¿½/ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_CANTPREMIUM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_PERSONALSHOP_ERROR_BUY_FULLINVENTORY,	// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_ANYMORE_PET,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î¼­ ï¿½ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_NOSPACE,				// ï¿½Ç¸Å´ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_PERSONALSHOP_ERROR_CANNOT_USE,			// ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½
 } MSG_PERSONALSHOP_ERROR_TYPE;
 
 typedef enum __tagMsgExAlternateMerchant
 {
-	MSG_ALTERNATEMERCHANT_ERROR,				// °³ÀÎ»óÁ¡ °ü·Ã ¿À·ù		: errorcode(uc)
-	MSG_ALTERNATEMERCHANT_CHANGE,				// »óÁ¡ »óÅÂ º¯È­(ÁßÁö)		: charindex(n) shoptype(c)
-	MSG_ALTERNATEMERCHANT_SELL_START,			// ÆÇ¸Å½ÃÀÛ					: charindex(n) shoptype(c) shopname(str) [normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:client
+	MSG_ALTERNATEMERCHANT_ERROR,				// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(uc)
+	MSG_ALTERNATEMERCHANT_CHANGE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­(ï¿½ï¿½ï¿½ï¿½)		: charindex(n) shoptype(c)
+	MSG_ALTERNATEMERCHANT_SELL_START,			// ï¿½Ç¸Å½ï¿½ï¿½ï¿½					: charindex(n) shoptype(c) shopname(str) [normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:client
 												// normal_item				: row(c) col(c) item_idx(n) item_db_idx(n) count(ll) price(ll)
 												// pack_item				: row(c) col(c) item_idx(n) item_db_idx(n) count(ll)
-	MSG_ALTERNATEMERCHANT_SELL_LIST,			// ÆÇ¸Å¸®½ºÆ® ¿äÃ»			: charindex(n) [ shoptype(c) normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:server
+	MSG_ALTERNATEMERCHANT_SELL_LIST,			// ï¿½Ç¸Å¸ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»			: charindex(n) [ shoptype(c) normal_count(c) normal_item(v:normal_count) pack_price(ll) pack_count(c) pack_item(v:pack_count)]:server
 												// normal_item				: item_idx(n) item_db_idx(n) plus(n) flag(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll) price(ll)
 												// pack_item				: item_idx(n) item_db_idx(n) plus(n) flag(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll)
-	MSG_ALTERNATEMERCHANT_BUY,					// ±¸¸Å¿äÃ»					: charindex(n) pack_buy(c) normal_count(c) ([normal_item_index(n) normal_item_count(ll)]:normal_count)
+	MSG_ALTERNATEMERCHANT_BUY,					// ï¿½ï¿½ï¿½Å¿ï¿½Ã»					: charindex(n) pack_buy(c) normal_count(c) ([normal_item_index(n) normal_item_count(ll)]:normal_count)
 	
-	MSG_ALTERNATEMERCHANT_END,					// ÆÇ¸Å»ó Á¾·á
-	MSG_ALTERNATEMERCHANT_PRODUCT_RECOVERY,		// »óÇ° È¸¼ö :  
-	MSG_ALTERNATEMERCHANT_PRODUCT_NAS,			// ³ª½º È¸¼ö :
+	MSG_ALTERNATEMERCHANT_END,					// ï¿½Ç¸Å»ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_PRODUCT_RECOVERY,		// ï¿½ï¿½Ç° È¸ï¿½ï¿½ :  
+	MSG_ALTERNATEMERCHANT_PRODUCT_NAS,			// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ :
 
 }MSG_EX_ALTERNATE_MERCHANT_TYPE;
 
 typedef enum __tagMsgExAlternateMerchatErrorType
 {
-	MSG_ALTERNATEMERCHANT_ERROR_OK,						// Á¤»ó
-	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_SKILL,			// ¿äÃ» Ä³¸¯ÅÍ°¡ ½ºÅ³ »ç¿ë ÁßÀÏ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_WARP,			// ¿äÃ» Ä³¸¯ÅÍ°¡ ¿öÇÁ(ÀÌµ¿ÀåÄ¡) ÁßÀÏ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_EXCHANGE,		// ¿äÃ» Ä³¸¯ÅÍ°¡ ±³È¯ ÁßÀÏ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_MONEY,			// ³ª½º¸¦ °³ÀÎ»óÁ¡À¸·Î °Å·¡ÇÏ°íÀÚ ÇÒ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_ETC,				// ±×¿Ü »óÁ¡À» ¿­¼ö ¾ø´Â »óÅÂ(ÆÐÅ¶³»¿ë¿À·ù µî)
-	MSG_ALTERNATEMERCHANT_ERROR_AREA,					// »óÁ¡ °³¼³ ºÒ°¡´É Áö¿ªÀÏ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_DUPLICATION,			// ÇÏ³ªÀÇ ¾ÆÀÌÅÛÀ» ¿©·¯ ¹ø µî·ÏÇÏ·Á ÇÒ ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_NOTFOUND,				// ´ë»ó Ä³¸¯ÅÍ°¡ ¾øÀ» ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_NOTSELL,				// ´ë»ó Ä³¸¯ÅÍ°¡ ÆÇ¸Å »óÁ¡ÀÌ ¾Æ´Ò ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_NOTPACKAGE,				// ´ë»ó Ä³¸¯ÅÍ°¡ ÆÐÅ°Áö ÆÇ¸Å°¡ ¾Æ´Ò ¶§
-	MSG_ALTERNATEMERCHANT_ERROR_MONEY,					// ¼ÒÁö±Ý ºÎÁ·
-	MSG_ALTERNATEMERCHANT_ERROR_COUNT,					// ´ë»ó °³ÀÎ»óÁ¡º¸´Ù ¿äÃ» ÆÇ¸Å/±¸¸Å Ä«¿îÆ®°¡ Å¬¶§
-	MSG_ALTERNATEMERCHANT_ERROR_CANTPREMIUM,			// ¼ÒÁö±Ý ºÎÁ·À¸·Î ÆÐÅ°Áö »óÁ¡ °³¼³ ºÒ°¡
-	MSG_ALTERNATEMERCHANT_ERROR_BUY_FULLINVENTORY,		// ÀÎº¥Åä¸® °¡µæÂ÷¼­ ¸ø »ï
-	MSG_ALTERNATEMERCHANT_ERROR_ANYMORE_PET,			// Æê ¼ÒÀ¯ Á¦ÇÑÀÌ ³Ñ¾î¼­ Ãë¼Ò
-	MSG_ALTERNATEMERCHANT_ERROR_NOSPACE,				// ÀÎº¥ÀÌ °¡µæÂ÷¼­ ÆÇ¸Å ºÒ°¡ : µ· Áö±Þ ¹ÞÀ» °ø°£ÀÌ ¾øÀ½
-	MSG_ALTERNATEMERCHANT_ERROR_NOCOLLECT_ITEM,			// È¸¼ö ¾ÈµÈ ¾ÆÀÌÅÛÀÌ ÀÖÀ½
-	MSG_ALTERNATEMERCHANT_ERROR_TIMEOVER,				// ½Ã°£ ¸¸·á
+	MSG_ALTERNATEMERCHANT_ERROR_OK,						// ï¿½ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_SKILL,			// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_WARP,			// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ìµï¿½ï¿½ï¿½Ä¡) ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_EXCHANGE,		// ï¿½ï¿½Ã» Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_MONEY,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å·ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_INSUFF_ETC,				// ï¿½×¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	MSG_ALTERNATEMERCHANT_ERROR_AREA,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_DUPLICATION,			// ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_NOTFOUND,				// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_NOTSELL,				// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_NOTPACKAGE,				// ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ç¸Å°ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_MONEY,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_COUNT,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ç¸ï¿½/ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ Å¬ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_CANTPREMIUM,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_BUY_FULLINVENTORY,		// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_ANYMORE_PET,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î¼­ ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_NOSPACE,				// ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½Ò°ï¿½ : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_NOCOLLECT_ITEM,			// È¸ï¿½ï¿½ ï¿½Èµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_ALTERNATEMERCHANT_ERROR_TIMEOVER,				// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 }MSG_EX_ALTERNATE_MERCHANT_ERROR;
 
 typedef enum _tagRightAttackType
 {
-	MSG_RIGHT_ATTACK_ADD,						// Á¤´ç¹æÀ§ ¸®½ºÆ® Ãß°¡
-	MSG_RIGHT_ATTACK_DELAY,						// Á¤´ç¹æÀ§ ¸®½ºÆ® ÇØÁ¦ ¿¹Á¤ : 5s
-	MSG_RIGHT_ATTACK_DEL,						// Á¤´ç¹æÀ§ ¸®½ºÆ® »èÁ¦
+	MSG_RIGHT_ATTACK_ADD,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
+	MSG_RIGHT_ATTACK_DELAY,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : 5s
+	MSG_RIGHT_ATTACK_DEL,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 } MSG_RIGHT_ATTACK_TYPE;
 
 typedef enum _tagStashType
 {
-	MSG_STASH_ERROR_CODE,						// Ã¢°í °ü·Ã ¿À·ù			: errorcode(uc)
-	MSG_STASH_ISSETPASSWORD,					// Ã¢°í ¾ÏÈ£ ¼³Á¤ ¿©ºÎ °Ë»ç	: isset(c:s)
-	MSG_STASH_LIST_REQ,							// Ã¢°í ¾ÆÀÌÅÛ ¸®½ºÆ® ¿äÃ»	: password(str)
-	MSG_STASH_LIST_REP, 						// Ã¢°í ¾ÆÀÌÅÛ ¸®½ºÆ®		: listflag(c) item_idx(n) plus(n) flag(n) used(n), used_2(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll) remain(n)
+	MSG_STASH_ERROR_CODE,						// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: errorcode(uc)
+	MSG_STASH_ISSETPASSWORD,					// Ã¢ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½	: isset(c:s)
+	MSG_STASH_LIST_REQ,							// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»	: password(str)
+	MSG_STASH_LIST_REP, 						// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		: listflag(c) item_idx(n) plus(n) flag(n) used(n), used_2(n) option_count(c) ([option_type(c) option_level(c)]:option_count) count(ll) remain(n)
 												// listflag					: (1 << 0): start, (1 << 1): end, (1 << 2): empty
-												// COMPOSITE_TIME »ç¿ë½Ã used_2(n) Ãß°¡
-	MSG_STASH_KEEP_REQ,							// Ã¢°í¿¡ ¹°°Ç ¸Ã±â±â		: password(str) keepcount(n) [row(c) col(c) item_idx(n) count(ll)]:keepcount
+												// COMPOSITE_TIME ï¿½ï¿½ï¿½ï¿½ used_2(n) ï¿½ß°ï¿½
+	MSG_STASH_KEEP_REQ,							// Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã±ï¿½ï¿½		: password(str) keepcount(n) [row(c) col(c) item_idx(n) count(ll)]:keepcount
 												// keepcount				: 1 ~ 10
-	MSG_STASH_KEEP_REP,							// ¸Ã±â±â °á°ú				: keepcount(n) [itemdbindex(n) count(ll)]:keepcount
-	MSG_STASH_TAKE_REQ,							// Ã£±â ¿äÃ»				: password(str) takecount(n) [item_idx(n) count(ll)]:takecount
+	MSG_STASH_KEEP_REP,							// ï¿½Ã±ï¿½ï¿½ ï¿½ï¿½ï¿½				: keepcount(n) [itemdbindex(n) count(ll)]:keepcount
+	MSG_STASH_TAKE_REQ,							// Ã£ï¿½ï¿½ ï¿½ï¿½Ã»				: password(str) takecount(n) [item_idx(n) count(ll)]:takecount
 												// takecount				: 1 ~ 10
-	MSG_STASH_TAKE_REP,							// Ã£±â °á°ú				: takecount(n) [itemdbindex(n) count(ll)]:keepcount
-	MSG_STASH_CHANGE_PASSWORD_REQ,				// ÆÐ½º¿öµå º¯°æ ¿äÃ»		: old(str) new(str)
-	MSG_STASH_CHANGE_PASSWORD_REP,				// ÆÐ½º¿öµå º¯°æ °á°ú		: isset(c:s)
-	MSG_STASH_SEAL,								// Àá±Ý ¿äÃ»/°á°ú
+	MSG_STASH_TAKE_REP,							// Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½				: takecount(n) [itemdbindex(n) count(ll)]:keepcount
+	MSG_STASH_CHANGE_PASSWORD_REQ,				// ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: old(str) new(str)
+	MSG_STASH_CHANGE_PASSWORD_REP,				// ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: isset(c:s)
+	MSG_STASH_SEAL,								// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»/ï¿½ï¿½ï¿½
 
-	MSG_STASH_DELETE_PASSWORD_REQ,				// ¾ÏÈ£ºÐ½Ç½Ã »èÁ¦ ¿äÃ»		: idnum(str)
-	MSG_STASH_DELETE_PASSWORD_REP,				// ¾ÏÈ£ºÐ½Ç °á°ú			: success  :0 ¼º°ø 1: Æ²¸° ÁÖ¹Î¹øÈ£ 2:±âÅ¸
-	MSG_STASH_CHECK_PASSWORD_REQ,				// ¾ÏÈ£ È®ÀÎ				: pass(str)
-	MSG_STASH_CHECK_PASSWORD_REP,				// °á°ú						
-	MSG_STASH_SETTING_NEWPASSWORD_REQ,			// ¾ÏÈ£ ¼³Á¤				: pass(str)	
-	MSG_STASH_SETTING_NEWPASSWORD_REP,			// °á°ú						: bsuccess 
-	MSG_STASH_KEEP_MONEY,						//Ã¢°í ³ª½º ¸Ã±â±â password(str) count(ll)
-	MSG_STASH_TAKE_MONEY,						//Ã¢°í ³ª½º Ã£±â password(str) count(ll)
-	MSG_STASH_SEARCH_MONEY_REQ,					//Ã¢°í ³ª½º Á¶È¸ 
-	MSG_STATS_SEARCH_MONEY_REP,					//Ã¢°í ³ª½º Á¶È¸ °á°ú count(ll)
-												//	bsuccess 0: ¼º°ø 1: ½ÇÆÐ 2: ¾ÏÈ£
+	MSG_STASH_DELETE_PASSWORD_REQ,				// ï¿½ï¿½È£ï¿½Ð½Ç½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: idnum(str)
+	MSG_STASH_DELETE_PASSWORD_REP,				// ï¿½ï¿½È£ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½			: success  :0 ï¿½ï¿½ï¿½ï¿½ 1: Æ²ï¿½ï¿½ ï¿½Ö¹Î¹ï¿½È£ 2:ï¿½ï¿½Å¸
+	MSG_STASH_CHECK_PASSWORD_REQ,				// ï¿½ï¿½È£ È®ï¿½ï¿½				: pass(str)
+	MSG_STASH_CHECK_PASSWORD_REP,				// ï¿½ï¿½ï¿½						
+	MSG_STASH_SETTING_NEWPASSWORD_REQ,			// ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½				: pass(str)	
+	MSG_STASH_SETTING_NEWPASSWORD_REP,			// ï¿½ï¿½ï¿½						: bsuccess 
+	MSG_STASH_KEEP_MONEY,						//Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã±ï¿½ï¿½ password(str) count(ll)
+	MSG_STASH_TAKE_MONEY,						//Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ password(str) count(ll)
+	MSG_STASH_SEARCH_MONEY_REQ,					//Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ 
+	MSG_STATS_SEARCH_MONEY_REP,					//Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ count(ll)
+												//	bsuccess 0: ï¿½ï¿½ï¿½ï¿½ 1: ï¿½ï¿½ï¿½ï¿½ 2: ï¿½ï¿½È£
 } MSG_STASH_TYPE;
 
 typedef enum _tagStashErrorType
 {
-	MSG_STASH_ERROR_OK,							// Á¤»ó
-	MSG_STASH_ERROR_CANNOT_STATE,				// Ã¢°í ÀÌ¿ëÀ» ÇÒ¼ö ¾ø´Â »óÅÂ: Á×Àº »óÅÂ, ÀüÅõÁß, ½ºÅ³ ½ÃÀüÁß, ¿öÇÁÁß, °³ÀÎ»óÁ¡, ±³È¯Áß¿¡¼­´Â ºÒ°¡´É
-	MSG_STASH_ERROR_NOTCOMPLETE,				// ÀÌÀü Ã¢°í ¿äÃ»ÀÌ ¸¶¹«¸® µÇÁö ¾Ê¾ÒÀ½
-	MSG_STASH_ERROR_SEALED,						// Ã¢°í ±ä±Þ Àá±è »óÅÂ
-	MSG_STASH_ERROR_WRONG_PASSWORD,				// ¾ÏÈ£ Æ²¸²
-	MSG_STASH_ERROR_WRONG_PACKET,				// ÆÐÅ¶ ³»¿ë ¿À·ù
-	MSG_STASH_ERROR_MONEY,						// µ· ºÎÁ·
-	MSG_STASH_ERROR_STASH_FULL,					// Ã¢°í °¡µæ Âü
-	MSG_STASH_ERROR_WEIGHT_OVER,				// ¹«°Ô ÃÊ°ú·Î Ã£À» ¼ö ¾øÀ½
-	MSG_STASH_ERROR_INVENTORY_FULL,				// ÀÎº¥Åä¸® °³¼ö ÃÊ°ú·Î Ã£À» ¼ö ¾øÀ½
-	MSG_STASH_ERROR_WRONG_CHAR,					// ¾ÏÈ£¿¡ Àß¸øµÈ ¹®ÀÚ°¡ µé¾î°¨
-	MSG_STASH_ERROR_CANNOT_SEAL,				// Àá±Û¼ö ¾øÀ½
-	MSG_STASH_ERROR_ALREADY_SEAL,				// ÀÌ¹Ì Àá±è
+	MSG_STASH_ERROR_OK,							// ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_CANNOT_STATE,				// Ã¢ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½, ï¿½ï¿½È¯ï¿½ß¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_NOTCOMPLETE,				// ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_SEALED,						// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_WRONG_PASSWORD,				// ï¿½ï¿½È£ Æ²ï¿½ï¿½
+	MSG_STASH_ERROR_WRONG_PACKET,				// ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_MONEY,						// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_STASH_FULL,					// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_STASH_ERROR_WEIGHT_OVER,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_INVENTORY_FULL,				// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_WRONG_CHAR,					// ï¿½ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½î°¨
+	MSG_STASH_ERROR_CANNOT_SEAL,				// ï¿½ï¿½Û¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_STASH_ERROR_ALREADY_SEAL,				// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½
 } MSG_STASH_ERROR_TYPE;
 
 typedef enum _tagGuildType
 {
-	MSG_GUILD_ERROR,						// ±æµå °ü·Ã ¿À·ù		: errorcode(c)
-	MSG_GUILD_CREATE,						// ±æµå »ý¼º			: name(str)
-	MSG_GUILD_INFO,							// ³» ±æµå Á¤º¸ º¸³»±â	: guildindex(n) guildname(str) guildlevel(n) mypos(n) battle_guildindex(n) battle_killcount(n) battle_prize(n) battle_zone(n) battle_time(n)
-											// ±æµå ¾øÀ¸¸é guildindex == -1, ÀÌÈÄ Ç×¸ñ »ý·«
-	MSG_GUILD_MEMBERLIST,					// ±æ¿ø ¸®½ºÆ®			: guildindex(n) count(n) [index(n) name(str) position(n) online(c)]:count
-	MSG_GUILD_ONLINE,						// ±æµå¿ø ¿Â¶óÀÎ »óÅÂ	: guildindex(n) charindex(n) charname(str) online(c)
-	MSG_GUILD_LEVELUP,						// ±æµå ½Â±Þ			: 
-	MSG_GUILD_LEVELINFO,					// ±æµå ·¹º§ Á¤º¸		: guildindex(n) guildlevel(n)
-	MSG_GUILD_BREAKUP,						// ÇØ»ê ¿äÃ»			: 
-	MSG_GUILD_BREAKUP_NOTIFY,				// ±æµå ÇØ»êÀ» ¾Ë¸²		: guildindex(n) guildname(str)
-	MSG_GUILD_REGIST_REQ,					// °¡ÀÔ ½ÅÃ» ¿äÃ»		: guildindex(n) bossindex(n) requesterindex(n)
-	MSG_GUILD_REGIST_ALLOW,					// °¡ÀÔ ½ÅÃ» Çã¿ë		: guildindex(n) requesterindex(n)
-	MSG_GUILD_REGIST_CANCEL,				// °¡ÀÔ ½ÅÃ» Ãë¼Ò		: bCancelTarget(c)
-	MSG_GUILD_OUT_REQ,						// Å»Åð					: guildindex(n)
-	MSG_GUILD_CHANGE_BOSS,					// ´ÜÀå ÀÌÀÓ			: guildindex(n) current(n) newboss(n)
-	MSG_GUILD_APPOINT_OFFICER,				// ºÎ´ÜÀå ÀÓ¸í			: guildindex(n) charindex(n)
-	MSG_GUILD_FIRE_OFFICER,					// ºÎ´ÜÀå ÇØÀÓ			: guildindex(n) charindex(n)
-	MSG_GUILD_KICK,							// ÅðÃâ	¿äÃ»			: guildindex(n) charindex(n)
-	MSG_GUILD_MEMBER_ADD,					// ±æ¿ø Ãß°¡ ¾Ë¸²		: guildindex(n) charindex(n) charname(str)
-	MSG_GUILD_MEMBER_OUT,					// ±æ¿ø Å»Åð ¾Ë¸²		: guildindex(n) charindex(n) charname(str)
-	MSG_GUILD_MEMBER_KICK,					// ±æ¿ø °­Åð ¾Ë¸²		: guildindex(n) bossindex(n) charindex(n) charname(str)
-	MSG_GUILD_INFO_CHANGE,					// ±æµå Á¤º¸ º¯°æ		: charindex(n) guildindex(n) guildname(str) pos(n)
+	MSG_GUILD_ERROR,						// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errorcode(c)
+	MSG_GUILD_CREATE,						// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: name(str)
+	MSG_GUILD_INFO,							// ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: guildindex(n) guildname(str) guildlevel(n) mypos(n) battle_guildindex(n) battle_killcount(n) battle_prize(n) battle_zone(n) battle_time(n)
+											// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ guildindex == -1, ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_MEMBERLIST,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®			: guildindex(n) count(n) [index(n) name(str) position(n) online(c)]:count
+	MSG_GUILD_ONLINE,						// ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) charindex(n) charname(str) online(c)
+	MSG_GUILD_LEVELUP,						// ï¿½ï¿½ï¿½ ï¿½Â±ï¿½			: 
+	MSG_GUILD_LEVELINFO,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) guildlevel(n)
+	MSG_GUILD_BREAKUP,						// ï¿½Ø»ï¿½ ï¿½ï¿½Ã»			: 
+	MSG_GUILD_BREAKUP_NOTIFY,				// ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) guildname(str)
+	MSG_GUILD_REGIST_REQ,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½Ã»		: guildindex(n) bossindex(n) requesterindex(n)
+	MSG_GUILD_REGIST_ALLOW,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½		: guildindex(n) requesterindex(n)
+	MSG_GUILD_REGIST_CANCEL,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½		: bCancelTarget(c)
+	MSG_GUILD_OUT_REQ,						// Å»ï¿½ï¿½					: guildindex(n)
+	MSG_GUILD_CHANGE_BOSS,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: guildindex(n) current(n) newboss(n)
+	MSG_GUILD_APPOINT_OFFICER,				// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½			: guildindex(n) charindex(n)
+	MSG_GUILD_FIRE_OFFICER,					// ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: guildindex(n) charindex(n)
+	MSG_GUILD_KICK,							// ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½Ã»			: guildindex(n) charindex(n)
+	MSG_GUILD_MEMBER_ADD,					// ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) charindex(n) charname(str)
+	MSG_GUILD_MEMBER_OUT,					// ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) charindex(n) charname(str)
+	MSG_GUILD_MEMBER_KICK,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) bossindex(n) charindex(n) charname(str)
+	MSG_GUILD_INFO_CHANGE,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: charindex(n) guildindex(n) guildname(str) pos(n)
 
-	MSG_GUILD_BATTLE_REQ_REQ,				// ±æµåÀü ½ÅÃ» ¿äÃ»		: charindex(n) or guildindex(n) guildname(n) prize(n) time(n)
-	MSG_GUILD_BATTLE_REQ_REJECT,			// ±æµåÀü ½ÅÃ» °ÅÀý		: reject_charindex(n)
-	MSG_GUILD_BATTLE_REQ_ACCEPT,			// ±æµåÀü ½ÅÃ» Çã¶ô		: guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n) zone(n) time(n)
-	MSG_GUILD_BATTLE_STOP_REQ,				// ±æµåÀü Áß´Ü ¿äÃ»		: charindex(n) or guildindex(n) guildname(n) 
-	MSG_GUILD_BATTLE_STOP_REJECT,			// ±æµåÀü Áß´Ü °ÅÀý		: reject_charindex(n)
-	MSG_GUILD_BATTLE_STOP_ACCEPT,			// ±æµåÀü Áß´Ü Çã¶ô		:
-	MSG_GUILD_BATTLE_START,					// ±æµåÀü ½ÃÀÛ ¾Ë¸²		: guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n) zone(n) time(n)
-	MSG_GUILD_BATTLE_STATUS,				// ±æµåÀü ÇöÈ²			: guildindex1(n) guildname1(str) killcount1(n)guildindex2(n) guildname2(str) killcount2(n) battletime(n)
-	MSG_GUILD_BATTLE_END,					// ±æµåÀü Á¾·á			: winner_guildindex(n) guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n)
-	MSG_GUILD_BATTLE_SCORE_INIT,			// ±æµåÀü ¿î¿µÀÚ ÀÌº¥Æ® ½ºÄÚ¾îº¸±â off
+	MSG_GUILD_BATTLE_REQ_REQ,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½Ã»		: charindex(n) or guildindex(n) guildname(n) prize(n) time(n)
+	MSG_GUILD_BATTLE_REQ_REJECT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½		: reject_charindex(n)
+	MSG_GUILD_BATTLE_REQ_ACCEPT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½		: guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n) zone(n) time(n)
+	MSG_GUILD_BATTLE_STOP_REQ,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½ï¿½Ã»		: charindex(n) or guildindex(n) guildname(n) 
+	MSG_GUILD_BATTLE_STOP_REJECT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½		: reject_charindex(n)
+	MSG_GUILD_BATTLE_STOP_ACCEPT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½ï¿½ï¿½		:
+	MSG_GUILD_BATTLE_START,					// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½		: guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n) zone(n) time(n)
+	MSG_GUILD_BATTLE_STATUS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²			: guildindex1(n) guildname1(str) killcount1(n)guildindex2(n) guildname2(str) killcount2(n) battletime(n)
+	MSG_GUILD_BATTLE_END,					// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: winner_guildindex(n) guildindex1(n) guildname1(n) guildindex2(n) guildname2(n) prize(n)
+	MSG_GUILD_BATTLE_SCORE_INIT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½î¿µï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½Ú¾îº¸ï¿½ï¿½ off
 
-	MSG_GUILD_WAR_SET_TIME_REQ,				// °ø¼º ½Ã°£ ¼³Á¤ ¿äÃ»	: wday(n) hour(n)
-	MSG_GUILD_WAR_GET_TIME,					// °ø¼º ½Ã°£ È®ÀÎ		: warerrorcode(n:s) guildindex(n:s) guildname(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_NOTICE_TIME,				// °ø¼º ½Ã°£ È®Á¤ ¾Ë¸²	: zoneindex(n) month(c) day(c) hour(c) min(c)
-	MSG_GUILD_WAR_NOTICE_TIME_REMAIN,		// °ø¼º ½ÃÀÛ ³²Àº ½Ã°£ ¾Ë¸²	: zoneindex(n) min(c)
-	MSG_GUILD_WAR_START,					// °ø¼º ½ÃÀÛ ¾Ë¸²		: zoneindex(n) remainSec(n)
-	MSG_GUILD_WAR_JOIN_ATTACK_GUILD,		// °ø¼º ±æµå ½ÅÃ» ¿äÃ»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_JOIN_DEFENSE_GUILD,		// ¼ö¼º ±æµå ½ÅÃ» ¿äÃ»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_JOIN_ATTACK_CHAR,			// °ø¼º ¿ëº´ ½ÅÃ» ¿äÃ»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_JOIN_DEFENSE_CHAR,		// ¼ö¼º ¿ëº´ ½ÅÃ» ¿äÃ»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_POINT,					// ¾ßÀü ±æµå Æ÷ÀÎÆ® ¾Ë¸²: remain_sec(n) guild1_index(n) guild1_name(str) guild1_point(n) guild2_index(n) guild2_name(str) guild2_point(n) guild3_index(n) guild3_name(str) guild3_point(n) my_guild_point(n) defense_point(n)
-	MSG_GUILD_WAR_NOTICE_START_CASTLE,		// ¾ßÀü³¡ °ø¼º ½ÃÀÛ ¾Ë¸²: zoneindex(n) remain_sec(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) guildindex3(n) guildname3(str)
-	MSG_GUILD_WAR_NOTICE_REMAIN_FIELD_TIME,	// ¾ßÀü ³²Àº ½Ã°£ ¾Ë¸²	: zoneindex(n) remainSec(n)
-	MSG_GUILD_WAR_CASTLE_STATE,				// °ø¼º ÁøÇà »óÈ² ¾Ë¸²	: zoneindex(n) state(n) gatestate(n) remain_sec(n) guild1_index(n) guild1_name(str) guild1_point(n) guild2_index(n) guild2_name(str) guild2_point(n) guild3_index(n) guild3_name(str) guild3_point(n) my_guild_point(n) defense_point(n)
-											// state				: 0 - ÀÏ¹Ý, 1 - ¾ßÀü, 2 - °ø¼º
-	MSG_GUILD_WAR_GATE_STATE,				// ¼º¹® Á¤º¸ º¯°æÀ» ¾Ë¸²: old_gate_state(n) new_gate_state(n)
-	MSG_GUILD_WAR_ATTACK_SYMBOL,			// ±ÇÁÂ °ø°Ý ¿äÃ»		: 
-	MSG_GUILD_WAR_END,						// °ø¼º ³¡³²			: zoneindex(n) bWinDefense(c) owner_index(n) owner_name(str) char_index(n) char_name(str) nextMonth(n) nextDay(n) nextHour(n) wDay(n)
-	MSG_GUILD_WAR_SET_TIME_REP,				// °ø¼º ½Ã°£ ¼³Á¤ ÀÀ´ä	: warerrorcode(n) month(c:s) day(c:s) hour(c:s) min(c:s)
-	MSG_GUILD_WAR_INVALID_COMMAND,			// °ø¼ºÁß ºÒ°¡´ÉÇÑ ±æµå ¸í·ÉÀ» ¿äÃ» : req_msg_type(uc)
+	MSG_GUILD_WAR_SET_TIME_REQ,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: wday(n) hour(n)
+	MSG_GUILD_WAR_GET_TIME,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½		: warerrorcode(n:s) guildindex(n:s) guildname(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_NOTICE_TIME,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) month(c) day(c) hour(c) min(c)
+	MSG_GUILD_WAR_NOTICE_TIME_REMAIN,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) min(c)
+	MSG_GUILD_WAR_START,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½		: zoneindex(n) remainSec(n)
+	MSG_GUILD_WAR_JOIN_ATTACK_GUILD,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½Ã»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_JOIN_DEFENSE_GUILD,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½Ã»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_JOIN_ATTACK_CHAR,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½Ã» ï¿½ï¿½Ã»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_JOIN_DEFENSE_CHAR,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½Ã» ï¿½ï¿½Ã»	: warerrorcode(n:s) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_POINT,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë¸ï¿½: remain_sec(n) guild1_index(n) guild1_name(str) guild1_point(n) guild2_index(n) guild2_name(str) guild2_point(n) guild3_index(n) guild3_name(str) guild3_point(n) my_guild_point(n) defense_point(n)
+	MSG_GUILD_WAR_NOTICE_START_CASTLE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½: zoneindex(n) remain_sec(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) guildindex3(n) guildname3(str)
+	MSG_GUILD_WAR_NOTICE_REMAIN_FIELD_TIME,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) remainSec(n)
+	MSG_GUILD_WAR_CASTLE_STATE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È² ï¿½Ë¸ï¿½	: zoneindex(n) state(n) gatestate(n) remain_sec(n) guild1_index(n) guild1_name(str) guild1_point(n) guild2_index(n) guild2_name(str) guild2_point(n) guild3_index(n) guild3_name(str) guild3_point(n) my_guild_point(n) defense_point(n)
+											// state				: 0 - ï¿½Ï¹ï¿½, 1 - ï¿½ï¿½ï¿½ï¿½, 2 - ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_WAR_GATE_STATE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½: old_gate_state(n) new_gate_state(n)
+	MSG_GUILD_WAR_ATTACK_SYMBOL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: 
+	MSG_GUILD_WAR_END,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: zoneindex(n) bWinDefense(c) owner_index(n) owner_name(str) char_index(n) char_name(str) nextMonth(n) nextDay(n) nextHour(n) wDay(n)
+	MSG_GUILD_WAR_SET_TIME_REP,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: warerrorcode(n) month(c:s) day(c:s) hour(c:s) min(c:s)
+	MSG_GUILD_WAR_INVALID_COMMAND,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : req_msg_type(uc)
 											// req_msg_type : MSG_GUILD_TYPE
 
-	MSG_GUILD_STASH_HISTORY_REQ,			// ÀÔ±Ý³»¿ª ¿äÃ»		: 
-	MSG_GUILD_STASH_HISTORY_REP,			// ÀÔ±Ý³»¿ª ÀÀ´ä		: errcode(n) [month(n) day(n) money(ll)]:7
-	MSG_GUILD_STASH_VIEW_REQ,				// Ãâ±ÝÀü ÀÜ¾× ¿äÃ»		: 
-	MSG_GUILD_STASH_VIEW_REP,				// ÀÜ¾× ÀÀ´ä			: errcode(n) money(ll)
-	MSG_GUILD_STASH_TAKE_REQ,				// Ãâ±Ý ¿äÃ»			: money(ll)
-	MSG_GUILD_STASH_TAKE_REP,				// Ãâ±Ý ÀÀ´ä			: errcode(n)
-	// Date : 2005-09-06(¿ÀÀü 10:57:55), By Lee Ki-hwan
+	MSG_GUILD_STASH_HISTORY_REQ,			// ï¿½Ô±Ý³ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: 
+	MSG_GUILD_STASH_HISTORY_REP,			// ï¿½Ô±Ý³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errcode(n) [month(n) day(n) money(ll)]:7
+	MSG_GUILD_STASH_VIEW_REQ,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ ï¿½ï¿½Ã»		: 
+	MSG_GUILD_STASH_VIEW_REP,				// ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½			: errcode(n) money(ll)
+	MSG_GUILD_STASH_TAKE_REQ,				// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»			: money(ll)
+	MSG_GUILD_STASH_TAKE_REP,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: errcode(n)
+	// Date : 2005-09-06(ï¿½ï¿½ï¿½ï¿½ 10:57:55), By Lee Ki-hwan
 	
 	// WSS_NEW_GUILD_SYSTEM 070704 --------------------------------------------------------------------------------->>
-	MSG_NEW_GUILD_INCLINE_ESTABLISH,			// ±æµå ¼ºÇâ º¯°æ : errocode(n:s), guildindex(n:s),guildinline(c:s), guildincline(c)
-	MSG_NEW_GUILD_MEMBER_ADJUST,				// ±æµå¿ø Á¤º¸ ¼öÁ¤ : (n)charIndex (s)name (n)exp (n)fame ,errocode(c:s), (c)stash(0:ºÒ°¡,1:°¡´É)		
-	MSG_NEW_GUILD_INFO,							// ±æµåÀÇ »õ·Î¿î Á¤º¸ : guildname(str) guildlevel(n) bossname(str) membercount(n) maxmembercount(n) avelevel(n) guildpoint(n) contributepoint(n)
-	MSG_NEW_GUILD_MEMBERLIST,					// »õ·Î¿î ±æµåÀÇ ¸â¹ö ¸®½ºÆ® : maxmembercount(n) charname(str) positionname(str) charlevel(n) bplaying(b) zoneindex(n) contributepoint(n) job
-	MSG_NEW_GUILD_SKILL,						// ±æµå ½ºÅ³ skillcount(n) skillindex(n) skillLeanLevel(n) skillMaxLevel(n) - s
-	MSG_NEW_GUILD_NOTICE,				// ±æµåÀÇ °øÁö »çÇ× ¿äÃ»  
-	MSG_NEW_GUILD_NOTICE_UPDATE,		// ±æµå °øÁö »çÇ× ¾÷µ¥ÀÌÆ® : title(str) text(str) , errorcode(c:s)
-	MSG_NEW_GUILD_NOTICE_REQUEST,		// ±æµåÀå °øÁö ¿äÃ»
-	MSG_NEW_GUILD_NOTICE_TRANSMISSION,	// ±æµå °øÁö ¹Þ±â : guildname(str) title(str) text(str) -s
-	MSG_NEW_GUILD_MANAGE,				// ±æµåÀÇ »õ·Î¿î ¸Å´ÏÀú :firstlistmember(c) membercount(n), [guildpos(n), membername(str) positionname(str) charlevel(n) contributeExp(n) contributeFame(n) index(n) stash(c) ] guildGrade(n) guildGrade_point(n)
-	MSG_NEW_GUILD_SKILL_LEARN,			// ±æµå ½ºÅ³ ½Àµæ c->s: skillindex(n) // s->c: skill_index(n) is_new(uc) skill_level(c)
-	MSG_NEW_GUILD_POINT_RANKING,		// ±æµå ·©Å· Àü¼Û charindex(n) guildindex(n) ranking(n) 
+	MSG_NEW_GUILD_INCLINE_ESTABLISH,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errocode(n:s), guildindex(n:s),guildinline(c:s), guildincline(c)
+	MSG_NEW_GUILD_MEMBER_ADJUST,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : (n)charIndex (s)name (n)exp (n)fame ,errocode(c:s), (c)stash(0:ï¿½Ò°ï¿½,1:ï¿½ï¿½ï¿½ï¿½)		
+	MSG_NEW_GUILD_INFO,							// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ : guildname(str) guildlevel(n) bossname(str) membercount(n) maxmembercount(n) avelevel(n) guildpoint(n) contributepoint(n)
+	MSG_NEW_GUILD_MEMBERLIST,					// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® : maxmembercount(n) charname(str) positionname(str) charlevel(n) bplaying(b) zoneindex(n) contributepoint(n) job
+	MSG_NEW_GUILD_SKILL,						// ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ skillcount(n) skillindex(n) skillLeanLevel(n) skillMaxLevel(n) - s
+	MSG_NEW_GUILD_NOTICE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»  
+	MSG_NEW_GUILD_NOTICE_UPDATE,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® : title(str) text(str) , errorcode(c:s)
+	MSG_NEW_GUILD_NOTICE_REQUEST,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_NEW_GUILD_NOTICE_TRANSMISSION,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ : guildname(str) title(str) text(str) -s
+	MSG_NEW_GUILD_MANAGE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ :firstlistmember(c) membercount(n), [guildpos(n), membername(str) positionname(str) charlevel(n) contributeExp(n) contributeFame(n) index(n) stash(c) ] guildGrade(n) guildGrade_point(n)
+	MSG_NEW_GUILD_SKILL_LEARN,			// ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ c->s: skillindex(n) // s->c: skill_index(n) is_new(uc) skill_level(c)
+	MSG_NEW_GUILD_POINT_RANKING,		// ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½ charindex(n) guildindex(n) ranking(n) 
 	// ---------------------------------------------------------------------------------------------------------------<<
 	//////////////////////////////////////////////////////////////////////////
-	// ÀÌÇÏ 4°³ÀÇ ¸Þ¼¼Áö´Â ¼­¹ö¿¡¼­¸¸ »ç¿ë(´ãºÎÅÏ ¼­¹ö¸¸ »ç¿ëÇÏ´Â ¸Þ¼¼Áö´Â µû·Î Å¸ÀÔÀ» ¼±¾ðÇÒ°Í
-	MSG_GUILD_BATTLE_COMMAND_REQ,			// ±æµåÀü ¸í·É¾î ÁØºñ : guildindex(n) time(n) 
-	MSG_GUILD_BATTLE_COMMAND_START,			// ±æµåÀü ¸í·É¾î ½ÃÀÛ : guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) zone(n) time(n)
-	MSG_GUILD_BATTLE_COMMAND_STOP,			// ±æµåÀü ¸í·É¾î Á¾·áÁØºñ : guildindex1(n), guildindex2(n)
-	MSG_GUILD_BATTLE_COMMAND_END,			// ±æµåÀü ¸í·É¾î Á¾·á : winner_guildindex(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str)
+	// ï¿½ï¿½ï¿½ï¿½ 4ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
+	MSG_GUILD_BATTLE_COMMAND_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½Øºï¿½ : guildindex(n) time(n) 
+	MSG_GUILD_BATTLE_COMMAND_START,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ : guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) zone(n) time(n)
+	MSG_GUILD_BATTLE_COMMAND_STOP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ : guildindex1(n), guildindex2(n)
+	MSG_GUILD_BATTLE_COMMAND_END,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ : winner_guildindex(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str)
 	//////////////////////////////////////////////////////////////////////////
-	MSG_GUILD_BATTLE_KILL_MASTER,			// ±æµåÀü °øÁö¸Þ¼¼Áö(±æµå¸¶½ºÅÍ ´ë»óÀ» Á×¿´À»¶§)
-	MSG_GUILD_BATTLE_NOW_SCORE,				// ±æµåÀü °øÁö¸Þ¼¼Áö(±æµå Æ÷ÀÎÆ® ¾È³»)
-	MSG_GUILD_BATTLE_BEFORE,				// ±æµåÀü °øÁö¸Þ¼¼Áö(Åä³Ê¸ÕÆ® 1ºÐÀü ½ÃÀÛ¾È³» ¸Þ¼¼Áö)
-	MSG_GUILD_BATTLE_END_NOTICE_SAME_ZONE,	// ±æµåÀü °øÁö¸Þ¼¼Áö(Åä³Ê¸ÕÆ® Á¾·á ¸Þ¼¼Áö)
-	MSG_GUILD_BATTLE_START_NOTICE_SAME_ZONE, // ±æµåÀü °øÁö¸Þ¼¼Áö(Åä³Ê¸ÕÆ® ½ÃÀÛ ¸Þ¼¼Áö)
-	MSG_GUILD_GP_INFO,							// ±æµå½ºÅ³»ç¿ë½Ã±æ¸¶°¡GPÁ¤º¸¸¦¼ö½Ã·Î¾Ë¾Æ¾ßÇÏ´Âµ¥, GP°¡¹Ù²ð¶§¸¶´Ùº¸½º¿¡°ÔGP¸¦º¸³¿.
+	MSG_GUILD_BATTLE_KILL_MASTER,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½(ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_GUILD_BATTLE_NOW_SCORE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½È³ï¿½)
+	MSG_GUILD_BATTLE_BEFORE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½(ï¿½ï¿½Ê¸ï¿½Æ® 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¾È³ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)
+	MSG_GUILD_BATTLE_END_NOTICE_SAME_ZONE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½(ï¿½ï¿½Ê¸ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)
+	MSG_GUILD_BATTLE_START_NOTICE_SAME_ZONE, // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½(ï¿½ï¿½Ê¸ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½)
+	MSG_GUILD_GP_INFO,							// ï¿½ï¿½å½ºÅ³ï¿½ï¿½ï¿½Ã±æ¸¶ï¿½ï¿½GPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã·Î¾Ë¾Æ¾ï¿½ï¿½Ï´Âµï¿½, GPï¿½ï¿½ï¿½Ù²ð¶§¸ï¿½ï¿½Ùºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½GPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	MSG_CASTLE_BUFF,
-	MSG_GUILD_WAR_SET_TIME_MENU,  	  		// °ø¼º ½Ã°£ ¼³Á¤ ¸Þ´º : count(c), zone(c), wday(c), hour(c)
-	MSG_GUILD_WAR_GET_TIME_UNI_REQ,			// °ø¼º ½Ã°£ È®ÀÎ ¿äÃ» : zone(c)
-	MSG_GUILD_WAR_GET_TIME_UNI_REP,	  		// °ø¼º ½Ã°£ È®ÀÎ ÀÀ´ä : zone(c), month(c), day(c), hour(c), wday(c), count(c), joinflag(c), guildname(s), guildbossname(s)
+	MSG_GUILD_WAR_SET_TIME_MENU,  	  		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ : count(c), zone(c), wday(c), hour(c)
+	MSG_GUILD_WAR_GET_TIME_UNI_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½ ï¿½ï¿½Ã» : zone(c)
+	MSG_GUILD_WAR_GET_TIME_UNI_REP,	  		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : zone(c), month(c), day(c), hour(c), wday(c), count(c), joinflag(c), guildname(s), guildbossname(s)
 	MSG_NEW_GUILD_MARK_EDIT_WND,            // [sora] GUILD_MARK
 	MSG_NEW_GUILD_MARK_EDIT_FIN,            // [sora] GUILD_MARK
 	MSG_NEW_GUILD_MARK_EXPIRE,              // [sora] GUILD_MARK
@@ -3572,19 +3576,19 @@ typedef enum _tagGuildType
 	MSG_NEW_GUILD_STASH_LIST,				// (n)totalpage, (n)curpage , itemCount < stashIndex , itemIndex, plus, flag, a_used, a_used2, (short) option[5],  (str) socket >
 	MSG_NEW_GUILD_STASH_KEEP,				// (n)itemCount [ (n)itemIndex, (n)row, (n)col , count ]
 	MSG_NEW_GUILD_STASH_TAKE,				// (n)itemCount [ (n)itemIndex, (c) row, (c) col , (_64) count ]
-	MSG_NEW_GUILD_STASH_LOG,				// (n)logcount [(n)log-index (_64)time, (str)name, (c)action( 0:ÀÔ±Ý, 1:Ãâ±Ý ), (n)itemindex , (n)plus, (_64)count]
+	MSG_NEW_GUILD_STASH_LOG,				// (n)logcount [(n)log-index (_64)time, (str)name, (c)action( 0:ï¿½Ô±ï¿½, 1:ï¿½ï¿½ï¿½ ), (n)itemindex , (n)plus, (_64)count]
 	MSG_NEW_GUILD_STASH_ERROR,				// error
-	MSG_NEW_GUILD_STASH_LIST_MONEY,		//±æµå Ã¢°í µ· Á¶È¸	//¾ÆÀÌÅÆÀÌ¶û °°À½
-	MSG_GUILD_MASTER_KICK_REQ,				// C -> S	(int)guild index	±æµå¸¶½ºÅÍ Ãß¹æ ¿äÃ»
-	MSG_GUILD_MASTER_KICK_REP,				// S -> C	(int)guild index (str)guild master	±æµå¸¶½ºÅÍ Ãß¹æ ÀÀ´ä
-	MSG_GUILD_MASTER_KICK_CANCEL_REQ,		// C -> S	(int)guild index	±æµå¸¶½ºÅÍ Ãß¹æ ÀÌÀÇÁ¦±â
-	MSG_GUILD_MASTER_KICK_CANCEL_REP,		// S -> C	(int)guild index ±æµå¸¶½ºÅÍ Ãß¹æ ÀÌÀÇÁ¦±â ÀÀ´ä
-	MSG_GUILD_MASTER_KICK_STATUS,			// S -> C	(int)guild index (int)status	±æµå¸¶½ºÅÍ Ãß¹æ »óÅÂ°ª
+	MSG_NEW_GUILD_STASH_LIST_MONEY,		//ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¸	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_MASTER_KICK_REQ,				// C -> S	(int)guild index	ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½Ã»
+	MSG_GUILD_MASTER_KICK_REP,				// S -> C	(int)guild index (str)guild master	ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_MASTER_KICK_CANCEL_REQ,		// C -> S	(int)guild index	ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_MASTER_KICK_CANCEL_REP,		// S -> C	(int)guild index ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_MASTER_KICK_STATUS,			// S -> C	(int)guild index (int)status	ï¿½ï¿½å¸¶ï¿½ï¿½ï¿½ï¿½ ï¿½ß¹ï¿½ ï¿½ï¿½ï¿½Â°ï¿½
 
-	MSG_GUILD_REMOTE_JOIN_REQ,				// (str)target name (int)type : 0 - ±æ¸¶°¡ ½ÅÃ», 1 - °¡ÀÔÄ³¸¯ÅÍ°¡ ½ÅÃ» ±æµå ¿ø°Ý °¡ÀÔ ½ÅÃ» : ±æ¸¶³ª ÀÏ¹ÝÀ¯Àú ¸ðµÎ »ç¿ë °¡´ÉÇÏ´Ù.
-	MSG_GUILD_REMOTE_JOIN_OK,				// (str)target name (int)type : 0 - ±æ¸¶°¡ ½ÅÃ», 1 - °¡ÀÔÄ³¸¯ÅÍ°¡ ½ÅÃ» ±æµå ¿ø°Ý °¡ÀÔ ½ÅÃ» Çã¶ô
-	MSG_GUILD_REMOTE_JOIN_NO,				// ±æµå ¿ø°Ý °¡ÀÔ °ÅÀý
-	MSG_GUILD_ROOM_RECALL,					// ±æµå¹æ ¸®ÄÝ
+	MSG_GUILD_REMOTE_JOIN_REQ,				// (str)target name (int)type : 0 - ï¿½æ¸¶ï¿½ï¿½ ï¿½ï¿½Ã», 1 - ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : ï¿½æ¸¶ï¿½ï¿½ ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_REMOTE_JOIN_OK,				// (str)target name (int)type : 0 - ï¿½æ¸¶ï¿½ï¿½ ï¿½ï¿½Ã», 1 - ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	MSG_GUILD_REMOTE_JOIN_NO,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ROOM_RECALL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_GUILD_CONTRIBUTE_DATA,			
 	MSG_GUILD_CONTRIBUTE_SET,			
 	MSG_GUILD_CONTRIBUTE_SETALL
@@ -3592,234 +3596,234 @@ typedef enum _tagGuildType
 
 typedef enum _tagGuildStashErrorType
 {
-	MSG_GUILD_STASH_ERROR_OK,				// ¼º°ø
-	MSG_GUILD_STASH_ERROR_NOHISTORY,		// È÷½ºÅä¸® ¾øÀ½
-	MSG_GUILD_STASH_ERROR_NOTBOSS,			// ±æµåÀå/ºÎ°ü ¾Æ´Ô
-	MSG_GUILD_STASH_ERROR_NOTENOUGH,		// ÀÜ¾× ºÎÁ·
-	MSG_GUILD_STASH_ERROR_FAIL_DB,			// ½Ã½ºÅÛ ¿À·ù
+	MSG_GUILD_STASH_ERROR_OK,				// ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_STASH_ERROR_NOHISTORY,		// ï¿½ï¿½ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_STASH_ERROR_NOTBOSS,			// ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½Î°ï¿½ ï¿½Æ´ï¿½
+	MSG_GUILD_STASH_ERROR_NOTENOUGH,		// ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_STASH_ERROR_FAIL_DB,			// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	// ÀÌÀü ¸Þ½ÃÁö´Â ÇïÆÛÀÇ ±æµå Ã¢°í ¿À·ù¿Í µ¿ÀÏÇØ¾ßÇÔ
-	MSG_GUILD_STASH_ERROR_NOSPACE,			// ÀÎº¥Åä¸® °ø°£ ºÎÁ·À¸·Î Áö±Þ ºÒ°¡
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+	MSG_GUILD_STASH_ERROR_NOSPACE,			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 } MSG_GUILD_STASH_ERROR_TYPE;
 
 
 
 typedef enum _tagGuildErrorType
 {
-	MSG_GUILD_ERROR_OK,							// ¼º°ø
-	MSG_GUILD_ERROR_PACKET,						// ÆÐÅ¶ ³»¿ë ¿À·ù
-	MSG_GUILD_ERROR_GUILDNAME,					// ÀÌ¸§ ±æÀÌ(2~16)°¡ Àß¸øµÇ¾ú°Å³ª, ±æµå ÀÌ¸§¿¡ Àß¸øµÈ ¹®ÀÚ(\'"%_) Æ÷ÇÔ
-	MSG_GUILD_ERROR_ALREADYBOSS,				// ±æµåÀåÀÌ³ª ºÎÀåÀº ±æµå Ã¢¼³ ºÒ°¡´É
-	MSG_GUILD_ERROR_CHARLEVEL,					// Ä³¸¯ÅÍ ·¹º§ ºÎÁ·
-	MSG_GUILD_ERRRO_SKILLPOINT,					// ½ºÅ³ Æ÷ÀÎÆ® ºÎÁ·
-	MSG_GUILD_ERROR_MONEY,						// ³ª½º ºÎÁ·
-	MSG_GUILD_ERROR_GAMESERVER,					// °ÔÀÓ¼­¹ö ¿À·ù·Î ÀÎÇØ¼­ »ý¼º ºÒ°¡
-	MSG_GUILD_ERROR_DUPNAME,					// ÀÌ¸§ Áßº¹
-	MSG_GUILD_ERROR_NOGUILD,					// ±æµå ¾ø´Âµ¥ ±æµå °ü·Ã ¸Þ½ÃÁö¸¦ ¿äÃ»ÇÒ ¶§
-	MSG_GUILD_ERROR_NOTBOSS,					// ±æµåÀåÀÌ ¾Æ´Ñµ¥ °ü·Ã ¸Þ½ÃÁö¸¦ ¿äÃ»ÇÒ ¶§
-	MSG_GUILD_ERROR_MAXLEVEL,					// ÀÌ¹Ì ÃÖ°í·¹º§ ±æµåÀÎµ¥ ½Â±Þ ¿äÃ»ÇÒ ¶§
-	MSG_GUILD_ERROR_CREATE_OK,					// ¸¸µé±â ¼º°ø
-	MSG_GUILD_ERROR_LEVELUP_OK,					// ·¹º§¾÷ ¼º°ø
-	MSG_GUILD_ERROR_BREAKUP_OK,					// ÇØ»ê ¼º°ø
-	MSG_GUILD_ERROR_TARGET_NOBOSS,				// ´ë»óÀÌ ±æµåÀåÀÌ ¾Æ´Ï¾î¼­ °¡ÀÔ ½ÅÃ»À» ÇÒ ¼ö ¾øÀ½
-	MSG_GUILD_ERROR_TARGET_BUSY,				// ´ë»óÀÌ ´Ù¸¥ »ç¶÷¿¡°Ô ¿äÃ»À» ¹ÞÀ½
-	MSG_GUILD_ERROR_SOURCE_BUSY,				// ³»°¡ ´Ù¸¥ »ç¶÷¿¡°Ô ¿äÃ»ÇÑ ÈÄ °áÁ¤ ¾ÈµÈ »óÅÂ¿¡¼­ ´Ù½Ã Á¦3ÀÚ¿¡°Ô ¿äÃ»
-	MSG_GUILD_ERROR_FULLMEMBER,					// ±æµå Á¤¿øÀÌ ÃÊ°ú
-	MSG_GUILD_ERROR_REGIST_OK,					// ±æµå¿ø °¡ÀÔ ¿Ï·á
-	MSG_GUILD_ERROR_OUTBOSS,					// ±æµåÀåÀÌ Å»ÅðÇÏ·Á¸é ”îÇÔ
-	MSG_GUILD_ERROR_OUT_OK,						// Å»Åð ¼º°ø
-	MSG_GUILD_ERROR_NOTFOUNDMEMBER,				// °­Åð, ÀÓ¸í, ÀÌÀÓµî¿¡¼­ ´ë»ó ±æ¿øÀÌ ¾øÀ»¶§
-	MSG_GUILD_ERROR_CANTKICKBOSS,				// ±æÀåÀº ´çÅð ºÒ´É
-	MSG_GUILD_ERROR_KICK_OK,					// ÅðÃâ ¼º°ø
-	MSG_GUILD_ERROR_CHANGE_BOSS_OK,				// º¸½º º¯°æ ¼º°ø
-	MSG_GUILD_ERROR_CANTOFFICER,				// ±æµåÀåÀÌ³ª ºÎ°üÀ» ´Ù½Ã ºÎ°üÀ¸·Î ÀÓ¸í½Ã
-	MSG_GUILD_ERROR_APPOINT_OFFICER_OK,			// ºÎ°ü ÀÓ¸í ¼º°ø
-	MSG_GUILD_ERROR_FULLOFFICER,				// ºÎ°ü °¡µæ Âü
-	MSG_GUILD_ERROR_NOTOFFICER,					// ºÎ°üÀÌ ¾Æ´Ï¶ó¼­ ÇØÀÓ ºÒ°¡
-	MSG_GUILD_ERROR_FIRE_OFFICER_OK,			// ÇØÀÓ ¼º°øS
-	MSG_GUILD_ERROR_REGDELAY,					// °¡ÀÔÈÄ 10ÀÏÀÌ Áö³ªÁö ¾Ê¾Æ Å»Åð ºÒ°¡
-	MSG_GUILD_ERROR_CANTKICK,					// °­Åð ºÒ°¡´É(ºÎ´ÜÀåÀÌ ºÎ´ÜÀå °­Åð½Ã)
-	MSG_GUILD_ERROR_CANNOT_REGIST_REQ_BATTLE,	// ±æµåÀü Áß¿¡´Â °¡ÀÔ½ÅÃ» ºÒ°¡
-	MSG_GUILD_ERROR_CANNOT_BREAK_BATTLE,		// °¥µåÀü - ±æµåÀü Áß ±æµå ÇØÃ¼ ºÒ°¡
-	MSG_GUILD_ERROR_CANNOT_KICK_BATTLE,			// °¥µåÀü - ±æµåÀü Áß ÅðÃâ ºÒ°¡
-	MSG_GUILD_ERROR_CANNOT_OUT_BATTLE,			// °¥µåÀü - ±æµåÀü Áß Å»Åð ºÒ°¡
+	MSG_GUILD_ERROR_OK,							// ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_PACKET,						// ï¿½ï¿½Å¶ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_GUILDNAME,					// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½(2~16)ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½Å³ï¿½, ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(\'"%_) ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_ALREADYBOSS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CHARLEVEL,					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERRRO_SKILLPOINT,					// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_MONEY,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_GAMESERVER,					// ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_DUPNAME,					// ï¿½Ì¸ï¿½ ï¿½ßºï¿½
+	MSG_GUILD_ERROR_NOGUILD,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_ERROR_NOTBOSS,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ñµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_ERROR_MAXLEVEL,					// ï¿½Ì¹ï¿½ ï¿½Ö°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½Â±ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_ERROR_CREATE_OK,					// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_LEVELUP_OK,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BREAKUP_OK,					// ï¿½Ø»ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_TARGET_NOBOSS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¾î¼­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_TARGET_BUSY,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_SOURCE_BUSY,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½3ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_GUILD_ERROR_FULLMEMBER,					// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_GUILD_ERROR_REGIST_OK,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
+	MSG_GUILD_ERROR_OUTBOSS,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_OUT_OK,						// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_NOTFOUNDMEMBER,				// ï¿½ï¿½ï¿½ï¿½, ï¿½Ó¸ï¿½, ï¿½ï¿½ï¿½Óµî¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CANTKICKBOSS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
+	MSG_GUILD_ERROR_KICK_OK,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CHANGE_BOSS_OK,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CANTOFFICER,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_APPOINT_OFFICER_OK,			// ï¿½Î°ï¿½ ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_FULLOFFICER,				// ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_ERROR_NOTOFFICER,					// ï¿½Î°ï¿½ï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_FIRE_OFFICER_OK,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½S
+	MSG_GUILD_ERROR_REGDELAY,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ Å»ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_CANTKICK,					// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½(ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_GUILD_ERROR_CANNOT_REGIST_REQ_BATTLE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½Ã» ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_CANNOT_BREAK_BATTLE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_CANNOT_KICK_BATTLE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_CANNOT_OUT_BATTLE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½Ò°ï¿½
 
-	MSG_GUILD_ERROR_BATTLE,						// ±æµåÀü ¿¡·¯		: errtype(uc)
-	MSG_GUILD_ERROR_CANNOT_BREAK_WAR,			// ÇöÀç´Â ¼ºÁÖ ±æµå ÇØÃ¼°¡ ºÒ°¡´É
+	MSG_GUILD_ERROR_BATTLE,						// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: errtype(uc)
+	MSG_GUILD_ERROR_CANNOT_BREAK_WAR,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 	// WSS_NEW_GUILD_SYSTEM 070704 --------------------------------------------------------------------------------->>
-	MSG_NEW_GUILD_ERRROR_GUILDPOINT,			// ±æµå ·¹º§¾÷½Ã ±æµå Æ÷ÀÎÆ® ºÎÁ· 
-	MSG_NEW_GUILD_ERROR_SAME_INCLNE,			// ±æµå ¼ºÇâÀÌ °°À½
-	MSG_NEW_GUILD_ERROR_CHANG_INCLINE,			// ±æµå ¼ºÇâ º¯°æ ½ÇÆÐ
-	MSG_NEW_GUILD_ERROR_INCLINE_OK,				// ±æµå ¼ºÇâ º¯°æ ¼º°ø
-	MSG_NEW_GUILD_ERROR_ADJUST_FAIL,			// ±æµå ¸â¹öµéÀÇ  ¼³Á¤ º¯°æ ½ÇÆÐ
+	MSG_NEW_GUILD_ERRROR_GUILDPOINT,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ 
+	MSG_NEW_GUILD_ERROR_SAME_INCLNE,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_ERROR_CHANG_INCLINE,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_ERROR_INCLINE_OK,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_ERROR_ADJUST_FAIL,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MSG_NEW_GUILD_ERROR_ADJUST_OK,	
-	MSG_NEW_GUILD_INFO_ERROR_OK,				// »õ·Î¿î ±æµå Á¤º¸ ¿äÃ» ¼º°ø
-	MSG_NEW_GUILD_MEMBERLIST_ERROR_OK,			// »õ·Î¿î ±æµå ¸â¹ö ¸®½ºÆ® ¿äÃ» ¼º°ø
-	MSG_NEW_GUILD_MANAGE_ERROR_OK,				// »õ·Î¿î ±æµå ¸Å´ÏÀú ¿äÃ» ¼º°ø
-	MSG_NEW_GUILD_NOTICE_ERROR_OK,				// »õ·Î¿î ±æµå °øÁö ¿äÃ» ¼º°ø
-	MSG_NEW_GUILD_NOTICE_UPDATE_ERROR_OK,		// »õ·Î¿î ±æµå °øÁö ¾÷µ¥ÀÌÆ® ¼º°ø
-	MSG_NEW_GUILD_NOTICE_UPDATE_ERROR_FAIL,		// »õ·Î¿î ±æµå °øÁö ¾÷µ¥ÀÌÆ® ½ÇÆÐ
+	MSG_NEW_GUILD_INFO_ERROR_OK,				// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_MEMBERLIST_ERROR_OK,			// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_MANAGE_ERROR_OK,				// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_NOTICE_ERROR_OK,				// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_NOTICE_UPDATE_ERROR_OK,		// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_NOTICE_UPDATE_ERROR_FAIL,		// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	MSS_NEW_GUILD_NOTICE_TRANSMISSION_ERROR_OK,
 	MSS_NEW_GUILD_NOTICE_TRANSMISSION_ERROR_FAIL,
-	MSG_NEW_GUILD_SKILL_ERROR_OK,				// ±æµå ½ºÅ³ ¼º°ø
-	MSG_NEW_GUILD_SKILL_ERROR_NOTEXIST,			// ±æµå ½ºÅ³ÀÌ ¾øÀ½
-	MSG_NEW_GUILD_NOTICE_ERROR_NOT_MESSAGE,		// ¸Þ¼¼Áö°¡ ¾øÀ½.
+	MSG_NEW_GUILD_SKILL_ERROR_OK,				// ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_SKILL_ERROR_NOTEXIST,			// ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_NOTICE_ERROR_NOT_MESSAGE,		// ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	MSG_NEW_GUILD_SKILL_LEARN_ERROR_OK,	
-	MSG_NEW_GUILD_SKILL_LEARN_ERROR_LEVEL,		// ·¹º§ ºÎÁ·
-	MSG_NEW_GUILD_SKILL_ALEADY_LEARN,			// ÀÌ¹Ì ¹è¿î ½ºÅ³
-	MSG_NEW_GUILD_STASH_AREADY_USE_NAS,			// 6511 ±æµåÀüÅõ ½Ã½ºÅÛÀ» »ç¿ëÁßÀÌ¾î¼­ Ã¢°í¿¡¼­ Ãâ±ÝÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_NEW_GUILD_POINT_AREADY_USE,				// 6510 ±æµåÀüÅõ ½Ã½ºÅÛÀ» »ç¿ëÁßÀÌ¾î¼­ ±æµå Æ÷ÀÎÆ®¸¦ »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_GUILD_GRADE_EX_ERROR_WARCASTLE,			// °ø¼º Áß¿¡´Â º¯°æÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_GUILD_GRADE_EX_ERROR_COUNT_OEVER,		// ÁöÁ¤ÇÒ ¼ö ÀÖ´Â ÀÎ¿ø ¼ö¸¦ ÃÊ°ú ÇÏ¿´½À´Ï´Ù.
-	MSG_GUILD_ERROR_CANNOT_BOSSCHANGE_FAIL,		// ±æµå(ºÎ)ÀåÀ» ÀÌÀÓÇÒ ¼ö ¾ø½À´Ï´Ù.
+	MSG_NEW_GUILD_SKILL_LEARN_ERROR_LEVEL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_SKILL_ALEADY_LEARN,			// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³
+	MSG_NEW_GUILD_STASH_AREADY_USE_NAS,			// 6511 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾î¼­ Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_NEW_GUILD_POINT_AREADY_USE,				// 6510 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾î¼­ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_GRADE_EX_ERROR_WARCASTLE,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_GRADE_EX_ERROR_COUNT_OEVER,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_ERROR_CANNOT_BOSSCHANGE_FAIL,		// ï¿½ï¿½ï¿½(ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 	MSG_NEW_GUILD_ERROR_SYSTEM,             // [sora] GUILD_MARK
 	MSG_NEW_GUILD_ERROR_OK_MARK_WND,        // [sora] GUILD_MARK
-	MSG_NEW_GUILD_ERROR_MASTER_KICK_RESERVE,			// ±æ¸¶ ÇØÀÓ ´ë±â »óÅÂÀÔ´Ï´Ù.
-	MSG_NEW_GUILD_ERROR_MASTER_KICK_LAST_CONNECT,		// ±æ¸¶ ÃÖ±Ù Á¢¼Ó Á¾·áÀÏÀÌ 7ÀÏÀÌ ³ÑÁö ¾Ê¾Æ ÇØÀÓÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_NEW_GUILD_ERROR_MASTER_KICK_LAST_CHANGE,		// ±æ¸¶ ÃÖ±Ù º¯°æ ÀÏÀÌ 7ÀÏÀÌ ³ÑÁö ¾Ê¾Æ ÇØÀÓÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_NEW_GUILD_ERROR_MASTER_KICK_CANCEL_NOT_RESERVE,	// ÇØÀÓ ´ë±â »óÅÂ°¡ ¾Æ´Ï¶ó Ãë¼ÒÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_NEW_GUILD_ERROR_MASTER_KICK_DATA,				// ±æµå °ü·Ã µ¥ÀÌÅÍ ¿À·ù
-	MSG_NEW_GUILD_ERROR_NOT_EXIST_CHAR,					// °¡ÀÔÇÒ Ä³¸¯ÅÍ°¡ Àß¸øµÇ¾ú½À´Ï´Ù.
-	MSG_NEW_GUILD_ERROR_EXIST_GUILD,					// °¡ÀÔÇÒ Ä³¸¯ÅÍ°¡ ±æµå°¡ ÀÖ½À´Ï´Ù.
-	MSG_GUILD_ERROR_CANNOT_REGIST_REQ_SERVERTRANS, // Ä³¸¯ÅÍ ¼­¹öÀÌÀüÁß ±æµå °¡ÀÔ ºÒ°¡ [7/25/2012 Ranma]
-	MSG_GUILD_ERROR_NOT_EXIST_NPC,						// ÁÖÀ§¿¡ NPC°¡ ¾øÀ½.
-	MSG_GUILD_ERROR_CANNOT_REGISTER_REQ_ZONE,			// ÀÌ Áö¿ª¿¡¼­´Â ±æµå °¡ÀÔ ºÒ°¡
-	MSG_GUILD_ERROR_ITEM,								// ¾ÆÀÌÅÛ ºÎÁ·
-	MSG_GUILD_ERROR_CANNOT_BREAK_10DAYS,				// »ý¼ºÀÏ·ÎºÎÅÍ 10ÀÏÀÌ Áö³ªÁö ¾Ê¾Æ ±æµå¸¦ ÇØÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù.
-	MSG_GUILD_ERROR_CONTRIBUTE_SET_SUCCESS,				// ÀÚ½ÅÀÇ ±âºÎÁ¤º¸ º¯°æ ¼º°ø
-	MSG_GUILD_ERROR_CONTRIBUTE_SET_FAIL,				// ÀÚ½ÅÀÇ ±âºÎÁ¤º¸ º¯°æ ½ÇÆÐ
-	MSG_GUILD_ERROR_CONTRIBUTE_SET_ALL_SUCCESS,			// ¸ðµç ±æµå¿ø ±âºÎÁ¤º¸ º¯°æ ¼º°ø
-	MSG_GUILD_ERROR_CONTRIBUTE_SET_ALL_FAIL,			// ¸ðµç ±æµå¿ø ±âºÎÁ¤º¸ º¯°æ ½ÇÆÐ
-	MSG_GUILD_ERROR_CONTRIBUTE_INVALID_VALUE,			// ¼öÄ¡¸¦ Àß¸ø ÀÔ·Â
+	MSG_NEW_GUILD_ERROR_MASTER_KICK_RESERVE,			// ï¿½æ¸¶ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
+	MSG_NEW_GUILD_ERROR_MASTER_KICK_LAST_CONNECT,		// ï¿½æ¸¶ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_NEW_GUILD_ERROR_MASTER_KICK_LAST_CHANGE,		// ï¿½æ¸¶ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_NEW_GUILD_ERROR_MASTER_KICK_CANCEL_NOT_RESERVE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½Æ´Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_NEW_GUILD_ERROR_MASTER_KICK_DATA,				// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_NEW_GUILD_ERROR_NOT_EXIST_CHAR,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_NEW_GUILD_ERROR_EXIST_GUILD,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½å°¡ ï¿½Ö½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_ERROR_CANNOT_REGIST_REQ_SERVERTRANS, // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ [7/25/2012 Ranma]
+	MSG_GUILD_ERROR_NOT_EXIST_NPC,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_GUILD_ERROR_CANNOT_REGISTER_REQ_ZONE,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_GUILD_ERROR_ITEM,								// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CANNOT_BREAK_10DAYS,				// ï¿½ï¿½ï¿½ï¿½ï¿½Ï·Îºï¿½ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_GUILD_ERROR_CONTRIBUTE_SET_SUCCESS,				// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CONTRIBUTE_SET_FAIL,				// ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CONTRIBUTE_SET_ALL_SUCCESS,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CONTRIBUTE_SET_ALL_FAIL,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_CONTRIBUTE_INVALID_VALUE,			// ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½
 	// --------------------------------------------------------------------------------------------------------------<<
 } MSG_GUILD_ERROR_TYPE;
 
 typedef enum _tagGuildErrorBattleType
 {
-	MSG_GUILD_ERROR_BATTLE_NOGUILD,				// ±æµåÀü - °ü·Ã ±æµå°¡ ¾øÀ½
-	MSG_GUILD_ERROR_BATTLE_NOTBOSS,				// ±æµåÀü - ±æµåÀåÀÌ ¾øÀ½
-	MSG_GUILD_ERROR_BATTLE_MEMBERCOUNT,			// ±æµåÀü - ÀÎ¿ø ¼ö ºÎÁ·
-	MSG_GUILD_ERROR_BATTLE_ZONE,				// ±æµåÀü - °¡´É Á¸ÀÌ ¾Æ´Ô
-	MSG_GUILD_ERROR_ALREADY_BATTLE,				// ±æµåÀü - ÀÌ¹Ì ±æµåÀü Áß
-	MSG_GUILD_ERROR_BATTLE_PRIZE,				// ±æµåÀü - ¹èÆÃ±Ý¾× ÀÚÃ¼ ¿À·ù (±æµåÀü ¹èÆÃ Çã¿ë±Ý¾×ÀÌ ¾Æ´Ô)
-	MSG_GUILD_ERROR_BATTLE_NOT_REQ,				// ±æµåÀü - ½ÅÃ»ÇÑÀû ¾øÀ½
-	MSG_GUILD_ERROR_BATTLE_SHORT_PRIZE,			// ±æµåÀü - ¹èÆÃ±Ý¾× ¸ðÁú¶ó
-	MSG_GUILD_ERROR_BATTLE_NOT_BATTLE,			// ±æµåÀü = ±æµåÀü ÁßÀÌ ¾Æ´Ô
+	MSG_GUILD_ERROR_BATTLE_NOGUILD,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_NOTBOSS,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_MEMBERCOUNT,			// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Î¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_ZONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_GUILD_ERROR_ALREADY_BATTLE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_PRIZE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ã±Ý¾ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½)
+	MSG_GUILD_ERROR_BATTLE_NOT_REQ,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_SHORT_PRIZE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½Ã±Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_ERROR_BATTLE_NOT_BATTLE,			// ï¿½ï¿½ï¿½ï¿½ï¿½ = ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
 
-	MSG_GUILD_ERROR_BATTLE_TIME,				// ±æµåÀü - ½Ã°£ÀÌ Àß¸ø µÊ
+	MSG_GUILD_ERROR_BATTLE_TIME,				// ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ ï¿½ï¿½
 
 } MSG_GUILD_EROOR_BATTLE_TYPE;
 
 typedef enum _tagGuildPositionType
 {
-	MSG_GUILD_POSITION_BOSS,				// 0 ±æµå ¸¶½ºÅÍ
-	MSG_GUILD_POSITION_OFFICER,				// 1 ±æµå ºÎ°ü
-	MSG_GUILD_POSITION_MEMBER,				// 2 ÀÏ¹Ý ±æµå¿ø
-	MSG_GUILD_POSITION_RUSH_CAPTAIN,		// 3 µ¹°ÝÁ¶ ´ëÀå
-	MSG_GUILD_POSITION_SUPPORT_CAPTAIN,		// 4 Áö¿øÁ¶ ´ëÀå
-	MSG_GUILD_POSITION_RECON_CAPTAIN,		// 5 Á¤ÂûÁ¶ ´ëÀå
-	MSG_GUILD_POSITION_RUSH_MEMBER,			// 6 µ¹°ÝÁ¶¿ø
-	MSG_GUILD_POSITION_SUPPORT_MEMBER,		// 7 Áö¿øÁ¶¿ø
-	MSG_GUILD_POSITION_RECON_MEMBER,		// 8 Á¤ÂûÁ¶¿ø
+	MSG_GUILD_POSITION_BOSS,				// 0 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_OFFICER,				// 1 ï¿½ï¿½ï¿½ ï¿½Î°ï¿½
+	MSG_GUILD_POSITION_MEMBER,				// 2 ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_RUSH_CAPTAIN,		// 3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_SUPPORT_CAPTAIN,		// 4 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_RECON_CAPTAIN,		// 5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_RUSH_MEMBER,			// 6 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_SUPPORT_MEMBER,		// 7 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_POSITION_RECON_MEMBER,		// 8 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MSG_GUILD_POSITION_UNKNOWN = 99,
 } MSG_GUILD_POSITION_TYPE;
 
 typedef enum _tagGuildWarErrorType
 {
-	MSG_GUILD_WAR_ERROR_OK,						// ¼º°ø
-	MSG_GUILD_WAR_ERROR_PROGRESS_WAR,			// °ø¼º ÁøÇà Áß
-	MSG_GUILD_WAR_ERROR_JOIN_OWNER_GUILD,		// ¼ö¼ºÃøÀÌ °ø¼ºÇÏ°Ú´Ù°í ¿ì±æ ¶§
-	MSG_GUILD_WAR_ERROR_JOIN_NOT_GUILD,			// ±æµå ¾ø´Â ³ÑÀÌ °ø¼º ½ÅÃ»ÇÏ°Ú´Ù°í ¿ì±æ ¶§
-	MSG_GUILD_WAR_ERROR_JOIN_ALREADY,			// ÀÌ¹Ì ½ÅÃ»ÇÑ ³ÑÀÌ ÀÚ²Ù ÇÏ°Ú´Ù°í ÇÒ ¶§
-	MSG_GUILD_WAR_ERROR_JOIN_TIME,				// ½ÅÃ» °¡´É ½Ã°£ÀÌ ¾Æ´Ò ¶§
-	MSG_GUILD_WAR_ERROR_JOIN_GUILDLEVEL,		// ±æµå ·¹º§ ºÎÁ·ÇØ¼­ °ø¼º ½ÅÃ» ºÒ°¡
-	MSG_GUILD_WAR_ERROR_JOIN_GUILDMEMBER,		// ±æµå¿ø ºÎÁ·ÇØ¼­ °ø¼º ½ÅÃ» ºÒ°¡
-	MSG_GUILD_WAR_ERROR_JOIN_ITEM,				// ¿µ¿õÀÇ ÁõÇ¥ ¾øÀ½
-	MSG_GUILD_WAR_ERROR_JOIN_MONEY,				// µ· ¾øÀÌ °ø¼º ½ÅÃ»
-	MSG_GUILD_WAR_ERROR_JOIN_NO_OWNER,			// ¼ºÁÖ ¾ø´Â ¼º¿¡´Â ¼ö¼º¿ëº´ ºÒ°¡
-	MSG_GUILD_WAR_ERROR_JOIN_ALREADY_GUILD,		// ±æµåÀÇ ¹æÄ§¿¡ µû¶ó °³ÀÎ ¿ëº´ ½ÅÃ» ºÒ°¡
-	MSG_GUILD_WAR_ERROR_JOIN_CHARLEVEL,			// Ä³¸¯·¹º§ ºÎÁ·
-	MSG_GUILD_WAR_ERROR_NOT_OWNER,				// ¼ºÁÖµµ ¾Æ´Ï¸é¼­ ¼³Á¤À» ¹Ù²Ù·Á ÇÒ¶§
-	MSG_GUILD_WAR_ERROR_NOT_SETTIME,			// ¼³Á¤ °¡´É ½Ã°£ÀÌ ¾Æ´Ô
-	MSG_GUILD_WAR_ERROR_INVALID_TIME,			// ¼³Á¤ ºÒ°¡´É ½Ã°£´ë
-	MSG_GUILD_WAR_ERROR_JOIN_NOT_GUILD_BOSS,	// ÀÏ¹Ý ±æµå¿øÀº °ø¼º ½ÅÃ» ºÒ°¡
+	MSG_GUILD_WAR_ERROR_OK,						// ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_PROGRESS_WAR,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_OWNER_GUILD,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Ú´Ù°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_NOT_GUILD,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï°Ú´Ù°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_ALREADY,			// ï¿½Ì¹ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ú²ï¿½ ï¿½Ï°Ú´Ù°ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_TIME,				// ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_GUILDLEVEL,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ò°ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_GUILDMEMBER,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ò°ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_ITEM,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_MONEY,				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_GUILD_WAR_ERROR_JOIN_NO_OWNER,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ëº´ ï¿½Ò°ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_ALREADY_GUILD,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä§ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ëº´ ï¿½ï¿½Ã» ï¿½Ò°ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_CHARLEVEL,			// Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_NOT_OWNER,				// ï¿½ï¿½ï¿½Öµï¿½ ï¿½Æ´Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù·ï¿½ ï¿½Ò¶ï¿½
+	MSG_GUILD_WAR_ERROR_NOT_SETTIME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_GUILD_WAR_ERROR_INVALID_TIME,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½
+	MSG_GUILD_WAR_ERROR_JOIN_NOT_GUILD_BOSS,	// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Ò°ï¿½
 	MSG_GUILD_WAR_ERROR_TOTAL,
 } MSG_GUILD_WAR_ERROR_TYPE;
 
 typedef enum _tagMsgHelperType
 {
-	MSG_HELPER_WHISPER_REQ,				// ±Ó¸» ¿äÃ»		: sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)
-	MSG_HELPER_WHISPER_REP,				// ±Ó¸» ÀÀ´ä		: sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)
-	MSG_HELPER_WHISPER_TIMEOUT,			// ±Ó¸» Å¸ÀÓ¾Æ¿ô	: sender_index(n) sender_name(str)
-	MSG_HELPER_WHISPER_NOTFOUND,		// ´ë»ó ¾øÀ½		: sender_index(n) sender_name(str)
-	MSG_HELPER_WAR_NOTICE_TIME,			// °ø¼ºÀü ½Ã°£ ¾Ë¸²	: zoneindex(n) month(c) day(c) hour(c) min(c)
-	MSG_HELPER_WAR_NOTICE_TIME_REMAIN,	// °ø¼º ³²Àº ½Ã°£ ¾Ë¸²	: zoneindex(n) min(c)
-	MSG_HELPER_WAR_NOTICE_START,		// °ø¼ºÀü ½ÃÀÛ ¾Ë¸²	: zoneindex(n) remainSec(n)
-	MSG_HELPER_WAR_JOIN_ATTACK_GUILD,	// °ø¼º ±æµå Ãß°¡	: zoneindex(n) guildindex(n)
-	MSG_HELPER_WAR_JOIN_DEFENSE_GUILD,	// ¼ö¼º ±æµå Ãß°¡	: zoneindex(n) guildindex(n)
-	MSG_HELPER_WAR_NOTICE_START_ATTACK_CASTLE,	// °ø¼º ½ÃÀÛ : zoneindex(n) remainSec(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) guildindex3(n) guildname3(str)
-	MSG_HELPER_WAR_NOTICE_REMAIN_FIELD_TIME,	// ¾ßÀü ³²Àº ½Ã°£ ¾Ë¸²	: zoneindex(n) remainSec(n)
-	MSG_HELPER_WAR_NOTICE_END,			// °ø¼º ³¡³²		: zoneindex(n) bWinDefense(c) owner_index(n) owner_name(str) char_index(n) char_name(str) nextMonth(n) nextDay(n) nextHour(n) wDay(n)
+	MSG_HELPER_WHISPER_REQ,				// ï¿½Ó¸ï¿½ ï¿½ï¿½Ã»		: sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)
+	MSG_HELPER_WHISPER_REP,				// ï¿½Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½		: sender_index(n) sender_name(str) receiver_index(n) receiver_name(str) chat(str)
+	MSG_HELPER_WHISPER_TIMEOUT,			// ï¿½Ó¸ï¿½ Å¸ï¿½Ó¾Æ¿ï¿½	: sender_index(n) sender_name(str)
+	MSG_HELPER_WHISPER_NOTFOUND,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: sender_index(n) sender_name(str)
+	MSG_HELPER_WAR_NOTICE_TIME,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) month(c) day(c) hour(c) min(c)
+	MSG_HELPER_WAR_NOTICE_TIME_REMAIN,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) min(c)
+	MSG_HELPER_WAR_NOTICE_START,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) remainSec(n)
+	MSG_HELPER_WAR_JOIN_ATTACK_GUILD,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½	: zoneindex(n) guildindex(n)
+	MSG_HELPER_WAR_JOIN_DEFENSE_GUILD,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½	: zoneindex(n) guildindex(n)
+	MSG_HELPER_WAR_NOTICE_START_ATTACK_CASTLE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : zoneindex(n) remainSec(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) guildindex3(n) guildname3(str)
+	MSG_HELPER_WAR_NOTICE_REMAIN_FIELD_TIME,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½	: zoneindex(n) remainSec(n)
+	MSG_HELPER_WAR_NOTICE_END,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: zoneindex(n) bWinDefense(c) owner_index(n) owner_name(str) char_index(n) char_name(str) nextMonth(n) nextDay(n) nextHour(n) wDay(n)
 
-	MSG_HELPER_PARTY_MEMBER_CHANGE_JOB,	// ÆÄÆ¼¿ø Á÷¾÷ º¯°æ ¾Ë¸² : bossindex(n) charindex(n) job1(c) job2(c)
-	MSG_HELPER_PARTY_CHAT,				// ÆÄÆ¼ Ã¤ÆÃ		: bossindex(n) charindex(n) charname(str) chat(str)
-	MSG_HELPER_PARTY_RECALL_PROMPT,		// ÆÄÆ¼ ¸®ÄÝ ¿äÃ»	: bossindex(n) charindex(n) charname(str) isincastle(c) guildindex(n)
-	MSG_HELPER_PARTY_RECALL_CONFIRM,	// ÆÄÆ¼¸®ÄÝ È®ÀÎ	: bossindex(n) reqcharindex(n) reqcharname(str) repcharindex(n) repcharname(str) yesno(c)
-	MSG_HELPER_PARTY_RECALL_PROC,		// ÆÄÆ¼¸®ÄÝ ½ÇÇà	: bossindex(n) repcharindex(n) zone(n) x(f) z(f) y(c) isincastle(c) guildindex(n)
+	MSG_HELPER_PARTY_MEMBER_CHANGE_JOB,	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : bossindex(n) charindex(n) job1(c) job2(c)
+	MSG_HELPER_PARTY_CHAT,				// ï¿½ï¿½Æ¼ Ã¤ï¿½ï¿½		: bossindex(n) charindex(n) charname(str) chat(str)
+	MSG_HELPER_PARTY_RECALL_PROMPT,		// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: bossindex(n) charindex(n) charname(str) isincastle(c) guildindex(n)
+	MSG_HELPER_PARTY_RECALL_CONFIRM,	// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½	: bossindex(n) reqcharindex(n) reqcharname(str) repcharindex(n) repcharname(str) yesno(c)
+	MSG_HELPER_PARTY_RECALL_PROC,		// ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) repcharindex(n) zone(n) x(f) z(f) y(c) isincastle(c) guildindex(n)
 
-	MSG_HELPER_END_MSG,					// ÇïÆÛ REQ, REP ¸Þ½ÃÁö´Â ÀÌ ¸Þ½ÃÁöº¸´Ù µÚ¿¡ ¿À¸é ¾ÈµÊ
+	MSG_HELPER_END_MSG,					// ï¿½ï¿½ï¿½ï¿½ REQ, REP ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
 } MSG_HELPER_TYPE;
 
 typedef enum _tagMsgHelperCommandType
 {
-	MSG_HELPER_SHUTDOWN,				// 0 ÇïÆÛ¸¦ ´Ù¿î
+	MSG_HELPER_SHUTDOWN,				// 0 ï¿½ï¿½ï¿½Û¸ï¿½ ï¿½Ù¿ï¿½
 
-	MSG_HELPER_GUILD_CREATE_REQ,		// ±æµå »ý¼º ¿äÃ»	: charindex(n) charname(str) guildname(str)
-	MSG_HELPER_GUILD_CREATE_REP,		// ±æµå »ý¼º ÀÀ´ä	: charindex(n) errorcode(uc)
-	MSG_HELPER_GUILD_CREATE_NTF,		// ±æµå Ãß°¡ ¾Ë¸²	: guildindex(n) guildlevel(n) guildname(str) bossindex(n) bossname(str)
-	MSG_HELPER_GUILD_ONLINE_NTF,		// ±æµå¿ø ¿Â¶óÀÎ	: guildindex(n) charindex(n) online(c)
-	MSG_HELPER_GUILD_MEMBER_LIST,		// ±æµå¿ø ¸®½ºÆ®	: guildindex(n) count(n) [charindex(n) charname(str) pos(n) online(c)]
-	MSG_HELPER_GUILD_ONLINE,			// ¿Â¶óÀÎ º¯°æ		: guildindex(n) charindex(n) online(c)
-	MSG_HELPER_GUILD_LOAD_REQ,			// ±æµåÁ¤º¸ ¿äÃ»	: idname(str) charindex(n)
-	MSG_HELPER_GUILD_LOAD_REP,			// ±æµåÁ¤º¸ ÀÀ´ä	: idname(str) charindex(n) errorcode(uc)
-	MSG_HELPER_GUILD_LEVELUP_REQ,		// ±æµå µî¾÷ ¿äÃ»	: guildindex(n) charindex(n)
-	MSG_HELPER_GUILD_LEVELUP_REP,		// 10 ±æµå µî¾÷ ÀÀ´ä	: guildindex(n) charindex(n) errorcode(uc)
-	MSG_HELPER_GUILD_LEVELUP_NTF,		// ±æµå µî¾÷ ¾Ë¸²	: guildindex(n) guildlevel(n)
-	MSG_HELPER_GUILD_BREAKUP_REQ,		// ±æµå ÇØ»ê ¿äÃ»	: bossindex(n) guildindex(n)
-	MSG_HELPER_GUILD_BREAKUP_REP,		// ±æµå ÇØ»ê ÀÀ´ä	: charindex(n) errcode(uc)
-	MSG_HELPER_GUILD_BREAKUP_NTF,		// ±æµå ÇØ»ê ¾Ë¸²	: guildindex(n)
-	MSG_HELPER_GUILD_MEMBER_ADD_REQ,	// ¸â¹ö Ãß°¡ ¿äÃ»	: guildindex(n) boss(n) requester(n)
-	MSG_HELPER_GUILD_MEMBER_ADD_NTF,	// Ãß°¡ ¾Ë¸²		: guildindex(n) index(n) name(str) position(n)
-	MSG_HELPER_GUILD_MEMBER_ADD_REP,	// Ãß°¡ ÀÀ´ä		: guildindex(n) boss(n) requester(n) errcode(n)
-	MSG_HELPER_GUILD_MEMBER_OUT_REQ,	// Å»Åð ¿äÃ»		: guildindex(n) charindex(n)
-	MSG_HELPER_GUILD_MEMBER_OUT_NTF,	// Å»Åð ¾Ë¸²		: guildindex(n) charindex(n) charname(str)
-	MSG_HELPER_GUILD_MEMBER_OUT_REP,	// 20 Å»Åð ÀÀ´ä		: guildindex(n) charindex(n) errcode(uc)
-	MSG_HELPER_GUILD_MEMBER_KICK_REQ,	// °­Åð ¿äÃ»		: guildindex(n) bossindex(n) charindex(n)
-	MSG_HELPER_GUILD_MEMBER_KICK_REP,	// °­Åð ÀÀ´ä		: guildindex(n) bossindex(n) charindex(n) errcode(uc)
-	MSG_HELPER_GUILD_MEMBER_KICK_NTF,	// °­Åð °­Åð ¾Ë¸²	: guildindex(n) bossindex(n) charindex(n)
-	MSG_HELPER_GUILD_CHANGE_BOSS_REQ,	// º¸½º º¯°æ ¿äÃ»	: guildindex(n) current(n) change(n)
-	MSG_HELPER_GUILD_CHANGE_BOSS_NTF,	// º¸½º º¯°æ ¾Ë¸²	: guildindex(n) current(n) change(n)
-	MSG_HELPER_GUILD_CHANGE_BOSS_REP,	// º¸½º º¯°æ ÀÀ´ä	: guildindex(n) current(n) change(n) errcode(uc)
-	MSG_HELPER_GUILD_APPOINT_OFFICER_REQ, // ºÎ°ü º¯°æ ¿äÃ» : guildindex(n) boss(n) officer(n)
-	MSG_HELPER_GUILD_APPOINT_OFFICER_REP, // ºÎ°ü º¯°æ ÀÀ´ä : guildindex(n) boss(n) officer(n) errcode(uc)
-	MSG_HELPER_GUILD_APPOINT_OFFICER_NTF, // ºÎ°ü º¯°æ ¾Ë¸² : guildindex(n) boss(n) officer(n)
-	MSG_HELPER_GUILD_CHAT,				// 30 ±æµå Ã¤ÆÃ		: guildindex(n) charindex(n) charname(str) chat(str)
-	MSG_HELPER_GUILD_FIRE_OFFICER_REQ,	// ºÎ°ü ÇØÀÓ ¿äÃ»	: guildindex(n) boss(n) officer(n)
-	MSG_HELPER_GUILD_FIRE_OFFICER_REP,	// ºÎ°ü ÇØÀÓ ÀÀ´ä	: guildindex(n) boss(n) officer(n) errcode(uc)
-	MSG_HELPER_GUILD_FIRE_OFFICER_NTF,	// ºÎ°ü ÇØÀÓ ¾Ë¸²	: guildindex(n) boss(n) officer(n)
-	MSG_HELPER_GUILD_LOAD_NTF,			// ±æµå ÀÐ±â ÀÀ´ä	: guildindex(n) guildlevel(n) guildname(str) bossindex(n) bossname(str) battle_guildindex(n) battle_name(str) battle_prize(n) battle_time(n) battle_zone(n) battle_killcount(n) battle_state(c)
+	MSG_HELPER_GUILD_CREATE_REQ,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: charindex(n) charname(str) guildname(str)
+	MSG_HELPER_GUILD_CREATE_REP,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: charindex(n) errorcode(uc)
+	MSG_HELPER_GUILD_CREATE_NTF,		// ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ë¸ï¿½	: guildindex(n) guildlevel(n) guildname(str) bossindex(n) bossname(str)
+	MSG_HELPER_GUILD_ONLINE_NTF,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½	: guildindex(n) charindex(n) online(c)
+	MSG_HELPER_GUILD_MEMBER_LIST,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®	: guildindex(n) count(n) [charindex(n) charname(str) pos(n) online(c)]
+	MSG_HELPER_GUILD_ONLINE,			// ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) charindex(n) online(c)
+	MSG_HELPER_GUILD_LOAD_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: idname(str) charindex(n)
+	MSG_HELPER_GUILD_LOAD_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: idname(str) charindex(n) errorcode(uc)
+	MSG_HELPER_GUILD_LEVELUP_REQ,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: guildindex(n) charindex(n)
+	MSG_HELPER_GUILD_LEVELUP_REP,		// 10 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) charindex(n) errorcode(uc)
+	MSG_HELPER_GUILD_LEVELUP_NTF,		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: guildindex(n) guildlevel(n)
+	MSG_HELPER_GUILD_BREAKUP_REQ,		// ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ ï¿½ï¿½Ã»	: bossindex(n) guildindex(n)
+	MSG_HELPER_GUILD_BREAKUP_REP,		// ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ ï¿½ï¿½ï¿½ï¿½	: charindex(n) errcode(uc)
+	MSG_HELPER_GUILD_BREAKUP_NTF,		// ï¿½ï¿½ï¿½ ï¿½Ø»ï¿½ ï¿½Ë¸ï¿½	: guildindex(n)
+	MSG_HELPER_GUILD_MEMBER_ADD_REQ,	// ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ã»	: guildindex(n) boss(n) requester(n)
+	MSG_HELPER_GUILD_MEMBER_ADD_NTF,	// ï¿½ß°ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) index(n) name(str) position(n)
+	MSG_HELPER_GUILD_MEMBER_ADD_REP,	// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) boss(n) requester(n) errcode(n)
+	MSG_HELPER_GUILD_MEMBER_OUT_REQ,	// Å»ï¿½ï¿½ ï¿½ï¿½Ã»		: guildindex(n) charindex(n)
+	MSG_HELPER_GUILD_MEMBER_OUT_NTF,	// Å»ï¿½ï¿½ ï¿½Ë¸ï¿½		: guildindex(n) charindex(n) charname(str)
+	MSG_HELPER_GUILD_MEMBER_OUT_REP,	// 20 Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) charindex(n) errcode(uc)
+	MSG_HELPER_GUILD_MEMBER_KICK_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: guildindex(n) bossindex(n) charindex(n)
+	MSG_HELPER_GUILD_MEMBER_KICK_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) bossindex(n) charindex(n) errcode(uc)
+	MSG_HELPER_GUILD_MEMBER_KICK_NTF,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: guildindex(n) bossindex(n) charindex(n)
+	MSG_HELPER_GUILD_CHANGE_BOSS_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: guildindex(n) current(n) change(n)
+	MSG_HELPER_GUILD_CHANGE_BOSS_NTF,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: guildindex(n) current(n) change(n)
+	MSG_HELPER_GUILD_CHANGE_BOSS_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) current(n) change(n) errcode(uc)
+	MSG_HELPER_GUILD_APPOINT_OFFICER_REQ, // ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : guildindex(n) boss(n) officer(n)
+	MSG_HELPER_GUILD_APPOINT_OFFICER_REP, // ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : guildindex(n) boss(n) officer(n) errcode(uc)
+	MSG_HELPER_GUILD_APPOINT_OFFICER_NTF, // ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : guildindex(n) boss(n) officer(n)
+	MSG_HELPER_GUILD_CHAT,				// 30 ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½		: guildindex(n) charindex(n) charname(str) chat(str)
+	MSG_HELPER_GUILD_FIRE_OFFICER_REQ,	// ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: guildindex(n) boss(n) officer(n)
+	MSG_HELPER_GUILD_FIRE_OFFICER_REP,	// ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) boss(n) officer(n) errcode(uc)
+	MSG_HELPER_GUILD_FIRE_OFFICER_NTF,	// ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: guildindex(n) boss(n) officer(n)
+	MSG_HELPER_GUILD_LOAD_NTF,			// ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) guildlevel(n) guildname(str) bossindex(n) bossname(str) battle_guildindex(n) battle_name(str) battle_prize(n) battle_time(n) battle_zone(n) battle_killcount(n) battle_state(c)
 
-	MSG_HELPER_CHAR_DEL,				// Ä³¸¯ÅÍ »èÁ¦		: charindex(n)
+	MSG_HELPER_CHAR_DEL,				// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: charindex(n)
 
-	MSG_HELPER_GUILD_BATTLE_REQ,		// ±æµåÀü ¿äÃ»		: guildindex1(n) guildindex2(n) prize(n) zone(n) time(n)
-	MSG_HELPER_GUILD_BATTLE_REP,		// ±æµåÀü ÀÀ´ä		: guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) prize(n) zone(n) time(n)
-	MSG_HELPER_GUILD_BATTLE_START,		// ±æµåÀü ½ÃÀÛ		: guildindex1(n) guildindex2(n)
-	MSG_HELPER_GUILD_BATTLE_STATUS,		// ±æµåÀü ÇöÈ²		: guildindex1(n) guildname1(str) killcount1(n) guildindex2(n) guildname2(str) killcount2(n) battletime(n) battlezone(n)
-	MSG_HELPER_GUILD_BATTLE_STOP_REQ,	// 40 ±æµåÀü Á¾·á ¿äÃ»	: guildindex1(n) guildindex2(n)
-	MSG_HELPER_GUILD_BATTLE_STOP_REP,	// ±æµåÀü Á¾·á ÀÀ´ä	: winner_index(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) prize(n) zone(n)
-	MSG_HELPER_GUILD_BATTLE_PEACE_REQ,	// ±æµåÀü ÆòÈ­ ¿äÃ»	: guildindex(n)
-	MSG_HELPER_GUILD_BATTLE_PEACE_REP,	// ±æµåÀü ÆòÈ­ ÀÀ´ä	: guildindex(n)
-	MSG_HELPER_GUILD_BATTLE_KILL_REQ,	// ±æµåÀü Å³ Áõ°¡	: of_guildindex(n) df_guildindex(n)
+	MSG_HELPER_GUILD_BATTLE_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: guildindex1(n) guildindex2(n) prize(n) zone(n) time(n)
+	MSG_HELPER_GUILD_BATTLE_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) prize(n) zone(n) time(n)
+	MSG_HELPER_GUILD_BATTLE_START,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex1(n) guildindex2(n)
+	MSG_HELPER_GUILD_BATTLE_STATUS,		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²		: guildindex1(n) guildname1(str) killcount1(n) guildindex2(n) guildname2(str) killcount2(n) battletime(n) battlezone(n)
+	MSG_HELPER_GUILD_BATTLE_STOP_REQ,	// 40 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: guildindex1(n) guildindex2(n)
+	MSG_HELPER_GUILD_BATTLE_STOP_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: winner_index(n) guildindex1(n) guildname1(str) guildindex2(n) guildname2(str) prize(n) zone(n)
+	MSG_HELPER_GUILD_BATTLE_PEACE_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½Ã»	: guildindex(n)
+	MSG_HELPER_GUILD_BATTLE_PEACE_REP,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½	: guildindex(n)
+	MSG_HELPER_GUILD_BATTLE_KILL_REQ,	// ï¿½ï¿½ï¿½ï¿½ï¿½ Å³ ï¿½ï¿½ï¿½ï¿½	: of_guildindex(n) df_guildindex(n)
 
 	MSG_HELPER_EVENT_MOONSTONE_LOAD,
 	MSG_HELPER_EVENT_MOONSTONE_UPDATE_REQ,
@@ -3827,133 +3831,133 @@ typedef enum _tagMsgHelperCommandType
 	MSG_HELPER_EVENT_MOONSTONE_JACKPOT_REQ,
 	MSG_HELPER_EVENT_MOONSTONE_JACKPOT_REP,
 
-	MSG_HELPER_FRIEND_MEMBER_ADD_REQ,		// 50 Ä£±¸ Ãß°¡ ¿äÃ».
-	MSG_HELPER_FRIEND_MEMBER_ADD_REP,		//Ä£±¸ Ãß°¡ ÀÀ´ä.
-	MSG_HELPER_FRIEND_MEMBER_DEL_REQ,		//Ä£±¸ »èÁ¦ ¿äÃ».
-	MSG_HELPER_FRIEND_MEMBER_DEL_REP,		//Ä£±¸ »èÁ¦ ¿äÃ».
-	MSG_HELPER_FRIEND_SET_CONDITION_REQ,	//»óÅÂº¯°æ¿äÃ».
-	MSG_HELPER_FRIEND_SET_CONDITION_NOTIFY, //»óÅÂº¯°æÀÀ´ä
+	MSG_HELPER_FRIEND_MEMBER_ADD_REQ,		// 50 Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ã».
+	MSG_HELPER_FRIEND_MEMBER_ADD_REP,		//Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_HELPER_FRIEND_MEMBER_DEL_REQ,		//Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	MSG_HELPER_FRIEND_MEMBER_DEL_REP,		//Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	MSG_HELPER_FRIEND_SET_CONDITION_REQ,	//ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½Ã».
+	MSG_HELPER_FRIEND_SET_CONDITION_NOTIFY, //ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	MSG_HELPER_PD4_RANK_INIT,			// pd4 rank DB init 
-	MSG_HELPER_PD4_RANK_ADD,			// pd4 rank ½ÃÀÛ	 : charIndex(n) 
-	MSG_HELPER_PD4_RANK_END,			// pd4 Á¾·á			 : charIndex(n) deadmonNum(n) bclear(c)
+	MSG_HELPER_PD4_RANK_ADD,			// pd4 rank ï¿½ï¿½ï¿½ï¿½	 : charIndex(n) 
+	MSG_HELPER_PD4_RANK_END,			// pd4 ï¿½ï¿½ï¿½ï¿½			 : charIndex(n) deadmonNum(n) bclear(c)
 	MSG_HELPER_PD4_RANK_VIEW_REQ,		// : charindex(n) charjob(c)
 	MSG_HELPER_PD4_RANK_VIEW_REP,		// 60 : charindex(n) multicount(c), charname(str), bclear(c), deadmon(n), ctime(ll);
 	MSG_HELPER_PD4_REWARD_VIEW_REQ,		// : charindex(n) charjob(c)
 	MSG_HELPER_PD4_REWARD_VIEW_REP, 	// : charindex(n) multicount(c), charname(str) breward(c)
 	MSG_HELPER_PD4_REWARD_REQ,			// : charindex(n)
 	MSG_HELPER_PD4_REWARD_REP,			// : charindex(n) charrank(c) breward(c)
-	MSG_HELPER_PD4_REWARD_INIT,			// pd4 reward¸¦ 0·Î ¼¼ÆÃ
-	MSG_HELPER_PD4_REWARD_END,			// pd4 reward¸¦ 1·Î ¼¼ÆÃ 
+	MSG_HELPER_PD4_REWARD_INIT,			// pd4 rewardï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PD4_REWARD_END,			// pd4 rewardï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
-	MSG_HELPER_PET_CREATE_REQ,			// Æê »ý¼º ¿äÃ»		: owner(n) type_grade(c)
-	MSG_HELPER_PET_CREATE_REP,			// Æê »ý¼º ÀÀ´ä		: index(n) owner(n) type_grade(c)
-	MSG_HELPER_PET_DELETE_REQ_RESERVE,	// ¹Ì»ç¿ë : Æê Á¦°Å ¿äÃ»		: index(n) owner(n)
-	MSG_HELPER_PET_DELETE_REP_RESERVE,	// 70 ¹Ì»ç¿ë : Æê Á¦°Å ÀÀ´ä	: index(n) owner(n)
+	MSG_HELPER_PET_CREATE_REQ,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: owner(n) type_grade(c)
+	MSG_HELPER_PET_CREATE_REP,			// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: index(n) owner(n) type_grade(c)
+	MSG_HELPER_PET_DELETE_REQ_RESERVE,	// ï¿½Ì»ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: index(n) owner(n)
+	MSG_HELPER_PET_DELETE_REP_RESERVE,	// 70 ï¿½Ì»ï¿½ï¿½ : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: index(n) owner(n)
 
-	MSG_HELPER_GUILD_STASH_HISTORY_REQ,	// ÀÔ±Ý³»¿ª ¿äÃ»	: guildindex(n) charindex(n)
-	MSG_HELPER_GUILD_STASH_HISTORY_REP,	// ÀÔ±Ý³»¿ª ÀÀ´ä	: charindex(n) errcode(n) [month(n) day(n) money(ll)]:7
-	MSG_HELPER_GUILD_STASH_VIEW_REQ,	// ÀÜ¾× ¿äÃ»		: guildindex(n) charindex(n)
-	MSG_HELPER_GUILD_STASH_VIEW_REP,	// ÀÜ¾× ÀÀ´ä		: charindex(n) errcode(n) money(ll)
-	MSG_HELPER_GUILD_STASH_TAKE_REQ,	// Ãâ±Ý ¿äÃ»		: guildindex(n) charindex(n) money(ll)
-	MSG_HELPER_GUILD_STASH_TAKE_REP,	// Ãâ±Ý ÀÀ´ä		: guildindex(n) charindex(n) errcode(n) money(ll) balance(ll)
-	MSG_HELPER_GUILD_STASH_ROLLBACK,	// Ãâ±Ý Ãë¼Ò		: guildindex(n) money(ll)
-	MSG_HELPER_GUILD_STASH_SAVE_TAX_REQ,// ¼¼±Ý ÀÔ±Ý		: guildindex(n) taxItem(ll) taxProduct(ll)
-	MSG_HELPER_GUILD_STASH_SAVE_TAX_REP,// ¼¼±Ý ÀÔ±Ý ÀÀ´ä	: errcode(n) guildindex(n) taxItem(ll) taxProduct(ll)
+	MSG_HELPER_GUILD_STASH_HISTORY_REQ,	// ï¿½Ô±Ý³ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: guildindex(n) charindex(n)
+	MSG_HELPER_GUILD_STASH_HISTORY_REP,	// ï¿½Ô±Ý³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: charindex(n) errcode(n) [month(n) day(n) money(ll)]:7
+	MSG_HELPER_GUILD_STASH_VIEW_REQ,	// ï¿½Ü¾ï¿½ ï¿½ï¿½Ã»		: guildindex(n) charindex(n)
+	MSG_HELPER_GUILD_STASH_VIEW_REP,	// ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½		: charindex(n) errcode(n) money(ll)
+	MSG_HELPER_GUILD_STASH_TAKE_REQ,	// ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: guildindex(n) charindex(n) money(ll)
+	MSG_HELPER_GUILD_STASH_TAKE_REP,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: guildindex(n) charindex(n) errcode(n) money(ll) balance(ll)
+	MSG_HELPER_GUILD_STASH_ROLLBACK,	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: guildindex(n) money(ll)
+	MSG_HELPER_GUILD_STASH_SAVE_TAX_REQ,// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½		: guildindex(n) taxItem(ll) taxProduct(ll)
+	MSG_HELPER_GUILD_STASH_SAVE_TAX_REP,// ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½ ï¿½ï¿½ï¿½ï¿½	: errcode(n) guildindex(n) taxItem(ll) taxProduct(ll)
 	
-	MSG_HELPER_NAME_CHANGE_REQ,			// ÀÌ¸§ º¯°æÄ«µå »ç¿ë : gs -> hs: bguild(c) charindex(n) nickname(str) 
-	MSG_HELPER_NAME_CHANGE_REP,			// bguild : 0 ÄÉ¸¯´Ð 1 ±æµå³×ÀÓ hs->gs : bguild(c) charindex(n) error(c)
+	MSG_HELPER_NAME_CHANGE_REQ,			// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ : gs -> hs: bguild(c) charindex(n) nickname(str) 
+	MSG_HELPER_NAME_CHANGE_REP,			// bguild : 0 ï¿½É¸ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ hs->gs : bguild(c) charindex(n) error(c)
 
-	MSG_HELPER_TEACHER_FAMEUP_REQ,			// ¼±»ý ¸í¼ºÄ¡ ¾÷(¼±»ý, ÇÐ»ý): charindex(n) charindex(n) fame(n)
+	MSG_HELPER_TEACHER_FAMEUP_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½, ï¿½Ð»ï¿½): charindex(n) charindex(n) fame(n)
 	MSG_HELPER_TEACHER_FAMEUP_REP,			
 
-	MSG_HELPER_TEACHER_REGISTER_REQ,	// ¼±»ý µî·Ï ¿äÃ»	: teacheridx(n) bteacher(c) studentidx(n)
-	MSG_HELPER_TEACHER_GIVEUP_REQ,		// Æ÷±â ¿äÃ»		: teacheridx(n) studentidx(n)
-	MSG_HELPER_TEACHER_REQ,				// ¼±»ý¸®½ºÆ®		: charindex(n) bteacher(c)
+	MSG_HELPER_TEACHER_REGISTER_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: teacheridx(n) bteacher(c) studentidx(n)
+	MSG_HELPER_TEACHER_GIVEUP_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: teacheridx(n) studentidx(n)
+	MSG_HELPER_TEACHER_REQ,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®		: charindex(n) bteacher(c)
 
-	MSG_HELPER_TEACHER_TIMEOVER_REQ,	// ½Ã°£ ¿À¹ö ÇØÁ¦	: bteacher(c) teacheridx(n) studentidx(n)
-	MSG_HELPER_TEACHER_SUPERSTONERECIEVE,// ÃÊ°íÁ¦ ¹Þ±â		: charindex(c)
+	MSG_HELPER_TEACHER_TIMEOVER_REQ,	// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bteacher(c) teacheridx(n) studentidx(n)
+	MSG_HELPER_TEACHER_SUPERSTONERECIEVE,// ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½		: charindex(c)
 
-	MSG_HELPER_TEACHER_LOAD_REQ,		// »çÁ¦ ½Ã½ºÅÛ ÀÐ±â : idname(str) charindex(n)
-	MSG_HELPER_TEACHER_LOAD_REP,		// »çÁ¦ ÇÊ¿äÁ¤º¸
+	MSG_HELPER_TEACHER_LOAD_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ : idname(str) charindex(n)
+	MSG_HELPER_TEACHER_LOAD_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_HELPER_MARGADUM_PVP_RANK,		// ¸¶¸£°¡µÒ ·©Å· : count(n) charindex(n) damage(ll)
+	MSG_HELPER_MARGADUM_PVP_RANK,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· : count(n) charindex(n) damage(ll)
 
-	MSG_HELPER_SEARCHFRIEND_ADD_REQ,	// ÈÞ¸é Ãß°¡¿äÃ»	: approvalindex(n) appnick(str) appjob(n) appuserindex(n) appserverold(n) reqnick(str)  			
-	MSG_HELPER_SEARCHFRIEND_ADD_REP,	// ÈÞ¸é Ãß°¡ÀÀ´ä	: approvalindex(n) appnick(str) appjob(n) requestindex(n) reqnick(str) reqjob(n) errcode(uc)
-	MSG_HELPER_SEARCHFRIEND_SELECT_ADD_REQ,	// ÈÞ¸é ¼±ÅÃ µî·Ï ¿äÃ»		: approvalindex(n) requestindex(n)
-	MSG_HELPER_SEARCHFRIEND_SELECT_ADD_REP,	// ÈÞ¸é ¼±ÅÃ µî·Ï ÀÀ´ä		: approvalindex(n) requestindex(n) errcode(uc)
-	MSG_HELPER_SEARCHFRIEND_ONETIME_ADD_REQ,	// ÇÑ½Ã°£ ´ÜÀ§ÀúÀå¿äÃ»		: timesec(n) appDormantindex(n) appDormantgood(n)
-	MSG_HELPER_SEARCHFRIEND_ONETIME_ADD_REP,	// ÇÑ½Ã°£ ´ÜÀ§ÀúÀåÀÀ´ä		: timesec(n) appDormantindex(n) appDormantgood(n) errcode(uc)
-	MSG_HELPER_SEARCHFRIEND_LISTGOOD_REQ,	// ¾ÆÅÛ º¸»ó°¡´É¿©ºÎ ¿äÃ»	: approvalindex(n)
-	MSG_HELPER_SEARCHFRIEND_LISTGOOD_REP,	// ¾ÆÅÛ º¸»ó°¡´É¿©ºÎ ÀÀ´ä	: approvalindex(n) request_listmember(n) startIndex(n) nTotal(n) requestnick(char)[] requestindex(n)[] approvalgood(n)[] 
-	MSG_HELPER_SEARCHFRIEND_GOOD_REQ,		// ¾ÆÅÛ º¸»ó°á°ú ¿äÃ» : approvalindex(n) ndormantindex(n) itemgood(n)
-	MSG_HELPER_SEARCHFRIEND_GOOD_REP,		// ¾ÆÅÛ º¸»ó°á°ú ÀÀ´ä : approvalindex(n) errcode(uc)
+	MSG_HELPER_SEARCHFRIEND_ADD_REQ,	// ï¿½Þ¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½Ã»	: approvalindex(n) appnick(str) appjob(n) appuserindex(n) appserverold(n) reqnick(str)  			
+	MSG_HELPER_SEARCHFRIEND_ADD_REP,	// ï¿½Þ¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½	: approvalindex(n) appnick(str) appjob(n) requestindex(n) reqnick(str) reqjob(n) errcode(uc)
+	MSG_HELPER_SEARCHFRIEND_SELECT_ADD_REQ,	// ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: approvalindex(n) requestindex(n)
+	MSG_HELPER_SEARCHFRIEND_SELECT_ADD_REP,	// ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: approvalindex(n) requestindex(n) errcode(uc)
+	MSG_HELPER_SEARCHFRIEND_ONETIME_ADD_REQ,	// ï¿½Ñ½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»		: timesec(n) appDormantindex(n) appDormantgood(n)
+	MSG_HELPER_SEARCHFRIEND_ONETIME_ADD_REP,	// ï¿½Ñ½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		: timesec(n) appDormantindex(n) appDormantgood(n) errcode(uc)
+	MSG_HELPER_SEARCHFRIEND_LISTGOOD_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡´É¿ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: approvalindex(n)
+	MSG_HELPER_SEARCHFRIEND_LISTGOOD_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ó°¡´É¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: approvalindex(n) request_listmember(n) startIndex(n) nTotal(n) requestnick(char)[] requestindex(n)[] approvalgood(n)[] 
+	MSG_HELPER_SEARCHFRIEND_GOOD_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : approvalindex(n) ndormantindex(n) itemgood(n)
+	MSG_HELPER_SEARCHFRIEND_GOOD_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : approvalindex(n) errcode(uc)
 
-	MSG_HELPER_PARTY_INVITE_REQ,		// ÆÄÆ¼ ÃÊ´ë ¿äÃ»	: bossindex(n) bossname(str) bosslevel(n) targetindex(n) partytype(c)
-	MSG_HELPER_PARTY_INVITE_REP,		// ÆÄÆ¼ ÃÊ´ë ÀÀ´ä	: bossindex(n) bossname(str) targetindex(n) targetname(str) partytype(c) errorcode(n)
-	MSG_HELPER_PARTY_ALLOW_REQ,			// ÆÄÆ¼ ¼ö¶ô ¿äÃ»	: bossindex(n) targetindex(n) targetname(str)
-	MSG_HELPER_PARTY_ALLOW_REP,			// ÆÄÆ¼ ¼ö¶ô ÀÀ´ä	: bossindex(n) targetindex(n) targetname(str) errcode(n)
-	MSG_HELPER_PARTY_REJECT_REQ,		// ÆÄÆ¼ °ÅºÎ ¿äÃ»	: bossindex(n) targetindex(n)
-	MSG_HELPER_PARTY_REJECT_REP,		// ÆÄÆ¼ °ÅºÎ ÀÀ´ä	: bossindex(n) targetindex(n) errcode(n)
-	MSG_HELPER_PARTY_QUIT_REQ,			// ÆÄÆ¼ Å»Åð ¿äÃ»	: bossindex(n) targetindex(n)
-	MSG_HELPER_PARTY_QUIT_REP,			// ÆÄÆ¼ Å»Åð ÀÀ´ä	: bossindex(n) targetindex(n) errcode(n) newbossindex(n) newbossname(str)
-	MSG_HELPER_PARTY_KICK_REQ,			// ÆÄÆ¼ °­Åð ¿äÃ»	: bossindex(n) targetindex(n)
-	MSG_HELPER_PARTY_KICK_REP,			// ÆÄÆ¼ °­Åð ÀÀ´ä	: bossindex(n) targetindex(n) errcode(n)
-	MSG_HELPER_PARTY_CHANGE_BOSS_REQ,	// ÆÄÆ¼Àå º¯°æ ¿äÃ»	: bossindex(n) newbossname(str)
-	MSG_HELPER_PARTY_CHANGE_BOSS_REP,	// ÆÄÆ¼Àå º¯°æ ÀÀ´ä	: bossindex(n) bossname(str) newbossindex(n) newbossname(str)
+	MSG_HELPER_PARTY_INVITE_REQ,		// ï¿½ï¿½Æ¼ ï¿½Ê´ï¿½ ï¿½ï¿½Ã»	: bossindex(n) bossname(str) bosslevel(n) targetindex(n) partytype(c)
+	MSG_HELPER_PARTY_INVITE_REP,		// ï¿½ï¿½Æ¼ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) bossname(str) targetindex(n) targetname(str) partytype(c) errorcode(n)
+	MSG_HELPER_PARTY_ALLOW_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: bossindex(n) targetindex(n) targetname(str)
+	MSG_HELPER_PARTY_ALLOW_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) targetindex(n) targetname(str) errcode(n)
+	MSG_HELPER_PARTY_REJECT_REQ,		// ï¿½ï¿½Æ¼ ï¿½Åºï¿½ ï¿½ï¿½Ã»	: bossindex(n) targetindex(n)
+	MSG_HELPER_PARTY_REJECT_REP,		// ï¿½ï¿½Æ¼ ï¿½Åºï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) targetindex(n) errcode(n)
+	MSG_HELPER_PARTY_QUIT_REQ,			// ï¿½ï¿½Æ¼ Å»ï¿½ï¿½ ï¿½ï¿½Ã»	: bossindex(n) targetindex(n)
+	MSG_HELPER_PARTY_QUIT_REP,			// ï¿½ï¿½Æ¼ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) targetindex(n) errcode(n) newbossindex(n) newbossname(str)
+	MSG_HELPER_PARTY_KICK_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: bossindex(n) targetindex(n)
+	MSG_HELPER_PARTY_KICK_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) targetindex(n) errcode(n)
+	MSG_HELPER_PARTY_CHANGE_BOSS_REQ,	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: bossindex(n) newbossname(str)
+	MSG_HELPER_PARTY_CHANGE_BOSS_REP,	// ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) bossname(str) newbossindex(n) newbossname(str)
 
-	MSG_HELPER_PARTY_MATCH_REG_MEMBER_REQ,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ¿äÃ» : charIndex(n) charName(str) level(n) zone(n) job(c) partytype(c)
-	MSG_HELPER_PARTY_MATCH_REG_MEMBER_REP,		// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï ÀÀ´ä : errorcode(n) charIndex(n) charName(str) level(n) zone(n) job(c) partytype(c)
+	MSG_HELPER_PARTY_MATCH_REG_MEMBER_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : charIndex(n) charName(str) level(n) zone(n) job(c) partytype(c)
+	MSG_HELPER_PARTY_MATCH_REG_MEMBER_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) charIndex(n) charName(str) level(n) zone(n) job(c) partytype(c)
 
-	MSG_HELPER_PARTY_MATCH_REG_PARTY_REQ,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¿äÃ» : bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) limitlevel(c) comment(str)
-	MSG_HELPER_PARTY_MATCH_REG_PARTY_REP,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ÀÀ´ä : errorcode(n) bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) limitlevel(c) partytype(c) comment(str)
+	MSG_HELPER_PARTY_MATCH_REG_PARTY_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) limitlevel(c) comment(str)
+	MSG_HELPER_PARTY_MATCH_REG_PARTY_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) limitlevel(c) partytype(c) comment(str)
 
-	MSG_HELPER_PARTY_MATCH_DEL_REQ,				// ÆÄÆ¼ ¸ÅÄª µî·Ï ÇØÁ¦ ¿äÃ» : charindex(n)
-	MSG_HELPER_PARTY_MATCH_DEL_REP,				// ÆÄÆ¼ ¸ÅÄª µî·Ï ÇØÁ¦ ¿äÃ» : charindex(n) errorcode(n)
+	MSG_HELPER_PARTY_MATCH_DEL_REQ,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : charindex(n)
+	MSG_HELPER_PARTY_MATCH_DEL_REP,				// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : charindex(n) errorcode(n)
 
-	MSG_HELPER_PARTY_MATCH_INVITE_REQ,			// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ÃÊ´ë ¿äÃ» : bossindex(n) bossname(str) bosslevel(n) charindex(n) partytype(c)
-	MSG_HELPER_PARTY_MATCH_INVITE_REP,			// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý ÃÊ´ë ÀÀ´ä : errorcode(n) bossindex(n) bossname(str) charindex(n) charname(str) partytype(c)
+	MSG_HELPER_PARTY_MATCH_INVITE_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã» : bossindex(n) bossname(str) bosslevel(n) charindex(n) partytype(c)
+	MSG_HELPER_PARTY_MATCH_INVITE_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) bossindex(n) bossname(str) charindex(n) charname(str) partytype(c)
 
-	MSG_HELPER_PARTY_MATCH_JOIN_REQ,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ¿äÃ» : bossindex(n) charindex(n) charname(str) charlevel(n) charjob(c)
-	MSG_HELPER_PARTY_MATCH_JOIN_REP,			// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ÀÀ´ä : errorcode(n) partytype(c) bossindex(n) bossname(str) charindex(n) charname(str) charjob(c)
-	MSG_HELPER_PARTY_MATCH_JOIN_ALLOW_REQ,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ ¼ö¶ô : bossindex(n) charindex(n)
-	MSG_HELPER_PARTY_MATCH_JOIN_ALLOW_REP,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ °á°ú : errorcode(n) bossindex(n) targetindex(n) targetname(str)
+	MSG_HELPER_PARTY_MATCH_JOIN_REQ,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : bossindex(n) charindex(n) charname(str) charlevel(n) charjob(c)
+	MSG_HELPER_PARTY_MATCH_JOIN_REP,			// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : errorcode(n) partytype(c) bossindex(n) bossname(str) charindex(n) charname(str) charjob(c)
+	MSG_HELPER_PARTY_MATCH_JOIN_ALLOW_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : bossindex(n) charindex(n)
+	MSG_HELPER_PARTY_MATCH_JOIN_ALLOW_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : errorcode(n) bossindex(n) targetindex(n) targetname(str)
 
-	MSG_HELPER_PARTY_MATCH_JOIN_REJECT_REQ,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ Á¶ÀÎ °ÅÀý : joincharindex(n) rejectcharindex(n)
-	MSG_HELPER_PARTY_MATCH_JOIN_REJECT_REP,		// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ °ÅÀý °á°ú : errorcode(n) joincharindex(n) rejectcharindex(n)
+	MSG_HELPER_PARTY_MATCH_JOIN_REJECT_REQ,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : joincharindex(n) rejectcharindex(n)
+	MSG_HELPER_PARTY_MATCH_JOIN_REJECT_REP,		// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : errorcode(n) joincharindex(n) rejectcharindex(n)
 
-	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO,	// ÆÄÆ¼ ÀÏ¹Ý µî·Ï Á¤º¸ º¯°æ : charindex(n) type(n) ...
+	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO,	// ï¿½ï¿½Æ¼ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : charindex(n) type(n) ...
 
-	MSG_HELPER_PARTY_INFO_PARTY,				// ÆÄÆ¼ Á¤º¸ Àü´Þ			: partytype(c) requestindex(n) requestname(str) membercount(n) [charindex(n) charname(str)] * membercount
-	MSG_HELPER_PARTY_INFO_PARTY_MATCH_MEMBER,	// ÆÄÆ¼ ¸ÅÄª ÀÏ¹Ý µî·Ï Àü´Þ	: charindex(n) charname(str) level(n) zone(n) job(c) partytype(c)
-	MSG_HELPER_PARTY_INFO_PARTY_MATCH_PARTY,	// ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï Àü´Þ	: bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) partytype(c) limitlevel(c) comment(str)
-	MSG_HELPER_PARTY_INFO_END,					// ÆÄÆ¼ Á¤º¸ Àü´Þ ¿Ï·á
+	MSG_HELPER_PARTY_INFO_PARTY,				// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: partytype(c) requestindex(n) requestname(str) membercount(n) [charindex(n) charname(str)] * membercount
+	MSG_HELPER_PARTY_INFO_PARTY_MATCH_MEMBER,	// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: charindex(n) charname(str) level(n) zone(n) job(c) partytype(c)
+	MSG_HELPER_PARTY_INFO_PARTY_MATCH_PARTY,	// ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: bossindex(n) bossname(str) bosslevel(n) zone(n) jobflag(n) partytype(c) limitlevel(c) comment(str)
+	MSG_HELPER_PARTY_INFO_END,					// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 
-	MSG_HELPER_BLOCKPC_REQ,						// ºí·°¿äÃ», ÇØ´çÄÉ¸¯ÅÍ¸¦ Ã£¾Æ¼­ Á¤º¸¸¦ º¸³»ÁÜ : reqIndex(n) blockName(str)
+	MSG_HELPER_BLOCKPC_REQ,						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã», ï¿½Ø´ï¿½ï¿½É¸ï¿½ï¿½Í¸ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : reqIndex(n) blockName(str)
 	MSG_HELPER_BLOCKPC_REP,						//							: reqIndex(n) blockIndex(n) blockName(str)
 
-	MSG_HELPER_GIFT_RECVCHARNAME_REQ,			// ÇÛÆÛ¿¡ ÇØ´ç ÄÉ¸¯ÅÍ°¡ ÀÖ´Â : sendCharIndex(n) recvCharName(str) msg(str) count(n) idx(n) ctid(n)
+	MSG_HELPER_GIFT_RECVCHARNAME_REQ,			// ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½Ø´ï¿½ ï¿½É¸ï¿½ï¿½Í°ï¿½ ï¿½Ö´ï¿½ : sendCharIndex(n) recvCharName(str) msg(str) count(n) idx(n) ctid(n)
 	MSG_HELPER_GIFT_RECVCHARNAME_REP,			//							: sendCharIndex(n) recvUserIdx(n) recvCharIndex(n) revCharName(str) msg(str) count(n) idx(n) ctid(n)
 
-	MSG_HELPER_SAVE_EXP_GUILD,					// ±æµå¿ø ´©Àû °æÇèÄ¡ ÀúÀå	: guildindex(n) exp(d)
+	MSG_HELPER_SAVE_EXP_GUILD,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½	: guildindex(n) exp(d)
 
-	MSG_HELPER_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST,	//¾î¹öÀÌ³¯ ´©Àû Æ÷ÀÎÆ® ¸®½ºÆ® Àü¼Û ¿äÃ» gs->hs charindex
+	MSG_HELPER_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST,	//ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» gs->hs charindex
 																// hs->gs :errorcode(n) charindex(n) count( n ) rankig( c ) savepoint( n ) gildname(str)
-	MSG_HELPER_PARENTSDAY_2007_ADD_POINT,						// Æ÷ÀÎÆ® µî·Ï gc->hs : CharIndex(n) CarnationCount(n)
+	MSG_HELPER_PARENTSDAY_2007_ADD_POINT,						// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ gc->hs : CharIndex(n) CarnationCount(n)
 																// hs->gs : errorcode(c) CharIndex(n) Carnationcount(n) totalpoint(n)
-	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_TICKET,					// ´©Àû Æ÷ÀÎÆ®·Î ÀÎÇÑ ±³È¯±Ç ¿äÃ»  gs->hs : GuildIndex( n ) CharIndex(n)
+	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_TICKET,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»  gs->hs : GuildIndex( n ) CharIndex(n)
 																// hs->gs : errorcode(c) CharIndex(n) GiftTicket(n)
 	
 	MSG_HELPER_CHILDRENSDAY_2007,				// subtype (uc)	
 	
-	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_ITEM,					// ±³È¯±ÇÀ¸·Î ITEM ±³È¯  gs->hs : GuildIndex( n ) CharIndex(n)
+	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_ITEM,					// ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ITEM ï¿½ï¿½È¯  gs->hs : GuildIndex( n ) CharIndex(n)
 																// hs->gs : errorcode(c) CharIndex(n) GiftItemIndex(n)
 	MSG_HELPER_TEACH_2007,
-	MSG_HELPER_TEACH_2007_ADDFLOWER,							// ³ë¶õ Ä«³×ÀÌ¼Ç Áö±ÞÇØ¶ó gs->hs : charindex(n)
-	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_ITEM_INSERT,			// Item Insert Äõ¸®  gs->hs : Charindex(n) GiftItemIndex(n)
+	MSG_HELPER_TEACH_2007_ADDFLOWER,							// ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ gs->hs : charindex(n)
+	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_ITEM_INSERT,			// Item Insert ï¿½ï¿½ï¿½ï¿½  gs->hs : Charindex(n) GiftItemIndex(n)
 	MSG_HELPER_PARENTSDAY_2007_NOTICE,
-	MSG_HELPER_TEACH_2007_RECEIVE_FLOWER,						// ³ë¶õ Ä«³×ÀÌ¼Ç ¹Þ¾ÒÀ½ gs->hs : charindex(n)
+	MSG_HELPER_TEACH_2007_RECEIVE_FLOWER,						// ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½ gs->hs : charindex(n)
 
 	MSG_HELPER_FLOWERTREE_2007,					// subtype (uc) , Charindex(n)
 
@@ -3970,9 +3974,9 @@ typedef enum _tagMsgHelperCommandType
 
 typedef enum _tagHelperChildrensDay2007Type
 {
-	MSG_HELPER_CHILDRENSDAY_2007_CHECK,			// ¾ÆÀÌÅÛ Áö±Þ Áßº¹°Ë»ç : charindex(n), itemindex(n) ,needFlower(n) : ÇÊ¿äÇÑ ²ÉÀÇ °³¼ö, columnindex(c)
-												//						: charindex(n), itemindex(n), needFlower(n), request(c) : 0-½ÇÆÐ, 1-µî·Ï  
-	MSG_HELPER_CHILDRENSDAY_2007_UPDATE,		// ¾ÆÀÌÅÛ Áö±Þ ¾÷µ¥ÀÌÆ® : charindex(n), itemindex(n) 
+	MSG_HELPER_CHILDRENSDAY_2007_CHECK,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½Ë»ï¿½ : charindex(n), itemindex(n) ,needFlower(n) : ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, columnindex(c)
+												//						: charindex(n), itemindex(n), needFlower(n), request(c) : 0-ï¿½ï¿½ï¿½ï¿½, 1-ï¿½ï¿½ï¿½  
+	MSG_HELPER_CHILDRENSDAY_2007_UPDATE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® : charindex(n), itemindex(n) 
 } MSG_HELPER_CHILDRENSDAY_2007_TYPE;
 
 typedef enum _tagHelperFlowerTree2007Type
@@ -3988,94 +3992,94 @@ typedef enum _tagHelperFlowerTree2007Type
 
 typedef enum _tagHelperPartyMatchMemberChangeInfoType
 {
-	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_NAME,				// ÀÌ¸§ º¯°æ	: charname(str)
-	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_LEVEL,			// ·¹º§ º¯°æ	: level(n)
-	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_ZONE,				// Á¸ÀÌµ¿		: level(n) zone(n)
+	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_NAME,				// ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½	: charname(str)
+	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_LEVEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: level(n)
+	MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_ZONE,				// ï¿½ï¿½ï¿½Ìµï¿½		: level(n) zone(n)
 } MSG_HELPER_PARTY_MATCH_MEMBER_CHANGE_INFO_TYPE;
 
 typedef enum _tagHelperPartyMatchErrorType
 {
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_OK,					// 0 µî·Ï ¼º°ø
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_PARTY,		// 1 ÆÄÆ¼ Áß
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_REG,		// 2 ±âÁ¸ µî·ÏÀÚ
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_OK,					// 0 ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_PARTY,		// 1 ï¿½ï¿½Æ¼ ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_MEMBER_ALREADY_REG,		// 2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_OK,					// 3 ÆÄÆ¼ ¸ÅÄª ÆÄÆ¼ µî·Ï ¼º°ø
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_NO_BOSS,				// 4 ÆÄÆ¼ÀåÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ¿äÃ»½Ã
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_FULL,				// 5 ÆÄÆ¼ÀÎ¿ø °¡µæÂü
-	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_ALREADY_REG,			// 6 ÀÌ¹Ì µî·ÏµÈ ÆÄÆ¼
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_OK,					// 3 ï¿½ï¿½Æ¼ ï¿½ï¿½Äª ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_NO_BOSS,				// 4 ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_FULL,				// 5 ï¿½ï¿½Æ¼ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_REG_PARTY_ALREADY_REG,			// 6 ï¿½Ì¹ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½ï¿½Æ¼
 
-	MSG_HELPER_PARTY_MATCH_ERROR_DEL_MEMBER,					// 7 ÀÏ¹Ý µî·Ï¿¡¼­ ÇØÁ¦µÊ
-	MSG_HELPER_PARTY_MATCH_ERROR_DEL_PARTY,						// 8 ÆÄÆ¼ µî·Ï¿¡¼­ ÇØÁ¦µÊ
+	MSG_HELPER_PARTY_MATCH_ERROR_DEL_MEMBER,					// 7 ï¿½Ï¹ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_DEL_PARTY,						// 8 ï¿½ï¿½Æ¼ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_OK,						// 9 Á¤»ó
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_NOT_FOUND,				// 10 ÆÄÆ¼ ¸ÅÄª¿¡ ¾ø´Â »ç¶÷À» ÃÊ´ë
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_LEVEL,					// 11 ÆÄÆ¼ Å¸ÀÔÀÌ PARTY_TYPE_BATTLE ÀÏ¶§ ·¹º§ °Ë»ç¿¡ ºÎÀûÇÕÇÔ
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_NOBOSS,					// 12 ÆÄÆ¼ÀåÀÌ ¾Æ´Ñ »ç¶÷ÀÌ ¿äÃ»½Ã
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_DIFF_TYPE,				// 13 ÆÄÆ¼ Å¸ÀÔÀÌ ¸ÂÁö ¾ÊÀ½
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_ALREADY_TARGET,			// 14 ´ë»óÀÌ ÀÌ¹Ì ÆÄÆ¼ Áß
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_FULL,					// 15 ÆÄÆ¼ ÀÎ¿øÀÌ ÃÊ°ú
-	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_ALREADY_REQUEST,		// 16 ´Ù¸¥ »ç¶÷¿¡°Ô ¿äÃ» ÁßÀÏ¶§
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_OK,						// 9 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_NOT_FOUND,				// 10 ï¿½ï¿½Æ¼ ï¿½ï¿½Äªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_LEVEL,					// 11 ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ PARTY_TYPE_BATTLE ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ç¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_NOBOSS,					// 12 ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_DIFF_TYPE,				// 13 ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_ALREADY_TARGET,			// 14 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_FULL,					// 15 ï¿½ï¿½Æ¼ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_INVITE_ALREADY_REQUEST,		// 16 ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ï¶ï¿½
 
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_OK,						// 17 Á¶ÀÎ ¼º°ø
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALREADY_TARGET,			// 18 Á¶ÀÎÀ» ¿äÃ»ÇÑ »ç¶ó¹Ö ÀÌ¹Ì ´Ù¸¥ ÆÄÆ¼¿¡ °¡ÀÔ Áß
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_NOT_FOUND,				// 19 Á¶ÀÎ ÇÏ·Á°í ÇÏ´Â ÆÄÆ¼°¡ ¸ÅÄª Å×ÀÌºí¿¡ ¾øÀ½
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_LEVEL,					// 20 ÆÄÆ¼ Å¸ÀÔÀÌ PARTY_TYPE_BATTLEÀÌ°í ·¹º§ °Ë»ç¿¡ ºÎÀûÇÕ
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_LIMIT_LEVEL,				// 21 ·¹º§ Á¦ÇÑ Á¶°Ç¿¡ ºÎÀûÇÕ
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_JOB,						// 22 Á÷¾÷ ºÎÀûÇÕ
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_FULL,						// 23 ÀÎ¿ø °¡µæÂü
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALREADY_REQUEST,			// 24 ±âÁ¸ ÃÊ´ë ¿äÃ»ÀÚ°¡ ÀÖ¾î¼­ ºÒ°¡´É
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_OK,						// 17 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALREADY_TARGET,			// 18 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_NOT_FOUND,				// 19 ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½Äª ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_LEVEL,					// 20 ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ PARTY_TYPE_BATTLEï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ç¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_LIMIT_LEVEL,				// 21 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_JOB,						// 22 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_FULL,						// 23 ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALREADY_REQUEST,			// 24 ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½Ã»ï¿½Ú°ï¿½ ï¿½Ö¾î¼­ ï¿½Ò°ï¿½ï¿½ï¿½
 
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALLOW_OK,					// 25 ÆÄÆ¼ Á¶ÀÎ ¼º°ø
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALLOW_NOT_PARTY,			// 26 ÆÄÆ¼°¡ ¾øÀ½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALLOW_OK,					// 25 ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_ALLOW_NOT_PARTY,			// 26 ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_REJECT_OK,				// 27 ÆÄÆ¼ Á¶ÀÎ °ÅÀý ¼º°ø
-	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_REJECT_FAIL,				// 28 ÆÄÆ¼ Á¶ÀÎ °ÅÀý ½ÇÆÐ
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_REJECT_OK,				// 27 ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_MATCH_ERROR_JOIN_REJECT_FAIL,				// 28 ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 } MSG_HELPER_PARTY_MATCH_ERROR_TYPE;
 
 typedef enum _tagHelperPartyErrorType
 {
-	MSG_HELPER_PARTY_ERROR_INVITE_OK,				// 0 ¼º°ø
-	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_ME,		// 1 ¿äÃ»ÀÚ°¡ ÆÄÆ¼ Áß
-	MSG_HELPER_PARTY_ERROR_INVITE_DIFF_TYPE,		// 2 ÆÄÆ¼ Å¸ÀÔÀÌ ±âÁ¸°ú ´Ù¸§
-	MSG_HELPER_PARTY_ERROR_INVITE_LEVEL,			// 3 ´ë»óÀÚ ·¹º§ Á¶°Ç ¾ÈµÊ
-	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_TARGET,	// 4 ´ë»óÀÚ°¡ ÆÄÆ¼ Áß
-	MSG_HELPER_PARTY_ERROR_INVITE_FULL,				// 5 ÆÄÆ¼ ÀÎ¿ø ÃÊ°ú
-	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_REQUEST,	// 6 ´Ù¸¥ »ç¶÷¿¡°Ô ÀÌ¹Ì ¿äÃ» Áß
+	MSG_HELPER_PARTY_ERROR_INVITE_OK,				// 0 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_ME,		// 1 ï¿½ï¿½Ã»ï¿½Ú°ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_DIFF_TYPE,		// 2 ï¿½ï¿½Æ¼ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_LEVEL,			// 3 ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_TARGET,	// 4 ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_FULL,				// 5 ï¿½ï¿½Æ¼ ï¿½Î¿ï¿½ ï¿½Ê°ï¿½
+	MSG_HELPER_PARTY_ERROR_INVITE_ALREADY_REQUEST,	// 6 ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½
 
-	MSG_HELPER_PARTY_ERROR_ALLOW_OK,				// 7 ¼º°ø
-	MSG_HELPER_PARTY_ERROR_ALLOW_NOT_PARTY,			// 8 ÆÄÆ¼ ÁßÀÌ ¾Æ´Ò¶§
+	MSG_HELPER_PARTY_ERROR_ALLOW_OK,				// 7 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_ALLOW_NOT_PARTY,			// 8 ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½
 
-	MSG_HELPER_PARTY_ERROR_REJECT_OK,				// 9 ¼º°ø
-	MSG_HELPER_PARTY_ERROR_REJECT_FAIL,				// 10 ½ÇÆÐ
+	MSG_HELPER_PARTY_ERROR_REJECT_OK,				// 9 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_REJECT_FAIL,				// 10 ï¿½ï¿½ï¿½ï¿½
 
-	MSG_HELPER_PARTY_ERROR_QUIT_OK,					// 11 ¼º°ø
-	MSG_HELPER_PARTY_ERROR_QUIT_END,				// 12 ¼º°ø, ÆÄÆ¼ ÇØÃ¼
+	MSG_HELPER_PARTY_ERROR_QUIT_OK,					// 11 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_QUIT_END,				// 12 ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼
 
-	MSG_HELPER_PARTY_ERROR_KICK_OK,					// 13 ¼º°ø
-	MSG_HELPER_PARTY_ERROR_KICK_END,				// 14 ¼º°ø, ÆÄÆ¼ ÇØÃ¼
+	MSG_HELPER_PARTY_ERROR_KICK_OK,					// 13 ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_PARTY_ERROR_KICK_END,				// 14 ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼
 
-	MSG_HELPER_PARTY_ERROR_INVITE_PVP,				// 15 ¿äÃ»ÀÚ³ª ´ë»óÀÚ°¡ PVP Áß
+	MSG_HELPER_PARTY_ERROR_INVITE_PVP,				// 15 ï¿½ï¿½Ã»ï¿½Ú³ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ PVP ï¿½ï¿½
 
 } MSG_HELPER_PARTY_ERROR_TYPE;
 
 typedef enum _tagHelperGuildStashErrorType
 {
-	MSG_HELPER_GUILD_STASH_ERROR_OK,			// ¼º°ø
-	MSG_HELPER_GUILD_STASH_ERROR_NOHISTORY,		// È÷½ºÅä¸® ¾øÀ½
-	MSG_HELPER_GUILD_STASH_ERROR_NOTBOSS,		// ±æµåÀå/ºÎ°ü ¾Æ´Ô
-	MSG_HELPER_GUILD_STASH_ERROR_NOTENOUGH,		// ÀÜ¾× ºÎÁ·
-	MSG_HELPER_GUILD_STASH_ERROR_FAIL_DB,		// ½Ã½ºÅÛ ¿À·ù
+	MSG_HELPER_GUILD_STASH_ERROR_OK,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_GUILD_STASH_ERROR_NOHISTORY,		// ï¿½ï¿½ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_GUILD_STASH_ERROR_NOTBOSS,		// ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½Î°ï¿½ ï¿½Æ´ï¿½
+	MSG_HELPER_GUILD_STASH_ERROR_NOTENOUGH,		// ï¿½Ü¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_HELPER_GUILD_STASH_ERROR_FAIL_DB,		// ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_HELPER_GUILD_STASH_ERROR_TYPE;
 
 
 //typedef enum _tagHelperParentsDay2007Type
 //{
-//	MSG_HELPER_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST,	//¾î¹öÀÌ³¯ ´©Àû Æ÷ÀÎÆ® ¸®½ºÆ® Àü¼Û ¿äÃ» gs->hs
+//	MSG_HELPER_PARENTSDAY_2007_ACCUMULATEPOINT_RANKING_LIST,	//ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» gs->hs
 //																// hs->gs :count( n ) rankig( c ) savepoint( n ) gildname(str) gildmaster(str)
-//	MSG_HELPER_PARENTSDAY_2007_ADD_POINT,						// Æ÷ÀÎÆ® µî·Ï gc->hs : CharIndex(n) echangeItemIndex(n)
+//	MSG_HELPER_PARENTSDAY_2007_ADD_POINT,						// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ gc->hs : CharIndex(n) echangeItemIndex(n)
 //																// hs->gs : errorcode(c) point(n) totalpoint(n)
-//	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_TICKET,					// ´©Àû Æ÷ÀÎÆ®·Î ÀÎÇÑ ±³È¯±Ç ¿äÃ»  s->c : errorcode(c) changeTicketCount(n)
+//	MSG_HELPER_PARENTSDAY_2007_EXCHANGE_TICKET,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»  s->c : errorcode(c) changeTicketCount(n)
 //}MSG_HELPER_PARENTSDAY_2007_TYPE;
 
 
@@ -4083,149 +4087,149 @@ typedef enum _tagHelperGuildStashErrorType
 
 typedef enum _tagMsgChangeType
 {
-	MSG_CHANGE_START,					// º¯½Å¼º°ø ½ÃÀÛ	: charindex(n) mobindex(n)
-	MSG_CHANGE_STOP,					// º¯½Å ÁßÁö		: charindex(n)
-	MSG_CHANGE_CANCEL,					// º¯½Å Ãë¼Ò ¿äÃ»	: 
-	MSG_CHANGE_ERR,						// º¯½Å ¿äÃ»½Ã ¿¡·¯	: errtype(uc)
+	MSG_CHANGE_START,					// ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: charindex(n) mobindex(n)
+	MSG_CHANGE_STOP,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: charindex(n)
+	MSG_CHANGE_CANCEL,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: 
+	MSG_CHANGE_ERR,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: errtype(uc)
 } MSG_CHANGE_TYPE;
 
 typedef enum _tagMsgChangeErrType
 {
-	MSG_CHANGE_ERR_DEAD,				// º¯½Å¿¡·¯			: Á×¾úÀ»¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_SITDOWN,				// º¯½Å¿¡·¯			: ¾É¾ÆÀÖÀ»¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_WRAP,				// º¯½Å¿¡·¯			: ÀÌµ¿ÀåÄ¡ »ç¿ëÁß ÀÏ¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_SKILL,				// º¯½Å¿¡·¯			: ½ºÅ³ »ç¿ëÁß ÀÏ¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_EXCHANGE,			// º¯½Å¿¡·¯			: ±³È¯ÁßÀÏ¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_PARTY,				// º¯½Å¿¡·¯			: ÆÄÆ¼ ½ÅÃ» ÁßÀÏ¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_PK,					// º¯½Å¿¡·¯			: PK ÁßÀÏ¶§ º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_LEVEL,				// º¯½Å¿¡·¯			: ·¹º§ÀÌ ¸ðÁú¶ó º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_ZONE,				// º¯½Å¿¡·¯			: Á¸ÀÌ Æ²·Á º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_BATTLE,				// º¯½Å¿¡·¯			: ÀüÅõÁß º¯½Å ºÒ°¡
-	MSG_CHANGE_ERR_PERSONAL_SHOP,		// º¯½Å¿¡·¯			: °³ÀÎ»óÁ¡Áß º¯½Å ºÒ°¡
+	MSG_CHANGE_ERR_DEAD,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_SITDOWN,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_WRAP,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½Ìµï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_SKILL,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_EXCHANGE,			// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½È¯ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_PARTY,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½Æ¼ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_PK,					// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: PK ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_LEVEL,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_ZONE,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_BATTLE,				// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
+	MSG_CHANGE_ERR_PERSONAL_SHOP,		// ï¿½ï¿½ï¿½Å¿ï¿½ï¿½ï¿½			: ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½
 } MSG_CHANGE_ERR_TYPE;
 
 typedef enum _tagMsgUIType
 {
-	MSG_UI_PLUS_EFFECT_REQ,				// ÇÃ·¯½ºÀÌÆåÆ®¿äÃ»	: pluseffect(c)
-	MSG_UI_PLUS_EFFECT_REP,				// ÇÃ·¯½ºÀÌÆåÆ®ÀÀ´ä	: pluseffect(c) charindex(n)
+	MSG_UI_PLUS_EFFECT_REQ,				// ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½Ã»	: pluseffect(c)
+	MSG_UI_PLUS_EFFECT_REP,				// ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½	: pluseffect(c) charindex(n)
 } MSG_UI_TYPE;
 
 typedef enum _tagMsgTeachType
 {
-	MSG_TEACH_TEACHER_LIST,				// ¼±»ý ¸®½ºÆ®		: subtype(uc)
-	MSG_TEACH_TEACHER_REQ,				// ¼±»ý ¿äÃ» °úÁ¤	: subtype(uc)
-	MSG_TEACH_END,						// Á¾·á				: teacher_index(n) teacher_name(str) student_index(n) student_name(str) end_type(uc)
-	MSG_TEACH_INFO,						// »çÁ¦ Á¤º¸		: bteacher_list(c) char_type(c) teacher_index(n) teach_level(n) teacher_name(str) teacher_job(c) teacher_job2(c) or [student_index(n) student_level(n) student_name(str) student_job(c) student_job2(c)] * 8
-	MSG_TEACH_STUDENT_LEVELUP,			// ÇÐ»ý ·¹º§¾÷		: student_index(n) student_level(n) student_name(str) student_job(c) student_job2(c)
+	MSG_TEACH_TEACHER_LIST,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		: subtype(uc)
+	MSG_TEACH_TEACHER_REQ,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½	: subtype(uc)
+	MSG_TEACH_END,						// ï¿½ï¿½ï¿½ï¿½				: teacher_index(n) teacher_name(str) student_index(n) student_name(str) end_type(uc)
+	MSG_TEACH_INFO,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		: bteacher_list(c) char_type(c) teacher_index(n) teach_level(n) teacher_name(str) teacher_job(c) teacher_job2(c) or [student_index(n) student_level(n) student_name(str) student_job(c) student_job2(c)] * 8
+	MSG_TEACH_STUDENT_LEVELUP,			// ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		: student_index(n) student_level(n) student_name(str) student_job(c) student_job2(c)
 
-	MSG_TEACH_ERR,						// ¿¡·¯				: errtype(uc)
+	MSG_TEACH_ERR,						// ï¿½ï¿½ï¿½ï¿½				: errtype(uc)
 
-	MSG_TEACH_RENEWER_TEACH_GIFT,		// º¸»ó ¿äÃ»		: subtype(uc)
-	MSG_TEACH_LOGIN,					// ·Î±×ÀÎ ¸Þ½ÃÁö	: teachType(n) charIndex(n) charName(str)
+	MSG_TEACH_RENEWER_TEACH_GIFT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: subtype(uc)
+	MSG_TEACH_LOGIN,					// ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½	: teachType(n) charIndex(n) charName(str)
 
 } MSG_TEACH_TYPE;
 
 typedef enum _tagMsgTeachTeacherListType
 {
-	MSG_TEACH_TEACHER_LIST_UP,			// ¸®½ºÆ® µî·Ï
-	MSG_TEACH_TEACHER_LIST_DN,			// ¸®½ºÆ® µî·Ï Ãë¼Ò
-	MSG_TEACH_TEACHER_LIST_SHOW,		// ¸®½ºÆ® ¸ñ·Ï		: [char_index(n) char_name(str) char_job(c) char_job2(c)] * 20
+	MSG_TEACH_TEACHER_LIST_UP,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
+	MSG_TEACH_TEACHER_LIST_DN,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	MSG_TEACH_TEACHER_LIST_SHOW,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½		: [char_index(n) char_name(str) char_job(c) char_job2(c)] * 20
 
 } MSG_TEACH_TEACHER_LIST_TYPE;
 
 typedef enum _tagMsgTeachTeacherReqType
 {
-	MSG_TEACH_TEACHER_REQ_REQ,			// ¼±»ý ¿äÃ»		: charindex(n) char_name(str)
-	MSG_TEACH_TEACHER_REQ_REJECT,		// ¼±»ý ¿äÃ» °ÅÀý	: reject_charindex(n) reject_charname(str)
-	MSG_TEACH_TEACHER_REQ_ACCEPT,		// ¼±»ý Çã¶ô		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
-	MSG_TEACH_TEACHER_GIVEUP,			// ÇÐ»ý Æ÷±â ¿äÃ»	: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
+	MSG_TEACH_TEACHER_REQ_REQ,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: charindex(n) char_name(str)
+	MSG_TEACH_TEACHER_REQ_REJECT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½	: reject_charindex(n) reject_charname(str)
+	MSG_TEACH_TEACHER_REQ_ACCEPT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½		: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
+	MSG_TEACH_TEACHER_GIVEUP,			// ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: teacher_index(n) teacher_name(str) student_index(n) student_name(str)
 
 } MSG_TEACH_TEACHER_REQ_TYPE;
 
 typedef enum _tagMsgTeachCharType
 {
-	MSG_TEACH_NO_TYPE = -1,				// »çÁ¦ °ü°è ¾øÀ½				
-	MSG_TEACH_TEACHER_TYPE = 0,			// ¼±»ý
-	MSG_TEACH_STUDENT_TYPE,				// ÇÐ»ý
-	MSG_TEACG_NO_STUDENT_TYPE,			// ÇÑ¹ø »çÁ¦ Çß´ø ÇÐ»ý : ´õÀÌ»ó ºÒ°¡´É
+	MSG_TEACH_NO_TYPE = -1,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				
+	MSG_TEACH_TEACHER_TYPE = 0,			// ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_STUDENT_TYPE,				// ï¿½Ð»ï¿½
+	MSG_TEACG_NO_STUDENT_TYPE,			// ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½Ð»ï¿½ : ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 
 } MSG_TEACH_CHAR_TYPE;
 
 typedef enum _tagMsgTeachEndType
 {
-	MSG_TEACH_END_FAIL,					// ½ÇÆÐ
-	MSG_TEACH_END_SUCCESS,				// ¼º°ø
+	MSG_TEACH_END_FAIL,					// ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_END_SUCCESS,				// ï¿½ï¿½ï¿½ï¿½
 } MSG_TEACH_END_TYPE;
 
 typedef enum _tagMsgTeachErrType
 {
-	MSG_TEACH_ERR_SYSTEM,					// ³ª¿À¸é ¾ÈµÇ´Â ¿À·ù
-	MSG_TEACH_ERR_TEACHER_LEVEL,			// ¼±»ý °¡´É·¹º§ÀÌ ¾Æ´Ô
-	MSG_TEACH_ERR_TEACHER_LIST_ALREADY,		// ÀÌ¹Ì ¼±»ý ¸®½ºÆ®¿¡ ÀÖÀ½
-	MSG_TEACH_ERR_TEACHER_LIST_NOT,			// ¼±»ý ¸®½ºÆ®¿¡ ÀÖÁö ¾ÊÀ½
-	MSG_TEACH_ERR_TEACHER_REQ_ALREADY,		// ÀÌ¹Ì ½ÅÃ»Áß
-	MSG_TEACH_ERR_STUDENT_LEVEL,			// ÇÐ»ý °¡´É·¹º§ÀÌ ¾Æ´Ô
-	MSG_TEACH_ERR_HAVE_TEACHER,				// ÀÌ¹Ì ¼±»ýÀÌ ÀÖÀ½
-	MSG_TEACH_ERR_TEACHER_NOT_CONNECT,		// ¼±»ýÀÌ Á¢¼ÓÁßÀÌ ¾Æ´Ô
-	MSG_TEACH_ERR_STUDENT_NOT_CONNECT,		// ÇÐ»ýÀÌ Á¢¼ÓÁßÀÌ ¾Æ´Ô
-	MSG_TEACH_ERR_TEACHER_FULL,				// Á¦ÀÚ°¡ ²Ë Â÷ ÀÖÀ½
-	MSG_TEACH_ERR_NOE_REQ,					// ½ÅÃ»ÇÑ Àû ¾øÀ½
-	MSG_TEACH_ERR_NOMORE_STUDENT,			// ´õÀÌ»ó ÇÐ»ý ÇÒ ¼ö ¾øÀ½
-	MSG_TEACH_ERR_FAME,						// ¸í¼ºÄ¡ ºÎÁ·À¸·Î ÈÄ°ßÀÎ Æ÷±â ¸øÇÔ
+	MSG_TEACH_ERR_SYSTEM,					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_TEACHER_LEVEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_TEACH_ERR_TEACHER_LIST_ALREADY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_TEACHER_LIST_NOT,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_TEACHER_REQ_ALREADY,		// ï¿½Ì¹ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	MSG_TEACH_ERR_STUDENT_LEVEL,			// ï¿½Ð»ï¿½ ï¿½ï¿½ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_TEACH_ERR_HAVE_TEACHER,				// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_TEACHER_NOT_CONNECT,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_TEACH_ERR_STUDENT_NOT_CONNECT,		// ï¿½Ð»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
+	MSG_TEACH_ERR_TEACHER_FULL,				// ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_NOE_REQ,					// ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_NOMORE_STUDENT,			// ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½Ð»ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_ERR_FAME,						// ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_TEACH_ERR_TYPE;
 
 typedef enum _tagMsgChangeJobType
 {
-	MSG_CHANGEJOB_ERROR,					// ¿À·ù				: errcode(c)
-	MSG_CHANGEJOB_REQ,						// ÀüÁ÷ ¿äÃ»		: job2(c)
-	MSG_CHANGEJOB_REP,						// ÀüÁ÷ ¾Ë¸²		: charindex(n) job(c) job2(c)
-	MSG_CHANGEJOB_RESET_REQ,				// Á÷¾÷ Æ÷±â ¿äÃ»	: 
-	MSG_CHANGEJOB_RESET_REP,				// Á÷¾÷ Æ÷±â ¾Ë¸²	: charindex(n) job(c)
+	MSG_CHANGEJOB_ERROR,					// ï¿½ï¿½ï¿½ï¿½				: errcode(c)
+	MSG_CHANGEJOB_REQ,						// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»		: job2(c)
+	MSG_CHANGEJOB_REP,						// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½		: charindex(n) job(c) job2(c)
+	MSG_CHANGEJOB_RESET_REQ,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: 
+	MSG_CHANGEJOB_RESET_REP,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½	: charindex(n) job(c)
 	MSG_CHANGECLASS_REQ,
 } MSG_CHANGEJOB_TYPE;
 
 typedef enum _tagMsgChangeJobErrorType
 {
 	MSG_CHANGEJOB_ERROR_OK,							// RESERVED
-	MSG_CHANGEJOB_ERROR_WRONGMSG,					// Å¬¶óÀÌ¾ðÆ®°¡ ÀÌ»óÇÏ´Ù
-	MSG_CHANGEJOB_ERROR_ALREADY,					// ÀÌ¹Ì ÀüÁ÷ÇßÀ½
-	MSG_CHANGEJOB_ERROR_NOCONDITION_LEVEL,			// ÀüÁ÷ Á¶°Ç ºÒÃæºÐ : ·¹º§ ºÎÁ·
-	MSG_CHANGEJOB_ERROR_NOCONDITION_SKILL,			// ÀüÁ÷ Á¶°Ç ºÒÃæºÐ : ½ºÅ³ ¾øÀ½
-	MSG_CHANGEJOB_ERROR_NOCONDITION_SKILLLEVEL,		// ÀüÁ÷ Á¶°Ç ºÒÃæºÐ : ½ºÅ³ ·¹º§ ºÎÁ·
-	MSG_CHANGEJOB_ERROR_NOMONEY,					// µ·ÀÌ ºÎÁ·ÇÔ
+	MSG_CHANGEJOB_ERROR_WRONGMSG,					// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½Ï´ï¿½
+	MSG_CHANGEJOB_ERROR_ALREADY,					// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGEJOB_ERROR_NOCONDITION_LEVEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGEJOB_ERROR_NOCONDITION_SKILL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGEJOB_ERROR_NOCONDITION_SKILLLEVEL,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGEJOB_ERROR_NOMONEY,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MSG_CHANGEJOB_ERROR_NOT_EXIST_NPC,				// ?????? ???????? NPC?? ????
 	MSG_CHANGEJOB_ERROR_NOITEM
 } MSG_CHANGEJOB_ERROR_TYPE;
 
-// Date : 2005-05-06(¿ÀÈÄ 9:18:18), By Lee Ki-hwan
+// Date : 2005-05-06(ï¿½ï¿½ï¿½ï¿½ 9:18:18), By Lee Ki-hwan
 typedef enum _tagMsgBillInfoType
 {
-	MSG_BILLINFO_USERINFO,					// À¯Àú °áÁ¦ Á¤º¸ º¸³¿			: billguid(str) billviewname(str) billsection(n) surpluspoint(n) year(n) month(n) day(n) hour(n) min(n) remaintime(n) existreserve(n) rb_guid(str) rb_value(n) rb_name(str) iswarn(n) istimeout(n) first(n)
+	MSG_BILLINFO_USERINFO,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: billguid(str) billviewname(str) billsection(n) surpluspoint(n) year(n) month(n) day(n) hour(n) min(n) remaintime(n) existreserve(n) rb_guid(str) rb_value(n) rb_name(str) iswarn(n) istimeout(n) first(n)
 
-	MSG_BILLINFO_SECTION_LIST_REQ,			// ¿ä±ÝÁ¦ Á¤º¸ ¿äÃ»
-	MSG_BILLINFO_SECTION_LIST_REP,			// ¿ä±ÝÁ¦ Á¤º¸ ÀÀ´ä				: flag(n), bill_guid(str), bill_section(n), bill_hour(n), bill_value(n), bill_viewname(str)
+	MSG_BILLINFO_SECTION_LIST_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_BILLINFO_SECTION_LIST_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½				: flag(n), bill_guid(str), bill_section(n), bill_hour(n), bill_value(n), bill_viewname(str)
 											// flag: bit0:start, bit1:end, bit2:empty
-	MSG_BILLINFO_USERINFO_REQ,				// À¯Àú °áÁ¦ Á¤º¸ ¿äÃ»
+	MSG_BILLINFO_USERINFO_REQ,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 
-	MSG_BILLINFO_PAY_RESERVE_REQ,			// ¿¹¾à(ÇöÀç)¿ä±ÝÁ¦·Î °áÁ¦		:
-	MSG_BILLINFO_PAY_OTHER_REQ,				// Æ¯Á¤ ¿ä±ÝÁ¦·Î °áÁ¦			: billguid(str)
-	MSG_BILLINFO_PAY_REP,					// °áÁ¦ ÀÀ´ä					: errcode(n) billguid(str) billviewname(str) billsection(n) surpluspoint(n) year(n) month(n) day(n) hour(n) min(n) remaintime(n) existreserve(n) rb_guid(str) rb_value(n) rb_name(str) fromauto(n)
+	MSG_BILLINFO_PAY_RESERVE_REQ,			// ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		:
+	MSG_BILLINFO_PAY_OTHER_REQ,				// Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			: billguid(str)
+	MSG_BILLINFO_PAY_REP,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½					: errcode(n) billguid(str) billviewname(str) billsection(n) surpluspoint(n) year(n) month(n) day(n) hour(n) min(n) remaintime(n) existreserve(n) rb_guid(str) rb_value(n) rb_name(str) fromauto(n)
 	// MSG_BILLINFO_PAY_REQ,
-	// À¯·áÈ­ Áö±Þ ¾ÆÀÌÅÛ 
-	MSG_BILLINFO_ITEM_LIST_REQ,		// ºô¸µ ¼­¹ö¿¡¼­ ¹ÞÀ» ¾ÆÀÌÅÛ ¸®½ºÆ® ¿äÃ»
-	MSG_BILLINFO_ITEM_LIST_REP,		// ¾ÆÀÌÅÛ ¸®½ºÆ®		: billcount(n) bill_guid(str) itemcount(n) itemindex(n) itemplus(n) itemflag(n) itemnum(n)
-	MSG_BILLINFO_ITEM_REQ,			// ¾ÆÀÌÅÛÁö±Þ ¿äÃ»
-	MSG_BILLINFO_ITEM_REP,			// Áö±Þ ´äº¯			: error(c)			
+	// ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	MSG_BILLINFO_ITEM_LIST_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	MSG_BILLINFO_ITEM_LIST_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®		: billcount(n) bill_guid(str) itemcount(n) itemindex(n) itemplus(n) itemflag(n) itemnum(n)
+	MSG_BILLINFO_ITEM_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_BILLINFO_ITEM_REP,			// ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯			: error(c)			
 
 } MSG_BILLINFO_TYPE;
 
 typedef enum _tagMsgBillInfoItemErrorType
 {
-	MSG_BILLINFO_ERROR_SUCCESS,		// Áö±Þ ¼º°ø
-	MSG_BILLINFO_ERROR_NOTLIST,		// ¸®½ºÆ®°¡ ¾øÀ½
-	MSG_BILLINFO_ERROR_CONN,		// Ä¿³ØÅÍ ¼­¹ö ¿¡·¯
-	MSG_BILLINFO_ERROR_BILL,		// ºô¸µ¼­¹ö ¿¡·¯
-	MSG_BILLINFO_ERROR_NOT_GIVE,	// ¾ÆÀÌÅÛÀÌ Áö±ÞµÈ ÈÄ¿¡ Á¤»óÀûÀ¸·Î Ã³¸® µÇÁö ¸øÇÔ.
+	MSG_BILLINFO_ERROR_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_BILLINFO_ERROR_NOTLIST,		// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_BILLINFO_ERROR_CONN,		// Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_BILLINFO_ERROR_BILL,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_BILLINFO_ERROR_NOT_GIVE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Þµï¿½ ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 } MSG_BILLINFO_ITEM_ERROR_TYPE;
 
 
@@ -4239,64 +4243,64 @@ typedef enum _tagMsgBillInfoPayErrorType
 
 typedef enum _tagEventMoonStoneType
 {
-	MSG_EVENT_MOONSTONE_START_REQ,		// ¹®½ºÅæ ½ÃÀÛ¿äÃ»
-	MSG_EVENT_MOONSTONE_START_REP,		// ¹®½ºÅæ ½ÃÀÛÀÀ´ä
+	MSG_EVENT_MOONSTONE_START_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¿ï¿½Ã»
+	MSG_EVENT_MOONSTONE_START_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_MOONSTONE_TRY_REQ,		// ¹®½ºÅæ º¹±Ç ¿äÃ»
-	MSG_EVENT_MOONSTONE_TRY_REP,		// ¹®½ºÅæ º¹±Ç ÀÀ´ä
+	MSG_EVENT_MOONSTONE_TRY_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_MOONSTONE_TRY_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EVENT_MOONSTONE_RESULT_REQ,		// ¹®½ºÅæ º¹±Ç °á°ú ¿äÃ»
-	MSG_EVENT_MOONSTONE_RESULT_REP,		// ¹®½ºÅæ º¹±Ç °á°ú ÀÀ´ä
+	MSG_EVENT_MOONSTONE_RESULT_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_EVENT_MOONSTONE_RESULT_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 } MSG_EVENT_MOONSTONE_TYPE;
 
 typedef enum _tagEventMoonStoneChangeType
 {
-//5°³ ÀÏÄ¡.
-	MSG_CHANGE_JACK_POT,					// ÀèÆÌ.
-	MSG_CHANGE_5PLUS_41LEVEL_WEAPON,			// 41·¹º§ +5 ¹«±â(Á¾Á·º°)	
-	MSG_CHANGE_3PLUS_41LEVEL_WEAPON,			// 41·¹º§ +3 ¹«±â(Á¾Á·º°)	
-	MSG_CHANGE_41LEVEL_WEAPON,				// 41·¹º§ ¹«±â (Á¾Á·º°)
-	MSG_CHANGE_3_SPECIAL_STONE,				// °í±ÞÁ¦·Ã¼® 3°³
-	MSG_CHANGE_2_SPECIAL_STONE,				// °í±ÞÁ¦·Ã¼® 2°³
-	MSG_CHANGE_1_SPECIAL_STONE,				// °í±ÞÁ¦·Ã¼® 1°³
-//4°³ÀÏÄ¡
-	MSG_CHANGE_CRYSTAL_OF_EFFORT,				// ³ë·ÂÀÇ °áÁ¤.
-	MSG_CHANGE_HIGH_CRYSTAL_OF_EXPERIMENCE,			// »ó±Þ °æÇèÀÇ °áÁ¤.
-	MSG_CHANGE_150000_EXP,					// °æÇèÄ¡ 150,000
-	MSG_CHANGE_MIDDLE_CRYSTAL_OF_EXPERIMENCE,		// Áß±Þ °æÇèÀÇ °áÁ¤
-	MSG_CHANGE_10_PURE_STONE,				// Á¤È­¼® 10°³
-	MSG_CHANGE_70000_EXP,					// °æÇèÄ¡ 70,000
-	MSG_CHANGE_3_MIDDLE_CRYSTAL_OF_EXPERIMENCE,		// ÇÏ±Þ °æÇèÀÇ °áÁ¤ 3°³
-//3°³ÀÏÄ¡
-	MSG_CHANGE_5_12GRADE_RED_KER,				//12·¹º§ ºÓÀº ÄÉ¸£ 5°³
-	MSG_CHANGE_5_12GRADE_RED_NEN,				//12·¹º§ ºÓÀº ³Ù 5°³
-    MSG_CHANGE_5_12GRADE_BLUE_KER,				//12·¹º§ Çª¸¥ ÄÉ¸£ 5°³
-	MSG_CHANGE_5_BIG_MP_POTION,				//´ëÇü MP¹°¾à 5°³
-	MSG_CHANGE_5_12GRADE_BLUE_NEN,				//12·¹º§ Çª¸¥ ³Ù 5°³
-	MSG_CHANGE_5_MOONSTONE,					//¹®½ºÅæ 5°³
-	MSG_CHANGE_25000_EXP,					// °æÇèÄ¡ 25,000
+//5ï¿½ï¿½ ï¿½ï¿½Ä¡.
+	MSG_CHANGE_JACK_POT,					// ï¿½ï¿½ï¿½ï¿½.
+	MSG_CHANGE_5PLUS_41LEVEL_WEAPON,			// 41ï¿½ï¿½ï¿½ï¿½ +5 ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)	
+	MSG_CHANGE_3PLUS_41LEVEL_WEAPON,			// 41ï¿½ï¿½ï¿½ï¿½ +3 ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)	
+	MSG_CHANGE_41LEVEL_WEAPON,				// 41ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_CHANGE_3_SPECIAL_STONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_2_SPECIAL_STONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ 2ï¿½ï¿½
+	MSG_CHANGE_1_SPECIAL_STONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ 1ï¿½ï¿½
+//4ï¿½ï¿½ï¿½ï¿½Ä¡
+	MSG_CHANGE_CRYSTAL_OF_EFFORT,				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_CHANGE_HIGH_CRYSTAL_OF_EXPERIMENCE,			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_CHANGE_150000_EXP,					// ï¿½ï¿½ï¿½ï¿½Ä¡ 150,000
+	MSG_CHANGE_MIDDLE_CRYSTAL_OF_EXPERIMENCE,		// ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_CHANGE_10_PURE_STONE,				// ï¿½ï¿½È­ï¿½ï¿½ 10ï¿½ï¿½
+	MSG_CHANGE_70000_EXP,					// ï¿½ï¿½ï¿½ï¿½Ä¡ 70,000
+	MSG_CHANGE_3_MIDDLE_CRYSTAL_OF_EXPERIMENCE,		// ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+//3ï¿½ï¿½ï¿½ï¿½Ä¡
+	MSG_CHANGE_5_12GRADE_RED_KER,				//12ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_5_12GRADE_RED_NEN,				//12ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 5ï¿½ï¿½
+    MSG_CHANGE_5_12GRADE_BLUE_KER,				//12ï¿½ï¿½ï¿½ï¿½ Çªï¿½ï¿½ ï¿½É¸ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_5_BIG_MP_POTION,				//ï¿½ï¿½ï¿½ï¿½ MPï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_5_12GRADE_BLUE_NEN,				//12ï¿½ï¿½ï¿½ï¿½ Çªï¿½ï¿½ ï¿½ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_5_MOONSTONE,					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_25000_EXP,					// ï¿½ï¿½ï¿½ï¿½Ä¡ 25,000
 
-//2°³ÀÏÄ¡
-	MSG_CHANGE_3_6GRADE_RED_KER,				//6·¹º§ ºÓÀº ÄÉ¸£ 3°³ 
-	MSG_CHANGE_3_6GRADE_RED_NEN,				//6·¹º§ ºÓÀº ³Ù 3°³
-	MSG_CHANGE_3_6GRADE_BLUE_KER,				//6·¹º§ Çª¸¥ ÄÉ¸£ 3°³
-	MSG_CHANGE_3_BIG_HEAL_POTION,				//´ëÇü HP¹°¾à 3°³
-	MSG_CHANGE_3_6GRADE_BLUE_NEN,				//6·¹º§ Çª¸¥³Ù 3°³
-	MSG_CHANGE_3_MIDDLE_MP_POTION,				//ÁßÇü MP¹°¾à 3°³
-	MSG_CHANGE_3_MEMORY_SCROLL,				//¸Þ¸ð¸® ½ºÅ©·Ñ 3°³
-//1°³
-	MSG_CHANGE_3_C_GRADE_ELEMENTAL,				//cµî±Þ ¿ø¼Ò 3°³
-	MSG_CHANGE_3_CRAK_BLUE_LEAF,			 	//Å©¶ô ÆÄ¶õÀÙ 3°³
-	MSG_CHANGE_3_STONE_WEAVER,				//½ºÅæ ¿þ¹ö 3°³
-	MSG_CHANGE_3_D_GRADE_ELEMENTAL,				//Dµî±Þ ¿ø¼Ò 3°³
-	MSG_CHANGE_3_MIDIUM_HEAL_POTION,			//ÁßÇüÈ¸º¹¹°¾à 5°³
-	MSG_CHANGE_3_CRAK_BRANCH,				//Å©¶ô ÁÙ±â 3°³
-	MSG_CHANGE_3_STONELISE,					//½ºÅæ ¸®½º
+//2ï¿½ï¿½ï¿½ï¿½Ä¡
+	MSG_CHANGE_3_6GRADE_RED_KER,				//6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ 3ï¿½ï¿½ 
+	MSG_CHANGE_3_6GRADE_RED_NEN,				//6ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_6GRADE_BLUE_KER,				//6ï¿½ï¿½ï¿½ï¿½ Çªï¿½ï¿½ ï¿½É¸ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_BIG_HEAL_POTION,				//ï¿½ï¿½ï¿½ï¿½ HPï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_6GRADE_BLUE_NEN,				//6ï¿½ï¿½ï¿½ï¿½ Çªï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_MIDDLE_MP_POTION,				//ï¿½ï¿½ï¿½ï¿½ MPï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_MEMORY_SCROLL,				//ï¿½Þ¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ 3ï¿½ï¿½
+//1ï¿½ï¿½
+	MSG_CHANGE_3_C_GRADE_ELEMENTAL,				//cï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_CRAK_BLUE_LEAF,			 	//Å©ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_STONE_WEAVER,				//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_D_GRADE_ELEMENTAL,				//Dï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_MIDIUM_HEAL_POTION,			//ï¿½ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½
+	MSG_CHANGE_3_CRAK_BRANCH,				//Å©ï¿½ï¿½ ï¿½Ù±ï¿½ 3ï¿½ï¿½
+	MSG_CHANGE_3_STONELISE,					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_CHANGE_NO_MOONSTONE,				// ¹®½ºÅæÀÌ ¾ø´Ù.	
-	MSG_CHANGE_MOONSTONE_RULLET,				// 5°³ÀÇ ·ê·¿°ªÀ» º¸³½´Ù.	
-	MSG_CHANGE_MOONSTONE_ACC_NAS,   			//´©Àû ³ª½º.
+	MSG_CHANGE_NO_MOONSTONE,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.	
+	MSG_CHANGE_MOONSTONE_RULLET,				// 5ï¿½ï¿½ï¿½ï¿½ ï¿½ê·¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.	
+	MSG_CHANGE_MOONSTONE_ACC_NAS,   			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 } MSG_EVENT_MOONSTONE_CHANGE_TYPE;
 
@@ -4318,19 +4322,19 @@ typedef enum _tagFriendType
 
 typedef enum _tagFriendErrorType
 {
-	MSG_FRIEND_ERROR_OK,		//Á¤»ó.(Ä£±¸µî·ÏOK, »èÁ¦ OK)
-	MSG_FRIEND_ERROR_PACKET,    //ÆÐÅ¶¿À·ù
-	MSG_FRIEND_ERROR_NOT_EXIST, //Á¸ÀçÇÏÁö ¾Ê´Â´Ù.
-	MSG_FRIEND_ERROR_FULLMEMBER, //Ä£±¸ Á¤¿ø ÃÊ°ú.
-	MSG_FRIEND_ERROR_ALREADY_EXIST, //ÀÌ¹Ì Ä£±¸¸®½ºÆ®¿¡ Á¸Àç.
-	MSG_FRIEND_ERROR_WAIT_OTHER, //´Ù¸¥ »ç¶÷À¸·ÎºÎÅÍ Ä£±¸µî·ÏÀ» ¿äÃ»¹ÞÀº »óÅÂ..
-	MSG_FRIEND_ERROR_NOT_MATCH_INDEX, //¼­·Î°£ Ä£±¸ ¿äÃ»,½ÂÀÎ ¾ÆÀÌµð°¡ ÀÏÄ¡ÇÏÁö ¾Ê´Â´Ù.
-	MSG_FRIEND_ERROR_HELPER_SERVER, //ÇïÆÛ¼­¹ö¿ÍÀÇ Á¢¼Ó¿À·ù.
+	MSG_FRIEND_ERROR_OK,		//ï¿½ï¿½ï¿½ï¿½.(Ä£ï¿½ï¿½ï¿½ï¿½ï¿½OK, ï¿½ï¿½ï¿½ï¿½ OK)
+	MSG_FRIEND_ERROR_PACKET,    //ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½
+	MSG_FRIEND_ERROR_NOT_EXIST, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	MSG_FRIEND_ERROR_FULLMEMBER, //Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½.
+	MSG_FRIEND_ERROR_ALREADY_EXIST, //ï¿½Ì¹ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_FRIEND_ERROR_WAIT_OTHER, //ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½..
+	MSG_FRIEND_ERROR_NOT_MATCH_INDEX, //ï¿½ï¿½ï¿½Î°ï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½Ã»,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	MSG_FRIEND_ERROR_HELPER_SERVER, //ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½.
 	MSG_FRIEND_ERROR_GAMESERVER,
-	MSG_FRIEND_ERROR_FRIENDNAME, //ÀÌ¸§ÀÌ Àß¸øµÇ¾ú´Ù..
-	MSG_FRIEND_ERROR_ALREADY_BLOCK, //ÀÌ¹Ì ºí·° µÇ¾ú´Ù.
-	MSG_FRIEND_ERROR_NOT_BLOCK, //ÀÌ¹Ì ºí·° µÇÁö ¾ÊÀº ÄÉ¸¯ÅÍ 
-	MSG_FRIEND_ERROR_REGIST_REFUSE_PVP		// pvp ¿¡¼­´Â Ä£±¸µî·Ï °ÅºÎ
+	MSG_FRIEND_ERROR_FRIENDNAME, //ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½..
+	MSG_FRIEND_ERROR_ALREADY_BLOCK, //ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½.
+	MSG_FRIEND_ERROR_NOT_BLOCK, //ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ 
+	MSG_FRIEND_ERROR_REGIST_REFUSE_PVP		// pvp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½
 } MSG_FRIEND_ERROR_TYPE;
 
 typedef enum _tagTreasureBoxType
@@ -4381,14 +4385,14 @@ typedef enum _tagEventTreasureBoxChangeType
 	MSG_EVENT_CHANGE_NO_TREASUREBOX,
 
 
-	MSG_EVENT_CHANGE_HP_POTION,			// ¼ÒÇü  HP È®Àå Æ÷¼Ç
-	MSG_EVENT_CHANGE_MP_POTION,			// ¼ÒÇü  MP È®Àå Æ÷¼Ç
-	MSG_EVENT_CHANGE_EX_MEMORY,			// ¸Þ¸ð¸® ½ºÅ©·Ñ È®Àå Ä«µå
-	MSG_EVENT_CHANGE_HPMP_POTION,		// ¼ÒÇü  HP/MP È®Àå Æ÷¼Ç
-	MSG_EVEVNT_CHAGE_EX_STAT,			// °³ÀÎ Ã¢°í È®Àå Ä«µå
+	MSG_EVENT_CHANGE_HP_POTION,			// ï¿½ï¿½ï¿½ï¿½  HP È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHANGE_MP_POTION,			// ï¿½ï¿½ï¿½ï¿½  MP È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHANGE_EX_MEMORY,			// ï¿½Þ¸ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ È®ï¿½ï¿½ Ä«ï¿½ï¿½
+	MSG_EVENT_CHANGE_HPMP_POTION,		// ï¿½ï¿½ï¿½ï¿½  HP/MP È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVEVNT_CHAGE_EX_STAT,			// ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ È®ï¿½ï¿½ Ä«ï¿½ï¿½
 
-	MSG_EVENT_CHANGE_PINK_DRAGON,		// ÇÎÅ© µå·¹ÀÌÅ© ¾Ë ±³È¯ - ÅÂ±¹ 30·¹º§ º¸¹° »óÀÚ
-	MSG_EVENT_CHANGE_BLUE_HORSE,		// ÆÄ¶õ ÆÇÀÇ ÇÇ¸® ±³È¯ - ÅÂ±¹ 30·¹º§ º¸¹° »óÀÚ
+	MSG_EVENT_CHANGE_PINK_DRAGON,		// ï¿½ï¿½Å© ï¿½å·¹ï¿½ï¿½Å© ï¿½ï¿½ ï¿½ï¿½È¯ - ï¿½Â±ï¿½ 30ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHANGE_BLUE_HORSE,		// ï¿½Ä¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½È¯ - ï¿½Â±ï¿½ 30ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 } MSG_EVENT_TREASUREBOX_CHANGE_TYPE;
 
 //0627
@@ -4401,60 +4405,60 @@ typedef enum _tagEventSuperStoneType
 
 typedef enum __tagMsgExGoZoneType
 {
-	MSG_EX_GO_ZONE_FIND_REQ,		// ¼ø°£ÀÌµ¿°æ·Î ¹ß°ß ¿äÃ»	: npcIdx(n)
-	MSG_EX_GO_ZONE_SAVE_REQ,		// ¸¶Áö¸· À§Ä¡ ÀúÀå			: npcIdx(n)
-	MSG_EX_GO_ZONE_MAP_REQ,			// ¿ùµå¸Ê °æ·Î ¿äÃ»			: npcIdx(n)
-	MSG_EX_GO_ZONE_MAP_REP,			// ¿ùµå¸Ê °æ·Î ÀÀ´ä 		: count(n) npcidx(n) tax(n)
-	MSG_EX_GO_ZONE_MOVE_REQ,		// Á¸ÀÌµ¿¿äÃ»				: zone(n) extra(n) npcIdx(n)
-	MSG_EX_GO_ZONE_FIELD_DOUNGEON_TAX_REQ,	// ÇÊµå´øÀü ÀÌµ¿½Ã ¿ä±Ý¿äÃ»	: zone(n) extra(n) npcIdx(n)
-	MSG_EX_GO_ZONE_FIELD_DOUNGEON_TAX_REP,	// ÇÊµå´øÀü ÀÌµ¿½Ã ¿ä±ÝÀÀ´ä	: zone(n) extra(n) tax(n)
-	MSG_EX_GO_ZONE_FIELD_DOUNGEON_MOVE_REQ, // ÇÊµå´øÀü ÀÌµ¿ ¿äÃ»		: npcIdx(n)
-	MSG_EX_GO_ZONE_ERROR,			// ¿¡·¯¸Þ½ÃÁö				: error(n)
+	MSG_EX_GO_ZONE_FIND_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ã»	: npcIdx(n)
+	MSG_EX_GO_ZONE_SAVE_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½			: npcIdx(n)
+	MSG_EX_GO_ZONE_MAP_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»			: npcIdx(n)
+	MSG_EX_GO_ZONE_MAP_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 		: count(n) npcidx(n) tax(n)
+	MSG_EX_GO_ZONE_MOVE_REQ,		// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½Ã»				: zone(n) extra(n) npcIdx(n)
+	MSG_EX_GO_ZONE_FIELD_DOUNGEON_TAX_REQ,	// ï¿½Êµï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ý¿ï¿½Ã»	: zone(n) extra(n) npcIdx(n)
+	MSG_EX_GO_ZONE_FIELD_DOUNGEON_TAX_REP,	// ï¿½Êµï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: zone(n) extra(n) tax(n)
+	MSG_EX_GO_ZONE_FIELD_DOUNGEON_MOVE_REQ, // ï¿½Êµï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ã»		: npcIdx(n)
+	MSG_EX_GO_ZONE_ERROR,			// ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½				: error(n)
 }MSG_EX_GO_ZONE_TYPE;
 
 typedef enum __tagMsgExGoZoneErrorType
 {
-	MSG_EX_GO_ZONE_FIND_ERROR_OK,				// »õ·Î¿î °æ·Î ¹ß°ß ¼º°ø	npcidx(n)
-	MSG_EX_GO_ZONE_FIND_ERROR_ALREADY_EXIST,	// ÀÌ¹Ì ¹ß°ßµÈ °æ·Î			npcidx(n)
-	MSG_EX_GO_ZONE_SAVE_ERROR_OK,				// À§Ä¡ÀúÀå ¼º°ø			npcidx(n)
-	MSG_EX_GO_ZONE_SAVE_ERROR_FAILED,			// À§Ä¡ÀúÀå ½ÇÆÐ			npcidx(n)
-	MSG_EX_GO_ZONE_MOVE_ERROR_NOMONEY,			// µ·ºÎÁ·					npcidx(n)
-	MSG_EX_GO_ZONE_MOVE_ERROR_CANNOT_MOVE,		// ÀÌµ¿ºÒ°¡´É Áö¿ª			npcidx(n)
-	MSG_EX_GO_ZONE_MOVE_ERROR_OK,				// ÀÌµ¿¼º°ø					zone(n)	extra(n)
+	MSG_EX_GO_ZONE_FIND_ERROR_OK,				// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½	npcidx(n)
+	MSG_EX_GO_ZONE_FIND_ERROR_ALREADY_EXIST,	// ï¿½Ì¹ï¿½ ï¿½ß°ßµï¿½ ï¿½ï¿½ï¿½			npcidx(n)
+	MSG_EX_GO_ZONE_SAVE_ERROR_OK,				// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			npcidx(n)
+	MSG_EX_GO_ZONE_SAVE_ERROR_FAILED,			// ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			npcidx(n)
+	MSG_EX_GO_ZONE_MOVE_ERROR_NOMONEY,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½					npcidx(n)
+	MSG_EX_GO_ZONE_MOVE_ERROR_CANNOT_MOVE,		// ï¿½Ìµï¿½ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½			npcidx(n)
+	MSG_EX_GO_ZONE_MOVE_ERROR_OK,				// ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½					zone(n)	extra(n)
 }MSG_EX_GO_ZONE_ERROR_TYPE;
 
-// ¸ó½ºÅÍ ÄÞº¸ 
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ 
 typedef enum __tagMsgExMonsterComboType
 {
- MSG_EX_MONSTERCOMBO_EDIT_COMPLETE,   // ¹Ì¼ÇÄÉÀÌ½º ÆíÁý¿Ï·á½Ã count(c), index(n)
- MSG_EX_MONSTERCOMBO_EDIT_CANCEL,   // Ãë¼Ò½Ã
- MSG_EX_MONSTERCOMBO_EDIT_CONTEXT_REQ,  // ÆíÁýµÈ ³»¿ëº¸±â¿äÃ»
- MSG_EX_MONSTERCOMBO_EDIT_CONTEXT_REP,  // ÆíÁýµÈ ³»¿ëº¸±âÀÀ´ä count(c), index(n)
- MSG_EX_MONSTERCOMBO_GOTO_COMBO,   // ÆíÁý¿Ï·áÈÄ ´ë±â¹æÀ¸·Î °¥ ¶§
- MSG_EX_MONSTERCOMBO_GOTO_COMBO_PROMPT,  // È®ÀÎ¸Þ½ÃÁö
- MSG_EX_MONSTERCOMBO_GOTO_COMBO_CONFIRM,  // ÆÄÆ¼¿øÀÌ È®ÀÎ, Ãë¼Ò¹öÆ° ´­·¶À» ¶§ yesno(c): (yes 1 no 0),  bossindex(n)
- MSG_EX_MONSTERCOMBO_RECALL_TO_COMBO,  // ´ë±â¹æ¿¡¼­ ÆÄÆ¼¸®ÄÝÇÒ ¶§
- MSG_EX_MONSTERCOMBO_RECALL_TO_STAGE,  // ½ºÅ×ÀÌÁö·Î °­Á¦¸®ÄÝ
- MSG_EX_MONSTERCOMBO_GIVEUP,   // ¸ó½ºÅÍ ÄÞº¸ Æ÷±â   zone(n), extra(n), npcidx(n)
- MSG_EX_MONSTERCOMBO_START,    // ¸ó½ºÅÍ ÄÞº¸ ½ÃÀÛ
- MSG_EX_MONSTERCOMBO_MISSION_COMPLETE,  // 0: ¹Ì¼Ç½ÇÆÐ, 1: ¹Ì¼Ç¼º°ø
- MSG_EX_MONSTERCOMBO_GOTO_STAGE,   // ´ë±â¹æ¿¡¼­ ½ºÅ×ÀÌÁö·Î
- MSG_EX_MONSTERCOMBO_GOTO_WAITROOM,   // ½ºÅ×ÀÌÁö¿¡¼­ ´ë±â¹æÀ¸·Î °¨
- MSG_EX_MONSTERCOMBO_NOTICE_STAGE,  // stage(n) ½ÃÀÛ½Ã stage ³Ñ¹ö¸Þ½ÃÁö Àü´Þ
- MSG_EX_MONSTERCOMBO_ERROR,    // ¸ó½ºÅÍ ÄÞº¸ ¿À·ù°ü·Ã error(c)
+ MSG_EX_MONSTERCOMBO_EDIT_COMPLETE,   // ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ count(c), index(n)
+ MSG_EX_MONSTERCOMBO_EDIT_CANCEL,   // ï¿½ï¿½Ò½ï¿½
+ MSG_EX_MONSTERCOMBO_EDIT_CONTEXT_REQ,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ëº¸ï¿½ï¿½ï¿½Ã»
+ MSG_EX_MONSTERCOMBO_EDIT_CONTEXT_REP,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ëº¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ count(c), index(n)
+ MSG_EX_MONSTERCOMBO_GOTO_COMBO,   // ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_GOTO_COMBO_PROMPT,  // È®ï¿½Î¸Þ½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_GOTO_COMBO_CONFIRM,  // ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½, ï¿½ï¿½Ò¹ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ yesno(c): (yes 1 no 0),  bossindex(n)
+ MSG_EX_MONSTERCOMBO_RECALL_TO_COMBO,  // ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_RECALL_TO_STAGE,  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_GIVEUP,   // ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½   zone(n), extra(n), npcidx(n)
+ MSG_EX_MONSTERCOMBO_START,    // ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_MISSION_COMPLETE,  // 0: ï¿½Ì¼Ç½ï¿½ï¿½ï¿½, 1: ï¿½Ì¼Ç¼ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_GOTO_STAGE,   // ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_GOTO_WAITROOM,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_NOTICE_STAGE,  // stage(n) ï¿½ï¿½ï¿½Û½ï¿½ stage ï¿½Ñ¹ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR,    // ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ error(c)
 }MSG_EX_MONSTERCOMBO_TYPE;
 
  
 typedef enum __tagMsgExMonserComboErrorType
 {
- MSG_EX_MONSTERCOMBO_ERROR_EDIT_COMPLETE_OK, // ÆíÁý¿Ï·á
- MSG_EX_MONSTERCOMBO_ERROR_EDIT_COMPLETE_FAIL, // ÆíÁý¿Ï·á ½ÇÆÐ
- MSG_EX_MONSTERCOMBO_ERROR_MONEY,   // ³ª½ººÎÁ·
- MSG_EX_MONSTERCOMBO_ERROR_FULL,   // ÄÞº¸Á¸ °ø°£ÀÌ ¾øÀ» °æ¿ì
- MSG_EX_MONSTERCOMBO_ERROR_NOT_EDIT,  // ÆíÁý¿Ï·á°¡ ¾ÈµÊ
- MSG_EX_MONSTERCOMBO_ERROR_NOT_COMPLETE_STAGE, // ½ºÅ×ÀÌÁö ¿Ï·áµÇÁö ¾Ê¾ÒÀ½
- MSG_EX_MONSTERCOMBO_ERROR_DEAD_CHAR,	// Á×Àº Ä³¸¯ÅÍ°¡ ÀÖ¾î¼­ ½ºÅ×ÀÌÁö ÁøÇàÇÒ ¼ö ¾øÀ½
- MSG_EX_MONSTERCOMBO_ERROR_ALREADY_START, // ½ºÅ×ÀÌÁö°¡ ÀÌ¹Ì ½ÃÀÛµÇ¾î ¼ÒÈ¯ÇÒ ¼ö ¾øÀ½
+ MSG_EX_MONSTERCOMBO_ERROR_EDIT_COMPLETE_OK, // ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_EDIT_COMPLETE_FAIL, // ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_MONEY,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_FULL,   // ï¿½Þºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_NOT_EDIT,  // ï¿½ï¿½ï¿½ï¿½ï¿½Ï·á°¡ ï¿½Èµï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_NOT_COMPLETE_STAGE, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_DEAD_CHAR,	// ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö¾î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_MONSTERCOMBO_ERROR_ALREADY_START, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ÛµÇ¾ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EX_MONSTERCOMBO_ERROR_TYPE;
 
 typedef enum _tagMsgEffectFireType
@@ -4489,307 +4493,307 @@ typedef enum __tagMsgFactoryErrorType
 
 typedef enum __tagMsgExAffinityType
 {
-	MSG_EX_AFFINITY_CONNECT_REQ,		// ¼¼·Â Ä£±¸ ¸Î±â		: npcidx(n)
-	MSG_EX_AFFINITY_ITEM_CONTRIBUTE_REQ,	// Ä£È­µµ ¾ÆÀÌÅÛ ±âºÎ	: npcidx(n) clientPoint(n) item_count(n) tab_idx(c) row_idx(c) col_idx(c) count(n) 												
-	MSG_EX_AFFINITY_ITEM_CONTRIBUTE_REP,	// Ä£È­µµ ¾ÆÀÌÅÛ ±âºÎ ÀÀ´ä	: affinityidx(n) point(n)	
-	MSG_EX_AFFINITY_SHOPUSE_REQ,		// »óÁ¡ ÀÌ¿ë¿äÃ»		: npcidx(n) 
-	MSG_EX_AFFINITY_SHOPUSE_REP,		// »óÁ¡ ÀÌ¿ëÀÀ´ä		: npcidx(n) 
-	MSG_EX_AFFINITY_GIFTINFO_REQ,		// ´ÙÀ½º¸»óÁ¤º¸ ¿äÃ»	: npcidx(n)
-	MSG_EX_AFFINITY_GIFTINFO_REP,		// ´ÙÀ½º¸»óÁ¤º¸ ÀÀ´ä	: point(n) itemidx(n) item_count(n)
-	MSG_EX_AFFINITY_GIFT_REQ,			// ¼±¹°¹Þ±â ¿äÃ»		: npcidx(n)
-	MSG_EX_AFFINITY_GIFT_REP,			// ¼±¹°¹Þ±â ÀÀ´ä	
-	MSG_EX_AFFINITY_UPDATE_POINT,		// Æ÷ÀÎÆ®°»½Å		: affinityidx(n) poiny(n)
-	MSG_EX_AFFINITY_LISTINFO,			// Ä£È­µµ ¸®½ºÆ® Á¤º¸	: affinity_count(n) affinityidx(n) point(n)
-	MSG_EX_AFFINITY_ADDINFO,			// Ä£È­µµ Ãß°¡ Á¤º¸		: affinityidx(n)
-	MSG_EX_AFFINITY_ERROR,				// Ä£È­µµ°ü·Ã ERROR ¸Þ½ÃÁö : errortype(uc)
-	MSG_EX_AFFINITY_REWARD_NOTICE,		// º¸»ó ¾Ë¸² : noticecount(c) npcidx(n)		[100322: selo] Ãß°¡ÇÔ
-	MSG_EX_AFFINITY_INFOTAB_REQ = 14,		// Ä£È­µµ °³Æí2 Ä£È­µµ º¸»ó Á¤º¸ ¿äÃ» [2/13/2013 Ranma]
-	MSG_EX_AFFINITY_INFOTAB_REP = 15,		// Ä£È­µµ °³Æí2 Ä£È­µµ º¸»ó Á¤º¸ ÀÀ´ä [2/13/2013 Ranma]
+	MSG_EX_AFFINITY_CONNECT_REQ,		// ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ ï¿½Î±ï¿½		: npcidx(n)
+	MSG_EX_AFFINITY_ITEM_CONTRIBUTE_REQ,	// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½	: npcidx(n) clientPoint(n) item_count(n) tab_idx(c) row_idx(c) col_idx(c) count(n) 												
+	MSG_EX_AFFINITY_ITEM_CONTRIBUTE_REP,	// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: affinityidx(n) point(n)	
+	MSG_EX_AFFINITY_SHOPUSE_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ã»		: npcidx(n) 
+	MSG_EX_AFFINITY_SHOPUSE_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½		: npcidx(n) 
+	MSG_EX_AFFINITY_GIFTINFO_REQ,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»	: npcidx(n)
+	MSG_EX_AFFINITY_GIFTINFO_REP,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	: point(n) itemidx(n) item_count(n)
+	MSG_EX_AFFINITY_GIFT_REQ,			// ï¿½ï¿½ï¿½ï¿½ï¿½Þ±ï¿½ ï¿½ï¿½Ã»		: npcidx(n)
+	MSG_EX_AFFINITY_GIFT_REP,			// ï¿½ï¿½ï¿½ï¿½ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	MSG_EX_AFFINITY_UPDATE_POINT,		// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½		: affinityidx(n) poiny(n)
+	MSG_EX_AFFINITY_LISTINFO,			// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½	: affinity_count(n) affinityidx(n) point(n)
+	MSG_EX_AFFINITY_ADDINFO,			// Ä£È­ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½		: affinityidx(n)
+	MSG_EX_AFFINITY_ERROR,				// Ä£È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ERROR ï¿½Þ½ï¿½ï¿½ï¿½ : errortype(uc)
+	MSG_EX_AFFINITY_REWARD_NOTICE,		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : noticecount(c) npcidx(n)		[100322: selo] ï¿½ß°ï¿½ï¿½ï¿½
+	MSG_EX_AFFINITY_INFOTAB_REQ = 14,		// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2 Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» [2/13/2013 Ranma]
+	MSG_EX_AFFINITY_INFOTAB_REP = 15,		// Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½2 Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [2/13/2013 Ranma]
 }MSG_EX_AFFINITY_TYPE;
 
 typedef enum __tagMsgExAffinityErrorType
 {
- MSG_EX_AFFINITY_ERROR_CONNECT_SUCCESS,   // Ä£È­µµ ¿¬°á ¼º°ø
- MSG_EX_AFFINITY_ERROR_CONNECT_NOMONEY,   // ³ª½ººÎÁ·
- MSG_EX_AFFINITY_ERROR_CONNECT_ALREADY,   // ÀÌ¹Ì¼¼·Â Ä£±¸¸ÎÀ½
+ MSG_EX_AFFINITY_ERROR_CONNECT_SUCCESS,   // Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_CONNECT_NOMONEY,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_CONNECT_ALREADY,   // ï¿½Ì¹Ì¼ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  
- MSG_EX_AFFINITY_ERROR_ITEM_CONTRIBUTE_MAX,  // Ä£È­µµ Æ÷ÀÎÆ® ÃÖ´ë·Î Ã¡À½
- MSG_EX_AFFINITY_ERROR_ITEM_CONTRIBUTE_MISSMATCH, // ±âºÎ ºÎÀûÇÕ ¾ÆÀÌÅÛ
+ MSG_EX_AFFINITY_ERROR_ITEM_CONTRIBUTE_MAX,  // Ä£È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ö´ï¿½ï¿½ Ã¡ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_ITEM_CONTRIBUTE_MISSMATCH, // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  
- MSG_EX_AFFINITY_ERROR_USESHOP_POINT,   // »óÁ¡ÀÌ¿ë Æ÷ÀÎÆ® ºÎÁ·
- MSG_EX_AFFINITY_ERROR_GIFTINFO_NOITEM,   // º¸»ó¹ÞÀ» ¾ÆÀÌÅÛÀÌ ¾ø´Ù
- MSG_EX_AFFINITY_ERROR_GIFTINFO_NOPOINT,   // Æ÷ÀÎÆ®ºÎÁ·À¸·Î º¸»ó ¸ø¹ÞÀ½
- MSG_EX_AFFINITY_ERROR_GIFT_NOSPACE,   // ÀÎº¥¿¡ ¾ÆÀÌÅÛ ¹ÞÀ» °ø°£ÀÌ ¾ø´Ù.
- MSG_EX_AFFINITY_ERROR_GIFT_MAXWEIGHT,   // ÀÎº¥ ¹«°Ô ÃÊ°ú
+ MSG_EX_AFFINITY_ERROR_USESHOP_POINT,   // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_GIFTINFO_NOITEM,   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_GIFTINFO_NOPOINT,   // ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_GIFT_NOSPACE,   // ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+ MSG_EX_AFFINITY_ERROR_GIFT_MAXWEIGHT,   // ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
 
- MSG_EX_AFFINITY_ERROR_NOT_CONNECTED,   // Ä£È­µµ°¡ ¿¬°áµÇ¾îÀÖÁö ¾Ê´Ù.
- MSG_EX_AFFINITY_ERROR_CONNECT_PCLEVEL,			// ·¹º§ºÎÁ·
- MSG_EX_AFFINITY_ERROR_CONNECT_NOITEM,			// ¾ÆÀÌÅÛ¾øÀ½
+ MSG_EX_AFFINITY_ERROR_NOT_CONNECTED,   // Ä£È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½.
+ MSG_EX_AFFINITY_ERROR_CONNECT_PCLEVEL,			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ MSG_EX_AFFINITY_ERROR_CONNECT_NOITEM,			// ï¿½ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½
 }MSG_EX_AFFINITY_ERROR_TYPE;
 
-// connie [2009/9/8] - NPC Ã£±â 
+// connie [2009/9/8] - NPC Ã£ï¿½ï¿½ 
 
 typedef enum __tagNpcPortalScroll
 {
-	MSG_NPC_PORTAL_LIST = 0,			// ¸®½ºÆ®¸¦ º¸³»ÁØ´Ù. 
-	MSG_NPC_PORTAL_LOCATION,		// ¼±ÅÃÇÑ NPCÀÇ À§Ä¡¸¦ ³Ñ°ÜÁØ´Ù.
-	MSG_NPC_PORTAL_GO,				// ÀÌµ¿ÇÒ NPC m_npcIdx ¸¦ º¸³»ÁØ´Ù.
+	MSG_NPC_PORTAL_LIST = 0,			// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. 
+	MSG_NPC_PORTAL_LOCATION,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ NPCï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½.
+	MSG_NPC_PORTAL_GO,				// ï¿½Ìµï¿½ï¿½ï¿½ NPC m_npcIdx ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	MSG_NPC_PORTAL_ERROR,
 } MSG_NPC_PORTAL_SCROLL_TYPE;
 
 typedef enum __tagNpcPortalScrollErrorType
 {
 	MSG_NPC_PORTAL_ERROR_SUCESS = 0,
-	MSG_NPC_PORTAL_ERROR_MOB,				// ÇöÀç ÇÊµå¿¡ ÇØ´ç ¸ó½ºÅÍ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
-	MSG_NPC_PORTAL_ERROR_LIST,				// ÀÌ ¾ÆÀÌÅÛÀº ÇöÀç ¿¡¾î¸®¾î¿¡¼­´Â »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù.
+	MSG_NPC_PORTAL_ERROR_MOB,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¿¡ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.
+	MSG_NPC_PORTAL_ERROR_LIST,				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¸®ï¿½î¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 } MSG_NPC_PORTAL_SCROLL_ERROR_TYPE;
 
 typedef enum __tagMsgExLoadingEnd
 {
-	MSG_EX_LODING_END_NPC_PORTAL_USE,		// NPC ½ºÅ©·Ñ »ç¿ë.
+	MSG_EX_LODING_END_NPC_PORTAL_USE,		// NPC ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½.
 }MSG_EX_LOADING_END_TYPE;
 
-// [100208: selo] Äù½ºÆ® ¾ÆÀÌÅÛ ´Ù½Ã ¹Þ±â
+// [100208: selo] ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Þ±ï¿½
 typedef enum __tagMsgExTakeAgainQuestItemType
 {
-	MSG_EX_TAKE_AGAIN_QUEST_ITEM_SUCCESS,	// ¾ÆÀÌÅÛ ¹Þ±â ¼º°ø
+	MSG_EX_TAKE_AGAIN_QUEST_ITEM_SUCCESS,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_EX_TAKE_AGAIN_QUEST_ITEM_ERROR_ALREADY_EXIST,	// ¾ÆÀÌÅÛÀÌ Á¸Àç ÇÔ
+	MSG_EX_TAKE_AGAIN_QUEST_ITEM_ERROR_ALREADY_EXIST,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-	MSG_EX_TAKE_AGAIN_QUEST_ITEM_ERROR_FULL_INVENTORY,	// ÀÎº¥Åä¸®°¡ °¡µæ Âü
+	MSG_EX_TAKE_AGAIN_QUEST_ITEM_ERROR_FULL_INVENTORY,	// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 }MSG_EX_TAKE_AGAIN_QUEST_ITEM_TYPE;
 
 // socket system message define. [4/8/2010 rumist]
 typedef enum __tagMsgExSocketType
 {
-// ¼ÒÄÏ »ý¼º
-	MSG_EX_SOCKET_MAKE_REQ,	// ¼ÒÄÏ »ý¼º ¿äÃ» row1(c) col1(c) item_idx1(n) (Àåºñ¾ÆÀÌÅÛ) row2(c) col2(c) item_idx2(n)(°¡°ø½ºÅ©·Ñ) 
-	MSG_EX_SOCKET_MAKE_REP, // ¼ÒÄÏ »ý¼º ¼º°ø count(c)(¼ÒÄÏ»ý¼º ¼º°ø°³¼ö)
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_SOCKET_MAKE_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» row1(c) col1(c) item_idx1(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) row2(c) col2(c) item_idx2(n)(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½) 
+	MSG_EX_SOCKET_MAKE_REP, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ count(c)(ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-// º¸¼® °áÇÕ
-	MSG_EX_SOCKET_COMBINE_JEWEL_REQ, // º¸¼® °áÇÕ ¿äÃ» row(c) col(c) item_idx(n) (Àåºñ¾ÆÀÌÅÛ) count(c) pos(c) row(c) col(c) item_idx(n) (º¸¼®¾ÆÀÌÅÛ)
-	MSG_EX_SOCKET_COMBINE_JEWEL_REP, // º¸¼® °áÇÕ ¼º°ø
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_SOCKET_COMBINE_JEWEL_REQ, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» row(c) col(c) item_idx(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) count(c) pos(c) row(c) col(c) item_idx(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_EX_SOCKET_COMBINE_JEWEL_REP, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// º¸¼® ¾÷±×·¹ÀÌµå
-	MSG_EX_SOCKET_UPGRADE_JEWEL_REQ,	// º¸¼® ¾÷±×·¹ÀÌµå row1(c) col1(c) item_idx1(n) (º¸¼®¾ÆÀÌÅÛ1) row2(c) col2(c) item_idx2(n) (º¸¼®¾ÆÀÌÅÛ2) row3(c) col3(c) item_idx3(n) (¾ÈÁ¤Á¦)
-	MSG_EX_SOCKET_UPGRADE_JEWEL_REP,	// º¸¼® ¾÷±×·¹ÀÌµå ÀÀ´ä item_db_idx(n) (¾÷±×·¹ÀÌµåµÈ º¸¼®)
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
+	MSG_EX_SOCKET_UPGRADE_JEWEL_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ row1(c) col1(c) item_idx1(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1) row2(c) col2(c) item_idx2(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2) row3(c) col3(c) item_idx3(n) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	MSG_EX_SOCKET_UPGRADE_JEWEL_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ item_db_idx(n) (ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
-	MSG_EX_SOCKET_UPGRADE_JEWEL_CHAOS_REQ,   //(6)Ä«¿À½º º¸¼® ¾÷±×·¹ÀÌµå
-	MSG_EX_SOCKET_UPGRADE_JEWEL_CHAOS_REP,   //(7)Ä«¿À½º º¸¼® ¾÷±×·¹ÀÌµå ÀÀ´ä
+	MSG_EX_SOCKET_UPGRADE_JEWEL_CHAOS_REQ,   //(6)Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½
+	MSG_EX_SOCKET_UPGRADE_JEWEL_CHAOS_REP,   //(7)Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// ¼ÒÄÏ Á¤º¸ ¿äÃ»
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_EX_SOCKET_INFO_REQ,		// row(c) col(c) item_idx(n)
-	MSG_EX_SOCKET_INFO_REP,		// count(c) pos(c) (¼ÒÄÏÀ§Ä¡) jeweldbidx(n) (º¸¼®ÀÎµ¦½º)
+	MSG_EX_SOCKET_INFO_REP,		// count(c) pos(c) (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡) jeweldbidx(n) (ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½)
 
-// ¼ÒÄÏ ºñ¿ì±â ¿äÃ»
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	MSG_EX_SOCKET_CLEAN_JEWEL_REQ,	// row(c) col(c) item_idx(n)
-	MSG_EX_SOCKET_CLEAN_JEWEL_REP,  // ¼ÒÄÏ ºñ¿ì±â ¼º°ø
+	MSG_EX_SOCKET_CLEAN_JEWEL_REP,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-// ¿¡·¯¸Þ½ÃÁö
-	MSG_EX_SOCKET_ERROR,		// ¿¡·¯¸Þ½ÃÁö errorcode(c)
-	MSG_EX_SOCKET_CLEAN_ONE_JEWEL_REQ, // B0418 ¼ÒÄ¹ ½Ã½ºÅÛ °³Æí º¸¼® ÇÏ³ª Á¦°Å [3/28/2013 Ranma]
+// ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½
+	MSG_EX_SOCKET_ERROR,		// ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ errorcode(c)
+	MSG_EX_SOCKET_CLEAN_ONE_JEWEL_REQ, // B0418 ï¿½ï¿½Ä¹ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ [3/28/2013 Ranma]
 }MSG_EX_SOCKET_TYPE;
 
 
 typedef enum __tagMsgExSocketErrorType
 {
-	MSG_EX_SOCKET_ERROR_ITEM_MISSMATCH,	// ¿Ã¹Ù¸¥ ¾ÆÀÌÅÛÀÌ ¾Æ´Õ´Ï´Ù.
-	MSG_EX_SOCKET_ERROR_FAILED_MAKE,	// ¼ÒÄÏ »ý¼º ½ÇÆÐ
-	MSG_EX_SOCKET_ERROR_NOMONEY,		// µ· ¾øÀ½	
-	MSG_EX_SOCKET_ERROR_MAX_SOCKET,		// º¸¼® °áÇÕ½Ã ¼ÒÄÏ °³¼ö ÃÊ°ú
-	MSG_EX_SOCKET_ERROR_INVEN_NOSPACE,	// ÀÎº¥°ø°£ ºÎÁ·
-	MSG_EX_SOCKET_ERROR_NOWEARITEM,		// ¹«±â ¹æ¾î±¸¸¸ÇÒ ¼ö ÀÖ´Â ÀÛ¾÷ÀÔ´Ï´Ù.
-	MSG_EX_SOCKET_ERROR_NOSPACE,		// ¼ÒÄÏÀÌ ¾ø´Â ¾ÆÀÌÅÛÀ¸·Î´Â ÀÛ¾÷À» ÁøÇàÇÒ ¼ö ¾ø½À´Ï´Ù
-	MSG_EX_SOCKET_ERROR_NOJEWEL,		// ¼ÒÄÏÀÌ ºñ¿öÀÖ´Â ¾ÆÀÌÅÛÀº ÀÛ¾÷À» ÁøÇàÇÒ ¼ö ¾ø½À´Ï´Ù
-	MSG_EX_SOCKET_ERROR_FAILED_COMBINE = 9, // º¸¼® ÀåÂø ½ÇÆÐ
+	MSG_EX_SOCKET_ERROR_ITEM_MISSMATCH,	// ï¿½Ã¹Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	MSG_EX_SOCKET_ERROR_FAILED_MAKE,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_SOCKET_ERROR_NOMONEY,		// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	MSG_EX_SOCKET_ERROR_MAX_SOCKET,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½
+	MSG_EX_SOCKET_ERROR_INVEN_NOSPACE,	// ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_SOCKET_ERROR_NOWEARITEM,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î±¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Û¾ï¿½ï¿½Ô´Ï´ï¿½.
+	MSG_EX_SOCKET_ERROR_NOSPACE,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_SOCKET_ERROR_NOJEWEL,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+	MSG_EX_SOCKET_ERROR_FAILED_COMBINE = 9, // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EX_SOCKET_ERROR_TYPE;
 
 typedef enum __tagMsgCostume2SystemType
 {	
-	MSG_EX_COSTUME2_SYSTEM_ERROR,	// ÄÚ½ºÆ¬2 ¿¡·¯ : (uc)ErrorType
-	MSG_EX_COSTUEM2_WEARING,		// ´Ù¸¥ Ä³¸¯ÅÍÀÇ ÄÚ½ºÆ¬2 ¾ÆÀÌÅÛ ÀÔ±â/¹þ±â : (n)cha_index, (uc)wear_pos, (n)item_index
-	MSG_EX_COSTUME2_PREINVENINFO,	// ÄÚ½ºÆ¬2 Âø¿ë Á¤º¸ ÀüÃ¼ ¹Þ±â(ÀÎº¥Åä¸® ¸Þ½ÃÁö ¹Þ±âÀü¿¡ ¹ÞÀ½) : (uc)wear_pos, (n)uni_index, (n)item_index
-	MSG_EX_COSTUME2_WEARING_SUIT,	// ÇÑ¹úÀÇ»ó ÀÔ±â added by sam 11/02/01[SAM]
-	MSG_EX_COSTUME2_PREINVENINFO_SUIT,// ÇÑ¹úÀÇ»ó ÇÁ¸®ÀÎº¥ added by sam 11/02/01[SAM]
+	MSG_EX_COSTUME2_SYSTEM_ERROR,	// ï¿½Ú½ï¿½Æ¬2 ï¿½ï¿½ï¿½ï¿½ : (uc)ErrorType
+	MSG_EX_COSTUEM2_WEARING,		// ï¿½Ù¸ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô±ï¿½/ï¿½ï¿½ï¿½ï¿½ : (n)cha_index, (uc)wear_pos, (n)item_index
+	MSG_EX_COSTUME2_PREINVENINFO,	// ï¿½Ú½ï¿½Æ¬2 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½Þ±ï¿½(ï¿½Îºï¿½ï¿½ä¸® ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) : (uc)wear_pos, (n)uni_index, (n)item_index
+	MSG_EX_COSTUME2_WEARING_SUIT,	// ï¿½Ñ¹ï¿½ï¿½Ç»ï¿½ ï¿½Ô±ï¿½ added by sam 11/02/01[SAM]
+	MSG_EX_COSTUME2_PREINVENINFO_SUIT,// ï¿½Ñ¹ï¿½ï¿½Ç»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ added by sam 11/02/01[SAM]
 } MSG_EX_COSTUME2_SYSTEM_TYPE;
 
 typedef enum _tagMsgTeachRenewerGiftErrorType
 {
-	MSG_TEACH_GIFT_ERROR,			// ÈÄ°ßÀÎ ½Ã½ºÅÛ : º¸»ó ½ÇÆÐ
-	MSG_TEACH_GIFT_SUC,				// ÈÄ°ßÀÎ ½Ã½ºÅÛ : º¸»ó ¼º°ø
-	MSG_TEACH_GIFT_NOMORE,			// ÈÄ°ßÀÎ ½Ã½ºÅÛ : ÀÌ¹Ì Áö±Þ ¿Ï·á
+	MSG_TEACH_GIFT_ERROR,			// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_GIFT_SUC,				// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_TEACH_GIFT_NOMORE,			// ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ : ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 } MSG_TEACH_RENEWER_GIFT_ERROR_TYPE;
 
 typedef enum _tagMsgEventPromotion2Type
 {
-	MSG_EVENT_PROMOTION2_COUPON_USE_REQ,		// ÄíÆù »ç¿ë : str(cuponKey)
-	MSG_EVENT_PROMOTION2_COUPON_USE_REP,		// ÄíÆù »ç¿ë ´äº¯: MSG_EVENT_PROMOTIN2_REP_ERROR_TYPE
+	MSG_EVENT_PROMOTION2_COUPON_USE_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : str(cuponKey)
+	MSG_EVENT_PROMOTION2_COUPON_USE_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½äº¯: MSG_EVENT_PROMOTIN2_REP_ERROR_TYPE
 }MSG_EVENT_PROMOTIN2_TYPE;
 
 typedef enum _tagMsgEventPromotion2RepErrorType
 {
-	MSG_EVENT_PROMOTION2_REP_ERROR_FAIL,		// ½ÇÆÐ ( Áö±ÝÀº ÄíÆù ¹ß±Þ ½Ã½ºÅÛÀ» »ç¿ëÇÒ ¼ö ¾ø½À´Ï´Ù. )
-	MSG_EVENT_PROMOTION2_REP_ERROR_SUC,			// ÄíÆù »ç¿ë °¡´É (¹Ù·Î »óÇ° Áö±Þ )
-	MSG_EVENT_PROMOTION2_REP_ERROR_KEY,			// µî·ÏµÇÁö ¾ÊÀº ÄíÆù
-	MSG_EVENT_PROMOTION2_REP_ERROR_USED,		// ÀÌ¹Ì »ç¿ëÇÑ ÄíÆù.
-	MSG_EVENT_PROMOTION2_REP_ERROR_USER,		// ÄíÆùÀ» »ç¿ëÇÒ ¼ö ¾ø´Â À¯Àú°¡ »ç¿ë.
-	MSG_EVENT_PROMOTION2_REP_ERROR_DATE,		// »ç¿ë ±â°£ÀÌ Áö³µÀ½.
+	MSG_EVENT_PROMOTION2_REP_ERROR_FAIL,		// ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß±ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. )
+	MSG_EVENT_PROMOTION2_REP_ERROR_SUC,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ù·ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ )
+	MSG_EVENT_PROMOTION2_REP_ERROR_KEY,			// ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_PROMOTION2_REP_ERROR_USED,		// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_EVENT_PROMOTION2_REP_ERROR_USER,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	MSG_EVENT_PROMOTION2_REP_ERROR_DATE,		// ï¿½ï¿½ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 }MSG_EVENT_PROMOTION2_REP_ERROR_TYPE;
 
 typedef enum _tagMsgExCastllanType
 {
-	MSG_EX_CASTLLAN_GIVE_ITEM_REQ,		// ¼ºÁÖ ¾ÆÀÌÅÛ ¿äÃ». 
-	MSG_EX_CASTLLAN_GIVE_ITEM_REP,		// ¼ºÁÖ ¾ÆÀÌÅÛ ¿äÃ» ´äº¯
-	MSG_EX_CASTLLAN_ERROR,				// ¼ºÁÖ ÄÚ½ºÆ¬ ¿¡·¯
-	MSG_EX_CASTLLAN_GIVE_ITEM_GUILD_COSTUME_REQ,	// ¼ºÁÖ ±æµå ÄÚ½ºÆ¬ ¾ÆÀÌÅÛ ¿äÃ»(Ãß°¡)
-	MSG_EX_CASTLLAN_GIVE_ITEM_GUILD_TITLE_REQ,	// ¼ºÁÖ ±æµå È£Äª ¾ÆÀÌÅÛ ¿äÃ»(Ãß°¡)
+	MSG_EX_CASTLLAN_GIVE_ITEM_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã». 
+	MSG_EX_CASTLLAN_GIVE_ITEM_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½äº¯
+	MSG_EX_CASTLLAN_ERROR,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_CASTLLAN_GIVE_ITEM_GUILD_COSTUME_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½Æ¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(ï¿½ß°ï¿½)
+	MSG_EX_CASTLLAN_GIVE_ITEM_GUILD_TITLE_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È£Äª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(ï¿½ß°ï¿½)
 	
 }MSG_EX_CASTLLAN_TYPE;
 
 typedef enum _tagMsgExCastllanErrorType
 {
-	MSG_EX_CASTLLAN_ERROR_GIVE_ITEM_ERROR,	// Áö±ÞÇÒ ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù.
-	MSG_EX_CASTLLAN_ERROR_GIVE_ITEM_SUC,	// ¼ºÁÖ ¾ÆÀÌÅÛ Áö±Þ ¼º°ø.
-	MSG_EX_CASTLLAN_ERROR_NOT_CASTLLAN,		// ¼ºÁÖ°¡ ¾Æ´Õ´Ï´Ù.	
-	MSG_EX_CASTLLAN_ERROR_NOT_CASTLLAN_GUILD, 	// ¼ºÁÖ±æµå°¡ ¾Æ´Õ´Ï´Ù. (Ãß°¡)
+	MSG_EX_CASTLLAN_ERROR_GIVE_ITEM_ERROR,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_CASTLLAN_ERROR_GIVE_ITEM_SUC,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MSG_EX_CASTLLAN_ERROR_NOT_CASTLLAN,		// ï¿½ï¿½ï¿½Ö°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.	
+	MSG_EX_CASTLLAN_ERROR_NOT_CASTLLAN_GUILD, 	// ï¿½ï¿½ï¿½Ö±ï¿½å°¡ ï¿½Æ´Õ´Ï´ï¿½. (ï¿½ß°ï¿½)
 }MSG_EX_CASTLLAN_ERROR_TYPE;
 
 typedef enum __tagMsgExRankingType
 {
-	MSG_EX_RANKING_LIST_REQ,				// ¸®½ºÆ® ¿äÃ» type(n)
-	MSG_EX_RANKING_ERROR_LIST_SUCCESS,		// ¸®½ºÆ® ¿äÃ» ¼º°ø type(n), count(n), rank(n), name(s), job(n), job2(n), date(un), extra(n)
-	MSG_EX_RANKING_ERROR_LIST_FAIL,			// ¸®½ºÆ® ¿äÃ» ½ÇÆÐ 
-	MSG_EX_RANKING_ERROR_MSG_RANKED,		// ·©Å© µÇ¾úÀ½ ¸Þ½ÃÁö 
+	MSG_EX_RANKING_LIST_REQ,				// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» type(n)
+	MSG_EX_RANKING_ERROR_LIST_SUCCESS,		// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ type(n), count(n), rank(n), name(s), job(n), job2(n), date(un), extra(n)
+	MSG_EX_RANKING_ERROR_LIST_FAIL,			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EX_RANKING_ERROR_MSG_RANKED,		// ï¿½ï¿½Å© ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ 
 }MSG_EX_RANKING_TYPE;
 
 
-// ·©Å· ½Ã½ºÅÛ °³Æí : ÆÐÅ¶ ºÐ·ù
+// ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Å¶ ï¿½Ð·ï¿½
 typedef enum _tagRankingSystemEx
 {
-	MSG_EX_RANKING_LIST,					// (c->s) (uc)type(·¹º§¸¶½ºÅÍ, Á÷¾÷·©Ä¿), (uc)subtype(Á÷¾÷)
+	MSG_EX_RANKING_LIST,					// (c->s) (uc)type(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿), (uc)subtype(ï¿½ï¿½ï¿½ï¿½)
 											// (s->c) (uc)type, (uc)subtype, (int)total_count, (int)list_count, (str)name, (int)ranking, (int)ranking_pre, (int)exp, (int)exp_pre, (int)level, (uc)job, (str)date.....
-	MSG_EX_RANKING_SEARCH,					// (c->s) (uc)type(·¹º§¸¶½ºÅÍ, Á÷¾÷·©Ä¿), (uc)subtype(Á÷¾÷), (string)name(ÀÌ¸§)
+	MSG_EX_RANKING_SEARCH,					// (c->s) (uc)type(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿), (uc)subtype(ï¿½ï¿½ï¿½ï¿½), (string)name(ï¿½Ì¸ï¿½)
 											// (s->c) (uc)type, (uc)subtype, (int)list_count, (str)name, (int)ranking, (int)ranking_pre, (int)exp, (int)exp_pre, (int)level, (uc)job, (str)date.....
 	MSG_EX_RANKING_REFRESH,					// (s->c)
 	MSG_EX_RANKING_ERROR,					// (c->s) (uc)type
 }MSG_EX_RANKING_SYSTEM_EX_TYPE;
 
-// ·©Å· ½Ã½ºÅÛ °³Æí : ·©Å· ¿À·ù
+// ï¿½ï¿½Å· ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½
 typedef enum _tagRankingSystemExError						
 {						
-	MSG_EX_RANKING_SYSTEM_ERROR,				// (s->c) DB ¿¡·¯
-	MSG_EX_RANKING_SYSTEM_ERROR_NOT_EXIST,		// (s->c) °Ë»öÇÑ À¯Àú°¡ Á¸ÀçÇÏÁö ¾ÊÀ½
-	MSG_EX_RANKING_SYSTEM_ERROR_REFRESH_TIME,	// (s->c) ÇöÀç ·©Å· Á¤º¸ °»½Å Áß
+	MSG_EX_RANKING_SYSTEM_ERROR,				// (s->c) DB ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_RANKING_SYSTEM_ERROR_NOT_EXIST,		// (s->c) ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_RANKING_SYSTEM_ERROR_REFRESH_TIME,	// (s->c) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 }MSG_EX_RANKING_SYSTEM_EX_ERROR_TYPE;
 
 typedef enum _tagMsgExFaceOffType
 {
 	MSG_EX_FACEOFF_UIOPEN_REQ,
 	MSG_EX_FACEOFF_REQ,		// hairStyle(u char), faceStyle(u char)
-	MSG_EX_FACEOFF_REP,		// ¼º°ø (1, hairStyle(u char), faceStyle(u char)) ½ÇÆÐ(-1)
+	MSG_EX_FACEOFF_REP,		// ï¿½ï¿½ï¿½ï¿½ (1, hairStyle(u char), faceStyle(u char)) ï¿½ï¿½ï¿½ï¿½(-1)
 }MSG_EX_FACEOFF_TYPE;
 
 typedef enum _tagMsgExFaceOffErrorType
 {
 	MSG_EX_FACEOFF_ERROR_SUC,			// hairStyle(u char), faceStyle(u char)
-	MSG_EX_FACEOFF_ERROR_PLZ_CHOISE,	// ÇöÀç¿Í µ¿ÀÏÇÑ ¿Ü¸ð ¼±ÅÃ ½Ã,
-	MSG_EX_FACEOFF_ERROR_FAIL,			// ¼ºÇü ¾ÆÀÌÅÛÀÌ ¾øÀ» ¶§, 
+	MSG_EX_FACEOFF_ERROR_PLZ_CHOISE,	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½,
+	MSG_EX_FACEOFF_ERROR_FAIL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, 
 }MSG_EX_FACEOFF_ERROR_TYPE;
 
-// [selo: 110104] ¸Þ½ÃÁö ¹Ú½º
+// [selo: 110104] ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½
 typedef enum __tagMsgExMsgBoxType
 {
-	MSG_EX_MSGBOX_INVEN_FULL,				// ÀÎº¥Åä¸® °¡µæÂü
-	MSG_EX_MSGBOX_INVEN_WEIGHT_100,			// ÀÎº¥Åä¸® ¹«°Ô°¡ 100 ÇÁ·Î ³ÑÀ½
-	MSG_EX_MSGBOX_CHANGE_START_POINT,	// req(c) È®ÀÎ(1), Ãë¼Ò(0): ½Å±ÔÄ³¸¯ÅÍ ½ÃÀÛÁöÁ¡ º¯°æ¿äÃ»
+	MSG_EX_MSGBOX_INVEN_FULL,				// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_MSGBOX_INVEN_WEIGHT_100,			// ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½Ô°ï¿½ 100 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_MSGBOX_CHANGE_START_POINT,	// req(c) È®ï¿½ï¿½(1), ï¿½ï¿½ï¿½(0): ï¿½Å±ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã»
 }MSG_EX_MSGBOX_TYPE;
 
 // lacaball meesage type. [1/11/2011 rumist]
 typedef enum __tagMsgExMsgLCBall
 {
-  MSG_EX_LCBALL_INFO,          // ÇöÀç »óÅÂ¸¦ ¿äÃ» or ¹ÞÀ½
-  MSG_EX_LCBALL_USE,           // ¶óÄ«º¼ »ç¿ëÇÏ±â
-  MSG_EX_LCBALL_MSG,           // ¶óÄ«º¼ ¸ÞÀÎ»óÇ°¿¡ ´çÃ·µÇ¾úÀ»¶§ Àü ¼­¹ö °øÁö
+  MSG_EX_LCBALL_INFO,          // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½Ã» or ï¿½ï¿½ï¿½ï¿½
+  MSG_EX_LCBALL_USE,           // ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+  MSG_EX_LCBALL_MSG,           // ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Î»ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½Ã·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_EX_LCBALL_TYPE;
 
-// ÈÞ¸é °èÁ¤ º¸»ó ÀÌº¥Æ®
+// ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 typedef enum _tagMsgEventUserComebackErrorType
 {
-	MSG_EVENT_USER_COMEBACK_ERROR_SUC,					// ¼º°ø 
-	MSG_EVENT_USER_COMEBACK_ERROR_NO_MORE,				// ¹ú½á ¹Þ¾ÒÀ½.
-	MSG_EVENT_USER_COMEBACK_ERROR_NOT_USER,				// ÇØ´ç À¯Àú°¡ ¾Æ´Ô.
-	MSG_EVENT_USER_COMEBACK_ERROR_NOT_CHANNEL,			// º¸»ó ¹ÞÀ» ¼ö ÀÖ´Â Ã¤³ÎÀÌ ¾Æ´Õ´Ï´Ù.
+	MSG_EVENT_USER_COMEBACK_ERROR_SUC,					// ï¿½ï¿½ï¿½ï¿½ 
+	MSG_EVENT_USER_COMEBACK_ERROR_NO_MORE,				// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ï¿½ï¿½.
+	MSG_EVENT_USER_COMEBACK_ERROR_NOT_USER,				// ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½.
+	MSG_EVENT_USER_COMEBACK_ERROR_NOT_CHANNEL,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
 
 }MSG_EVENT_USER_COMEBACK_ERROR_TYPE;
 
-// »ýÀÏ ÀÌº¥Æ®
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 typedef enum _tagMsgEventCharBirthdayType
 {
-	MSG_EVENT_CHAR_BIRTHDAY_GIFT_REQ,					// ¼±¹° ¿äÃ» 
-	MSG_EVENT_CHAR_BIRTHDAY_GIFT_REP,					// ¼±¹° ¿äÃ» ´äº¯ MSG_EVENT_CHAR_BIRTHDAY_ERROR_TYPE(char)
-	MSG_EVENT_CHAR_BIRTHDAY_BDAY_REQ,					// »ýÀÏ ¿äÃ» 
-	MSG_EVENT_CHAR_BIRTHDAY_BDAY_REP,					// »ýÀÏ ¿äÃ» ´äº¯ year(int), month(char), day(char), giftflag(char)
+	MSG_EVENT_CHAR_BIRTHDAY_GIFT_REQ,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+	MSG_EVENT_CHAR_BIRTHDAY_GIFT_REP,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½äº¯ MSG_EVENT_CHAR_BIRTHDAY_ERROR_TYPE(char)
+	MSG_EVENT_CHAR_BIRTHDAY_BDAY_REQ,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+	MSG_EVENT_CHAR_BIRTHDAY_BDAY_REP,					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½äº¯ year(int), month(char), day(char), giftflag(char)
 }MSG_EVENT_CHAR_BIRTHDAY_TYPE;
 
 typedef enum _tagMsgEventCharBirthdayErrorType
 {
-	MSG_EVENT_CHAR_BIRTHDAY_ERROR_SUC,					// ¼º°ø
-	MSG_EVENT_CHAR_BIRTHDAY_ERROR_FAIL,					// ÀÌ¹Ì ¹Þ¾Ò°Å³ª. ¾ÆÁ÷ »ýÀÏ ¼±¹°À» ¹ÞÀ» ¼ö ¾ø½À´Ï´Ù.
+	MSG_EVENT_CHAR_BIRTHDAY_ERROR_SUC,					// ï¿½ï¿½ï¿½ï¿½
+	MSG_EVENT_CHAR_BIRTHDAY_ERROR_FAIL,					// ï¿½Ì¹ï¿½ ï¿½Þ¾Ò°Å³ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 }MSG_EVENT_CHAR_BIRTHDAY_ERROR_TYPE;
 
 typedef enum __tagMsgExMsgRoyalRumble
 {
-    MSG_EX_ROYAL_RUMBLE_PLAYER_REQ,            // (0)(c->s) ¼±¼öµî·Ï ¿äÃ» 
-    MSG_EX_ROYAL_RUMBLE_PLAYER_REP,            // (1)(s->c) ¼±¼öµî·Ï ÀÀ´ä 0:¼º°ø, 1:µ·¾øÀ½, 2:¼±¼öµî·ÏÀÌ ºÒ°¡´É ÇÕ´Ï´Ù. 
-    MSG_EX_ROYAL_RUMBLE_NOTICE,                // (2)(s->c) (uc)command 0:½ÅÃ»½Ã°£ÀÔ´Ï´Ù. 1:5ºÐ³²¾Ò½À´Ï´Ù. 2:Á¾·áµÇ¾ú½À´Ï´Ù.
-    MSG_EX_ROYAL_RUMBLE_REG_MENU,              // (3)(s->c) ¼±¼öµî·Ï ½Ã°£ ¾Ë¸² ¸Þ´º charpreplay¿¡¼­ º¸³¿
-    MSG_EX_ROYAL_RUMBLE_PLAYER_UNREGIST_REQ,   // (4)(c->s) ¼±¼öµî·Ï Ãë¼Ò ¿äÃ»
-    MSG_EX_ROYAL_RUMBLE_PLAYER_UNREGIST_REP,   // (5)(s->c) ¼±¼öµî·Ï Ãë¼Ò ÀÀ´ä (uc)command 0:Ãë¼Ò¼º°ø, 1:Ãë¼ÒÇÒ ¼ö ÀÖ´Â ½Ã°£ÀÌ ¾Æ´Õ´Ï´Ù., 2:µî·ÏÀÚ¸í´Ü¿¡ ¾ø½À´Ï´Ù
-    MSG_EX_ROYAL_RUMBLE_PLAYER_REG_RESULT,     // (6)(s->c) (uc)command 0:¾Æ¹«°Íµµ¾Æ´Ñ»óÅÂ, 1:¼±ÅÃµÇ¾úÀ½, 2:Å»¶ô, 3:°æ±âDRAW
-    MSG_EX_ROYAL_RUMBLE_GO_ZONE,               // (7)(s->c) °æ±â½ÃÀÛ 1ºÐ Àü royal rumble Á¸À¸·Î ÀÌµ¿ÇÏ¶ó´Â ¸Þ½ÃÁö ¹ß¼Û
-    MSG_EX_ROYAL_RUMBLE_ENTER_NEXT_PLAYER,     // (8)(s->c) (n)second nÃÊÈÄ ´ÙÀ½ ¼±¼ö°¡ ÅõÀÔµË´Ï´Ù.
+    MSG_EX_ROYAL_RUMBLE_PLAYER_REQ,            // (0)(c->s) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» 
+    MSG_EX_ROYAL_RUMBLE_PLAYER_REP,            // (1)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½Õ´Ï´ï¿½. 
+    MSG_EX_ROYAL_RUMBLE_NOTICE,                // (2)(s->c) (uc)command 0:ï¿½ï¿½Ã»ï¿½Ã°ï¿½ï¿½Ô´Ï´ï¿½. 1:5ï¿½Ð³ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½. 2:ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+    MSG_EX_ROYAL_RUMBLE_REG_MENU,              // (3)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½Ë¸ï¿½ ï¿½Þ´ï¿½ charpreplayï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    MSG_EX_ROYAL_RUMBLE_PLAYER_UNREGIST_REQ,   // (4)(c->s) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+    MSG_EX_ROYAL_RUMBLE_PLAYER_UNREGIST_REP,   // (5)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (uc)command 0:ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½., 2:ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½Ü¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+    MSG_EX_ROYAL_RUMBLE_PLAYER_REG_RESULT,     // (6)(s->c) (uc)command 0:ï¿½Æ¹ï¿½ï¿½Íµï¿½ï¿½Æ´Ñ»ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½, 2:Å»ï¿½ï¿½, 3:ï¿½ï¿½ï¿½DRAW
+    MSG_EX_ROYAL_RUMBLE_GO_ZONE,               // (7)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ royal rumble ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï¶ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß¼ï¿½
+    MSG_EX_ROYAL_RUMBLE_ENTER_NEXT_PLAYER,     // (8)(s->c) (n)second nï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµË´Ï´ï¿½.
     MSG_EX_ROYAL_RUMBLE_HOLD,                  // (9)(s->c) (uc) boolean 0:not hold 1:hold
     MSG_EX_ROYAL_RUMBLE_WINNER,                // (10)(s->c) (n)leveltype 0:rookie, 1:senior, 2:master, (str)nick
-    MSG_EX_ROYAL_RUMBLE_REWARD_REQ,            // (11)(c->s) º¸»ó¿äÃ»
-    MSG_EX_ROYAL_RUMBLE_REWARD_REP,            // (12)(s->c) º¸»óÀÀ´ä ´ç½ÅÀº ´ë»óÀÚ°¡ ¾Æ´Õ´Ï´Ù.
-    MSG_EX_ROYAL_RUMBLE_POINT_REQ,             // (13)(c->s) ÀüÀåÆ÷ÀÎÆ® Á¶È¸ ¿äÃ»
-    MSG_EX_ROYAL_RUMBLE_POINT_REP,             // (14)(s->c) ÀüÀåÆ÷ÀÎÆ® Á¶È¸ ÀÀ´ä
-	MSG_EX_ROYAL_RUMBLE_TIME_REQ,              // (15)(c->s) ·Î¾â·³ºí °æ±â½Ã°£È®ÀÎ ¿äÃ»
-    MSG_EX_ROYAL_RUMBLE_TIME_REP,              // (16)(s->c) ·Î¾â·³ºí °æ±â½Ã°£È®ÀÎ ÀÀ´ä
-	MSG_EX_ROYAL_RUMBLE_LEFT_COUNT,            // (s->c) ·Î¾â·³ºí ³²Àº ÀÎ¿ø Ä«¿îÆ® ¸Þ½ÃÁö
-    MSG_EX_ROYAL_RUMBLE_TIME_NOTICE,           // (s->c) ·Î¾â·³ºí ³²Àº ½Ã°£ 
-	MSG_EX_ROYAL_RUMBLE_NOTFOUND_ITEM,         // (s->c) ¾ÆÀÌÅÛ ¾ø¾î¼­ Á¸ÀÌµ¿À» ¸øÇØ¿ä~              (½Å±ÔÃß°¡)
-    MSG_EX_ROYAL_RUMBLE_KILL_PLAYER,           // (s->c) ´©°¡ ´©±¸¸¦ Á×¿´´ÂÁö ÀüÅõ¸Þ½ÃÁö Ã¢¿¡ Ç¥½Ã   (½Å±ÔÃß°¡)
+    MSG_EX_ROYAL_RUMBLE_REWARD_REQ,            // (11)(c->s) ï¿½ï¿½ï¿½ï¿½ï¿½Ã»
+    MSG_EX_ROYAL_RUMBLE_REWARD_REP,            // (12)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+    MSG_EX_ROYAL_RUMBLE_POINT_REQ,             // (13)(c->s) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ ï¿½ï¿½Ã»
+    MSG_EX_ROYAL_RUMBLE_POINT_REP,             // (14)(s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_ROYAL_RUMBLE_TIME_REQ,              // (15)(c->s) ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½È®ï¿½ï¿½ ï¿½ï¿½Ã»
+    MSG_EX_ROYAL_RUMBLE_TIME_REP,              // (16)(s->c) ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_ROYAL_RUMBLE_LEFT_COUNT,            // (s->c) ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ Ä«ï¿½ï¿½Æ® ï¿½Þ½ï¿½ï¿½ï¿½
+    MSG_EX_ROYAL_RUMBLE_TIME_NOTICE,           // (s->c) ï¿½Î¾â·³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 
+	MSG_EX_ROYAL_RUMBLE_NOTFOUND_ITEM,         // (s->c) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½~              (ï¿½Å±ï¿½ï¿½ß°ï¿½)
+    MSG_EX_ROYAL_RUMBLE_KILL_PLAYER,           // (s->c) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ Ç¥ï¿½ï¿½   (ï¿½Å±ï¿½ï¿½ß°ï¿½)
 }MSG_EX_ROYAL_RUMBLE_TYPE;
 
 typedef enum _tagMsgGMCommandNoticeType
 {
-	MSG_GM_COMMAND_NOTICE_KICK,			// Å±(°­Á¦ Á¾·á)
-	MSG_GM_COMMAND_NOTICE_SILENCE,		// Ã¤ÆÃ ±ÝÁö
+	MSG_GM_COMMAND_NOTICE_KICK,			// Å±(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	MSG_GM_COMMAND_NOTICE_SILENCE,		// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_GM_COMMAND_NOTICE_TYPE;
 
 typedef enum _tagMsgExTreasureMapKeyExchangeError
 {
-	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_SUC, // ±³È¯ ¼º°ø
-	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_FAIL,	// Áö±ÝÀº ±³È¯ÇÒ ¼ö ¾ø½À´Ï´Ù. (¾ÆÀÌÅÛÀ» »ý¼º ÇÒ ¼ö ¾øÀ»¶§
-	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_ITEM,	// ±³È¯ÇÒ ¿­¼è ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù.
-	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_COUNT,// ±³È¯ÇÒ ¿­¼è ¾ÆÀÌÅÛÀÇ °¹¼ö°¡ ºÎÁ·ÇÔ.
+	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_SUC, // ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_FAIL,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_ITEM,	// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_COUNT,// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 }MSG_EX_TRS_MAP_KEY_EXCHANGE_ERROR_TYPE;
 typedef enum _tagMsgPostSystemType
 {
-	MSG_USERSERVER_POST_SYSTEM_MAIL_LIST_REQ,	// ¿ìÆí ¸®½ºÆ® ¿äÃ»
-	MSG_USERSERVER_POST_SYSTEM_MAIL_LIST_REP,	// ¿ìÆí ¸®½ºÆ® ÀÀ´ä
-	MSG_USERSERVER_POST_SYSTEM_MAIL_SEND_REQ,	// ¿ìÆí º¸³»±â ¿äÃ»
-	MSG_USERSERVER_POST_SYSTEM_MAIL_SEND_REP,	// ¿ìÆí º¸³»±â ÀÀ´ä
-	MSG_USERSERVER_POST_SYSTEM_MAIL_READ_REQ,	// ¿ìÆí ÀÐ±â ¿äÃ»
-	MSG_USERSERVER_POST_SYSTEM_MAIL_READ_REP,	// ¿ìÆí ÀÐ±â ÀÀ´ä
-	MSG_USERSERVER_POST_SYSTEM_MAIL_DEL_REQ,	// ¿ìÆí »èÁ¦ ¿äÃ»
-	MSG_USERSERVER_POST_SYSTEM_MAIL_DEL_REP,	// ¿ìÆí »èÁ¦ ÀÀ´ä
+	MSG_USERSERVER_POST_SYSTEM_MAIL_LIST_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	MSG_USERSERVER_POST_SYSTEM_MAIL_LIST_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_SEND_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_USERSERVER_POST_SYSTEM_MAIL_SEND_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_READ_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½Ã»
+	MSG_USERSERVER_POST_SYSTEM_MAIL_READ_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_DEL_REQ,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_USERSERVER_POST_SYSTEM_MAIL_DEL_REP,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_ACK,	// ¿ìÆí Ã·ºÎÆÄÀÏ Á¤º¸
-	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_REQ,	// ¿ìÃ· ºÎÆÄÀÏ ÀÎº¥ ³Ö±â
-	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_REP,	// ¿ìÆí Ã·ºÎÆÄÀÏ ÀÎº¥ ³Ö±â ÀÀ´ä
-	MSG_USERSERVER_POST_SYSTEM_MAIL_DISCONNECT, // SubHelper¿Í ¿¬°á ²÷±â
+	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_ACK,	// ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_REQ,	// ï¿½ï¿½Ã· ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½Ö±ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_ATTACH_REP,	// ï¿½ï¿½ï¿½ï¿½ Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½
+	MSG_USERSERVER_POST_SYSTEM_MAIL_DISCONNECT, // SubHelperï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }MSG_POST_SYSTEM_TYPE;
 typedef enum _tagMsgEXPostSystemType
 {
@@ -4797,46 +4801,46 @@ typedef enum _tagMsgEXPostSystemType
 }MSG_EX_POST_SYSTEM_TYPE;
 typedef enum _tagMsgExShutdownType // SHUTDOWN
 {
-	MSG_EX_SHUTDOWN_REMAIN,							// Shut Down ½Ã°£±îÁö %dºÐ ³²¾Ò½À´Ï´Ù.
-	MSG_EX_SHUTDOWN_COUNTDOWN,						// Shut Down ½ÃÀÛ±îÁö %dÃÊ ³²¾Ò½À´Ï´Ù. ÇØ´çµÇ½Ã´Â À¯Àú ºÐµéÀº Ä³¸¯ÅÍ¸¦ ¾ÈÀüÇÑ Áö¿ªÀ¸·Î ¿Å°ÜÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
-	MSG_EX_SHUTDOWN_START,							// Shut DownÀÌ ½ÃÀÛ µÇ¾ú½À´Ï´Ù.
-	MSG_EX_SHUTDOWN_END,							// Shut DownÀÌ Á¾·á µÇ¾ú½À´Ï´Ù.
-	MSG_EX_SHUTDOWN_DISCONNECT,						// Shut DownÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù. ¼Ë´Ù¿î Á¾·á ½Ã°¢ ÀÌÈÄ¿¡ ´Ù½Ã Á¢¼ÓÇØÁÖ¼¼¿ä. È®ÀÎÀ» ´­·¯ Å¬¶óÀÌ¾ðÆ®¸¦ Á¾·áÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.(¼Ë´Ù¿î Àû¿ë½Ã°£ : 00:00 ~ 06:00)
+	MSG_EX_SHUTDOWN_REMAIN,							// Shut Down ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_SHUTDOWN_COUNTDOWN,						// Shut Down ï¿½ï¿½ï¿½Û±ï¿½ï¿½ï¿½ %dï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ï¿½Ï´ï¿½. ï¿½Ø´ï¿½Ç½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ðµï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½Ö½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_SHUTDOWN_START,							// Shut Downï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_SHUTDOWN_END,							// Shut Downï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	MSG_EX_SHUTDOWN_DISCONNECT,						// Shut Downï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Ë´Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½. È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.(ï¿½Ë´Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ : 00:00 ~ 06:00)
 
 }MSG_EX_SHUTDOWN_TYPE;
 
 typedef enum _tagMsgExUserNoticeType
 {
-	MSG_EX_USER_NOTICE_REG_REQ,		// À¯Àú °øÁö µî·Ï ¿äÃ» : (str) contents
-	MSG_EX_USER_NOTICE_REG_REP,		// À¯Àú °øÁö µî·Ï ¼º°ø ÀÀ´ä (¼º°ø½Ã¿¡¸¸)
-	MSG_EX_USER_NOTICE_PRINT,		// À¯Àú °øÁö Ãâ·Â ¾Ë¸² : (str) name, (str) contents
-	MSG_EX_USER_NOTICE_ERROR,		// À¯Àú °øÁö ¿¡·¯ : (unsigned char) error type
+	MSG_EX_USER_NOTICE_REG_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : (str) contents
+	MSG_EX_USER_NOTICE_REG_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½)
+	MSG_EX_USER_NOTICE_PRINT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : (str) name, (str) contents
+	MSG_EX_USER_NOTICE_ERROR,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : (unsigned char) error type
 }MSG_EX_USER_NOTICE_TYPE;
 
 typedef enum _tagMsgExUserNoticeErrorType
 {
-	MSG_EX_USER_NOTICE_ERROR_NOITEM,	// À¯Àú °øÁö µî·Ï ¿¡·¯(¾ÆÀÌÅÛÀÌ ¾ø¾î¼­ µî·Ï ºÒ°¡´É)
-	MSG_EX_USER_NOTICE_ERROR_LENGTH,	// À¯Àú °øÁö µî·Ï ¿¡·¯(³»¿ë ¾øÀ½)
+	MSG_EX_USER_NOTICE_ERROR_NOITEM,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½)
+	MSG_EX_USER_NOTICE_ERROR_LENGTH,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 }MSG_EX_USER_NOTICE_ERROR_TYPE;
 
 typedef enum _tagMsgSubHelperUserNoticeType
 {
-	MSG_SUBHELPER_USER_NOTICE_REG_REQ,		// À¯Àú °øÁö µî·Ï ¿äÃ» : (int) character index, (str) name, (str) contents
-	MSG_SUBHELPER_USER_NOTICE_REG_REP,		// À¯Àú °øÁö µî·Ï ÀÀ´ä : (int) character index, (unsigned char) success(0 : ¼º°ø, 1 : ½ÇÆÐ)
-	MSG_SUBHELPER_USER_NOTICE_PRINT,		// À¯Àú °øÁö Ãâ·Â ¾Ë¸² : (str) name, (str) contents
+	MSG_SUBHELPER_USER_NOTICE_REG_REQ,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» : (int) character index, (str) name, (str) contents
+	MSG_SUBHELPER_USER_NOTICE_REG_REP,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : (int) character index, (unsigned char) success(0 : ï¿½ï¿½ï¿½ï¿½, 1 : ï¿½ï¿½ï¿½ï¿½)
+	MSG_SUBHELPER_USER_NOTICE_PRINT,		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ : (str) name, (str) contents
 }MSG_SUBHELPER_USER_NOTICE_TYPE;
 
 typedef enum _tagUserServerMsgType
 {
 	MSG_USERSERVER_UNKNOWN,
-	MSG_USERSERVER_AUTH,				// À¯Àú ¼­¹ö ÀÎÁõ ¿äÃ»
-	MSG_USERSERVER_POST_SYSTEM,			// ¿ìÆí ½Ã½ºÅÛ
+	MSG_USERSERVER_AUTH,				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	MSG_USERSERVER_POST_SYSTEM,			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½
 
 }MSG_USERSERVER_TYPE;
 typedef enum _tagMsgExEventAutomationSystemType
 {
-	MSG_EX_EVENT_AUTOMATION_LIST=0,		// S ¢º C ÁøÇàÁßÀÎ ÀÌº¥Æ® ¸®½ºÆ® nCount(int) { eventIndex(int) ¡¦ }
-	MSG_EX_EVENT_AUTOMATION_ADD,		// S ¢º C ÁøÇàÁßÀÎ ÀÌº¥Æ® Ãß°¡ eventIndex(int)
-	MSG_EX_EVENT_AUTOMATION_REMOVE,		// S ¢º C ÁøÇàÁßÀÎ ÀÌº¥Æ® »èÁ¦ eventIndex(int)
+	MSG_EX_EVENT_AUTOMATION_LIST=0,		// S ï¿½ï¿½ C ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® nCount(int) { eventIndex(int) ï¿½ï¿½ }
+	MSG_EX_EVENT_AUTOMATION_ADD,		// S ï¿½ï¿½ C ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß°ï¿½ eventIndex(int)
+	MSG_EX_EVENT_AUTOMATION_REMOVE,		// S ï¿½ï¿½ C ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ eventIndex(int)
 }MSG_EX_EVENT_AUTOMATION_SYSTEM_TYPE;
 #endif	// SE_INCL_MESSAGEDEFINE_H

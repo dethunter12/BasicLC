@@ -28,9 +28,9 @@ enum ePetStashEffect
 
 enum eRelicItemType
 {
-	eRELIC_10951 = 0, // Ãµ»çÀÇ À¯¹°
-	eRELIC_10952, // ´ë Ãµ»çÀÇ À¯¹°
-	eRELIC_10953, // ¼¼¶óÇËÀÇ À¯¹°
+	eRELIC_10951 = 0, // Ãµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	eRELIC_10952, // ï¿½ï¿½ Ãµï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	eRELIC_10953, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	eRELIC_MAX
 };
 
@@ -194,7 +194,7 @@ void CItemEffect::DeleteEffect(const int wearPos, BOOL bClear)
 
 //=========================================================================================
 // CItemEffect::AddAccessoryEffect()
-// Explain: Æ¯Á¤ ¾Ç¼¼»ç¸® Âø¿ë½Ã EffectÀû¿ë( case MSG_EX_PLAYER_STATE_CHANGE: )
+// Explain: Æ¯ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½ï¿½ Effectï¿½ï¿½ï¿½ï¿½( case MSG_EX_PLAYER_STATE_CHANGE: )
 //=========================================================================================
 BOOL CItemEffect::AddAccessoryEffect(const char* strEffectName, CTagManager *pTM)
 {
@@ -209,7 +209,7 @@ BOOL CItemEffect::AddAccessoryEffect(const char* strEffectName, CTagManager *pTM
 }
 //=========================================================================================
 // CItemEffect::RefreshAccessoryEffect()
-// Explain: Æ¯Á¤ ¾Ç¼¼»ç¸® Âø¿ë½Ã Àû¿ëµÈ Effect Àç¼³Á¤(¸ðµ¨ÀÌ º¯°æ»çÇ×ÀÌ ÀÖÀ» ½Ã Effect°¡ ¶³¾îÁöÁö¾Ê°Ô Àç¼³Á¤)
+// Explain: Æ¯ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Effect ï¿½ç¼³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Effectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê°ï¿½ ï¿½ç¼³ï¿½ï¿½)
 //=========================================================================================
 void CItemEffect::RefreshAccessoryEffect(CTagManager *pTM)
 {
@@ -244,7 +244,7 @@ BOOL CItemEffect::DelWearEffect(const int wearPos)
 
 //=========================================================================================
 // CItemEffect::DelAccessoryEffect()
-// Explain: Æ¯Á¤ ¾Ç¼¼»ç¸® Å»Âø½Ã EffectÁ¦°Å( case MSG_EX_PLAYER_STATE_CHANGE: )
+// Explain: Æ¯ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® Å»ï¿½ï¿½ï¿½ï¿½ Effectï¿½ï¿½ï¿½ï¿½( case MSG_EX_PLAYER_STATE_CHANGE: )
 //=========================================================================================
 BOOL CItemEffect::DelAccessoryEffect(void)
 {
@@ -264,35 +264,35 @@ BOOL CItemEffect::DelAccessoryEffect(void)
 // Explain: 
 // Histroy 
 //	- Date : 2005-04-07,Author: Lee Ki-hwan
-//			2Â÷ ¹«±â ¾ÆÀÌÅÛ Ã³¸® 
-//			int nItemSubType : 2Â÷ ¹«±â ÆÇ´Ü GetSubTypeWeapon ( int nItemSubType ) ¿¡ ¾²ÀÎ´Ù.
+//			2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ 
+//			int nItemSubType : 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ GetSubTypeWeapon ( int nItemSubType ) ï¿½ï¿½ ï¿½ï¿½ï¿½Î´ï¿½.
 //		
 //------------------------------------------------------------------------------------------
 void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNew, const int itemPlusNewIn, CTagManager *pTM, SBYTE sbOption, int nItemSubType )
 {
-	//ÃÊ±âÁ¶°Ç °Ë»ç
+	//ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if(job < 0 || job > TOTAL_JOB) return;
 	if(wearPosNew < 0 || wearPosNew > WEAR_TOTAL) return;
 	if(pTM == NULL) return;
 
 	BOOL bRefresh = FALSE;
 
-	//¾ÆÀÌÅÛ Á¤º¸°»½Å
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int itemPlusNew = itemPlusNewIn < 0 ? -1 : itemPlusNewIn;
 	m_aItemPlus[wearPosNew] = itemPlusNew;
 
-	//¹«±â ¾Æ´Ï¸é °©¿Ê?
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½?
 	char *pStrName = NULL;
 	CTString strType;
 
 	if(wearPosNew == WEAR_WEAPON)
 	{
-		// Date : 2005-04-07(¿ÀÈÄ 3:16:08), By Lee Ki-hwan
+		// Date : 2005-04-07(ï¿½ï¿½ï¿½ï¿½ 3:16:08), By Lee Ki-hwan
 		int nNumWeapon = GetSubTypeWeapon ( nItemSubType ); 
 		
 		strType = "wp";
 	
-		// Date : 2005-04-07(¿ÀÈÄ 2:57:21), By Lee Ki-hwan
+		// Date : 2005-04-07(ï¿½ï¿½ï¿½ï¿½ 2:57:21), By Lee Ki-hwan
 		if ( nNumWeapon > 1 )
 		{
 			strType.PrintF( "%s%d", "wp", nNumWeapon );	
@@ -302,14 +302,14 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 
 		if (strlen(ItemData->GetArmorEffectName()) > 0)
 		{
-			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ÀÌ¸é Àåºñ¸¦ ¹þÀ»¶§·Î ÆÇ´Ü
+			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 			{
 				strcpy(m_ItemEffectGroup[wearPosNew].szEffectName, ItemData->GetArmorEffectName());
 			}
 		}
 		
 		if (job != NIGHTSHADOW)
-		{ // ³ªÀÌÆ® ½¦µµ¿ì´Â ¹«±âÀÚÃ¼°¡ EffectÀÌ¹Ç·Î
+		{ // ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ Effectï¿½Ì¹Ç·ï¿½
 			//pStrName = &m_ItemEffectGroup[wearPosNew].szEffectName[0];
 			pStrName = &m_PlusEffectGourp[0].szEffectName[0];
 		}
@@ -332,7 +332,7 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 		{
 			memset(m_ItemEffectGroup[wearPosNew].szEffectName, 0, sizeof(m_ItemEffectGroup[wearPosNew].szEffectName));
 			
-			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ÀÌ¸é Àåºñ¸¦ ¹þÀ»¶§·Î ÆÇ´Ü
+			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 			{
 				strcpy(m_ItemEffectGroup[wearPosNew].szEffectName, ItemData->GetArmorEffectName());
 			}
@@ -344,7 +344,7 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 		{
 			memset(m_ItemEffectGroup[wearPosNew].szEffectName, 0, sizeof(m_ItemEffectGroup[wearPosNew].szEffectName));
 			
-			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ÀÌ¸é Àåºñ¸¦ ¹þÀ»¶§·Î ÆÇ´Ü
+			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 			{
 				strcpy(m_ItemEffectGroup[wearPosNew].szEffectName, ItemData->GetArmorEffectName());
 			}
@@ -352,14 +352,17 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 		bRefresh = TRUE;
 	}
  // newslot - alanssoares
-	else if((wearPosNew >= WEAR_ACCESSORY1 && wearPosNew < WEAR_ACCESSORY4) || 
-	(wearPosNew >= WEAR_ACCESSORY_SPECIAL1 && wearPosNew < WEAR_ACCESSORY_SPECIAL5) || wearPosNew == WEAR_ACCESSORY_ANYWHERE)
+	else if((wearPosNew >= WEAR_ACCESSORY1 && wearPosNew < WEAR_ACCESSORY4) || wearPosNew == WEAR_ACCESSORY_ANYWHERE
+	#ifdef RUNE_ACCESSORY_SLOT_08232023
+	(wearPosNew >= WEAR_ACCESSORY_SPECIAL1 && wearPosNew < WEAR_ACCESSORY_SPECIAL5)
+	#endif
+	)
 	{
 		if (strlen(ItemData->GetArmorEffectName()) > 0 && itemPlusNew >= 0)
 		{
 			memset(m_ItemEffectGroup[wearPosNew].szEffectName, 0, sizeof(m_ItemEffectGroup[wearPosNew].szEffectName));
 			
-			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ÀÌ¸é Àåºñ¸¦ ¹þÀ»¶§·Î ÆÇ´Ü
+			if (itemPlusNewIn >= 0)// itemPlusNewIn < 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 			{
 				strcpy(m_ItemEffectGroup[wearPosNew].szEffectName, ItemData->GetArmorEffectName());
 			}
@@ -377,12 +380,12 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 		return;
 	}
 
-	//plus¼öÄ¡¿¡ µû¸¥ ÀÌÆåÆ® ´Ü°è
+	//plusï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ü°ï¿½
 	char *szLevel = 0;
-	//Á÷¾÷ Á¾·ù
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	char *szJobName = NULL;
 
-	// ¼ºÁÖ ¹«±âÀÎ °æ¿ì¿¡´Â 6´Ü°è ·¹º§ÀÇ ÀÌÆåÆ®¸¦ ¹«Á¶°Ç Àû¿ëÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ 6ï¿½Ü°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if((CItemData::IsLordItem( ItemData->GetItemIndex() )||CItemData::IsUniqueItem(ItemData->GetItemIndex())) && itemPlusNew != -1)
 	{
 		szLevel = "6";
@@ -391,7 +394,7 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 	{
 		switch(itemPlusNew)
 		{
-		case -1: case 0: case 1: case 2: case 3://À½¼ö°ªÀÏ °æ¿ì ÀåÂø ÇØÁ¦ÇÑ °ÍÀÓ.
+		case -1: case 0: case 1: case 2: case 3://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			{
 				pStrName[0] = 0;
 				Refresh(pTM, sbOption);
@@ -404,7 +407,7 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 		case 12:case 13:case 14: szLevel = "5";	break;
 		default:		szLevel = "6";	break;
 		}
-		//if(szLevel == NULL) return;//ÇÊ¿ä¾øÀ½.
+		//if(szLevel == NULL) return;//ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½.
 	}
 
 	std::string strFormat;
@@ -419,14 +422,14 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 	case SORCERER:	szJobName = "so";	strFormat = "%s_%s_%s";  break;
 	case NIGHTSHADOW: return;
 #ifdef CHAR_EX_ROGUE
-	case EX_ROGUE:		szJobName = "h_ro";	strFormat = "i%s_%s_%s"; break;	// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+	case EX_ROGUE:		szJobName = "h_ro";	strFormat = "i%s_%s_%s"; break;	// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 #endif
 #ifdef CHAR_EX_MAGE
-	case EX_MAGE:		szJobName = "_ma";	strFormat = "i%s_%s_%s"; break;	//2013/01/08 jeil EX¸ÞÀÌÁö Ãß°¡ 
+	case EX_MAGE:		szJobName = "_ma";	strFormat = "i%s_%s_%s"; break;	//2013/01/08 jeil EXï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ 
 #endif
 	default:		ASSERTALWAYS("Unknown Character Type"); return;
 	}
-	//if(szJobName == NULL) return;//ÇÊ¿ä¾øÀ½.
+	//if(szJobName == NULL) return;//ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½.
 	sprintf(pStrName, strFormat.c_str(), szJobName, strType, szLevel);
 	Refresh(pTM, sbOption);
 }
@@ -434,27 +437,27 @@ void CItemEffect::Change(const int job, CItemData* ItemData, const int wearPosNe
 
 //------------------------------------------------------------------------------
 // GetSubTypeWeapon
-// Explain:  ¾ÆÀÌÅÛÀÇ ¼­ºê Å¸ÀÔÀ» ÀÔ·Â ¹Þ¾Æ Â÷¼ö ¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+// Explain:  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 // Date : 2005-04-07,Author: Lee Ki-hwan
 //------------------------------------------------------------------------------
 int CItemEffect::GetSubTypeWeapon ( int nSubType )
 {
-	// 2Â÷ ¹«±â ÆÇ´Ü
-	if ( nSubType == CItemData::ITEM_WEAPON_CROSSBOW	// ¼®±Ã(·Î±×)
-	||	nSubType == CItemData::ITEM_WEAPON_AXE			// µµ³¢(Å¸ÀÌÅº)
-	||	nSubType == CItemData::ITEM_WEAPON_WAND			// ¿Ïµå(Èú·¯)
-	||	nSubType == CItemData::ITEM_WEAPON_TWOSWORD		// ÀÌµµ·ù(³ªÀÌÆ®)
-	||	nSubType == CItemData::ITEM_WEAPON_STAFF		// ½ºÅÂÇÁ(¸ÞÀÌÁö)
-	||	nSubType == CItemData::ITEM_WEAPON_SCYTHE		// »çÀÌ´õ(¼Ò¼­·¯)
+	// 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
+	if ( nSubType == CItemData::ITEM_WEAPON_CROSSBOW	// ï¿½ï¿½ï¿½ï¿½(ï¿½Î±ï¿½)
+	||	nSubType == CItemData::ITEM_WEAPON_AXE			// ï¿½ï¿½ï¿½ï¿½(Å¸ï¿½ï¿½Åº)
+	||	nSubType == CItemData::ITEM_WEAPON_WAND			// ï¿½Ïµï¿½(ï¿½ï¿½ï¿½ï¿½)
+	||	nSubType == CItemData::ITEM_WEAPON_TWOSWORD		// ï¿½Ìµï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Æ®)
+	||	nSubType == CItemData::ITEM_WEAPON_STAFF		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	||	nSubType == CItemData::ITEM_WEAPON_SCYTHE		// ï¿½ï¿½ï¿½Ì´ï¿½(ï¿½Ò¼ï¿½ï¿½ï¿½)
 	) return 2;
-	else return 1; // ÇöÀç 2Â÷ ¹«±â ÀÌ¿ÜÀÇ °ÍµéÀº 1Â÷ ¹«±â·Î ÆÇ´Ü
+	else return 1; // ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Íµï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
 	
 	return -1;
 }
 
 //------------------------------------------------------------------------------
 // CItemEffect::DeleteNickEffect
-// Explain : È£Äª ÀÌÆåÆ® »èÁ¦
+// Explain : È£Äª ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 // Date : 2010-01-10
 //------------------------------------------------------------------------------
 void CItemEffect::DeleteNickEffect()
@@ -465,7 +468,7 @@ void CItemEffect::DeleteNickEffect()
 
 //------------------------------------------------------------------------------
 // CItemEffect::AddNickEffect
-// Explain : È£Äª ÀÌÆåÆ® Ãß°¡
+// Explain : È£Äª ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 // Date : 2010-01-10
 //------------------------------------------------------------------------------
 BOOL CItemEffect::AddNickEffect( const char* strEffectName, CTagManager *pTM )
@@ -482,7 +485,7 @@ BOOL CItemEffect::AddNickEffect( const char* strEffectName, CTagManager *pTM )
 
 //------------------------------------------------------------------------------
 // CItemEffect::DeletePetStashEffect
-// Explain : Æê Ã¢°í ÀÌÆåÆ® »èÁ¦
+// Explain : ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 // Date : 2013-09-11
 //------------------------------------------------------------------------------
 void CItemEffect::DeletePetStashEffect()
@@ -493,7 +496,7 @@ void CItemEffect::DeletePetStashEffect()
 
 //------------------------------------------------------------------------------
 // CItemEffect::AddPetStashEffect
-// Explain : Æê Ã¢°í ÀÌÆåÆ® Ãß°¡
+// Explain : ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 // Date : 2013-09-11
 //------------------------------------------------------------------------------
 BOOL CItemEffect::AddPetStashEffect( int nEffectType, CTagManager *pTM )
@@ -507,8 +510,8 @@ BOOL CItemEffect::AddPetStashEffect( int nEffectType, CTagManager *pTM )
 
 	CEntity* pOwner = pTM->GetOwner();
 
-	// Æê Ã¢°í ÀÌÆåÆ®ÀÏ °æ¿ì __ROOT Tag¿¡ ºÙ¿© Áà¾ß ÇÏ´Âµ¥ ÆêÀ» Å¸°í ÀÖÀ» °æ¿ì¿¡
-	// __ROOT Tag°¡ Æê ¿¡¸¸ Á¸ÀçÇÔ. µû¶ó¼­ ³»°¡ Å¸°í ÀÖ´Â ÆêÀ» Ã£¾Æ¼­ ÇØ´ç Å×±× ¸Å´ÏÀú¿¡ ÀÌÆåÆ®¸¦ ºÙ¿©ÁØ´Ù.
+	// ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ __ROOT Tagï¿½ï¿½ ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡
+	// __ROOT Tagï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½Ø´ï¿½ ï¿½×±ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½Ø´ï¿½.
 	
 	if (pOwner != NULL && pOwner->GetModelInstance() != NULL)
 	{
@@ -547,7 +550,7 @@ BOOL CItemEffect::AddPetStashEffect( int nEffectType, CTagManager *pTM )
 	return TRUE;
 }
 
-//·Î±×ÀÎ ÀÌÆåÆ® Ãß°¡
+//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½
 void CItemEffect::AddLoginEffect( CTagManager *pTM )
 {
 	if ( !pTM ) 
@@ -643,8 +646,8 @@ void CItemEffect::RefreshPetStashEffect(CTagManager *pTM)
 	{
 		CEntity* pOwner = pTM->GetOwner();
 		
-		// Æê Ã¢°í ÀÌÆåÆ®ÀÏ °æ¿ì __ROOT Tag¿¡ ºÙ¿© Áà¾ß ÇÏ´Âµ¥ ÆêÀ» Å¸°í ÀÖÀ» °æ¿ì¿¡
-		// __ROOT Tag°¡ Æê ¿¡¸¸ Á¸ÀçÇÔ. µû¶ó¼­ ³»°¡ Å¸°í ÀÖ´Â ÆêÀ» Ã£¾Æ¼­ ÇØ´ç Å×±× ¸Å´ÏÀú¿¡ ÀÌÆåÆ®¸¦ ºÙ¿©ÁØ´Ù.
+		// ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ __ROOT Tagï¿½ï¿½ ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡
+		// __ROOT Tagï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½Ø´ï¿½ ï¿½×±ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½Ø´ï¿½.
 		if (pOwner != NULL && pOwner->GetModelInstance() != NULL)
 		{
 			bool bRet = false;

@@ -1281,6 +1281,7 @@ void CUITooltip::SetDamageInfo()
             strTmp.PrintF(_S(4810, "Aß°¡ °ø°Y·A %d≫o½A"), nRuneBonus);
             AddText(strTmp, 0xFF6A00FF);
         }
+#ifdef ENCHANTMENT_RUNE_08232023
 		if (!(m_pItem->Item_Flag & FLAG_ITEM_ENCHANTED_USED)) //Nate Adjust
 		{
 			strTmp.PrintF("Enchantments:"); //dethunter12 just test remoe these
@@ -1303,6 +1304,7 @@ void CUITooltip::SetDamageInfo()
 			strTmp.PrintF(_S(100090, "추가 PVP데미지흡수 %.1f"));
 			AddText(strTmp, 0xFF33CCFF);
 		}
+#endif
     }
 }
 
@@ -1419,6 +1421,7 @@ void CUITooltip::SetDefenceInfo()
 			}
 		}
 		//Nate Adjust
+#ifdef ENCHANTMENT_RUNE_08232023
 		if ((m_pItemData->GetLevel() >= RUNE_ITEM_LEVEL) && (!(m_pItem->Item_Flag & FLAG_ITEM_ENCHANTED_USED)))
 		{
 			strTmp.PrintF("Enchantments:"); //Test just remove the bottom part if used makes no sense to show"none"
@@ -1441,6 +1444,7 @@ void CUITooltip::SetDefenceInfo()
 			strTmp.PrintF(_S(100090, "추가 PVP데미지흡수 %.1f"));
 			AddText(strTmp, 0xFF33CCFF);
 		}
+#endif
 	}	
 }
 

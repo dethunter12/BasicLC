@@ -1,15 +1,15 @@
 #ifndef __DOFUNCTION_H__
 #define __DOFUNCTION_H__
 
-// Ã¤ÆÃ °ü·Ã
+// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Chat(CPC* ch, CNetMsg::SP& msg);
 
-// ÀÌµ¿ °ü·Ã
+// ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Move(CPC* ch, CNetMsg::SP& msg);
 void do_GoZone(CPC* ch, CNetMsg::SP& msg);
 void do_Warp(CPC* ch, CNetMsg::SP& msg);
 
-// °ø°Ý °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Attack(CPC* ch, CNetMsg::SP& msg);
 
 // N:1 Attack  & move in Personal dungeon
@@ -27,7 +27,7 @@ void do_PromoKey(CPC* pc, CNetMsg::SP& msg);
 void do_pd_Attack(CPC* ch, CNetMsg::SP& msg);
 void do_pd_Move(CPC* ch, CNetMsg::SP& msg);
 
-// ¾ÆÀÌÅÛ °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Item(CPC* ch, CNetMsg::SP& msg);
 void do_ItemUse(CPC* ch, CNetMsg::SP& msg, bool bprolong = false);
 void do_ItemTake(CPC* ch, CNetMsg::SP& msg);
@@ -64,7 +64,7 @@ void do_ItemTarget(CPC* ch, CNetMsg::SP& msg);
 void do_ItemWear_Costume(CPC* ch, CNetMsg::SP& msg);
 void do_Itemwear_Costume_TakeOff(CPC* ch, CNetMsg::SP& msg);
 
-// [110207:selo] ÇÑ ¹ú ÀÇ»ó
+// [110207:selo] ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç»ï¿½
 void do_ItemWear_Costume_Suit(CPC* ch, CNetMsg::SP& msg);
 void do_ItemWear_Costuem_Suit_TakeOff(CPC* ch, CNetMsg::SP& msg);
 void do_Item_Make_Fortune(CPC* ch, CNetMsg::SP& msg);
@@ -78,7 +78,7 @@ int usePeriodItem_7(int* useTime, bool* bprolong);
 void CashItemListProcess(CPC* ch, int SearchKey, int ReqPage);
 void CashItemRecommandProcess(CPC* ch, int category);
 
-// ±³È¯ °ü·Ã
+// ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 void do_Exchange(CPC* ch, CNetMsg::SP& msg);
 void do_ExchangeReq(CPC* ch, CNetMsg::SP& msg);
 void do_ExchangeItem(CPC* ch, CNetMsg::SP& msg);
@@ -90,22 +90,22 @@ void do_ExchangeReqOK(CPC* ch, CNetMsg::SP& msg);
 void do_ExchangeItemAdd(CPC* ch, CNetMsg::SP& msg);
 void do_ExchangeItemDel(CPC* ch, CNetMsg::SP& msg);
 
-// Àå¼Ò ±â¾ï °ü·Ã
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_MemPos(CPC* ch, CNetMsg::SP& msg);
 
-// ÆÞ½º °ü·Ã
+// ï¿½Þ½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Pulse(CPC* ch, CNetMsg::SP& msg);
 
 #ifdef DISCONNECT_HACK_CHARACTER
 void do_Disconnect_Hack_Character(CPC* ch, CNetMsg::SP& msg);
 #endif // DISCONNECT_HACK_CHARACTER
 
-// ¿î¿µÀÚ ¸í·É °ü·Ã
+// ï¿½î¿µï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_GM(CPC* ch, CNetMsg::SP& msg);
 
 bool ParsingTime(const char*& arg, int start_dt[], int end_dt[]);
 
-// ÆÄÆ¼ °ü·Ã
+// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 void do_Party(CPC* ch, CNetMsg::SP& msg);
 void do_PartyInvite(CPC* ch, CNetMsg::SP& msg);
 void do_PartyAllow(CPC* ch, CNetMsg::SP& msg);
@@ -120,22 +120,22 @@ void do_PartyEndPartyReq(CPC* ch, CNetMsg::SP& msg);
 
 void do_PartyOffline(CPC* ch, CNetMsg::SP& msg);
 
-// Äü½½·Ô °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_QuickSlot(CPC* ch, CNetMsg::SP& msg);
 
-// ½Ì±Û´øÀü - NPC ¸®Á¨ °ü·Ã
+// ï¿½Ì±Û´ï¿½ï¿½ï¿½ - NPC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_NPCRegen(CPC* ch, CNetMsg::SP& msg);
 
-// ½ºÅ³ °ü·Ã
+// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 void do_Skill(CPC* ch, CNetMsg::SP& msg);
 
-// ºÎÈ° ¸Þ½ÃÁö
+// ï¿½ï¿½È° ï¿½Þ½ï¿½ï¿½ï¿½
 void do_Rebirth(CPC* ch, CNetMsg::SP& msg);
 
-// ¾×¼Ç ¸Þ½ÃÁö
+// ï¿½×¼ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 void do_Action(CPC* ch, CNetMsg::SP& msg);
 
-// Äù½ºÆ® °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 void do_Quest(CPC* ch, CNetMsg::SP& msg);
 void do_QuestRequest(CPC* ch, CNetMsg::SP& msg);
 bool do_QuestStart(CPC* ch, CNetMsg::SP& msg);
@@ -160,30 +160,30 @@ void do_QuestRankingGlades(CPC* ch, CNetMsg::SP& msg);
 #endif
 void do_SSkill(CPC* ch, CNetMsg::SP& msg);
 
-// PK °ü·Ã
+// PK ï¿½ï¿½ï¿½ï¿½
 void do_PK(CPC* ch, CNetMsg::SP& msg);
 
-// ÀÌº¥Æ® °ü·Ã
+// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 void do_Event(CPC* ch, CNetMsg::SP& msg);
 
-// °³ÀÎ»óÁ¡ °ü·Ã
+// ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_PersonalShop(CPC* ch, CNetMsg::SP& msg);
 void do_PersonalShopSellStart(CPC* ch, CNetMsg::SP& msg);
 void do_PersonalShopSellList(CPC* ch, CNetMsg::SP& msg);
 void do_PersonalShopChange(CPC* ch, CNetMsg::SP& msg);
 void do_PersonalShopBuy(CPC* ch, CNetMsg::SP& msg);
 
-// Ã¢°í °ü·Ã
+// Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Stash(CPC* pc, CNetMsg::SP& msg);
 
 /////////////////////////////////////////////
-// BANGWALL : 2005-07-05 ¿ÀÈÄ 2:37:20
-// Comment : Å×¼·Àû¿ë
+// BANGWALL : 2005-07-05 ï¿½ï¿½ï¿½ï¿½ 2:37:20
+// Comment : ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½
 void do_StashDeletePassword(CPC* ch, CNetMsg::SP& msg);
 void do_StashCheckPassword(CPC* ch, CNetMsg::SP& msg);
 void do_StashSetNewPassword(CPC* ch, CNetMsg::SP& msg);
 
-// ±æµå °ü·Ã
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Guild(CPC* ch, CNetMsg::SP& msg);
 void do_GuildCreate(CPC* ch, CNetMsg::SP& msg);
 void do_GuildLevelUp(CPC* ch, CNetMsg::SP& msg);
@@ -256,13 +256,13 @@ void do_GuildContributeData(CPC* pc, CNetMsg::SP& rmsg);
 void do_GuildContributeSet(CPC* pc, CNetMsg::SP& rmsg);
 void do_GuildContributeSetAll(CPC* pc, CNetMsg::SP& rmsg);
 
-// º¯½Å °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Change(CPC* ch, CNetMsg::SP& msg);
 
-// Å¬¶óÀÌ¾ðÆ® UI °ü·Ã
+// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® UI ï¿½ï¿½ï¿½ï¿½
 void do_UI(CPC* ch, CNetMsg::SP& msg);
 
-// »çÁ¦ ½Ã½ºÅÛ °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_Teach(CPC* ch, CNetMsg::SP& msg);
 void do_TeachTeacherList(CPC* ch, CNetMsg::SP& msg);
 void do_TeachTeacherReqReq(CPC* ch, CNetMsg::SP& msg);
@@ -274,10 +274,10 @@ void do_TeachSetCancel(CPC* teacher, CPC* student);
 void do_TeachSetCancel(CPC* teacher, int studentidx);
 void do_TeacherGift(CPC* ch);
 
-// ÀüÁ÷ °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_ChangeJob(CPC* ch, CNetMsg::SP& msg);
 
-// ¼ºÀåÆ÷ÀÎÆ® °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 void do_StatPoint(CPC* ch, CNetMsg::SP& msg);
 void do_StatPointUse(CPC* ch, CNetMsg::SP& msg);
 void do_StatPointReset(CPC* ch, CNetMsg::SP& msg);
@@ -290,10 +290,10 @@ void do_FriendRegistRefuse(CPC* ch, CNetMsg::SP& msg);
 void do_FriendDeleteMember(CPC* ch, CNetMsg::SP& msg);
 void do_FriendDeleteBlock(CPC* ch, CNetMsg::SP& msg);
 
-// ¼±ÅÃ °¡°ø
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_SelectProduce(CPC* ch, CNetMsg::SP& msg);
 
-// È®Àå ¸Þ½ÃÁö Ã³¸®
+// È®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 void do_Extend(CPC* ch, CNetMsg::SP& msg);
 
 void do_Ex_NameChange(CPC* ch, CNetMsg::SP& msg);
@@ -309,7 +309,7 @@ void do_ExPetChangeItem(CPC* ch, CNetMsg::SP& msg);
 void do_ExPetRebirth(CPC* ch, CNetMsg::SP& msg);
 void do_PetNameChange( CPC* ch, CNetMsg::SP& msg );
 void do_RandomProduce(CPC* ch, CNetMsg::SP& msg);
-// °ø¼º¸Ê °ü·Ã
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void do_ExCastleMapRecent(CPC* ch, CNetMsg::SP& msg);
 void do_ExCastleMapSignal(CPC* ch, CNetMsg::SP& msg);
 
@@ -519,7 +519,7 @@ void do_ExTreasureMapKeyExchange(CPC* ch, CNetMsg::SP& msg);
 
 void do_rankingSystem(CPC* ch, CNetMsg::SP& msg);
 
-#ifdef REFORM_PK_PENALTY_201108 // 2011-08 PK ÆÐ³ÎÆ¼ ¸®Æû
+#ifdef REFORM_PK_PENALTY_201108 // 2011-08 PK ï¿½Ð³ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½
 void do_ExPKPeneltyReform(CPC* ch, CNetMsg::SP& msg);
 #endif
 
@@ -552,4 +552,8 @@ void do_PremiumChar(CPC* ch, CNetMsg::SP& msg);
 void do_noticeExtend(CPC* pc, CNetMsg::SP& rmsg);
 
 void do_SaveAutoOption(CPC* ch, CNetMsg::SP& msg); // Val add auto pickup/igni to chats
+#ifdef QUICK_PANEL
+void do_Cloud_Usebuff(CPC* ch, CNetMsg::SP& msg);
+void do_Cloud_SaveItens(CPC* ch, CNetMsg::SP& msg);
+#endif
 #endif // #ifndef __DOFUNCTION_H__
